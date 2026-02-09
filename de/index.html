@@ -1,0 +1,1593 @@
+<html lang="de"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LYNCK Studio Pro | Digitale Wachstumsagentur</title>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="preconnect" href="https://esm.sh">
+<link rel="preconnect" href="https://unpkg.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg: #f1efe6;
+--surface: #ffffff;
+--surface-hover: #e7e1d2;
+--text: #0c1730;
+--text-dim: rgba(12, 23, 48, 0.65);
+--accent: #0045ba;
+--accent-rgb: 0, 69, 186;
+--accent-glow: rgba(0, 69, 186, 0.35);
+--accent-warm: #e56a1e;
+--accent-warm-rgb: 229, 106, 30;
+--accent-pink: #6fa3dd;
+--accent-green: #e56a1e;
+--accent-dark: #0c1730;
+--border: rgba(12, 23, 48, 0.15);
+--font-head: 'Inter', sans-serif;
+--font-sub: 'Space Grotesk', sans-serif;
+--font-body: 'Manrope', sans-serif;
+--header-height: 90px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+background-color: var(--bg);
+background-image:
+linear-gradient(to right, rgba(12, 23, 48, 0.06) 1px, transparent 1px),
+linear-gradient(to bottom, rgba(12, 23, 48, 0.06) 1px, transparent 1px);
+background-size: 40px 40px;
+color: var(--text);
+font-family: var(--font-body);
+overflow-x: hidden;
+font-size: 18px;
+scrollbar-width: thin;
+scrollbar-color: var(--accent) var(--bg);
+scroll-behavior: smooth;
+}
+body.hero-embed-active {
+background-color: #050505;
+background-image: none;
+}
+body.hero-embed-active .noise-overlay {
+display: none;
+}
+/* GLOBAL NOISE TEXTURE */
+.noise-overlay {
+position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+pointer-events: none; z-index: 9999; mix-blend-mode: overlay;
+}
+h1, h2, h3, h4 { font-family: var(--font-head); text-transform: none; line-height: 0.95; font-weight: 600; letter-spacing: -0.02em; }
+p { font-weight: 400; line-height: 1.6; color: var(--text-dim); }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+.container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+.highlight { color: var(--accent); }
+/* --- BUTTONS --- */
+.btn-wrapper { display: inline-block; padding: 6px; }
+.btn {
+display: inline-flex; align-items: center; justify-content: center; padding: 0.85rem 2.2rem;
+font-family: var(--font-head); font-size: 1rem; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600;
+background: var(--surface); color: var(--text); border: 1px solid var(--border);
+position: relative; overflow: hidden; transition: all 0.2s ease-out; cursor: pointer; z-index: 20; border-radius: 999px;
+box-shadow: 0 12px 30px rgba(12,23,48,0.25);
+}
+.btn::before {
+content: none;
+}
+.btn:hover { background: var(--accent-warm); color: #fff; border-color: var(--accent-warm); box-shadow: 0 0 0 3px rgba(var(--accent-warm-rgb),0.18), 0 18px 40px rgba(12,23,48,0.35); }
+/* --- HEADER / NAV --- */
+.lynck-header {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 10050;
+padding: 0.75rem 1rem;
+display: flex;
+justify-content: center;
+pointer-events: none;
+}
+.lynck-header-inner {
+width: 100%;
+max-width: 1200px;
+pointer-events: auto;
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+.lynck-header-bar {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 1.5rem;
+padding: 0.45rem 0.9rem;
+border-radius: 999px;
+background: rgba(8, 10, 15, 0.72);
+border: 1px solid rgba(255,255,255,0.12);
+backdrop-filter: blur(16px);
+box-shadow: 0 12px 30px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.03);
+flex: 1;
+min-width: 0;
+}
+.lynck-home-logo {
+width: 72px;
+height: 72px;
+border-radius: 999px;
+border: 1px solid rgba(255, 255, 255, 0.18);
+background: rgba(8, 10, 15, 0.8);
+display: inline-flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+box-shadow: 0 12px 24px rgba(0,0,0,0.45);
+transition: transform 0.2s ease, border-color 0.2s ease;
+margin-left: -0.75rem;
+}
+.lynck-partner-badge {
+width: 72px;
+height: 72px;
+border-radius: 999px;
+border: 1px solid rgba(255, 255, 255, 0.18);
+background: rgba(8, 10, 15, 0.8);
+display: inline-flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+box-shadow: 0 12px 24px rgba(0,0,0,0.45);
+transition: transform 0.2s ease, border-color 0.2s ease;
+margin-right: -0.75rem;
+}
+.lynck-partner-badge img {
+width: 70%;
+height: 70%;
+object-fit: contain;
+display: block;
+}
+.lynck-partner-badge:hover {
+transform: scale(1.04);
+border-color: rgba(255, 255, 255, 0.4);
+}
+.lynck-home-logo img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+.lynck-home-logo:hover {
+transform: scale(1.04);
+border-color: rgba(255, 255, 255, 0.4);
+}
+.lynck-header-left,
+.lynck-header-right {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+}
+.nav-social {
+display: flex;
+align-items: center;
+gap: 0.35rem;
+}
+.nav-social a,
+.nav-social button {
+width: 30px;
+height: 30px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 8px;
+border: 1px solid rgba(255,255,255,0.12);
+background: rgba(255,255,255,0.05);
+color: rgba(255,255,255,0.7);
+transition: 0.2s ease;
+}
+.nav-social a:hover,
+.nav-social button:hover {
+color: #fff;
+border-color: rgba(255,255,255,0.35);
+background: rgba(255,255,255,0.1);
+}
+.nav-pill {
+display: inline-flex;
+align-items: center;
+gap: 0.4rem;
+padding: 0.35rem 0.7rem;
+border-radius: 999px;
+background: rgba(255,255,255,0.06);
+border: 1px solid rgba(255,255,255,0.12);
+color: rgba(255,255,255,0.8);
+font-size: 0.8rem;
+cursor: pointer;
+transition: 0.2s ease;
+}
+.nav-pill:hover { color: #fff; border-color: rgba(255,255,255,0.35); }
+.nav-caret {
+width: 0;
+height: 0;
+border-left: 4px solid transparent;
+border-right: 4px solid transparent;
+border-top: 5px solid rgba(255,255,255,0.7);
+}
+.nav-dropdown { position: relative; }
+.nav-dropdown-menu {
+position: absolute;
+top: calc(100% + 0.6rem);
+left: 0;
+min-width: 210px;
+padding: 0.4rem;
+border-radius: 14px;
+background: rgba(10, 12, 18, 0.98);
+border: 1px solid rgba(255,255,255,0.12);
+box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+display: none;
+}
+.nav-dropdown.right .nav-dropdown-menu { right: 0; left: auto; }
+.nav-dropdown.open .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a,
+.nav-dropdown-menu button {
+display: block;
+padding: 0.5rem 0.7rem;
+border-radius: 10px;
+color: rgba(255,255,255,0.75);
+font-size: 0.85rem;
+transition: 0.2s ease;
+width: 100%;
+text-align: left;
+background: transparent;
+border: 0;
+}
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu button:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.lynck-nav-links {
+display: flex;
+align-items: center;
+gap: 1.4rem;
+color: rgba(255,255,255,0.72);
+font-size: 0.88rem;
+}
+.lynck-nav-links a,
+.lynck-nav-links button {
+color: inherit;
+background: transparent;
+border: 0;
+cursor: pointer;
+font: inherit;
+padding: 0;
+}
+.lynck-nav-links a:hover,
+.lynck-nav-links button:hover { color: #fff; }
+.gradient-border-btn {
+position: relative;
+isolation: isolate;
+padding: 3px;
+border-radius: 999px;
+overflow: hidden;
+background-color: transparent;
+}
+.gradient-border-btn .cp-border {
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+width: 400%;
+background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b) 0% 0% / 25% 100%;
+transform: translateX(-5%);
+z-index: 0;
+transition: transform 0.25s ease-out;
+}
+.gradient-border-btn:hover .cp-border { animation: border-slide 1.6s linear infinite; }
+.gradient-border-btn .btn-core {
+position: relative;
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+padding: 0.55rem 1.1rem;
+font-size: 0.9rem;
+background: #0b0d14;
+border-radius: 999px;
+color: #fff;
+z-index: 1;
+}
+@keyframes border-slide {
+0% { transform: translateX(-5%); }
+50% { transform: translateX(-30%); }
+100% { transform: translateX(-5%); }
+}
+@media (hover: hover) {
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+}
+@media (max-width: 1080px) {
+  .lynck-nav-links { display: none; }
+}
+/* --- HERO SECTION --- */
+.hero {
+position: relative; height: 100vh; width: 100%; display: flex; flex-direction: column;
+align-items: center; justify-content: center; overflow: hidden; perspective: 1200px;
+padding-top: var(--header-height); padding-bottom: 80px; z-index: 2; background: var(--bg);
+}
+.hero.hero-embed {
+padding: 0;
+min-height: 100vh;
+background: #050505;
+z-index: 10001;
+align-items: stretch;
+justify-content: stretch;
+}
+.hero-embed-fallback {
+position: absolute;
+inset: 0;
+z-index: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+background:
+radial-gradient(circle at 20% 20%, rgba(64, 130, 255, 0.15), rgba(5, 5, 5, 0.95) 60%),
+url('/assets/hero-cube.jpeg') center/cover no-repeat;
+transition: opacity 0.6s ease;
+}
+.hero-embed-fallback::after {
+content: "";
+position: absolute;
+inset: 0;
+background: rgba(5, 5, 5, 0.55);
+}
+.hero-embed-fallback.is-hidden {
+opacity: 0;
+pointer-events: none;
+}
+.hero-embed-fallback-content {
+position: relative;
+z-index: 2;
+width: min(60vw, 520px);
+height: min(50vh, 340px);
+border-radius: 24px;
+border: 1px solid rgba(255, 255, 255, 0.08);
+background: rgba(8, 10, 15, 0.25);
+box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+.hero-embed-frame {
+width: 100%;
+height: 100%;
+border: 0;
+display: block;
+background: #050505;
+position: relative;
+z-index: 2;
+}
+.lock-icon { font-size: 3rem; margin-bottom: 10px; border: 2px solid var(--accent); padding: 10px; border-radius: 50%; }
+.face::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: #fff; box-shadow: 0 0 15px #fff, 0 0 30px var(--accent); animation: scan 3s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; }
+@keyframes scan { 0% { top: 0%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+@keyframes monoSpin { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+@keyframes pulse { from { opacity: 0.5; } to { opacity: 1; box-shadow: 0 0 20px var(--accent); } }
+@keyframes equalizer { 0% { height: 20%; } 100% { height: 100%; } }
+@keyframes blinkRack { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+/* --- MARQUEE --- */
+.stream-bar {
+background: var(--accent); color: #f1efe6; padding: 1rem 0; font-family: var(--font-head); font-size: 1.4rem; font-weight: 600;
+overflow: hidden; white-space: nowrap; position: relative; z-index: 2; border-top: 1px solid rgba(12,23,48,0.15); border-bottom: 1px solid rgba(12,23,48,0.15);
+}
+.stream-track { display: inline-block; animation: marquee 10s linear infinite; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+/* --- FEATURES GRID --- */
+.section-grid {
+padding: 8rem 0; position: relative; background: var(--bg); z-index: 2; border-top: 1px solid rgba(12,23,48,0.12); overflow: hidden;
+}
+.section-title { font-size: 4.2rem; margin-bottom: 4rem; border-left: 6px solid var(--accent); padding-left: 2rem; line-height: 1; font-weight: 600; letter-spacing: -0.02em; }
+.card-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.tech-card {
+background: rgba(12,23,48,0.92); border: 1px solid rgba(255,255,255,0.08); padding: 3rem 2.5rem;
+position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; min-height: 400px;
+border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+--mouse-x: -9999px; --mouse-y: -9999px;
+transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+.tech-card:hover { transform: translateY(-6px); border-color: rgba(var(--accent-rgb), 0.3); background: rgba(12,23,48,0.98); }
+.tech-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(var(--accent-rgb), 0.18), transparent 40%); z-index: 0; opacity: 0; transition: opacity 0.5s; }
+.tech-card::after {
+content: ""; position: absolute; inset: 0;
+background-image: radial-gradient(rgba(var(--accent-rgb), 0.7) 3px, transparent 4px); background-size: 30px 30px;
+mask-image: radial-gradient(700px circle at var(--mouse-x) var(--mouse-y), black, transparent 40%);
+-webkit-mask-image: radial-gradient(700px circle at var(--mouse-x) var(--mouse-y), black, transparent 40%);
+z-index: 0; opacity: 0; transition: opacity 0.3s; mix-blend-mode: screen;
+}
+.card-container:hover .tech-card::before { opacity: 1; } .card-container:hover .tech-card::after { opacity: 1; }
+.tech-card h3 { font-size: 3rem; margin-bottom: 1rem; z-index: 2; position: relative; }
+.tech-card p { z-index: 2; position: relative; font-size: 1.1rem; }
+.icon-box { width: 56px; height: 56px; background: #0b0b0b; margin-bottom: 2rem; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.9rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.1); z-index: 2; position: relative; letter-spacing: 0.06em; text-transform: uppercase; }
+/* --- PIPELINE --- */
+.pipeline-section { overflow: hidden; z-index: 2; position: relative; background: var(--bg); }
+.pin-wrap-container { width: 100%; height: 100vh; display: flex; background: var(--bg); position: relative; overflow: hidden; }
+.pin-wrap { height: 100%; display: flex; align-items: center; padding: 0 5vw; }
+.horiz-card {
+width: 60vw; height: 70vh; margin-right: 5vw; background: var(--surface); border: 1px solid rgba(255,255,255,0.08);
+flex-shrink: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 4rem;
+position: relative; overflow: hidden; transform: translate3d(0,0,0); border-radius: 32px; box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+}
+.horiz-img {
+position: absolute; top: 0; left: 0;
+width: 100%; height: 100%; object-fit: cover;
+transform: scale(1.5); transform-origin: center center;
+opacity: 0.4; filter: grayscale(100%) contrast(1.2);
+transition: 0.5s; z-index: 0;
+will-change: transform;
+}
+.horiz-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, #000 0%, rgba(0,0,0,0.8) 40%, rgba(var(--accent-rgb),0.1) 100%); z-index: 1; }
+.horiz-card:hover .horiz-img { filter: grayscale(0%) contrast(1.1); opacity: 0.6; }
+.horiz-content { position: relative; z-index: 2; }
+.horiz-num { font-family: var(--font-head); font-size: 8rem; line-height: 0.8; color: var(--accent); margin-bottom: 1rem; display:block; }
+.horiz-title { font-size: 4rem; margin-bottom: 1rem; color: #fff; line-height: 0.9; }
+.horiz-desc { font-size: 1.4rem; max-width: 600px; margin-bottom: 1.5rem; }
+.horiz-detail { font-size: 1.1rem; color: #888; max-width: 550px; line-height: 1.6; border-left: 2px solid var(--accent); padding-left: 1rem; }
+/* --- NEURAL GRID --- */
+.neural-section { position: relative; padding: 10rem 0; background: var(--bg); z-index: 2; overflow: hidden; }
+.neural-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: grid; grid-template-columns: repeat(auto-fill, minmax(30px, 1fr)); gap: 0; z-index: 0; }
+.neural-dot { width: 2px; height: 2px; background: rgba(12,23,48,0.2); border-radius: 50%; margin: 14px; transition: transform 0.1s ease-out, background 0.2s; will-change: transform; }
+.neural-dot.pushed { background: #555; }
+.neural-content { position: relative; z-index: 2; text-align: center; background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%); padding: 4rem 2rem; }
+.neural-header { font-size: clamp(3rem, 8vw, 7rem); margin-bottom: 2rem; color: var(--text); text-shadow: none; }
+.neural-sub { font-size: 1.5rem; max-width: 700px; margin: 0 auto 4rem; color: rgba(12,23,48,0.65); }
+.mesh-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem; max-width: 900px; margin: 0 auto; }
+.m-stat h4 { font-size: 3rem; color: var(--accent); margin-bottom: 0.5rem; }
+.mesh-stats .m-stat:nth-child(2) h4 { color: var(--accent-green); }
+.mesh-stats .m-stat:nth-child(3) h4 { color: var(--accent-pink); }
+.m-stat p { font-size: 0.9rem; letter-spacing: 2px; color: rgba(12,23,48,0.6); text-transform: uppercase; }
+/* --- SYSTEM PULSE --- */
+.pulse-section { padding: 10rem 0; background: var(--bg); z-index: 2; position: relative; }
+.pulse-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.pulse-text h2 { font-size: 4rem; margin-bottom: 1.5rem; }
+.pulse-text p { font-size: 1.2rem; margin-bottom: 2rem; }
+.stat-row { display: flex; gap: 3rem; margin-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 2rem; }
+.stat-item h4 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+.stat-row .stat-item:last-child h4 { color: var(--accent-pink); }
+.stat-item span { font-size: 0.9rem; color: var(--text-dim); letter-spacing: 1px; }
+.pulse-visual { position: relative; height: 500px; perspective: 1000px; }
+.db-card { background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.1); border-radius: 24px; position: absolute; backdrop-filter: blur(12px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); transition: transform 0.5s ease-out; }
+.db-main { width: 100%; height: 350px; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; padding: 1.5rem; display: flex; flex-direction: column; }
+.db-header { display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px;}
+.db-title { font-family: var(--font-head); font-size: 1.2rem; color: var(--text); }
+.db-status { color: var(--accent-green); font-size: 0.8rem; display: flex; align-items: center; gap: 5px; }
+.db-status::before { content:''; width:6px; height:6px; background:var(--accent-green); border-radius:50%; box-shadow:0 0 5px var(--accent-green); animation: blinkRack 1s infinite; }
+.chart-area { flex: 1; display: flex; align-items: flex-end; gap: 5px; position: relative; overflow: hidden; }
+.chart-bar { flex: 1; background: linear-gradient(0deg, var(--accent) 0%, transparent 100%); opacity: 0.3; border-top: 1px solid var(--accent); animation: chartMove 3s infinite ease-in-out; }
+.db-float-1 { width: 200px; padding: 1rem; top: 10%; right: -5%; z-index: 3; animation: float 6s ease-in-out infinite; background: #ffffff; border-color: var(--accent); }
+.code-snippet { font-family: var(--font-body); font-size: 0.7rem; color: rgba(12,23,48,0.6); line-height: 1.4; }
+.process-subtitle,
+.testimonials-subtitle,
+.testimonials-pill,
+.m-stat p,
+.stat-item span,
+.pack-compare-label {
+  font-family: var(--font-sub);
+}
+.db-float-2 { width: 180px; padding: 1rem; bottom: 0%; left: -5%; z-index: 3; animation: float 5s ease-in-out infinite reverse; }
+.metric-big { font-size: 2rem; font-family: var(--font-head); color: var(--text); }
+@keyframes chartMove { 0%,100% { height: 20%; } 50% { height: 80%; } }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+/* --- FOOTER --- */
+footer { position: relative; width: 100%; background: var(--accent-dark); display: flex; flex-direction: column; justify-content: center; z-index: 1; padding: 5rem 2rem; border-top: 1px solid rgba(255,255,255,0.08); color: #f1efe6; }
+.footer-content { max-width: 1400px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; height: 100%; justify-content: space-between; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.footer-big {
+  font-family: var(--font-head);
+  font-size: clamp(6rem, 18vw, 18rem);
+  line-height: 0.9;
+  color: #fff;
+  text-align: center;
+  margin-top: auto;
+  position: relative;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+/* --- PACKIT-INSPIRED SECTIONS --- */
+.pack-section { padding: 7rem 0; background: var(--bg); color: var(--text); border-top: 1px solid rgba(0,0,0,0.08); position: relative; z-index: 2; content-visibility: auto; contain-intrinsic-size: 800px; }
+.pack-section.dark { background: var(--accent-dark); color: #f1efe6; }
+.pack-section.accent { background: var(--accent); color: #f1efe6; }
+.pack-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.pack-title { text-align: center; font-size: 2.4rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4rem; }
+.pack-muted { color: rgba(255,255,255,0.65); }
+.pack-benefit-row { display: flex; gap: 4rem; align-items: center; margin-bottom: 5rem; }
+.pack-benefit-row.reverse { flex-direction: row-reverse; }
+.pack-benefit-row,
+.section-title { position: relative; z-index: 2; }
+.pack-number { width: 30px; height: 30px; background: var(--accent-dark); color: var(--accent-warm); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+.pack-benefit-row:nth-of-type(2) .pack-number { background: var(--accent-pink); color: var(--accent-dark); }
+.pack-benefit-row:nth-of-type(3) .pack-number { background: var(--accent-green); color: var(--accent-dark); }
+.pack-benefit-text h3 { font-size: 1.8rem; margin-bottom: 0.75rem; }
+.pack-benefit-text p { font-size: 1.05rem; line-height: 1.7; color: rgba(12,23,48,0.65); }
+
+.pack-image-card { background: #ffffff; padding: 12px; border-radius: 24px; box-shadow: 0 18px 40px rgba(0,0,0,0.12); transform: rotate(1.5deg); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid rgba(0,0,0,0.08); }
+.pack-image-card.rotate-left { transform: rotate(-2deg); }
+.pack-image-card img { width: 100%; height: 320px; object-fit: cover; border-radius: 18px; filter: grayscale(60%); transition: filter 0.4s ease; }
+.pack-image-card:hover { transform: rotate(0deg) translateY(-4px); box-shadow: 0 26px 60px rgba(0,0,0,0.12); }
+.pack-image-card:hover img { filter: grayscale(0%); }
+.pack-video { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.pack-video h3 { font-size: 2.1rem; color: var(--accent-warm); margin-bottom: 1rem; }
+.pack-video p { color: rgba(255,255,255,0.72); font-size: 1.05rem; line-height: 1.8; }
+.pack-video-card { position: relative; width: 100%; aspect-ratio: 16/9; background: #222; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+.pack-video-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s ease; }
+.pack-video-card:hover img { opacity: 0.6; }
+.pack-video-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.pack-play-btn { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.4rem; transition: transform 0.3s ease; }
+.pack-video-card:hover .pack-play-btn { transform: scale(1.08); }
+.pack-feature-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
+.pack-feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.pack-feature-card { background: #ffffff; border-radius: 22px; padding: 14px; transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid rgba(0,0,0,0.08); }
+.pack-feature-card img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 16px; filter: grayscale(100%); transition: filter 0.4s ease; }
+.pack-feature-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.1); }
+.pack-feature-card:hover img { filter: grayscale(0%); }
+.pack-feature-card p { text-align: center; margin-top: 0.8rem; font-weight: 600; color: var(--text); }
+.frame-section { padding: 0; background: var(--accent-dark); color: #fff; }
+.frame-section .pack-container { max-width: none; width: 100%; height: 100vh; display: flex; flex-direction: column; gap: 1.5rem; padding: 2rem; }
+.frame-section .pack-feature-header { margin-bottom: 0; }
+.frame-section .pack-title { color: #fff; }
+.frame-section .pack-nav-btn { background: var(--accent-dark); color: #fff; border-color: rgba(255,255,255,0.12); }
+.frame-section .pack-nav-btn.dark { background: #fff; color: var(--accent-dark); border-color: #fff; }
+.frame-grid { flex: 1; min-height: 0; display: grid; grid-template-rows: 4fr 4fr 4fr; grid-template-columns: 4fr 4fr 4fr; gap: 4px; width: 100%; height: 100%; transition: grid-template-rows 0.4s ease, grid-template-columns 0.4s ease; will-change: grid-template-rows, grid-template-columns; contain: layout paint; }
+.frame-item { position: relative; border-radius: 0; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.08); box-shadow: none; transition: transform 0.35s ease, box-shadow 0.35s ease; isolation: isolate; }
+.frame-item.is-hovered { transform: none; box-shadow: none; }
+.frame-media { position: absolute; inset: 0; z-index: 1; }
+.frame-media video { width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); transition: transform 0.4s ease, filter 0.4s ease; filter: grayscale(0%) contrast(1.02); }
+.frame-item.is-hovered .frame-media video { transform: scale(1.12); filter: grayscale(0%); }
+.pack-nav-btns { display: flex; gap: 0.5rem; }
+.pack-nav-btn { width: 42px; height: 42px; border-radius: 10px; border: 1px solid rgba(12,23,48,0.2); background: #ffffff; color: var(--text); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+.pack-nav-btn.dark { background: var(--accent-dark); color: #ffffff; border-color: var(--accent-dark); }
+.pack-stop { display: grid; grid-template-columns: 1fr 2fr 1fr; min-height: 420px; background: #ffffff; border-top: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.08); }
+.pack-stop img { width: 100%; height: 100%; object-fit: cover; }
+.pack-stop-center { background: var(--bg); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 3rem; }
+.pack-stop-center h3 { font-size: 2.5rem; font-style: italic; font-weight: 600; color: var(--text); }
+.pack-stop-line { width: 96px; height: 1px; background: rgba(12,23,48,0.2); margin: 1.5rem 0; }
+.pack-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; margin-bottom: 3rem; font-weight: 700; opacity: 0.9; color: var(--text); }
+.pack-press-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.pack-press-card { background: #ffffff; border-radius: 20px; padding: 2rem; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.12); border: 1px solid rgba(0,0,0,0.08); }
+.pack-press-card::before { content: "“"; position: absolute; top: 16px; left: 20px; font-size: 3rem; color: rgba(var(--accent-rgb), 0.8); }
+.pack-press-card p { margin-top: 2.5rem; font-weight: 600; color: var(--text); }
+.pack-press-card span { display: block; margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid rgba(12,23,48,0.12); font-size: 0.8rem; font-weight: 700; color: rgba(12,23,48,0.7); }
+.pack-compare { max-width: 900px; margin: 0 auto; }
+.pack-compare-title { text-align: center; font-size: 2rem; font-weight: 600; margin-bottom: 3rem; }
+.pack-compare-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 0.75rem; align-items: center; }
+.pack-compare-head { font-size: 1.1rem; font-weight: 700; padding: 0.9rem; color: var(--text); }
+.pack-compare-head.accent { background: var(--accent); border-radius: 12px; text-align: center; }
+.pack-compare-row { display: contents; }
+.pack-compare-label { padding: 1rem; color: rgba(12,23,48,0.6); }
+.pack-compare-cell { padding: 1rem; background: #ffffff; border-radius: 10px; text-align: center; color: var(--text); border: 1px solid rgba(12,23,48,0.12); }
+.pack-compare-cell.accent { background: var(--accent); font-weight: 700; }
+.pack-lifestyle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.pack-lifestyle-card { position: relative; aspect-ratio: 9/16; border-radius: 22px; overflow: hidden; background: #0d0d0d; }
+.pack-lifestyle-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: opacity 0.4s ease; }
+.pack-lifestyle-card:hover img { opacity: 0.7; }
+.pack-tag { position: absolute; top: 12px; right: 12px; background: var(--accent-pink); color: var(--text); font-size: 0.65rem; font-weight: 700; padding: 4px 8px; border-radius: 6px; }
+.pack-lifestyle-card:nth-child(2) .pack-tag { background: var(--accent-green); }
+.pack-lifestyle-card:nth-child(3) .pack-tag { background: var(--accent-dark); color: var(--accent); }
+.pack-lifestyle-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.pack-lifestyle-play span { width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,0.9); color: #111; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+.process-section { position: relative; background: var(--bg); color: var(--text); padding: 6rem 0; }
+.process-title { text-align: center; font-size: 3.75rem; color: var(--text); margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+.process-subtitle { text-align: center; max-width: 760px; margin: 0 auto 3rem; color: var(--text-dim); }
+.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+.process-card { background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 1.8rem; box-shadow: 0 20px 40px rgba(12,23,48,0.12); }
+.process-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 16px; margin-bottom: 1.2rem; }
+.process-card h3 { font-size: 1.25rem; margin-bottom: 0.6rem; color: var(--text); }
+.process-card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 0.8rem; }
+.process-card ul { list-style: disc; padding-left: 1.1rem; color: var(--text-dim); font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.testimonials-section { padding: 6rem 0; background: var(--bg); color: var(--text); }
+.testimonials-header { max-width: 560px; margin: 0 auto 3.5rem; text-align: center; }
+.testimonials-pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-dim); }
+.testimonials-title { font-size: 3.75rem; line-height: 1.05; margin-top: 1.2rem; letter-spacing: -0.02em; }
+.testimonials-subtitle { margin-top: 1rem; color: var(--text-dim); font-size: 1.05rem; }
+.testimonials-columns { display: flex; justify-content: center; gap: 1.5rem; max-height: 740px; overflow: hidden; mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); }
+.testimonials-col { width: 100%; max-width: 320px; }
+.testimonials-col ul { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; padding-bottom: 1.5rem; margin: 0; animation: testimonial-scroll var(--duration) linear infinite; }
+.testimonials-col:hover ul { animation-play-state: paused; }
+.testimonial-card { background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 1.6rem; box-shadow: 0 18px 40px rgba(12,23,48,0.12); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.testimonial-card:hover { transform: translateY(-6px); box-shadow: 0 26px 60px rgba(12,23,48,0.18); }
+.testimonial-card p { color: var(--text-dim); font-size: 0.98rem; line-height: 1.6; }
+.testimonial-footer { display: flex; align-items: center; gap: 0.8rem; margin-top: 1.5rem; }
+.testimonial-footer img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--surface-hover); }
+.testimonial-name { font-weight: 600; color: var(--text); }
+.testimonial-role { font-size: 0.85rem; color: var(--text-dim); }
+@keyframes testimonial-scroll { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
+.pack-faq { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.pack-faq-images { display: flex; gap: 1rem; align-items: flex-end; }
+.pack-faq-images img { width: 100%; border-radius: 14px; object-fit: cover; border: 1px solid rgba(0,0,0,0.08); }
+.pack-faq-images .note { position: absolute; top: -40px; left: 0; background: #ffffff; color: rgba(12,23,48,0.6); font-size: 0.7rem; padding: 8px 10px; border-radius: 8px; box-shadow: 0 10px 25px rgba(12,23,48,0.2); border: 1px solid rgba(12,23,48,0.12); }
+.pack-faq-list { display: flex; flex-direction: column; gap: 1.5rem; }
+.pack-faq-item { border-bottom: 1px solid rgba(12,23,48,0.12); padding-bottom: 1.2rem; font-weight: 600; color: var(--text); }
+.pack-faq-answer { font-weight: 400; color: rgba(12,23,48,0.6); font-size: 0.95rem; line-height: 1.6; margin-top: 0.6rem; }
+.contact-section { padding: 6rem 0; background: #05060b; color: #f1efe6; position: relative; overflow: hidden; }
+.contact-section::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1.6px); background-size: 3px 3px; opacity: 0.12; }
+.contact-orbit { position: absolute; width: 720px; height: 720px; border-radius: 50%; border: 6px solid rgba(111,163,221,0.75); box-shadow: 0 0 35px rgba(111,163,221,0.6), 0 0 120px rgba(0,69,186,0.7); right: -160px; top: -140px; opacity: 0.95; }
+.contact-orbit::after { content: ""; position: absolute; inset: 22px; border-radius: 50%; border: 4px solid rgba(79,182,255,0.9); box-shadow: 0 0 25px rgba(79,182,255,0.7); }
+.contact-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: stretch; }
+.contact-card { background: rgba(15,18,28,0.75); border: 1px solid rgba(255,255,255,0.08); border-radius: 22px; padding: 2.5rem; box-shadow: 0 30px 80px rgba(0,0,0,0.35); backdrop-filter: blur(16px); min-height: 320px; }
+.contact-card h4 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.6); margin-bottom: 1rem; }
+.contact-card h2 { font-size: 2.6rem; line-height: 1.1; margin-bottom: 1.2rem; color: #fff; }
+.contact-card p { color: rgba(255,255,255,0.7); font-size: 1.05rem; }
+.contact-actions { display: flex; gap: 1rem; align-items: center; margin-top: 2rem; flex-wrap: wrap; }
+.contact-pill { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.75rem 1.2rem; border-radius: 999px; background: #fff; color: #0c1730; font-weight: 600; font-size: 0.95rem; }
+.contact-btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.75rem 1.2rem; border-radius: 999px; background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.18); font-weight: 600; }
+.contact-social { display: flex; gap: 0.75rem; margin-top: 2rem; }
+.contact-social a { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.1); display: inline-flex; align-items: center; justify-content: center; color: #fff; border: 1px solid rgba(255,255,255,0.12); }
+.contact-links h3 { font-size: 1.4rem; margin-bottom: 1rem; color: #fff; }
+.contact-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: rgba(255,255,255,0.7); }
+.contact-links .chip { display: inline-flex; padding: 0.45rem 0.9rem; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #fff; margin-bottom: 1rem; font-size: 0.8rem; }
+.contact-divider { height: 1px; background: rgba(255,255,255,0.12); margin: 1.5rem 0; }
+.spotlight-card { position: relative; overflow: hidden; --mouse-x: -999px; --mouse-y: -999px; }
+.spotlight-card::before { content: ""; position: absolute; inset: -1px; background: radial-gradient(520px circle at var(--mouse-x) var(--mouse-y), rgba(var(--accent-rgb), 0.55), transparent 55%); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+.spotlight-card::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(var(--accent-rgb), 0.7) 2px, transparent 3px); background-size: 22px 22px; mask-image: radial-gradient(440px circle at var(--mouse-x) var(--mouse-y), #000 25%, transparent 65%); opacity: 0; transition: opacity 0.3s ease; mix-blend-mode: screen; pointer-events: none; }
+.spotlight-card:hover::before,
+.spotlight-card:hover::after { opacity: 1; }
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 1024px) {
+.card-container { grid-template-columns: repeat(2, 1fr); }
+.neural-text { font-size: 15vw; }
+.pack-feature-grid { grid-template-columns: repeat(2, 1fr); }
+.pack-press-grid { grid-template-columns: 1fr; }
+.pack-lifestyle-grid { grid-template-columns: 1fr; }
+.frame-section .pack-container { height: auto; padding: 2rem; }
+.frame-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 200px; grid-template-rows: none; }
+}
+@media (max-width: 768px) {
+/* General */
+.section-title { font-size: 3rem; }
+.container { padding: 0 1.5rem; }
+/* Nav */
+.menu-items { gap: 1rem; }
+.btn { padding: 0.6rem 1.2rem; font-size: 1rem; }
+.nav-wrap .btn { display: none; } /* Hide CTA on small screens */
+/* Capabilities */
+.card-container { grid-template-columns: 1fr; }
+/* Pipeline */
+.horiz-card { width: 85vw; padding: 2rem; height: 60vh; }
+.horiz-num { font-size: 5rem; }
+.horiz-title { font-size: 2.5rem; }
+.horiz-desc { font-size: 1.1rem; }
+/* Neural */
+.mesh-stats { grid-template-columns: 1fr; gap: 1.5rem; }
+/* Pulse & Velocity & Terminal */
+.pulse-grid, .dev-grid { grid-template-columns: 1fr; gap: 3rem; }
+/* Pulse Visual */
+.pulse-visual { height: 400px; transform: scale(0.85); transform-origin: center top; margin-bottom: 0; }
+/* Footer */
+.footer-top { flex-direction: column; gap: 2rem; }
+.footer-big { font-size: 23vw; }
+footer { height: auto; }
+.pack-benefit-row { flex-direction: column; }
+.pack-benefit-row.reverse { flex-direction: column; }
+.pack-feature-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+.pack-feature-grid { grid-template-columns: 1fr; }
+.frame-section .pack-container { height: auto; padding: 1.5rem; }
+.frame-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; grid-template-rows: none; }
+.pack-stop { grid-template-columns: 1fr; }
+.pack-stop-center { order: 2; }
+.pack-logos { gap: 1.5rem; }
+.pack-press-grid { grid-template-columns: 1fr; }
+.pack-compare-grid { grid-template-columns: 1fr; }
+.pack-compare-head.accent { margin-bottom: 0.5rem; }
+.pack-compare-label { text-align: left; }
+.pack-lifestyle-grid { grid-template-columns: 1fr; }
+.contact-grid { grid-template-columns: 1fr; }
+.contact-card { padding: 2rem; }
+.process-grid { grid-template-columns: 1fr; }
+.testimonials-columns { flex-direction: column; align-items: center; max-height: none; mask-image: none; }
+.testimonials-col { max-width: 520px; }
+.testimonials-col ul { animation: none; }
+.frame-item.is-hovered { transform: scale(1.02); box-shadow: 0 18px 40px rgba(0,0,0,0.3); }
+}
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="hero-embed-active">
+
+    <div class="noise-overlay"></div>
+
+    <header class="lynck-header">
+        <div class="lynck-header-inner">
+            <button type="button" class="lynck-home-logo" data-home-btn aria-label="LYNCK Studio Home">
+                <img src="/assets/lynck-logo.png" alt="LYNCK Studio">
+            </button>
+            <div class="lynck-header-bar">
+                <div class="lynck-header-left">
+                    <div class="nav-social">
+                        <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                                <path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="nav-dropdown">
+                        <button class="nav-pill" type="button">
+                            Alle
+                            <span class="nav-caret" aria-hidden="true"></span>
+                        </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="google-ads.html" role="menuitem">Google Ads</a>
+                        <button type="button" role="menuitem">Individuelle Website</button>
+                        <button type="button" role="menuitem">Digitale Produkte</button>
+                        <button type="button" role="menuitem">Lead‑Generierung</button>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="lynck-nav-links" aria-label="Primary">
+                <button type="button">Über LYNCK</button>
+                <button type="button">Unsere Leistungen</button>
+                <button type="button">Kundenstimmen</button>
+                <button type="button">Blog</button>
+            </nav>
+
+                <div class="lynck-header-right">
+                    <div class="nav-dropdown right">
+                        <button class="nav-pill" type="button">
+                            DE
+                            <span class="nav-caret" aria-hidden="true"></span>
+                        </button>
+                        <div class="nav-dropdown-menu" role="menu">
+                            <button type="button" role="menuitem" data-lang-switch="en"><span aria-hidden="true">🇺🇸</span> Englisch</button>
+                            <button type="button" role="menuitem" data-lang-switch="de"><span aria-hidden="true">🇩🇪</span> Deutsch</button>
+                        </div>
+                    </div>
+                    <button type="button" class="gradient-border-btn" data-contact-btn>
+                        <div class="cp-border" aria-hidden="true"></div>
+                        <span class="btn-core">Jetzt kontaktieren &#8594;</span>
+                    </button>
+                </div>
+            </div>
+            <a href="https://www.google.com/partners/agency?id=6214402482" target="_blank" rel="noopener noreferrer" class="lynck-partner-badge" aria-label="Google Partner Badge">
+                <img src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <header class="hero hero-embed">
+        <div class="hero-embed-fallback" id="heroFallback" aria-hidden="true">
+            <div class="hero-embed-fallback-content"></div>
+        </div>
+        <iframe class="hero-embed-frame" src="/hero-embed.html?lang=de" title="LYNCK STUDIO PRO Hero" loading="eager" fetchpriority="high"></iframe>
+    </header>
+
+    <div class="stream-bar">
+        <div class="stream-track">
+             // SYSTEMSTATUS: OPTIMAL // VERFÜGBARKEIT: 99,9999% // AKTIVE KNOTEN: 4.021.202 // LATENZ: 12 MS // BEDROHUNGSSTUFE: 0 // VERSCHLÜSSELUNG: MIL-STD-810 // SYSTEMSTATUS: OPTIMAL // VERFÜGBARKEIT: 99,9999% //
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <section class="section-grid" id="arch" style="background: linear-gradient(rgba(243,244,239,0.75), rgba(243,244,239,0.75)), url('/assets/soft-abstract-curved-waves-in-neutral-tones-4k.jpeg') center/cover no-repeat;">
+        <div class="container">
+            <h2 class="section-title">VORTEILE</h2>
+            <div class="pack-benefit-row">
+                <div class="pack-benefit-text">
+                    <div class="pack-number">1</div>
+                    <h3>Zusätzliche Gepäckgebühren vermeiden</h3>
+                    <p>Verstauen Sie Reise‑Essentials in strategisch platzierten Taschen, die nicht als Handgepäck zählen. Sparen Sie bei jedem einzelnen Flug.</p>
+                </div>
+                <div class="pack-benefit-media">
+                    <div class="pack-image-card spotlight-card rotate-right">
+                        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=800&auto=format&fit=crop" alt="Flughafen">
+                    </div>
+                </div>
+            </div>
+
+            <div class="pack-benefit-row reverse">
+                <div class="pack-benefit-text">
+                    <div class="pack-number">2</div>
+                    <h3>Wichtige Dinge schnell griffbereit</h3>
+                    <p>Pass, Handy, Ladegerät, Snacks – alles bleibt in Reichweite, ohne im Gepäck zu wühlen. Perfekt für Sicherheitskontrollen.</p>
+                </div>
+                <div class="pack-benefit-media">
+                    <div class="pack-image-card spotlight-card rotate-left">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop" alt="Reisender">
+                    </div>
+                </div>
+            </div>
+
+            <div class="pack-benefit-row">
+                <div class="pack-benefit-text">
+                    <div class="pack-number">3</div>
+                    <h3>Weniger Bedarf an Rucksack oder kleiner Tasche</h3>
+                    <p>Befreien Sie Ihre Hände und reduzieren Sie das Gewicht mit integriertem Stauraum, der zusätzliche Taschen komplett ersetzt.</p>
+                </div>
+                <div class="pack-benefit-media">
+                    <div class="pack-image-card spotlight-card rotate-right">
+                        <img src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?q=80&w=800&auto=format&fit=crop" alt="Spaziergang">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIPELINE -->
+    <section class="pipeline-section" id="pipeline">
+        <div class="pin-wrap-container">
+            <div class="pin-wrap">
+                <div class="horiz-card">
+                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4097263b-8c62-417e-b933-385d88a6ecd4_1600w.webp" class="horiz-img" alt="Rechenzentrum">
+                    <div class="horiz-content">
+                        <span class="horiz-num">01</span><h3 class="horiz-title">DATENAUFNAHME</h3><p class="horiz-desc">Streame Petabytes an Daten über unsere Firehose‑API. Wir übernehmen Deduplizierung und Normalisierung.</p>
+                        <p class="horiz-detail">Die Verschlüsselung erfolgt an der Quelle mit AES‑256. Wir garantieren 0 % Paketverlust bei der Übertragung und sichern die Datenintegrität vom ersten Byte an.</p>
+                    </div>
+                </div>
+                <div class="horiz-card">
+                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6d68bc50-b233-4d73-a3be-97c5058a2e69_1600w.jpg" class="horiz-img" alt="Neuronales Netzwerk">
+                    <div class="horiz-content">
+                        <span class="horiz-num">02</span><h3 class="horiz-title">NEURALE VERARBEITUNG</h3><p class="horiz-desc">Unser proprietäres KI‑Mesh analysiert Muster in Echtzeit und prognostiziert Skalierungsbedarf.</p>
+                        <p class="horiz-detail">Automatisches Load‑Balancing greift Millisekunden vor einer Auslastungsspitze. Das System lernt Ihre Traffic‑Spitzen und wärmt Container proaktiv vor.</p>
+                    </div>
+                </div>
+                <div class="horiz-card">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&amp;w=2072&amp;auto=format&amp;fit=crop" class="horiz-img" alt="Globales Netzwerk">
+                    <div class="horiz-content">
+                        <span class="horiz-num">03</span><h3 class="horiz-title">GLOBALE VERTEILUNG</h3><p class="horiz-desc">Inhalte werden weltweit in über 450 PoPs gecacht. Ihre Nutzer verbinden sich mit dem nächstgelegenen Knoten.</p>
+                        <p class="horiz-detail">Assets werden an den Edge‑Standort in Nutzernähe repliziert – Time‑To‑First‑Byte unter 20 ms, unabhängig vom Standort.</p>
+                    </div>
+                </div>
+                <div class="horiz-card" style="border-color: var(--accent);">
+                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/41920389-9270-4fe4-8576-94539497c33f_1600w.jpg" class="horiz-img" alt="Ausführung">
+                    <div class="horiz-content">
+                        <span class="horiz-num">04</span><h3 class="horiz-title" style="color: var(--accent)">AUSFÜHRUNG</h3><p class="horiz-desc">Das Ergebnis? Ein System, das nie schläft, nie ausfällt und stets überperformt.</p>
+                        <p class="horiz-detail">Serverless‑Funktionen laufen isoliert mit garantierten Zero‑Cold‑Starts. Ihre Infrastruktur wird zum Wettbewerbsvorteil.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEURAL GRID -->
+    <section class="neural-section" id="mesh">
+        <div class="neural-grid" id="neuralGrid"></div>
+        <div class="container neural-content">
+            <h2 class="neural-header">GLOBALES NETZ</h2>
+            <p class="neural-sub">
+                Unsere Infrastruktur umfasst 450+ Points of Presence in 120 Ländern.
+                Edge‑Computing ohne Kompromisse – wir verbinden die Welt schneller als der Gedanke.
+            </p>
+            <div class="mesh-stats">
+                <div class="m-stat"><h4>450+</h4><p>Edge‑Knoten</p></div>
+                <div class="m-stat"><h4>120TB</h4><p>Backbone‑Kapazität</p></div>
+                <div class="m-stat"><h4>&lt;10ms</h4><p>Globale Latenz</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SYSTEM PULSE -->
+    <section class="pulse-section">
+        <div class="container">
+            <div class="pulse-grid">
+                <div class="pulse-text">
+                    <h2>LIVE‑INFRASTRUKTUR</h2>
+                    <p>Überwachen Sie Ihren gesamten Stack in Echtzeit. Unser Dashboard bietet granularen Zugriff auf jede Ebene – vom Bare‑Metal bis zur Anwendung.</p>
+                    <ul style="color:var(--text-dim); line-height:2;">
+                        <li>&gt; Real-time latency tracking per region</li>
+                        <li>&gt; Automated DDoS mitigation logs</li>
+                        <li>&gt; Predictive resource allocation</li>
+                    </ul>
+                    <div class="stat-row">
+                        <div class="stat-item"><h4>99.999%</h4><span>SLA‑VERFÜGBARKEIT</span></div>
+                        <div class="stat-item"><h4>&lt;5ms</h4><span>GLOBALE LATENZ</span></div>
+                    </div>
+                </div>
+                
+                <div class="pulse-visual">
+                    <div class="db-card db-main spotlight-card">
+                        <div class="db-header">
+                            <span class="db-title">TRAFFIC_OUT</span><span class="db-status">LIVE</span>
+                        </div>
+                        <div class="chart-area" id="liveChart"></div>
+                    </div>
+                    <div class="db-card db-float-1 spotlight-card">
+                        <div class="db-header"><span class="db-title" style="font-size:0.9rem">CONFIG.YAML</span></div>
+                        <div class="code-snippet">replicas: 50region: "us-east"scaling: automax_cost: inf</div>
+                    </div>
+                    <div class="db-card db-float-2 spotlight-card">
+                        <span class="db-status">HEALTH</span>
+                        <div class="metric-big">100%</div>
+                        <div style="height:4px; width:100%; background:#333; margin-top:10px;"><div style="height:100%; width:100%; background:var(--accent);"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PACKIT-INSPIRED VIDEO -->
+    <section class="pack-section dark">
+        <div class="pack-container pack-video">
+            <div>
+                <h3>Wir präsentieren die Huge‑Ass‑Pockets™‑Jacke</h3>
+                <p>Eine Reisejacke, die trägt, was Ihre Tasche nicht schafft. Perfekt für Flüge, Tagesausflüge, Freizeitparks und den Alltag – ohne Sie zu beschweren.</p>
+                <p>Jede Tasche ist bewusst platziert: ausgewogene Gewichtsverteilung, Schnellzugriff‑Zonen und diskreter Stauraum, der sich nahtlos ins Design einfügt.</p>
+            </div>
+            <div class="pack-video-card spotlight-card">
+                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="Video‑Vorschau">
+                <div class="pack-video-play">
+                    <div class="pack-play-btn">▶</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PACKIT-INSPIRED FEATURES -->
+    <section class="pack-section frame-section">
+        <div class="pack-container">
+            <div class="pack-feature-header">
+                <h2 class="pack-title" style="text-align:left; margin-bottom:0;">Produktfeatures</h2>
+                <div class="pack-nav-btns">
+                    <button class="pack-nav-btn">←</button>
+                    <button class="pack-nav-btn dark">→</button>
+                </div>
+            </div>
+            <div class="frame-grid" id="featureFrameGrid">
+                <div class="frame-item">
+                    <div class="frame-media">
+                        <video class="feature-video" data-src="https://static.cdn-luma.com/files/981e483f71aa764b/Company%20Thing%20Exported.mp4" muted playsinline loop preload="none"></video>
+                    </div>
+                </div>
+                <div class="frame-item">
+                    <div class="frame-media">
+                        <video class="feature-video" data-src="https://static.cdn-luma.com/files/58ab7363888153e3/WebGL%20Exported%20(1).mp4" muted playsinline loop preload="none"></video>
+                    </div>
+                </div>
+                <div class="frame-item">
+                    <div class="frame-media">
+                        <video class="feature-video" data-src="https://static.cdn-luma.com/files/58ab7363888153e3/Jitter%20Exported%20Poster.mp4" muted playsinline loop preload="none"></video>
+                    </div>
+                </div>
+                <div class="frame-item">
+                    <div class="frame-media">
+                        <video class="feature-video" data-src="https://static.cdn-luma.com/files/58ab7363888153e3/Exported%20Web%20Video.mp4" muted playsinline loop preload="none"></video>
+                    </div>
+                </div>
+                <div class="frame-item">
+                    <div class="frame-media">
+                        <video class="feature-video" data-src="https://static.cdn-luma.com/files/58ab7363888153e3/Logo%20Exported.mp4" muted playsinline loop preload="none"></video>
+                    </div>
+                </div>
+                <div class="frame-item">
+                    <div class="frame-media">
+                        <video class="feature-video" data-src="https://static.cdn-luma.com/files/58ab7363888153e3/Animation%20Exported%20(4).mp4" muted playsinline loop preload="none"></video>
+                    </div>
+                </div>
+                <div class="frame-item">
+                    <div class="frame-media">
+                        <video class="feature-video" data-src="https://static.cdn-luma.com/files/58ab7363888153e3/Illustration%20Exported%20(1).mp4" muted playsinline loop preload="none"></video>
+                    </div>
+                </div>
+                <div class="frame-item">
+                    <div class="frame-media">
+                        <video class="feature-video" data-src="https://static.cdn-luma.com/files/58ab7363888153e3/Art%20Direction%20Exported.mp4" muted playsinline loop preload="none"></video>
+                    </div>
+                </div>
+                <div class="frame-item">
+                    <div class="frame-media">
+                        <video class="feature-video" data-src="https://static.cdn-luma.com/files/58ab7363888153e3/Product%20Video.mp4" muted playsinline loop preload="none"></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="pack-container">
+            <div class="testimonials-header">
+                <span class="testimonials-pill">Kundenstimmen</span>
+                <h2 class="testimonials-title">Was unsere Kunden sagen</h2>
+                <p class="testimonials-subtitle">Erfahren Sie, wie Teams ihre Abläufe mit unserer Plattform optimieren.</p>
+            </div>
+            <div class="testimonials-columns" role="region" aria-label="Scrolling Kundenstimmen">
+                <div class="testimonials-col" style="--duration: 15s;">
+                    <ul>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Dieses ERP hat unsere Abläufe revolutioniert und Finanzen sowie Lagerhaltung gestrafft. Die Cloud‑Plattform hält uns auch remote produktiv.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150" alt="Briana Patton">
+                                <div>
+                                    <div class="testimonial-name">Briana Patton</div>
+                                    <div class="testimonial-role">Leitung Betrieb</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Die Implementierung dieses ERP war reibungslos und schnell. Die anpassbare, benutzerfreundliche Oberfläche machte das Team‑Training mühelos.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150" alt="Bilal Ahmed">
+                                <div>
+                                    <div class="testimonial-name">Bilal Ahmed</div>
+                                    <div class="testimonial-role">IT‑Leitung</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Das Support‑Team ist außergewöhnlich: Es hat uns durch die Einrichtung geführt und unterstützt uns laufend – zu unserer vollsten Zufriedenheit.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150" alt="Saman Malik">
+                                <div>
+                                    <div class="testimonial-name">Saman Malik</div>
+                                    <div class="testimonial-role">Leitung Kundenservice</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Dieses ERP hat unsere Abläufe revolutioniert und Finanzen sowie Lagerhaltung gestrafft. Die Cloud‑Plattform hält uns auch remote produktiv.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150" alt="Briana Patton">
+                                <div>
+                                    <div class="testimonial-name">Briana Patton</div>
+                                    <div class="testimonial-role">Leitung Betrieb</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Die Implementierung dieses ERP war reibungslos und schnell. Die anpassbare, benutzerfreundliche Oberfläche machte das Team‑Training mühelos.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150" alt="Bilal Ahmed">
+                                <div>
+                                    <div class="testimonial-name">Bilal Ahmed</div>
+                                    <div class="testimonial-role">IT‑Leitung</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Das Support‑Team ist außergewöhnlich: Es hat uns durch die Einrichtung geführt und unterstützt uns laufend – zu unserer vollsten Zufriedenheit.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150" alt="Saman Malik">
+                                <div>
+                                    <div class="testimonial-name">Saman Malik</div>
+                                    <div class="testimonial-role">Leitung Kundenservice</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="testimonials-col" style="--duration: 19s;">
+                    <ul>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Die nahtlose Integration dieses ERP hat unsere Prozesse und Effizienz verbessert. Sehr zu empfehlen dank der intuitiven Oberfläche.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150" alt="Hassan Ali">
+                                <div>
+                                    <div class="testimonial-name">Hassan Ali</div>
+                                    <div class="testimonial-role">E‑Commerce‑Manager</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Die robusten Funktionen und der schnelle Support haben unseren Workflow transformiert und uns deutlich effizienter gemacht.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150" alt="Zainab Hussain">
+                                <div>
+                                    <div class="testimonial-name">Zainab Hussain</div>
+                                    <div class="testimonial-role">Projektleitung</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Die reibungslose Implementierung hat alle Erwartungen übertroffen. Prozesse wurden gestrafft und die Gesamtleistung verbessert.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150" alt="Aliza Khan">
+                                <div>
+                                    <div class="testimonial-name">Aliza Khan</div>
+                                    <div class="testimonial-role">Business‑Analyst</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Die nahtlose Integration dieses ERP hat unsere Prozesse und Effizienz verbessert. Sehr zu empfehlen dank der intuitiven Oberfläche.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150" alt="Hassan Ali">
+                                <div>
+                                    <div class="testimonial-name">Hassan Ali</div>
+                                    <div class="testimonial-role">E‑Commerce‑Manager</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Die robusten Funktionen und der schnelle Support haben unseren Workflow transformiert und uns deutlich effizienter gemacht.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150" alt="Zainab Hussain">
+                                <div>
+                                    <div class="testimonial-name">Zainab Hussain</div>
+                                    <div class="testimonial-role">Projektleitung</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Die reibungslose Implementierung hat alle Erwartungen übertroffen. Prozesse wurden gestrafft und die Gesamtleistung verbessert.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150" alt="Aliza Khan">
+                                <div>
+                                    <div class="testimonial-name">Aliza Khan</div>
+                                    <div class="testimonial-role">Business‑Analyst</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="testimonials-col" style="--duration: 17s;">
+                    <ul>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Sie lieferten eine Lösung, die unsere Erwartungen übertraf, unsere Bedürfnisse verstand und unsere Abläufe stärkte.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150" alt="Sana Sheikh">
+                                <div>
+                                    <div class="testimonial-name">Sana Sheikh</div>
+                                    <div class="testimonial-role">Vertriebsleitung</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Die nahtlose Integration dieses ERP hat unsere Prozesse und Effizienz verbessert. Sehr zu empfehlen dank der intuitiven Oberfläche.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150" alt="Farhan Siddiqui">
+                                <div>
+                                    <div class="testimonial-name">Farhan Siddiqui</div>
+                                    <div class="testimonial-role">Marketingleitung</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Die nahtlose Integration dieses ERP hat unsere Prozesse und Effizienz verbessert. Sehr zu empfehlen dank der intuitiven Oberfläche.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150" alt="Omar Raza">
+                                <div>
+                                    <div class="testimonial-name">Omar Raza</div>
+                                    <div class="testimonial-role">CEO</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Sie lieferten eine Lösung, die unsere Erwartungen übertraf, unsere Bedürfnisse verstand und unsere Abläufe stärkte.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150" alt="Sana Sheikh">
+                                <div>
+                                    <div class="testimonial-name">Sana Sheikh</div>
+                                    <div class="testimonial-role">Vertriebsleitung</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Die nahtlose Integration dieses ERP hat unsere Prozesse und Effizienz verbessert. Sehr zu empfehlen dank der intuitiven Oberfläche.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150" alt="Farhan Siddiqui">
+                                <div>
+                                    <div class="testimonial-name">Farhan Siddiqui</div>
+                                    <div class="testimonial-role">Marketingleitung</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="testimonial-card spotlight-card">
+                            <p>Die nahtlose Integration dieses ERP hat unsere Prozesse und Effizienz verbessert. Sehr zu empfehlen dank der intuitiven Oberfläche.</p>
+                            <div class="testimonial-footer">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150" alt="Omar Raza">
+                                <div>
+                                    <div class="testimonial-name">Omar Raza</div>
+                                    <div class="testimonial-role">CEO</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR PROCESS -->
+    <section class="process-section">
+        <div class="pack-container">
+            <h2 class="process-title">Unser Prozess</h2>
+            <p class="process-subtitle">Jeder Schritt unseres Prozesses ist transparent und kollaborativ – Sie wissen immer, was wir tun, warum wir es tun und wie es Ihre Ergebnisse verbessert.</p>
+            <div class="process-grid">
+                <div class="process-card spotlight-card">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Analyse">
+                    <h3>Schritt 1 – Analyse &amp; Strategie‑Abgleich</h3>
+                    <p>Wir hören zu, bevor wir starten.</p>
+                    <ul>
+                        <li>Wählen Sie die Leistung, die zu Ihren Zielen passt – Google Ads, Website‑Erstellung oder LYNCK Partner.</li>
+                        <li>Buchen Sie eine kostenlose Beratung.</li>
+                        <li>Wir prüfen Ihre Unternehmensziele, Branche und Herausforderungen.</li>
+                        <li>Wir führen einen Kurz‑Audit durch (falls sinnvoll) und präsentieren einen maßgeschneiderten Aktionsplan.</li>
+                    </ul>
+                </div>
+                <div class="process-card spotlight-card">
+                    <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1200&auto=format&fit=crop" alt="Aufbau">
+                    <h3>Schritt 2 – Aufbau &amp; Optimierung</h3>
+                    <p>Wir bauen. Sie wachsen.</p>
+                    <ul>
+                        <li>Für Google Ads erstellen und optimieren wir Kampagnen passend zu Ihren Zielen.</li>
+                        <li>Für Easy‑Edit‑Websites designen und deployen wir Ihre Seite und übergeben ein Admin‑Dashboard.</li>
+                        <li>Für Partner‑Pakete starten wir Ihr individuelles Training und arbeiten gemeinsam an Live‑Kampagnen.</li>
+                        <li>Sie erhalten regelmäßige Updates, Strategie‑Calls (falls zutreffend) und transparente Reports.</li>
+                    </ul>
+                </div>
+                <div class="process-card spotlight-card">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1200&auto=format&fit=crop" alt="Übergabe">
+                    <h3>Schritt 3 – Übergabe, Support &amp; Wachstum</h3>
+                    <p>Wir liefern nicht nur – wir befähigen.</p>
+                    <ul>
+                        <li>Nach Abschluss Ihres Projekts oder Trainings liefern wir detaillierte Dokumentation und Insights.</li>
+                        <li>Unser Support bleibt verfügbar, um Anpassungen, Updates oder Skalierung zu unterstützen.</li>
+                        <li>Für Training‑Kunden bieten wir bis zu 12 Monate Mentoring nach dem Programm.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / FOOTER-STYLE SECTION -->
+    <section class="contact-section" id="terminal">
+        <div class="contact-orbit"></div>
+        <div class="pack-container contact-grid">
+            <div class="contact-card">
+                <h4>Kontakt</h4>
+                <h2>Lassen Sie uns gemeinsam etwas Großartiges schaffen</h2>
+                <p>Bereit, Ihr Marketing zu skalieren? Wir freuen uns, Ihre Ziele kennenzulernen und gemeinsam zu prüfen, wie wir sie erreichen.</p>
+                <div class="contact-actions">
+                    <span class="contact-pill">info@lynckstudio.pro</span>
+                    <a href="#" class="contact-btn">Termin vereinbaren</a>
+                </div>
+                <div class="contact-social">
+                    <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+                    <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">ig</a>
+                </div>
+            </div>
+            <div class="contact-card contact-links">
+                <h3>Schnellzugriff</h3>
+                <span class="chip">Über LYNCK</span>
+                <ul>
+                    <li>Unsere Leistungen</li>
+                </ul>
+                <div class="contact-divider"></div>
+                <h3>Leistungen</h3>
+                <ul>
+                    <li>Digitales Marketing</li>
+                    <li>Webentwicklung</li>
+                    <li>Markenstrategie</li>
+                    <li>SEO‑Optimierung</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div><div class="logo">LYNCK.</div><p>© 2025 Obelisk Systems Inc.</p></div>
+                <div style="display:flex; gap: 2rem; font-size: 1.2rem;"><a href="#">Rechtliches</a><a href="#">Twitter</a><a href="#">GitHub</a><a href="#">Status</a></div>
+            </div>
+            <div class="footer-big">LYNCK</div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        ;
+
+        // --- 2. SPOTLIGHT ---
+        const cardsContainer = document.getElementById("cards");
+        if (cardsContainer) {
+            cardsContainer.addEventListener("mousemove", (e) => {
+                for (const card of document.getElementsByClassName("tech-card")) {
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+                    card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+                }
+            });
+        }
+
+        const spotlightCards = document.querySelectorAll('.spotlight-card');
+        if (spotlightCards.length) {
+            window.addEventListener('mousemove', (e) => {
+                spotlightCards.forEach((card) => {
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                });
+            });
+        }
+
+        // --- 2.1 FEATURE FRAME GRID ---
+        (() => {
+            const grid = document.getElementById('featureFrameGrid');
+            if (!grid) return;
+            const items = Array.from(grid.querySelectorAll('.frame-item'));
+            if (!items.length) return;
+            const hoverSize = 6;
+
+            const isCompact = () => window.matchMedia('(max-width: 1024px)').matches;
+            const isTouch = () => window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+            const setGrid = (row, col) => {
+                if (isCompact()) return;
+                const nonHovered = (12 - hoverSize) / 2;
+                const sizes = [0, 1, 2].map((i) => (i === row ? `${hoverSize}fr` : `${nonHovered}fr`));
+                const cols = [0, 1, 2].map((i) => (i === col ? `${hoverSize}fr` : `${nonHovered}fr`));
+                grid.style.gridTemplateRows = sizes.join(' ');
+                grid.style.gridTemplateColumns = cols.join(' ');
+            };
+
+            const resetGrid = () => {
+                if (isCompact()) return;
+                grid.style.gridTemplateRows = '4fr 4fr 4fr';
+                grid.style.gridTemplateColumns = '4fr 4fr 4fr';
+            };
+
+            const activateItem = (item, row, col) => {
+                items.forEach((i) => i.classList.remove('is-hovered'));
+                item.classList.add('is-hovered');
+                setGrid(row, col);
+                items.forEach((i) => {
+                    if (i !== item) {
+                        const vid = i.querySelector('video');
+                        if (vid) vid.pause();
+                    }
+                });
+                const video = item.querySelector('video');
+                if (video) {
+                    if (!video.src) {
+                        video.src = video.dataset.src || "";
+                        if (video.src) video.load();
+                    }
+                    video.play().catch(() => {});
+                }
+            };
+
+            const deactivateItem = (item) => {
+                if (!isTouch()) {
+                    item.classList.remove('is-hovered');
+                    resetGrid();
+                }
+                const video = item.querySelector('video');
+                if (video) video.pause();
+            };
+
+            const syncLayout = () => {
+                if (isCompact()) {
+                    grid.style.removeProperty('grid-template-rows');
+                    grid.style.removeProperty('grid-template-columns');
+                } else {
+                    resetGrid();
+                }
+            };
+
+            items.forEach((item, index) => {
+                const row = Math.floor(index / 3);
+                const col = index % 3;
+                item.addEventListener('mouseenter', () => {
+                    if (isTouch()) return;
+                    activateItem(item, row, col);
+                });
+                item.addEventListener('mouseleave', () => {
+                    if (isTouch()) return;
+                    deactivateItem(item);
+                });
+                item.addEventListener('click', (event) => {
+                    if (!isTouch()) return;
+                    event.preventDefault();
+                    activateItem(item, row, col);
+                });
+            });
+
+            window.addEventListener('resize', syncLayout);
+            syncLayout();
+        })();
+
+        // Lazy-load + pause feature videos when offscreen
+        (() => {
+            const videos = Array.from(document.querySelectorAll('.feature-video'));
+            if (!videos.length) return;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    const video = entry.target;
+                    if (entry.isIntersecting) {
+                        if (!video.src && video.dataset.src) {
+                            video.src = video.dataset.src;
+                            video.load();
+                        }
+                        if (video.closest('.frame-item')?.classList.contains('is-hovered')) {
+                            video.play().catch(() => {});
+                        }
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, { rootMargin: "200px 0px", threshold: 0.25 });
+
+            videos.forEach((video) => {
+                video.pause();
+                observer.observe(video);
+            });
+        })();
+
+        // --- 3. PIPELINE ---
+        const races = document.querySelector(".pin-wrap");
+        const getScrollAmount = () => -(races.scrollWidth - window.innerWidth);
+        const tween = gsap.to(races, { x: getScrollAmount, ease: "none" });
+        ScrollTrigger.create({ trigger: ".pipeline-section", start: "top top", end: () => `+=${races.scrollWidth - window.innerWidth}`, pin: true, animation: tween, scrub: 1, invalidateOnRefresh: true });
+        
+        // Revised Parallax to utilize scale buffer
+        gsap.utils.toArray('.horiz-img').forEach(img => { 
+            gsap.fromTo(img, 
+                { xPercent: -15 }, 
+                { 
+                    xPercent: 15, 
+                    ease: "none", 
+                    scrollTrigger: { 
+                        trigger: ".pipeline-section", 
+                        start: "top top", 
+                        end: () => `+=${races.scrollWidth - window.innerWidth}`, 
+                        scrub: true 
+                    } 
+                }
+            ); 
+        });
+
+        // --- 4. NEURAL GRID ---
+        const grid = document.getElementById('neuralGrid');
+        const cols = Math.ceil(window.innerWidth / 30);
+        const rows = Math.ceil((window.innerHeight * 1.5) / 30);
+        const totalDots = cols * rows;
+
+        for(let i=0; i<totalDots; i++) { 
+            const dot = document.createElement('div'); 
+            dot.classList.add('neural-dot'); 
+            grid.appendChild(dot); 
+        }
+
+        const neuralSection = document.querySelector('.neural-section');
+        neuralSection.addEventListener('mousemove', (e) => {
+            const dots = document.querySelectorAll('.neural-dot'); 
+            const rect = grid.getBoundingClientRect(); 
+            const mx = e.clientX - rect.left; 
+            const my = e.clientY - rect.top;
+            
+            const radius = 350;
+
+            dots.forEach(dot => {
+                const dotRect = dot.getBoundingClientRect();
+                const dx = (dotRect.left - rect.left) - mx; 
+                const dy = (dotRect.top - rect.top) - my;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                
+                if(dist < radius) {
+                    const force = (radius - dist) / radius; 
+                    const angle = Math.atan2(dy, dx);
+                    const moveX = Math.cos(angle) * force * 50;
+                    const moveY = Math.sin(angle) * force * 50;
+                    dot.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                    dot.style.background = 'rgba(12,23,48,0.5)';
+                } else {
+                    dot.style.transform = `translate(0,0)`;
+                    dot.style.background = 'rgba(12,23,48,0.2)';
+                }
+            });
+        });
+
+        // --- 5. SYSTEM PULSE ---
+        const chartArea = document.getElementById('liveChart');
+        for(let i=0; i<30; i++) {
+            const bar = document.createElement('div');
+            bar.classList.add('chart-bar');
+            bar.style.animationDelay = `${Math.random() * 2}s`;
+            chartArea.appendChild(bar);
+        }
+
+        // --- 8. FOOTER ---
+        ScrollTrigger.create({ trigger: document.body, start: "bottom bottom", onEnter: () => document.body.classList.add('reveal-active'), onLeaveBack: () => document.body.classList.remove('reveal-active') });
+
+        // --- NAV DROPDOWNS ---
+        (() => {
+            const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
+            if (!dropdowns.length) return;
+            dropdowns.forEach((dropdown) => {
+                const button = dropdown.querySelector('.nav-pill');
+                if (!button) return;
+                button.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    dropdowns.forEach((d) => { if (d !== dropdown) d.classList.remove('open'); });
+                    dropdown.classList.toggle('open');
+                });
+            });
+            document.addEventListener('click', () => {
+                dropdowns.forEach((d) => d.classList.remove('open'));
+            });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    dropdowns.forEach((d) => d.classList.remove('open'));
+                }
+            });
+        })();
+
+        // --- CONTACT BUTTON ---
+        (() => {
+            const buttons = document.querySelectorAll('[data-contact-btn]');
+            if (!buttons.length) return;
+            const getLang = () => {
+                try {
+                    const stored = localStorage.getItem('language');
+                    if (stored === 'de') return 'de';
+                } catch (e) {}
+                return window.location.pathname.includes('/de/') ? 'de' : 'en';
+            };
+            buttons.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const lang = getLang();
+                    const target = lang === 'de' ? '/de/contact.html' : '/contact.html';
+                    window.location.href = target;
+                });
+            });
+        })();
+
+        // --- LANGUAGE SWITCH ---
+        (() => {
+            const langButtons = document.querySelectorAll('[data-lang-switch]');
+            if (!langButtons.length) return;
+            const getLang = () => {
+                try {
+                    const stored = localStorage.getItem('language');
+                    if (stored === 'de') return 'de';
+                } catch (e) {}
+                return window.location.pathname.includes('/de/') ? 'de' : 'en';
+            };
+            langButtons.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.getAttribute('data-lang-switch') || getLang();
+                    try {
+                        localStorage.setItem('language', lang);
+                    } catch (e) {}
+                    const dropdown = btn.closest('.nav-dropdown');
+                    if (dropdown) {
+                        dropdown.classList.remove('open');
+                    }
+                    const target = lang === 'de' ? '/de/index.html' : '/index.html';
+                    window.location.href = target;
+                });
+            });
+        })();
+
+        // --- HOME BUTTON ---
+        (() => {
+            const homeButtons = document.querySelectorAll('[data-home-btn]');
+            if (!homeButtons.length) return;
+            const getLang = () => {
+                try {
+                    const stored = localStorage.getItem('language');
+                    if (stored === 'de') return 'de';
+                } catch (e) {}
+                return window.location.pathname.includes('/de/') ? 'de' : 'en';
+            };
+            homeButtons.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const lang = getLang();
+                    const target = lang === 'de' ? '/de/index.html' : '/index.html';
+                    window.location.href = target;
+                });
+            });
+        })();
+
+        // --- HERO FALLBACK ---
+        (() => {
+            const frame = document.querySelector('.hero-embed-frame');
+            const fallback = document.getElementById('heroFallback');
+            if (!frame || !fallback) return;
+            frame.addEventListener('load', () => {
+                fallback.classList.add('is-hidden');
+                window.setTimeout(() => {
+                    fallback.remove();
+                }, 700);
+            });
+        })();
+
+    </script>
+
+</body></html>
