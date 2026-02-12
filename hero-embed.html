@@ -29,7 +29,17 @@
     <!-- Babel for JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
-    body { margin: 0; padding: 0; background-color: #050505; overflow: hidden; font-family: 'Inter', sans-serif; }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #050505;
+      background-image: url("assets/hero-bg-glass-sphere.jpeg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
     #root { width: 100vw; height: 100vh; }
     /* Error overlay */
     #error-overlay { display: none; }
@@ -40,7 +50,6 @@
         <div id="error-overlay" class="fixed inset-0 z-[10000] flex items-center justify-center bg-black text-red-500 p-10 font-mono text-xs">
             System Malfunction. Check Console.
         </div>
-
 
         <!-- React Root -->
         <div id="root"></div>
@@ -124,6 +133,7 @@
                 const scroll = useScroll();
                 const titleGroup = useRef();
                 const titleRefs = useRef([]);
+                const ctaRef = useRef();
                 const scrollSmooth = useRef(0);
                 const [ctaLabel, setCtaLabel] = useState(() => getCtaLabel());
 
@@ -169,6 +179,12 @@
                         titleRefs.current[2].material.opacity = opacity;
                     }
 
+                    // Fade CTA out as scroll approaches the section handoff.
+                    if (ctaRef.current) {
+                        const ctaFade = THREE.MathUtils.clamp((scrollSmooth.current - 0.74) / 0.2, 0, 1);
+                        ctaRef.current.material.opacity = 1 - ctaFade;
+                    }
+
                     // DOM Updates (removed overlay UI)
                 });
 
@@ -182,7 +198,10 @@
                                     fontSize={1.2}
                                     letterSpacing={-0.08}
                                     color="#ffffff"
+                                    renderOrder={30}
                                     material-transparent={true}
+                                    material-depthWrite={false}
+                                    material-depthTest={false}
                                     material-toneMapped={false}
                                     outlineWidth={0}
                                     outlineOpacity={0}
@@ -199,7 +218,10 @@
                                     fontSize={1.2}
                                     letterSpacing={-0.08}
                                     color="#ffffff"
+                                    renderOrder={31}
                                     material-transparent={true}
+                                    material-depthWrite={false}
+                                    material-depthTest={false}
                                     material-toneMapped={false}
                                     outlineWidth={0}
                                     outlineOpacity={0}
@@ -216,7 +238,10 @@
                                     fontSize={1.2}
                                     letterSpacing={-0.08}
                                     color="#ffffff"
+                                    renderOrder={32}
                                     material-transparent={true}
+                                    material-depthWrite={false}
+                                    material-depthTest={false}
                                     material-toneMapped={false}
                                     outlineWidth={0}
                                     outlineOpacity={0}
@@ -237,10 +262,12 @@
                         <Sparkles count={200} scale={[15, 15, 30]} size={2} speed={0.4} opacity={0.3} color="#ffffff" position={[0, 0, -10]} />
 
                         <Text
+                            ref={ctaRef}
                             position={[0, 0, -28]}
                             fontSize={0.4}
                             letterSpacing={0.1}
                             color="#ffffff"
+                            material-transparent={true}
                             material-toneMapped={false}
                             outlineWidth={0}
                             outlineOpacity={0}

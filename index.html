@@ -102,10 +102,10 @@ justify-content: space-between;
 gap: 1.5rem;
 padding: 0.45rem 0.9rem;
 border-radius: 999px;
-background: rgba(8, 10, 15, 0.72);
-border: 1px solid rgba(255,255,255,0.12);
-backdrop-filter: blur(16px);
-box-shadow: 0 12px 30px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.03);
+background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.55);
 flex: 1;
 min-width: 0;
 }
@@ -124,29 +124,33 @@ transition: transform 0.2s ease, border-color 0.2s ease;
 margin-left: -0.75rem;
 }
 .lynck-partner-badge {
-width: 72px;
-height: 72px;
-border-radius: 999px;
-border: 1px solid rgba(255, 255, 255, 0.18);
-background: rgba(8, 10, 15, 0.8);
-display: inline-flex;
-align-items: center;
-justify-content: center;
-overflow: hidden;
-box-shadow: 0 12px 24px rgba(0,0,0,0.45);
-transition: transform 0.2s ease, border-color 0.2s ease;
-margin-right: -0.75rem;
-}
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.68);
+      background: rgba(255, 255, 255, 0.36);
+      backdrop-filter: blur(14px) saturate(1.2);
+      -webkit-backdrop-filter: blur(14px) saturate(1.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      margin-right: -0.75rem;
+    }
 .lynck-partner-badge img {
-width: 70%;
-height: 70%;
-object-fit: contain;
-display: block;
-}
+      width: 84%;
+      height: 84%;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+    }
 .lynck-partner-badge:hover {
-transform: scale(1.04);
-border-color: rgba(255, 255, 255, 0.4);
-}
+      transform: translateY(-2px) scale(1.03);
+      border-color: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.48);
+    }
 .lynck-home-logo img {
 width: 100%;
 height: 100%;
@@ -177,15 +181,15 @@ align-items: center;
 justify-content: center;
 border-radius: 8px;
 border: 1px solid rgba(255,255,255,0.12);
-background: rgba(255,255,255,0.05);
-color: rgba(255,255,255,0.7);
+background: rgba(255, 255, 255, 0.72);
+color: rgba(15, 23, 42, 0.82);
 transition: 0.2s ease;
 }
 .nav-social a:hover,
-.nav-social button:hover {
-color: #fff;
-border-color: rgba(255,255,255,0.35);
-background: rgba(255,255,255,0.1);
+    .nav-social button:hover {
+      color: #0f172a;
+      border-color: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.92);
 }
 .nav-pill {
 display: inline-flex;
@@ -193,9 +197,9 @@ align-items: center;
 gap: 0.4rem;
 padding: 0.35rem 0.7rem;
 border-radius: 999px;
-background: rgba(255,255,255,0.06);
+background: rgba(255, 255, 255, 0.72);
 border: 1px solid rgba(255,255,255,0.12);
-color: rgba(255,255,255,0.8);
+color: rgba(15, 23, 42, 0.78);
 font-size: 0.8rem;
 cursor: pointer;
 transition: 0.2s ease;
@@ -206,7 +210,7 @@ width: 0;
 height: 0;
 border-left: 4px solid transparent;
 border-right: 4px solid transparent;
-border-top: 5px solid rgba(255,255,255,0.7);
+border-top: 5px solid rgba(15, 23, 42, 0.7);
 }
 .nav-dropdown { position: relative; }
 .nav-dropdown-menu {
@@ -242,7 +246,7 @@ border: 0;
 display: flex;
 align-items: center;
 gap: 1.4rem;
-color: rgba(255,255,255,0.72);
+color: rgba(15, 23, 42, 0.82);
 font-size: 0.88rem;
 }
 .lynck-nav-links a,
@@ -322,7 +326,7 @@ align-items: center;
 justify-content: center;
 background:
 radial-gradient(circle at 20% 20%, rgba(64, 130, 255, 0.15), rgba(5, 5, 5, 0.95) 60%),
-url('assets/hero-cube.jpeg') center/cover no-repeat;
+url('assets/hero-bg-glass-sphere.jpeg') center/cover no-repeat;
 transition: opacity 0.6s ease;
 }
 .hero-embed-fallback::after {
@@ -354,6 +358,49 @@ background: #050505;
 position: relative;
 z-index: 2;
 }
+.hero-scramble-stack {
+position: absolute;
+left: clamp(14px, 2.8vw, 46px);
+bottom: clamp(18px, 4vh, 62px);
+z-index: 3;
+width: min(40vw, 430px);
+max-width: calc(100vw - 28px);
+pointer-events: none;
+}
+.hero-scramble-list {
+margin: 0;
+padding: 0;
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 0.38rem;
+pointer-events: auto;
+}
+.hero-scramble-line {
+display: block;
+font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+font-size: clamp(11px, 1.08vw, 16px);
+font-weight: 600;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #ffffff;
+line-height: 1.2;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+@media (max-width: 900px) {
+  .hero-scramble-stack {
+    width: min(65vw, 370px);
+  }
+  .hero-scramble-list {
+    padding: 0;
+    gap: 0.26rem;
+  }
+  .hero-scramble-line {
+    font-size: clamp(10px, 2.6vw, 13px);
+  }
+}
 .lock-icon { font-size: 3rem; margin-bottom: 10px; border: 2px solid var(--accent); padding: 10px; border-radius: 50%; }
 .face::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: #fff; box-shadow: 0 0 15px #fff, 0 0 30px var(--accent); animation: scan 3s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; }
 @keyframes scan { 0% { top: 0%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
@@ -363,11 +410,58 @@ z-index: 2;
 @keyframes blinkRack { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
 /* --- MARQUEE --- */
 .stream-bar {
-background: var(--accent); color: #f1efe6; padding: 1rem 0; font-family: var(--font-head); font-size: 1.4rem; font-weight: 600;
-overflow: hidden; white-space: nowrap; position: relative; z-index: 2; border-top: 1px solid rgba(12,23,48,0.15); border-bottom: 1px solid rgba(12,23,48,0.15);
+background: var(--accent);
+padding: 1rem 0;
+overflow: hidden;
+position: relative;
+z-index: 2;
+border-top: 1px solid rgba(12,23,48,0.15);
+border-bottom: 1px solid rgba(12,23,48,0.15);
+mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+-webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
 }
-.stream-track { display: inline-block; animation: marquee 10s linear infinite; }
-@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.stream-track {
+display: flex;
+width: max-content;
+align-items: center;
+animation: marquee-loop 20s linear infinite;
+will-change: transform;
+transform: translate3d(0, 0, 0);
+gap: 0;
+font-size: 0;
+}
+.stream-group {
+display: flex;
+flex-shrink: 0;
+align-items: center;
+}
+.stream-item {
+display: inline-flex;
+align-items: center;
+font-family: var(--font-head);
+font-size: clamp(1rem, 1.55vw, 2.1rem);
+font-weight: 600;
+letter-spacing: 0.02em;
+text-transform: uppercase;
+white-space: nowrap;
+gap: clamp(0.7rem, 1.3vw, 1.3rem);
+margin-right: clamp(2.9rem, 5.2vw, 6.4rem);
+}
+.stream-item::before,
+.stream-item::after {
+content: "//";
+color: rgba(255, 255, 255, 0.52);
+font-weight: 700;
+letter-spacing: 0;
+}
+.stream-group .stream-item:nth-child(4n+1) { color: #ffffff; }
+.stream-group .stream-item:nth-child(4n+2) { color: #ffe1bf; }
+.stream-group .stream-item:nth-child(4n+3) { color: #ffd7ef; }
+.stream-group .stream-item:nth-child(4n+4) { color: #fff4b8; }
+@keyframes marquee-loop {
+0% { transform: translate3d(0, 0, 0); }
+100% { transform: translate3d(-50%, 0, 0); }
+}
 /* --- FEATURES GRID --- */
 .section-grid {
 padding: 8rem 0; position: relative; background: var(--bg); z-index: 2; border-top: 1px solid rgba(12,23,48,0.12); overflow: hidden;
@@ -749,11 +843,32 @@ footer { height: auto; }
             <div class="hero-embed-fallback-content"></div>
         </div>
         <iframe class="hero-embed-frame" src="/hero-embed.html?lang=en" title="LYNCK STUDIO PRO Hero" loading="eager" fetchpriority="high"></iframe>
+        <div class="hero-scramble-stack">
+            <ul class="hero-scramble-list" data-hero-scramble>
+                <li><span class="hero-scramble-line" data-scramble-line data-text="Google ads">Google ads</span></li>
+                <li><span class="hero-scramble-line" data-scramble-line data-text="Meta ads">Meta ads</span></li>
+                <li><span class="hero-scramble-line" data-scramble-line data-text="Performance">Performance</span></li>
+                <li><span class="hero-scramble-line" data-scramble-line data-text="Branding">Branding</span></li>
+                <li><span class="hero-scramble-line" data-scramble-line data-text="Content Creation">Content Creation</span></li>
+                <li><span class="hero-scramble-line" data-scramble-line data-text="Influencer marketing">Influencer marketing</span></li>
+            </ul>
+        </div>
     </header>
 
     <div class="stream-bar">
-        <div class="stream-track">
-             // SYSTEM STATUS: OPTIMAL // UPTIME: 99.9999% // NODES ACTIVE: 4,021,202 // LATENCY: 12MS // THREAT LEVEL: 0 // ENCRYPTION: MIL-STD-810 // SYSTEM STATUS: OPTIMAL // UPTIME: 99.9999% //
+        <div class="stream-track" aria-label="Key Stats">
+            <div class="stream-group">
+                <span class="stream-item">4 years of expertise</span>
+                <span class="stream-item">77 brands</span>
+                <span class="stream-item">39 industries</span>
+                <span class="stream-item">8 countries</span>
+            </div>
+            <div class="stream-group" aria-hidden="true">
+                <span class="stream-item">4 years of expertise</span>
+                <span class="stream-item">77 brands</span>
+                <span class="stream-item">39 industries</span>
+                <span class="stream-item">8 countries</span>
+            </div>
         </div>
     </div>
 
@@ -1589,6 +1704,80 @@ footer { height: auto; }
             });
         })();
 
+        // --- HERO SCRAMBLE TEXT ---
+        (() => {
+            const lines = Array.from(document.querySelectorAll('[data-scramble-line]'));
+            if (!lines.length) return;
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const characterSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+            const scrambleTo = (line, targetText, duration = 620) => {
+                if (prefersReducedMotion) {
+                    line.textContent = targetText;
+                    return;
+                }
+
+                const totalFrames = Math.max(12, Math.floor(duration / 16));
+                let frame = 0;
+
+                const update = () => {
+                    frame += 1;
+                    const progress = frame / totalFrames;
+                    const revealCount = Math.floor(progress * targetText.length);
+                    let output = '';
+
+                    for (let i = 0; i < targetText.length; i += 1) {
+                        const character = targetText[i];
+                        if (character === ' ' || i < revealCount) {
+                            output += character;
+                        } else {
+                            output += characterSet[Math.floor(Math.random() * characterSet.length)];
+                        }
+                    }
+
+                    line.textContent = output;
+
+                    if (frame < totalFrames) {
+                        requestAnimationFrame(update);
+                    } else {
+                        line.textContent = targetText;
+                    }
+                };
+
+                requestAnimationFrame(update);
+            };
+
+            const runSequence = () => {
+                lines.forEach((line, index) => {
+                    const targetText = line.getAttribute('data-text') || line.textContent || '';
+                    window.setTimeout(() => {
+                        scrambleTo(line, targetText, 640);
+                    }, index * 90);
+                });
+            };
+
+            runSequence();
+
+            const randomCycle = window.setInterval(() => {
+                const line = lines[Math.floor(Math.random() * lines.length)];
+                const targetText = line.getAttribute('data-text') || line.textContent || '';
+                scrambleTo(line, targetText, 520);
+            }, 2800);
+
+            const wrapper = document.querySelector('[data-hero-scramble]');
+            if (wrapper) {
+                wrapper.addEventListener('mouseenter', runSequence);
+                wrapper.addEventListener('focusin', runSequence);
+                wrapper.addEventListener('touchstart', runSequence, { passive: true });
+            }
+
+            window.addEventListener('beforeunload', () => {
+                window.clearInterval(randomCycle);
+            });
+        })();
+
     </script>
 
+  <script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
 </body></html>
