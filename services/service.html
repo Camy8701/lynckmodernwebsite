@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Detail | LYNCK Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060a14;
+      --panel: rgba(12, 18, 32, 0.86);
+      --panel-soft: rgba(16, 24, 40, 0.62);
+      --line: rgba(255, 255, 255, 0.14);
+      --text: #e8eefc;
+      --muted: #afbdd8;
+      --accent: #7aa7ff;
+      --accent-2: #ff8a4d;
+      --shadow: 0 18px 56px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Manrope", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 550px at 12% -6%, rgba(122, 167, 255, 0.25), transparent 62%),
+        radial-gradient(900px 500px at 95% 4%, rgba(255, 138, 77, 0.22), transparent 58%),
+        var(--bg);
+    }
+
+    .shell { width: min(1140px, calc(100% - 2.4rem)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 14px;
+      z-index: 50;
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(10, 15, 26, 0.74);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      padding: 0.55rem 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.68rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .menu {
+      display: flex;
+      gap: 0.62rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .menu a {
+      text-decoration: none;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.5rem 0.82rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .menu a.primary {
+      border-color: rgba(122, 167, 255, 0.7);
+      background: linear-gradient(120deg, rgba(122, 167, 255, 0.2), rgba(255, 138, 77, 0.18));
+    }
+
+    main { padding: 2rem 0 3.4rem; }
+
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(13, 20, 36, 0.95), rgba(8, 12, 22, 0.92));
+      padding: clamp(1.35rem, 2.6vw, 2rem);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -120px -80px auto auto;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(122, 167, 255, 0.28), transparent 68%);
+      z-index: -1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      border: 1px solid rgba(122, 167, 255, 0.5);
+      color: #d6e4ff;
+      background: rgba(122, 167, 255, 0.12);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.38rem 0.62rem;
+      border-radius: 999px;
+      margin-bottom: 0.9rem;
+    }
+
+    h1 {
+      margin: 0 0 0.6rem;
+      font-size: clamp(1.9rem, 4vw, 3.1rem);
+      line-height: 1.07;
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 72ch;
+      color: var(--muted);
+      font-size: clamp(0.98rem, 1.6vw, 1.1rem);
+      line-height: 1.6;
+    }
+
+    .grid {
+      margin-top: 1.15rem;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 1rem;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--panel);
+      padding: 1rem 1rem 1.05rem;
+    }
+
+    .card h2 {
+      margin: 0 0 0.62rem;
+      font-size: 1.03rem;
+      letter-spacing: 0.02em;
+      color: #f2f7ff;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    li {
+      position: relative;
+      padding-left: 0.88rem;
+      margin-top: 0.42rem;
+      color: #d4def0;
+      line-height: 1.44;
+      font-size: 0.94rem;
+    }
+
+    li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      position: absolute;
+      left: 0;
+      top: 0.53rem;
+    }
+
+    .outcome {
+      margin-top: 0.72rem;
+      padding: 0.72rem 0.8rem;
+      border-radius: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: var(--panel-soft);
+      color: #ebf2ff;
+      font-size: 0.92rem;
+    }
+
+    .steps {
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(14, 22, 38, 0.86);
+      padding: 1rem;
+    }
+
+    .steps h2 {
+      margin: 0 0 0.7rem;
+      font-size: 1.03rem;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.6rem;
+    }
+
+    .step {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 0.72rem;
+      min-height: 130px;
+    }
+
+    .step .num {
+      display: inline-block;
+      margin-bottom: 0.4rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      color: #8fb4ff;
+    }
+
+    .step h3 {
+      margin: 0 0 0.4rem;
+      font-size: 0.92rem;
+      line-height: 1.22;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .cta-row {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-row a {
+      text-decoration: none;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      padding: 0.62rem 1rem;
+      color: #eaf1ff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.01em;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .cta-row a.primary {
+      border-color: rgba(122, 167, 255, 0.72);
+      background: linear-gradient(120deg, rgba(122, 167, 255, 0.2), rgba(255, 138, 77, 0.2));
+    }
+
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+      .step-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 620px) {
+      .shell { width: min(1140px, calc(100% - 1.2rem)); }
+      .topbar { top: 8px; margin-top: 8px; }
+      .step-grid { grid-template-columns: 1fr; }
+      .menu { gap: 0.42rem; }
+      .menu a { padding: 0.42rem 0.62rem; font-size: 0.77rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/index.html" aria-label="Back to Home">
+        <img src="/assets/lynck-logo.png" alt="LYNCK Studio">
+        <span>LYNCK Studio</span>
+      </a>
+      <nav class="menu" aria-label="Service page navigation">
+        <a href="/index.html">Home</a>
+        <a href="/contact.html">Contact</a>
+        <a id="langSwitch" href="/de/services/service.html" rel="nofollow">DE</a>
+        <a class="primary" href="/index.html#services">All services</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="serviceDetail">
+        <span class="eyebrow">Service Detail</span>
+        <h1 id="serviceTitle">Google Ads &amp; Performance Marketing</h1>
+        <p class="lede" id="serviceLede">Build predictable revenue through structured, intent-driven campaign systems.</p>
+
+        <div class="grid">
+          <article class="card">
+            <h2>What this includes</h2>
+            <ul id="serviceList"></ul>
+            <p class="outcome" id="serviceOutcome"></p>
+          </article>
+
+          <article class="card">
+            <h2>Execution focus</h2>
+            <ul id="serviceFocus"></ul>
+          </article>
+        </div>
+
+        <section class="steps">
+          <h2>How we run this service</h2>
+          <div class="step-grid" id="serviceSteps"></div>
+        </section>
+
+        <div class="cta-row">
+          <a class="primary" href="/contact.html">Start your project</a>
+          <a href="/index.html#services">Back to services</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const SERVICE_DATA = {
+      "google-ads": {
+        title: "Google Ads & Performance Marketing",
+        lede: "Build predictable revenue through structured, intent-driven campaign systems.",
+        includes: [
+          "Campaign architecture and account restructuring",
+          "Smart bidding strategy with CPA and ROAS guardrails",
+          "Conversion tracking, GA4 and attribution validation",
+          "Continuous test roadmap for creative and targeting"
+        ],
+        focus: [
+          "Capture high-intent demand across Search, PMax and YouTube",
+          "Map every campaign to a clear business objective",
+          "Reduce wasted spend and protect margin",
+          "Scale winners with controlled budget expansion"
+        ],
+        outcome: "Outcome: Profitable, measurable growth with clean reporting.",
+        steps: [
+          ["01", "Audit", "We benchmark account health, conversion flow and budget efficiency."],
+          ["02", "Structure", "We rebuild campaigns around intent, offer and target CPA."],
+          ["03", "Launch", "We deploy tests fast and monitor signal quality daily."],
+          ["04", "Scale", "We amplify winning segments and cut low-return spend quickly."]
+        ]
+      },
+      "meta-ads": {
+        title: "Meta Ads & Paid Social",
+        lede: "Turn attention into qualified demand with creative-led paid social systems.",
+        includes: [
+          "Creative testing matrix for hooks, angles and offers",
+          "Audience expansion with retargeting layers",
+          "Funnel-aware campaign planning",
+          "Weekly performance optimization and reporting"
+        ],
+        focus: [
+          "Shorten learning cycles through structured experimentation",
+          "Connect ad creative to funnel stage and intent",
+          "Control CAC while improving lead quality",
+          "Build a repeatable paid social growth engine"
+        ],
+        outcome: "Outcome: Lower acquisition costs and stronger market presence.",
+        steps: [
+          ["01", "Research", "We identify audience clusters and buying triggers."],
+          ["02", "Creative", "We ship multiple ad angles for parallel testing."],
+          ["03", "Optimize", "We refine targeting, bids and placements by signal."],
+          ["04", "Scale", "We increase volume only where economics remain healthy."]
+        ]
+      },
+      "ai-content": {
+        title: "AI Content & Creative Production",
+        lede: "Scale content speed and quality with AI-enhanced production workflows.",
+        includes: [
+          "AI video and visual asset production",
+          "Performance ad creative for paid channels",
+          "Conversion-focused copy systems",
+          "Rapid multi-variant content generation"
+        ],
+        focus: [
+          "Increase testing velocity without quality loss",
+          "Create channel-native assets for each platform",
+          "Use data feedback to iterate creative direction",
+          "Align messaging with funnel intent"
+        ],
+        outcome: "Outcome: Faster execution, more tests, better performance clarity.",
+        steps: [
+          ["01", "Brief", "We define offer, audience and output targets."],
+          ["02", "Generate", "We produce asset variations at high speed."],
+          ["03", "Validate", "We quality-check brand fit and conversion logic."],
+          ["04", "Deploy", "We launch winners into paid and owned channels."]
+        ]
+      },
+      "ugc-influencer": {
+        title: "UGC & Influencer Marketing",
+        lede: "Build trust-led acquisition through structured creator partnerships.",
+        includes: [
+          "Creator sourcing and qualification",
+          "Performance-first collaboration setup",
+          "Paid + organic content repurposing",
+          "Amplification strategy across channels"
+        ],
+        focus: [
+          "Use authentic voice to improve conversion confidence",
+          "Integrate creator assets into ad testing",
+          "Standardize briefing and delivery quality",
+          "Track creator output against business KPIs"
+        ],
+        outcome: "Outcome: Authentic engagement that converts and scales.",
+        steps: [
+          ["01", "Source", "We match creators to your audience and offer."],
+          ["02", "Brief", "We provide scripts, hooks and quality standards."],
+          ["03", "Launch", "We deploy content in paid and organic workflows."],
+          ["04", "Optimize", "We scale creators and concepts that drive ROI."]
+        ]
+      },
+      "web-systems": {
+        title: "Conversion-Focused Web Systems",
+        lede: "Websites and landing systems engineered to convert traffic into revenue.",
+        includes: [
+          "Conversion-first UI and page hierarchy",
+          "Landing page and funnel architecture",
+          "Tracking and analytics integration",
+          "Easy-edit framework for operational control"
+        ],
+        focus: [
+          "Remove friction from the visitor journey",
+          "Align UX decisions with conversion intent",
+          "Strengthen tracking and measurement reliability",
+          "Enable fast iteration without rebuilding"
+        ],
+        outcome: "Outcome: More qualified conversions from existing traffic.",
+        steps: [
+          ["01", "Map", "We audit current flow and identify conversion leaks."],
+          ["02", "Design", "We build page structures around decision points."],
+          ["03", "Implement", "We connect tracking and speed-critical components."],
+          ["04", "Improve", "We iterate from user behavior and conversion data."]
+        ]
+      },
+      "growth-strategy": {
+        title: "Growth Strategy & Brand Positioning",
+        lede: "Define the strategic direction before scaling media and production.",
+        includes: [
+          "Market positioning and messaging architecture",
+          "Offer design and pricing alignment",
+          "Channel roadmap and execution priorities",
+          "KPI framework and growth checkpoints"
+        ],
+        focus: [
+          "Create strategic clarity before tactical spend",
+          "Align brand narrative with buyer intent",
+          "Prioritize channels by expected return",
+          "Establish measurable milestones for scale"
+        ],
+        outcome: "Outcome: Clear direction with accountable KPIs.",
+        steps: [
+          ["01", "Diagnose", "We assess market, positioning and growth blockers."],
+          ["02", "Frame", "We define offer, message and channel priorities."],
+          ["03", "Plan", "We build a sequenced roadmap with KPI targets."],
+          ["04", "Execute", "We align teams and launch with measurement discipline."]
+        ]
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("service") || "google-ads";
+    const fallback = SERVICE_DATA["google-ads"];
+    const service = SERVICE_DATA[slug] || fallback;
+    const langSwitch = document.getElementById("langSwitch");
+    if (langSwitch) langSwitch.href = `/de/services/service.html?service=${encodeURIComponent(slug)}`;
+
+    document.title = `${service.title} | LYNCK Studio`;
+    document.getElementById("serviceTitle").textContent = service.title;
+    document.getElementById("serviceLede").textContent = service.lede;
+    document.getElementById("serviceOutcome").textContent = service.outcome;
+
+    const includesRoot = document.getElementById("serviceList");
+    includesRoot.innerHTML = service.includes.map((item) => `<li>${item}</li>`).join("");
+
+    const focusRoot = document.getElementById("serviceFocus");
+    focusRoot.innerHTML = service.focus.map((item) => `<li>${item}</li>`).join("");
+
+    const stepsRoot = document.getElementById("serviceSteps");
+    stepsRoot.innerHTML = service.steps
+      .map(([num, title, text]) => `
+        <article class="step">
+          <span class="num">STEP ${num}</span>
+          <h3>${title}</h3>
+          <p>${text}</p>
+        </article>
+      `)
+      .join("");
+  </script>
+</body>
+</html>
