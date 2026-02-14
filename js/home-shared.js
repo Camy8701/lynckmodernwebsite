@@ -104,6 +104,140 @@
             syncLayout();
         })();
 
+        // --- 2.2 SERVICES MARQUEE ---
+        (() => {
+            const tracks = Array.from(document.querySelectorAll('[data-services-track]'));
+            if (!tracks.length) return;
+
+            const services = [
+                { nameEn: 'Accountant', nameDe: 'Steuerberatung', query: 'accounting office laptop tax', detailEn: 'Lead-generation campaigns for accounting and tax firms.', detailDe: 'Lead-Generation-Kampagnen fuer Steuer- und Finanzkanzleien.' },
+                { nameEn: 'Advertising Technology', nameDe: 'Werbetechnik', query: 'digital signage billboard technology', detailEn: 'Scalable demand systems for advertising technology providers.', detailDe: 'Skalierbare Nachfrage-Systeme fuer Anbieter von Werbetechnik.' },
+                { nameEn: 'Architect', nameDe: 'Architektur', query: 'architect studio blueprint modern', detailEn: 'Positioning and lead funnels for architecture studios.', detailDe: 'Positionierung und Lead-Funnels fuer Architekturbueros.' },
+                { nameEn: 'Automotive', nameDe: 'Automotive', query: 'automotive workshop premium car', detailEn: 'Performance acquisition for automotive brands and dealerships.', detailDe: 'Performance-Akquise fuer Automotive-Marken und Autohaeuser.' },
+                { nameEn: 'Aviation', nameDe: 'Aviation', query: 'aviation aircraft cockpit runway', detailEn: 'Specialized paid media for aviation-focused services.', detailDe: 'Spezialisierte Paid-Media-Strategien fuer Aviation-Angebote.' },
+                { nameEn: 'B2B', nameDe: 'B2B', query: 'b2b meeting boardroom strategy', detailEn: 'Structured B2B demand generation and pipeline growth.', detailDe: 'Strukturierte B2B-Nachfragegenerierung und Pipeline-Wachstum.' },
+                { nameEn: 'Chiropractor', nameDe: 'Chiropraktik', query: 'chiropractor clinic patient', detailEn: 'Appointment-focused campaigns for local chiropractic clinics.', detailDe: 'Terminorientierte Kampagnen fuer Chiropraktik-Praxen.' },
+                { nameEn: 'Cleaning Services', nameDe: 'Reinigungsservice', query: 'cleaning service team office', detailEn: 'Local lead systems for recurring cleaning contracts.', detailDe: 'Lokale Lead-Systeme fuer wiederkehrende Reinigungsauftraege.' },
+                { nameEn: 'Construction', nameDe: 'Bau', query: 'construction site crane team', detailEn: 'Qualified project lead acquisition for construction companies.', detailDe: 'Qualifizierte Projekt-Lead-Akquise fuer Bauunternehmen.' },
+                { nameEn: 'Dentist', nameDe: 'Zahnarzt', query: 'dentist clinic modern room', detailEn: 'Patient acquisition campaigns for dental practices.', detailDe: 'Patientengewinnungskampagnen fuer Zahnarztpraxen.' },
+                { nameEn: 'Ecommerce', nameDe: 'E-Commerce', query: 'ecommerce warehouse product boxes', detailEn: 'Revenue-focused ad systems for online shops.', detailDe: 'Umsatzorientierte Ad-Systeme fuer Onlineshops.' },
+                { nameEn: 'Education', nameDe: 'Bildung', query: 'education classroom digital learning', detailEn: 'Enrollment and course demand growth strategies.', detailDe: 'Strategien fuer Einschreibungen und Kursnachfrage.' },
+                { nameEn: 'Electrician', nameDe: 'Elektriker', query: 'electrician wiring toolkit work', detailEn: 'Service-call lead generation with local targeting.', detailDe: 'Lead-Generierung fuer Serviceeinsaetze mit lokalem Targeting.' },
+                { nameEn: 'Energy', nameDe: 'Energie', query: 'energy grid renewable plant', detailEn: 'Demand capture for energy services and infrastructure.', detailDe: 'Nachfragegewinnung fuer Energiedienstleistungen und Infrastruktur.' },
+                { nameEn: 'Enterprise', nameDe: 'Enterprise', query: 'enterprise office tower business', detailEn: 'Full-funnel performance strategy for enterprise teams.', detailDe: 'Full-Funnel-Performance-Strategie fuer Enterprise-Teams.' },
+                { nameEn: 'Entertainment', nameDe: 'Entertainment', query: 'concert stage lights crowd', detailEn: 'Audience growth and promotion campaigns for entertainment brands.', detailDe: 'Audience-Wachstum und Promotion-Kampagnen fuer Entertainment-Marken.' },
+                { nameEn: 'Events', nameDe: 'Events', query: 'event production conference stage', detailEn: 'Ticketing and event registration performance systems.', detailDe: 'Performance-Systeme fuer Tickets und Event-Registrierungen.' },
+                { nameEn: 'Fashion', nameDe: 'Fashion', query: 'fashion campaign model studio', detailEn: 'Creative-led paid media for fashion brand growth.', detailDe: 'Creative-getriebene Paid-Media-Strategien fuer Fashion-Wachstum.' },
+                { nameEn: 'Fitness & Nutrition', nameDe: 'Fitness & Nutrition', query: 'fitness gym nutrition coaching', detailEn: 'Membership and coaching lead growth campaigns.', detailDe: 'Kampagnen fuer Mitglieder- und Coaching-Leads.' },
+                { nameEn: 'Food', nameDe: 'Food', query: 'food restaurant chef plating', detailEn: 'Local and delivery-focused acquisition for food brands.', detailDe: 'Lokale und lieferorientierte Akquise fuer Food-Marken.' },
+                { nameEn: 'Healthcare', nameDe: 'Healthcare', query: 'healthcare clinic doctor office', detailEn: 'Compliant growth campaigns for healthcare providers.', detailDe: 'Compliance-konforme Wachstumskampagnen fuer Healthcare-Anbieter.' },
+                { nameEn: 'Hotel', nameDe: 'Hotel', query: 'hotel lobby reception luxury', detailEn: 'Booking-focused campaigns for hospitality brands.', detailDe: 'Buchungsorientierte Kampagnen fuer Hospitality-Marken.' },
+                { nameEn: 'HVAC', nameDe: 'HVAC', query: 'hvac technician installation', detailEn: 'Seasonal demand and recurring service lead systems.', detailDe: 'Saisonale Nachfrage- und Service-Lead-Systeme.' },
+                { nameEn: 'Insurance', nameDe: 'Versicherung', query: 'insurance advisor paperwork office', detailEn: 'Quote-generation funnels for insurance services.', detailDe: 'Angebots-Funnels fuer Versicherungsdienstleistungen.' },
+                { nameEn: 'Interior Design', nameDe: 'Interior Design', query: 'interior design luxury living room', detailEn: 'Portfolio-driven client acquisition for design studios.', detailDe: 'Portfolio-getriebene Kundengewinnung fuer Design-Studios.' },
+                { nameEn: 'Landscaping', nameDe: 'Landschaftsbau', query: 'landscaping garden outdoor design', detailEn: 'Local demand campaigns for landscaping businesses.', detailDe: 'Lokale Nachfragekampagnen fuer Landschaftsbau-Unternehmen.' },
+                { nameEn: 'Law', nameDe: 'Recht', query: 'law office consultation', detailEn: 'High-intent legal lead generation and qualification.', detailDe: 'High-Intent-Lead-Generierung und Qualifizierung fuer Kanzleien.' },
+                { nameEn: 'Logistics', nameDe: 'Logistik', query: 'logistics distribution warehouse shipping', detailEn: 'B2B acquisition systems for logistics operators.', detailDe: 'B2B-Akquise-Systeme fuer Logistikunternehmen.' },
+                { nameEn: 'Manufacturing', nameDe: 'Produktion', query: 'manufacturing factory automation', detailEn: 'Demand generation for industrial and manufacturing solutions.', detailDe: 'Demand Generation fuer industrielle Fertigungsloesungen.' },
+                { nameEn: 'Moving Company', nameDe: 'Umzugsservice', query: 'moving company truck team', detailEn: 'Lead systems for local and regional moving providers.', detailDe: 'Lead-Systeme fuer lokale und regionale Umzugsanbieter.' },
+                { nameEn: 'Photography', nameDe: 'Fotografie', query: 'photography camera studio session', detailEn: 'Portfolio-to-booking growth for photography brands.', detailDe: 'Wachstum von Portfolio zu Buchung fuer Fotografie-Marken.' },
+                { nameEn: 'Plumbing', nameDe: 'Sanitaer', query: 'plumbing service tools repair', detailEn: 'Emergency and recurring plumbing lead campaigns.', detailDe: 'Kampagnen fuer Notfall- und wiederkehrende Sanitär-Leads.' },
+                { nameEn: 'Real Estate', nameDe: 'Immobilien', query: 'real estate modern property listing', detailEn: 'Buyer and seller lead funnels for real estate teams.', detailDe: 'Kaeufer- und Verkaeufer-Funnels fuer Immobilien-Teams.' },
+                { nameEn: 'Recruitment', nameDe: 'Recruiting', query: 'recruitment interview hiring office', detailEn: 'Candidate and client acquisition for recruiting firms.', detailDe: 'Kandidaten- und Kundenakquise fuer Recruiting-Firmen.' },
+                { nameEn: 'Retail', nameDe: 'Retail', query: 'retail store product shelf', detailEn: 'Footfall and online conversion growth for retail brands.', detailDe: 'Wachstum von Frequenz und Online-Conversions fuer Retail-Marken.' },
+                { nameEn: 'Roofing', nameDe: 'Dachdecker', query: 'roofing contractor house roof', detailEn: 'Local service lead generation for roofing companies.', detailDe: 'Lokale Service-Lead-Generierung fuer Dachdeckerbetriebe.' },
+                { nameEn: 'SaaS', nameDe: 'SaaS', query: 'saas dashboard software analytics', detailEn: 'Trial, demo, and subscription acquisition systems.', detailDe: 'Systeme fuer Trial-, Demo- und Subscription-Akquise.' },
+                { nameEn: 'Small Business', nameDe: 'Kleinunternehmen', query: 'small business storefront owner', detailEn: 'Practical growth systems for small business operators.', detailDe: 'Praktische Wachstumssysteme fuer Kleinunternehmen.' },
+                { nameEn: 'Sports', nameDe: 'Sport', query: 'sports training stadium athletes', detailEn: 'Audience and membership growth for sports brands.', detailDe: 'Audience- und Mitgliederwachstum fuer Sportmarken.' },
+                { nameEn: 'Technology', nameDe: 'Technologie', query: 'technology chips innovation lab', detailEn: 'Performance positioning for fast-moving tech companies.', detailDe: 'Performance-Positionierung fuer schnell wachsende Tech-Unternehmen.' },
+                { nameEn: 'Therapist', nameDe: 'Therapie', query: 'therapy counseling office', detailEn: 'Appointment growth campaigns for therapists and clinics.', detailDe: 'Terminwachstumskampagnen fuer Therapeuten und Praxen.' },
+                { nameEn: 'Tourism', nameDe: 'Tourismus', query: 'tourism destination travel city', detailEn: 'Destination-focused campaigns that convert interest into bookings.', detailDe: 'Destinations-Kampagnen, die Interesse in Buchungen umwandeln.' },
+                { nameEn: 'UGC & Influencers', nameDe: 'UGC & Influencer', query: 'influencer creator video production', detailEn: 'Creator-led systems that amplify trust and social proof.', detailDe: 'Creator-getriebene Systeme fuer Vertrauen und Social Proof.' },
+                { nameEn: 'YouTube Channel', nameDe: 'YouTube Kanal', query: 'youtube studio creator recording', detailEn: 'Structured YouTube growth strategies and channel monetization.', detailDe: 'Strukturierte YouTube-Wachstumsstrategien und Kanal-Monetarisierung.' },
+                { nameEn: 'Yachting', nameDe: 'Yachting', query: 'yacht marina ocean luxury', detailEn: 'Premium lead generation for marine and yachting businesses.', detailDe: 'Premium-Lead-Generierung fuer Marine- und Yachting-Angebote.' }
+            ];
+
+            const makeFallbackSvg = (title) => {
+                const text = encodeURIComponent(title.toUpperCase());
+                return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1000'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230f3b8f'/%3E%3Cstop offset='1' stop-color='%23091220'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='1000' fill='url(%23g)'/%3E%3Ctext x='50%25' y='52%25' fill='%23f4f8ff' font-size='52' font-family='Arial, sans-serif' text-anchor='middle'%3E${text}%3C/text%3E%3C/svg%3E`;
+            };
+
+            const createCard = (service, index, lang) => {
+                const serviceName = lang === 'de' ? (service.nameDe || service.nameEn) : service.nameEn;
+                const serviceDetail = lang === 'de' ? (service.detailDe || service.detailEn) : service.detailEn;
+                const serviceSlug = serviceName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                const card = document.createElement('article');
+                card.className = 'service-mini-card';
+
+                const image = document.createElement('img');
+                image.className = 'service-mini-image';
+                image.src = `https://source.unsplash.com/840x1040/?${encodeURIComponent(service.query)}&sig=${index + 31}`;
+                image.alt = `${serviceName} service`;
+                image.loading = 'lazy';
+                image.decoding = 'async';
+                image.addEventListener('error', () => {
+                    if (image.dataset.retry !== '1') {
+                        image.dataset.retry = '1';
+                        image.src = `https://picsum.photos/seed/${serviceSlug || index + 1}/840/1040`;
+                        return;
+                    }
+                    image.src = makeFallbackSvg(serviceName);
+                });
+
+                const tint = document.createElement('div');
+                tint.className = 'service-mini-tint';
+
+                const top = document.createElement('div');
+                top.className = 'service-mini-top';
+
+                const title = document.createElement('h3');
+                title.className = 'service-mini-name';
+                title.textContent = serviceName;
+                top.appendChild(title);
+
+                const reveal = document.createElement('div');
+                reveal.className = 'service-mini-reveal';
+
+                const revealTitle = document.createElement('h4');
+                revealTitle.className = 'service-mini-reveal-title';
+                revealTitle.textContent = serviceName;
+
+                const description = document.createElement('p');
+                description.textContent = serviceDetail;
+
+                const cta = document.createElement('a');
+                cta.href = '#contact';
+                cta.textContent = lang === 'de' ? 'Mehr erfahren ->' : 'View details ->';
+
+                reveal.appendChild(revealTitle);
+                reveal.appendChild(description);
+                reveal.appendChild(cta);
+
+                card.appendChild(image);
+                card.appendChild(tint);
+                card.appendChild(top);
+                card.appendChild(reveal);
+                return card;
+            };
+
+            const createGroup = (lang) => {
+                const group = document.createElement('div');
+                group.className = 'services-marquee-group';
+                services.forEach((service, index) => group.appendChild(createCard(service, index, lang)));
+                return group;
+            };
+
+            tracks.forEach((track) => {
+                if (track.children.length) return;
+                const lang = track.closest('[data-services-lang]')?.getAttribute('data-services-lang') || 'en';
+                const firstGroup = createGroup(lang);
+                const secondGroup = createGroup(lang);
+                secondGroup.setAttribute('aria-hidden', 'true');
+                track.appendChild(firstGroup);
+                track.appendChild(secondGroup);
+            });
+        })();
+
         // --- 3. PIPELINE ---
         const races = document.querySelector(".pin-wrap");
         const getScrollAmount = () => -(races.scrollWidth - window.innerWidth);
@@ -438,4 +572,3 @@
             titles.forEach((title) => observer.observe(title));
             window.addEventListener('beforeunload', () => observer.disconnect());
         })();
-
