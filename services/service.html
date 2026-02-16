@@ -549,6 +549,46 @@
       font-size: 0.98rem;
     }
     .ga-content li::before { content: none; }
+    #narrativeExecution p {
+      margin: 0.55rem 0;
+      color: #324666;
+      line-height: 1.75;
+      font-size: clamp(0.98rem, 1.45vw, 1.08rem);
+    }
+    .sevo-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 0.5rem 0 0.8rem;
+      border: 1px solid rgba(17, 26, 46, 0.16);
+      border-radius: 0.95rem;
+      background: rgba(255, 255, 255, 0.72);
+    }
+    .sevo-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+      color: #233252;
+    }
+    .sevo-table th,
+    .sevo-table td {
+      text-align: left;
+      padding: 0.8rem 0.9rem;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(17, 26, 46, 0.14);
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+    .sevo-table th {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.86rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #0f1d3d;
+      background: rgba(24, 74, 188, 0.08);
+    }
+    .sevo-table tr:last-child td {
+      border-bottom: 0;
+    }
     .ga-engine {
       margin-top: 1rem;
       padding-top: 1rem;
@@ -1181,6 +1221,17 @@
           </div>
         </div>
 
+        <section class="ga-process is-hidden" id="narrativeComparison">
+          <h2 id="narrativeComparisonTitle"></h2>
+          <div class="sevo-table-wrap">
+            <table class="sevo-table" id="narrativeComparisonTable">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div id="narrativeAfterComparison"></div>
+        </section>
+
         <div class="ga-row">
           <div class="ga-content">
             <h2>Who This Is For</h2>
@@ -1203,7 +1254,7 @@
 
         <section class="ga-process">
           <h2>How LYNCK Executes</h2>
-          <ul id="narrativeExecution"></ul>
+          <div id="narrativeExecution"></div>
           <p class="ga-process-intro" id="narrativeExecutionClose"></p>
         </section>
 
@@ -1490,32 +1541,27 @@
         imageSecondary: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=80&auto=format&fit=crop",
         imageTertiary: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1800&q=80&auto=format&fit=crop",
         imageAlt: "Meta paid social performance and creative operations",
-        intro: [
-          "Meta Ads on Facebook and Instagram let you place your brand in front of specific audiences based on interests, behavior, and demographics while they scroll. This is one of the strongest channels for generating demand, not only capturing it.",
-          "Meta is usually more cost-efficient than Google at the top and middle of funnel. Average CPC benchmarks are often near USD 1.06 on Meta versus USD 2.69 on Google, and e-commerce acquisition can land near USD 18 versus USD 45 in comparable setups.",
-          "When structured correctly, Meta becomes a scalable acquisition engine. We do not optimize for likes. We optimize for profitable acquisition."
+        introParagraphs: [
+          "Meta Ads (Facebook and Instagram) work differently from Google. Instead of waiting for someone to search, you place your brand in front of highly specific audiences based on interests, behaviors, and demographics while they scroll through their feed.",
+          "This makes Meta one of the most powerful platforms for generating demand, not just capturing it.",
+          "It also tends to be significantly cheaper than Google. Meta's average cost per click sits around $1.06 compared to Google's $2.69 average, and in many industries the gap is even wider. For e-commerce, Meta's cost per acquisition averages around $18 compared to $45 on Google. That lower entry cost makes it ideal for testing creatives, scaling what works, and building audiences you can retarget across channels.",
+          "Meta also offers structural advantages that Google doesn't: visual storytelling formats, powerful behavior-based targeting, rapid creative testing cycles, and some of the strongest retargeting capabilities in digital advertising. When structured properly, it becomes a scalable acquisition engine, not just a branding tool."
         ],
         audience: [
           "E-commerce and consumer product brands",
           "Brands launching new offers or entering new markets",
-          "Companies reducing dependency on search-only traffic",
-          "Businesses building audiences for cross-platform retargeting"
+          "Companies looking to reduce dependency on search traffic alone",
+          "Businesses wanting to build audiences and retarget across platforms"
         ],
-        example: [
-          "A premium skincare e-commerce brand hit a ceiling on Google Shopping as CPCs kept rising.",
-          "We built a full Meta funnel: UGC-style cold campaigns, mid-funnel social proof, and bottom-funnel dynamic retargeting.",
-          "Within 60 days, acquisition cost dropped and blended ROAS improved versus Google-only execution."
+        exampleParagraphs: [
+          "An e-commerce brand selling premium skincare is spending heavily on Google Shopping but hitting a ceiling. CPCs keep climbing and new customer acquisition is getting more expensive each quarter.",
+          "We build a parallel Meta funnel. Top-of-funnel campaigns use UGC-style video creatives to introduce the brand to cold audiences. Mid-funnel retargeting serves social proof and testimonials. Bottom-funnel dynamic ads close the sale. Within 60 days, customer acquisition cost drops by 35% compared to Google-only, and the combined strategy produces a higher blended ROAS than either channel alone."
         ],
-        execution: [
-          "Full-funnel Meta architecture across awareness, consideration, and conversion",
-          "Creative testing frameworks across angles, hooks, and formats",
-          "AI-assisted iteration and production cycles",
-          "Structured audience segmentation and lookalike expansion",
-          "Retargeting logic integrated with your full ad ecosystem",
-          "Continuous optimization based on purchase-quality signals"
+        executionParagraphs: [
+          "Full-funnel Meta architecture (awareness, consideration, conversion). Creative testing frameworks across angles, hooks, and formats. AI-assisted iteration and creative production. Structured audience segmentation and lookalike expansion. Retargeting logic integrated with your full ad ecosystem. Continuous optimization based on real purchase data, not vanity metrics."
         ],
-        executionClose: "Build Your Paid Social System",
-        cta: "Build Your Paid Social System"
+        executionClose: "We don't optimize for likes. We optimize for profitable acquisition.",
+        tailLine: "→ Build Your Paid Social System"
       },
       "ai-content": {
         title: "AI Content & Creative Production",
@@ -1524,31 +1570,28 @@
         imageSecondary: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=1800&q=80&auto=format&fit=crop",
         imageTertiary: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1800&q=80&auto=format&fit=crop",
         imageAlt: "AI-powered creative and content production workflow",
-        intro: [
-          "Content production no longer has to be slow or expensive. AI enables high-quality social content, ad creatives, product visuals, video assets, and conversion copy in a fraction of the traditional timeline.",
-          "What used to take weeks can now be produced in days or hours when the workflow is structured correctly. This lowers the cost of staying visible and dramatically increases testing velocity.",
-          "Speed only creates value when tied to strategy. We build AI output around clear marketing objectives, not volume for its own sake."
+        introParagraphs: [
+          "Content creation used to be slow and expensive. A single ad campaign might require weeks of production, thousands in design fees, and a rigid creative process that left little room for testing.",
+          "AI has changed that equation completely.",
+          "Today, brands can produce high-quality social media content, ad creatives, product visuals, short-form and long-form video, and conversion-focused copy in a fraction of the time and at a fraction of the cost. What used to take weeks now takes days or hours when the process is structured correctly.",
+          "This matters for two reasons. First, it dramatically lowers the cost of staying visible. Consistent posting, fresh creatives, and regular content updates are no longer reserved for brands with large production budgets. Second, and more importantly, it allows brands to test more angles, speak more directly to specific audience segments, and adapt to trends in real time. Speed is now a competitive advantage, and AI makes that speed accessible.",
+          "But speed without strategy creates noise. The difference between brands that benefit from AI and brands that waste time on it comes down to one thing: whether the content is built around a clear marketing objective or generated for the sake of output."
         ],
         audience: [
-          "Brands running paid campaigns that need constant creative variations",
-          "Businesses needing consistent social visibility",
-          "Teams scaling output without scaling production cost",
+          "Brands running paid campaigns who need constant creative variations",
+          "Businesses needing consistent social media presence for brand awareness",
+          "Companies scaling content output without scaling production costs",
           "Founders and personal brands building authority through content"
         ],
-        example: [
-          "A fitness supplement brand was producing only two ad creatives per month and could not iterate fast enough.",
-          "We implemented an AI-assisted production system with structured messaging and testing cycles, generating 8 to 12 variations per cycle.",
-          "Production cost dropped, learning loops accelerated, and winning creatives were identified faster."
+        exampleParagraphs: [
+          "A fitness supplement brand produces two ad creatives per month through a freelance designer. Testing is slow, creative fatigue sets in quickly, and the brand can't iterate fast enough to keep up with Meta's algorithm.",
+          "We implement a structured AI-assisted production system. We define the messaging strategy, build creative testing frameworks, and produce 8 to 12 variations per cycle across different hooks, angles, and formats. Production cost drops significantly, learning loops accelerate, and the brand finds winning creatives faster, which directly lowers cost per acquisition."
         ],
-        execution: [
-          "Messaging strategy defined before any asset is produced",
-          "Creative testing systems built for repeatable iteration",
-          "AI tools used for scalable multi-format production",
-          "Content adapted by audience segment and platform",
-          "Optimization driven by real performance data"
+        executionParagraphs: [
+          "Messaging strategy defined before any content is produced. Creative testing frameworks built for systematic iteration. AI tools used for scalable production across formats. Content adapted per audience segment and platform. Everything optimized based on real performance data, not assumptions."
         ],
         executionClose: "AI is leverage, not a shortcut. We use it with precision.",
-        cta: "Upgrade Your Content Engine"
+        tailLine: "→ Upgrade Your Content Engine"
       },
       "ugc-influencer": {
         title: "UGC & Influencer Marketing",
@@ -1557,33 +1600,29 @@
         imageSecondary: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=1800&q=80&auto=format&fit=crop",
         imageTertiary: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1800&q=80&auto=format&fit=crop",
         imageAlt: "Influencer collaboration and UGC content production",
-        intro: [
-          "UGC and influencer systems use real creators to build trust and conversion confidence. Smaller creators often deliver stronger ROI than large accounts because engagement quality is higher and content feels authentic.",
-          "The channel is massively undervalued: the influencer market is projected around USD 32.5B in 2025, average return benchmarks are around USD 5.20 for every USD 1 spent, and many teams report UGC outperforming branded studio content.",
-          "UGC is not limited to social feeds. It improves paid campaign performance, landing page credibility, email engagement, and product-page conversion.",
-          "The key is structure: creator fit, briefing quality, repurposing logic, and measurable performance tracking."
+        introParagraphs: [
+          "UGC (User Generated Content) and micro-influencer marketing leverage real creators to build credibility and social proof for your brand. And the data behind it is hard to ignore.",
+          "The influencer marketing industry is projected to reach $32.5 billion in 2025. Brands see an average return of $5.20 for every $1 spent. And 93% of marketers report that UGC performs better than traditional branded content.",
+          "But here's what most brands get wrong: they chase follower counts. The reality is that smaller creators, micro-influencers with 10k to 100k followers and nano-influencers with under 10k, consistently deliver the highest ROI. They have engagement rates of 5 to 10%, compared to 1 to 2% for larger accounts. Their audiences trust them. Their content feels authentic. And their rates are a fraction of what macro-influencers charge.",
+          "The right UGC creator for your brand can move the needle faster and more cost-effectively than almost any other advertising format. One well-matched micro-creator can outperform a polished studio campaign because their audience believes them.",
+          "UGC also extends far beyond social feeds. It works in paid ads, on landing pages, in email campaigns (where it increases click-through rates by up to 78%), and on product pages, where it has been shown to boost conversions by up to 161%.",
+          "This is one of the most powerful ways to advertise, period. If you find the right creators for your brand."
         ],
         audience: [
           "E-commerce and direct-to-consumer brands",
-          "Consumer products needing social proof at scale",
-          "Brands running Meta Ads requiring stronger creative performance",
+          "Consumer products looking for authentic social proof",
+          "Brands running Meta Ads who need high-performing creatives",
           "Companies entering new markets or launching new products"
         ],
-        example: [
-          "A sustainable fashion brand faced creative fatigue and rising CPA on Meta.",
-          "We sourced six smaller creators aligned to the brand and produced authentic try-on and lifestyle assets for organic and paid amplification.",
-          "Within 45 days, CPA improved and the brand built a durable library of authentic assets for ongoing testing."
+        exampleParagraphs: [
+          "A sustainable fashion brand is struggling with creative fatigue on Meta. Studio-shot ads are performing worse each month, and CPA is climbing.",
+          "We source 6 smaller creators (1k to 20k followers) whose audiences align with the brand's values. Each creator produces authentic try-on and lifestyle content designed for both organic posting and paid amplification. Within 45 days, CPA drops by 40%, engagement increases significantly, and the brand now has a library of 20+ authentic content pieces it can test and scale across platforms. Small creators. Big impact."
         ],
-        execution: [
-          "Creator sourcing based on audience fit, not follower vanity",
-          "Performance-based collaboration frameworks",
-          "UGC designed specifically for paid-media deployment",
-          "Repurposing into structured testing cycles",
-          "Winner scaling and underperformer replacement",
-          "Tracking against acquisition-quality metrics"
+        executionParagraphs: [
+          "Strategic creator sourcing based on audience fit, not follower count. Performance-based collaboration structures. UGC designed specifically for paid campaign use. Creative repurposed into structured testing cycles. Winning creators scaled, underperformers replaced. Everything tracked against real acquisition metrics."
         ],
-        executionClose: "Authenticity meets structure. That is where the ROI lives.",
-        cta: "Launch Your UGC Strategy"
+        executionClose: "Authenticity meets structure. That's where the ROI lives.",
+        tailLine: "→ Launch Your UGC Strategy"
       },
       "web-systems": {
         title: "Conversion-Focused Web Systems",
@@ -1592,32 +1631,32 @@
         imageSecondary: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1800&q=80&auto=format&fit=crop",
         imageTertiary: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1800&q=80&auto=format&fit=crop",
         imageAlt: "Conversion-focused web design and funnel systems",
-        intro: [
-          "Your website is not a brochure. It is your trust layer, lead engine, transaction layer, and data system.",
-          "A modern conversion-first site improves credibility, captures demand 24/7, and keeps your growth independent from platform algorithm risk.",
-          "Without a strong conversion system, paid and organic traffic leaks value. Clicks become cost instead of revenue."
+        introParagraphs: [
+          "Your website is not a brochure. It's a business system.",
+          "It's the place where people decide whether to trust you. It's your information hub, your lead generation engine, your 24/7 salesperson. It handles inquiries, showcases your work, collects data, and for e-commerce brands, it processes transactions around the clock.",
+          "We build modern, visually refined websites that reflect your brand and your customers' expectations, while being engineered from the ground up for conversion.",
+          "Why this matters more than most businesses realize:",
+          "Over 75% of consumers judge a business's credibility based on its website design. A polished, professional site signals legitimacy and builds trust before a single conversation happens.",
+          "Your website works 24/7. Customers can find information, submit inquiries, or make purchases at 3am just as easily as 3pm.",
+          "Unlike social media, where you're subject to algorithm changes and platform rules, your website is property you own and control. Your design, your content, your customer data.",
+          "When optimized for search engines (SEO), your website attracts organic traffic, reducing long-term dependency on paid advertising.",
+          "And with tools like Google Analytics, you gain direct insight into visitor behavior: what pages they visit, where they drop off, and which products or services generate the most interest.",
+          "Without a well-built website, traffic from ads, social media, and organic search gets wasted. Clicks without a conversion system are just an expense."
         ],
         audience: [
-          "Service businesses needing a professional conversion-ready presence",
+          "Service businesses that need a professional online presence",
           "E-commerce brands needing a conversion-optimized storefront",
-          "Personal brands and consultants building authority",
-          "Growing companies replacing outdated template websites"
+          "Personal brands and consultants building credibility",
+          "Growing companies replacing outdated or template-based sites"
         ],
-        example: [
-          "A dental clinic ran Google Ads into a slow generic homepage with weak conversion structure.",
-          "We built dedicated service landing pages, clear calls-to-action, booking flow integration, mobile optimization, and full tracking.",
-          "The same ad budget produced significantly more qualified appointment requests because the website conversion system was fixed."
+        exampleParagraphs: [
+          "A dental clinic is running Google Ads but sending all traffic to a generic homepage built on a free template. The site loads slowly, doesn't have dedicated service pages, and the contact form is buried at the bottom.",
+          "We build a clean, modern website with dedicated landing pages per service, clear calls to action, integrated appointment booking, mobile optimization, and proper tracking. Within 60 days, the same ad spend produces 2.5x more appointment requests. Nothing changed in the ad account. The website did all the work."
         ],
-        execution: [
-          "Brand-aligned design engineered for conversion clarity",
-          "Page hierarchy and user journeys mapped to intent",
-          "Landing segmentation by service, product, or audience",
-          "Funnel architecture connecting ads to conversion endpoints",
-          "CRM and analytics integration for full visibility",
-          "Easy-edit backend to keep your team operationally independent"
+        executionParagraphs: [
+          "Brand-aligned design that looks professional and modern. Conversion-first layout with clear user journeys. Landing page segmentation by service, product, or audience. Funnel architecture connecting ads to conversion points. CRM and tracking integration for full visibility. Easy-edit backend so you can update your own content without calling a developer."
         ],
-        executionClose: "Design supports revenue. Performance drives decisions.",
-        cta: "Build Your Website Engine"
+        executionClose: "Design supports revenue. Performance drives decisions. You keep full control."
       },
       "growth-strategy": {
         title: "Growth Strategy & Brand Positioning",
@@ -1626,32 +1665,27 @@
         imageSecondary: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1800&q=80&auto=format&fit=crop",
         imageTertiary: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1800&q=80&auto=format&fit=crop",
         imageAlt: "Strategic planning and brand positioning workshop",
-        intro: [
-          "Before any budget is scaled, you need channel fit, positioning clarity, and offer-market alignment. Without this, scaling is just spending faster.",
-          "Strategy determines whether Google, Meta, content systems, or conversion infrastructure should come first based on your business model and expected return.",
-          "Most teams skip this phase and optimize the wrong thing for months. Strategy prevents expensive trial-and-error."
+        introParagraphs: [
+          "This is where everything starts.",
+          "Before a single euro goes into advertising, you need to know which channel fits your business, which approach offers the highest return, and how your offer should be positioned in the market. Without this, scaling is just spending faster.",
+          "Growth Strategy is the phase where we assess your business, your competitive landscape, and your goals, then determine the smartest path forward. Should you start with Google Ads or Meta? Does your business need a content engine or a direct lead generation system? Is your website ready to convert the traffic you're about to send it? Is your messaging strong enough to differentiate?",
+          "These are the questions that determine whether your budget produces growth or waste.",
+          "Most businesses skip this step entirely. They jump into a channel because someone told them it works, spend months optimizing the wrong thing, and wonder why results are inconsistent. Strategy isn't a luxury. It's what prevents you from learning expensive lessons the hard way."
         ],
         audience: [
           "Businesses preparing to invest in paid advertising",
-          "Brands unsure which channel should be prioritized",
+          "Brands unsure which marketing channel to prioritize",
           "Companies that have plateaued and need a new direction",
-          "Founders needing strategic clarity before scaling"
+          "Founders who need strategic clarity before scaling"
         ],
-        example: [
-          "A B2B software company was split across Google Ads, LinkedIn, and content without a clear framework.",
-          "We analyzed market competition, intent volume, website readiness, and expected channel ROI.",
-          "Result: a phased roadmap with Google for high-intent capture, LinkedIn for authority, and website conversion upgrades before scaling spend."
+        exampleParagraphs: [
+          "A B2B software company is split between investing in Google Ads, LinkedIn, and content marketing. They've tried running ads internally with mixed results and no clear framework for deciding where budget should go.",
+          "We run a structured strategy phase. We analyze the competitive landscape, evaluate search volume and intent for their core offerings, assess current website conversion readiness, and model expected ROI across channels. The outcome: Google Ads for high-intent lead capture, LinkedIn for authority building, and a website overhaul to improve conversion before scaling spend. A clear roadmap with defined priorities, budget allocation, and success metrics."
         ],
-        execution: [
-          "Market and competitor analysis",
-          "Offer positioning and messaging architecture review",
-          "Channel selection based on ROI potential and fit",
-          "Budget allocation modeling",
-          "Website and funnel readiness audit",
-          "Phased roadmap with clear KPI accountability"
+        executionParagraphs: [
+          "Market and competitor analysis. Offer positioning and messaging review. Channel selection based on ROI potential and business model fit. Budget allocation modeling. Website and funnel readiness assessment. Clear growth roadmap with phased priorities."
         ],
-        executionClose: "No scaling without direction. Strategy saves money.",
-        cta: "Define Your Growth Strategy"
+        executionClose: "No scaling without direction. Strategy saves money."
       },
       "leads-generation": {
         title: "Lead Generation Systems",
@@ -1660,31 +1694,28 @@
         imageSecondary: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1800&q=80&auto=format&fit=crop",
         imageTertiary: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=80&auto=format&fit=crop",
         imageAlt: "Lead generation pipeline dashboards and qualification systems",
-        intro: [
-          "Ad costs are rising and many businesses waste budget on unqualified inquiries due to weak structure, poor qualification, or misaligned campaign execution.",
-          "Our lead generation model is built to solve this directly: campaigns, landing pages, qualification filters, and follow-up routing in one integrated system.",
-          "You select a monthly qualified-lead target. We execute and optimize the system to deliver leads worth your sales team's time."
+        introParagraphs: [
+          "Here's the reality most businesses don't talk about openly:",
+          "Ad costs are rising every year. Competition for attention is getting fiercer. And too many companies are losing money on campaigns that are either poorly structured, run by team members with no real advertising experience, or managed by agencies that optimize for volume instead of quality.",
+          "The result? Inflated costs, unqualified leads, wasted budget, and business owners too busy running operations to figure out what went wrong.",
+          "Our lead generation service exists to solve this problem directly.",
+          "We build and manage the entire acquisition system: the campaigns, the landing pages, the qualification filters, and the follow-up infrastructure. You don't pay for ad management or media spend upfront. You choose how many qualified leads you want per month, and we deliver them at a competitive, predictable price.",
+          "You focus on running your business. We handle the heavy lifting using our years of experience inside Google and in performance marketing to send you only the leads worth your time."
         ],
         audience: [
-          "B2B companies needing a reliable opportunity pipeline",
-          "Service businesses where lead quality is critical",
-          "High-ticket providers prioritizing conversion quality over raw volume",
-          "Business owners without bandwidth to manage acquisition systems internally"
+          "B2B companies that need a reliable pipeline",
+          "Service businesses (legal, medical, home services, consulting)",
+          "High-ticket providers where lead quality matters more than lead volume",
+          "Business owners who don't have time to manage campaigns themselves"
         ],
-        example: [
-          "A legal consultancy spent heavily but received low-quality inquiries and had no conversion visibility.",
-          "We rebuilt acquisition around high-intent campaigns, qualification-first landing pages, lead scoring, and routed delivery to intake.",
-          "Within one optimization cycle, the pipeline became predictable and lead quality materially improved."
+        exampleParagraphs: [
+          "A legal consultancy has been running Google Ads internally. The office manager handles the campaigns between other responsibilities. Monthly spend is €3,000 but lead quality is poor, most inquiries are irrelevant, and the firm has no way to track which leads actually convert to clients.",
+          "We take over the entire lead generation process. We build high-intent search campaigns, create dedicated landing pages with qualification questions, implement lead scoring, and route only qualified prospects to the firm's intake team. The firm chooses a monthly lead volume, pays per qualified lead, and stops worrying about ad accounts entirely. Within 90 days, the firm has a predictable pipeline of pre-qualified prospects at a cost per lead lower than what they were paying for unfiltered inquiries."
         ],
-        execution: [
-          "High-intent campaign structure based on proven demand signals",
-          "Dedicated landing pages for qualification and conversion",
-          "Lead filtering and scoring before handoff",
-          "CRM routing and follow-up process integration",
-          "Ongoing optimization tied to qualified outcomes"
+        executionParagraphs: [
+          "High-intent Google Ads campaigns built on our experience managing millions in ad spend. Dedicated landing pages designed for conversion and lead qualification. Lead filtering and scoring so you only receive prospects worth talking to. CRM routing and follow-up infrastructure. Ongoing performance optimization."
         ],
-        executionClose: "You do not manage campaigns. You receive qualified leads.",
-        cta: "Get Qualified Leads Monthly"
+        executionClose: "You don't manage campaigns. You receive qualified leads. That's the service."
       },
       "youtube-growth-services": {
         title: "YouTube Growth Services",
@@ -1693,33 +1724,30 @@
         imageSecondary: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1800&q=80&auto=format&fit=crop",
         imageTertiary: "https://images.unsplash.com/photo-1616469829941-c7200edec809?w=1800&q=80&auto=format&fit=crop",
         imageAlt: "YouTube channel growth and video distribution system",
-        intro: [
-          "YouTube is one of the strongest long-term growth assets because content keeps generating views, authority, and leads long after publish day.",
-          "YouTube has paid more than USD 100B to creators and media companies since 2021, generated over USD 60B in 2025 revenue, and channels crossing USD 100K from TV screen viewership continue to grow rapidly.",
-          "Unlike short-lifecycle platforms, YouTube compounds. Search-driven discovery and evergreen ranking create durable inbound visibility.",
-          "For brands, this means authority building, organic lead flow, and lower long-term dependency on paid clicks."
+        introParagraphs: [
+          "YouTube is the most underutilized growth asset in digital marketing.",
+          "In September 2025, YouTube announced it has paid out over $100 billion to creators, artists, and media companies since 2021. The platform generated over $60 billion in revenue in 2025 alone, surpassing Netflix by 34%. Channels making more than $100,000 from TV screen viewership grew 45% year over year.",
+          "What makes YouTube fundamentally different from any other platform is this: content you create today can generate views, leads, and revenue for months or years after you publish it, without you ever touching it again. A well-optimized video from 2023 can still be ranking in search and driving traffic in 2026. That's not how Instagram, TikTok, or paid advertising works.",
+          "But YouTube isn't just for creators building personal brands.",
+          "For businesses, YouTube is one of the strongest channels for establishing authority, generating evergreen leads, and building organic visibility that reduces paid ad dependency over time. When potential customers search for solutions on YouTube and find your content, they arrive pre-sold on your expertise. That kind of trust compounds.",
+          "Search is built into the platform. YouTube is the world's second-largest search engine. Content lives there permanently. And unlike paid ads that stop the moment you pause your budget, YouTube videos keep working.",
+          "Nobody ever regrets building a YouTube channel. The only thing people regret is not starting sooner. Consistency is the key."
         ],
         audience: [
           "Founders and personal brands building authority",
-          "Service businesses generating inbound leads organically",
-          "Brands reducing long-term paid ad dependency",
-          "Consultants, agencies, and experts who need visible credibility"
+          "Service businesses that want to generate inbound leads organically",
+          "Brands looking to reduce long-term paid ad costs",
+          "Agencies, consultants, and experts who benefit from visible credibility"
         ],
-        example: [
-          "A coaching brand had around 1,000 subscribers with flat growth and low business impact.",
-          "We optimized channel structure and launched targeted YouTube Ads to attract the right audience.",
-          "Within 45 days, the channel grew beyond 4,500 subscribers, increased watch-time momentum, and became a compounding visibility asset."
+        exampleParagraphs: [
+          "A coaching brand has a YouTube channel with around 1,000 subscribers. They're publishing content consistently but growth is flat, views are low, and the channel isn't generating any meaningful business results.",
+          "We optimize the channel for growth and build a highly targeted YouTube Ads campaign designed specifically to attract the right audience. Within 45 days, the channel grows from 1,000 to over 4,500 subscribers. That subscriber growth creates a compounding effect: more views on existing and new content, significantly more watch hours pushing the channel toward monetization eligibility, increased website visits from viewers discovering the brand through YouTube, and a growing library of content that continues working long after it's published.",
+          "The channel goes from stagnant to a genuine growth asset, generating visibility, authority, and inbound traffic without relying on paid ads for every click."
         ],
-        execution: [
-          "Channel audit and growth architecture",
-          "Targeted YouTube Ads for accelerated subscriber acquisition",
-          "Content strategy aligned with audience intent",
-          "Paid amplification designed for organic compounding",
-          "Long-form to Shorts repurposing system",
-          "Retargeting from YouTube viewers across Google inventory"
+        executionParagraphs: [
+          "Channel audit and growth optimization. Targeted YouTube Ads campaigns to accelerate subscriber growth. Content strategy aligned with audience intent. Paid amplification structured for long-term organic compounding. Long-form to short-form content repurposing (Shorts strategy). Audience retargeting from YouTube viewers across Google's ad network."
         ],
-        executionClose: "Growth is engineered. Consistency builds leverage.",
-        cta: "Build Your YouTube Asset"
+        executionClose: "Growth is engineered. Consistency builds leverage."
       },
       "seo-sevo": {
         title: "SEO & SEvO (Search Everywhere Optimization)",
@@ -1728,32 +1756,42 @@
         imageSecondary: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1800&q=80&auto=format&fit=crop",
         imageTertiary: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1800&q=80&auto=format&fit=crop",
         imageAlt: "Search performance and cross-platform visibility analytics",
-        intro: [
-          "Traditional SEO remains essential for ranking in Google and capturing high-intent demand through technical structure, keyword strategy, and site authority.",
-          "SEvO expands that model: your brand is optimized for discovery across Google, YouTube, Reddit, Instagram, marketplaces, AI assistants, and local surfaces.",
-          "Search behavior is fragmented. Nearly 60% of Google searches now end without a click, AI-driven referral traffic is accelerating, and younger audiences often search on social and community platforms first."
+        introParagraphs: [
+          "Traditional SEO focuses on ranking your website in Google search results through keywords, technical optimization, backlinks, and on-page structure. It's foundational, and it still matters. A well-optimized website brings in organic traffic month after month without paying for every click.",
+          "But search behavior has fundamentally changed.",
+          "People no longer rely on Google alone. A potential customer might discover your brand through a YouTube video, read discussions on Reddit, ask ChatGPT for a recommendation, check your Instagram for social proof, and then finally search your name on Google to visit your website. The path to purchase is fragmented across platforms, and if you're only optimized for one of them, you're invisible at every other touchpoint.",
+          "This is where SEvO comes in.",
+          "SEvO (Search Everywhere Optimization) is the evolution of SEO. It's a strategy designed to make your brand discoverable across every platform where people search for information. That includes Google, but also YouTube, Reddit, Instagram, Amazon, AI tools like ChatGPT and Perplexity, voice assistants like Siri and Alexa, and local directories like Google Business Profile."
+        ],
+        comparisonTitle: "SEO vs SEvO: Key Differences",
+        comparisonHeaders: ["Feature", "Traditional SEO", "SEvO (Search Everywhere Optimization)"],
+        comparisonRows: [
+          ["Primary Goal", "Rank high on search engine result pages (SERPs).", "Build brand presence and authority across all discovery platforms."],
+          ["Main Platforms", "Google, Bing, DuckDuckGo.", "YouTube, Reddit, Instagram, Amazon, AI (ChatGPT), Voice (Siri/Alexa), and Google."],
+          ["Core Tactics", "Keywords, backlinks, and technical site health.", "Consistent entity branding, platform-specific content (video/short-form), and AI-readable data."],
+          ["Target Audience", "Users typing queries into a search bar.", "Users interacting with social media, forums, apps, and AI assistants."],
+          ["Success Metrics", "Organic traffic, keyword rankings, and click-through rates.", "Brand mentions, engagement rates, social reach, and AI citations."]
+        ],
+        comparisonAfterParagraphs: [
+          "While SEO and SEvO both aim to make your business discoverable, they operate on different scales of the digital landscape. SEO is a specialized tool for dominating search engines. SEvO is a holistic strategy for being present across every digital touchpoint.",
+          "Why This Shift Matters",
+          "Nearly 60% of Google searches now end without a click, because AI-generated summaries give users the answer directly. Younger audiences, particularly Gen Z, increasingly use social platforms and Reddit as their primary search tools for reviews, tutorials, and recommendations. AI-driven search traffic to websites has grown nearly 10x in the past year, and those visitors convert at significantly higher rates than traditional organic traffic. And relying solely on Google SEO leaves your business vulnerable to a single algorithm update.",
+          "SEvO doesn't replace SEO. It encompasses it. SEO is one component of a broader visibility strategy that ensures your brand shows up wherever your audience is looking, at every stage of their decision-making process."
         ],
         audience: [
           "Brands building long-term organic authority",
-          "E-commerce businesses operating across multiple platforms",
-          "Service companies reducing dependency on paid media over time",
-          "Businesses needing resilience against single-platform algorithm shifts"
+          "E-commerce businesses selling across multiple platforms",
+          "Service companies that want to reduce paid ad dependency over time",
+          "Businesses wanting resilience against algorithm changes on any single platform"
         ],
-        example: [
-          "A boutique travel agency ranked in Google but growth plateaued as discovery shifted to video, community platforms, and AI recommendations.",
-          "We kept the SEO foundation and added cross-platform search visibility through YouTube, Reddit, Instagram, and AI-readable content structure.",
-          "Discovery diversified across channels and dependency on paid search reduced over time."
+        exampleParagraphs: [
+          "A boutique travel agency has invested heavily in Google SEO and ranks well for several destination keywords. But traffic growth has plateaued, and they're seeing more of their target audience discovering travel content on YouTube, Reddit, and through AI recommendations.",
+          "We implement a SEvO strategy. We maintain and strengthen their existing Google SEO foundation while expanding their presence across YouTube (destination guides), Reddit (authentic community engagement and travel advice), Instagram (visual storytelling), and AI-readable structured content that positions them for ChatGPT and Google AI Overview citations. Within 6 months, the agency sees discovery traffic from three new platforms, an increase in brand mentions across channels, and reduced dependency on paid search for new inquiries."
         ],
-        execution: [
-          "Technical SEO foundation audit and optimization",
-          "Platform-specific intent and content mapping",
-          "YouTube and social search optimization",
-          "Entity consistency across all digital touchpoints",
-          "AI-readable structured content for citation readiness",
-          "Cross-platform performance tracking beyond Google-only rankings"
+        executionParagraphs: [
+          "Technical SEO audit and foundation optimization. Keyword and content strategy across Google and platform-specific search. YouTube and Instagram content optimized for each platform's search algorithm. Reddit presence strategy for community-driven discovery. Entity branding consistency across all digital touchpoints. AI-readable structured data so your brand is cited in AI-generated answers. Google Business Profile optimization for local visibility. Performance tracking across platforms, not just Google rankings."
         ],
-        executionClose: "SEO is ranking. SEvO is presence.",
-        cta: "Expand Your Visibility Everywhere"
+        executionClose: "SEO is ranking. SEvO is presence."
       }
     };
 
@@ -1787,18 +1825,15 @@
       if (serviceNarrative) serviceNarrative.classList.add("is-hidden");
     }
 
+    document.body.classList.remove("youtube-deep");
     if (slug === "youtube-growth-services") {
-      document.body.classList.add("youtube-deep");
       if (serviceDetail) {
         serviceDetail.classList.add("youtube-hero");
         serviceDetail.style.setProperty("--youtube-bg-image", "url('/assets/youtube-hero-bg.png')");
       }
-    } else {
-      document.body.classList.remove("youtube-deep");
-      if (serviceDetail) {
-        serviceDetail.classList.remove("youtube-hero");
-        serviceDetail.style.removeProperty("--youtube-bg-image");
-      }
+    } else if (serviceDetail) {
+      serviceDetail.classList.remove("youtube-hero");
+      serviceDetail.style.removeProperty("--youtube-bg-image");
     }
     const langSwitchEn = document.getElementById("langSwitchEn");
     const langSwitchDe = document.getElementById("langSwitchDe");
@@ -1870,6 +1905,10 @@
       const narrativeExample = document.getElementById("narrativeExample");
       const narrativeExecution = document.getElementById("narrativeExecution");
       const narrativeExecutionClose = document.getElementById("narrativeExecutionClose");
+      const narrativeComparison = document.getElementById("narrativeComparison");
+      const narrativeComparisonTitle = document.getElementById("narrativeComparisonTitle");
+      const narrativeComparisonTable = document.getElementById("narrativeComparisonTable");
+      const narrativeAfterComparison = document.getElementById("narrativeAfterComparison");
       const narrativeImagePrimary = document.getElementById("narrativeImagePrimary");
       const narrativeImageSecondary = document.getElementById("narrativeImageSecondary");
       const narrativeImageTertiary = document.getElementById("narrativeImageTertiary");
@@ -1881,22 +1920,56 @@
       if (narrativeTitle) narrativeTitle.textContent = narrativeData.title;
       if (narrativeLead) narrativeLead.textContent = narrativeData.lead;
       if (narrativeIntro) {
-        narrativeIntro.innerHTML = `
-          <h2>Overview</h2>
-          ${narrativeData.intro.map((line) => `<p class="ga-process-intro">${line}</p>`).join("")}
-        `;
+        narrativeIntro.innerHTML = (narrativeData.introParagraphs || [])
+          .map((line) => `<p class="ga-process-intro">${line}</p>`)
+          .join("");
       }
       if (narrativeAudience) {
         narrativeAudience.innerHTML = narrativeData.audience.map((item) => `<li>${item}</li>`).join("");
       }
       if (narrativeExample) {
-        narrativeExample.innerHTML = narrativeData.example.map((line) => `<p>${line}</p>`).join("");
+        narrativeExample.innerHTML = (narrativeData.exampleParagraphs || [])
+          .map((line) => `<p>${line}</p>`)
+          .join("");
       }
       if (narrativeExecution) {
-        narrativeExecution.innerHTML = narrativeData.execution.map((item) => `<li>${item}</li>`).join("");
+        narrativeExecution.innerHTML = (narrativeData.executionParagraphs || [])
+          .map((line) => `<p>${line}</p>`)
+          .join("");
       }
       if (narrativeExecutionClose) {
-        narrativeExecutionClose.textContent = narrativeData.executionClose;
+        narrativeExecutionClose.innerHTML = [narrativeData.executionClose, narrativeData.tailLine]
+          .filter(Boolean)
+          .join("<br>");
+      }
+      if (narrativeComparison && narrativeComparisonTable && narrativeComparisonTitle && narrativeAfterComparison) {
+        const hasComparison =
+          Array.isArray(narrativeData.comparisonRows) &&
+          narrativeData.comparisonRows.length > 0 &&
+          Array.isArray(narrativeData.comparisonHeaders) &&
+          narrativeData.comparisonHeaders.length > 0;
+
+        if (!hasComparison) {
+          narrativeComparison.classList.add("is-hidden");
+          narrativeComparisonTitle.textContent = "";
+          narrativeComparisonTable.querySelector("thead").innerHTML = "";
+          narrativeComparisonTable.querySelector("tbody").innerHTML = "";
+          narrativeAfterComparison.innerHTML = "";
+        } else {
+          narrativeComparison.classList.remove("is-hidden");
+          narrativeComparisonTitle.textContent = narrativeData.comparisonTitle || "Comparison";
+          narrativeComparisonTable.querySelector("thead").innerHTML = `
+            <tr>
+              ${narrativeData.comparisonHeaders.map((h) => `<th>${h}</th>`).join("")}
+            </tr>
+          `;
+          narrativeComparisonTable.querySelector("tbody").innerHTML = narrativeData.comparisonRows
+            .map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`)
+            .join("");
+          narrativeAfterComparison.innerHTML = (narrativeData.comparisonAfterParagraphs || [])
+            .map((line) => `<p class="ga-process-intro">${line}</p>`)
+            .join("");
+        }
       }
       if (narrativeImagePrimary) {
         narrativeImagePrimary.src = narrativeData.imagePrimary || "";
@@ -1911,7 +1984,7 @@
         narrativeImageTertiary.alt = narrativeData.imageAlt || narrativeData.title;
       }
       if (narrativeCta) {
-        narrativeCta.textContent = narrativeData.cta;
+        narrativeCta.textContent = "LET'S TALK";
       }
 
       if (narrativeFaq && narrativeFaqItems) {
