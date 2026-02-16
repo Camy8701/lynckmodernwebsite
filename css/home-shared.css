@@ -756,6 +756,35 @@ footer { position: relative; width: 100%; background: var(--accent-dark); displa
   color: rgba(12,23,48,0.72);
   max-width: 900px;
 }
+.about-lynck-story {
+  margin-top: 2rem;
+  max-width: 980px;
+  padding: 1.4rem 1.5rem 1.45rem;
+  border: 1px solid rgba(12, 23, 48, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(2px);
+}
+.about-lynck-story h3 {
+  font-size: clamp(1.7rem, 2.6vw, 2.4rem);
+  line-height: 1.05;
+  margin-bottom: 0.95rem;
+  letter-spacing: -0.02em;
+  color: #0b1220;
+}
+.about-lynck-story p {
+  font-size: 1.08rem;
+  line-height: 1.66;
+  color: rgba(12,23,48,0.78);
+  margin: 0 0 0.72rem;
+}
+.about-lynck-story p:last-child { margin-bottom: 0; }
+.about-lynck-story-strong {
+  font-family: var(--font-head);
+  color: #0b1220 !important;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
 .pack-benefit-text .pillar-label {
   display: inline-block;
   font-family: var(--font-sub);
@@ -1366,6 +1395,9 @@ footer { position: relative; width: 100%; background: var(--accent-dark); displa
 #arch .pack-benefit-text h3 { font-size: 2rem; }
 #arch .pack-image-card { padding: 14px; }
 #arch .pack-image-card img { height: 461px; }
+.about-lynck-story { padding: 1.1rem 1rem 1.15rem; border-radius: 14px; }
+.about-lynck-story h3 { font-size: 1.75rem; }
+.about-lynck-story p { font-size: 1rem; line-height: 1.62; }
 .benefits-kicker { font-size: 0.9rem; letter-spacing: 0.11em; }
 .benefits-transition { font-size: 1.26rem; line-height: 1.6; }
 /* Nav */

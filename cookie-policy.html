@@ -7,6 +7,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <script>
+    (function syncCookiePolicyLanguage() {
+      try {
+        var stored = localStorage.getItem("language");
+        var isGermanPath = window.location.pathname.indexOf("/de/") === 0;
+        if (stored === "de" && !isGermanPath) {
+          window.location.replace("/de/cookie-policy.html");
+        }
+      } catch (err) {}
+    })();
+  </script>
   <style>
     :root {
       --bg: #f1eee6;
@@ -162,6 +173,8 @@
       <nav class="top-links" aria-label="Cookie policy links">
         <a href="/index.html">Home</a>
         <a href="/contact.html">Contact</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/legal-notice.html">Legal Notice</a>
         <a class="primary" href="/cookie-policy.html">Cookie Policy</a>
       </nav>
     </div>
