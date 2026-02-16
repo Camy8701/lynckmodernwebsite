@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Policy | LYNCK Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f1eee6;
+      --text: #0f1d3d;
+      --muted: #3a4d71;
+      --panel: rgba(255, 255, 255, 0.74);
+      --line: rgba(15, 29, 61, 0.16);
+      --accent: #184abc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Manrope", sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(rgba(17, 30, 55, 0.12) 0.9px, transparent 0.9px),
+        radial-gradient(980px 560px at 10% -6%, rgba(255, 255, 255, 0.92), transparent 64%),
+        radial-gradient(900px 520px at 96% 4%, rgba(198, 208, 224, 0.38), transparent 60%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(241, 238, 230, 0.96));
+      background-size: 24px 24px, auto, auto, auto;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.74);
+      border-bottom: 1px solid rgba(15, 29, 61, 0.1);
+    }
+    .topbar-inner {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: var(--text);
+      text-decoration: none;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .brand img { width: 34px; height: 34px; border-radius: 8px; }
+    .top-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+    .top-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.5rem 0.92rem;
+      background: rgba(255, 255, 255, 0.7);
+    }
+    .top-links a.primary {
+      color: #fff;
+      background: linear-gradient(120deg, #184abc, #2b69ec);
+      border-color: rgba(24, 74, 188, 0.5);
+    }
+    main {
+      width: min(980px, calc(100% - 2rem));
+      margin: 2rem auto 3.5rem;
+    }
+    .policy {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: clamp(1.2rem, 2.5vw, 2rem);
+      background: var(--panel);
+      box-shadow: 0 22px 56px rgba(13, 26, 52, 0.14);
+    }
+    .kicker {
+      display: inline-block;
+      border: 1px solid rgba(24, 74, 188, 0.45);
+      border-radius: 999px;
+      color: #fff;
+      background: #184abc;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.65rem;
+      margin-bottom: 0.9rem;
+      font-family: "Space Grotesk", sans-serif;
+    }
+    h1 {
+      margin: 0 0 0.8rem;
+      font-size: clamp(2rem, 4.4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      font-family: "Space Grotesk", sans-serif;
+    }
+    h2 {
+      margin: 1.2rem 0 0.5rem;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-family: "Space Grotesk", sans-serif;
+    }
+    p {
+      margin: 0.5rem 0;
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 0.98rem;
+    }
+    ul {
+      margin: 0.35rem 0 0.7rem;
+      padding-left: 1.2rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.35rem;
+    }
+    footer {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      color: #4f6186;
+      font-size: 0.86rem;
+    }
+    footer a {
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.45rem 0.85rem;
+      background: rgba(255, 255, 255, 0.72);
+    }
+    @media (max-width: 720px) {
+      .topbar-inner { flex-direction: column; justify-content: center; padding: 0.8rem 0; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/index.html">
+        <img src="/assets/lynck-logo.png" alt="LYNCK Studio">
+        <span>LYNCK Studio</span>
+      </a>
+      <nav class="top-links" aria-label="Cookie policy links">
+        <a href="/index.html">Home</a>
+        <a href="/contact.html">Contact</a>
+        <a class="primary" href="/cookie-policy.html">Cookie Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="policy">
+      <span class="kicker">Compliance</span>
+      <h1>Cookie Policy</h1>
+
+      <p>LYNCK Studio uses cookies to enhance user experience, improve website performance, and analyze traffic.</p>
+      <p>Cookies are small files stored on your device that allow us to recognize your browser and collect usage data.</p>
+
+      <h2>Types of Cookies We Use</h2>
+      <ul>
+        <li>Essential cookies (website functionality)</li>
+        <li>Analytical cookies (traffic analysis)</li>
+        <li>Marketing cookies (campaign optimization)</li>
+      </ul>
+
+      <h2>Third-Party Services</h2>
+      <p>We may use services such as:</p>
+      <ul>
+        <li>Google Analytics</li>
+        <li>Google Tag Manager</li>
+      </ul>
+      <p>These services may collect usage data and cookies in accordance with their own privacy policies.</p>
+
+      <h2>Managing Cookies</h2>
+      <p>You may configure your browser to reject cookies, accept cookies, or request permission before storing cookies.</p>
+      <p>You can manage cookies through your browser settings.</p>
+
+      <h2>Jurisdiction</h2>
+      <p>This Cookie Policy is governed by Spanish law.</p>
+      <p>If you do not agree with this policy, please disable cookies or refrain from using the website.</p>
+    </article>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 LYNCK Studio</span>
+    <a href="/index.html">Back to website</a>
+  </footer>
+</body>
+</html>

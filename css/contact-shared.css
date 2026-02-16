@@ -556,6 +556,14 @@
       color: rgba(255, 255, 255, 0.5);
       font-size: 0.85rem;
     }
+    .footer-meta a {
+      color: rgba(255, 255, 255, 0.78);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-meta a:hover {
+      color: #ffffff;
+    }
 
 @media (max-width: 900px) {
       .contact-grid {

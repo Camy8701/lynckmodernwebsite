@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #060a14;
+      --bg: #f1eee6;
       --panel: rgba(12, 18, 32, 0.86);
       --panel-soft: rgba(16, 24, 40, 0.62);
       --line: rgba(255, 255, 255, 0.14);
@@ -26,73 +26,222 @@
       min-height: 100vh;
       font-family: "Manrope", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(1200px 550px at 12% -6%, rgba(122, 167, 255, 0.25), transparent 62%),
-        radial-gradient(900px 500px at 95% 4%, rgba(255, 138, 77, 0.22), transparent 58%),
-        var(--bg);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(rgba(17, 30, 55, 0.14) 0.9px, transparent 0.9px),
+        radial-gradient(1100px 620px at 12% -8%, rgba(255, 255, 255, 0.92), transparent 64%),
+        radial-gradient(980px 560px at 95% 6%, rgba(196, 206, 224, 0.42), transparent 60%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(241, 238, 230, 0.94));
+      background-size: 24px 24px, auto, auto, auto;
+      background-position: 0 0, 0 0, 0 0, 0 0;
+    }
+    body.youtube-deep {
+      background-color: #06122a;
+      background-image:
+        radial-gradient(920px 560px at 12% -12%, rgba(72, 136, 255, 0.24), transparent 60%),
+        radial-gradient(820px 540px at 88% 6%, rgba(23, 64, 152, 0.4), transparent 64%),
+        radial-gradient(rgba(141, 186, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(180deg, #081631 0%, #061229 48%, #050f22 100%);
+      background-size: auto, auto, 24px 24px, auto;
+      background-position: 0 0, 0 0, 0 0, 0 0;
+      color: #e8eefc;
     }
 
-    .shell { width: min(1140px, calc(100% - 2.4rem)); margin: 0 auto; }
+    .shell { width: min(1140px, calc(100% - 2.4rem)); margin: 0 auto; margin-top: 116px; }
 
-    .topbar {
-      position: sticky;
-      top: 14px;
-      z-index: 50;
-      margin-top: 14px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(10, 15, 26, 0.74);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow);
-      padding: 0.55rem 0.8rem;
+    .lynck-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10050;
+      padding: 0.75rem 1rem;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .lynck-header-inner {
+      width: 100%;
+      max-width: 1200px;
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .lynck-header-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 1.5rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+      flex: 1;
+      min-width: 0;
     }
-
-    .brand {
+    .lynck-home-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(8, 10, 15, 0.8);
       display: inline-flex;
       align-items: center;
-      gap: 0.68rem;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      font-family: "Space Grotesk", sans-serif;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      margin-left: -0.75rem;
     }
-
-    .brand img {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
+    .lynck-home-logo img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      display: block;
     }
-
-    .menu {
-      display: flex;
-      gap: 0.62rem;
+    .lynck-partner-badge {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.68);
+      background: rgba(255, 255, 255, 0.36);
+      backdrop-filter: blur(14px) saturate(1.2);
+      -webkit-backdrop-filter: blur(14px) saturate(1.2);
+      display: inline-flex;
       align-items: center;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      margin-right: -0.75rem;
     }
-
-    .menu a {
+    .lynck-partner-badge img {
+      width: 84%;
+      height: 84%;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+    }
+    .lynck-header-left,
+    .lynck-header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .nav-social {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .nav-social a {
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.72);
+      color: rgba(15, 23, 42, 0.82);
+      transition: 0.2s ease;
       text-decoration: none;
-      border: 1px solid var(--line);
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.03);
-      padding: 0.5rem 0.82rem;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
     }
-
-    .menu a.primary {
-      border-color: rgba(122, 167, 255, 0.7);
-      background: linear-gradient(120deg, rgba(122, 167, 255, 0.2), rgba(255, 138, 77, 0.18));
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(15, 23, 42, 0.78);
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    .nav-caret {
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid rgba(15, 23, 42, 0.7);
+    }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.6rem);
+      left: 0;
+      min-width: 260px;
+      padding: 0.4rem;
+      border-radius: 14px;
+      background: rgba(10, 12, 18, 0.98);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      display: none;
+    }
+    .nav-dropdown.right .nav-dropdown-menu { right: 0; left: auto; min-width: 180px; }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 0.5rem 0.7rem;
+      border-radius: 10px;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.85rem;
+      transition: 0.2s ease;
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: 0;
+      text-decoration: none;
+    }
+    .nav-dropdown-menu a:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+    .lynck-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      color: rgba(15, 23, 42, 0.82);
+      font-size: 0.88rem;
+    }
+    .lynck-nav-links a {
+      color: inherit;
+      text-decoration: none;
+      font: inherit;
+    }
+    .gradient-border-btn {
+      position: relative;
+      isolation: isolate;
+      padding: 3px;
+      border-radius: 999px;
+      overflow: hidden;
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+    }
+    .gradient-border-btn .cp-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 400%;
+      background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b) 0% 0% / 25% 100%;
+      transform: translateX(-5%);
+      z-index: 0;
+      transition: transform 0.25s ease-out;
+    }
+    .gradient-border-btn .btn-core {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.9rem;
+      background: #0b0d14;
+      border-radius: 999px;
+      color: #fff;
+      z-index: 1;
     }
 
     main { padding: 2rem 0 3.4rem; }
@@ -107,6 +256,48 @@
       position: relative;
       isolation: isolate;
     }
+
+    .hero.youtube-hero {
+      --youtube-bg-image: none;
+      --youtube-image-width: min(62vw, 920px);
+      --youtube-image-left: clamp(24px, 5vw, 92px);
+      --youtube-image-top: clamp(140px, 22vh, 240px);
+      background: transparent;
+      min-height: clamp(560px, 70vh, 760px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 0;
+      overflow: visible;
+      isolation: auto;
+    }
+
+    .hero.youtube-hero::before { display: none; }
+    .hero.youtube-hero::after {
+      content: "";
+      position: absolute;
+      left: var(--youtube-image-left);
+      top: var(--youtube-image-top);
+      width: var(--youtube-image-width);
+      aspect-ratio: 2400 / 1702;
+      background: var(--youtube-bg-image) center / contain no-repeat;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.98;
+      filter: saturate(1.02);
+    }
+    .hero.youtube-hero > * {
+      position: relative;
+      z-index: 2;
+    }
+    .hero.youtube-hero h1,
+    .hero.youtube-hero .lede { max-width: min(620px, 56%); }
+    .hero.youtube-hero .grid { display: none; }
+    .hero.youtube-hero .steps { display: none; }
+    .hero.youtube-hero .cta-row { max-width: min(720px, 58%); }
 
     .hero::before {
       content: "";
@@ -275,34 +466,530 @@
       background: linear-gradient(120deg, rgba(122, 167, 255, 0.2), rgba(255, 138, 77, 0.2));
     }
 
+    .is-hidden { display: none !important; }
+
+    .google-longform {
+      padding: clamp(1.2rem, 2.2vw, 2rem) 0 0;
+      color: #111a2e;
+    }
+    .google-longform .intro {
+      margin-bottom: 2.6rem;
+      max-width: 72ch;
+    }
+    .google-longform .intro .eyebrow {
+      color: #fff;
+      background: #184abc;
+      border-color: rgba(24, 74, 188, 0.6);
+    }
+    .google-longform h1 {
+      color: #0f1d3d;
+      font-size: clamp(2rem, 4.2vw, 3.25rem);
+      margin-bottom: 0.8rem;
+    }
+    .google-longform .intro p {
+      color: #2f3e5f;
+      font-size: clamp(1rem, 1.5vw, 1.12rem);
+      line-height: 1.75;
+      margin: 0.65rem 0;
+    }
+
+    .ga-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(1.4rem, 3vw, 2.2rem);
+      align-items: center;
+      margin-bottom: clamp(2.4rem, 6vw, 4.2rem);
+    }
+    .ga-media {
+      position: relative;
+      min-height: 500px;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 22px 56px rgba(13, 26, 52, 0.24);
+      border: 1px solid rgba(17, 26, 46, 0.14);
+    }
+    .ga-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ga-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(165deg, rgba(24, 74, 188, 0.18), transparent 46%);
+      pointer-events: none;
+    }
+    .ga-content h2 {
+      margin: 0 0 0.6rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.55rem, 2.5vw, 2.2rem);
+      color: #0f1d3d;
+      letter-spacing: -0.01em;
+    }
+    .ga-content p {
+      margin: 0.6rem 0;
+      color: #324666;
+      line-height: 1.75;
+      font-size: clamp(0.98rem, 1.45vw, 1.08rem);
+    }
+    .ga-content ul {
+      list-style: disc;
+      padding-left: 1.2rem;
+      margin: 0.8rem 0 0;
+      display: grid;
+      gap: 0.35rem;
+    }
+    .ga-content li {
+      margin: 0;
+      padding: 0;
+      color: #2e4161;
+      line-height: 1.65;
+      font-size: 0.98rem;
+    }
+    .ga-content li::before { content: none; }
+    .ga-engine {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(17, 26, 46, 0.1);
+    }
+    .ga-engine h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.08rem;
+      font-family: "Space Grotesk", sans-serif;
+      color: #0f1d3d;
+    }
+    .ga-engine p {
+      margin: 0.2rem 0 0;
+      font-size: 0.95rem;
+      color: #3c4f71;
+      line-height: 1.62;
+    }
+    .ga-engine .best {
+      color: #1749ba;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .ga-process {
+      margin-top: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .ga-process h2 {
+      margin: 0 0 0.8rem;
+      font-size: clamp(1.6rem, 2.4vw, 2rem);
+      color: #0f1d3d;
+      font-family: "Space Grotesk", sans-serif;
+    }
+    .ga-process-intro {
+      color: #33476a;
+      line-height: 1.7;
+      margin: 0 0 1.1rem;
+    }
+    .ga-steps {
+      display: grid;
+      gap: 1rem;
+    }
+    .ga-step {
+      border: 1px solid rgba(17, 26, 46, 0.14);
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.68);
+      padding: 1rem 1rem 1.05rem;
+    }
+    .ga-step-num {
+      color: #184abc;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: "Space Grotesk", sans-serif;
+    }
+    .ga-step h3 {
+      margin: 0.3rem 0 0.45rem;
+      font-size: 1.08rem;
+      color: #0f1d3d;
+    }
+    .ga-step p {
+      margin: 0;
+      color: #36486a;
+      line-height: 1.64;
+      font-size: 0.95rem;
+    }
+
+    .ga-faq {
+      margin-top: 1.2rem;
+      border-top: 1px solid rgba(17, 26, 46, 0.12);
+      padding-top: 1.6rem;
+    }
+    .ga-faq h2 {
+      margin: 0 0 0.8rem;
+      font-size: clamp(1.6rem, 2.4vw, 2rem);
+      color: #0f1d3d;
+      font-family: "Space Grotesk", sans-serif;
+    }
+    .ga-faq-item {
+      border: 1px solid rgba(17, 26, 46, 0.14);
+      border-radius: 0.95rem;
+      background: rgba(255, 255, 255, 0.7);
+      overflow: hidden;
+      margin-bottom: 0.8rem;
+    }
+    .ga-faq-toggle {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #0f1d3d;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.95rem 1rem;
+      cursor: pointer;
+      font-size: 0.98rem;
+      font-weight: 700;
+      font-family: inherit;
+    }
+    .ga-faq-answer {
+      padding: 0 1rem 1rem;
+      color: #36486a;
+      line-height: 1.68;
+      font-size: 0.94rem;
+    }
+
+    .ga-bottom-cta {
+      margin-top: 1.2rem;
+      padding-top: 0.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .ga-bottom-cta a {
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 0.72rem 1.2rem;
+      font-weight: 800;
+      font-size: 0.9rem;
+      border: 1px solid rgba(24, 74, 188, 0.45);
+      color: #fff;
+      background: linear-gradient(118deg, #184abc, #2b69ec);
+      box-shadow: 0 14px 24px rgba(24, 74, 188, 0.25);
+    }
+
+    @media (max-width: 980px) {
+      .ga-row { grid-template-columns: 1fr; }
+      .ga-media { min-height: 420px; }
+      .ga-row.alt .ga-media { order: 2; }
+      .ga-row.alt .ga-content { order: 1; }
+    }
+
+    .svc-footer-cta {
+      margin-top: 2.4rem;
+      padding: 5.6rem 0;
+      background: #05060b;
+      color: #f1efe6;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .svc-footer-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1.6px);
+      background-size: 3px 3px;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .svc-contact-orbit {
+      position: absolute;
+      width: 680px;
+      height: 680px;
+      border-radius: 50%;
+      border: 6px solid rgba(111, 163, 221, 0.75);
+      box-shadow: 0 0 35px rgba(111, 163, 221, 0.6), 0 0 120px rgba(0, 69, 186, 0.7);
+      right: -180px;
+      top: -160px;
+      opacity: 0.95;
+      pointer-events: none;
+    }
+    .svc-contact-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border-radius: 50%;
+      border: 4px solid rgba(79, 182, 255, 0.9);
+      box-shadow: 0 0 25px rgba(79, 182, 255, 0.7);
+    }
+    .svc-footer-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+    .svc-contact-card {
+      background: rgba(15, 18, 28, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 2rem;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(16px);
+      min-height: 280px;
+    }
+    .svc-contact-card h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 0 0.9rem;
+      font-family: "Space Grotesk", sans-serif;
+    }
+    .svc-contact-card h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.08;
+      color: #fff;
+      font-family: "Space Grotesk", sans-serif;
+    }
+    .svc-contact-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .svc-contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1.45rem;
+    }
+    .svc-contact-pill,
+    .svc-contact-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.62rem 1rem;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-decoration: none;
+    }
+    .svc-contact-pill {
+      background: #f1efe6;
+      color: #0f172a;
+    }
+    .svc-contact-btn {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+    .svc-contact-social {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+    }
+    .svc-contact-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      text-decoration: none;
+    }
+    .svc-contact-links h3 {
+      margin: 0 0 0.8rem;
+      font-size: 1.35rem;
+      color: #fff;
+      font-family: "Space Grotesk", sans-serif;
+    }
+    .svc-contact-links ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.62rem;
+    }
+    .svc-contact-links li {
+      margin: 0;
+      padding: 0;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .svc-contact-links li::before {
+      content: none;
+    }
+    .svc-chip {
+      display: inline-flex;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 0.8rem;
+      text-decoration: none;
+    }
+    .svc-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.12);
+      margin: 1.2rem 0;
+    }
+
+    .svc-footer {
+      width: 100%;
+      background: #0c1730;
+      padding: 4rem 0 3.4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #f1efe6;
+    }
+    .svc-footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+    }
+    .svc-footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.95rem;
+      color: rgba(241, 239, 230, 0.75);
+    }
+    .svc-footer-links {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .svc-footer-links a {
+      text-decoration: none;
+      color: #fff;
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .svc-footer-links a.svc-legal {
+      width: auto;
+      height: auto;
+      border: 0;
+      border-radius: 0;
+      color: rgba(241, 239, 230, 0.9);
+    }
+    .svc-footer-big {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(6rem, 18vw, 18rem);
+      line-height: 0.9;
+      color: #fff;
+      text-align: center;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
     @media (max-width: 980px) {
       .grid { grid-template-columns: 1fr; }
       .step-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .svc-footer-grid { grid-template-columns: 1fr; }
+      .svc-footer-top { flex-direction: column; align-items: flex-start; }
+      .svc-footer-big { font-size: clamp(4.6rem, 24vw, 12rem); }
+      .hero.youtube-hero {
+        min-height: auto;
+        --youtube-image-width: min(100%, 720px);
+        --youtube-image-left: max(0px, calc(50% - 360px));
+        --youtube-image-top: clamp(220px, 40vh, 360px);
+      }
+      .hero.youtube-hero h1,
+      .hero.youtube-hero .lede,
+      .hero.youtube-hero .cta-row { max-width: 100%; }
     }
 
     @media (max-width: 620px) {
       .shell { width: min(1140px, calc(100% - 1.2rem)); }
-      .topbar { top: 8px; margin-top: 8px; }
+      .shell { margin-top: 106px; }
       .step-grid { grid-template-columns: 1fr; }
-      .menu { gap: 0.42rem; }
-      .menu a { padding: 0.42rem 0.62rem; font-size: 0.77rem; }
+      .svc-footer-cta { padding: 4rem 0; }
+      .svc-contact-card { padding: 1.5rem; }
+      .svc-contact-card h2 { font-size: 2rem; }
+      .svc-footer-big { font-size: 23vw; }
+      .lynck-nav-links { display: none; }
+      .lynck-partner-badge { display: none; }
+      .lynck-header-inner { gap: 0.6rem; }
+      .lynck-home-logo { width: 58px; height: 58px; margin-left: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <header class="topbar">
-      <a class="brand" href="/index.html" aria-label="Back to Home">
+  <header class="lynck-header">
+    <div class="lynck-header-inner">
+      <button type="button" class="lynck-home-logo" data-home-btn aria-label="LYNCK Studio Home">
         <img src="/assets/lynck-logo.png" alt="LYNCK Studio">
-        <span>LYNCK Studio</span>
+      </button>
+      <div class="lynck-header-bar">
+        <div class="lynck-header-left">
+          <div class="nav-social">
+            <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/></svg>
+            </a>
+          </div>
+          <div class="nav-dropdown">
+            <button class="nav-pill" type="button">All <span class="nav-caret" aria-hidden="true"></span></button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="/services/service.html?service=google-ads" role="menuitem">Google Ads &amp; Performance Marketing</a>
+              <a href="/services/service.html?service=meta-ads" role="menuitem">Meta Ads &amp; Paid Social</a>
+              <a href="/services/service.html?service=ai-content" role="menuitem">AI Content &amp; Creative Production</a>
+              <a href="/services/service.html?service=ugc-influencer" role="menuitem">UGC &amp; Influencer Marketing</a>
+              <a href="/services/service.html?service=web-systems" role="menuitem">Conversion-Focused Web Systems</a>
+              <a href="/services/service.html?service=growth-strategy" role="menuitem">Growth Strategy &amp; Brand Positioning</a>
+              <a href="/services/service.html?service=leads-generation" role="menuitem">Leads Generation</a>
+              <a href="/services/service.html?service=youtube-growth-services" role="menuitem">YouTube Growth Services</a>
+              <a href="/services/service.html?service=seo-sevo" role="menuitem">SEO / SEvO</a>
+            </div>
+          </div>
+        </div>
+
+        <nav class="lynck-nav-links" aria-label="Primary">
+          <a href="/index.html#arch">About LYNCK</a>
+          <a href="/index.html#our-services">Our Services</a>
+          <a href="/index.html#testimonials">Testimonials</a>
+          <a href="/index.html#terminal">Blog</a>
+        </nav>
+
+        <div class="lynck-header-right">
+          <div class="nav-dropdown right">
+            <button class="nav-pill" type="button">EN <span class="nav-caret" aria-hidden="true"></span></button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a id="langSwitchEn" href="/services/service.html" role="menuitem"><span aria-hidden="true">🇺🇸</span> English</a>
+              <a id="langSwitchDe" href="/de/services/service.html" role="menuitem"><span aria-hidden="true">🇩🇪</span> Deutsch</a>
+            </div>
+          </div>
+          <button type="button" class="gradient-border-btn" data-contact-btn>
+            <div class="cp-border" aria-hidden="true"></div>
+            <span class="btn-core">Let's connect &#8594;</span>
+          </button>
+        </div>
+      </div>
+      <a href="https://www.google.com/partners/agency?id=6214402482" target="_blank" rel="noopener noreferrer" class="lynck-partner-badge" aria-label="Google Partner Badge">
+        <img src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
       </a>
-      <nav class="menu" aria-label="Service page navigation">
-        <a href="/index.html">Home</a>
-        <a href="/contact.html">Contact</a>
-        <a id="langSwitch" href="/de/services/service.html" rel="nofollow">DE</a>
-        <a class="primary" href="/index.html#services">All services</a>
-      </nav>
-    </header>
+    </div>
+  </header>
+
+  <div class="shell">
 
     <main>
       <section class="hero" id="serviceDetail">
@@ -333,8 +1020,196 @@
           <a href="/index.html#services">Back to services</a>
         </div>
       </section>
+
+      <section class="google-longform is-hidden" id="googleAdsLongForm">
+        <div class="intro">
+          <span class="eyebrow">Google Ads &amp; Performance Marketing</span>
+          <h1>Capture Intent. Create Demand. Scale With Structure.</h1>
+          <p>Google Ads is not just running search ads. It is a full ecosystem that allows you to appear exactly when customers are actively searching, re-engage visitors who did not convert, build visibility across YouTube and the wider web, and expand into new audiences using AI-driven targeting.</p>
+          <p>It is a dual system. You capture demand that already exists, and you generate new demand through visibility and creative. When structured correctly, it becomes a growth engine.</p>
+        </div>
+
+        <div class="ga-row">
+          <div class="ga-media">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&q=80&auto=format&fit=crop" alt="Google Ads strategy and campaign architecture">
+          </div>
+          <div class="ga-content">
+            <h2>What Google Ads Can Do For Your Business</h2>
+            <p>Google Ads places your brand in front of customers at the exact moment they are looking for your service or product. But it goes far beyond the search bar.</p>
+            <p>Your brand can appear on YouTube, Gmail, Google Maps, Discover feed, and millions of partner websites.</p>
+            <p>With the right structure, you do not just buy clicks. You build market presence.</p>
+          </div>
+        </div>
+
+        <div class="ga-row alt">
+          <div class="ga-content">
+            <h2>Choose The Right Engine For Your Growth</h2>
+            <p>Every business is different. We do not activate everything blindly. We choose the right engines based on margin, sales cycle, and growth stage.</p>
+            <div class="ga-engine">
+              <h3>Search Campaigns</h3>
+              <p class="best">Best for: Converting existing demand.</p>
+              <p>When customers are actively searching for your brand, service, or product, we make sure you are visible. You only pay for high-intent clicks.</p>
+            </div>
+            <div class="ga-engine">
+              <h3>Shopping Ads</h3>
+              <p class="best">Best for: E-commerce sales.</p>
+              <p>Products appear with price and image directly in search results. You show up when buyers are already comparing options.</p>
+            </div>
+            <div class="ga-engine">
+              <h3>Performance Max</h3>
+              <p class="best">Best for: Scaling across all Google platforms.</p>
+              <p>Search, Shopping, YouTube, Maps, Display, Gmail, and Discover under one structure. We do not rely on AI blindly; we control inputs and signals.</p>
+            </div>
+            <div class="ga-engine">
+              <h3>Remarketing</h3>
+              <p class="best">Best for: Closing warm prospects.</p>
+              <p>Most visitors do not convert on the first visit. We bring them back strategically and at lower cost.</p>
+            </div>
+            <div class="ga-engine">
+              <h3>YouTube Ads</h3>
+              <p class="best">Best for: Authority and demand creation.</p>
+              <p>We combine video storytelling, smart audience targeting, and sequential retargeting. This is where brand meets performance.</p>
+            </div>
+          </div>
+          <div class="ga-media">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=80&auto=format&fit=crop" alt="Performance dashboards and paid media analysis">
+          </div>
+        </div>
+
+        <section class="ga-process">
+          <h2>How We Work</h2>
+          <p class="ga-process-intro">We do not launch ads. We build structured systems.</p>
+          <div class="ga-steps">
+            <article class="ga-step">
+              <span class="ga-step-num">1 - Free Strategy Call</span>
+              <h3>Clarity before spend</h3>
+              <p>We dive into your business model, margins, sales process, current traffic, and existing campaigns. We define whether Google Ads is the right channel and how it should be structured.</p>
+            </article>
+            <article class="ga-step">
+              <span class="ga-step-num">2 - Account Audit and 60-90 Day Roadmap</span>
+              <h3>Concrete actions, not vague advice</h3>
+              <p>We audit campaign structure, conversion tracking, wasted spend, keyword targeting, and funnel alignment. You receive a clear action plan with short-term wins and long-term scale logic.</p>
+            </article>
+            <article class="ga-step">
+              <span class="ga-step-num">3 - Build and Launch</span>
+              <h3>Execution with clean structure</h3>
+              <p>We build or restructure campaigns with clear naming logic, segmentation, conversion-first tracking, and creative alignment. We prioritize fast traction, then controlled expansion.</p>
+            </article>
+            <article class="ga-step">
+              <span class="ga-step-num">4 - Continuous Scaling and Optimization</span>
+              <h3>Budget follows performance</h3>
+              <p>After the learning phase stabilizes (typically 2-4 weeks), we remove underperforming segments, expand profitable audiences, refine bidding, test creatives, and scale with measurable ROI.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="ga-faq" id="googleFaq">
+          <h2>FAQ</h2>
+          <div class="ga-faq-item">
+            <button class="ga-faq-toggle" type="button" aria-expanded="true">
+              <span>How much budget do I need?</span>
+              <span>+</span>
+            </button>
+            <div class="ga-faq-answer">
+              Most businesses start effectively between EUR1,000 and EUR2,000 per month. This generates enough data for intelligent optimization. Once ROI is validated, we scale strategically.
+            </div>
+          </div>
+          <div class="ga-faq-item">
+            <button class="ga-faq-toggle" type="button" aria-expanded="false">
+              <span>How fast will I see results?</span>
+              <span>+</span>
+            </button>
+            <div class="ga-faq-answer is-hidden">
+              Traffic starts immediately. Performance typically stabilizes after 2-4 weeks once campaigns exit the learning phase.
+            </div>
+          </div>
+          <div class="ga-faq-item">
+            <button class="ga-faq-toggle" type="button" aria-expanded="false">
+              <span>Are Google Ads still profitable with rising CPCs?</span>
+              <span>+</span>
+            </button>
+            <div class="ga-faq-answer is-hidden">
+              Yes. High-intent search remains one of the most profitable acquisition channels. We optimize for conversion quality, not just click volume.
+            </div>
+          </div>
+          <div class="ga-faq-item">
+            <button class="ga-faq-toggle" type="button" aria-expanded="false">
+              <span>What if my industry is very competitive?</span>
+              <span>+</span>
+            </button>
+            <div class="ga-faq-answer is-hidden">
+              Competition means demand exists. We do not try to outspend larger competitors. We out-structure them with tighter targeting, cleaner architecture, and stronger funnel fit.
+            </div>
+          </div>
+          <div class="ga-faq-item">
+            <button class="ga-faq-toggle" type="button" aria-expanded="false">
+              <span>How much time do I need to invest?</span>
+              <span>+</span>
+            </button>
+            <div class="ga-faq-answer is-hidden">
+              After kickoff and monthly strategy reviews, we handle day-to-day execution as an extension of your team.
+            </div>
+          </div>
+        </section>
+
+        <div class="ga-bottom-cta">
+          <a href="/contact.html">Book Your FREE Strategy Call</a>
+        </div>
+      </section>
     </main>
   </div>
+
+  <section class="svc-footer-cta" id="terminal">
+    <div class="svc-contact-orbit"></div>
+    <div class="shell svc-footer-grid">
+      <div class="svc-contact-card">
+        <h4>Connect With Us</h4>
+        <h2>Let’s create something amazing together</h2>
+        <p>Ready to scale your marketing? We’d love to hear about your goals and explore how we can work together to achieve them.</p>
+        <div class="svc-contact-actions">
+          <span class="svc-contact-pill">info@lynckstudio.pro</span>
+          <a href="#" class="svc-contact-btn">Schedule a call</a>
+        </div>
+        <div class="svc-contact-social">
+          <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+          <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+      <div class="svc-contact-card svc-contact-links">
+        <h3>Quick Links</h3>
+        <span class="svc-chip">About LYNCK</span>
+        <ul>
+          <li>Our Services</li>
+        </ul>
+        <div class="svc-divider"></div>
+        <h3>Services</h3>
+        <ul>
+          <li>Digital Marketing</li>
+          <li>Web Development</li>
+          <li>Brand Strategy</li>
+          <li>SEO Optimization</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="svc-footer">
+    <div class="shell svc-footer-content">
+      <div class="svc-footer-top">
+        <div><p>© 2026 Obelisk Systems Inc.</p></div>
+        <div class="svc-footer-links">
+          <a class="svc-legal" href="/cookie-policy.html">Cookie Policy</a>
+          <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="svc-footer-big">LYNCK</div>
+    </div>
+  </footer>
 
   <script>
     const SERVICE_DATA = {
@@ -475,15 +1350,100 @@
           ["03", "Plan", "We build a sequenced roadmap with KPI targets."],
           ["04", "Execute", "We align teams and launch with measurement discipline."]
         ]
+      },
+      "youtube-growth-services": {
+        title: "YouTube Growth Services",
+        lede: "Engineer channel growth with a structured content, distribution and optimization system.",
+        includes: [
+          "Channel positioning and growth architecture",
+          "Video packaging system (titles, thumbnails, hooks)",
+          "Publishing cadence and performance dashboard setup",
+          "Organic and paid amplification strategy"
+        ],
+        focus: [
+          "Increase qualified reach and subscriber velocity",
+          "Improve watch time, retention and CTR at scale",
+          "Build repeatable formats that compound growth",
+          "Link channel output directly to business outcomes"
+        ],
+        outcome: "Outcome: Consistent audience growth with measurable performance improvement.",
+        steps: [
+          ["01", "Diagnose", "We audit channel analytics, content formats and positioning gaps."],
+          ["02", "Design", "We build a packaging and publishing system around your growth goals."],
+          ["03", "Launch", "We execute optimized content cycles and activate distribution."],
+          ["04", "Scale", "We double down on winning formats and refine what underperforms."]
+        ]
       }
     };
 
     const params = new URLSearchParams(window.location.search);
-    const slug = params.get("service") || "google-ads";
+    const slugRaw = params.get("service") || "google-ads";
+    const slugAliases = {
+      "youtube-growth": "youtube-growth-services",
+      "youtube-channel": "youtube-growth-services",
+      "youtube-services": "youtube-growth-services",
+      "youtube": "youtube-growth-services"
+    };
+    const slug = slugAliases[slugRaw] || slugRaw;
     const fallback = SERVICE_DATA["google-ads"];
     const service = SERVICE_DATA[slug] || fallback;
-    const langSwitch = document.getElementById("langSwitch");
-    if (langSwitch) langSwitch.href = `/de/services/service.html?service=${encodeURIComponent(slug)}`;
+    const serviceDetail = document.getElementById("serviceDetail");
+    const googleAdsLongForm = document.getElementById("googleAdsLongForm");
+
+    if (slug === "google-ads") {
+      if (serviceDetail) serviceDetail.classList.add("is-hidden");
+      if (googleAdsLongForm) googleAdsLongForm.classList.remove("is-hidden");
+    } else {
+      if (serviceDetail) serviceDetail.classList.remove("is-hidden");
+      if (googleAdsLongForm) googleAdsLongForm.classList.add("is-hidden");
+    }
+
+    if (slug === "youtube-growth-services" && serviceDetail) {
+      document.body.classList.add("youtube-deep");
+      serviceDetail.classList.add("youtube-hero");
+      serviceDetail.style.setProperty("--youtube-bg-image", "url('/assets/youtube-hero-bg.png')");
+    } else {
+      document.body.classList.remove("youtube-deep");
+      if (serviceDetail) {
+        serviceDetail.classList.remove("youtube-hero");
+        serviceDetail.style.removeProperty("--youtube-bg-image");
+      }
+    }
+    const langSwitchEn = document.getElementById("langSwitchEn");
+    const langSwitchDe = document.getElementById("langSwitchDe");
+    if (langSwitchEn) langSwitchEn.href = `/services/service.html?service=${encodeURIComponent(slug)}`;
+    if (langSwitchDe) langSwitchDe.href = `/de/services/service.html?service=${encodeURIComponent(slug)}`;
+
+    const homeBtn = document.querySelector('[data-home-btn]');
+    if (homeBtn) {
+      homeBtn.addEventListener('click', () => {
+        window.location.href = '/index.html';
+      });
+    }
+
+    const contactButtons = document.querySelectorAll('[data-contact-btn]');
+    contactButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        window.location.href = '/contact.html';
+      });
+    });
+
+    const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
+    dropdowns.forEach((dropdown) => {
+      const button = dropdown.querySelector('.nav-pill');
+      if (!button) return;
+      button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        dropdowns.forEach((d) => { if (d !== dropdown) d.classList.remove('open'); });
+        dropdown.classList.toggle('open');
+      });
+    });
+    document.addEventListener('click', () => {
+      dropdowns.forEach((d) => d.classList.remove('open'));
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') dropdowns.forEach((d) => d.classList.remove('open'));
+    });
 
     document.title = `${service.title} | LYNCK Studio`;
     document.getElementById("serviceTitle").textContent = service.title;
@@ -506,6 +1466,19 @@
         </article>
       `)
       .join("");
+
+    if (slug === "google-ads") {
+      document.querySelectorAll("#googleFaq .ga-faq-toggle").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const expanded = btn.getAttribute("aria-expanded") === "true";
+          const answer = btn.nextElementSibling;
+          btn.setAttribute("aria-expanded", String(!expanded));
+          if (answer) {
+            answer.classList.toggle("is-hidden", expanded);
+          }
+        });
+      });
+    }
   </script>
 </body>
 </html>
