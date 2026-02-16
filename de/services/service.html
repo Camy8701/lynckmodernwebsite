@@ -1406,16 +1406,13 @@
       if (googleAdsLongForm) googleAdsLongForm.classList.add("is-hidden");
     }
 
+    document.body.classList.remove("youtube-deep");
     if (slug === "youtube-growth-services" && serviceDetail) {
-      document.body.classList.add("youtube-deep");
       serviceDetail.classList.add("youtube-hero");
       serviceDetail.style.setProperty("--youtube-bg-image", "url('/assets/youtube-hero-bg.png')");
-    } else {
-      document.body.classList.remove("youtube-deep");
-      if (serviceDetail) {
-        serviceDetail.classList.remove("youtube-hero");
-        serviceDetail.style.removeProperty("--youtube-bg-image");
-      }
+    } else if (serviceDetail) {
+      serviceDetail.classList.remove("youtube-hero");
+      serviceDetail.style.removeProperty("--youtube-bg-image");
     }
     const langSwitchEn = document.getElementById("langSwitchEn");
     const langSwitchDe = document.getElementById("langSwitchDe");
