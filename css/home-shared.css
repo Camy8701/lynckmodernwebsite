@@ -624,7 +624,7 @@ margin-top: 0.45rem;
 .neural-section { position: relative; padding: 10rem 0; background: var(--bg); z-index: 2; overflow: hidden; }
 .mesh-pulse-unified {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   overflow: hidden;
   margin-top: -1px;
   background:
