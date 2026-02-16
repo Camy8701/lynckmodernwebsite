@@ -867,15 +867,22 @@
     }
     .svc-footer-links {
       display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.35rem;
+    }
+    .svc-footer-social {
+      display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 0.85rem;
+      margin-bottom: 0.15rem;
     }
     .svc-footer-links a {
       text-decoration: none;
       color: #fff;
       display: inline-flex;
-      width: 32px;
-      height: 32px;
+      width: 37px;
+      height: 37px;
       align-items: center;
       justify-content: center;
       border-radius: 8px;
@@ -903,6 +910,7 @@
       .step-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .svc-footer-grid { grid-template-columns: 1fr; }
       .svc-footer-top { flex-direction: column; align-items: flex-start; }
+      .svc-footer-links { align-items: flex-start; }
       .svc-footer-big { font-size: clamp(4.6rem, 24vw, 12rem); }
       .hero.youtube-hero {
         min-height: auto;
@@ -1156,6 +1164,42 @@
           <a href="/contact.html">Book Your FREE Strategy Call</a>
         </div>
       </section>
+
+      <section class="google-longform is-hidden" id="serviceNarrative">
+        <div class="intro">
+          <span class="eyebrow" id="narrativeEyebrow">Service Detail</span>
+          <h1 id="narrativeTitle">Service Title</h1>
+          <p id="narrativeLead"></p>
+        </div>
+
+        <section class="ga-process" id="narrativeIntro"></section>
+
+        <div class="ga-row alt">
+          <div class="ga-content">
+            <h2>Who This Is For</h2>
+            <ul id="narrativeAudience"></ul>
+          </div>
+          <div class="ga-content">
+            <h2>Example</h2>
+            <div id="narrativeExample"></div>
+          </div>
+        </div>
+
+        <section class="ga-process">
+          <h2>How LYNCK Executes</h2>
+          <ul id="narrativeExecution"></ul>
+          <p class="ga-process-intro" id="narrativeExecutionClose"></p>
+        </section>
+
+        <section class="ga-faq is-hidden" id="narrativeFaq">
+          <h2>FAQ</h2>
+          <div id="narrativeFaqItems"></div>
+        </section>
+
+        <div class="ga-bottom-cta">
+          <a id="narrativeCta" href="/contact.html">Start your project</a>
+        </div>
+      </section>
     </main>
   </div>
 
@@ -1169,10 +1213,6 @@
         <div class="svc-contact-actions">
           <span class="svc-contact-pill">info@lynckstudio.pro</span>
           <a href="#" class="svc-contact-btn">Schedule a call</a>
-        </div>
-        <div class="svc-contact-social">
-          <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
-          <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">ig</a>
         </div>
       </div>
       <div class="svc-contact-card svc-contact-links">
@@ -1198,15 +1238,17 @@
       <div class="svc-footer-top">
         <div><p>© 2026 Obelisk Systems Inc.</p></div>
         <div class="svc-footer-links">
+          <div class="svc-footer-social">
+            <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/></svg>
+            </a>
+          </div>
           <a class="svc-legal" href="/cookie-policy.html">Cookie Policy</a>
           <a class="svc-legal" href="/privacy-policy.html">Privacy Policy</a>
           <a class="svc-legal" href="/legal-notice.html">Legal Notice</a>
-          <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/></svg>
-          </a>
         </div>
       </div>
       <div class="svc-footer-big">LYNCK</div>
@@ -1375,6 +1417,295 @@
           ["03", "Launch", "We execute optimized content cycles and activate distribution."],
           ["04", "Scale", "We double down on winning formats and refine what underperforms."]
         ]
+      },
+      "leads-generation": {
+        title: "Leads Generation",
+        lede: "Predictable pipeline systems built around qualified acquisition.",
+        includes: [
+          "High-intent campaign architecture",
+          "Qualification-first landing page systems",
+          "Lead scoring and routing workflows",
+          "Continuous optimization by conversion quality"
+        ],
+        focus: [
+          "Prioritize qualified demand over vanity lead volume",
+          "Reduce wasted spend with pre-qualification filters",
+          "Align pipeline targets with business capacity",
+          "Scale lead flow only when close-rate remains healthy"
+        ],
+        outcome: "Outcome: Consistent monthly lead flow with stronger conversion potential.",
+        steps: [
+          ["01", "Plan", "We define your lead quality benchmark and monthly volume target."],
+          ["02", "Build", "We deploy campaigns, pages and routing logic around qualification."],
+          ["03", "Filter", "We score and route leads based on fit and intent signals."],
+          ["04", "Scale", "We optimize by closed-deal feedback, not just form submissions."]
+        ]
+      },
+      "seo-sevo": {
+        title: "SEO & SEvO",
+        lede: "Build discoverability across search engines, social platforms, and AI discovery layers.",
+        includes: [
+          "Technical SEO and on-site foundation",
+          "Search intent and platform content mapping",
+          "Entity consistency across all discovery channels",
+          "Cross-platform visibility tracking"
+        ],
+        focus: [
+          "Rank where intent is explicit and commercial",
+          "Expand presence beyond Google-only dependence",
+          "Improve AI and social search discoverability",
+          "Strengthen brand resilience against algorithm shifts"
+        ],
+        outcome: "Outcome: Durable organic visibility across every relevant discovery surface.",
+        steps: [
+          ["01", "Audit", "We benchmark current SEO health and platform visibility gaps."],
+          ["02", "Structure", "We map high-intent topics by channel and audience stage."],
+          ["03", "Publish", "We execute platform-fit content and technical improvements."],
+          ["04", "Expand", "We scale winning visibility patterns across channels."]
+        ]
+      }
+    };
+
+    const LONGFORM_SERVICES = {
+      "meta-ads": {
+        title: "Meta Ads & Paid Social",
+        lead: "Reach People Before They Search.",
+        intro: [
+          "Meta Ads on Facebook and Instagram let you place your brand in front of specific audiences based on interests, behavior, and demographics while they scroll. This is one of the strongest channels for generating demand, not only capturing it.",
+          "Meta is usually more cost-efficient than Google at the top and middle of funnel. Average CPC benchmarks are often near USD 1.06 on Meta versus USD 2.69 on Google, and e-commerce acquisition can land near USD 18 versus USD 45 in comparable setups.",
+          "When structured correctly, Meta becomes a scalable acquisition engine. We do not optimize for likes. We optimize for profitable acquisition."
+        ],
+        audience: [
+          "E-commerce and consumer product brands",
+          "Brands launching new offers or entering new markets",
+          "Companies reducing dependency on search-only traffic",
+          "Businesses building audiences for cross-platform retargeting"
+        ],
+        example: [
+          "A premium skincare e-commerce brand hit a ceiling on Google Shopping as CPCs kept rising.",
+          "We built a full Meta funnel: UGC-style cold campaigns, mid-funnel social proof, and bottom-funnel dynamic retargeting.",
+          "Within 60 days, acquisition cost dropped and blended ROAS improved versus Google-only execution."
+        ],
+        execution: [
+          "Full-funnel Meta architecture across awareness, consideration, and conversion",
+          "Creative testing frameworks across angles, hooks, and formats",
+          "AI-assisted iteration and production cycles",
+          "Structured audience segmentation and lookalike expansion",
+          "Retargeting logic integrated with your full ad ecosystem",
+          "Continuous optimization based on purchase-quality signals"
+        ],
+        executionClose: "Build Your Paid Social System",
+        cta: "Build Your Paid Social System"
+      },
+      "ai-content": {
+        title: "AI Content & Creative Production",
+        lead: "Move Faster. Spend Less. Speak Directly to Your Audience.",
+        intro: [
+          "Content production no longer has to be slow or expensive. AI enables high-quality social content, ad creatives, product visuals, video assets, and conversion copy in a fraction of the traditional timeline.",
+          "What used to take weeks can now be produced in days or hours when the workflow is structured correctly. This lowers the cost of staying visible and dramatically increases testing velocity.",
+          "Speed only creates value when tied to strategy. We build AI output around clear marketing objectives, not volume for its own sake."
+        ],
+        audience: [
+          "Brands running paid campaigns that need constant creative variations",
+          "Businesses needing consistent social visibility",
+          "Teams scaling output without scaling production cost",
+          "Founders and personal brands building authority through content"
+        ],
+        example: [
+          "A fitness supplement brand was producing only two ad creatives per month and could not iterate fast enough.",
+          "We implemented an AI-assisted production system with structured messaging and testing cycles, generating 8 to 12 variations per cycle.",
+          "Production cost dropped, learning loops accelerated, and winning creatives were identified faster."
+        ],
+        execution: [
+          "Messaging strategy defined before any asset is produced",
+          "Creative testing systems built for repeatable iteration",
+          "AI tools used for scalable multi-format production",
+          "Content adapted by audience segment and platform",
+          "Optimization driven by real performance data"
+        ],
+        executionClose: "AI is leverage, not a shortcut. We use it with precision.",
+        cta: "Upgrade Your Content Engine"
+      },
+      "ugc-influencer": {
+        title: "UGC & Influencer Marketing",
+        lead: "The Most Underestimated Performance Channel in Digital Advertising.",
+        intro: [
+          "UGC and influencer systems use real creators to build trust and conversion confidence. Smaller creators often deliver stronger ROI than large accounts because engagement quality is higher and content feels authentic.",
+          "The channel is massively undervalued: the influencer market is projected around USD 32.5B in 2025, average return benchmarks are around USD 5.20 for every USD 1 spent, and many teams report UGC outperforming branded studio content.",
+          "UGC is not limited to social feeds. It improves paid campaign performance, landing page credibility, email engagement, and product-page conversion.",
+          "The key is structure: creator fit, briefing quality, repurposing logic, and measurable performance tracking."
+        ],
+        audience: [
+          "E-commerce and direct-to-consumer brands",
+          "Consumer products needing social proof at scale",
+          "Brands running Meta Ads requiring stronger creative performance",
+          "Companies entering new markets or launching new products"
+        ],
+        example: [
+          "A sustainable fashion brand faced creative fatigue and rising CPA on Meta.",
+          "We sourced six smaller creators aligned to the brand and produced authentic try-on and lifestyle assets for organic and paid amplification.",
+          "Within 45 days, CPA improved and the brand built a durable library of authentic assets for ongoing testing."
+        ],
+        execution: [
+          "Creator sourcing based on audience fit, not follower vanity",
+          "Performance-based collaboration frameworks",
+          "UGC designed specifically for paid-media deployment",
+          "Repurposing into structured testing cycles",
+          "Winner scaling and underperformer replacement",
+          "Tracking against acquisition-quality metrics"
+        ],
+        executionClose: "Authenticity meets structure. That is where the ROI lives.",
+        cta: "Launch Your UGC Strategy"
+      },
+      "web-systems": {
+        title: "Conversion-Focused Web Systems",
+        lead: "Modern. Beautiful. Built to Work While You Sleep.",
+        intro: [
+          "Your website is not a brochure. It is your trust layer, lead engine, transaction layer, and data system.",
+          "A modern conversion-first site improves credibility, captures demand 24/7, and keeps your growth independent from platform algorithm risk.",
+          "Without a strong conversion system, paid and organic traffic leaks value. Clicks become cost instead of revenue."
+        ],
+        audience: [
+          "Service businesses needing a professional conversion-ready presence",
+          "E-commerce brands needing a conversion-optimized storefront",
+          "Personal brands and consultants building authority",
+          "Growing companies replacing outdated template websites"
+        ],
+        example: [
+          "A dental clinic ran Google Ads into a slow generic homepage with weak conversion structure.",
+          "We built dedicated service landing pages, clear calls-to-action, booking flow integration, mobile optimization, and full tracking.",
+          "The same ad budget produced significantly more qualified appointment requests because the website conversion system was fixed."
+        ],
+        execution: [
+          "Brand-aligned design engineered for conversion clarity",
+          "Page hierarchy and user journeys mapped to intent",
+          "Landing segmentation by service, product, or audience",
+          "Funnel architecture connecting ads to conversion endpoints",
+          "CRM and analytics integration for full visibility",
+          "Easy-edit backend to keep your team operationally independent"
+        ],
+        executionClose: "Design supports revenue. Performance drives decisions.",
+        cta: "Build Your Website Engine"
+      },
+      "growth-strategy": {
+        title: "Growth Strategy & Brand Positioning",
+        lead: "Clarity Before Spend.",
+        intro: [
+          "Before any budget is scaled, you need channel fit, positioning clarity, and offer-market alignment. Without this, scaling is just spending faster.",
+          "Strategy determines whether Google, Meta, content systems, or conversion infrastructure should come first based on your business model and expected return.",
+          "Most teams skip this phase and optimize the wrong thing for months. Strategy prevents expensive trial-and-error."
+        ],
+        audience: [
+          "Businesses preparing to invest in paid advertising",
+          "Brands unsure which channel should be prioritized",
+          "Companies that have plateaued and need a new direction",
+          "Founders needing strategic clarity before scaling"
+        ],
+        example: [
+          "A B2B software company was split across Google Ads, LinkedIn, and content without a clear framework.",
+          "We analyzed market competition, intent volume, website readiness, and expected channel ROI.",
+          "Result: a phased roadmap with Google for high-intent capture, LinkedIn for authority, and website conversion upgrades before scaling spend."
+        ],
+        execution: [
+          "Market and competitor analysis",
+          "Offer positioning and messaging architecture review",
+          "Channel selection based on ROI potential and fit",
+          "Budget allocation modeling",
+          "Website and funnel readiness audit",
+          "Phased roadmap with clear KPI accountability"
+        ],
+        executionClose: "No scaling without direction. Strategy saves money.",
+        cta: "Define Your Growth Strategy"
+      },
+      "leads-generation": {
+        title: "Lead Generation Systems",
+        lead: "Predictable Pipeline. Qualified Leads. No Waste.",
+        intro: [
+          "Ad costs are rising and many businesses waste budget on unqualified inquiries due to weak structure, poor qualification, or misaligned campaign execution.",
+          "Our lead generation model is built to solve this directly: campaigns, landing pages, qualification filters, and follow-up routing in one integrated system.",
+          "You select a monthly qualified-lead target. We execute and optimize the system to deliver leads worth your sales team's time."
+        ],
+        audience: [
+          "B2B companies needing a reliable opportunity pipeline",
+          "Service businesses where lead quality is critical",
+          "High-ticket providers prioritizing conversion quality over raw volume",
+          "Business owners without bandwidth to manage acquisition systems internally"
+        ],
+        example: [
+          "A legal consultancy spent heavily but received low-quality inquiries and had no conversion visibility.",
+          "We rebuilt acquisition around high-intent campaigns, qualification-first landing pages, lead scoring, and routed delivery to intake.",
+          "Within one optimization cycle, the pipeline became predictable and lead quality materially improved."
+        ],
+        execution: [
+          "High-intent campaign structure based on proven demand signals",
+          "Dedicated landing pages for qualification and conversion",
+          "Lead filtering and scoring before handoff",
+          "CRM routing and follow-up process integration",
+          "Ongoing optimization tied to qualified outcomes"
+        ],
+        executionClose: "You do not manage campaigns. You receive qualified leads.",
+        cta: "Get Qualified Leads Monthly"
+      },
+      "youtube-growth-services": {
+        title: "YouTube Growth Services",
+        lead: "The Platform That Pays You Back for Years.",
+        intro: [
+          "YouTube is one of the strongest long-term growth assets because content keeps generating views, authority, and leads long after publish day.",
+          "YouTube has paid more than USD 100B to creators and media companies since 2021, generated over USD 60B in 2025 revenue, and channels crossing USD 100K from TV screen viewership continue to grow rapidly.",
+          "Unlike short-lifecycle platforms, YouTube compounds. Search-driven discovery and evergreen ranking create durable inbound visibility.",
+          "For brands, this means authority building, organic lead flow, and lower long-term dependency on paid clicks."
+        ],
+        audience: [
+          "Founders and personal brands building authority",
+          "Service businesses generating inbound leads organically",
+          "Brands reducing long-term paid ad dependency",
+          "Consultants, agencies, and experts who need visible credibility"
+        ],
+        example: [
+          "A coaching brand had around 1,000 subscribers with flat growth and low business impact.",
+          "We optimized channel structure and launched targeted YouTube Ads to attract the right audience.",
+          "Within 45 days, the channel grew beyond 4,500 subscribers, increased watch-time momentum, and became a compounding visibility asset."
+        ],
+        execution: [
+          "Channel audit and growth architecture",
+          "Targeted YouTube Ads for accelerated subscriber acquisition",
+          "Content strategy aligned with audience intent",
+          "Paid amplification designed for organic compounding",
+          "Long-form to Shorts repurposing system",
+          "Retargeting from YouTube viewers across Google inventory"
+        ],
+        executionClose: "Growth is engineered. Consistency builds leverage.",
+        cta: "Build Your YouTube Asset"
+      },
+      "seo-sevo": {
+        title: "SEO & SEvO (Search Everywhere Optimization)",
+        lead: "Be Found Everywhere Your Audience Is Looking. Not Just on Google.",
+        intro: [
+          "Traditional SEO remains essential for ranking in Google and capturing high-intent demand through technical structure, keyword strategy, and site authority.",
+          "SEvO expands that model: your brand is optimized for discovery across Google, YouTube, Reddit, Instagram, marketplaces, AI assistants, and local surfaces.",
+          "Search behavior is fragmented. Nearly 60% of Google searches now end without a click, AI-driven referral traffic is accelerating, and younger audiences often search on social and community platforms first."
+        ],
+        audience: [
+          "Brands building long-term organic authority",
+          "E-commerce businesses operating across multiple platforms",
+          "Service companies reducing dependency on paid media over time",
+          "Businesses needing resilience against single-platform algorithm shifts"
+        ],
+        example: [
+          "A boutique travel agency ranked in Google but growth plateaued as discovery shifted to video, community platforms, and AI recommendations.",
+          "We kept the SEO foundation and added cross-platform search visibility through YouTube, Reddit, Instagram, and AI-readable content structure.",
+          "Discovery diversified across channels and dependency on paid search reduced over time."
+        ],
+        execution: [
+          "Technical SEO foundation audit and optimization",
+          "Platform-specific intent and content mapping",
+          "YouTube and social search optimization",
+          "Entity consistency across all digital touchpoints",
+          "AI-readable structured content for citation readiness",
+          "Cross-platform performance tracking beyond Google-only rankings"
+        ],
+        executionClose: "SEO is ranking. SEvO is presence.",
+        cta: "Expand Your Visibility Everywhere"
       }
     };
 
@@ -1391,19 +1722,29 @@
     const service = SERVICE_DATA[slug] || fallback;
     const serviceDetail = document.getElementById("serviceDetail");
     const googleAdsLongForm = document.getElementById("googleAdsLongForm");
+    const serviceNarrative = document.getElementById("serviceNarrative");
+    const narrativeData = LONGFORM_SERVICES[slug] || null;
 
     if (slug === "google-ads") {
       if (serviceDetail) serviceDetail.classList.add("is-hidden");
       if (googleAdsLongForm) googleAdsLongForm.classList.remove("is-hidden");
+      if (serviceNarrative) serviceNarrative.classList.add("is-hidden");
+    } else if (narrativeData) {
+      if (serviceDetail) serviceDetail.classList.add("is-hidden");
+      if (googleAdsLongForm) googleAdsLongForm.classList.add("is-hidden");
+      if (serviceNarrative) serviceNarrative.classList.remove("is-hidden");
     } else {
       if (serviceDetail) serviceDetail.classList.remove("is-hidden");
       if (googleAdsLongForm) googleAdsLongForm.classList.add("is-hidden");
+      if (serviceNarrative) serviceNarrative.classList.add("is-hidden");
     }
 
-    if (slug === "youtube-growth-services" && serviceDetail) {
+    if (slug === "youtube-growth-services") {
       document.body.classList.add("youtube-deep");
-      serviceDetail.classList.add("youtube-hero");
-      serviceDetail.style.setProperty("--youtube-bg-image", "url('/assets/youtube-hero-bg.png')");
+      if (serviceDetail) {
+        serviceDetail.classList.add("youtube-hero");
+        serviceDetail.style.setProperty("--youtube-bg-image", "url('/assets/youtube-hero-bg.png')");
+      }
     } else {
       document.body.classList.remove("youtube-deep");
       if (serviceDetail) {
@@ -1448,26 +1789,89 @@
     });
 
     document.title = `${service.title} | LYNCK Studio`;
-    document.getElementById("serviceTitle").textContent = service.title;
-    document.getElementById("serviceLede").textContent = service.lede;
-    document.getElementById("serviceOutcome").textContent = service.outcome;
+    if (serviceDetail && !narrativeData && slug !== "google-ads") {
+      document.getElementById("serviceTitle").textContent = service.title;
+      document.getElementById("serviceLede").textContent = service.lede;
+      document.getElementById("serviceOutcome").textContent = service.outcome;
 
-    const includesRoot = document.getElementById("serviceList");
-    includesRoot.innerHTML = service.includes.map((item) => `<li>${item}</li>`).join("");
+      const includesRoot = document.getElementById("serviceList");
+      includesRoot.innerHTML = service.includes.map((item) => `<li>${item}</li>`).join("");
 
-    const focusRoot = document.getElementById("serviceFocus");
-    focusRoot.innerHTML = service.focus.map((item) => `<li>${item}</li>`).join("");
+      const focusRoot = document.getElementById("serviceFocus");
+      focusRoot.innerHTML = service.focus.map((item) => `<li>${item}</li>`).join("");
 
-    const stepsRoot = document.getElementById("serviceSteps");
-    stepsRoot.innerHTML = service.steps
-      .map(([num, title, text]) => `
-        <article class="step">
-          <span class="num">STEP ${num}</span>
-          <h3>${title}</h3>
-          <p>${text}</p>
-        </article>
-      `)
-      .join("");
+      const stepsRoot = document.getElementById("serviceSteps");
+      stepsRoot.innerHTML = service.steps
+        .map(([num, title, text]) => `
+          <article class="step">
+            <span class="num">STEP ${num}</span>
+            <h3>${title}</h3>
+            <p>${text}</p>
+          </article>
+        `)
+        .join("");
+    }
+
+    if (narrativeData && serviceNarrative) {
+      document.title = `${narrativeData.title} | LYNCK Studio`;
+      const narrativeEyebrow = document.getElementById("narrativeEyebrow");
+      const narrativeTitle = document.getElementById("narrativeTitle");
+      const narrativeLead = document.getElementById("narrativeLead");
+      const narrativeIntro = document.getElementById("narrativeIntro");
+      const narrativeAudience = document.getElementById("narrativeAudience");
+      const narrativeExample = document.getElementById("narrativeExample");
+      const narrativeExecution = document.getElementById("narrativeExecution");
+      const narrativeExecutionClose = document.getElementById("narrativeExecutionClose");
+      const narrativeFaq = document.getElementById("narrativeFaq");
+      const narrativeFaqItems = document.getElementById("narrativeFaqItems");
+      const narrativeCta = document.getElementById("narrativeCta");
+
+      if (narrativeEyebrow) narrativeEyebrow.textContent = "Service Detail";
+      if (narrativeTitle) narrativeTitle.textContent = narrativeData.title;
+      if (narrativeLead) narrativeLead.textContent = narrativeData.lead;
+      if (narrativeIntro) {
+        narrativeIntro.innerHTML = `
+          <h2>Overview</h2>
+          ${narrativeData.intro.map((line) => `<p class="ga-process-intro">${line}</p>`).join("")}
+        `;
+      }
+      if (narrativeAudience) {
+        narrativeAudience.innerHTML = narrativeData.audience.map((item) => `<li>${item}</li>`).join("");
+      }
+      if (narrativeExample) {
+        narrativeExample.innerHTML = narrativeData.example.map((line) => `<p>${line}</p>`).join("");
+      }
+      if (narrativeExecution) {
+        narrativeExecution.innerHTML = narrativeData.execution.map((item) => `<li>${item}</li>`).join("");
+      }
+      if (narrativeExecutionClose) {
+        narrativeExecutionClose.textContent = narrativeData.executionClose;
+      }
+      if (narrativeCta) {
+        narrativeCta.textContent = narrativeData.cta;
+      }
+
+      if (narrativeFaq && narrativeFaqItems) {
+        const faqItems = Array.isArray(narrativeData.faq) ? narrativeData.faq : [];
+        if (faqItems.length === 0) {
+          narrativeFaq.classList.add("is-hidden");
+          narrativeFaqItems.innerHTML = "";
+        } else {
+          narrativeFaq.classList.remove("is-hidden");
+          narrativeFaqItems.innerHTML = faqItems
+            .map((item, index) => `
+              <div class="ga-faq-item">
+                <button class="ga-faq-toggle narrative-faq-toggle" type="button" aria-expanded="${index === 0 ? "true" : "false"}">
+                  <span>${item.q}</span>
+                  <span>+</span>
+                </button>
+                <div class="ga-faq-answer ${index === 0 ? "" : "is-hidden"}">${item.a}</div>
+              </div>
+            `)
+            .join("");
+        }
+      }
+    }
 
     if (slug === "google-ads") {
       document.querySelectorAll("#googleFaq .ga-faq-toggle").forEach((btn) => {
@@ -1481,6 +1885,17 @@
         });
       });
     }
+
+    document.querySelectorAll(".narrative-faq-toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        const answer = btn.nextElementSibling;
+        btn.setAttribute("aria-expanded", String(!expanded));
+        if (answer) {
+          answer.classList.toggle("is-hidden", expanded);
+        }
+      });
+    });
   </script>
 </body>
 </html>
