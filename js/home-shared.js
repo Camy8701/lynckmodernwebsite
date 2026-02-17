@@ -114,7 +114,6 @@
                 { nameEn: 'Advertising Technology', nameDe: 'Werbetechnik', query: 'digital signage billboard technology', detailEn: 'Scalable demand systems for advertising technology providers.', detailDe: 'Skalierbare Nachfrage-Systeme fuer Anbieter von Werbetechnik.' },
                 { nameEn: 'Architect', nameDe: 'Architektur', query: 'architect studio blueprint modern', detailEn: 'Positioning and lead funnels for architecture studios.', detailDe: 'Positionierung und Lead-Funnels fuer Architekturbueros.' },
                 { nameEn: 'Automotive', nameDe: 'Automotive', query: 'automotive workshop premium car', detailEn: 'Performance acquisition for automotive brands and dealerships.', detailDe: 'Performance-Akquise fuer Automotive-Marken und Autohaeuser.' },
-                { nameEn: 'Aviation', nameDe: 'Aviation', query: 'aviation aircraft cockpit runway', detailEn: 'Specialized paid media for aviation-focused services.', detailDe: 'Spezialisierte Paid-Media-Strategien fuer Aviation-Angebote.' },
                 { nameEn: 'B2B', nameDe: 'B2B', query: 'b2b meeting boardroom strategy', detailEn: 'Structured B2B demand generation and pipeline growth.', detailDe: 'Strukturierte B2B-Nachfragegenerierung und Pipeline-Wachstum.' },
                 { nameEn: 'Chiropractor', nameDe: 'Chiropraktik', query: 'chiropractor clinic patient', detailEn: 'Appointment-focused campaigns for local chiropractic clinics.', detailDe: 'Terminorientierte Kampagnen fuer Chiropraktik-Praxen.' },
                 { nameEn: 'Cleaning Services', nameDe: 'Reinigungsservice', query: 'cleaning service team office', detailEn: 'Local lead systems for recurring cleaning contracts.', detailDe: 'Lokale Lead-Systeme fuer wiederkehrende Reinigungsauftraege.' },
@@ -154,7 +153,6 @@
                 { nameEn: 'Tourism', nameDe: 'Tourismus', query: 'tourism destination travel city', detailEn: 'Destination-focused campaigns that convert interest into bookings.', detailDe: 'Destinations-Kampagnen, die Interesse in Buchungen umwandeln.' },
                 { nameEn: 'UGC & Influencers', nameDe: 'UGC & Influencer', query: 'influencer creator video production', detailEn: 'Creator-led systems that amplify trust and social proof.', detailDe: 'Creator-getriebene Systeme fuer Vertrauen und Social Proof.' },
                 { nameEn: 'YouTube Channel', nameDe: 'YouTube Kanal', query: 'youtube studio creator recording', detailEn: 'Structured YouTube growth strategies and channel monetization.', detailDe: 'Strukturierte YouTube-Wachstumsstrategien und Kanal-Monetarisierung.' },
-                { nameEn: 'Yachting', nameDe: 'Yachting', query: 'yacht marina ocean luxury', detailEn: 'Premium lead generation for marine and yachting businesses.', detailDe: 'Premium-Lead-Generierung fuer Marine- und Yachting-Angebote.' }
             ];
 
             const makeFallbackSvg = (title) => {
@@ -205,13 +203,8 @@
                 const description = document.createElement('p');
                 description.textContent = serviceDetail;
 
-                const cta = document.createElement('a');
-                cta.href = '#contact';
-                cta.textContent = lang === 'de' ? 'Mehr erfahren ->' : 'View details ->';
-
                 reveal.appendChild(revealTitle);
                 reveal.appendChild(description);
-                reveal.appendChild(cta);
 
                 card.appendChild(image);
                 card.appendChild(tint);

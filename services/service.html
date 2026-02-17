@@ -309,13 +309,31 @@
       background: radial-gradient(circle at center, rgba(122, 167, 255, 0.28), transparent 68%);
       z-index: -1;
     }
+    .svc-bg-image {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: var(--hero-bg-image, none) center / cover no-repeat;
+      opacity: 0.25;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--hero-bg-image, none) center / cover no-repeat;
+      opacity: 0.38;
+      z-index: -1;
+      border-radius: 24px;
+      pointer-events: none;
+    }
 
     .eyebrow {
       display: inline-block;
       border: 1px solid rgba(122, 167, 255, 0.5);
-      color: #d6e4ff;
+      color: #e4edff;
       background: rgba(122, 167, 255, 0.12);
-      font-size: 0.75rem;
+      font-size: 0.83rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       padding: 0.38rem 0.62rem;
@@ -325,7 +343,7 @@
 
     h1 {
       margin: 0 0 0.6rem;
-      font-size: clamp(1.9rem, 4vw, 3.1rem);
+      font-size: clamp(2.09rem, 4.4vw, 3.41rem);
       line-height: 1.07;
       font-family: "Space Grotesk", sans-serif;
       letter-spacing: -0.02em;
@@ -334,8 +352,8 @@
     .lede {
       margin: 0;
       max-width: 72ch;
-      color: var(--muted);
-      font-size: clamp(0.98rem, 1.6vw, 1.1rem);
+      color: #c8d5ee;
+      font-size: clamp(1.08rem, 1.76vw, 1.21rem);
       line-height: 1.6;
     }
 
@@ -355,9 +373,9 @@
 
     .card h2 {
       margin: 0 0 0.62rem;
-      font-size: 1.03rem;
+      font-size: 1.13rem;
       letter-spacing: 0.02em;
-      color: #f2f7ff;
+      color: #f7faff;
       font-family: "Space Grotesk", sans-serif;
     }
 
@@ -367,9 +385,9 @@
       position: relative;
       padding-left: 0.88rem;
       margin-top: 0.42rem;
-      color: #d4def0;
+      color: #e2eaf8;
       line-height: 1.44;
-      font-size: 0.94rem;
+      font-size: 1.03rem;
     }
 
     li::before {
@@ -389,8 +407,8 @@
       border-radius: 13px;
       border: 1px solid rgba(255, 255, 255, 0.16);
       background: var(--panel-soft);
-      color: #ebf2ff;
-      font-size: 0.92rem;
+      color: #f2f7ff;
+      font-size: 1.01rem;
     }
 
     .steps {
@@ -403,7 +421,7 @@
 
     .steps h2 {
       margin: 0 0 0.7rem;
-      font-size: 1.03rem;
+      font-size: 1.13rem;
       font-family: "Space Grotesk", sans-serif;
     }
 
@@ -424,21 +442,21 @@
     .step .num {
       display: inline-block;
       margin-bottom: 0.4rem;
-      font-size: 0.75rem;
+      font-size: 0.83rem;
       letter-spacing: 0.16em;
       color: #8fb4ff;
     }
 
     .step h3 {
       margin: 0 0 0.4rem;
-      font-size: 0.92rem;
+      font-size: 1.01rem;
       line-height: 1.22;
     }
 
     .step p {
       margin: 0;
-      color: var(--muted);
-      font-size: 0.85rem;
+      color: #c4d2ea;
+      font-size: 0.94rem;
       line-height: 1.4;
     }
 
@@ -454,9 +472,9 @@
       border-radius: 999px;
       border: 1px solid var(--line);
       padding: 0.62rem 1rem;
-      color: #eaf1ff;
+      color: #f2f7ff;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.94rem;
       letter-spacing: 0.01em;
       background: rgba(255, 255, 255, 0.03);
     }
@@ -935,6 +953,7 @@
   </style>
 </head>
 <body>
+  <div class="svc-bg-image" id="svcBgImage"></div>
   <header class="lynck-header">
     <div class="lynck-header-inner">
       <button type="button" class="lynck-home-logo" data-home-btn aria-label="LYNCK Studio Home">
@@ -1188,7 +1207,7 @@
           <div id="narrativeAfterComparison"></div>
         </section>
 
-        <div class="ga-row">
+        <div class="ga-row alt">
           <div class="ga-content">
             <h2>Who This Is For</h2>
             <ul id="narrativeAudience"></ul>
@@ -1198,13 +1217,13 @@
           </div>
         </div>
 
-        <div class="ga-row alt">
+        <div class="ga-row">
+          <div class="ga-media">
+            <img id="narrativeImageTertiary" src="" alt="">
+          </div>
           <div class="ga-content">
             <h2>Example</h2>
             <div id="narrativeExample"></div>
-          </div>
-          <div class="ga-media">
-            <img id="narrativeImageTertiary" src="" alt="">
           </div>
         </div>
 
@@ -1772,6 +1791,25 @@
       "youtube": "youtube-growth-services"
     };
     const slug = slugAliases[slugRaw] || slugRaw;
+    const SERVICE_IMAGES = {
+      "google-ads": "/assets/google-ads-3d-icon-4k.jpg",
+      "meta-ads": "/assets/meta-ads-3d-icon-4k.jpg",
+      "ai-content": "/assets/futuristic-woman-in-vr-headset-silhouette-4k.webp",
+      "ugc-influencer": "/assets/model-presenting-pink-crocodile-texture-designer-handbag-4k.jpeg",
+      "web-systems": "/assets/laptop-emitting-colorful-digital-interface-elements-4k.webp",
+      "growth-strategy": "/assets/3d-orange-and-gray-bar-chart-on-dark-grid-4k.jpeg",
+      "youtube-growth-services": "/assets/3d-play-button-icon-with-neon-gradient-glow-4k.png",
+      "leads-generation": "/assets/glowing-email-icon-in-dark-3d-interface-4k.webp",
+      "seo-sevo": "/assets/seo-sevo-analytics-4k.png"
+    };
+    const heroEl = document.getElementById("serviceDetail");
+    const bgEl = document.getElementById("svcBgImage");
+    const bgUrl = SERVICE_IMAGES[slug];
+    if (bgUrl) {
+      const cssUrl = "url('" + bgUrl + "')";
+      if (heroEl) heroEl.style.setProperty("--hero-bg-image", cssUrl);
+      if (bgEl) bgEl.style.setProperty("--hero-bg-image", cssUrl);
+    }
     const fallback = SERVICE_DATA["google-ads"];
     const service = SERVICE_DATA[slug] || fallback;
     const serviceDetail = document.getElementById("serviceDetail");

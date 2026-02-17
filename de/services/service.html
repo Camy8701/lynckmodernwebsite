@@ -309,13 +309,31 @@
       background: radial-gradient(circle at center, rgba(122, 167, 255, 0.28), transparent 68%);
       z-index: -1;
     }
+    .svc-bg-image {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: var(--hero-bg-image, none) center / cover no-repeat;
+      opacity: 0.25;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--hero-bg-image, none) center / cover no-repeat;
+      opacity: 0.38;
+      z-index: -1;
+      border-radius: 24px;
+      pointer-events: none;
+    }
 
     .eyebrow {
       display: inline-block;
       border: 1px solid rgba(122, 167, 255, 0.5);
-      color: #d6e4ff;
+      color: #e4edff;
       background: rgba(122, 167, 255, 0.12);
-      font-size: 0.75rem;
+      font-size: 0.83rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       padding: 0.38rem 0.62rem;
@@ -325,7 +343,7 @@
 
     h1 {
       margin: 0 0 0.6rem;
-      font-size: clamp(1.9rem, 4vw, 3.1rem);
+      font-size: clamp(2.09rem, 4.4vw, 3.41rem);
       line-height: 1.07;
       font-family: "Space Grotesk", sans-serif;
       letter-spacing: -0.02em;
@@ -334,8 +352,8 @@
     .lede {
       margin: 0;
       max-width: 72ch;
-      color: var(--muted);
-      font-size: clamp(0.98rem, 1.6vw, 1.1rem);
+      color: #c8d5ee;
+      font-size: clamp(1.08rem, 1.76vw, 1.21rem);
       line-height: 1.6;
     }
 
@@ -355,9 +373,9 @@
 
     .card h2 {
       margin: 0 0 0.62rem;
-      font-size: 1.03rem;
+      font-size: 1.13rem;
       letter-spacing: 0.02em;
-      color: #f2f7ff;
+      color: #f7faff;
       font-family: "Space Grotesk", sans-serif;
     }
 
@@ -367,9 +385,9 @@
       position: relative;
       padding-left: 0.88rem;
       margin-top: 0.42rem;
-      color: #d4def0;
+      color: #e2eaf8;
       line-height: 1.44;
-      font-size: 0.94rem;
+      font-size: 1.03rem;
     }
 
     li::before {
@@ -389,8 +407,8 @@
       border-radius: 13px;
       border: 1px solid rgba(255, 255, 255, 0.16);
       background: var(--panel-soft);
-      color: #ebf2ff;
-      font-size: 0.92rem;
+      color: #f2f7ff;
+      font-size: 1.01rem;
     }
 
     .steps {
@@ -403,7 +421,7 @@
 
     .steps h2 {
       margin: 0 0 0.7rem;
-      font-size: 1.03rem;
+      font-size: 1.13rem;
       font-family: "Space Grotesk", sans-serif;
     }
 
@@ -424,21 +442,21 @@
     .step .num {
       display: inline-block;
       margin-bottom: 0.4rem;
-      font-size: 0.75rem;
+      font-size: 0.83rem;
       letter-spacing: 0.16em;
       color: #8fb4ff;
     }
 
     .step h3 {
       margin: 0 0 0.4rem;
-      font-size: 0.92rem;
+      font-size: 1.01rem;
       line-height: 1.22;
     }
 
     .step p {
       margin: 0;
-      color: var(--muted);
-      font-size: 0.85rem;
+      color: #c4d2ea;
+      font-size: 0.94rem;
       line-height: 1.4;
     }
 
@@ -454,9 +472,9 @@
       border-radius: 999px;
       border: 1px solid var(--line);
       padding: 0.62rem 1rem;
-      color: #eaf1ff;
+      color: #f2f7ff;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.94rem;
       letter-spacing: 0.01em;
       background: rgba(255, 255, 255, 0.03);
     }
@@ -895,6 +913,7 @@
   </style>
 </head>
 <body>
+  <div class="svc-bg-image" id="svcBgImage"></div>
   <header class="lynck-header">
     <div class="lynck-header-inner">
       <button type="button" class="lynck-home-logo" data-home-btn aria-label="LYNCK Studio Home">
@@ -1117,7 +1136,70 @@
         </section>
 
         <div class="ga-bottom-cta">
-          <a href="/de/contact.html">Book Your FREE Strategy Call</a>
+          <a href="/de/contact.html">Kostenloses Strategiegespräch buchen</a>
+        </div>
+      </section>
+
+      <section class="google-longform is-hidden" id="serviceNarrative">
+        <div class="intro">
+          <span class="eyebrow" id="narrativeEyebrow">Leistungsdetail</span>
+          <h1 id="narrativeTitle">Service Title</h1>
+          <p id="narrativeLead"></p>
+        </div>
+
+        <div class="ga-row">
+          <div class="ga-media">
+            <img id="narrativeImagePrimary" src="" alt="">
+          </div>
+          <div class="ga-content">
+            <section class="ga-process" id="narrativeIntro"></section>
+          </div>
+        </div>
+
+        <section class="ga-process is-hidden" id="narrativeComparison">
+          <h2 id="narrativeComparisonTitle"></h2>
+          <div class="sevo-table-wrap">
+            <table class="sevo-table" id="narrativeComparisonTable">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div id="narrativeAfterComparison"></div>
+        </section>
+
+        <div class="ga-row alt">
+          <div class="ga-content">
+            <h2>Für wen das gedacht ist</h2>
+            <ul id="narrativeAudience"></ul>
+          </div>
+          <div class="ga-media">
+            <img id="narrativeImageSecondary" src="" alt="">
+          </div>
+        </div>
+
+        <div class="ga-row">
+          <div class="ga-media">
+            <img id="narrativeImageTertiary" src="" alt="">
+          </div>
+          <div class="ga-content">
+            <h2>Beispiel</h2>
+            <div id="narrativeExample"></div>
+          </div>
+        </div>
+
+        <section class="ga-process">
+          <h2>So setzt LYNCK um</h2>
+          <div id="narrativeExecution"></div>
+          <p class="ga-process-intro" id="narrativeExecutionClose"></p>
+        </section>
+
+        <section class="ga-faq is-hidden" id="narrativeFaq">
+          <h2>FAQ</h2>
+          <div id="narrativeFaqItems"></div>
+        </section>
+
+        <div class="ga-bottom-cta">
+          <a id="narrativeCta" href="/de/contact.html">Projekt starten</a>
         </div>
       </section>
     </main>
@@ -1349,6 +1431,314 @@
           ["03", "Launch", "Wir setzen optimierte Content-Zyklen um und aktivieren Distribution."],
           ["04", "Scale", "Wir skalieren Gewinner und verbessern schwache Formate konsequent."]
         ]
+      },
+      "leads-generation": {
+        title: "Lead-Generierung",
+        lede: "Planbare Pipeline-Systeme auf Basis qualifizierter Akquise.",
+        includes: [
+          "High-Intent-Kampagnenarchitektur",
+          "Qualifizierungsorientierte Landingpage-Systeme",
+          "Lead-Scoring und Routing-Workflows",
+          "Kontinuierliche Optimierung nach Conversion-Qualitaet"
+        ],
+        focus: [
+          "Qualifizierte Nachfrage statt reines Lead-Volumen priorisieren",
+          "Budget-Verschwendung durch Vorqualifizierung reduzieren",
+          "Pipeline-Ziele an Unternehmenskapazitaet ausrichten",
+          "Lead-Flow nur bei stabiler Abschlussrate skalieren"
+        ],
+        outcome: "Ergebnis: Konstanter monatlicher Lead-Flow mit staerkerem Conversion-Potenzial.",
+        steps: [
+          ["01", "Plan", "Wir definieren Qualitaets-Benchmark und monatliches Volumenziel."],
+          ["02", "Build", "Wir deployen Kampagnen, Seiten und Routing-Logik rund um Qualifizierung."],
+          ["03", "Filter", "Wir scoren und routen Leads nach Fit- und Intent-Signalen."],
+          ["04", "Scale", "Wir optimieren anhand von Abschluss-Feedback, nicht nur Formular-Eingaengen."]
+        ]
+      },
+      "seo-sevo": {
+        title: "SEO & SEvO",
+        lede: "Auffindbarkeit ueber Suchmaschinen, soziale Plattformen und KI-Discovery-Ebenen aufbauen.",
+        includes: [
+          "Technisches SEO und On-Site-Grundlage",
+          "Suchintent- und Plattform-Content-Mapping",
+          "Entity-Konsistenz ueber alle Discovery-Kanaele",
+          "Cross-Plattform-Sichtbarkeits-Tracking"
+        ],
+        focus: [
+          "Dort ranken, wo Intent explizit und kommerziell ist",
+          "Praesenz ueber reine Google-Abhaengigkeit hinaus ausbauen",
+          "KI- und Social-Search-Auffindbarkeit verbessern",
+          "Markenresilienz gegen Algorithmus-Aenderungen staerken"
+        ],
+        outcome: "Ergebnis: Nachhaltige organische Sichtbarkeit auf jeder relevanten Discovery-Oberflaeche.",
+        steps: [
+          ["01", "Audit", "Wir benchmarken SEO-Gesundheit und Plattform-Sichtbarkeitsluecken."],
+          ["02", "Struktur", "Wir mappen High-Intent-Themen nach Kanal und Zielgruppen-Phase."],
+          ["03", "Publish", "Wir setzen plattformgerechten Content und technische Verbesserungen um."],
+          ["04", "Expand", "Wir skalieren erfolgreiche Sichtbarkeitsmuster kanaluebergreifend."]
+        ]
+      }
+    };
+
+    const LONGFORM_SERVICES = {
+      "meta-ads": {
+        title: "Meta Ads & Paid Social",
+        lead: "Menschen erreichen, bevor sie suchen.",
+        imagePrimary: "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=1800&q=80&auto=format&fit=crop",
+        imageSecondary: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=80&auto=format&fit=crop",
+        imageTertiary: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1800&q=80&auto=format&fit=crop",
+        imageAlt: "Meta Paid Social Performance und Creative-Operations",
+        introParagraphs: [
+          "Meta Ads (Facebook und Instagram) funktionieren grundlegend anders als Google. Statt darauf zu warten, dass jemand sucht, platzierst du deine Marke gezielt vor hochspezifischen Zielgruppen - basierend auf Interessen, Verhalten und Demografie - waehrend sie durch ihren Feed scrollen.",
+          "Das macht Meta zu einer der staerksten Plattformen, um Nachfrage zu erzeugen, nicht nur zu erfassen.",
+          "Ausserdem ist Meta in der Regel deutlich guenstiger als Google. Der durchschnittliche CPC bei Meta liegt bei etwa 1,06 $ gegenueber 2,69 $ bei Google - und in vielen Branchen ist der Unterschied noch groesser. Im E-Commerce liegt der durchschnittliche CPA bei Meta bei rund 18 $ gegenueber 45 $ bei Google. Diese niedrigeren Einstiegskosten machen Meta ideal zum Testen von Creatives, zum Skalieren erfolgreicher Konzepte und zum Aufbau von Retargeting-Audiences.",
+          "Meta bietet zudem strukturelle Vorteile, die Google nicht hat: visuelles Storytelling, leistungsstarkes verhaltensbasiertes Targeting, schnelle Creative-Testzyklen und einige der staerksten Retargeting-Moeglichkeiten in der digitalen Werbung. Richtig aufgesetzt wird es zur skalierbaren Akquise-Maschine - nicht nur ein Branding-Tool."
+        ],
+        audience: [
+          "E-Commerce- und Konsumguetermarken",
+          "Marken, die neue Angebote oder Maerkte erschliessen",
+          "Unternehmen, die ihre Abhaengigkeit von reinem Suchtraffic reduzieren wollen",
+          "Unternehmen, die Audiences aufbauen und kanaluebergreifend retargeten moechten"
+        ],
+        exampleParagraphs: [
+          "Eine E-Commerce-Marke fuer Premium-Hautpflege investiert stark in Google Shopping, stoesst aber an eine Obergrenze. Die CPCs steigen, und die Neukundengewinnung wird jedes Quartal teurer.",
+          "Wir bauen einen parallelen Meta-Funnel auf. Top-of-Funnel-Kampagnen nutzen UGC-Videocreatives, um die Marke kalten Zielgruppen vorzustellen. Mid-Funnel-Retargeting zeigt Social Proof und Testimonials. Bottom-Funnel-Dynamic-Ads schliessen den Verkauf ab. Innerhalb von 60 Tagen sinken die Akquisekosten um 35 % gegenueber einer reinen Google-Strategie, und die kombinierte Strategie erzielt einen hoeheren ROAS als jeder Kanal fuer sich."
+        ],
+        executionParagraphs: [
+          "Full-Funnel-Meta-Architektur (Awareness, Consideration, Conversion). Creative-Testing-Frameworks ueber Angles, Hooks und Formate. KI-gestuetzte Iteration und Creative-Produktion. Strukturierte Audience-Segmentierung und Lookalike-Expansion. Retargeting-Logik integriert in dein gesamtes Ad-Oekosystem. Kontinuierliche Optimierung basierend auf echten Kaufdaten, nicht auf Vanity-Metriken."
+        ],
+        executionClose: "Wir optimieren nicht fuer Likes. Wir optimieren fuer profitable Akquise.",
+        tailLine: "→ Dein Paid-Social-System aufbauen"
+      },
+      "ai-content": {
+        title: "KI Content & Creative Production",
+        lead: "Schneller umsetzen. Weniger ausgeben. Direkt zur Zielgruppe sprechen.",
+        imagePrimary: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1800&q=80&auto=format&fit=crop",
+        imageSecondary: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=1800&q=80&auto=format&fit=crop",
+        imageTertiary: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1800&q=80&auto=format&fit=crop",
+        imageAlt: "KI-gestuetzter Creative- und Content-Produktions-Workflow",
+        introParagraphs: [
+          "Content-Erstellung war frueher langsam und teuer. Eine einzelne Ad-Kampagne konnte Wochen an Produktion, Tausende an Designkosten und einen starren Kreativprozess erfordern, der kaum Raum zum Testen liess.",
+          "KI hat diese Gleichung komplett veraendert.",
+          "Heute koennen Marken hochwertige Social-Media-Inhalte, Ad-Creatives, Produktvisualisierungen, Kurz- und Langvideos sowie conversionfokussierte Texte in einem Bruchteil der Zeit und zu einem Bruchteil der Kosten produzieren. Was frueher Wochen dauerte, dauert jetzt Tage oder Stunden - wenn der Prozess richtig strukturiert ist.",
+          "Das ist aus zwei Gruenden wichtig. Erstens senkt es die Kosten fuer Sichtbarkeit drastisch. Regelmaessiges Posten, frische Creatives und Content-Updates sind nicht mehr nur Marken mit grossen Produktionsbudgets vorbehalten. Zweitens - und noch wichtiger - erlaubt es Marken, mehr Angles zu testen, spezifischer zu kommunizieren und in Echtzeit auf Trends zu reagieren. Geschwindigkeit ist jetzt ein Wettbewerbsvorteil, und KI macht diesen Vorteil zugaenglich.",
+          "Aber Geschwindigkeit ohne Strategie erzeugt nur Rauschen. Der Unterschied zwischen Marken, die von KI profitieren, und solchen, die Zeit verschwenden, liegt in einem Punkt: Ob der Content rund um ein klares Marketingziel gebaut ist oder nur um des Outputs willen erstellt wird."
+        ],
+        audience: [
+          "Marken mit Paid-Kampagnen, die staendig neue Creative-Varianten brauchen",
+          "Unternehmen, die eine konsistente Social-Media-Praesenz fuer Markenbekanntheit benoetigen",
+          "Unternehmen, die den Content-Output skalieren wollen, ohne die Produktionskosten zu erhoehen",
+          "Gruender und Personal Brands, die ueber Content Autoritaet aufbauen"
+        ],
+        exampleParagraphs: [
+          "Eine Fitness-Supplement-Marke produziert zwei Ad-Creatives pro Monat ueber einen Freelance-Designer. Testing ist langsam, Creative-Muedigkeit setzt schnell ein, und die Marke kann nicht schnell genug iterieren, um mit dem Meta-Algorithmus Schritt zu halten.",
+          "Wir implementieren ein strukturiertes KI-gestuetztes Produktionssystem. Wir definieren die Messaging-Strategie, bauen Creative-Testing-Frameworks und produzieren 8 bis 12 Varianten pro Zyklus ueber verschiedene Hooks, Angles und Formate. Produktionskosten sinken deutlich, Lernzyklen beschleunigen sich, und die Marke findet Gewinner-Creatives schneller - was direkt die Akquisekosten senkt."
+        ],
+        executionParagraphs: [
+          "Messaging-Strategie wird definiert, bevor Content produziert wird. Creative-Testing-Frameworks fuer systematische Iteration. KI-Tools fuer skalierbare Produktion ueber Formate hinweg. Content wird je Zielgruppensegment und Plattform angepasst. Alles wird auf Basis echter Performance-Daten optimiert, nicht auf Annahmen."
+        ],
+        executionClose: "KI ist ein Hebel, keine Abkuerzung. Wir setzen sie praezise ein.",
+        tailLine: "→ Deine Content-Maschine upgraden"
+      },
+      "ugc-influencer": {
+        title: "UGC & Influencer Marketing",
+        lead: "Der meistunterschaetzte Performance-Kanal in der digitalen Werbung.",
+        imagePrimary: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1800&q=80&auto=format&fit=crop",
+        imageSecondary: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=1800&q=80&auto=format&fit=crop",
+        imageTertiary: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1800&q=80&auto=format&fit=crop",
+        imageAlt: "Influencer-Kooperation und UGC-Content-Produktion",
+        introParagraphs: [
+          "UGC (User Generated Content) und Micro-Influencer-Marketing nutzen echte Creator, um Glaubwuerdigkeit und Social Proof fuer deine Marke aufzubauen. Und die Daten dahinter sind eindeutig.",
+          "Die Influencer-Marketing-Branche wird 2025 voraussichtlich 32,5 Milliarden Dollar erreichen. Marken erzielen im Durchschnitt 5,20 $ Rendite fuer jeden ausgegebenen Dollar. Und 93 % der Marketer berichten, dass UGC besser performt als traditioneller Marken-Content.",
+          "Aber hier machen die meisten Marken einen Fehler: Sie jagen Follower-Zahlen hinterher. Die Realitaet ist, dass kleinere Creator - Micro-Influencer mit 10k bis 100k Followern und Nano-Influencer mit unter 10k - konsistent den hoechsten ROI liefern. Ihre Engagement-Raten liegen bei 5 bis 10 %, verglichen mit 1 bis 2 % bei groesseren Accounts. Ihre Audiences vertrauen ihnen. Ihr Content wirkt authentisch. Und ihre Preise sind ein Bruchteil dessen, was Macro-Influencer verlangen.",
+          "Der richtige UGC-Creator fuer deine Marke kann schneller und kosteneffizienter Ergebnisse liefern als fast jedes andere Werbeformat. Ein gut gematchter Micro-Creator kann eine polierte Studio-Kampagne outperformen, weil sein Publikum ihm glaubt.",
+          "UGC geht weit ueber Social Feeds hinaus. Es funktioniert in Paid Ads, auf Landingpages, in E-Mail-Kampagnen (wo es die Click-Through-Rate um bis zu 78 % steigert) und auf Produktseiten, wo es Conversions um bis zu 161 % erhoehen kann.",
+          "Das ist eine der wirkungsvollsten Werbeformen ueberhaupt. Wenn du die richtigen Creator fuer deine Marke findest."
+        ],
+        audience: [
+          "E-Commerce- und Direct-to-Consumer-Marken",
+          "Konsumprodukte, die authentischen Social Proof benoetigen",
+          "Marken mit Meta Ads, die hochperformante Creatives brauchen",
+          "Unternehmen, die neue Maerkte erschliessen oder Produkte launchen"
+        ],
+        exampleParagraphs: [
+          "Eine nachhaltige Modemarke kaempft mit Creative-Muedigkeit auf Meta. Studio-Ads performen jeden Monat schlechter, und der CPA steigt.",
+          "Wir sourcen 6 kleinere Creator (1k bis 20k Follower), deren Audiences mit den Markenwerten uebereinstimmen. Jeder Creator produziert authentischen Try-on- und Lifestyle-Content fuer organisches Posting und bezahlte Verstaerkung. Innerhalb von 45 Tagen sinkt der CPA um 40 %, das Engagement steigt deutlich, und die Marke verfuegt jetzt ueber eine Bibliothek von 20+ authentischen Content-Stuecken, die sie kanaluebergreifend testen und skalieren kann. Kleine Creator. Grosse Wirkung."
+        ],
+        executionParagraphs: [
+          "Strategisches Creator-Sourcing basierend auf Audience-Fit, nicht Follower-Zahlen. Performance-basierte Kooperationsstrukturen. UGC speziell fuer den Einsatz in Paid-Kampagnen konzipiert. Creatives in strukturierte Testzyklen integriert. Gewinner-Creator skaliert, Underperformer ersetzt. Alles gemessen an echten Akquise-Metriken."
+        ],
+        executionClose: "Authentizitaet trifft Struktur. Hier entsteht der ROI.",
+        tailLine: "→ Deine UGC-Strategie starten"
+      },
+      "web-systems": {
+        title: "Conversion-Fokussierte Websysteme",
+        lead: "Modern. Ueberzeugend. Gebaut, um zu arbeiten, waehrend du schlaefst.",
+        imagePrimary: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1800&q=80&auto=format&fit=crop",
+        imageSecondary: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1800&q=80&auto=format&fit=crop",
+        imageTertiary: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1800&q=80&auto=format&fit=crop",
+        imageAlt: "Conversion-fokussiertes Webdesign und Funnel-Systeme",
+        introParagraphs: [
+          "Deine Website ist keine Broschuere. Sie ist ein Business-System.",
+          "Sie ist der Ort, an dem Menschen entscheiden, ob sie dir vertrauen. Sie ist dein Informationshub, deine Lead-Generierungsmaschine, dein 24/7-Vertriebsmitarbeiter. Sie bearbeitet Anfragen, praesentiert deine Arbeit, sammelt Daten - und fuer E-Commerce-Marken verarbeitet sie Transaktionen rund um die Uhr.",
+          "Wir bauen moderne, visuell ansprechende Websites, die deine Marke und die Erwartungen deiner Kunden widerspiegeln - und dabei von Grund auf fuer Conversion optimiert sind.",
+          "Warum das wichtiger ist, als den meisten Unternehmen bewusst ist:",
+          "Ueber 75 % der Verbraucher beurteilen die Glaubwuerdigkeit eines Unternehmens anhand seines Website-Designs. Eine professionelle Website signalisiert Legitimitaet und schafft Vertrauen, bevor ein einziges Gespraech stattfindet.",
+          "Deine Website arbeitet 24/7. Kunden koennen um 3 Uhr morgens genauso leicht Informationen finden, Anfragen senden oder Kaeufe taetigen wie um 15 Uhr.",
+          "Anders als bei Social Media, wo du Algorithmus-Aenderungen und Plattformregeln unterworfen bist, ist deine Website Eigentum, das du kontrollierst. Dein Design, dein Content, deine Kundendaten.",
+          "Wenn sie fuer Suchmaschinen optimiert ist (SEO), zieht deine Website organischen Traffic an und reduziert langfristig die Abhaengigkeit von bezahlter Werbung.",
+          "Und mit Tools wie Google Analytics erhaeltst du direkte Einblicke in das Besucherverhalten: welche Seiten sie besuchen, wo sie abspringen und welche Produkte oder Leistungen das meiste Interesse wecken.",
+          "Ohne eine gut gebaute Website wird Traffic aus Ads, Social Media und organischer Suche verschwendet. Klicks ohne Conversion-System sind nur Kosten."
+        ],
+        audience: [
+          "Dienstleistungsunternehmen, die eine professionelle Online-Praesenz brauchen",
+          "E-Commerce-Marken, die einen conversion-optimierten Shop benoetigen",
+          "Personal Brands und Berater, die Glaubwuerdigkeit aufbauen",
+          "Wachsende Unternehmen, die veraltete oder Template-basierte Websites ersetzen"
+        ],
+        exampleParagraphs: [
+          "Eine Zahnarztpraxis schaltet Google Ads, leitet aber allen Traffic auf eine generische Homepage mit einem kostenlosen Template. Die Seite laedt langsam, hat keine dedizierten Service-Seiten, und das Kontaktformular ist ganz unten versteckt.",
+          "Wir bauen eine cleane, moderne Website mit dedizierten Landingpages pro Leistung, klaren Calls to Action, integrierter Terminbuchung, mobiler Optimierung und sauberem Tracking. Innerhalb von 60 Tagen erzeugt das gleiche Werbebudget 2,5x mehr Terminanfragen. Am Werbekonto hat sich nichts geaendert. Die Website hat die ganze Arbeit uebernommen."
+        ],
+        executionParagraphs: [
+          "Markenkonformes Design, das professionell und modern wirkt. Conversion-first-Layout mit klaren User-Journeys. Landingpage-Segmentierung nach Leistung, Produkt oder Zielgruppe. Funnel-Architektur, die Ads mit Conversion-Punkten verbindet. CRM- und Tracking-Integration fuer volle Transparenz. Einfach editierbares Backend, damit du deine Inhalte selbst aktualisieren kannst, ohne einen Entwickler zu rufen."
+        ],
+        executionClose: "Design unterstuetzt Umsatz. Performance treibt Entscheidungen. Du behaeltst die volle Kontrolle."
+      },
+      "growth-strategy": {
+        title: "Growth Strategy & Brand Positioning",
+        lead: "Klarheit vor Budget.",
+        imagePrimary: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1800&q=80&auto=format&fit=crop",
+        imageSecondary: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1800&q=80&auto=format&fit=crop",
+        imageTertiary: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1800&q=80&auto=format&fit=crop",
+        imageAlt: "Strategische Planung und Brand-Positioning-Workshop",
+        introParagraphs: [
+          "Hier beginnt alles.",
+          "Bevor ein einziger Euro in Werbung fliesst, musst du wissen, welcher Kanal zu deinem Unternehmen passt, welcher Ansatz die hoechste Rendite bietet und wie dein Angebot am Markt positioniert sein sollte. Ohne das ist Skalierung nur schnelleres Ausgeben.",
+          "Growth Strategy ist die Phase, in der wir dein Unternehmen, deine Wettbewerbslandschaft und deine Ziele bewerten - und dann den klügsten Weg nach vorne bestimmen. Solltest du mit Google Ads oder Meta starten? Braucht dein Unternehmen eine Content-Maschine oder ein direktes Lead-Generierungssystem? Ist deine Website bereit, den Traffic zu konvertieren, den du ihr schicken willst? Ist dein Messaging stark genug, um dich abzuheben?",
+          "Diese Fragen entscheiden darueber, ob dein Budget Wachstum oder Verschwendung produziert.",
+          "Die meisten Unternehmen ueberspringen diesen Schritt komplett. Sie springen in einen Kanal, weil jemand gesagt hat, dass er funktioniert, optimieren monatelang das Falsche und wundern sich, warum die Ergebnisse inkonsistent sind. Strategie ist kein Luxus. Sie verhindert, dass du teure Lektionen auf die harte Tour lernst."
+        ],
+        audience: [
+          "Unternehmen, die in bezahlte Werbung investieren wollen",
+          "Marken, die unsicher sind, welchen Marketing-Kanal sie priorisieren sollen",
+          "Unternehmen, die stagnieren und eine neue Richtung brauchen",
+          "Gruender, die strategische Klarheit vor dem Skalieren brauchen"
+        ],
+        exampleParagraphs: [
+          "Ein B2B-Softwareunternehmen schwankt zwischen Investitionen in Google Ads, LinkedIn und Content-Marketing. Intern wurden Ads mit gemischten Ergebnissen geschaltet, ohne klares Framework fuer Budget-Entscheidungen.",
+          "Wir fuehren eine strukturierte Strategiephase durch. Wir analysieren die Wettbewerbslandschaft, evaluieren Suchvolumen und Intent fuer die Kernangebote, bewerten die Conversion-Readiness der Website und modellieren den erwarteten ROI ueber Kanaele hinweg. Das Ergebnis: Google Ads fuer High-Intent-Lead-Erfassung, LinkedIn fuer Authority-Building und ein Website-Relaunch zur Verbesserung der Conversion vor dem Skalieren. Eine klare Roadmap mit definierten Prioritaeten, Budgetverteilung und Erfolgskennzahlen."
+        ],
+        executionParagraphs: [
+          "Markt- und Wettbewerbsanalyse. Angebotspositionierung und Messaging-Review. Kanalauswahl basierend auf ROI-Potenzial und Geschaeftsmodell-Fit. Budget-Allokationsmodellierung. Website- und Funnel-Readiness-Assessment. Klare Growth-Roadmap mit priorisierten Phasen."
+        ],
+        executionClose: "Kein Skalieren ohne Richtung. Strategie spart Geld."
+      },
+      "leads-generation": {
+        title: "Lead-Generierungssysteme",
+        lead: "Planbare Pipeline. Qualifizierte Leads. Kein Streuverlust.",
+        imagePrimary: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1800&q=80&auto=format&fit=crop",
+        imageSecondary: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1800&q=80&auto=format&fit=crop",
+        imageTertiary: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=80&auto=format&fit=crop",
+        imageAlt: "Lead-Generierungs-Pipeline-Dashboards und Qualifizierungssysteme",
+        introParagraphs: [
+          "Hier ist die Realitaet, ueber die die meisten Unternehmen nicht offen sprechen:",
+          "Werbekosten steigen jedes Jahr. Der Wettbewerb um Aufmerksamkeit wird haerter. Und zu viele Unternehmen verlieren Geld mit Kampagnen, die entweder schlecht strukturiert sind, von Teammitgliedern ohne echte Werbeerfahrung betreut werden oder von Agenturen gemanagt werden, die auf Volumen statt Qualitaet optimieren.",
+          "Das Ergebnis? Ueberhöhte Kosten, unqualifizierte Leads, verschwendetes Budget und Unternehmer, die zu beschaeftigt sind, um herauszufinden, was schiefgelaufen ist.",
+          "Unser Lead-Generierungsservice loest genau dieses Problem.",
+          "Wir bauen und managen das gesamte Akquise-System: die Kampagnen, die Landingpages, die Qualifizierungsfilter und die Follow-up-Infrastruktur. Du zahlst nicht vorab fuer Ad-Management oder Mediabudget. Du waehlst, wie viele qualifizierte Leads du pro Monat willst, und wir liefern sie zu einem wettbewerbsfaehigen, planbaren Preis.",
+          "Du konzentrierst dich auf dein Geschaeft. Wir uebernehmen die schwere Arbeit - mit unserer jahrelangen Erfahrung bei Google und im Performance-Marketing - und senden dir nur die Leads, die deine Zeit wert sind."
+        ],
+        audience: [
+          "B2B-Unternehmen, die eine zuverlaessige Pipeline brauchen",
+          "Dienstleistungsunternehmen (Recht, Medizin, Handwerk, Beratung)",
+          "High-Ticket-Anbieter, bei denen Lead-Qualitaet wichtiger ist als Lead-Volumen",
+          "Unternehmer, die keine Zeit haben, Kampagnen selbst zu managen"
+        ],
+        exampleParagraphs: [
+          "Eine Rechtsberatung schaltet intern Google Ads. Die Buroleiterin betreut die Kampagnen neben anderen Aufgaben. Monatliche Ausgaben liegen bei 3.000 EUR, aber die Lead-Qualitaet ist schlecht, die meisten Anfragen sind irrelevant, und die Kanzlei hat keine Moeglichkeit nachzuverfolgen, welche Leads tatsaechlich zu Mandaten werden.",
+          "Wir uebernehmen den gesamten Lead-Generierungsprozess. Wir bauen High-Intent-Suchkampagnen, erstellen dedizierte Landingpages mit Qualifizierungsfragen, implementieren Lead-Scoring und routen nur qualifizierte Interessenten an das Intake-Team der Kanzlei. Die Kanzlei waehlt ein monatliches Lead-Volumen, zahlt pro qualifiziertem Lead und muss sich nicht mehr um Werbekonten kuemmern. Innerhalb von 90 Tagen hat die Kanzlei eine planbare Pipeline vorqualifizierter Interessenten zu Kosten pro Lead, die unter dem liegen, was sie fuer ungefilterte Anfragen gezahlt hat."
+        ],
+        executionParagraphs: [
+          "High-Intent Google-Ads-Kampagnen, aufgebaut auf unserer Erfahrung aus der Verwaltung von Millionen an Werbebudget. Dedizierte Landingpages fuer Conversion und Lead-Qualifizierung. Lead-Filterung und Scoring, damit du nur Interessenten erhaeltst, die es wert sind. CRM-Routing und Follow-up-Infrastruktur. Laufende Performance-Optimierung."
+        ],
+        executionClose: "Du managst keine Kampagnen. Du erhaeltst qualifizierte Leads. Das ist der Service."
+      },
+      "youtube-growth-services": {
+        title: "YouTube Growth Services",
+        lead: "Die Plattform, die sich ueber Jahre fuer dich auszahlt.",
+        imagePrimary: "/assets/youtube-hero-bg.png",
+        imageSecondary: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1800&q=80&auto=format&fit=crop",
+        imageTertiary: "https://images.unsplash.com/photo-1616469829941-c7200edec809?w=1800&q=80&auto=format&fit=crop",
+        imageAlt: "YouTube-Kanalwachstum und Video-Distributionssystem",
+        introParagraphs: [
+          "YouTube ist das am meisten unterschaetzte Wachstums-Asset im digitalen Marketing.",
+          "Im September 2025 gab YouTube bekannt, seit 2021 ueber 100 Milliarden Dollar an Creator, Kuenstler und Medienunternehmen ausgezahlt zu haben. Die Plattform erzielte 2025 allein ueber 60 Milliarden Dollar Umsatz und uebertraf Netflix um 34 %. Kanaele, die mehr als 100.000 Dollar durch TV-Bildschirm-Views verdienten, wuchsen um 45 % im Jahresvergleich.",
+          "Was YouTube grundlegend von jeder anderen Plattform unterscheidet: Content, den du heute erstellst, kann Monate oder Jahre nach der Veroeffentlichung Views, Leads und Umsatz generieren - ohne dass du ihn jemals wieder anfassen musst. Ein gut optimiertes Video von 2023 kann 2026 immer noch in der Suche ranken und Traffic generieren. So funktioniert weder Instagram, noch TikTok, noch bezahlte Werbung.",
+          "Aber YouTube ist nicht nur fuer Creator, die Personal Brands aufbauen.",
+          "Fuer Unternehmen ist YouTube einer der staerksten Kanaele, um Autoritaet aufzubauen, Evergreen-Leads zu generieren und organische Sichtbarkeit aufzubauen, die langfristig die Abhaengigkeit von bezahlter Werbung reduziert. Wenn potenzielle Kunden auf YouTube nach Loesungen suchen und deinen Content finden, kommen sie bereits ueberzeugt von deiner Expertise. Diese Art von Vertrauen potenziert sich.",
+          "Suche ist in die Plattform eingebaut. YouTube ist die zweitgroesste Suchmaschine der Welt. Content lebt dort permanent. Und anders als bezahlte Werbung, die stoppt, sobald du dein Budget pausierst, arbeiten YouTube-Videos weiter.",
+          "Niemand bereut es, einen YouTube-Kanal aufgebaut zu haben. Das Einzige, was man bereut, ist, nicht frueher angefangen zu haben. Konsistenz ist der Schluessel."
+        ],
+        audience: [
+          "Gruender und Personal Brands, die Autoritaet aufbauen",
+          "Dienstleistungsunternehmen, die organisch Inbound-Leads generieren wollen",
+          "Marken, die langfristig bezahlte Werbekosten senken moechten",
+          "Agenturen, Berater und Experten, die von sichtbarer Glaubwuerdigkeit profitieren"
+        ],
+        exampleParagraphs: [
+          "Eine Coaching-Marke hat einen YouTube-Kanal mit rund 1.000 Abonnenten. Content wird konsistent veroeffentlicht, aber das Wachstum stagniert, die Views sind niedrig, und der Kanal generiert keine messbaren Geschaeftsergebnisse.",
+          "Wir optimieren den Kanal fuer Wachstum und bauen eine hochgradig zielgerichtete YouTube-Ads-Kampagne auf, die speziell darauf ausgelegt ist, die richtige Zielgruppe anzuziehen. Innerhalb von 45 Tagen waechst der Kanal von 1.000 auf ueber 4.500 Abonnenten. Dieses Subscriber-Wachstum erzeugt einen Compounding-Effekt: mehr Views auf bestehenden und neuen Content, deutlich mehr Watchtime Richtung Monetarisierungsfaehigkeit, mehr Website-Besuche von Zuschauern, die die Marke ueber YouTube entdecken, und eine wachsende Content-Bibliothek, die lange nach der Veroeffentlichung weiterarbeitet.",
+          "Der Kanal entwickelt sich von Stillstand zu einem echten Wachstums-Asset - mit Sichtbarkeit, Autoritaet und Inbound-Traffic, ohne fuer jeden Klick auf bezahlte Werbung angewiesen zu sein."
+        ],
+        executionParagraphs: [
+          "Channel-Audit und Wachstumsoptimierung. Zielgerichtete YouTube-Ads-Kampagnen zur Beschleunigung des Subscriber-Wachstums. Content-Strategie ausgerichtet auf Zielgruppen-Intent. Bezahlte Verstaerkung strukturiert fuer langfristiges organisches Compounding. Long-Form zu Short-Form Content-Repurposing (Shorts-Strategie). Audience-Retargeting von YouTube-Zuschauern ueber Googles Werbenetzwerk."
+        ],
+        executionClose: "Wachstum wird engineered. Konsistenz baut Hebelwirkung."
+      },
+      "seo-sevo": {
+        title: "SEO & SEvO (Search Everywhere Optimization)",
+        lead: "Ueberall gefunden werden, wo deine Zielgruppe sucht. Nicht nur bei Google.",
+        imagePrimary: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=80&auto=format&fit=crop",
+        imageSecondary: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1800&q=80&auto=format&fit=crop",
+        imageTertiary: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1800&q=80&auto=format&fit=crop",
+        imageAlt: "Such-Performance und kanaluebergreifende Sichtbarkeitsanalysen",
+        introParagraphs: [
+          "Traditionelles SEO konzentriert sich darauf, deine Website in den Google-Suchergebnissen zu platzieren - durch Keywords, technische Optimierung, Backlinks und On-Page-Struktur. Es ist fundamental und es zaehlt immer noch. Eine gut optimierte Website bringt Monat fuer Monat organischen Traffic, ohne fuer jeden Klick zu zahlen.",
+          "Aber das Suchverhalten hat sich grundlegend veraendert.",
+          "Menschen verlassen sich nicht mehr nur auf Google. Ein potenzieller Kunde koennte deine Marke ueber ein YouTube-Video entdecken, Diskussionen auf Reddit lesen, ChatGPT um eine Empfehlung bitten, deinen Instagram-Auftritt als Social Proof checken und dann schliesslich deinen Namen bei Google suchen, um deine Website zu besuchen. Der Weg zum Kauf ist ueber Plattformen fragmentiert, und wenn du nur fuer eine davon optimiert bist, bist du an jedem anderen Touchpoint unsichtbar.",
+          "Hier kommt SEvO ins Spiel.",
+          "SEvO (Search Everywhere Optimization) ist die Evolution von SEO. Es ist eine Strategie, die deine Marke ueberall auffindbar macht, wo Menschen nach Informationen suchen. Das umfasst Google, aber auch YouTube, Reddit, Instagram, Amazon, KI-Tools wie ChatGPT und Perplexity, Sprachassistenten wie Siri und Alexa sowie lokale Verzeichnisse wie Google Business Profile."
+        ],
+        comparisonTitle: "SEO vs. SEvO: Die wichtigsten Unterschiede",
+        comparisonHeaders: ["Merkmal", "Traditionelles SEO", "SEvO (Search Everywhere Optimization)"],
+        comparisonRows: [
+          ["Hauptziel", "Hoch in den Suchmaschinenergebnissen (SERPs) ranken.", "Markenpraesenz und Autoritaet ueber alle Discovery-Plattformen aufbauen."],
+          ["Hauptplattformen", "Google, Bing, DuckDuckGo.", "YouTube, Reddit, Instagram, Amazon, KI (ChatGPT), Voice (Siri/Alexa) und Google."],
+          ["Kerntaktiken", "Keywords, Backlinks und technische Website-Gesundheit.", "Konsistentes Entity-Branding, plattformspezifischer Content (Video/Short-Form) und KI-lesbare Daten."],
+          ["Zielgruppe", "Nutzer, die Suchanfragen in eine Suchleiste eingeben.", "Nutzer, die mit Social Media, Foren, Apps und KI-Assistenten interagieren."],
+          ["Erfolgskennzahlen", "Organischer Traffic, Keyword-Rankings und Click-Through-Raten.", "Marken-Erwaechnungen, Engagement-Raten, Social Reach und KI-Zitierungen."]
+        ],
+        comparisonAfterParagraphs: [
+          "Waehrend SEO und SEvO beide darauf abzielen, dein Unternehmen auffindbar zu machen, operieren sie auf unterschiedlichen Ebenen der digitalen Landschaft. SEO ist ein spezialisiertes Werkzeug zur Dominanz in Suchmaschinen. SEvO ist eine ganzheitliche Strategie fuer Praesenz an jedem digitalen Touchpoint.",
+          "Warum dieser Wandel wichtig ist",
+          "Fast 60 % der Google-Suchen enden mittlerweile ohne Klick, weil KI-generierte Zusammenfassungen den Nutzern die Antwort direkt geben. Juengere Zielgruppen, insbesondere Gen Z, nutzen zunehmend Social Platforms und Reddit als primaere Such-Tools fuer Bewertungen, Tutorials und Empfehlungen. KI-getriebener Suchtraffic auf Websites ist im letzten Jahr um fast das 10-Fache gewachsen, und diese Besucher konvertieren mit deutlich hoeheren Raten als traditioneller organischer Traffic. Und sich ausschliesslich auf Google-SEO zu verlassen, macht dein Unternehmen anfallig fuer ein einziges Algorithmus-Update.",
+          "SEvO ersetzt SEO nicht. Es umfasst es. SEO ist eine Komponente einer breiteren Sichtbarkeitsstrategie, die sicherstellt, dass deine Marke ueberall auftaucht, wo deine Zielgruppe sucht - in jeder Phase des Entscheidungsprozesses."
+        ],
+        audience: [
+          "Marken, die langfristige organische Autoritaet aufbauen",
+          "E-Commerce-Unternehmen, die ueber mehrere Plattformen verkaufen",
+          "Dienstleistungsunternehmen, die langfristig die Abhaengigkeit von bezahlter Werbung reduzieren wollen",
+          "Unternehmen, die Resilienz gegen Algorithmus-Aenderungen auf einzelnen Plattformen wollen"
+        ],
+        exampleParagraphs: [
+          "Ein Boutique-Reisebuero hat stark in Google-SEO investiert und rankt gut fuer mehrere Destinations-Keywords. Aber das Traffic-Wachstum stagniert, und die Zielgruppe entdeckt zunehmend Reise-Content auf YouTube, Reddit und ueber KI-Empfehlungen.",
+          "Wir implementieren eine SEvO-Strategie. Wir pflegen und staerken die bestehende Google-SEO-Grundlage und erweitern gleichzeitig die Praesenz auf YouTube (Destinations-Guides), Reddit (authentisches Community-Engagement und Reiseberatung), Instagram (visuelles Storytelling) und KI-lesbaren strukturierten Content, der das Buero fuer ChatGPT- und Google-AI-Overview-Zitierungen positioniert. Innerhalb von 6 Monaten verzeichnet das Buero Discovery-Traffic von drei neuen Plattformen, einen Anstieg der Marken-Erwaechnungen ueber Kanaele hinweg und reduzierte Abhaengigkeit von bezahlter Suche fuer Neuanfragen."
+        ],
+        executionParagraphs: [
+          "Technisches SEO-Audit und Grundlagen-Optimierung. Keyword- und Content-Strategie ueber Google und plattformspezifische Suche. YouTube- und Instagram-Content optimiert fuer den jeweiligen Suchalgorithmus. Reddit-Praesenzstrategie fuer Community-getriebene Discovery. Entity-Branding-Konsistenz ueber alle digitalen Touchpoints. KI-lesbare strukturierte Daten, damit deine Marke in KI-generierten Antworten zitiert wird. Google Business Profile-Optimierung fuer lokale Sichtbarkeit. Performance-Tracking ueber Plattformen hinweg, nicht nur Google-Rankings."
+        ],
+        executionClose: "SEO ist Ranking. SEvO ist Praesenz."
       }
     };
 
@@ -1361,23 +1751,52 @@
       "youtube": "youtube-growth-services"
     };
     const slug = slugAliases[slugRaw] || slugRaw;
+    const SERVICE_IMAGES = {
+      "google-ads": "/assets/google-ads-3d-icon-4k.jpg",
+      "meta-ads": "/assets/meta-ads-3d-icon-4k.jpg",
+      "ai-content": "/assets/futuristic-woman-in-vr-headset-silhouette-4k.webp",
+      "ugc-influencer": "/assets/model-presenting-pink-crocodile-texture-designer-handbag-4k.jpeg",
+      "web-systems": "/assets/laptop-emitting-colorful-digital-interface-elements-4k.webp",
+      "growth-strategy": "/assets/3d-orange-and-gray-bar-chart-on-dark-grid-4k.jpeg",
+      "youtube-growth-services": "/assets/3d-play-button-icon-with-neon-gradient-glow-4k.png",
+      "leads-generation": "/assets/glowing-email-icon-in-dark-3d-interface-4k.webp",
+      "seo-sevo": "/assets/seo-sevo-analytics-4k.png"
+    };
+    const heroEl = document.getElementById("serviceDetail");
+    const bgEl = document.getElementById("svcBgImage");
+    const bgUrl = SERVICE_IMAGES[slug];
+    if (bgUrl) {
+      const cssUrl = "url('" + bgUrl + "')";
+      if (heroEl) heroEl.style.setProperty("--hero-bg-image", cssUrl);
+      if (bgEl) bgEl.style.setProperty("--hero-bg-image", cssUrl);
+    }
     const fallback = SERVICE_DATA["google-ads"];
     const service = SERVICE_DATA[slug] || fallback;
     const serviceDetail = document.getElementById("serviceDetail");
     const googleAdsLongForm = document.getElementById("googleAdsLongForm");
+    const serviceNarrative = document.getElementById("serviceNarrative");
+    const narrativeData = LONGFORM_SERVICES[slug] || null;
 
     if (slug === "google-ads") {
       if (serviceDetail) serviceDetail.classList.add("is-hidden");
       if (googleAdsLongForm) googleAdsLongForm.classList.remove("is-hidden");
+      if (serviceNarrative) serviceNarrative.classList.add("is-hidden");
+    } else if (narrativeData) {
+      if (serviceDetail) serviceDetail.classList.add("is-hidden");
+      if (googleAdsLongForm) googleAdsLongForm.classList.add("is-hidden");
+      if (serviceNarrative) serviceNarrative.classList.remove("is-hidden");
     } else {
       if (serviceDetail) serviceDetail.classList.remove("is-hidden");
       if (googleAdsLongForm) googleAdsLongForm.classList.add("is-hidden");
+      if (serviceNarrative) serviceNarrative.classList.add("is-hidden");
     }
 
     document.body.classList.remove("youtube-deep");
-    if (slug === "youtube-growth-services" && serviceDetail) {
-      serviceDetail.classList.add("youtube-hero");
-      serviceDetail.style.setProperty("--youtube-bg-image", "url('/assets/youtube-hero-bg.png')");
+    if (slug === "youtube-growth-services") {
+      if (serviceDetail) {
+        serviceDetail.classList.add("youtube-hero");
+        serviceDetail.style.setProperty("--youtube-bg-image", "url('/assets/youtube-hero-bg.png')");
+      }
     } else if (serviceDetail) {
       serviceDetail.classList.remove("youtube-hero");
       serviceDetail.style.removeProperty("--youtube-bg-image");
@@ -1419,26 +1838,142 @@
     });
 
     document.title = `${service.title} | LYNCK Studio`;
-    document.getElementById("serviceTitle").textContent = service.title;
-    document.getElementById("serviceLede").textContent = service.lede;
-    document.getElementById("serviceOutcome").textContent = service.outcome;
+    if (serviceDetail && !narrativeData && slug !== "google-ads") {
+      document.getElementById("serviceTitle").textContent = service.title;
+      document.getElementById("serviceLede").textContent = service.lede;
+      document.getElementById("serviceOutcome").textContent = service.outcome;
 
-    const includesRoot = document.getElementById("serviceList");
-    includesRoot.innerHTML = service.includes.map((item) => `<li>${item}</li>`).join("");
+      const includesRoot = document.getElementById("serviceList");
+      includesRoot.innerHTML = service.includes.map((item) => `<li>${item}</li>`).join("");
 
-    const focusRoot = document.getElementById("serviceFocus");
-    focusRoot.innerHTML = service.focus.map((item) => `<li>${item}</li>`).join("");
+      const focusRoot = document.getElementById("serviceFocus");
+      focusRoot.innerHTML = service.focus.map((item) => `<li>${item}</li>`).join("");
 
-    const stepsRoot = document.getElementById("serviceSteps");
-    stepsRoot.innerHTML = service.steps
-      .map(([num, title, text]) => `
-        <article class="step">
-          <span class="num">STEP ${num}</span>
-          <h3>${title}</h3>
-          <p>${text}</p>
-        </article>
-      `)
-      .join("");
+      const stepsRoot = document.getElementById("serviceSteps");
+      stepsRoot.innerHTML = service.steps
+        .map(([num, title, text]) => `
+          <article class="step">
+            <span class="num">STEP ${num}</span>
+            <h3>${title}</h3>
+            <p>${text}</p>
+          </article>
+        `)
+        .join("");
+    }
+
+    if (narrativeData && serviceNarrative) {
+      document.title = `${narrativeData.title} | LYNCK Studio`;
+      const narrativeEyebrow = document.getElementById("narrativeEyebrow");
+      const narrativeTitle = document.getElementById("narrativeTitle");
+      const narrativeLead = document.getElementById("narrativeLead");
+      const narrativeIntro = document.getElementById("narrativeIntro");
+      const narrativeAudience = document.getElementById("narrativeAudience");
+      const narrativeExample = document.getElementById("narrativeExample");
+      const narrativeExecution = document.getElementById("narrativeExecution");
+      const narrativeExecutionClose = document.getElementById("narrativeExecutionClose");
+      const narrativeComparison = document.getElementById("narrativeComparison");
+      const narrativeComparisonTitle = document.getElementById("narrativeComparisonTitle");
+      const narrativeComparisonTable = document.getElementById("narrativeComparisonTable");
+      const narrativeAfterComparison = document.getElementById("narrativeAfterComparison");
+      const narrativeImagePrimary = document.getElementById("narrativeImagePrimary");
+      const narrativeImageSecondary = document.getElementById("narrativeImageSecondary");
+      const narrativeImageTertiary = document.getElementById("narrativeImageTertiary");
+      const narrativeFaq = document.getElementById("narrativeFaq");
+      const narrativeFaqItems = document.getElementById("narrativeFaqItems");
+      const narrativeCta = document.getElementById("narrativeCta");
+
+      if (narrativeEyebrow) narrativeEyebrow.textContent = "Leistungsdetail";
+      if (narrativeTitle) narrativeTitle.textContent = narrativeData.title;
+      if (narrativeLead) narrativeLead.textContent = narrativeData.lead;
+      if (narrativeIntro) {
+        narrativeIntro.innerHTML = (narrativeData.introParagraphs || [])
+          .map((line) => `<p class="ga-process-intro">${line}</p>`)
+          .join("");
+      }
+      if (narrativeAudience) {
+        narrativeAudience.innerHTML = narrativeData.audience.map((item) => `<li>${item}</li>`).join("");
+      }
+      if (narrativeExample) {
+        narrativeExample.innerHTML = (narrativeData.exampleParagraphs || [])
+          .map((line) => `<p>${line}</p>`)
+          .join("");
+      }
+      if (narrativeExecution) {
+        narrativeExecution.innerHTML = (narrativeData.executionParagraphs || [])
+          .map((line) => `<p>${line}</p>`)
+          .join("");
+      }
+      if (narrativeExecutionClose) {
+        narrativeExecutionClose.innerHTML = [narrativeData.executionClose, narrativeData.tailLine]
+          .filter(Boolean)
+          .join("<br>");
+      }
+      if (narrativeComparison && narrativeComparisonTable && narrativeComparisonTitle && narrativeAfterComparison) {
+        const hasComparison =
+          Array.isArray(narrativeData.comparisonRows) &&
+          narrativeData.comparisonRows.length > 0 &&
+          Array.isArray(narrativeData.comparisonHeaders) &&
+          narrativeData.comparisonHeaders.length > 0;
+
+        if (!hasComparison) {
+          narrativeComparison.classList.add("is-hidden");
+          narrativeComparisonTitle.textContent = "";
+          narrativeComparisonTable.querySelector("thead").innerHTML = "";
+          narrativeComparisonTable.querySelector("tbody").innerHTML = "";
+          narrativeAfterComparison.innerHTML = "";
+        } else {
+          narrativeComparison.classList.remove("is-hidden");
+          narrativeComparisonTitle.textContent = narrativeData.comparisonTitle || "Vergleich";
+          narrativeComparisonTable.querySelector("thead").innerHTML = `
+            <tr>
+              ${narrativeData.comparisonHeaders.map((h) => `<th>${h}</th>`).join("")}
+            </tr>
+          `;
+          narrativeComparisonTable.querySelector("tbody").innerHTML = narrativeData.comparisonRows
+            .map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`)
+            .join("");
+          narrativeAfterComparison.innerHTML = (narrativeData.comparisonAfterParagraphs || [])
+            .map((line) => `<p class="ga-process-intro">${line}</p>`)
+            .join("");
+        }
+      }
+      if (narrativeImagePrimary) {
+        narrativeImagePrimary.src = narrativeData.imagePrimary || "";
+        narrativeImagePrimary.alt = narrativeData.imageAlt || narrativeData.title;
+      }
+      if (narrativeImageSecondary) {
+        narrativeImageSecondary.src = narrativeData.imageSecondary || narrativeData.imagePrimary || "";
+        narrativeImageSecondary.alt = narrativeData.imageAlt || narrativeData.title;
+      }
+      if (narrativeImageTertiary) {
+        narrativeImageTertiary.src = narrativeData.imageTertiary || narrativeData.imageSecondary || narrativeData.imagePrimary || "";
+        narrativeImageTertiary.alt = narrativeData.imageAlt || narrativeData.title;
+      }
+      if (narrativeCta) {
+        narrativeCta.textContent = "LASS UNS SPRECHEN";
+      }
+
+      if (narrativeFaq && narrativeFaqItems) {
+        const faqItems = Array.isArray(narrativeData.faq) ? narrativeData.faq : [];
+        if (faqItems.length === 0) {
+          narrativeFaq.classList.add("is-hidden");
+          narrativeFaqItems.innerHTML = "";
+        } else {
+          narrativeFaq.classList.remove("is-hidden");
+          narrativeFaqItems.innerHTML = faqItems
+            .map((item, index) => `
+              <div class="ga-faq-item">
+                <button class="ga-faq-toggle narrative-faq-toggle" type="button" aria-expanded="${index === 0 ? "true" : "false"}">
+                  <span>${item.q}</span>
+                  <span>+</span>
+                </button>
+                <div class="ga-faq-answer ${index === 0 ? "" : "is-hidden"}">${item.a}</div>
+              </div>
+            `)
+            .join("");
+        }
+      }
+    }
 
     if (slug === "google-ads") {
       document.querySelectorAll("#googleFaq .ga-faq-toggle").forEach((btn) => {
@@ -1452,6 +1987,17 @@
         });
       });
     }
+
+    document.querySelectorAll(".narrative-faq-toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        const answer = btn.nextElementSibling;
+        btn.setAttribute("aria-expanded", String(!expanded));
+        if (answer) {
+          answer.classList.toggle("is-hidden", expanded);
+        }
+      });
+    });
   </script>
 </body>
 </html>
