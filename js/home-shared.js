@@ -236,30 +236,69 @@
                 track.appendChild(firstGroup);
                 track.appendChild(secondGroup);
             });
+
+            // --- MARQUEE ARROW BUTTONS ---
+            document.querySelectorAll('[data-marquee-arrow]').forEach((btn) => {
+                const direction = btn.getAttribute('data-marquee-arrow');
+                const window_ = btn.closest('.services-marquee-window');
+                const track = window_?.querySelector('.services-marquee-track');
+                if (!track) return;
+
+                btn.addEventListener('click', () => {
+                    // Pause auto-scroll animation
+                    track.style.animationPlayState = 'paused';
+
+                    // Get current computed translateX
+                    const style = getComputedStyle(track);
+                    const matrix = new DOMMatrix(style.transform);
+                    const currentX = matrix.m41;
+
+                    // Scroll by ~card width + gap
+                    const step = 280;
+                    const targetX = direction === 'left' ? currentX + step : currentX - step;
+
+                    // Apply transform and transition
+                    track.style.animation = 'none';
+                    track.style.transform = `translateX(${targetX}px)`;
+                    track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+
+                    // Resume auto-scroll after a pause
+                    clearTimeout(track._resumeTimer);
+                    track._resumeTimer = setTimeout(() => {
+                        // Restart animation from current position
+                        track.style.transition = '';
+                        track.style.transform = '';
+                        track.style.animation = '';
+                        track.style.animationPlayState = '';
+                    }, 3000);
+                });
+            });
         })();
 
         // --- 3. PIPELINE ---
         const races = document.querySelector(".pin-wrap");
-        const getScrollAmount = () => -(races.scrollWidth - window.innerWidth);
-        const tween = gsap.to(races, { x: getScrollAmount, ease: "none" });
-        ScrollTrigger.create({ trigger: ".pipeline-section", start: "top top", end: () => `+=${races.scrollWidth - window.innerWidth}`, pin: true, animation: tween, scrub: 1, invalidateOnRefresh: true });
-        
-        // Revised Parallax to utilize scale buffer
-        gsap.utils.toArray('.horiz-img').forEach(img => { 
-            gsap.fromTo(img, 
-                { xPercent: -15 }, 
-                { 
-                    xPercent: 15, 
-                    ease: "none", 
-                    scrollTrigger: { 
-                        trigger: ".pipeline-section", 
-                        start: "top top", 
-                        end: () => `+=${races.scrollWidth - window.innerWidth}`, 
-                        scrub: true 
-                    } 
-                }
-            ); 
-        });
+        if (races) {
+            const getScrollAmount = () => -(races.scrollWidth - window.innerWidth);
+            const tween = gsap.to(races, { x: getScrollAmount, ease: "none" });
+            ScrollTrigger.create({ trigger: ".pipeline-section", start: "top top", end: () => `+=${races.scrollWidth - window.innerWidth}`, pin: true, animation: tween, scrub: 1, invalidateOnRefresh: true });
+
+            // Revised Parallax to utilize scale buffer
+            gsap.utils.toArray('.horiz-img').forEach(img => {
+                gsap.fromTo(img,
+                    { xPercent: -15 },
+                    {
+                        xPercent: 15,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: ".pipeline-section",
+                            start: "top top",
+                            end: () => `+=${races.scrollWidth - window.innerWidth}`,
+                            scrub: true
+                        }
+                    }
+                );
+            });
+        }
 
         // Continue the scrubbed transition across the full unified mesh+pulse block
         const unifiedSection = document.querySelector('.mesh-pulse-unified');
@@ -282,55 +321,59 @@
 
         // --- 4. NEURAL GRID ---
         const grid = document.getElementById('neuralGrid');
-        const cols = Math.ceil(window.innerWidth / 30);
-        const rows = Math.ceil((window.innerHeight * 1.5) / 30);
-        const totalDots = cols * rows;
-
-        for(let i=0; i<totalDots; i++) { 
-            const dot = document.createElement('div'); 
-            dot.classList.add('neural-dot'); 
-            grid.appendChild(dot); 
-        }
-
         const neuralSection = document.querySelector('.neural-section');
-        const isUnifiedNeural = !!neuralSection?.closest('.mesh-pulse-unified');
-        const neuralBaseColor = isUnifiedNeural ? 'rgba(255,255,255,0.22)' : 'rgba(12,23,48,0.2)';
-        const neuralActiveColor = isUnifiedNeural ? 'rgba(255,255,255,0.62)' : 'rgba(12,23,48,0.5)';
-        neuralSection.addEventListener('mousemove', (e) => {
-            const dots = document.querySelectorAll('.neural-dot'); 
-            const rect = grid.getBoundingClientRect(); 
-            const mx = e.clientX - rect.left; 
-            const my = e.clientY - rect.top;
-            
-            const radius = 350;
+        if (grid && neuralSection) {
+            const cols = Math.ceil(window.innerWidth / 30);
+            const rows = Math.ceil((window.innerHeight * 1.5) / 30);
+            const totalDots = cols * rows;
 
-            dots.forEach(dot => {
-                const dotRect = dot.getBoundingClientRect();
-                const dx = (dotRect.left - rect.left) - mx; 
-                const dy = (dotRect.top - rect.top) - my;
-                const dist = Math.sqrt(dx*dx + dy*dy);
-                
-                if(dist < radius) {
-                    const force = (radius - dist) / radius; 
-                    const angle = Math.atan2(dy, dx);
-                    const moveX = Math.cos(angle) * force * 50;
-                    const moveY = Math.sin(angle) * force * 50;
-                    dot.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                    dot.style.background = neuralActiveColor;
-                } else {
-                    dot.style.transform = `translate(0,0)`;
-                    dot.style.background = neuralBaseColor;
-                }
+            for(let i=0; i<totalDots; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('neural-dot');
+                grid.appendChild(dot);
+            }
+
+            const isUnifiedNeural = !!neuralSection.closest('.mesh-pulse-unified');
+            const neuralBaseColor = isUnifiedNeural ? 'rgba(255,255,255,0.22)' : 'rgba(12,23,48,0.2)';
+            const neuralActiveColor = isUnifiedNeural ? 'rgba(255,255,255,0.62)' : 'rgba(12,23,48,0.5)';
+            neuralSection.addEventListener('mousemove', (e) => {
+                const dots = document.querySelectorAll('.neural-dot');
+                const rect = grid.getBoundingClientRect();
+                const mx = e.clientX - rect.left;
+                const my = e.clientY - rect.top;
+
+                const radius = 350;
+
+                dots.forEach(dot => {
+                    const dotRect = dot.getBoundingClientRect();
+                    const dx = (dotRect.left - rect.left) - mx;
+                    const dy = (dotRect.top - rect.top) - my;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+
+                    if(dist < radius) {
+                        const force = (radius - dist) / radius;
+                        const angle = Math.atan2(dy, dx);
+                        const moveX = Math.cos(angle) * force * 50;
+                        const moveY = Math.sin(angle) * force * 50;
+                        dot.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                        dot.style.background = neuralActiveColor;
+                    } else {
+                        dot.style.transform = `translate(0,0)`;
+                        dot.style.background = neuralBaseColor;
+                    }
+                });
             });
-        });
+        }
 
         // --- 5. SYSTEM PULSE ---
         const chartArea = document.getElementById('liveChart');
-        for(let i=0; i<30; i++) {
-            const bar = document.createElement('div');
-            bar.classList.add('chart-bar');
-            bar.style.animationDelay = `${Math.random() * 2}s`;
-            chartArea.appendChild(bar);
+        if (chartArea) {
+            for(let i=0; i<30; i++) {
+                const bar = document.createElement('div');
+                bar.classList.add('chart-bar');
+                bar.style.animationDelay = `${Math.random() * 2}s`;
+                chartArea.appendChild(bar);
+            }
         }
 
         // --- NAV DROPDOWNS ---
