@@ -316,7 +316,7 @@ align-items: center;
 justify-content: center;
 background:
 radial-gradient(circle at 20% 20%, rgba(64, 130, 255, 0.15), rgba(5, 5, 5, 0.95) 60%),
-url('/assets/hero-bg-glass-sphere.jpeg') center/cover no-repeat;
+url('/assets/hero-bg-glass-sphere.webp') center/cover no-repeat;
 transition: opacity 0.6s ease;
 }
 .hero-embed-fallback::after {
@@ -682,12 +682,10 @@ margin-top: 0.45rem;
 .chart-bar { flex: 1; background: linear-gradient(0deg, var(--accent) 0%, transparent 100%); opacity: 0.3; border-top: 1px solid var(--accent); animation: chartMove 3s infinite ease-in-out; }
 .db-float-1 { width: 200px; padding: 1rem; top: 10%; right: -5%; z-index: 3; animation: float 6s ease-in-out infinite; background: #ffffff; border-color: var(--accent); }
 .code-snippet { font-family: var(--font-body); font-size: 0.7rem; color: rgba(12,23,48,0.6); line-height: 1.4; }
-.process-subtitle,
 .testimonials-subtitle,
 .testimonials-pill,
 .m-stat p,
-.stat-item span,
-{
+.stat-item span {
   font-family: var(--font-sub);
 }
 .db-float-2 { width: 180px; padding: 1rem; bottom: 0%; left: -5%; z-index: 3; animation: float 5s ease-in-out infinite reverse; }
@@ -815,7 +813,7 @@ footer { position: relative; width: 100%; background: var(--accent-dark); z-inde
   content: "";
   position: absolute;
   inset: 0;
-  background: url('/assets/who-we-are-overlay.png') 62% center / cover no-repeat;
+  background: url('/assets/who-we-are-overlay.webp') 62% center / cover no-repeat;
   opacity: 0.68;
   mix-blend-mode: normal;
   filter: saturate(1.14) contrast(1.08);
@@ -1411,9 +1409,7 @@ footer { position: relative; width: 100%; background: var(--accent-dark); z-inde
 .benefits-kicker { font-size: 0.9rem; letter-spacing: 0.11em; }
 .benefits-transition { font-size: 1.26rem; line-height: 1.6; }
 /* Nav */
-.menu-items { gap: 1rem; }
 .btn { padding: 0.6rem 1.2rem; font-size: 1rem; }
-.nav-wrap .btn { display: none; } /* Hide CTA on small screens */
 /* Pipeline */
 .pipeline-heading { top: 1rem; left: 4vw; right: 4vw; }
 .pipeline-heading-title { font-size: clamp(1.55rem, 6.2vw, 2.4rem); }
@@ -1442,7 +1438,7 @@ footer { position: relative; width: 100%; background: var(--accent-dark); z-inde
 /* Neural */
 .mesh-stats { grid-template-columns: 1fr; gap: 1.5rem; }
 /* Pulse & Velocity & Terminal */
-.pulse-grid, .dev-grid { grid-template-columns: 1fr; gap: 3rem; }
+.pulse-grid { grid-template-columns: 1fr; gap: 3rem; }
 /* Pulse Visual */
 .pulse-visual { height: 400px; transform: scale(0.85); transform-origin: center top; margin-bottom: 0; }
 /* Footer */
@@ -1469,7 +1465,6 @@ footer { height: auto; }
 .digit-badge { width: 62px; height: 62px; font-size: 1.82rem !important; border-radius: 11px; margin-bottom: 0.68rem !important; }
 .contact-grid { grid-template-columns: 1fr; }
 .contact-card { padding: 2rem; }
-.process-grid { grid-template-columns: 1fr; }
 .testimonials-columns { flex-direction: column; align-items: center; max-height: none; mask-image: none; }
 .testimonials-col { max-width: 520px; }
 .testimonials-col ul { animation: none; }

@@ -1,14 +1,17 @@
         gsap.registerPlugin(ScrollTrigger);
 
-        ;
-
         const spotlightCards = document.querySelectorAll('.spotlight-card');
         if (spotlightCards.length) {
+            let spotRaf = 0;
             window.addEventListener('mousemove', (e) => {
-                spotlightCards.forEach((card) => {
-                    const rect = card.getBoundingClientRect();
-                    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-                    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                if (spotRaf) return;
+                spotRaf = requestAnimationFrame(() => {
+                    spotlightCards.forEach((card) => {
+                        const rect = card.getBoundingClientRect();
+                        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                    });
+                    spotRaf = 0;
                 });
             });
         }
@@ -156,8 +159,8 @@
             ];
 
             const makeFallbackSvg = (title) => {
-                const text = encodeURIComponent(title.toUpperCase());
-                return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1000'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230f3b8f'/%3E%3Cstop offset='1' stop-color='%23091220'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='1000' fill='url(%23g)'/%3E%3Ctext x='50%25' y='52%25' fill='%23f4f8ff' font-size='52' font-family='Arial, sans-serif' text-anchor='middle'%3E${text}%3C/text%3E%3C/svg%3E`;
+                const initial = encodeURIComponent(title.charAt(0).toUpperCase());
+                return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230f3b8f'/%3E%3Cstop offset='1' stop-color='%23091220'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23g)'/%3E%3Ctext x='50%25' y='56%25' fill='%23f4f8ff' font-size='160' font-weight='700' font-family='Inter,Arial,sans-serif' text-anchor='middle' dominant-baseline='middle'%3E${initial}%3C/text%3E%3C/svg%3E`;
             };
 
             const createCard = (service, index, lang) => {
@@ -169,18 +172,10 @@
 
                 const image = document.createElement('img');
                 image.className = 'service-mini-image';
-                image.src = `https://source.unsplash.com/840x1040/?${encodeURIComponent(service.query)}&sig=${index + 31}`;
+                image.src = makeFallbackSvg(serviceName);
                 image.alt = `${serviceName} service`;
                 image.loading = 'lazy';
                 image.decoding = 'async';
-                image.addEventListener('error', () => {
-                    if (image.dataset.retry !== '1') {
-                        image.dataset.retry = '1';
-                        image.src = `https://picsum.photos/seed/${serviceSlug || index + 1}/840/1040`;
-                        return;
-                    }
-                    image.src = makeFallbackSvg(serviceName);
-                });
 
                 const tint = document.createElement('div');
                 tint.className = 'service-mini-tint';
@@ -329,31 +324,35 @@
             const isUnifiedNeural = !!neuralSection.closest('.mesh-pulse-unified');
             const neuralBaseColor = isUnifiedNeural ? 'rgba(255,255,255,0.22)' : 'rgba(12,23,48,0.2)';
             const neuralActiveColor = isUnifiedNeural ? 'rgba(255,255,255,0.62)' : 'rgba(12,23,48,0.5)';
+            const cachedDots = Array.from(document.querySelectorAll('.neural-dot'));
+            let neuralRaf = 0;
             neuralSection.addEventListener('mousemove', (e) => {
-                const dots = document.querySelectorAll('.neural-dot');
-                const rect = grid.getBoundingClientRect();
-                const mx = e.clientX - rect.left;
-                const my = e.clientY - rect.top;
+                if (neuralRaf) return;
+                neuralRaf = requestAnimationFrame(() => {
+                    const rect = grid.getBoundingClientRect();
+                    const mx = e.clientX - rect.left;
+                    const my = e.clientY - rect.top;
+                    const radius = 350;
 
-                const radius = 350;
+                    cachedDots.forEach(dot => {
+                        const dotRect = dot.getBoundingClientRect();
+                        const dx = (dotRect.left - rect.left) - mx;
+                        const dy = (dotRect.top - rect.top) - my;
+                        const dist = Math.sqrt(dx*dx + dy*dy);
 
-                dots.forEach(dot => {
-                    const dotRect = dot.getBoundingClientRect();
-                    const dx = (dotRect.left - rect.left) - mx;
-                    const dy = (dotRect.top - rect.top) - my;
-                    const dist = Math.sqrt(dx*dx + dy*dy);
-
-                    if(dist < radius) {
-                        const force = (radius - dist) / radius;
-                        const angle = Math.atan2(dy, dx);
-                        const moveX = Math.cos(angle) * force * 50;
-                        const moveY = Math.sin(angle) * force * 50;
-                        dot.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                        dot.style.background = neuralActiveColor;
-                    } else {
-                        dot.style.transform = `translate(0,0)`;
-                        dot.style.background = neuralBaseColor;
-                    }
+                        if(dist < radius) {
+                            const force = (radius - dist) / radius;
+                            const angle = Math.atan2(dy, dx);
+                            const moveX = Math.cos(angle) * force * 50;
+                            const moveY = Math.sin(angle) * force * 50;
+                            dot.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                            dot.style.background = neuralActiveColor;
+                        } else {
+                            dot.style.transform = `translate(0,0)`;
+                            dot.style.background = neuralBaseColor;
+                        }
+                    });
+                    neuralRaf = 0;
                 });
             });
         }
