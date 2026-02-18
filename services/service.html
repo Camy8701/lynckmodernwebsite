@@ -210,40 +210,6 @@
       text-decoration: none;
       font: inherit;
     }
-    .gradient-border-btn {
-      position: relative;
-      isolation: isolate;
-      padding: 3px;
-      border-radius: 999px;
-      overflow: hidden;
-      background-color: transparent;
-      border: 0;
-      cursor: pointer;
-    }
-    .gradient-border-btn .cp-border {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 400%;
-      background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b) 0% 0% / 25% 100%;
-      transform: translateX(-5%);
-      z-index: 0;
-      transition: transform 0.25s ease-out;
-    }
-    .gradient-border-btn .btn-core {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.55rem 1.1rem;
-      font-size: 0.9rem;
-      background: #0b0d14;
-      border-radius: 999px;
-      color: #fff;
-      z-index: 1;
-    }
-
     main { padding: 2rem 0 3.4rem; }
 
     .hero {
@@ -835,7 +801,7 @@
       padding: 0.62rem 1rem;
       font-weight: 700;
       font-size: 0.92rem;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 0;
       text-decoration: none;
     }
     .svc-contact-pill {
@@ -843,8 +809,17 @@
       color: #0f172a;
     }
     .svc-contact-btn {
-      background: rgba(255, 255, 255, 0.12);
+      background: #0045ba;
       color: #fff;
+      padding: 0.85rem 2rem;
+      font-size: 1rem;
+      box-shadow: 0 4px 20px rgba(0,69,186,0.25);
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .svc-contact-btn:hover {
+      background: #e56a1e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(229,106,30,0.3);
     }
     .svc-contact-social {
       display: flex;
@@ -1259,7 +1234,6 @@
         <p>Ready to scale your marketing? We’d love to hear about your goals and explore how we can work together to achieve them.</p>
         <div class="svc-contact-actions">
           <span class="svc-contact-pill">info@lynckstudio.pro</span>
-          <a href="#" class="svc-contact-btn">Schedule a call</a>
         </div>
       </div>
       <div class="svc-contact-card svc-contact-links">
@@ -1292,8 +1266,17 @@
         <a href="/contact.html">Contact Us</a>
       </div>
       <div class="footer-links-col">
-        <a href="/pricing.html">Pricing</a>
-        <a href="/google-ads.html">Google Ads</a>
+        <a href="/services/service.html?service=google-ads">Google Ads &amp; Performance Marketing</a>
+        <a href="/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a>
+        <a href="/services/service.html?service=ai-content">AI Content &amp; Creative Production</a>
+        <a href="/services/service.html?service=ugc-influencer">UGC &amp; Influencer Marketing</a>
+        <a href="/services/service.html?service=web-systems">Conversion-Focused Web Systems</a>
+      </div>
+      <div class="footer-links-col">
+        <a href="/services/service.html?service=growth-strategy">Growth Strategy &amp; Brand Positioning</a>
+        <a href="/services/service.html?service=leads-generation">Leads Generation</a>
+        <a href="/services/service.html?service=youtube-growth-services">YouTube Growth Services</a>
+        <a href="/services/service.html?service=seo-sevo">SEO / SEvO</a>
       </div>
       <div class="footer-social-row">
         <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">

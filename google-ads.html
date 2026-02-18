@@ -124,25 +124,30 @@
     }
 
     .ga-btn {
-      padding: 12px 22px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
       border-radius: 999px;
-      border: 1px solid transparent;
+      border: 0;
       font-weight: 600;
-      font-size: 0.95rem;
-      font-family: var(--font-sub);
+      font-size: 1.05rem;
+      font-family: var(--font-head, 'Inter', sans-serif);
       cursor: pointer;
-      transition: 0.2s ease;
+      text-decoration: none;
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .ga-btn.primary {
-      background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      color: white;
-      box-shadow: 0 12px 30px rgba(31, 94, 255, 0.35);
+      background: var(--accent, #0045ba);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(0,69,186,0.25);
     }
 
     .ga-btn.primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 34px rgba(31, 94, 255, 0.45);
+      background: var(--accent-warm, #e56a1e);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(229,106,30,0.3);
     }
 
     .ga-btn.ghost {
@@ -403,6 +408,31 @@
       margin-bottom: 24px;
     }
 
+    .ga-footer-services {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+    .ga-footer-services-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .ga-footer-services-col a {
+      color: rgba(241,239,230,0.7);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .ga-footer-services-col a:hover { color: #fff; }
+
     /* Header / Nav (from contact page, adapted) */
     .lynck-header {
       position: fixed;
@@ -619,46 +649,6 @@
       background: transparent;
       border: 0;
       cursor: pointer;
-    }
-
-    .gradient-border-btn {
-      position: relative;
-      isolation: isolate;
-      padding: 3px;
-      border-radius: 999px;
-      overflow: hidden;
-      background-color: transparent;
-      border: 0;
-      cursor: pointer;
-    }
-
-    .gradient-border-btn .cp-border {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 400%;
-      background: linear-gradient(115deg, rgb(79, 207, 112), rgb(250, 214, 72), rgb(167, 103, 229), rgb(18, 188, 254), rgb(68, 206, 123)) 0% 0% / 25% 100%;
-      transform: translateX(-5%);
-      z-index: 0;
-      transition: transform .25s ease-out;
-    }
-
-    .gradient-border-btn:hover .cp-border {
-      transition: transform .75s linear;
-    }
-
-    .gradient-border-btn .btn-core {
-      position: relative;
-      display: block;
-      padding: 0.5rem 0.9rem;
-      font-size: 0.85rem;
-      background: #05060b;
-      border-radius: 999px;
-      height: 100%;
-      z-index: 1;
-      color: white;
-      font-family: var(--font-sub);
     }
 
     @media (max-width: 960px) {
@@ -983,6 +973,21 @@
           <a class="ga-btn ghost" href="/cookie-policy.html">Cookie Policy</a>
           <a class="ga-btn ghost" href="/privacy-policy.html">Privacy Policy</a>
           <a class="ga-btn ghost" href="/legal-notice.html">Legal Notice</a>
+        </div>
+        <div class="ga-footer-services">
+          <div class="ga-footer-services-col">
+            <a href="/services/service.html?service=google-ads">Google Ads &amp; Performance Marketing</a>
+            <a href="/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a>
+            <a href="/services/service.html?service=ai-content">AI Content &amp; Creative Production</a>
+            <a href="/services/service.html?service=ugc-influencer">UGC &amp; Influencer Marketing</a>
+            <a href="/services/service.html?service=web-systems">Conversion-Focused Web Systems</a>
+          </div>
+          <div class="ga-footer-services-col">
+            <a href="/services/service.html?service=growth-strategy">Growth Strategy &amp; Brand Positioning</a>
+            <a href="/services/service.html?service=leads-generation">Lead Generation Systems</a>
+            <a href="/services/service.html?service=youtube-growth-services">YouTube Growth Services</a>
+            <a href="/services/service.html?service=seo-sevo">SEO / SEvO</a>
+          </div>
         </div>
       </footer>
     </div>
