@@ -13,921 +13,654 @@
 <script src="https://cdn.tailwindcss.com" defer></script>
 <style>
 /* ═══════════════════════════════════════
-   ABOUT PAGE — Cinematic Editorial
+   ABOUT PAGE — Editorial Manifesto
    ═══════════════════════════════════════ */
 
-/* --- Page foundation --- */
-.ab-page { overflow-x: hidden; }
-
-/* --- Reveal system --- */
-.rv { opacity: 0; transform: translateY(48px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
-.rv.vis { opacity: 1; transform: translateY(0); }
-.rv-d1 { transition-delay: 0.08s; }
-.rv-d2 { transition-delay: 0.16s; }
-.rv-d3 { transition-delay: 0.24s; }
-.rv-d4 { transition-delay: 0.32s; }
-.rv-slow { transition-duration: 1.2s; }
-
-/* --- Hero entrance (CSS-only, no JS dependency) --- */
-@keyframes ab-hero-in {
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.ab-hero-reveal {
-  opacity: 0;
-  animation: ab-hero-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.ab-page {
+    overflow-x: hidden;
+    background: var(--bg, #f1efe6);
+    color: var(--text, #0c1730);
 }
 
-/* --- HERO --- */
+/* --- Hero --- */
 .ab-hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: #060a12;
-  overflow: hidden;
-  padding-top: var(--header-height);
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 clamp(24px, 5vw, 80px) clamp(60px, 8vh, 120px);
+    overflow: hidden;
 }
-.ab-hero-media {
-  position: absolute;
-  inset: 0;
+.ab-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
 }
-.ab-hero-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.32;
-  filter: saturate(0.6) contrast(1.15);
+.ab-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.35) saturate(0.8);
 }
-.ab-hero-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(6,10,18,0.55) 0%, transparent 35%, rgba(6,10,18,0.92) 100%),
-    radial-gradient(ellipse at 15% 85%, rgba(0,69,186,0.14) 0%, transparent 55%);
+.ab-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(12, 23, 48, 0.95) 0%,
+        rgba(12, 23, 48, 0.5) 40%,
+        rgba(12, 23, 48, 0.2) 70%,
+        transparent 100%
+    );
+    z-index: 1;
 }
-.ab-hero-inner {
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 2.5rem 7rem;
+.ab-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
 }
 .ab-hero-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.45rem 0.95rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  font-family: var(--font-sub);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.58);
-  margin-bottom: 2rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(11px, 1.2vw, 13px);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-warm, #e56a1e);
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
 }
-.ab-hero-kicker::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent-warm);
-  box-shadow: 0 0 10px rgba(229,106,30,0.55);
+.ab-hero h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(48px, 8vw, 110px);
+    font-weight: 700;
+    line-height: 0.95;
+    color: #fff;
+    letter-spacing: -0.03em;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(40px);
 }
-.ab-hero-h1 {
-  font-family: var(--font-head);
-  font-size: clamp(3.8rem, 9.5vw, 8.5rem);
-  font-weight: 800;
-  line-height: 0.88;
-  letter-spacing: -0.045em;
-  color: #fff;
-  margin: 0 0 2rem;
-  max-width: 900px;
+.ab-hero h1 span {
+    display: block;
+    color: var(--accent-warm, #e56a1e);
 }
-.ab-hero-h1 em {
-  font-style: normal;
-  display: inline;
-  background: linear-gradient(135deg, #fff 25%, rgba(111,163,221,0.85) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.ab-hero-sub {
-  font-family: var(--font-body);
-  font-size: clamp(1.1rem, 1.7vw, 1.38rem);
-  line-height: 1.65;
-  color: rgba(200,215,245,0.72);
-  max-width: 480px;
-}
-.ab-hero-scroll {
-  position: absolute;
-  bottom: 2.2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  color: rgba(255,255,255,0.32);
-  font-family: var(--font-sub);
-  font-size: 0.65rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-.ab-hero-scroll span:last-child {
-  width: 1px;
-  height: 38px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.35), transparent);
-  animation: ab-scroll-pulse 2.2s ease-in-out infinite;
-}
-@keyframes ab-scroll-pulse {
-  0%, 100% { opacity: 0.25; transform: scaleY(0.55); }
-  50% { opacity: 1; transform: scaleY(1); }
+.ab-hero-line {
+    width: 60px;
+    height: 2px;
+    background: var(--accent-warm, #e56a1e);
+    margin-top: 32px;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left;
 }
 
-/* --- Shared narrative container --- */
-.ab-wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
+/* --- Section base --- */
+.ab-section {
+    padding: clamp(60px, 10vh, 140px) clamp(24px, 5vw, 80px);
+}
+.ab-section-narrow {
+    max-width: 720px;
+    margin: 0 auto;
+}
+.ab-section-wide {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* --- ORIGIN STORY --- */
+/* --- Origin story --- */
 .ab-origin {
-  padding: 9rem 0 7rem;
-  background: var(--bg);
+    background: var(--bg, #f1efe6);
 }
 .ab-origin-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.ab-origin-text {
-  padding-top: 1rem;
+.ab-origin-text h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 24px;
 }
-.ab-origin-eyebrow {
-  font-family: var(--font-sub);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
+.ab-origin-text h2 em {
+    font-style: normal;
+    color: var(--accent-warm, #e56a1e);
 }
 .ab-origin-text p {
-  font-size: 1.15rem;
-  line-height: 1.78;
-  color: rgba(12,23,48,0.72);
-  margin: 0 0 1.2rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.75;
+    color: var(--text, #0c1730);
+    opacity: 0.8;
+    margin: 0 0 18px;
 }
-.ab-origin-pullquote {
-  font-family: var(--font-head);
-  font-size: 1.55rem;
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--text);
-  margin: 2.2rem 0;
-  padding-left: 1.4rem;
-  border-left: 3px solid var(--accent-warm);
-  letter-spacing: -0.01em;
+.ab-origin-image {
+    border-radius: 22px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    position: relative;
 }
-.ab-origin-visual {
-  position: relative;
+.ab-origin-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.ab-origin-img-main {
-  width: 100%;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 32px 80px rgba(12,23,48,0.18);
-  border: 1px solid rgba(12,23,48,0.08);
-}
-.ab-origin-img-main img {
-  width: 100%;
-  height: 520px;
-  object-fit: cover;
-  display: block;
-  filter: saturate(0.88) contrast(1.05);
-}
-.ab-origin-float {
-  position: absolute;
-  bottom: -2.5rem;
-  left: -3rem;
-  width: 210px;
-  height: 210px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 5px solid var(--bg);
-  box-shadow: 0 22px 55px rgba(12,23,48,0.22);
-  z-index: 2;
-}
-.ab-origin-float img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.ab-origin-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    border: 1px solid rgba(12, 23, 48, 0.08);
+    pointer-events: none;
 }
 
-/* --- PAIN POINTS --- */
+/* --- Pain points --- */
 .ab-pain {
-  padding: 5rem 0 7rem;
-  background: var(--bg);
+    background: var(--accent-dark, #0c1730);
+    color: #fff;
 }
 .ab-pain-intro {
-  max-width: 620px;
-  margin-bottom: 2.5rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.75;
+    opacity: 0.7;
+    max-width: 620px;
+    margin: 0 0 48px;
 }
-.ab-pain-intro p {
-  font-size: 1.18rem;
-  line-height: 1.72;
-  color: rgba(12,23,48,0.72);
-}
-.ab-pain-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+.ab-pain-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 .ab-pain-card {
-  padding: 2.2rem 1.8rem 2rem;
-  background: rgba(255,255,255,0.68);
-  border: 1px solid rgba(12,23,48,0.08);
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.28s ease, box-shadow 0.28s ease;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    padding: clamp(28px, 3vw, 40px);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
 }
 .ab-pain-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 22px 50px rgba(12,23,48,0.1);
+    border-color: rgba(229, 106, 30, 0.3);
 }
-.ab-pain-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-warm) 0%, transparent 100%);
-}
-.ab-pain-num {
-  font-family: var(--font-head);
-  font-size: 4rem;
-  font-weight: 800;
-  line-height: 1;
-  color: rgba(12,23,48,0.05);
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.04em;
+.ab-pain-card .card-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-warm, #e56a1e);
+    margin-bottom: 16px;
 }
 .ab-pain-card p {
-  font-family: var(--font-head);
-  font-size: 1.12rem;
-  font-weight: 600;
-  line-height: 1.45;
-  color: rgba(12,23,48,0.82);
-  margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(17px, 1.8vw, 22px);
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-/* --- MISSION DIVIDER --- */
-.ab-mission-band {
-  padding: 5.5rem 0;
-  background: var(--accent-dark);
-  position: relative;
-  overflow: hidden;
+/* --- Image break --- */
+.ab-img-break {
+    width: 100%;
+    height: clamp(300px, 40vh, 500px);
+    overflow: hidden;
+    position: relative;
 }
-.ab-mission-band::before {
-  content: "";
-  position: absolute;
-  top: -40%;
-  right: -15%;
-  width: 550px;
-  height: 550px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,69,186,0.14) 0%, transparent 68%);
-  pointer-events: none;
+.ab-img-break img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.ab-mission-band::after {
-  content: "";
-  position: absolute;
-  bottom: -30%;
-  left: -10%;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(229,106,30,0.08) 0%, transparent 65%);
-  pointer-events: none;
-}
-.ab-mission-inner {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-.ab-mission-label {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: rgba(200,215,245,0.55);
-  margin: 0 0 1rem;
-}
-.ab-mission-statement {
-  font-family: var(--font-head);
-  font-size: clamp(1.85rem, 3.8vw, 3.2rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  color: #fff;
-  margin: 0;
+.ab-img-break-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        var(--accent-dark, #0c1730) 0%,
+        transparent 30%,
+        transparent 70%,
+        var(--bg, #f1efe6) 100%
+    );
 }
 
-/* --- CINEMATIC IMAGE STRIP --- */
-.ab-cinema {
-  position: relative;
-  height: 380px;
-  overflow: hidden;
+/* --- Mission statement --- */
+.ab-mission {
+    background: var(--bg, #f1efe6);
+    text-align: center;
 }
-.ab-cinema img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(0.8) contrast(1.1);
+.ab-mission h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(26px, 3.5vw, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 800px;
+    margin: 0 auto 24px;
 }
-.ab-cinema::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, var(--bg) 0%, transparent 18%, transparent 82%, var(--bg) 100%);
+.ab-mission h2 em {
+    font-style: normal;
+    color: var(--accent, #0045ba);
+}
+.ab-mission p {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.75;
+    opacity: 0.75;
+    max-width: 620px;
+    margin: 0 auto;
 }
 
-/* --- SYSTEMS --- */
+/* --- Systems grid --- */
 .ab-systems {
-  padding: 7rem 0;
-  background:
-    linear-gradient(rgba(241,239,230,0.92), rgba(241,239,230,0.92)),
-    url('/assets/soft-abstract-curved-waves-in-neutral-tones-4k.jpeg') center / cover no-repeat;
-  position: relative;
+    background: var(--bg, #f1efe6);
 }
-.ab-systems-head {
-  text-align: center;
-  margin-bottom: 3.5rem;
+.ab-systems-header {
+    margin-bottom: clamp(40px, 5vh, 64px);
 }
-.ab-systems-eyebrow {
-  font-family: var(--font-sub);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1rem;
+.ab-systems-header .kicker {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(11px, 1.1vw, 13px);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-warm, #e56a1e);
+    margin-bottom: 12px;
 }
-.ab-systems-title {
-  font-family: var(--font-head);
-  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.035em;
-  color: var(--text);
-  margin: 0;
+.ab-systems-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0;
 }
 .ab-systems-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.2rem;
-  max-width: 960px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.ab-sys-card {
-  display: flex;
-  gap: 1.2rem;
-  padding: 1.8rem 1.6rem;
-  background: rgba(255,255,255,0.72);
-  border: 1px solid rgba(12,23,48,0.08);
-  border-radius: 20px;
-  backdrop-filter: blur(4px);
-  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-  position: relative;
-  overflow: hidden;
+.ab-system-card {
+    background: #fff;
+    border-radius: 22px;
+    padding: clamp(28px, 3vw, 44px);
+    border: 1px solid rgba(12, 23, 48, 0.06);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.ab-sys-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 55px rgba(12,23,48,0.1);
-  border-color: rgba(0,69,186,0.18);
+.ab-system-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(12, 23, 48, 0.08);
 }
-.ab-sys-icon {
-  width: 50px;
-  height: 50px;
-  min-width: 50px;
-  border-radius: 13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
+.ab-system-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 22px;
 }
-.ab-sys-icon.blue { background: linear-gradient(145deg, #0f52cf, #1e66e7); }
-.ab-sys-icon.warm { background: linear-gradient(145deg, #c95d14, #e56a1e); }
-.ab-sys-card h3 {
-  font-family: var(--font-head);
-  font-size: 1.18rem;
-  font-weight: 700;
-  color: var(--text);
-  margin: 0 0 0.35rem;
-  line-height: 1.2;
+.ab-system-icon.google { background: rgba(0, 69, 186, 0.08); color: var(--accent, #0045ba); }
+.ab-system-icon.web { background: rgba(229, 106, 30, 0.08); color: var(--accent-warm, #e56a1e); }
+.ab-system-icon.youtube { background: rgba(220, 38, 38, 0.08); color: #dc2626; }
+.ab-system-icon.content { background: rgba(12, 23, 48, 0.06); color: var(--text, #0c1730); }
+.ab-system-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(18px, 1.8vw, 22px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
 }
-.ab-sys-card p {
-  font-size: 0.98rem;
-  line-height: 1.55;
-  color: rgba(12,23,48,0.62);
-  margin: 0;
-}
-.ab-systems-footnote {
-  text-align: center;
-  margin-top: 2.8rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(12,23,48,0.09);
-}
-.ab-systems-footnote p {
-  font-size: 1.08rem;
-  color: rgba(12,23,48,0.58);
-  margin: 0 0 0.25rem;
-}
-.ab-systems-footnote .ab-punch {
-  font-family: var(--font-head);
-  font-size: 1.38rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: -0.01em;
-}
-.ab-punch strong {
-  color: var(--accent);
+.ab-system-card p {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(14px, 1.1vw, 15px);
+    line-height: 1.65;
+    opacity: 0.7;
+    margin: 0;
 }
 
-/* --- BOLD TYPOGRAPHIC BREAK --- */
-.ab-typo-break {
-  position: relative;
-  height: 500px;
-  overflow: hidden;
+/* --- Bold typographic break --- */
+.ab-manifesto {
+    background: var(--bg, #f1efe6);
+    text-align: center;
+    padding: clamp(80px, 12vh, 160px) clamp(24px, 5vw, 80px);
+    position: relative;
 }
-.ab-typo-break img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(0.75) contrast(1.12);
+.ab-manifesto-text {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(32px, 5vw, 72px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text, #0c1730);
 }
-.ab-typo-break::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(6,10,18,0.45) 0%, rgba(6,10,18,0.2) 40%, rgba(6,10,18,0.55) 100%);
-}
-.ab-typo-text {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-.ab-typo-text h2 {
-  font-family: var(--font-head);
-  font-size: clamp(2.8rem, 6.5vw, 5.5rem);
-  font-weight: 800;
-  color: #fff;
-  text-align: center;
-  letter-spacing: -0.04em;
-  line-height: 0.92;
-  text-shadow: 0 6px 40px rgba(0,0,0,0.35);
-  max-width: 800px;
-}
-.ab-typo-text h2 span {
-  display: block;
-  opacity: 0.4;
-  font-size: 0.88em;
+.ab-manifesto-text .sep {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-warm, #e56a1e);
+    margin: 0 clamp(12px, 2vw, 24px);
+    vertical-align: middle;
+    position: relative;
+    top: -0.05em;
 }
 
-/* --- TRANSPARENCY --- */
+/* --- Transparency --- */
 .ab-transparency {
-  padding: 8rem 0;
-  background: var(--bg);
+    background: var(--bg, #f1efe6);
 }
-.ab-trans-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
+.ab-transparency-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.ab-trans-eyebrow {
-  font-family: var(--font-sub);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent-warm);
-  margin-bottom: 1.2rem;
+.ab-transparency-text h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(26px, 3vw, 40px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 24px;
 }
-.ab-trans-text h2 {
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  margin: 0 0 1.5rem;
+.ab-transparency-text p {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.75;
+    opacity: 0.8;
+    margin: 0 0 18px;
 }
-.ab-trans-text p {
-  font-size: 1.1rem;
-  line-height: 1.75;
-  color: rgba(12,23,48,0.68);
-  margin: 0 0 1rem;
+.ab-transparency-text .highlight {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: clamp(16px, 1.5vw, 19px);
+    color: var(--accent, #0045ba);
+    opacity: 1;
+    line-height: 1.5;
+    border-left: 3px solid var(--accent, #0045ba);
+    padding-left: 20px;
+    margin: 28px 0;
 }
-.ab-leverage-box {
-  margin-top: 1.8rem;
-  padding: 1.5rem 1.6rem;
-  border-radius: 16px;
-  background: rgba(0,69,186,0.04);
-  border: 1px solid rgba(0,69,186,0.1);
+.ab-transparency-image {
+    border-radius: 22px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
 }
-.ab-leverage-box p {
-  margin: 0;
-  color: rgba(12,23,48,0.75);
-}
-.ab-leverage-box strong {
-  display: block;
-  margin-top: 0.5rem;
-  font-family: var(--font-head);
-  font-size: 1.28rem;
-  font-weight: 700;
-  color: var(--accent);
-}
-.ab-trans-visual img {
-  width: 100%;
-  height: 560px;
-  object-fit: cover;
-  border-radius: 22px;
-  box-shadow: 0 32px 80px rgba(12,23,48,0.16);
-  border: 1px solid rgba(12,23,48,0.07);
+.ab-transparency-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* --- TECHNOLOGY --- */
+/* --- Technology (dark) --- */
 .ab-tech {
-  padding: 7.5rem 0;
-  background: var(--accent-dark);
-  position: relative;
-  overflow: hidden;
+    background: var(--accent-dark, #0c1730);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
 }
 .ab-tech::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 75% 15%, rgba(0,69,186,0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 8% 85%, rgba(229,106,30,0.06) 0%, transparent 50%);
-  pointer-events: none;
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 69, 186, 0.12), transparent 70%);
+    pointer-events: none;
 }
-.ab-tech-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-  position: relative;
-  z-index: 1;
-}
-.ab-tech-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
-}
-.ab-tech-eyebrow {
-  font-family: var(--font-sub);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent-warm);
-  margin-bottom: 1rem;
+.ab-tech-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
+    align-items: center;
+    position: relative;
+    z-index: 1;
 }
 .ab-tech-text h2 {
-  font-family: var(--font-head);
-  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  margin: 0 0 0.9rem;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
 }
-.ab-tech-text > p {
-  font-size: 1.08rem;
-  line-height: 1.72;
-  color: rgba(200,215,245,0.72);
-  margin: 0 0 1.8rem;
+.ab-tech-text p {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.75;
+    opacity: 0.7;
+    margin: 0 0 18px;
 }
-.ab-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
+.ab-tech-text .emphasis {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    opacity: 1;
+    color: var(--accent-warm, #e56a1e);
 }
-.ab-tag {
-  display: inline-flex;
-  padding: 0.52rem 1rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.12);
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: rgba(220,230,250,0.82);
-  transition: background 0.22s ease, border-color 0.22s ease;
+.ab-tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 32px;
 }
-.ab-tag:hover {
-  background: rgba(255,255,255,0.09);
-  border-color: rgba(255,255,255,0.22);
+.ab-tech-pill {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.8);
+    transition: border-color 0.3s, background 0.3s;
 }
-.ab-tag-hot {
-  background: rgba(229,106,30,0.14);
-  border-color: rgba(229,106,30,0.32);
-  color: #ffc089;
-  font-weight: 600;
+.ab-tech-pill:hover {
+    border-color: var(--accent-warm, #e56a1e);
+    background: rgba(229, 106, 30, 0.08);
 }
-.ab-tech-precision {
-  padding-top: 1.6rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
+.ab-tech-image {
+    border-radius: 22px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
 }
-.ab-tech-precision p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: rgba(200,215,245,0.65);
-  margin: 0 0 0.4rem;
-}
-.ab-tech-precision .ab-precision-choice {
-  font-family: var(--font-head);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #fff;
-  margin-top: 0.5rem;
-}
-.ab-tech-visual img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+.ab-tech-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* --- CLOSING --- */
+/* --- Closing --- */
 .ab-closing {
-  padding: 8.5rem 0 5rem;
-  background: var(--bg);
-  position: relative;
+    background: var(--bg, #f1efe6);
+    text-align: center;
 }
-.ab-closing-inner {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-  text-align: center;
+.ab-closing h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    max-width: 680px;
+    margin: 0 auto 16px;
 }
-.ab-closing-eyebrow {
-  font-family: var(--font-sub);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
+.ab-closing p {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.75;
+    opacity: 0.7;
+    max-width: 560px;
+    margin: 0 auto 12px;
 }
-.ab-closing-h2 {
-  font-family: var(--font-head);
-  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
-  font-weight: 800;
-  color: var(--text);
-  letter-spacing: -0.035em;
-  line-height: 0.95;
-  margin: 0 0 2.2rem;
+.ab-closing .final {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-top: 40px;
+    opacity: 1;
 }
-.ab-pillars {
-  display: flex;
-  justify-content: center;
-  gap: 0.8rem;
-  margin-bottom: 2.2rem;
-  flex-wrap: wrap;
-}
-.ab-pillar {
-  padding: 0.85rem 1.7rem;
-  border-radius: 14px;
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 1.08rem;
-  letter-spacing: -0.01em;
-}
-.ab-pillar:nth-child(1) {
-  background: rgba(0,69,186,0.07);
-  border: 1px solid rgba(0,69,186,0.14);
-  color: var(--accent);
-}
-.ab-pillar:nth-child(2) {
-  background: rgba(229,106,30,0.07);
-  border: 1px solid rgba(229,106,30,0.14);
-  color: var(--accent-warm);
-}
-.ab-pillar:nth-child(3) {
-  background: rgba(12,23,48,0.05);
-  border: 1px solid rgba(12,23,48,0.1);
-  color: var(--text);
-}
-.ab-closing-values {
-  font-size: 1.05rem;
-  color: rgba(12,23,48,0.48);
-  margin: 0 0 1rem;
-}
-.ab-closing-story {
-  font-size: 1.2rem;
-  line-height: 1.72;
-  color: rgba(12,23,48,0.68);
-  max-width: 600px;
-  margin: 0 auto 2.2rem;
-}
-.ab-closing-sign {
-  font-family: var(--font-head);
-  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
-  font-weight: 800;
-  color: var(--text);
-  letter-spacing: -0.025em;
-  margin: 0;
-}
-
-/* --- Horizontal rule accent --- */
-.ab-rule {
-  width: 64px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  border: none;
-  margin: 3rem auto;
+.ab-closing .final span {
+    color: var(--accent-warm, #e56a1e);
 }
 
 /* --- CTA --- */
 .ab-cta {
-  padding: 5.5rem 0;
-  background: var(--accent-dark);
-  position: relative;
-  overflow: hidden;
+    background: var(--accent-dark, #0c1730);
+    text-align: center;
+    padding: clamp(80px, 10vh, 120px) clamp(24px, 5vw, 80px);
 }
-.ab-cta::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1.5px);
-  background-size: 3px 3px;
-  opacity: 0.06;
+.ab-cta h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(32px, 4.5vw, 60px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin: 0 0 16px;
 }
-.ab-cta-orbit {
-  position: absolute;
-  width: 480px;
-  height: 480px;
-  border-radius: 50%;
-  border: 3px solid rgba(111,163,221,0.4);
-  box-shadow: 0 0 50px rgba(0,69,186,0.3);
-  right: -120px;
-  top: -80px;
-  opacity: 0.6;
+.ab-cta p {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 480px;
+    margin: 0 auto 36px;
 }
-.ab-cta-orbit::after {
-  content: "";
-  position: absolute;
-  inset: 22px;
-  border-radius: 50%;
-  border: 2px solid rgba(79,182,255,0.5);
+.ab-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 16px 36px;
+    border-radius: 999px;
+    background: var(--accent-warm, #e56a1e);
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.ab-cta-inner {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-.ab-cta-inner h2 {
-  font-family: var(--font-head);
-  font-size: clamp(2rem, 3.6vw, 2.8rem);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  margin: 0 0 1rem;
-}
-.ab-cta-inner p {
-  font-size: 1.08rem;
-  color: rgba(200,215,245,0.65);
-  margin: 0 0 2.2rem;
-}
-.ab-cta-actions {
-  display: flex;
-  justify-content: center;
-  gap: 0.9rem;
-  flex-wrap: wrap;
-}
-.ab-btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.88rem 1.9rem;
-  border-radius: 999px;
-  background: #fff;
-  color: var(--accent-dark);
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 0.98rem;
-  text-decoration: none;
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
-}
-.ab-btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 45px rgba(255,255,255,0.12);
-}
-.ab-btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.88rem 1.9rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.07);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.16);
-  font-family: var(--font-head);
-  font-weight: 600;
-  font-size: 0.98rem;
-  text-decoration: none;
-  transition: background 0.22s ease;
-}
-.ab-btn-ghost:hover {
-  background: rgba(255,255,255,0.12);
+.ab-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(229, 106, 30, 0.3);
 }
 
-/* ═══ RESPONSIVE ═══ */
-@media (max-width: 1024px) {
-  .ab-origin-grid { gap: 3.5rem; }
-  .ab-trans-grid { gap: 3.5rem; }
-  .ab-tech-layout { gap: 3.5rem; }
+/* --- Scroll reveal --- */
+.ab-reveal {
+    opacity: 0;
+    transform: translateY(32px);
 }
-@media (max-width: 768px) {
-  .ab-hero-inner { padding: 0 1.5rem 5rem; }
-  .ab-wrap { padding: 0 1.5rem; }
-  .ab-origin { padding: 6rem 0 5rem; }
-  .ab-origin-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .ab-origin-float { left: auto; right: -1rem; bottom: -1.5rem; width: 150px; height: 150px; }
-  .ab-pain { padding: 3rem 0 5rem; }
-  .ab-pain-grid { grid-template-columns: 1fr; }
-  .ab-cinema { height: 260px; }
-  .ab-systems { padding: 5rem 0; }
-  .ab-systems-grid { grid-template-columns: 1fr; }
-  .ab-typo-break { height: 340px; }
-  .ab-transparency { padding: 5rem 0; }
-  .ab-trans-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .ab-trans-visual img { height: 380px; }
-  .ab-tech { padding: 5rem 0; }
-  .ab-tech-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-  .ab-tech-visual img { height: 360px; }
-  .ab-closing { padding: 5rem 0 3rem; }
-  .ab-pillars { flex-direction: column; align-items: center; }
-  .ab-cta-inner { padding: 0 1.5rem; }
+.ab-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --- Image break 2 (atmospheric divider) --- */
+.ab-img-divider {
+    width: 100%;
+    height: clamp(200px, 30vh, 360px);
+    overflow: hidden;
+    position: relative;
+}
+.ab-img-divider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.ab-img-divider-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .ab-origin-grid,
+    .ab-transparency-grid,
+    .ab-tech-content {
+        grid-template-columns: 1fr;
+    }
+    .ab-origin-image {
+        aspect-ratio: 16/9;
+        order: -1;
+    }
+    .ab-transparency-image {
+        aspect-ratio: 16/9;
+    }
+    .ab-tech-image {
+        aspect-ratio: 16/9;
+    }
+    .ab-pain-cards {
+        grid-template-columns: 1fr;
+    }
+    .ab-systems-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 600px) {
+    .ab-hero {
+        min-height: 85vh;
+    }
+    .ab-manifesto-text .sep {
+        width: 6px;
+        height: 6px;
+        margin: 0 10px;
+    }
 }
 </style>
 </head>
 <body class="ab-page">
 
-    <div class="noise-overlay"></div>
-
-    <!-- ═══ HEADER ═══ -->
-    <header class="lynck-header">
-        <div class="lynck-header-inner">
-            <button type="button" class="lynck-home-logo" data-home-btn aria-label="LYNCK Studio Home">
-                <img loading="lazy" decoding="async" src="/assets/lynck-logo.webp" alt="LYNCK Studio">
-            </button>
-            <div class="lynck-header-bar">
-                <div class="lynck-header-left">
-                    <div class="nav-social">
-                        <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-                                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-                                <path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="nav-dropdown">
-                        <button class="nav-pill" type="button">
-                            All
-                            <span class="nav-caret" aria-hidden="true"></span>
-                        </button>
+<!-- ═══ HEADER (shared) ═══ -->
+<header class="lynck-header">
+    <div class="lynck-header-inner">
+        <button type="button" class="lynck-home-logo" data-home-btn aria-label="LYNCK Studio Home">
+            <img loading="lazy" decoding="async" src="/assets/lynck-logo.webp" alt="LYNCK Studio">
+        </button>
+        <div class="lynck-header-bar">
+            <div class="lynck-header-left">
+                <div class="nav-social">
+                    <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                            <path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="nav-dropdown">
+                    <button class="nav-pill" type="button">
+                        All
+                        <span class="nav-caret" aria-hidden="true"></span>
+                    </button>
                     <div class="nav-dropdown-menu" role="menu">
                         <a href="/services/service.html?service=google-ads" role="menuitem">Google Ads &amp; Performance Marketing</a>
                         <a href="/services/service.html?service=meta-ads" role="menuitem">Meta Ads &amp; Paid Social</a>
@@ -949,328 +682,284 @@
                 <button type="button">Blog</button>
             </nav>
 
-                <div class="lynck-header-right">
-                    <div class="nav-dropdown right">
-                        <button class="nav-pill" type="button">
-                            EN
-                            <span class="nav-caret" aria-hidden="true"></span>
-                        </button>
-                        <div class="nav-dropdown-menu" role="menu">
-                            <button type="button" role="menuitem" data-lang-switch="en"><span aria-hidden="true">&#x1f1fa;&#x1f1f8;</span> English</button>
-                            <button type="button" role="menuitem" data-lang-switch="de"><span aria-hidden="true">&#x1f1e9;&#x1f1ea;</span> Deutsch</button>
-                        </div>
-                    </div>
-                    <button type="button" class="gradient-border-btn" data-contact-btn>
-                        <div class="cp-border" aria-hidden="true"></div>
-                        <span class="btn-core">Let's connect &#8594;</span>
+            <div class="lynck-header-right">
+                <div class="nav-dropdown right">
+                    <button class="nav-pill" type="button">
+                        EN
+                        <span class="nav-caret" aria-hidden="true"></span>
                     </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <button type="button" role="menuitem" data-lang-switch="en"><span aria-hidden="true">🇺🇸</span> English</button>
+                        <button type="button" role="menuitem" data-lang-switch="de"><span aria-hidden="true">🇩🇪</span> Deutsch</button>
+                    </div>
                 </div>
+                <button type="button" class="gradient-border-btn" data-contact-btn>
+                    <div class="cp-border" aria-hidden="true"></div>
+                    <span class="btn-core">Let's connect &#8594;</span>
+                </button>
             </div>
-            <a href="https://www.google.com/partners/agency?id=6214402482" target="_blank" rel="noopener noreferrer" class="lynck-partner-badge" aria-label="Google Partner Badge">
-                <img loading="lazy" decoding="async" src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
+        </div>
+        <a href="https://www.google.com/partners/agency?id=6214402482" target="_blank" rel="noopener noreferrer" class="lynck-partner-badge" aria-label="Google Partner Badge">
+            <img loading="lazy" decoding="async" src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
+        </a>
+    </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="ab-hero">
+    <div class="ab-hero-bg">
+        <img loading="eager" decoding="async" src="/assets/cyberpunk-portrait-with-reflective-visor-4k.webp" alt="LYNCK Studio atmospheric visual">
+    </div>
+    <div class="ab-hero-overlay"></div>
+    <div class="ab-hero-content">
+        <div class="ab-hero-kicker">The story behind the systems</div>
+        <h1>This is<span>LYNCK Studio.</span></h1>
+        <div class="ab-hero-line"></div>
+    </div>
+</section>
+
+<!-- ═══ ORIGIN STORY ═══ -->
+<section class="ab-section ab-origin">
+    <div class="ab-origin-grid">
+        <div class="ab-origin-text">
+            <h2 class="ab-reveal">We didn't start with a business plan.<br>We started with a <em>frustration.</em></h2>
+            <p class="ab-reveal">Working inside Google, we managed millions in ad spend. We structured campaigns that scaled. We won awards for performance. And we watched, day after day, as agencies charged premium fees for work they quietly outsourced to people like us.</p>
+            <p class="ab-reveal">The businesses paying those fees never knew.</p>
+        </div>
+        <div class="ab-origin-image ab-reveal">
+            <img loading="lazy" decoding="async" src="/assets/glowing-crystal-thoughts-emerge-from-glass-head-4k.webp" alt="Crystal clarity of thought">
+        </div>
+    </div>
+</section>
+
+<!-- ═══ PAIN POINTS ═══ -->
+<section class="ab-section ab-pain">
+    <div class="ab-section-wide">
+        <p class="ab-pain-intro ab-reveal">The businesses paying those fees never knew what they were missing.</p>
+        <div class="ab-pain-cards">
+            <div class="ab-pain-card ab-reveal">
+                <div class="card-num">01</div>
+                <p>They didn't get direct access to the strategists.</p>
+            </div>
+            <div class="ab-pain-card ab-reveal">
+                <div class="card-num">02</div>
+                <p>They didn't understand their own account structures.</p>
+            </div>
+            <div class="ab-pain-card ab-reveal">
+                <div class="card-num">03</div>
+                <p>They didn't own the thinking behind their growth.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ IMAGE BREAK ═══ -->
+<div class="ab-img-break">
+    <img loading="lazy" decoding="async" src="/assets/futuristic-neon-data-visualization-panel-4k.webp" alt="Data visualization">
+    <div class="ab-img-break-overlay"></div>
+</div>
+
+<!-- ═══ MISSION ═══ -->
+<section class="ab-section ab-mission">
+    <div class="ab-section-narrow">
+        <h2 class="ab-reveal">We built LYNCK Studio to <em>eliminate the distance</em> between expertise and the people who need it.</h2>
+        <p class="ab-reveal">We decided that had to change. No more layers. No more middlemen. No more paying premium fees for outsourced thinking.</p>
+    </div>
+</section>
+
+<!-- ═══ SYSTEMS ═══ -->
+<section class="ab-section ab-systems">
+    <div class="ab-section-wide">
+        <div class="ab-systems-header ab-reveal">
+            <div class="kicker">What we build</div>
+            <h2>We don't run campaigns.<br>We build systems.</h2>
+        </div>
+        <div class="ab-systems-grid">
+            <div class="ab-system-card ab-reveal">
+                <div class="ab-system-icon google">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                </div>
+                <h3>Google Ads</h3>
+                <p>Structured around intent, not guesswork. Every campaign architecture maps to how your customers actually search and buy.</p>
+            </div>
+            <div class="ab-system-card ab-reveal">
+                <div class="ab-system-icon web">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </div>
+                <h3>Websites</h3>
+                <p>Engineered to convert, not just impress. Every element serves a function in moving visitors toward action.</p>
+            </div>
+            <div class="ab-system-card ab-reveal">
+                <div class="ab-system-icon youtube">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+                <h3>YouTube Channels</h3>
+                <p>Built as authority engines, not vanity projects. Frameworks that took channels from 1,000 to over 4,500 subscribers in 45 days.</p>
+            </div>
+            <div class="ab-system-card ab-reveal">
+                <div class="ab-system-icon content">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                </div>
+                <h3>Content Ecosystems</h3>
+                <p>Designed so paid and organic performance reinforce each other. Every asset connects to a larger architecture.</p>
+            </div>
+        </div>
+        <p class="ab-reveal" style="font-family:'Manrope',sans-serif;font-size:clamp(15px,1.3vw,17px);line-height:1.75;opacity:0.75;max-width:620px;margin:40px auto 0;text-align:center;">Because isolated tactics don't compound. Systems do.</p>
+    </div>
+</section>
+
+<!-- ═══ BOLD MANIFESTO ═══ -->
+<section class="ab-manifesto">
+    <div class="ab-manifesto-text ab-reveal">
+        No layers<span class="sep"></span>No filters<span class="sep"></span>No translation
+    </div>
+</section>
+
+<!-- ═══ TRANSPARENCY ═══ -->
+<section class="ab-section ab-transparency">
+    <div class="ab-transparency-grid">
+        <div class="ab-transparency-text">
+            <h2 class="ab-reveal">You sit across from the people building your strategy.</h2>
+            <p class="ab-reveal">Not junior account managers relaying decisions. Not outsourced teams you'll never meet.</p>
+            <p class="ab-reveal">You see your numbers. You understand the structure. You know exactly where your budget goes and why.</p>
+            <div class="highlight ab-reveal">We believe performance without transparency creates dependency. We'd rather build you leverage.</div>
+        </div>
+        <div class="ab-transparency-image ab-reveal">
+            <img loading="lazy" decoding="async" src="/assets/cyberpunk-portrait-with-red-laser-beam-4k.webp" alt="Precision and clarity">
+        </div>
+    </div>
+</section>
+
+<!-- ═══ IMAGE DIVIDER ═══ -->
+<div class="ab-img-divider">
+    <img loading="lazy" decoding="async" src="/assets/soft-abstract-curved-waves-in-neutral-tones-4k.jpeg" alt="Abstract waves" style="filter:brightness(0.9) saturate(0.9);">
+    <div class="ab-img-divider-overlay" style="background:linear-gradient(to bottom,var(--bg,#f1efe6) 0%,transparent 25%,transparent 75%,var(--accent-dark,#0c1730) 100%);"></div>
+</div>
+
+<!-- ═══ TECHNOLOGY (DARK) ═══ -->
+<section class="ab-section ab-tech">
+    <div class="ab-tech-content">
+        <div class="ab-tech-text">
+            <h2 class="ab-reveal">We move with the tools most agencies are still afraid of.</h2>
+            <p class="ab-reveal">We're a young team, built at the intersection of performance marketing and the new creative economy.</p>
+            <p class="ab-reveal"><span class="emphasis">Technology isn't a trend for us. It's infrastructure.</span></p>
+            <p class="ab-reveal">Used with precision, it creates advantages that compound. Used without strategy, it creates noise.</p>
+            <p class="ab-reveal emphasis">We choose precision.</p>
+            <div class="ab-tech-pills ab-reveal">
+                <span class="ab-tech-pill">AI Content Production</span>
+                <span class="ab-tech-pill">UGC Systems</span>
+                <span class="ab-tech-pill">Influencer Ecosystems</span>
+                <span class="ab-tech-pill">Conversion-First Web</span>
+                <span class="ab-tech-pill">YouTube Growth</span>
+                <span class="ab-tech-pill">Google Ads</span>
+                <span class="ab-tech-pill">Meta Ads</span>
+                <span class="ab-tech-pill">SEO / SEvO</span>
+            </div>
+        </div>
+        <div class="ab-tech-image ab-reveal">
+            <img loading="lazy" decoding="async" src="/assets/glowing-orb-with-neon-equator-4k.webp" alt="Technology infrastructure">
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CLOSING ═══ -->
+<section class="ab-section ab-closing">
+    <div class="ab-section-narrow">
+        <h2 class="ab-reveal">What LYNCK really builds.</h2>
+        <p class="ab-reveal">Real performance. Real structure. Real clarity.</p>
+        <p class="ab-reveal">No hype. No shortcuts. No dependency.</p>
+        <p class="ab-reveal">Just a team that got tired of watching good businesses pay for middlemen, and decided to build something better.</p>
+        <div class="final ab-reveal">This is <span>LYNCK Studio.</span></div>
+    </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="ab-cta">
+    <h2 class="ab-reveal">Let's build your system.</h2>
+    <p class="ab-reveal">No layers. No middlemen. Just performance that compounds.</p>
+    <a href="/contact.html" class="ab-cta-btn ab-reveal">
+        Start a conversation
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+</section>
+
+<!-- ═══ FOOTER (shared) ═══ -->
+<footer>
+    <div class="footer-big-wrap">
+        <div class="footer-big">LYNCK STUDIO</div>
+    </div>
+    <div class="footer-links-row">
+        <div class="footer-links-col">
+            <a href="/about.html">About LYNCK</a>
+            <a href="/#our-services">Our Services</a>
+            <a href="/#testimonials">Testimonials</a>
+            <a href="/contact.html">Contact Us</a>
+        </div>
+        <div class="footer-links-col">
+            <a href="/pricing.html">Pricing</a>
+            <a href="/google-ads.html">Google Ads</a>
+        </div>
+        <div class="footer-social-row">
+            <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/></svg>
             </a>
         </div>
-    </header>
-
-    <!-- ═══════════════════════════════════════
-         1. HERO
-         ═══════════════════════════════════════ -->
-    <section class="ab-hero">
-        <div class="ab-hero-media">
-            <img loading="lazy" decoding="async" src="/assets/lynck-logo-with-silhouette-in-red-gradient-light-4k.webp" alt="" aria-hidden="true">
-        </div>
-        <div class="ab-hero-inner">
-            <div class="ab-hero-kicker ab-hero-reveal" style="animation-delay:.15s">Our Story</div>
-            <h1 class="ab-hero-h1 ab-hero-reveal" style="animation-delay:.3s"><em>This is LYNCK<br>Studio.</em></h1>
-            <p class="ab-hero-sub ab-hero-reveal" style="animation-delay:.5s">We didn't start with a business plan.<br>We started with a frustration.</p>
-        </div>
-        <div class="ab-hero-scroll">
-            <span>Scroll</span>
-            <span></span>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         2. ORIGIN STORY
-         ═══════════════════════════════════════ -->
-    <section class="ab-origin">
-        <div class="ab-wrap">
-            <div class="ab-origin-grid">
-                <div class="ab-origin-text rv">
-                    <div class="ab-origin-eyebrow">The Origin</div>
-                    <p>Working inside Google, we managed millions in ad spend. We structured campaigns that scaled. We won awards for performance. And we watched, day after day, as agencies charged premium fees for work they quietly outsourced to people like us.</p>
-                    <p class="ab-origin-pullquote">The businesses paying those fees never knew.</p>
-                </div>
-                <div class="ab-origin-visual rv rv-d2">
-                    <div class="ab-origin-img-main">
-                        <img loading="lazy" decoding="async" src="/assets/futuristic-neon-data-visualization-panel-4k.webp" alt="Data visualization representing performance analytics">
-                    </div>
-                    <div class="ab-origin-float">
-                        <img loading="lazy" decoding="async" src="/lynck-office-team.jpg" alt="LYNCK Studio team">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         3. PAIN POINTS
-         ═══════════════════════════════════════ -->
-    <section class="ab-pain">
-        <div class="ab-wrap">
-            <div class="ab-pain-grid">
-                <div class="ab-pain-card spotlight-card rv">
-                    <div class="ab-pain-num">01</div>
-                    <p>They didn't get direct access to the strategists.</p>
-                </div>
-                <div class="ab-pain-card spotlight-card rv rv-d1">
-                    <div class="ab-pain-num">02</div>
-                    <p>They didn't understand their own account structures.</p>
-                </div>
-                <div class="ab-pain-card spotlight-card rv rv-d2">
-                    <div class="ab-pain-num">03</div>
-                    <p>They didn't own the thinking behind their growth.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         4. MISSION BAND
-         ═══════════════════════════════════════ -->
-    <section class="ab-mission-band">
-        <div class="ab-mission-inner rv">
-            <p class="ab-mission-label">We decided that had to change.</p>
-            <h2 class="ab-mission-statement">We built LYNCK Studio to eliminate the distance between expertise and the people who need it.</h2>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         5. CINEMATIC IMAGE BREAK
-         ═══════════════════════════════════════ -->
-    <div class="ab-cinema">
-        <img loading="lazy" decoding="async" src="/assets/cyberpunk-portrait-with-red-laser-beam-4k.webp" alt="" aria-hidden="true">
     </div>
-
-    <!-- ═══════════════════════════════════════
-         6. SYSTEMS
-         ═══════════════════════════════════════ -->
-    <section class="ab-systems">
-        <div class="ab-wrap">
-            <div class="ab-systems-head rv">
-                <div class="ab-systems-eyebrow">What We Build</div>
-                <h2 class="ab-systems-title">We don't run campaigns.<br>We build systems.</h2>
-            </div>
-            <div class="ab-systems-grid">
-                <div class="ab-sys-card spotlight-card rv">
-                    <div class="ab-sys-icon blue">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 21l-5.2-5.2M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/></svg>
-                    </div>
-                    <div>
-                        <h3>Google Ads</h3>
-                        <p>Structured around intent, not guesswork.</p>
-                    </div>
-                </div>
-                <div class="ab-sys-card spotlight-card rv rv-d1">
-                    <div class="ab-sys-icon warm">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-                    </div>
-                    <div>
-                        <h3>Websites</h3>
-                        <p>Engineered to convert, not just impress.</p>
-                    </div>
-                </div>
-                <div class="ab-sys-card spotlight-card rv rv-d2">
-                    <div class="ab-sys-icon blue">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-                    </div>
-                    <div>
-                        <h3>YouTube Channels</h3>
-                        <p>Built as authority engines, not vanity projects.</p>
-                    </div>
-                </div>
-                <div class="ab-sys-card spotlight-card rv rv-d3">
-                    <div class="ab-sys-icon warm">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    </div>
-                    <div>
-                        <h3>Content Ecosystems</h3>
-                        <p>Designed so paid and organic performance reinforce each other.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="ab-systems-footnote rv">
-                <p>Every asset we build connects to a larger architecture.</p>
-                <p class="ab-punch">Because isolated tactics don't compound. <strong>Systems do.</strong></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         7. BOLD TYPOGRAPHIC BREAK
-         ═══════════════════════════════════════ -->
-    <div class="ab-typo-break">
-        <img loading="lazy" decoding="async" src="/assets/glowing-orb-with-neon-equator-4k.webp" alt="" aria-hidden="true">
-        <div class="ab-typo-text">
-            <h2>No layers.<br>No filters.<br><span>No translation.</span></h2>
+    <div class="footer-bottom">
+        <span>&copy; 2026 LYNCK Studio. All rights reserved</span>
+        <div class="footer-bottom-legal">
+            <a href="/cookie-policy.html">Cookie Policy</a>
+            <a href="/privacy-policy.html">Privacy Policy</a>
+            <a href="/legal-notice.html">Legal Notice</a>
         </div>
     </div>
+</footer>
 
-    <!-- ═══════════════════════════════════════
-         8. TRANSPARENCY
-         ═══════════════════════════════════════ -->
-    <section class="ab-transparency">
-        <div class="ab-wrap">
-            <div class="ab-trans-grid">
-                <div class="ab-trans-text rv">
-                    <div class="ab-trans-eyebrow">Direct Access</div>
-                    <h2>You sit across from the people building your strategy.</h2>
-                    <p>Not junior account managers relaying decisions. Not outsourced teams you'll never meet.</p>
-                    <p>You see your numbers. You understand the structure. You know exactly where your budget goes and why.</p>
-                    <div class="ab-leverage-box">
-                        <p>We believe performance without transparency creates dependency.</p>
-                        <strong>We'd rather build you leverage.</strong>
-                    </div>
-                </div>
-                <div class="ab-trans-visual rv rv-d2">
-                    <img loading="lazy" decoding="async" src="/assets/cyberpunk-portrait-with-reflective-visor-4k.webp" alt="Reflective vision representing transparency and clarity">
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <!-- ═══════════════════════════════════════
-         9. TECHNOLOGY
-         ═══════════════════════════════════════ -->
-    <section class="ab-tech">
-        <div class="ab-tech-inner">
-            <div class="ab-tech-layout">
-                <div class="ab-tech-text rv">
-                    <div class="ab-tech-eyebrow">Our Edge</div>
-                    <h2>We move with the tools most agencies are still afraid of.</h2>
-                    <p>We're a young team, built at the intersection of performance marketing and the new creative economy.</p>
-                    <div class="ab-tags">
-                        <span class="ab-tag">AI-powered content production</span>
-                        <span class="ab-tag">UGC systems</span>
-                        <span class="ab-tag">Influencer ecosystems</span>
-                        <span class="ab-tag">Conversion-first web design</span>
-                        <span class="ab-tag ab-tag-hot">1,000 to 4,500+ subscribers in 45 days</span>
-                    </div>
-                    <div class="ab-tech-precision">
-                        <p>Technology isn't a trend for us. It's infrastructure.</p>
-                        <p>Used with precision, it creates advantages that compound.<br>Used without strategy, it creates noise.</p>
-                        <p class="ab-precision-choice">We choose precision.</p>
-                    </div>
-                </div>
-                <div class="ab-tech-visual rv rv-d2">
-                    <img loading="lazy" decoding="async" src="/assets/glowing-crystal-thoughts-emerge-from-glass-head-4k.webp" alt="AI-powered creative production visualization">
-                </div>
-            </div>
-        </div>
-    </section>
+<script src="/js/home-shared.js?v=2" defer></script>
 
-    <!-- ═══════════════════════════════════════
-         10. CLOSING
-         ═══════════════════════════════════════ -->
-    <section class="ab-closing">
-        <div class="ab-closing-inner rv">
-            <div class="ab-closing-eyebrow">The Outcome</div>
-            <h2 class="ab-closing-h2">What LYNCK really builds.</h2>
-            <div class="ab-pillars">
-                <span class="ab-pillar">Real performance.</span>
-                <span class="ab-pillar">Real structure.</span>
-                <span class="ab-pillar">Real clarity.</span>
-            </div>
-            <p class="ab-closing-values">No hype. No shortcuts. No dependency.</p>
-            <p class="ab-closing-story">Just a team that got tired of watching good businesses pay for middlemen, and decided to build something better.</p>
-            <hr class="ab-rule">
-            <p class="ab-closing-sign">This is LYNCK Studio.</p>
-        </div>
-    </section>
+<script>
+/* === Hero entrance animation === */
+gsap.registerPlugin(ScrollTrigger);
 
-    <!-- ═══════════════════════════════════════
-         11. CTA
-         ═══════════════════════════════════════ -->
-    <section class="ab-cta">
-        <div class="ab-cta-orbit"></div>
-        <div class="ab-cta-inner rv">
-            <h2>Ready to build something real?</h2>
-            <p>Let's talk about your growth, your systems, and how we can work together.</p>
-            <div class="ab-cta-actions">
-                <a href="/contact.html" class="ab-btn-primary">Schedule a call &#8594;</a>
-                <a href="/#our-services" class="ab-btn-ghost">Explore services</a>
-            </div>
-        </div>
-    </section>
+gsap.to('.ab-hero-kicker', {
+    opacity: 1, y: 0, duration: 0.8, delay: 0.3,
+    ease: 'power3.out'
+});
+gsap.to('.ab-hero h1', {
+    opacity: 1, y: 0, duration: 1, delay: 0.5,
+    ease: 'power3.out'
+});
+gsap.to('.ab-hero-line', {
+    opacity: 1, scaleX: 1, duration: 0.6, delay: 1,
+    ease: 'power2.out'
+});
 
-    <!-- ═══ FOOTER ═══ -->
-    <footer>
-        <div class="footer-big-wrap">
-            <div class="footer-big">LYNCK STUDIO</div>
-        </div>
-        <div class="footer-links-row">
-            <div class="footer-links-col">
-                <a href="/about.html">About LYNCK</a>
-                <a href="/#our-services">Our Services</a>
-                <a href="/#testimonials">Testimonials</a>
-                <a href="/contact.html">Contact Us</a>
-            </div>
-            <div class="footer-links-col">
-                <a href="/pricing.html">Pricing</a>
-                <a href="/google-ads.html">Google Ads</a>
-            </div>
-            <div class="footer-social-row">
-                <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/></svg>
-                </a>
-                <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/></svg>
-                </a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span>&copy; 2026 LYNCK Studio. All rights reserved</span>
-            <div class="footer-bottom-legal">
-                <a href="/cookie-policy.html">Cookie Policy</a>
-                <a href="/privacy-policy.html">Privacy Policy</a>
-                <a href="/legal-notice.html">Legal Notice</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ═══ SCRIPTS ═══ -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="/js/home-shared.js?v=2" defer></script>
-    <script>
-    /* Scroll-triggered reveal */
-    gsap.registerPlugin(ScrollTrigger);
-    document.querySelectorAll('.rv').forEach(el => {
-        ScrollTrigger.create({
-            trigger: el,
-            start: 'top 88%',
-            onEnter: () => el.classList.add('vis'),
-            once: true
+/* === Scroll reveal for .ab-reveal elements === */
+ScrollTrigger.batch('.ab-reveal', {
+    onEnter: (batch) => {
+        batch.forEach((el, i) => {
+            gsap.to(el, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: 'power3.out',
+                overwrite: true
+            });
         });
-    });
+    },
+    start: 'top 88%',
+    once: true
+});
+</script>
 
-    /* Parallax on cinematic strips */
-    document.querySelectorAll('.ab-cinema img, .ab-typo-break img').forEach(img => {
-        gsap.fromTo(img,
-            { yPercent: -8 },
-            {
-                yPercent: 8,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: img.parentElement,
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    scrub: true
-                }
-            }
-        );
-    });
-    </script>
-    <script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
+<script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
 </body>
 </html>

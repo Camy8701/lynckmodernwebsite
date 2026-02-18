@@ -1,33 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
   <title>Contact | LYNCK Studio</title>
   <meta name="description" content="Start a conversation with LYNCK Studio. Tell us about your goals and we'll map the path forward together.">
   <link rel="icon" type="image/png" href="logo-home.png?v=2">
-  <link rel="alternate icon" href="logo-home.png?v=2">
-  <link rel="apple-touch-icon" href="logo-home.png?v=2">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/tailwind.min.css">
-  <link rel="stylesheet" href="/css/main.min.css">
-
+  <link rel="stylesheet" href="/css/home-shared.css">
   <link rel="stylesheet" href="/css/contact-shared.css">
 
-  <script src="/js/webgl-background.js" defer></script>
   <script src="/js/contact-page.js" defer></script>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body data-webgl="true" class="min-h-full bg-black text-white antialiased overflow-x-hidden" style="font-family: var(--font-body);">
+<body class="ab-page" style="background:#05060b; color:#fff; font-family:'Manrope',sans-serif; min-height:100vh; overflow-x:hidden;">
 
   <header class="lynck-header">
     <div class="lynck-header-inner">
       <button type="button" class="lynck-home-logo" data-home-btn aria-label="LYNCK Studio Home">
-        <img src="/assets/lynck-logo.webp" alt="LYNCK Studio">
+        <img loading="lazy" decoding="async" src="/assets/lynck-logo.webp" alt="LYNCK Studio">
       </button>
       <div class="lynck-header-bar">
         <div class="lynck-header-left">
@@ -63,10 +58,10 @@
         </div>
 
         <nav class="lynck-nav-links" aria-label="Primary">
-          <a href="/index.html#arch">About LYNCK</a>
-          <a href="/index.html#our-services">Our Services</a>
-          <a href="/index.html#testimonials">Testimonials</a>
-          <a href="/index.html#terminal">Blog</a>
+          <a href="/about.html">About LYNCK</a>
+          <a href="/#our-services">Our Services</a>
+          <a href="/#testimonials">Testimonials</a>
+          <button type="button">Blog</button>
         </nav>
 
         <div class="lynck-header-right">
@@ -82,21 +77,22 @@
           </div>
           <button type="button" class="gradient-border-btn" data-contact-btn>
             <div class="cp-border" aria-hidden="true"></div>
-            <span class="btn-core">Let&#39;s connect &#8594;</span>
+            <span class="btn-core">Let's connect &#8594;</span>
           </button>
         </div>
       </div>
       <a href="https://www.google.com/partners/agency?id=6214402482" target="_blank" rel="noopener noreferrer" class="lynck-partner-badge" aria-label="Google Partner Badge">
-        <img src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
+        <img loading="lazy" decoding="async" src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
       </a>
     </div>
   </header>
+
   <main class="contact-page">
     <div class="contact-shell">
       <div class="contact-hero">
         <span class="contact-kicker">Contact</span>
-        <h1 class="contact-title">Let&#39;s connect</h1>
-        <p class="contact-subtitle">Share your goals with LYNCK Studio. We&#39;ll respond with a clear plan, timelines, and the next best step forward.</p>
+        <h1 class="contact-title">Let's connect</h1>
+        <p class="contact-subtitle">Share your goals with LYNCK Studio. We'll respond with a clear plan, timelines, and the next best step forward.</p>
       </div>
 
       <div class="contact-grid">
@@ -129,42 +125,42 @@
 
         <section class="contact-panel">
           <h2 class="contact-form-title">Start your project</h2>
-          <form id="contactForm" class="space-y-6">
+          <form id="contactForm" class="contact-form-stack">
             <input type="hidden" name="subject" value="New Contact Form Submission from LYNCK Website">
             <input type="hidden" id="redirectField" name="redirect" value="">
 
             <div class="contact-form-grid">
               <div>
-                <label class="block text-sm font-medium text-gray-300 mb-2">First Name <span class="text-red-400">*</span></label>
+                <label>First Name <span class="req">*</span></label>
                 <input type="text" id="firstName" name="First Name" required class="contact-input">
                 <div id="firstNameError" class="form-error"></div>
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-300 mb-2">Last Name <span class="text-red-400">*</span></label>
+                <label>Last Name <span class="req">*</span></label>
                 <input type="text" id="lastName" name="Last Name" required class="contact-input">
                 <div id="lastNameError" class="form-error"></div>
               </div>
             </div>
 
             <div>
-              <label class="block text-sm font-medium text-gray-300 mb-2">Email <span class="text-red-400">*</span></label>
+              <label>Email <span class="req">*</span></label>
               <input type="email" id="email" name="email" required class="contact-input">
               <div id="emailError" class="form-error"></div>
             </div>
 
             <div>
-              <label class="block text-sm font-medium text-gray-300 mb-2">Phone</label>
+              <label>Phone</label>
               <input type="tel" id="phone" name="Phone" class="contact-input">
             </div>
 
             <div>
-              <label class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+              <label>Message</label>
               <textarea id="message" name="message" class="contact-textarea" placeholder="Tell us about your goals, timeline, and what success looks like."></textarea>
             </div>
 
             <div class="contact-form-footer">
               <p class="contact-helper">By submitting, you agree to be contacted by LYNCK Studio about your request.</p>
-              <button type="submit" class="inline-flex items-center gap-2 shiny-cta font-geist" id="submitBtn">
+              <button type="submit" class="shiny-cta" id="submitBtn">
                 <span>Send message</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path>
@@ -176,43 +172,42 @@
         </section>
       </div>
 
-      <p class="contact-footer-note">Contact us if you&#39;re ready to step beyond the comfort zone and build a brand that stands out.</p>
+      <p class="contact-footer-note">Contact us if you're ready to step beyond the comfort zone and build a brand that stands out.</p>
     </div>
   </main>
 
-  <footer class="contact-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <h3>LYNCK Studio</h3>
-        <p>We design premium growth systems and bold digital experiences that turn ambitious brands into category leaders.</p>
+  <!-- ═══ FOOTER (shared) ═══ -->
+  <footer>
+    <div class="footer-big-wrap">
+      <div class="footer-big">LYNCK STUDIO</div>
+    </div>
+    <div class="footer-links-row">
+      <div class="footer-links-col">
+        <a href="/about.html">About LYNCK</a>
+        <a href="/#our-services">Our Services</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/contact.html">Contact Us</a>
       </div>
-      <div class="footer-links">
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#work">Our Services</a></li>
-          <li><a href="index.html#testimonials">Testimonials</a></li>
-          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
-          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="/legal-notice.html">Legal Notice</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-        </ul>
+      <div class="footer-links-col">
+        <a href="/pricing.html">Pricing</a>
+        <a href="/google-ads.html">Google Ads</a>
       </div>
-      <div class="footer-actions">
-        <h4>Stay connected</h4>
-        <p>Prefer a quick intro call? Send us a note and we will line up the best time.</p>
-        <a class="footer-cta" href="mailto:info@lynckstudio.pro">
-          Email us
-          <span aria-hidden="true">&rarr;</span>
+      <div class="footer-social-row">
+        <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/></svg>
         </a>
       </div>
     </div>
-    <div class="footer-meta">
-      <span>&copy; 2026 LYNCK Studio. All rights reserved.</span>
-      <a href="/cookie-policy.html">Cookie Policy</a>
-      <a href="/privacy-policy.html">Privacy Policy</a>
-      <a href="/legal-notice.html">Legal Notice</a>
-      <span>info@lynckstudio.pro</span>
+    <div class="footer-bottom">
+      <span>&copy; 2026 LYNCK Studio. All rights reserved</span>
+      <div class="footer-bottom-legal">
+        <a href="/cookie-policy.html">Cookie Policy</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/legal-notice.html">Legal Notice</a>
+      </div>
     </div>
   </footer>
 
