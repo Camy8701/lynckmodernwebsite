@@ -45,16 +45,30 @@
 
         const spotlightCards = document.querySelectorAll('.spotlight-card');
         if (spotlightCards.length) {
-            let spotRaf = 0;
-            window.addEventListener('mousemove', (e) => {
-                if (spotRaf) return;
-                spotRaf = requestAnimationFrame(() => {
-                    spotlightCards.forEach((card) => {
-                        const rect = card.getBoundingClientRect();
-                        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-                        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-                    });
+            spotlightCards.forEach((card) => {
+                let spotRaf = 0;
+                let lastX = -999;
+                let lastY = -999;
+
+                const flush = () => {
+                    card.style.setProperty('--mouse-x', `${lastX}px`);
+                    card.style.setProperty('--mouse-y', `${lastY}px`);
                     spotRaf = 0;
+                };
+
+                card.addEventListener('pointermove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    lastX = e.clientX - rect.left;
+                    lastY = e.clientY - rect.top;
+                    if (spotRaf) return;
+                    spotRaf = requestAnimationFrame(flush);
+                }, { passive: true });
+
+                card.addEventListener('pointerleave', () => {
+                    lastX = -999;
+                    lastY = -999;
+                    if (spotRaf) return;
+                    spotRaf = requestAnimationFrame(flush);
                 });
             });
         }
@@ -151,7 +165,14 @@
         })();
 
         // --- 2.2 SERVICES MARQUEE ---
-        runWhenIdle(() => {
+        (() => {
+            const section = document.querySelector('.services-marquee-section');
+            if (!section) return;
+            let initialized = false;
+
+            const initServicesMarquee = () => {
+                if (initialized) return;
+                initialized = true;
             const tracks = Array.from(document.querySelectorAll('[data-services-track]'));
             if (!tracks.length) return;
 
@@ -209,7 +230,6 @@
             const createCard = (service, index, lang) => {
                 const serviceName = lang === 'de' ? (service.nameDe || service.nameEn) : service.nameEn;
                 const serviceDetail = lang === 'de' ? (service.detailDe || service.detailEn) : service.detailEn;
-                const serviceSlug = serviceName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
                 const card = document.createElement('article');
                 card.className = 'service-mini-card';
 
@@ -304,7 +324,20 @@
                     }, 3000);
                 });
             });
-        }, 1800);
+            };
+
+            const initDeferred = () => runWhenIdle(initServicesMarquee, 2500);
+            const observer = new IntersectionObserver((entries) => {
+                if (!entries.some((entry) => entry.isIntersecting)) return;
+                observer.disconnect();
+                initDeferred();
+            }, { rootMargin: '260px 0px' });
+
+            observer.observe(section);
+            window.addEventListener('pointerdown', initDeferred, { once: true, passive: true });
+            window.addEventListener('touchstart', initDeferred, { once: true, passive: true });
+            window.addEventListener('scroll', initDeferred, { once: true, passive: true });
+        })();
 
         // --- 3. PIPELINE ---
         (() => {
@@ -380,11 +413,14 @@
         const grid = document.getElementById('neuralGrid');
         const neuralSection = document.querySelector('.neural-section');
         if (grid && neuralSection) {
-            runWhenIdle(() => {
+            let neuralInitialized = false;
+            const initNeuralGrid = () => {
+                if (neuralInitialized) return;
+                neuralInitialized = true;
                 const spacing = window.innerWidth < 768 ? 40 : 30;
                 const cols = Math.ceil(window.innerWidth / spacing);
                 const rows = Math.ceil((window.innerHeight * 1.5) / spacing);
-                const maxDots = window.innerWidth < 768 ? 520 : 1100;
+                const maxDots = window.innerWidth < 768 ? 300 : 520;
                 const totalDots = Math.min(cols * rows, maxDots);
 
                 for (let i = 0; i < totalDots; i += 1) {
@@ -396,7 +432,11 @@
                 const isUnifiedNeural = !!neuralSection.closest('.mesh-pulse-unified');
                 const neuralBaseColor = isUnifiedNeural ? 'rgba(255,255,255,0.22)' : 'rgba(12,23,48,0.2)';
                 const neuralActiveColor = isUnifiedNeural ? 'rgba(255,255,255,0.62)' : 'rgba(12,23,48,0.5)';
-                const cachedDots = Array.from(grid.querySelectorAll('.neural-dot'));
+                const cachedDots = Array.from(grid.querySelectorAll('.neural-dot')).map((dot) => ({
+                    dot,
+                    x: dot.offsetLeft,
+                    y: dot.offsetTop,
+                }));
 
                 let neuralRaf = 0;
                 let active = false;
@@ -408,10 +448,9 @@
                         const my = e.clientY - rect.top;
                         const radius = window.innerWidth < 768 ? 220 : 320;
 
-                        cachedDots.forEach((dot) => {
-                            const dotRect = dot.getBoundingClientRect();
-                            const dx = (dotRect.left - rect.left) - mx;
-                            const dy = (dotRect.top - rect.top) - my;
+                        cachedDots.forEach((item) => {
+                            const dx = item.x - mx;
+                            const dy = item.y - my;
                             const dist = Math.sqrt(dx * dx + dy * dy);
 
                             if (dist < radius) {
@@ -419,11 +458,11 @@
                                 const angle = Math.atan2(dy, dx);
                                 const moveX = Math.cos(angle) * force * 40;
                                 const moveY = Math.sin(angle) * force * 40;
-                                dot.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                                dot.style.background = neuralActiveColor;
+                                item.dot.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                                item.dot.style.background = neuralActiveColor;
                             } else {
-                                dot.style.transform = 'translate(0,0)';
-                                dot.style.background = neuralBaseColor;
+                                item.dot.style.transform = 'translate(0,0)';
+                                item.dot.style.background = neuralBaseColor;
                             }
                         });
                         neuralRaf = 0;
@@ -436,13 +475,23 @@
 
                 visibilityObserver.observe(neuralSection);
                 neuralSection.addEventListener('mousemove', onMove, { passive: true });
-            }, 2200);
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                if (!entries.some((entry) => entry.isIntersecting)) return;
+                observer.disconnect();
+                runWhenIdle(initNeuralGrid, 2600);
+            }, { rootMargin: '240px 0px' });
+            observer.observe(neuralSection);
         }
 
         // --- 5. SYSTEM PULSE ---
         const chartArea = document.getElementById('liveChart');
         if (chartArea) {
-            runWhenIdle(() => {
+            let barsInitialized = false;
+            const initBars = () => {
+                if (barsInitialized) return;
+                barsInitialized = true;
                 const barCount = window.innerWidth < 768 ? 18 : 26;
                 for (let i = 0; i < barCount; i += 1) {
                     const bar = document.createElement('div');
@@ -450,7 +499,15 @@
                     bar.style.animationDelay = `${Math.random() * 2}s`;
                     chartArea.appendChild(bar);
                 }
-            }, 2400);
+            };
+
+            const pulseSection = chartArea.closest('.pulse-section') || chartArea;
+            const observer = new IntersectionObserver((entries) => {
+                if (!entries.some((entry) => entry.isIntersecting)) return;
+                observer.disconnect();
+                runWhenIdle(initBars, 2800);
+            }, { rootMargin: '260px 0px' });
+            observer.observe(pulseSection);
         }
 
         // --- NAV DROPDOWNS ---
@@ -551,8 +608,13 @@
 
             const lazySrc = frame.getAttribute('data-src');
             let booted = false;
+            const shouldUseFallbackOnly = (
+                window.matchMedia('(max-width: 900px)').matches ||
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+                Boolean(window.navigator.connection && window.navigator.connection.saveData)
+            );
             const bootFrame = () => {
-                if (booted || !lazySrc) return;
+                if (booted || !lazySrc || shouldUseFallbackOnly) return;
                 booted = true;
                 frame.src = lazySrc;
             };
@@ -564,11 +626,12 @@
                 }, 700);
             });
 
-            window.setTimeout(bootFrame, 900);
-            if ('requestIdleCallback' in window) {
-                window.requestIdleCallback(bootFrame, { timeout: 1200 });
-            }
+            if (shouldUseFallbackOnly) return;
+
+            window.setTimeout(bootFrame, 15000);
             window.addEventListener('pointerdown', bootFrame, { once: true, passive: true });
+            window.addEventListener('touchstart', bootFrame, { once: true, passive: true });
+            window.addEventListener('scroll', bootFrame, { once: true, passive: true });
             window.addEventListener('keydown', bootFrame, { once: true });
         })();
 
@@ -626,16 +689,6 @@
             };
 
             runSequence();
-            let randomCycle = null;
-            const startRandomCycle = () => {
-                if (randomCycle) return;
-                randomCycle = window.setInterval(() => {
-                    const line = lines[Math.floor(Math.random() * lines.length)];
-                    const targetText = line.getAttribute('data-text') || line.textContent || '';
-                    scrambleTo(line, targetText, 520);
-                }, 2800);
-            };
-            window.setTimeout(startRandomCycle, 1500);
 
             const wrapper = document.querySelector('[data-hero-scramble]');
             if (wrapper) {
@@ -644,9 +697,6 @@
                 wrapper.addEventListener('touchstart', runSequence, { passive: true });
             }
 
-            window.addEventListener('beforeunload', () => {
-                if (randomCycle) window.clearInterval(randomCycle);
-            });
         })();
 
         // --- SECTION TITLE SCRAMBLE ---
@@ -692,20 +742,13 @@
                 requestAnimationFrame(tick);
             };
 
-            const runAll = () => {
-                titles.forEach((title, index) => {
-                    const targetText = title.getAttribute('data-text') || title.textContent || '';
-                    window.setTimeout(() => scrambleTo(title, targetText, 580), index * 110);
-                });
-            };
-
-            runAll();
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (!entry.isIntersecting) return;
                     const title = entry.target;
                     const targetText = title.getAttribute('data-text') || title.textContent || '';
                     scrambleTo(title, targetText, 520);
+                    observer.unobserve(title);
                 });
             }, { threshold: 0.65 });
 

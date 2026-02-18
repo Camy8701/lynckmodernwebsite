@@ -168,6 +168,11 @@ display: flex;
 align-items: center;
 gap: 0.75rem;
 }
+.lynck-header-right {
+justify-content: flex-end;
+flex-shrink: 0;
+min-width: 278px;
+}
 .nav-social {
 display: flex;
 align-items: center;
@@ -267,6 +272,8 @@ padding: 0;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  min-width: 168px;
+  min-height: 44px;
   padding: 0.65rem 1.5rem;
   border-radius: 999px;
   border: 0;
@@ -354,6 +361,7 @@ display: block;
 background: #050505;
 position: relative;
 z-index: 2;
+contain: layout paint size;
 }
 .hero-scramble-stack {
 position: absolute;
@@ -659,9 +667,17 @@ margin-top: 0.45rem;
 .neural-header { font-size: clamp(3rem, 8vw, 7rem); margin-bottom: 2rem; color: var(--text); text-shadow: none; }
 .neural-sub { font-size: 1.5rem; max-width: 700px; margin: 0 auto 4rem; color: rgba(12,23,48,0.65); }
 .mesh-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem; max-width: 900px; margin: 0 auto; }
-.m-stat h4 { font-size: 3rem; color: var(--accent); margin-bottom: 0.5rem; }
-.mesh-stats .m-stat:nth-child(2) h4 { color: var(--accent-green); }
-.mesh-stats .m-stat:nth-child(3) h4 { color: var(--accent-pink); }
+.m-stat .stat-value {
+display: block;
+font-size: 3rem;
+font-family: var(--font-head);
+font-weight: 600;
+line-height: 0.95;
+color: var(--accent);
+margin-bottom: 0.5rem;
+}
+.mesh-stats .m-stat:nth-child(2) .stat-value { color: var(--accent-green); }
+.mesh-stats .m-stat:nth-child(3) .stat-value { color: var(--accent-pink); }
 .m-stat p { font-size: 0.9rem; letter-spacing: 2px; color: rgba(12,23,48,0.6); text-transform: uppercase; }
 /* --- SYSTEM PULSE --- */
 .pulse-section { padding: 10rem 0; background: var(--bg); z-index: 2; position: relative; }
@@ -675,8 +691,16 @@ margin-top: 0.45rem;
 .pulse-text h2 { font-size: 4rem; margin-bottom: 1.5rem; }
 .pulse-text p { font-size: 1.2rem; margin-bottom: 2rem; }
 .stat-row { display: flex; gap: 3rem; margin-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 2rem; }
-.stat-item h4 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
-.stat-row .stat-item:last-child h4 { color: var(--accent-pink); }
+.stat-item .stat-value {
+display: block;
+font-size: 2.5rem;
+font-family: var(--font-head);
+font-weight: 600;
+line-height: 0.95;
+color: var(--accent);
+margin-bottom: 0.5rem;
+}
+.stat-row .stat-item:last-child .stat-value { color: var(--accent-pink); }
 .stat-item span { font-size: 0.9rem; color: var(--text-dim); letter-spacing: 1px; }
 .pulse-visual { position: relative; height: 500px; perspective: 1000px; }
 .db-card { background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.1); border-radius: 24px; position: absolute; backdrop-filter: blur(12px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); transition: transform 0.5s ease-out; }
@@ -1427,6 +1451,12 @@ footer { position: relative; width: 100%; background: var(--accent-dark); z-inde
 .benefits-transition { font-size: 1.26rem; line-height: 1.6; }
 /* Nav */
 .btn { padding: 0.6rem 1.2rem; font-size: 1rem; }
+.lynck-header-right {
+  min-width: 0;
+}
+.gradient-border-btn {
+  min-width: 0;
+}
 /* Pipeline */
 .pipeline-heading { top: 1rem; left: 4vw; right: 4vw; }
 .pipeline-heading-title { font-size: clamp(1.55rem, 6.2vw, 2.4rem); }

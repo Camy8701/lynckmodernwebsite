@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LYNCK Studio | Performance Marketing Agency</title>
@@ -6,7 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
 <link rel="preload" href="/css/home-shared.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="/css/home-shared.css"></noscript>
 
@@ -20,7 +22,7 @@
     <header class="lynck-header">
         <div class="lynck-header-inner">
             <button type="button" class="lynck-home-logo" data-home-btn aria-label="LYNCK Studio Home">
-                <img loading="lazy" decoding="async" width="56" height="56" src="/assets/lynck-logo.webp" alt="LYNCK Studio">
+                <img loading="eager" fetchpriority="high" decoding="async" width="56" height="56" src="/assets/lynck-logo.webp" alt="LYNCK Studio">
             </button>
             <div class="lynck-header-bar">
                 <div class="lynck-header-left">
@@ -85,7 +87,7 @@
                 </div>
             </div>
             <a href="https://www.google.com/partners/agency?id=6214402482" target="_blank" rel="noopener noreferrer" class="lynck-partner-badge" aria-label="Google Partner Badge">
-                <img loading="lazy" decoding="async" width="92" height="92" src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
+                <img loading="eager" decoding="async" width="92" height="92" src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
             </a>
         </div>
     </header>
@@ -95,7 +97,7 @@
         <div class="hero-embed-fallback" id="heroFallback" aria-hidden="true">
             <div class="hero-embed-fallback-content"></div>
         </div>
-        <iframe class="hero-embed-frame" data-src="/hero-embed.html?lang=en" title="LYNCK STUDIO PRO Hero" loading="eager" fetchpriority="high"></iframe>
+        <iframe class="hero-embed-frame" data-src="/hero-embed.html?lang=en" title="LYNCK STUDIO PRO Hero" loading="lazy" fetchpriority="low"></iframe>
         <div class="hero-scramble-stack">
             <ul class="hero-scramble-list" data-hero-scramble>
                 <li><span class="hero-scramble-line" data-scramble-line data-text="Google ads">Google ads</span></li>
@@ -282,9 +284,9 @@
                 faster than the speed of thought.
             </p>
             <div class="mesh-stats">
-                <div class="m-stat"><h4>450+</h4><p>Edge Nodes</p></div>
-                <div class="m-stat"><h4>120TB</h4><p>Backbone Capacity</p></div>
-                <div class="m-stat"><h4>&lt;10ms</h4><p>Global Latency</p></div>
+                <div class="m-stat"><span class="stat-value">450+</span><p>Edge Nodes</p></div>
+                <div class="m-stat"><span class="stat-value">120TB</span><p>Backbone Capacity</p></div>
+                <div class="m-stat"><span class="stat-value">&lt;10ms</span><p>Global Latency</p></div>
             </div>
         </div>
     </section>
@@ -302,8 +304,8 @@
                         <li>&gt; Predictive resource allocation</li>
                     </ul>
                     <div class="stat-row">
-                        <div class="stat-item"><h4>99.999%</h4><span>UPTIME SLA</span></div>
-                        <div class="stat-item"><h4>&lt;5ms</h4><span>GLOBAL LATENCY</span></div>
+                        <div class="stat-item"><span class="stat-value">99.999%</span><span>UPTIME SLA</span></div>
+                        <div class="stat-item"><span class="stat-value">&lt;5ms</span><span>GLOBAL LATENCY</span></div>
                     </div>
                 </div>
                 
@@ -808,5 +810,27 @@
     <!-- Scripts -->
     <script src="/js/home-shared.js?v=3" defer></script>
 
-  <script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
+  <script>
+    (() => {
+      const src = "https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c";
+      let loaded = false;
+      const loadContactButton = () => {
+        if (loaded) return;
+        loaded = true;
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        document.body.appendChild(script);
+      };
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadContactButton, { timeout: 12000 });
+      } else {
+        window.setTimeout(loadContactButton, 9000);
+      }
+      window.addEventListener('pointerdown', loadContactButton, { once: true, passive: true });
+      window.addEventListener('touchstart', loadContactButton, { once: true, passive: true });
+      window.addEventListener('scroll', loadContactButton, { once: true, passive: true });
+      window.addEventListener('keydown', loadContactButton, { once: true });
+    })();
+  </script>
 </body></html>

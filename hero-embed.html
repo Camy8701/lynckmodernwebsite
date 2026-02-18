@@ -1,3 +1,4 @@
+<!doctype html>
 <html
   lang="en"><head><meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,7 +55,7 @@
             import { createRoot } from 'react-dom/client';
             import * as THREE from 'three';
             import { Canvas, useFrame, useThree } from '@react-three/fiber';
-            import { ScrollControls, useScroll, Image, Text, Float, Sparkles, Environment } from '@react-three/drei';
+            import { ScrollControls, useScroll, Image, Text, Float, Sparkles } from '@react-three/drei';
 
             // --- Configuration ---
             const IMAGES = [
@@ -284,8 +285,6 @@
                     >
                         <fog attach="fog" args={['#050505', 4, 20]} />
                         <ambientLight intensity={0.5} />
-                        <Environment preset="city" blur={1} />
-
                         <Suspense fallback={null}>
                             <ScrollControls pages={5} damping={0.2}>
                                 <SceneContent />
