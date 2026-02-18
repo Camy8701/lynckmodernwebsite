@@ -223,47 +223,7 @@
       color: #0f172a;
     }
 
-    .gradient-border-btn {
-      position: relative;
-      isolation: isolate;
-      padding: 3px;
-      border-radius: 999px;
-      overflow: hidden;
-      background-color: transparent;
-      border: 0;
-      cursor: pointer;
-    }
-
-    .gradient-border-btn .cp-border {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 400%;
-      background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b) 0% 0% / 25% 100%;
-      transform: translateX(-5%);
-      z-index: 0;
-      transition: transform 0.25s ease-out;
-    }
-
-    .gradient-border-btn:hover .cp-border {
-      animation: border-slide 1.6s linear infinite;
-    }
-
-    .gradient-border-btn .btn-core {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.55rem 1.1rem;
-      font-size: 0.9rem;
-      background: #0b0d14;
-      border-radius: 999px;
-      color: #fff;
-      z-index: 1;
-      text-decoration: none;
-    }
-
+    /* Beam CTA button styles inherited from home-shared.css */
     @keyframes border-slide {
       0% { transform: translateX(-5%); }
       50% { transform: translateX(-30%); }
