@@ -609,26 +609,32 @@
             const lazySrc = frame.getAttribute('data-src');
             let booted = false;
             const shouldUseFallbackOnly = (
-                window.matchMedia('(max-width: 900px)').matches ||
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
                 Boolean(window.navigator.connection && window.navigator.connection.saveData)
             );
+            frame.style.opacity = '0';
+            frame.style.visibility = 'hidden';
             const bootFrame = () => {
                 if (booted || !lazySrc || shouldUseFallbackOnly) return;
                 booted = true;
+                frame.style.visibility = 'visible';
                 frame.src = lazySrc;
             };
 
             frame.addEventListener('load', () => {
+                frame.style.opacity = '1';
                 fallback.classList.add('is-hidden');
                 window.setTimeout(() => {
                     fallback.remove();
                 }, 700);
             });
 
-            if (shouldUseFallbackOnly) return;
+            if (shouldUseFallbackOnly) {
+                frame.remove();
+                return;
+            }
 
-            window.setTimeout(bootFrame, 15000);
+            window.setTimeout(bootFrame, 1200);
             window.addEventListener('pointerdown', bootFrame, { once: true, passive: true });
             window.addEventListener('touchstart', bootFrame, { once: true, passive: true });
             window.addEventListener('scroll', bootFrame, { once: true, passive: true });
