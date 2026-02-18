@@ -1,4 +1,47 @@
-        gsap.registerPlugin(ScrollTrigger);
+        const loadScriptOnce = (() => {
+            const cache = new Map();
+            return (src) => {
+                if (cache.has(src)) return cache.get(src);
+                const promise = new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = src;
+                    script.async = true;
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    document.head.appendChild(script);
+                });
+                cache.set(src, promise);
+                return promise;
+            };
+        })();
+
+        const ensureGsap = (() => {
+            let pending;
+            return () => {
+                if (window.gsap && window.ScrollTrigger) {
+                    window.gsap.registerPlugin(window.ScrollTrigger);
+                    return Promise.resolve({ gsap: window.gsap, ScrollTrigger: window.ScrollTrigger });
+                }
+                if (pending) return pending;
+                pending = Promise.all([
+                    loadScriptOnce('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js'),
+                    loadScriptOnce('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js'),
+                ]).then(() => {
+                    if (!window.gsap || !window.ScrollTrigger) return null;
+                    window.gsap.registerPlugin(window.ScrollTrigger);
+                    return { gsap: window.gsap, ScrollTrigger: window.ScrollTrigger };
+                }).catch(() => null);
+                return pending;
+            };
+        })();
+
+        const runWhenIdle = (fn, timeout = 1200) => {
+            if ('requestIdleCallback' in window) {
+                window.requestIdleCallback(fn, { timeout });
+                return;
+            }
+            window.setTimeout(fn, 0);
+        };
 
         const spotlightCards = document.querySelectorAll('.spotlight-card');
         if (spotlightCards.length) {
@@ -108,7 +151,7 @@
         })();
 
         // --- 2.2 SERVICES MARQUEE ---
-        (() => {
+        runWhenIdle(() => {
             const tracks = Array.from(document.querySelectorAll('[data-services-track]'));
             if (!tracks.length) return;
 
@@ -261,111 +304,153 @@
                     }, 3000);
                 });
             });
-        })();
+        }, 1800);
 
         // --- 3. PIPELINE ---
-        const races = document.querySelector(".pin-wrap");
-        if (races) {
-            const getScrollAmount = () => -(races.scrollWidth - window.innerWidth);
-            const tween = gsap.to(races, { x: getScrollAmount, ease: "none" });
-            ScrollTrigger.create({ trigger: ".pipeline-section", start: "top top", end: () => `+=${races.scrollWidth - window.innerWidth}`, pin: true, animation: tween, scrub: 1, invalidateOnRefresh: true });
+        (() => {
+            const races = document.querySelector(".pin-wrap");
+            const unifiedSection = document.querySelector('.mesh-pulse-unified');
+            const pipelineSection = document.querySelector('.pipeline-section');
+            const sentinel = pipelineSection || unifiedSection;
+            if (!sentinel) return;
 
-            // Revised Parallax to utilize scale buffer
-            gsap.utils.toArray('.horiz-img').forEach(img => {
-                gsap.fromTo(img,
-                    { xPercent: -15 },
-                    {
-                        xPercent: 15,
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: ".pipeline-section",
-                            start: "top top",
-                            end: () => `+=${races.scrollWidth - window.innerWidth}`,
-                            scrub: true
-                        }
-                    }
-                );
-            });
-        }
+            const initGsapSections = (gsap, ScrollTrigger) => {
+                if (races && pipelineSection) {
+                    const getScrollAmount = () => -(races.scrollWidth - window.innerWidth);
+                    const tween = gsap.to(races, { x: getScrollAmount, ease: "none" });
+                    ScrollTrigger.create({
+                        trigger: ".pipeline-section",
+                        start: "top top",
+                        end: () => `+=${races.scrollWidth - window.innerWidth}`,
+                        pin: true,
+                        animation: tween,
+                        scrub: 1,
+                        invalidateOnRefresh: true
+                    });
 
-        // Continue the scrubbed transition across the full unified mesh+pulse block
-        const unifiedSection = document.querySelector('.mesh-pulse-unified');
-        if (unifiedSection) {
-            gsap.fromTo(
-                unifiedSection,
-                { yPercent: 7 },
-                {
-                    yPercent: 0,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: unifiedSection,
-                        start: "top bottom",
-                        end: "bottom top",
-                        scrub: true
-                    }
+                    gsap.utils.toArray('.horiz-img').forEach((img) => {
+                        gsap.fromTo(
+                            img,
+                            { xPercent: -15 },
+                            {
+                                xPercent: 15,
+                                ease: "none",
+                                scrollTrigger: {
+                                    trigger: ".pipeline-section",
+                                    start: "top top",
+                                    end: () => `+=${races.scrollWidth - window.innerWidth}`,
+                                    scrub: true
+                                }
+                            }
+                        );
+                    });
                 }
-            );
-        }
+
+                if (unifiedSection) {
+                    gsap.fromTo(
+                        unifiedSection,
+                        { yPercent: 7 },
+                        {
+                            yPercent: 0,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: unifiedSection,
+                                start: "top bottom",
+                                end: "bottom top",
+                                scrub: true
+                            }
+                        }
+                    );
+                }
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                if (!entries.some((entry) => entry.isIntersecting)) return;
+                observer.disconnect();
+                ensureGsap().then((mods) => {
+                    if (!mods) return;
+                    initGsapSections(mods.gsap, mods.ScrollTrigger);
+                });
+            }, { rootMargin: '220px 0px' });
+
+            observer.observe(sentinel);
+        })();
 
         // --- 4. NEURAL GRID ---
         const grid = document.getElementById('neuralGrid');
         const neuralSection = document.querySelector('.neural-section');
         if (grid && neuralSection) {
-            const cols = Math.ceil(window.innerWidth / 30);
-            const rows = Math.ceil((window.innerHeight * 1.5) / 30);
-            const totalDots = cols * rows;
+            runWhenIdle(() => {
+                const spacing = window.innerWidth < 768 ? 40 : 30;
+                const cols = Math.ceil(window.innerWidth / spacing);
+                const rows = Math.ceil((window.innerHeight * 1.5) / spacing);
+                const maxDots = window.innerWidth < 768 ? 520 : 1100;
+                const totalDots = Math.min(cols * rows, maxDots);
 
-            for(let i=0; i<totalDots; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('neural-dot');
-                grid.appendChild(dot);
-            }
+                for (let i = 0; i < totalDots; i += 1) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('neural-dot');
+                    grid.appendChild(dot);
+                }
 
-            const isUnifiedNeural = !!neuralSection.closest('.mesh-pulse-unified');
-            const neuralBaseColor = isUnifiedNeural ? 'rgba(255,255,255,0.22)' : 'rgba(12,23,48,0.2)';
-            const neuralActiveColor = isUnifiedNeural ? 'rgba(255,255,255,0.62)' : 'rgba(12,23,48,0.5)';
-            const cachedDots = Array.from(document.querySelectorAll('.neural-dot'));
-            let neuralRaf = 0;
-            neuralSection.addEventListener('mousemove', (e) => {
-                if (neuralRaf) return;
-                neuralRaf = requestAnimationFrame(() => {
-                    const rect = grid.getBoundingClientRect();
-                    const mx = e.clientX - rect.left;
-                    const my = e.clientY - rect.top;
-                    const radius = 350;
+                const isUnifiedNeural = !!neuralSection.closest('.mesh-pulse-unified');
+                const neuralBaseColor = isUnifiedNeural ? 'rgba(255,255,255,0.22)' : 'rgba(12,23,48,0.2)';
+                const neuralActiveColor = isUnifiedNeural ? 'rgba(255,255,255,0.62)' : 'rgba(12,23,48,0.5)';
+                const cachedDots = Array.from(grid.querySelectorAll('.neural-dot'));
 
-                    cachedDots.forEach(dot => {
-                        const dotRect = dot.getBoundingClientRect();
-                        const dx = (dotRect.left - rect.left) - mx;
-                        const dy = (dotRect.top - rect.top) - my;
-                        const dist = Math.sqrt(dx*dx + dy*dy);
+                let neuralRaf = 0;
+                let active = false;
+                const onMove = (e) => {
+                    if (!active || neuralRaf || document.hidden) return;
+                    neuralRaf = requestAnimationFrame(() => {
+                        const rect = grid.getBoundingClientRect();
+                        const mx = e.clientX - rect.left;
+                        const my = e.clientY - rect.top;
+                        const radius = window.innerWidth < 768 ? 220 : 320;
 
-                        if(dist < radius) {
-                            const force = (radius - dist) / radius;
-                            const angle = Math.atan2(dy, dx);
-                            const moveX = Math.cos(angle) * force * 50;
-                            const moveY = Math.sin(angle) * force * 50;
-                            dot.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                            dot.style.background = neuralActiveColor;
-                        } else {
-                            dot.style.transform = `translate(0,0)`;
-                            dot.style.background = neuralBaseColor;
-                        }
+                        cachedDots.forEach((dot) => {
+                            const dotRect = dot.getBoundingClientRect();
+                            const dx = (dotRect.left - rect.left) - mx;
+                            const dy = (dotRect.top - rect.top) - my;
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+
+                            if (dist < radius) {
+                                const force = (radius - dist) / radius;
+                                const angle = Math.atan2(dy, dx);
+                                const moveX = Math.cos(angle) * force * 40;
+                                const moveY = Math.sin(angle) * force * 40;
+                                dot.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                                dot.style.background = neuralActiveColor;
+                            } else {
+                                dot.style.transform = 'translate(0,0)';
+                                dot.style.background = neuralBaseColor;
+                            }
+                        });
+                        neuralRaf = 0;
                     });
-                    neuralRaf = 0;
-                });
-            });
+                };
+
+                const visibilityObserver = new IntersectionObserver((entries) => {
+                    active = entries.some((entry) => entry.isIntersecting);
+                }, { threshold: 0.05 });
+
+                visibilityObserver.observe(neuralSection);
+                neuralSection.addEventListener('mousemove', onMove, { passive: true });
+            }, 2200);
         }
 
         // --- 5. SYSTEM PULSE ---
         const chartArea = document.getElementById('liveChart');
         if (chartArea) {
-            for(let i=0; i<30; i++) {
-                const bar = document.createElement('div');
-                bar.classList.add('chart-bar');
-                bar.style.animationDelay = `${Math.random() * 2}s`;
-                chartArea.appendChild(bar);
-            }
+            runWhenIdle(() => {
+                const barCount = window.innerWidth < 768 ? 18 : 26;
+                for (let i = 0; i < barCount; i += 1) {
+                    const bar = document.createElement('div');
+                    bar.classList.add('chart-bar');
+                    bar.style.animationDelay = `${Math.random() * 2}s`;
+                    chartArea.appendChild(bar);
+                }
+            }, 2400);
         }
 
         // --- NAV DROPDOWNS ---
@@ -463,12 +548,28 @@
             const frame = document.querySelector('.hero-embed-frame');
             const fallback = document.getElementById('heroFallback');
             if (!frame || !fallback) return;
+
+            const lazySrc = frame.getAttribute('data-src');
+            let booted = false;
+            const bootFrame = () => {
+                if (booted || !lazySrc) return;
+                booted = true;
+                frame.src = lazySrc;
+            };
+
             frame.addEventListener('load', () => {
                 fallback.classList.add('is-hidden');
                 window.setTimeout(() => {
                     fallback.remove();
                 }, 700);
             });
+
+            window.setTimeout(bootFrame, 900);
+            if ('requestIdleCallback' in window) {
+                window.requestIdleCallback(bootFrame, { timeout: 1200 });
+            }
+            window.addEventListener('pointerdown', bootFrame, { once: true, passive: true });
+            window.addEventListener('keydown', bootFrame, { once: true });
         })();
 
         // --- HERO SCRAMBLE TEXT ---
@@ -525,12 +626,16 @@
             };
 
             runSequence();
-
-            const randomCycle = window.setInterval(() => {
-                const line = lines[Math.floor(Math.random() * lines.length)];
-                const targetText = line.getAttribute('data-text') || line.textContent || '';
-                scrambleTo(line, targetText, 520);
-            }, 2800);
+            let randomCycle = null;
+            const startRandomCycle = () => {
+                if (randomCycle) return;
+                randomCycle = window.setInterval(() => {
+                    const line = lines[Math.floor(Math.random() * lines.length)];
+                    const targetText = line.getAttribute('data-text') || line.textContent || '';
+                    scrambleTo(line, targetText, 520);
+                }, 2800);
+            };
+            window.setTimeout(startRandomCycle, 1500);
 
             const wrapper = document.querySelector('[data-hero-scramble]');
             if (wrapper) {
@@ -540,7 +645,7 @@
             }
 
             window.addEventListener('beforeunload', () => {
-                window.clearInterval(randomCycle);
+                if (randomCycle) window.clearInterval(randomCycle);
             });
         })();
 
