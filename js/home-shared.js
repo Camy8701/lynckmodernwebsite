@@ -605,10 +605,12 @@
             const frame = document.querySelector('.hero-embed-frame');
             const fallback = document.getElementById('heroFallback');
             if (!frame || !fallback) return;
+            const heroShell = frame.closest('.hero-shell');
 
             const lazySrc = frame.getAttribute('data-src');
             let booted = false;
             const shouldUseFallbackOnly = (
+                window.matchMedia('(max-width: 900px)').matches ||
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
                 Boolean(window.navigator.connection && window.navigator.connection.saveData)
             );
@@ -634,11 +636,13 @@
                 return;
             }
 
-            window.setTimeout(bootFrame, 1200);
-            window.addEventListener('pointerdown', bootFrame, { once: true, passive: true });
-            window.addEventListener('touchstart', bootFrame, { once: true, passive: true });
-            window.addEventListener('scroll', bootFrame, { once: true, passive: true });
+            if (heroShell) {
+                heroShell.addEventListener('mouseenter', bootFrame, { once: true, passive: true });
+                heroShell.addEventListener('pointerdown', bootFrame, { once: true, passive: true });
+                heroShell.addEventListener('touchstart', bootFrame, { once: true, passive: true });
+            }
             window.addEventListener('keydown', bootFrame, { once: true });
+            window.setTimeout(bootFrame, 30000);
         })();
 
         // --- HERO SCRAMBLE TEXT ---

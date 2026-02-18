@@ -86,7 +86,7 @@
                 </div>
             </div>
             <a href="https://www.google.com/partners/agency?id=6214402482" target="_blank" rel="noopener noreferrer" class="lynck-partner-badge" aria-label="Google Partner Badge">
-                <img loading="eager" decoding="async" width="92" height="92" src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
+                <img loading="eager" fetchpriority="high" decoding="async" width="92" height="92" src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
             </a>
         </div>
     </header>
@@ -820,15 +820,11 @@
         script.async = true;
         document.body.appendChild(script);
       };
-      if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(loadContactButton, { timeout: 12000 });
-      } else {
-        window.setTimeout(loadContactButton, 9000);
-      }
-      window.addEventListener('pointerdown', loadContactButton, { once: true, passive: true });
-      window.addEventListener('touchstart', loadContactButton, { once: true, passive: true });
-      window.addEventListener('scroll', loadContactButton, { once: true, passive: true });
-      window.addEventListener('keydown', loadContactButton, { once: true });
+      document.querySelectorAll('[data-contact-btn]').forEach((btn) => {
+        btn.addEventListener('click', loadContactButton, { once: true });
+        btn.addEventListener('touchstart', loadContactButton, { once: true, passive: true });
+      });
+      window.setTimeout(loadContactButton, 45000);
     })();
   </script>
 </body></html>
