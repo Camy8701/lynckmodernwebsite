@@ -183,18 +183,14 @@
                                 notifyHeroReady();
                             });
                         }).catch(() => {
-                            if (!cancelled) notifyHeroReady();
+                            // If sync APIs are unavailable, keep fallback visible until text refs exist.
                         });
                     };
 
                     waitForTitleSync();
-                    const safety = window.setTimeout(() => {
-                        if (!cancelled) notifyHeroReady();
-                    }, 1400);
 
                     return () => {
                         cancelled = true;
-                        window.clearTimeout(safety);
                     };
                 }, []);
 
