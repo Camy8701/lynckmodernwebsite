@@ -605,36 +605,68 @@
             const frame = document.querySelector('.hero-embed-frame');
             const fallback = document.getElementById('heroFallback');
             if (!frame || !fallback) return;
-            const heroShell = frame.closest('.hero-shell');
+            const heroShell = frame.closest('.hero-embed') || frame.closest('.hero-shell') || frame.parentElement;
 
             const lazySrc = frame.getAttribute('data-src');
             let booted = false;
+            let fallbackRemoved = false;
+            let heroReady = false;
+            let readyTimeout = 0;
+            const mobileStaticHero = window.matchMedia('(max-width: 900px)').matches;
             const shouldUseFallbackOnly = (
-                window.matchMedia('(max-width: 900px)').matches ||
+                mobileStaticHero ||
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
                 Boolean(window.navigator.connection && window.navigator.connection.saveData)
             );
-            frame.style.opacity = '0';
-            frame.style.visibility = 'hidden';
+
+            const hideFallback = () => {
+                if (fallbackRemoved) return;
+                fallbackRemoved = true;
+                if (readyTimeout) {
+                    window.clearTimeout(readyTimeout);
+                    readyTimeout = 0;
+                }
+                window.removeEventListener('message', onHeroMessage);
+                fallback.classList.add('is-hidden');
+                window.setTimeout(() => {
+                    fallback.remove();
+                }, 700);
+            };
+
+            const onHeroMessage = (event) => {
+                if (event.source !== frame.contentWindow) return;
+                if (!event.data || event.data.type !== 'hero-ready') return;
+                heroReady = true;
+                hideFallback();
+            };
+
             const bootFrame = () => {
                 if (booted || !lazySrc || shouldUseFallbackOnly) return;
                 booted = true;
-                frame.style.visibility = 'visible';
                 frame.src = lazySrc;
             };
 
             frame.addEventListener('load', () => {
                 frame.style.opacity = '1';
-                fallback.classList.add('is-hidden');
-                window.setTimeout(() => {
-                    fallback.remove();
-                }, 700);
+                // Keep fallback visible until the iframe confirms title + scene are ready.
+                if (!heroReady) {
+                    readyTimeout = window.setTimeout(hideFallback, 1200);
+                }
             });
 
             if (shouldUseFallbackOnly) {
+                window.removeEventListener('message', onHeroMessage);
                 frame.remove();
+                fallback.classList.remove('is-hidden');
                 return;
             }
+
+            window.addEventListener('message', onHeroMessage);
+
+            // Start loading hero immediately to avoid fallback flashes.
+            window.requestAnimationFrame(() => {
+                window.setTimeout(bootFrame, 60);
+            });
 
             if (heroShell) {
                 heroShell.addEventListener('mouseenter', bootFrame, { once: true, passive: true });
@@ -642,7 +674,7 @@
                 heroShell.addEventListener('touchstart', bootFrame, { once: true, passive: true });
             }
             window.addEventListener('keydown', bootFrame, { once: true });
-            window.setTimeout(bootFrame, 30000);
+            window.setTimeout(bootFrame, 2000);
         })();
 
         // --- HERO SCRAMBLE TEXT ---

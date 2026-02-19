@@ -71,6 +71,25 @@
                 de: "Jetzt entdecken",
             };
 
+            const notifyHeroReady = (() => {
+                let sent = false;
+                return () => {
+                    if (sent) return;
+                    sent = true;
+                    try {
+                        if (window.parent && window.parent !== window) {
+                            window.parent.postMessage({ type: 'hero-ready' }, window.location.origin);
+                        }
+                    } catch (e) {
+                        try {
+                            if (window.parent && window.parent !== window) {
+                                window.parent.postMessage({ type: 'hero-ready' }, '*');
+                            }
+                        } catch (_) {}
+                    }
+                };
+            })();
+
             function getActiveLanguage() {
                 const params = new URLSearchParams(window.location.search);
                 const paramLang = params.get('lang');
@@ -136,6 +155,47 @@
                     updateCta();
                     window.addEventListener('storage', updateCta);
                     return () => window.removeEventListener('storage', updateCta);
+                }, []);
+
+                useEffect(() => {
+                    let cancelled = false;
+                    const waitForTitleSync = () => {
+                        const nodes = titleRefs.current.filter(Boolean);
+                        if (nodes.length < 3) {
+                            if (!cancelled) requestAnimationFrame(waitForTitleSync);
+                            return;
+                        }
+
+                        const syncPromises = nodes.map((node) => (
+                            new Promise((resolve) => {
+                                if (node && typeof node.sync === 'function') {
+                                    node.sync(() => resolve());
+                                } else {
+                                    resolve();
+                                }
+                            })
+                        ));
+
+                        Promise.all(syncPromises).then(() => {
+                            if (cancelled) return;
+                            requestAnimationFrame(() => {
+                                if (cancelled) return;
+                                notifyHeroReady();
+                            });
+                        }).catch(() => {
+                            if (!cancelled) notifyHeroReady();
+                        });
+                    };
+
+                    waitForTitleSync();
+                    const safety = window.setTimeout(() => {
+                        if (!cancelled) notifyHeroReady();
+                    }, 1400);
+
+                    return () => {
+                        cancelled = true;
+                        window.clearTimeout(safety);
+                    };
                 }, []);
 
                 useFrame((state) => {
