@@ -719,7 +719,7 @@
           <a href="/de/index.html#arch">Über LYNCK</a>
           <a href="/de/index.html#our-services">Unsere Leistungen</a>
           <a href="/de/index.html#testimonials">Kundenstimmen</a>
-          <a href="/de/index.html#terminal">Blog</a>
+          <a href="/blog-real-reason-your-ads-dont-convert.html">Blog</a>
         </nav>
 
         <div class="lynck-header-right">
@@ -733,7 +733,7 @@
               <button type="button" role="menuitem" data-lang-switch="de"><span aria-hidden="true">🇩🇪</span> Deutsch</button>
             </div>
           </div>
-          <button type="button" class="gradient-border-btn" data-contact-btn>
+          <button type="button" class="gradient-border-btn" data-apply-btn>
             <div class="btn-beam"></div>
                     <div class="btn-bg">
                         <div class="btn-bg-grad"></div>
@@ -757,7 +757,7 @@
         <h1 class="ga-title">Intent erfassen. Nachfrage aufbauen. Mit Struktur skalieren.</h1>
         <p class="ga-subtitle">Google Ads ist mehr als Suchanzeigen. Es ist ein vollständiges Ökosystem, in dem bestehende Nachfrage erfasst und neue Nachfrage durch Sichtbarkeit und kreative Relevanz aufgebaut wird.</p>
         <div class="ga-btns">
-          <a class="ga-btn primary" href="/de/contact.html">Book Your FREE Strategy Call</a>
+          <a class="ga-btn primary" href="/de/apply/">Book Your FREE Strategy Call</a>
         </div>
       </section>
 
@@ -969,7 +969,7 @@
         <h2>Bereit für ein strukturiertes Google-Ads-Wachstumssystem?</h2>
         <p>Intent erfassen, Nachfrage aufbauen und mit messbarer Performance skalieren.</p>
         <div class="ga-btns">
-          <a class="ga-btn primary" href="/de/contact.html">Book Your FREE Strategy Call</a>
+          <a class="ga-btn primary" href="/de/apply/">Book Your FREE Strategy Call</a>
           <a class="ga-btn ghost" href="/de/cookie-policy.html">Cookie-Richtlinie</a>
           <a class="ga-btn ghost" href="/de/privacy-policy.html">Datenschutz</a>
           <a class="ga-btn ghost" href="/de/legal-notice.html">Impressum</a>
@@ -1055,7 +1055,18 @@
         contactButtons.forEach((btn) => {
           btn.addEventListener('click', () => {
             const lang = getLang();
-            const target = lang === 'de' ? '/de/contact.html' : '/contact.html';
+            const target = lang === 'de' ? '/de/apply/' : '/apply/';
+            window.location.href = target;
+          });
+        });
+      }
+
+      const applyButtons = document.querySelectorAll('[data-apply-btn]');
+      if (applyButtons.length) {
+        applyButtons.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const lang = getLang();
+            const target = lang === 'de' ? '/de/apply/' : '/apply/';
             window.location.href = target;
           });
         });
@@ -1092,6 +1103,5 @@
       });
     })();
   </script>
-  <script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
 </body>
 </html>

@@ -21,11 +21,12 @@
       }
 
       const getLang = () => {
+        if (window.location.pathname.includes('/de/')) return 'de';
         try {
           const stored = localStorage.getItem('language');
           if (stored === 'de') return 'de';
         } catch (e) {}
-        return window.location.pathname.includes('/de/') ? 'de' : 'en';
+        return 'en';
       };
 
       const homeBtn = document.querySelector('[data-home-btn]');
@@ -50,7 +51,7 @@
             if (dropdown) {
               dropdown.classList.remove('open');
             }
-            const target = lang === 'de' ? '/de/contact.html' : '/contact.html';
+            const target = lang === 'de' ? '/de/apply/' : '/apply/';
             window.location.href = target;
           });
         });
@@ -61,7 +62,30 @@
         contactButtons.forEach((btn) => {
           btn.addEventListener('click', () => {
             const lang = getLang();
-            const target = lang === 'de' ? '/de/contact.html' : '/contact.html';
+            const target = lang === 'de' ? '/de/apply/' : '/apply/';
+            window.location.href = target;
+          });
+        });
+      }
+
+      const applyButtons = document.querySelectorAll('[data-apply-btn]');
+      if (applyButtons.length) {
+        applyButtons.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const lang = getLang();
+            const target = lang === 'de' ? '/de/apply/' : '/apply/';
+            window.location.href = target;
+          });
+        });
+      }
+
+      const strategyApplyButtons = document.querySelectorAll('[data-strategy-call-btn], [data-build-growth-btn]');
+      if (strategyApplyButtons.length) {
+        strategyApplyButtons.forEach((btn) => {
+          btn.addEventListener('click', (event) => {
+            event.preventDefault();
+            const lang = getLang();
+            const target = lang === 'de' ? '/de/apply/' : '/apply/';
             window.location.href = target;
           });
         });

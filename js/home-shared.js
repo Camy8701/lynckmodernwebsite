@@ -164,6 +164,58 @@
             syncLayout();
         })();
 
+        // --- 2.2 WHY LYNCK ACCORDION ---
+        (() => {
+            const accordions = Array.from(document.querySelectorAll('[data-why-accordion]'));
+            if (!accordions.length) return;
+
+            const isTouch = () => window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+            accordions.forEach((accordion) => {
+                const items = Array.from(accordion.querySelectorAll('[data-accordion-item]'));
+                if (!items.length) return;
+
+                const syncAria = () => {
+                    items.forEach((item) => {
+                        const active = item.classList.contains('is-active');
+                        item.setAttribute('aria-pressed', active ? 'true' : 'false');
+                    });
+                };
+
+                const setActive = (target) => {
+                    items.forEach((item) => item.classList.toggle('is-active', item === target));
+                    syncAria();
+                };
+
+                const initial = items.find((item) => item.classList.contains('is-active')) || items[0];
+                setActive(initial);
+
+                items.forEach((item) => {
+                    item.setAttribute('tabindex', '0');
+                    item.setAttribute('role', 'button');
+
+                    item.addEventListener('mouseenter', () => {
+                        if (isTouch()) return;
+                        setActive(item);
+                    });
+
+                    item.addEventListener('focusin', () => {
+                        setActive(item);
+                    });
+
+                    item.addEventListener('click', () => {
+                        setActive(item);
+                    });
+
+                    item.addEventListener('keydown', (event) => {
+                        if (event.key !== 'Enter' && event.key !== ' ') return;
+                        event.preventDefault();
+                        setActive(item);
+                    });
+                });
+            });
+        })();
+
         // --- 2.2 SERVICES MARQUEE ---
         (() => {
             const section = document.querySelector('.services-marquee-section');
@@ -538,16 +590,60 @@
             const buttons = document.querySelectorAll('[data-contact-btn]');
             if (!buttons.length) return;
             const getLang = () => {
+                if (window.location.pathname.includes('/de/')) return 'de';
                 try {
                     const stored = localStorage.getItem('language');
                     if (stored === 'de') return 'de';
                 } catch (e) {}
-                return window.location.pathname.includes('/de/') ? 'de' : 'en';
+                return 'en';
             };
             buttons.forEach((btn) => {
                 btn.addEventListener('click', () => {
                     const lang = getLang();
-                    const target = lang === 'de' ? '/de/contact.html' : '/contact.html';
+                    const target = lang === 'de' ? '/de/apply/' : '/apply/';
+                    window.location.href = target;
+                });
+            });
+        })();
+
+        // --- APPLY BUTTON ---
+        (() => {
+            const buttons = document.querySelectorAll('[data-apply-btn]');
+            if (!buttons.length) return;
+            const getLang = () => {
+                if (window.location.pathname.includes('/de/')) return 'de';
+                try {
+                    const stored = localStorage.getItem('language');
+                    if (stored === 'de') return 'de';
+                } catch (e) {}
+                return 'en';
+            };
+            buttons.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const lang = getLang();
+                    const target = lang === 'de' ? '/de/apply/' : '/apply/';
+                    window.location.href = target;
+                });
+            });
+        })();
+
+        // --- STRATEGY CALL / BUILD GROWTH CTA BUTTONS ---
+        (() => {
+            const buttons = document.querySelectorAll('[data-strategy-call-btn], [data-build-growth-btn]');
+            if (!buttons.length) return;
+            const getLang = () => {
+                if (window.location.pathname.includes('/de/')) return 'de';
+                try {
+                    const stored = localStorage.getItem('language');
+                    if (stored === 'de') return 'de';
+                } catch (e) {}
+                return 'en';
+            };
+            buttons.forEach((btn) => {
+                btn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const lang = getLang();
+                    const target = lang === 'de' ? '/de/apply/' : '/apply/';
                     window.location.href = target;
                 });
             });
@@ -558,11 +654,12 @@
             const langButtons = document.querySelectorAll('[data-lang-switch]');
             if (!langButtons.length) return;
             const getLang = () => {
+                if (window.location.pathname.includes('/de/')) return 'de';
                 try {
                     const stored = localStorage.getItem('language');
                     if (stored === 'de') return 'de';
                 } catch (e) {}
-                return window.location.pathname.includes('/de/') ? 'de' : 'en';
+                return 'en';
             };
             langButtons.forEach((btn) => {
                 btn.addEventListener('click', () => {
@@ -585,11 +682,12 @@
             const homeButtons = document.querySelectorAll('[data-home-btn]');
             if (!homeButtons.length) return;
             const getLang = () => {
+                if (window.location.pathname.includes('/de/')) return 'de';
                 try {
                     const stored = localStorage.getItem('language');
                     if (stored === 'de') return 'de';
                 } catch (e) {}
-                return window.location.pathname.includes('/de/') ? 'de' : 'en';
+                return 'en';
             };
             homeButtons.forEach((btn) => {
                 btn.addEventListener('click', () => {
@@ -612,9 +710,7 @@
             let fallbackRemoved = false;
             let heroReady = false;
             let readyTimeout = 0;
-            const mobileStaticHero = window.matchMedia('(max-width: 900px)').matches;
             const shouldUseFallbackOnly = (
-                mobileStaticHero ||
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
                 Boolean(window.navigator.connection && window.navigator.connection.saveData)
             );
@@ -649,15 +745,11 @@
             frame.addEventListener('load', () => {
                 frame.style.opacity = '1';
                 // Keep fallback visible until the iframe confirms title + scene are ready.
-                if (!heroReady) {
-                    readyTimeout = window.setTimeout(hideFallback, 1200);
-                }
             });
 
             if (shouldUseFallbackOnly) {
                 window.removeEventListener('message', onHeroMessage);
                 frame.remove();
-                fallback.classList.remove('is-hidden');
                 return;
             }
 

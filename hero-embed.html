@@ -1,213 +1,363 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LYNCK STUDIO PRO | Hero</title>
-  <link rel="preload" href="/assets/inter-hero.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/hero-bg-glass-sphere.webp" as="image" fetchpriority="high">
-  <style>
-    @font-face {
-      font-family: 'HeroInter';
-      src: url('/assets/inter-hero.woff2') format('woff2');
-      font-style: normal;
-      font-weight: 100 900;
-      font-display: swap;
+<html
+  lang="en"><head><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LYNCK STUDIO PRO | 3D Portfolio</title>
+    <link rel="preconnect" href="https://esm.sh">
+    <!-- Polyfill for React/Three ecosystem -->
+    <script>
+    window.process = { env: { NODE_ENV: 'production' } };
+    </script>
+    <!-- Import Map: Critical for module resolution -->
+    <script type="importmap">
+    {
+    "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "three": "https://esm.sh/three@0.160.0",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.15.16?external=react,react-dom,three",
+    "@react-three/drei": "https://esm.sh/@react-three/drei@9.99.0?external=react,react-dom,three,@react-three/fiber"
     }
-
-    :root {
-      color-scheme: dark;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
+    </script>
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
     body {
       margin: 0;
-      width: 100%;
-      height: 100%;
+      padding: 0;
+      background-color: #050505;
+      background-image: url("assets/hero-bg-glass-sphere.webp");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       overflow: hidden;
-      background: #050505;
-      font-family: 'HeroInter', Inter, 'Space Grotesk', system-ui, sans-serif;
+      font-family: 'Inter', sans-serif;
     }
+    #root { width: 100vw; height: 100vh; }
+    /* Error overlay */
+    #error-overlay { display: none; }
+    </style></head>
+    <body class="antialiased text-white selection:bg-white selection:text-black">
 
-    .hero-stage {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      isolation: isolate;
-      background:
-        linear-gradient(180deg, rgba(3, 6, 10, 0.16), rgba(3, 6, 10, 0.62)),
-        url('/assets/hero-bg-glass-sphere.webp') center / cover no-repeat;
-    }
+        <!-- Error Fallback -->
+        <div id="error-overlay" class="fixed inset-0 z-[10000] flex items-center justify-center bg-black text-red-500 p-10 font-mono text-xs">
+            System Malfunction. Check Console.
+        </div>
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(120% 86% at 50% 0%, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.58) 72%),
-        linear-gradient(180deg, rgba(6, 7, 12, 0.08) 0%, rgba(6, 7, 12, 0.46) 100%);
-      z-index: 1;
-    }
+        <!-- React Root -->
+        <div id="root"></div>
 
-    .hero-panels {
-      position: absolute;
-      inset: clamp(90px, 14vh, 130px) clamp(8vw, 13vw, 220px) clamp(14vh, 19vh, 170px) clamp(10vw, 15vw, 240px);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(10px, 1.6vw, 18px);
-      z-index: 2;
-      opacity: 0.88;
-      pointer-events: none;
-    }
+        <!-- Main Application Logic -->
+        <script type="text/babel" data-type="module">
+            import React, { useRef, useState, useEffect, Suspense } from 'react';
+            import { createRoot } from 'react-dom/client';
+            import * as THREE from 'three';
+            import { Canvas, useFrame, useThree } from '@react-three/fiber';
+            import { ScrollControls, useScroll, Image, Text, Float, Sparkles } from '@react-three/drei';
 
-    .hero-panel {
-      position: relative;
-      border-radius: clamp(14px, 1.6vw, 24px);
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(7, 11, 18, 0.32);
-      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
-      transform: translate3d(0, 0, 0);
-      will-change: transform;
-    }
+            // --- Configuration ---
+            const IMAGES = [
+                { position: [1.5, 0, -3], rotation: [0, -0.2, 0], url: "assets/cyberpunk-portrait-with-red-laser-beam-4k.webp" },
+                { position: [-1.8, 1, -7], rotation: [0, 0.2, 0], url: "assets/3d-office-building-with-google-map-pin-4k.webp" },
+                { position: [2, -1, -11], rotation: [0, -0.3, 0], url: "assets/glowing-crystal-thoughts-emerge-from-glass-head-4k.webp" },
+                { position: [-1.5, -2, -15], rotation: [0, 0.2, 0], url: "assets/3d-website-seo-concept-illustration-4k.webp" },
+                { position: [1.2, 1.5, -19], rotation: [0, -0.1, 0], url: "assets/futuristic-neon-data-visualization-panel-4k.webp" },
+                { position: [-2, 0.5, -23], rotation: [0, 0.3, 0], url: "assets/cyberpunk-portrait-with-reflective-visor-4k.webp" },
+            ];
 
-    .hero-panel img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(1.05) contrast(1.02);
-      opacity: 0.92;
-    }
+            const CTA_LABELS = {
+                en: "Let's explore",
+                de: "Jetzt entdecken",
+            };
 
-    .hero-panel.main {
-      grid-column: 1 / span 2;
-      min-height: 36%;
-      max-height: 44%;
-    }
+            const notifyHeroReady = (() => {
+                let sent = false;
+                return () => {
+                    if (sent) return;
+                    sent = true;
+                    try {
+                        if (window.parent && window.parent !== window) {
+                            window.parent.postMessage({ type: 'hero-ready' }, window.location.origin);
+                        }
+                    } catch (e) {
+                        try {
+                            if (window.parent && window.parent !== window) {
+                                window.parent.postMessage({ type: 'hero-ready' }, '*');
+                            }
+                        } catch (_) {}
+                    }
+                };
+            })();
 
-    .hero-panel.side {
-      min-height: 42%;
-    }
+            function getActiveLanguage() {
+                const params = new URLSearchParams(window.location.search);
+                const paramLang = params.get('lang');
+                if (paramLang === 'de' || paramLang === 'en') return paramLang;
+                try {
+                    const stored = localStorage.getItem('language');
+                    if (stored === 'de' || stored === 'en') return stored;
+                } catch (e) {}
+                try {
+                    if (window.parent && window.parent.location && window.parent.location.pathname.includes('/de/')) {
+                        return 'de';
+                    }
+                } catch (e) {}
+                return 'en';
+            }
 
-    .hero-title {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: clamp(0.18rem, 0.65vh, 0.58rem);
-      z-index: 3;
-      pointer-events: none;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.42s ease, transform 0.42s ease;
-    }
+            function getCtaLabel() {
+                const lang = getActiveLanguage();
+                return CTA_LABELS[lang] || CTA_LABELS.en;
+            }
 
-    .hero-stage.is-ready .hero-title {
-      opacity: 1;
-      transform: translateY(0);
-    }
+            function CustomImage({ position, rotation, url }) {
+                const ref = useRef();
+                const [hovered, setHover] = useState(false);
 
-    .hero-title-line {
-      margin: 0;
-      font-size: clamp(3.4rem, 14vw, 14rem);
-      line-height: 0.84;
-      letter-spacing: -0.075em;
-      font-weight: 520;
-      text-transform: uppercase;
-      color: #fff;
-      text-shadow: 0 6px 26px rgba(0, 0, 0, 0.3);
-      white-space: nowrap;
-    }
+                useFrame(() => {
+                    if (!ref.current) return;
+                    const targetScale = hovered ? 1.15 : 1;
+                    ref.current.scale.x = THREE.MathUtils.lerp(ref.current.scale.x, targetScale * 2, 0.1);
+                    ref.current.scale.y = THREE.MathUtils.lerp(ref.current.scale.y, targetScale * 3, 0.1);
+                    ref.current.material.grayscale = THREE.MathUtils.lerp(ref.current.material.grayscale, hovered ? 0 : 0.3, 0.1);
+                    ref.current.material.color.lerp(new THREE.Color(hovered ? '#ffffff' : '#e0e0e0'), 0.1);
+                });
 
-    .hero-cta {
-      position: absolute;
-      left: 50%;
-      bottom: clamp(42px, 6vh, 72px);
-      transform: translateX(-50%);
-      z-index: 4;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 170px;
-      min-height: 46px;
-      padding: 0.6rem 1.4rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      background: rgba(8, 14, 30, 0.56);
-      backdrop-filter: blur(6px);
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      opacity: 0;
-      transition: opacity 0.4s ease 0.1s;
-      pointer-events: none;
-    }
+                return (
+                    <Float speed={2} rotationIntensity={0.1} floatIntensity={0.5}>
+                        <Image
+                            ref={ref}
+                            url={url}
+                            position={position}
+                            rotation={rotation}
+                            scale={[2, 3, 1]}
+                            onPointerOver={() => { document.body.style.cursor = 'pointer'; setHover(true); }}
+                            onPointerOut={() => { document.body.style.cursor = 'auto'; setHover(false); }}
+                            transparent
+                            opacity={0.9}
+                        />
+                    </Float>
+                );
+            }
 
-    .hero-stage.is-ready .hero-cta {
-      opacity: 1;
-      pointer-events: auto;
-    }
+            function SceneContent() {
+                const { camera } = useThree();
+                const scroll = useScroll();
+                const titleGroup = useRef();
+                const titleRefs = useRef([]);
+                const ctaRef = useRef();
+                const scrollSmooth = useRef(0);
+                const [ctaLabel, setCtaLabel] = useState(() => getCtaLabel());
 
-    @media (max-width: 900px) {
-      .hero-panels {
-        inset: clamp(92px, 16vh, 136px) 12vw clamp(17vh, 22vh, 220px);
-        grid-template-columns: 1fr;
-        opacity: 0.8;
-      }
+                useEffect(() => {
+                    const updateCta = () => setCtaLabel(getCtaLabel());
+                    updateCta();
+                    window.addEventListener('storage', updateCta);
+                    return () => window.removeEventListener('storage', updateCta);
+                }, []);
 
-      .hero-panel.main,
-      .hero-panel.side {
-        grid-column: auto;
-        min-height: 27%;
-      }
+                useEffect(() => {
+                    let cancelled = false;
+                    const waitForTitleSync = () => {
+                        const nodes = titleRefs.current.filter(Boolean);
+                        if (nodes.length < 3) {
+                            if (!cancelled) requestAnimationFrame(waitForTitleSync);
+                            return;
+                        }
 
-      .hero-title {
-        gap: 0.2rem;
-      }
+                        const syncPromises = nodes.map((node) => (
+                            new Promise((resolve) => {
+                                if (node && typeof node.sync === 'function') {
+                                    node.sync(() => resolve());
+                                } else {
+                                    resolve();
+                                }
+                            })
+                        ));
 
-      .hero-title-line {
-        font-size: clamp(3rem, 18vw, 7.2rem);
-      }
+                        Promise.all(syncPromises).then(() => {
+                            if (cancelled) return;
+                            requestAnimationFrame(() => {
+                                if (cancelled) return;
+                                notifyHeroReady();
+                            });
+                        }).catch(() => {
+                            // If sync APIs are unavailable, keep fallback visible until text refs exist.
+                        });
+                    };
 
-      .hero-cta {
-        bottom: 16px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <main class="hero-stage" data-hero-stage>
-    <div class="hero-overlay" aria-hidden="true"></div>
+                    waitForTitleSync();
 
-    <section class="hero-panels" aria-hidden="true">
-      <article class="hero-panel main" data-parallax data-depth="0.55">
-        <img src="/assets/cyberpunk-portrait-with-red-laser-beam-4k.webp" alt="" decoding="async" loading="eager" fetchpriority="high">
-      </article>
-      <article class="hero-panel side" data-parallax data-depth="0.95">
-        <img src="/assets/3d-office-building-with-google-map-pin-4k.webp" alt="" decoding="async" loading="lazy">
-      </article>
-      <article class="hero-panel side" data-parallax data-depth="1.1">
-        <img src="/assets/glowing-crystal-thoughts-emerge-from-glass-head-4k.webp" alt="" decoding="async" loading="lazy">
-      </article>
-    </section>
+                    return () => {
+                        cancelled = true;
+                    };
+                }, []);
 
-    <section class="hero-title" data-hero-title aria-label="LYNCK Studio Pro">
-      <h1 class="hero-title-line">LYNCK</h1>
-      <h1 class="hero-title-line">STUDIO</h1>
-      <h1 class="hero-title-line">PRO</h1>
-    </section>
+                useFrame((state) => {
+                    // Rig Logic
+                    const targetZ = 2 - (scroll.offset * 28);
+                    camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetZ, 0.08);
 
-    <a class="hero-cta" data-hero-cta href="javascript:void(0)">Let's explore</a>
-  </main>
+                    // Parallax (further reduced for stability)
+                    camera.position.x = THREE.MathUtils.lerp(camera.position.x, -state.mouse.x * 0.12, 0.06);
+                    camera.position.y = THREE.MathUtils.lerp(camera.position.y, -state.mouse.y * 0.12, 0.06);
 
-  <script src="/js/hero-embed.js" defer></script>
-</body>
-</html>
+                    // Text Animation (scroll-scrubbed split-title fade/transform)
+                    scrollSmooth.current = THREE.MathUtils.lerp(scrollSmooth.current, scroll.offset, 0.08);
+                    if (titleGroup.current) {
+                        titleGroup.current.position.z = THREE.MathUtils.lerp(titleGroup.current.position.z, camera.position.z - 4, 0.35);
+                        titleGroup.current.rotation.x = -state.mouse.y * 0.06;
+                        titleGroup.current.rotation.y = state.mouse.x * 0.06;
+                    }
+
+                    const t = Math.min(1, scrollSmooth.current * 1.25);
+                    const opacity = Math.max(0, 1 - t);
+                    const xSpread = 4;
+                    const scaleMid = THREE.MathUtils.lerp(1, 2, t);
+
+                    if (titleRefs.current[0]) {
+                        titleRefs.current[0].position.x = THREE.MathUtils.lerp(0, -xSpread, t);
+                        titleRefs.current[0].material.opacity = opacity;
+                    }
+                    if (titleRefs.current[1]) {
+                        titleRefs.current[1].scale.set(scaleMid, scaleMid, scaleMid);
+                        titleRefs.current[1].material.opacity = opacity;
+                    }
+                    if (titleRefs.current[2]) {
+                        titleRefs.current[2].position.x = THREE.MathUtils.lerp(0, xSpread, t);
+                        titleRefs.current[2].material.opacity = opacity;
+                    }
+
+                    // Fade CTA out as scroll approaches the section handoff.
+                    if (ctaRef.current) {
+                        const ctaFade = THREE.MathUtils.clamp((scrollSmooth.current - 0.74) / 0.2, 0, 1);
+                        ctaRef.current.material.opacity = 1 - ctaFade;
+                    }
+
+                    // DOM Updates (removed overlay UI)
+                });
+
+                return (
+                    <>
+                        <group ref={titleGroup}>
+                            <group>
+                                <Text
+                                    ref={(el) => { titleRefs.current[0] = el; }}
+                                    font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff"
+                                    fontSize={1.2}
+                                    letterSpacing={-0.08}
+                                    color="#ffffff"
+                                    renderOrder={30}
+                                    material-transparent={true}
+                                    material-depthWrite={false}
+                                    material-depthTest={false}
+                                    material-toneMapped={false}
+                                    outlineWidth={0}
+                                    outlineOpacity={0}
+                                    strokeWidth={0}
+                                    anchorX="center"
+                                    anchorY="middle"
+                                    position={[0, 0.9, 0]}
+                                >
+                                    LYNCK
+                                </Text>
+                                <Text
+                                    ref={(el) => { titleRefs.current[1] = el; }}
+                                    font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff"
+                                    fontSize={1.2}
+                                    letterSpacing={-0.08}
+                                    color="#ffffff"
+                                    renderOrder={31}
+                                    material-transparent={true}
+                                    material-depthWrite={false}
+                                    material-depthTest={false}
+                                    material-toneMapped={false}
+                                    outlineWidth={0}
+                                    outlineOpacity={0}
+                                    strokeWidth={0}
+                                    anchorX="center"
+                                    anchorY="middle"
+                                    position={[0, 0, 0]}
+                                >
+                                    STUDIO
+                                </Text>
+                                <Text
+                                    ref={(el) => { titleRefs.current[2] = el; }}
+                                    font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff"
+                                    fontSize={1.2}
+                                    letterSpacing={-0.08}
+                                    color="#ffffff"
+                                    renderOrder={32}
+                                    material-transparent={true}
+                                    material-depthWrite={false}
+                                    material-depthTest={false}
+                                    material-toneMapped={false}
+                                    outlineWidth={0}
+                                    outlineOpacity={0}
+                                    strokeWidth={0}
+                                    anchorX="center"
+                                    anchorY="middle"
+                                    position={[0, -0.9, 0]}
+                                >
+                                    PRO
+                                </Text>
+                            </group>
+                        </group>
+
+                        {IMAGES.map((img, i) => (
+                            <CustomImage key={i} {...img} />
+                        ))}
+
+                        <Sparkles count={200} scale={[15, 15, 30]} size={2} speed={0.4} opacity={0.3} color="#ffffff" position={[0, 0, -10]} />
+
+                        <Text
+                            ref={ctaRef}
+                            position={[0, 0, -28]}
+                            fontSize={0.4}
+                            letterSpacing={0.1}
+                            color="#ffffff"
+                            material-transparent={true}
+                            material-toneMapped={false}
+                            outlineWidth={0}
+                            outlineOpacity={0}
+                            strokeWidth={0}
+                            anchorX="center"
+                            anchorY="middle"
+                        >
+                            {ctaLabel}
+                        </Text>
+                    </>
+                )
+            }
+
+            function App() {
+                return (
+                    <Canvas
+                        gl={{ antialias: true, toneMapping: THREE.ReinhardToneMapping, powerPreference: "high-performance" }}
+                        camera={{ position: [0, 0, 2], fov: 45 }}
+                        dpr={[1, 2]}
+                    >
+                        <fog attach="fog" args={['#050505', 4, 20]} />
+                        <ambientLight intensity={0.5} />
+                        <Suspense fallback={null}>
+                            <ScrollControls pages={5} damping={0.2}>
+                                <SceneContent />
+                            </ScrollControls>
+                        </Suspense>
+                    </Canvas>
+                );
+            }
+
+            const container = document.getElementById('root');
+            const root = createRoot(container);
+
+            try {
+                root.render(<App />);
+            } catch (e) {
+                console.error(e);
+                document.getElementById('error-overlay').style.display = 'flex';
+            }
+        </script>
+
+    </body></html>

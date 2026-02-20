@@ -1,0 +1,438 @@
+'use strict';
+
+// TODO: Replace placeholders before production:
+// - CALENDAR_URL (env: CALENDAR_URL)
+// - SMTP/mail provider credentials (currently using Resend envs)
+// - COMPANY_ADDRESS (used in legal/content templates outside this endpoint)
+
+const RATE_LIMIT_WINDOW_MS = Number(process.env.LEAD_RATE_WINDOW_MS || 60_000);
+const RATE_LIMIT_MAX = Number(process.env.LEAD_RATE_MAX || 8);
+const DEFAULT_CALENDAR_URL = process.env.CALENDAR_URL || 'CALENDAR_URL';
+
+const rateBuckets = globalThis.__lynckLeadRateBuckets || new Map();
+globalThis.__lynckLeadRateBuckets = rateBuckets;
+
+function json(res, status, payload) {
+  res.statusCode = status;
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  res.end(JSON.stringify(payload));
+}
+
+function getClientIp(req) {
+  const forwarded = req.headers['x-forwarded-for'];
+  if (typeof forwarded === 'string' && forwarded.trim()) {
+    return forwarded.split(',')[0].trim();
+  }
+  return req.socket?.remoteAddress || 'unknown';
+}
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const bucket = rateBuckets.get(ip) || [];
+  const recent = bucket.filter((ts) => now - ts < RATE_LIMIT_WINDOW_MS);
+  recent.push(now);
+  rateBuckets.set(ip, recent);
+  return recent.length > RATE_LIMIT_MAX;
+}
+
+function cleanString(value) {
+  if (value === null || value === undefined) return null;
+  const text = String(value).trim();
+  return text || null;
+}
+
+function cleanArray(value) {
+  if (!Array.isArray(value)) return [];
+  return value.map((item) => cleanString(item)).filter(Boolean);
+}
+
+function validatePayload(payload) {
+  const required = [
+    'full_name',
+    'work_email',
+    'company_name',
+    'country_timezone',
+    'industry',
+    'role',
+    'is_decision_maker',
+    'combination_q1',
+    'combination_q2',
+    'combination_q3',
+    'combination_q4',
+    'primary_goal',
+    'target_outcome_metric',
+    'ad_spend_range',
+    'can_increase_budget',
+    'timeline',
+    'has_crm',
+    'numbers_knowledge'
+  ];
+
+  for (const field of required) {
+    if (!cleanString(payload[field])) {
+      return `Missing required field: ${field}`;
+    }
+  }
+
+  const email = cleanString(payload.work_email);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || '')) {
+    return 'Invalid email format';
+  }
+
+  if (!payload.no_website_yet && !cleanString(payload.website_url)) {
+    return 'Website URL is required unless no website yet is selected';
+  }
+
+  if (cleanString(payload.is_decision_maker) === 'No') {
+    if (!cleanString(payload.final_decision_maker) || !cleanString(payload.decision_maker_will_join)) {
+      return 'Decision maker details are required when applicant is not decision maker';
+    }
+  }
+
+  const constraints = cleanArray(payload.biggest_constraints);
+  if (!constraints.length) return 'At least one constraint is required';
+  if (constraints.length > 2) return 'No more than two constraints are allowed';
+
+  const channels = cleanArray(payload.channels_used);
+  if (!channels.length) return 'At least one channel is required';
+
+  const assets = cleanArray(payload.assets_available);
+  if (!assets.length) return 'At least one asset selection is required';
+
+  const leadIntake = cleanArray(payload.lead_intake_channels);
+  if (!leadIntake.length) return 'At least one lead intake channel is required';
+
+  const services = cleanArray(payload.services_interested);
+  if (!services.length) return 'At least one service interest is required';
+
+  if (!payload.consent_contact || !payload.consent_privacy) {
+    return 'Required consent missing';
+  }
+
+  if (channels.some((channel) => channel.startsWith('Google Ads')) && !cleanString(payload.google_tracking_ready)) {
+    return 'Google tracking readiness is required when Google Ads is selected';
+  }
+
+  if (channels.includes('Meta Ads') && !cleanString(payload.meta_pixel_capi)) {
+    return 'Meta Pixel + CAPI readiness is required when Meta Ads is selected';
+  }
+
+  if (cleanString(payload.has_crm) === 'Yes' && !cleanString(payload.crm_name)) {
+    return 'CRM name is required when CRM is set to Yes';
+  }
+
+  return null;
+}
+
+function deriveLeadStatus(payload) {
+  const spend = cleanString(payload.ad_spend_range);
+  const timeline = cleanString(payload.timeline);
+  if (spend === '€0–€1k' && timeline === 'Just exploring') {
+    return 'Low priority';
+  }
+  return 'Qualified';
+}
+
+function sanitizePayload(payload, req) {
+  return {
+    full_name: cleanString(payload.full_name),
+    work_email: cleanString(payload.work_email),
+    company_name: cleanString(payload.company_name),
+    website_url: payload.no_website_yet ? null : cleanString(payload.website_url),
+    no_website_yet: Boolean(payload.no_website_yet),
+    country_timezone: cleanString(payload.country_timezone),
+    industry: cleanString(payload.industry),
+    industry_other: cleanString(payload.industry_other),
+    role: cleanString(payload.role),
+    is_decision_maker: cleanString(payload.is_decision_maker),
+    final_decision_maker: cleanString(payload.final_decision_maker),
+    decision_maker_will_join: cleanString(payload.decision_maker_will_join),
+
+    combination_q1: cleanString(payload.combination_q1),
+    combination_q2: cleanString(payload.combination_q2),
+    combination_q3: cleanString(payload.combination_q3),
+    combination_q4: cleanString(payload.combination_q4),
+
+    primary_goal: cleanString(payload.primary_goal),
+    target_outcome_metric: cleanString(payload.target_outcome_metric),
+    ad_spend_range: cleanString(payload.ad_spend_range),
+    can_increase_budget: cleanString(payload.can_increase_budget),
+    timeline: cleanString(payload.timeline),
+    biggest_constraints: cleanArray(payload.biggest_constraints),
+
+    channels_used: cleanArray(payload.channels_used),
+    google_monthly_spend: cleanString(payload.google_monthly_spend),
+    google_tracking_ready: cleanString(payload.google_tracking_ready),
+    meta_pixel_capi: cleanString(payload.meta_pixel_capi),
+
+    assets_available: cleanArray(payload.assets_available),
+    has_crm: cleanString(payload.has_crm),
+    crm_name: cleanString(payload.crm_name),
+    lead_intake_channels: cleanArray(payload.lead_intake_channels),
+    numbers_knowledge: cleanString(payload.numbers_knowledge),
+
+    services_interested: cleanArray(payload.services_interested),
+    anything_else: cleanString(payload.anything_else),
+
+    consent_contact: Boolean(payload.consent_contact),
+    consent_privacy: Boolean(payload.consent_privacy),
+    consent_newsletter: Boolean(payload.consent_newsletter),
+
+    source_url: cleanString(payload.source_url),
+    referrer_url: cleanString(payload.referrer_url),
+    landing_path: cleanString(payload.landing_path),
+    utm_source: cleanString(payload.utm_source),
+    utm_medium: cleanString(payload.utm_medium),
+    utm_campaign: cleanString(payload.utm_campaign),
+    utm_content: cleanString(payload.utm_content),
+    utm_term: cleanString(payload.utm_term),
+
+    ip_address: getClientIp(req),
+    user_agent: cleanString(req.headers['user-agent']),
+    lead_status: deriveLeadStatus(payload),
+    created_at: new Date().toISOString()
+  };
+}
+
+async function persistToSupabase(record) {
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) {
+    return { persisted: false, reason: 'Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY' };
+  }
+
+  const endpoint = `${url.replace(/\/$/, '')}/rest/v1/strategy_call_applications`;
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      apikey: key,
+      Authorization: `Bearer ${key}`,
+      'Content-Type': 'application/json',
+      Prefer: 'return=representation'
+    },
+    body: JSON.stringify(record)
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`Supabase insert failed: ${response.status} ${text}`);
+  }
+
+  const data = await response.json();
+  return {
+    persisted: true,
+    id: Array.isArray(data) && data.length ? data[0].id : null
+  };
+}
+
+async function sendWithResend({ to, subject, html, text }) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.MAIL_FROM;
+  if (!apiKey || !from) {
+    return { sent: false, reason: 'Missing RESEND_API_KEY or MAIL_FROM' };
+  }
+
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      from,
+      to,
+      subject,
+      html,
+      text
+    })
+  });
+
+  if (!response.ok) {
+    const textError = await response.text();
+    throw new Error(`Resend failed: ${response.status} ${textError}`);
+  }
+
+  return { sent: true };
+}
+
+function userEmailTemplate(record, calendarUrl) {
+  const subject = 'Your LYNCK Strategy Call Application';
+  const text = [
+    `Hi ${record.full_name || 'there'},`,
+    '',
+    'Thanks for applying for a Strategy Call with LYNCK Studio.',
+    'Your application was received successfully.',
+    '',
+    'Next step: book your slot here:',
+    calendarUrl,
+    '',
+    'What to prepare for the call:',
+    '- Your current lead/sales goals',
+    '- Any key numbers you have (CPA/CAC/LTV/ROAS)',
+    '- Optional: account access context (Google/Meta/Analytics)',
+    '',
+    'If it turns out there is no fit, we will tell you directly.',
+    '',
+    'LYNCK Studio',
+    'info@lynckstudio.pro'
+  ].join('\n');
+
+  const html = `
+    <div style="font-family:Inter,Arial,sans-serif;line-height:1.6;color:#101728;max-width:640px;margin:0 auto;">
+      <h2 style="margin:0 0 12px;">Your Strategy Call Application is in.</h2>
+      <p>Hi ${record.full_name || 'there'},</p>
+      <p>Thanks for applying for a Strategy Call with LYNCK Studio.</p>
+      <p><strong>Next step:</strong> book your slot now:</p>
+      <p><a href="${calendarUrl}" target="_blank" rel="noopener noreferrer">${calendarUrl}</a></p>
+      <p><strong>What to prepare:</strong></p>
+      <ul>
+        <li>Your current lead/sales goals</li>
+        <li>Any key numbers you have (CPA/CAC/LTV/ROAS)</li>
+        <li>Optional: account access context (Google/Meta/Analytics)</li>
+      </ul>
+      <p>If there is no fit, we will tell you directly.</p>
+      <p>LYNCK Studio<br>info@lynckstudio.pro</p>
+    </div>
+  `;
+
+  return { subject, text, html };
+}
+
+function internalEmailTemplate(record) {
+  const subject = `New Strategy Call Application: ${record.company_name || 'Unknown company'}`;
+  const summary = [
+    `Lead status: ${record.lead_status}`,
+    `Name: ${record.full_name}`,
+    `Email: ${record.work_email}`,
+    `Company: ${record.company_name}`,
+    `Website: ${record.website_url || 'No website yet'}`,
+    `Industry: ${record.industry}${record.industry_other ? ` (${record.industry_other})` : ''}`,
+    `Role: ${record.role}`,
+    `Decision maker: ${record.is_decision_maker}`,
+    `Budget range: ${record.ad_spend_range}`,
+    `Timeline: ${record.timeline}`,
+    `Services: ${record.services_interested.join(', ')}`,
+    `Source URL: ${record.source_url || 'n/a'}`,
+    `UTM: ${record.utm_source || 'n/a'} / ${record.utm_medium || 'n/a'} / ${record.utm_campaign || 'n/a'}`,
+    '',
+    'Combination answers:',
+    `1) ${record.combination_q1}`,
+    `2) ${record.combination_q2}`,
+    `3) ${record.combination_q3}`,
+    `4) ${record.combination_q4}`
+  ].join('\n');
+
+  const html = `
+    <div style="font-family:Inter,Arial,sans-serif;line-height:1.55;color:#101728;max-width:760px;margin:0 auto;">
+      <h2 style="margin:0 0 12px;">New Strategy Call Application</h2>
+      <p><strong>Lead status:</strong> ${record.lead_status}</p>
+      <p><strong>Name:</strong> ${record.full_name}<br>
+         <strong>Email:</strong> ${record.work_email}<br>
+         <strong>Company:</strong> ${record.company_name}<br>
+         <strong>Website:</strong> ${record.website_url || 'No website yet'}<br>
+         <strong>Budget:</strong> ${record.ad_spend_range}<br>
+         <strong>Timeline:</strong> ${record.timeline}</p>
+      <p><strong>Services:</strong> ${record.services_interested.join(', ')}</p>
+      <hr>
+      <h3 style="margin:12px 0 8px;">Combination answers</h3>
+      <ol>
+        <li>${record.combination_q1}</li>
+        <li>${record.combination_q2}</li>
+        <li>${record.combination_q3}</li>
+        <li>${record.combination_q4}</li>
+      </ol>
+    </div>
+  `;
+
+  return { subject, text: summary, html };
+}
+
+module.exports = async (req, res) => {
+  if (req.method === 'OPTIONS') {
+    res.setHeader('Allow', 'POST, OPTIONS');
+    return json(res, 200, { ok: true });
+  }
+
+  if (req.method !== 'POST') {
+    res.setHeader('Allow', 'POST, OPTIONS');
+    return json(res, 405, { success: false, message: 'Method not allowed' });
+  }
+
+  const ip = getClientIp(req);
+  if (isRateLimited(ip)) {
+    return json(res, 429, {
+      success: false,
+      message: 'Too many requests. Please wait and try again.'
+    });
+  }
+
+  let payload = {};
+  if (req.body && typeof req.body === 'object') {
+    payload = req.body;
+  } else if (typeof req.body === 'string' && req.body.trim()) {
+    try {
+      payload = JSON.parse(req.body);
+    } catch (e) {
+      return json(res, 400, { success: false, message: 'Invalid JSON payload' });
+    }
+  }
+
+  // Honeypot: return success to avoid bot retries while discarding the submission.
+  if (cleanString(payload.honeypot)) {
+    return json(res, 200, {
+      success: true,
+      calendar_url: DEFAULT_CALENDAR_URL,
+      lead_status: 'Low priority'
+    });
+  }
+
+  const validationError = validatePayload(payload);
+  if (validationError) {
+    return json(res, 400, { success: false, message: validationError });
+  }
+
+  const record = sanitizePayload(payload, req);
+  const calendarUrl = DEFAULT_CALENDAR_URL;
+
+  let persistenceInfo = { persisted: false, reason: 'Not attempted' };
+  try {
+    persistenceInfo = await persistToSupabase(record);
+  } catch (error) {
+    persistenceInfo = { persisted: false, reason: error.message };
+  }
+
+  const internalTo = process.env.INTERNAL_NOTIFY_EMAIL || 'info@lynckstudio.pro';
+  const emailErrors = [];
+
+  try {
+    const userMail = userEmailTemplate(record, calendarUrl);
+    await sendWithResend({
+      to: [record.work_email],
+      subject: userMail.subject,
+      html: userMail.html,
+      text: userMail.text
+    });
+  } catch (error) {
+    emailErrors.push(`User email: ${error.message}`);
+  }
+
+  try {
+    const internalMail = internalEmailTemplate(record);
+    await sendWithResend({
+      to: [internalTo],
+      subject: internalMail.subject,
+      html: internalMail.html,
+      text: internalMail.text
+    });
+  } catch (error) {
+    emailErrors.push(`Internal email: ${error.message}`);
+  }
+
+  return json(res, 200, {
+    success: true,
+    lead_status: record.lead_status,
+    calendar_url: calendarUrl,
+    persistence: persistenceInfo,
+    email_warnings: emailErrors
+  });
+};

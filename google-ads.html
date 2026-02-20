@@ -719,7 +719,7 @@
           <a href="/index.html#arch">About LYNCK</a>
           <a href="/index.html#our-services">Our Services</a>
           <a href="/index.html#testimonials">Testimonials</a>
-          <a href="/index.html#terminal">Blog</a>
+          <a href="/blog-real-reason-your-ads-dont-convert.html">Blog</a>
         </nav>
 
         <div class="lynck-header-right">
@@ -733,7 +733,7 @@
               <button type="button" role="menuitem" data-lang-switch="de"><span aria-hidden="true">🇩🇪</span> Deutsch</button>
             </div>
           </div>
-          <button type="button" class="gradient-border-btn" data-contact-btn>
+          <button type="button" class="gradient-border-btn" data-apply-btn>
             <div class="btn-beam"></div>
                     <div class="btn-bg">
                         <div class="btn-bg-grad"></div>
@@ -757,7 +757,7 @@
         <h1 class="ga-title">Capture Intent. Create Demand. Scale With Structure.</h1>
         <p class="ga-subtitle">Google Ads is not just running search ads. It is a full ecosystem where you capture demand that already exists and generate new demand through visibility and creative.</p>
         <div class="ga-btns">
-          <a class="ga-btn primary" href="/contact.html">Book Your FREE Strategy Call</a>
+          <a class="ga-btn primary" href="/apply/">Book Your FREE Strategy Call</a>
         </div>
       </section>
 
@@ -969,7 +969,7 @@
         <h2>Ready to build a structured Google Ads growth engine?</h2>
         <p>Capture intent, create demand, and scale with measurable performance.</p>
         <div class="ga-btns">
-          <a class="ga-btn primary" href="/contact.html">Book Your FREE Strategy Call</a>
+          <a class="ga-btn primary" href="/apply/">Book Your FREE Strategy Call</a>
           <a class="ga-btn ghost" href="/cookie-policy.html">Cookie Policy</a>
           <a class="ga-btn ghost" href="/privacy-policy.html">Privacy Policy</a>
           <a class="ga-btn ghost" href="/legal-notice.html">Legal Notice</a>
@@ -1055,7 +1055,18 @@
         contactButtons.forEach((btn) => {
           btn.addEventListener('click', () => {
             const lang = getLang();
-            const target = lang === 'de' ? '/de/contact.html' : '/contact.html';
+            const target = lang === 'de' ? '/de/apply/' : '/apply/';
+            window.location.href = target;
+          });
+        });
+      }
+
+      const applyButtons = document.querySelectorAll('[data-apply-btn]');
+      if (applyButtons.length) {
+        applyButtons.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const lang = getLang();
+            const target = lang === 'de' ? '/de/apply/' : '/apply/';
             window.location.href = target;
           });
         });
@@ -1092,6 +1103,5 @@
       });
     })();
   </script>
-  <script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
 </body>
 </html>
