@@ -14,17 +14,17 @@
   <style>
     /* ── Tokens ── */
     :root {
-      --b-bg: #0a0f1e;
-      --b-surface: #111827;
-      --b-card: #0f1a2e;
-      --b-card-border: rgba(0,69,186,.18);
-      --b-ink: #eaedf5;
-      --b-muted: #b5bfd4;
-      --b-body: #e4eaf7;
+      --b-bg: #f1efe6;
+      --b-surface: #ffffff;
+      --b-card: #ffffff;
+      --b-card-border: rgba(12, 23, 48, 0.12);
+      --b-ink: #0c1730;
+      --b-muted: #5f6b82;
+      --b-body: #202c45;
       --b-accent: #0045ba;
       --b-accent-light: #3b7cef;
       --b-warm: #e56a1e;
-      --b-line: rgba(255,255,255,.07);
+      --b-line: rgba(12, 23, 48, 0.12);
       --b-r: 16px;
       --b-pill: 999px;
       --b-max: 780px;
@@ -33,7 +33,7 @@
 
     body.blog-page {
       background: var(--b-bg);
-      color: var(--b-body);
+      color: var(--b-ink);
       font-family: 'Manrope', sans-serif;
     }
 
@@ -43,9 +43,9 @@
       padding: 160px 0 80px;
       overflow: hidden;
       background:
-        radial-gradient(ellipse at 20% 80%, rgba(0,69,186,.15), transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(229,106,30,.06), transparent 50%),
-        var(--b-bg);
+        radial-gradient(ellipse at 20% 80%, rgba(0,69,186,.26), transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(229,106,30,.12), transparent 50%),
+        #0c1730;
     }
 
     .blog-hero::after {
@@ -55,7 +55,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(0,69,186,.25), transparent);
+      background: linear-gradient(to right, transparent, rgba(0,69,186,.35), transparent);
     }
 
     .blog-hero-inner {
@@ -97,7 +97,7 @@
 
     .blog-hero-lead {
       margin: 28px 0 0;
-      color: var(--b-muted);
+      color: rgba(255, 255, 255, 0.8);
       font-size: clamp(16px, 1.8vw, 19px);
       line-height: 1.65;
       max-width: 56ch;
@@ -154,7 +154,7 @@
       padding-top: 24px;
       border-top: 1px solid var(--b-line);
       font-size: 13px;
-      color: var(--b-muted);
+      color: rgba(255, 255, 255, 0.62);
       font-weight: 500;
     }
 
@@ -166,16 +166,16 @@
     }
 
     /* ── Section wrapper ── */
+    #blog-article {
+      background: var(--b-bg);
+      color: var(--b-ink);
+    }
+
     .blog-section {
       position: relative;
       width: min(var(--b-wide), 92vw);
       margin: 0 auto;
       padding: 72px 0;
-      opacity: 1;
-    }
-
-    #blog-article {
-      color: var(--b-body);
       opacity: 1;
     }
 
@@ -214,7 +214,7 @@
       font-size: clamp(28px, 3.5vw, 46px);
       line-height: 1.06;
       letter-spacing: -.035em;
-      color: #fff;
+      color: var(--b-ink);
       font-weight: 700;
       max-width: 22ch;
     }
@@ -246,6 +246,17 @@
       color: var(--b-accent-light);
     }
 
+    .blog-text a {
+      color: var(--b-accent);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .blog-text a:hover {
+      color: var(--b-warm);
+    }
+
     /* ── Card grid (PDF 3-col pattern) ── */
     .blog-card-grid {
       display: grid;
@@ -263,7 +274,7 @@
     }
 
     .blog-card:hover {
-      border-color: rgba(0,69,186,.35);
+      border-color: rgba(0,69,186,.42);
       transform: translateY(-2px);
     }
 
@@ -272,7 +283,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-size: 18px;
       font-weight: 700;
-      color: #fff;
+      color: var(--b-ink);
       letter-spacing: -.01em;
     }
 
@@ -280,7 +291,7 @@
       margin: 0;
       font-size: 15px;
       line-height: 1.6;
-      color: var(--b-muted);
+      color: var(--b-body);
     }
 
     .blog-card-icon {
@@ -290,8 +301,8 @@
       width: 40px;
       height: 40px;
       border-radius: 10px;
-      background: rgba(0,69,186,.15);
-      border: 1px solid rgba(0,69,186,.2);
+      background: rgba(0,69,186,.08);
+      border: 1px solid rgba(0,69,186,.16);
       color: var(--b-accent-light);
       margin-bottom: 16px;
     }
@@ -316,7 +327,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-size: 17px;
       font-weight: 700;
-      color: #fff;
+      color: var(--b-ink);
     }
 
     .blog-col-card ul {
@@ -384,7 +395,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-size: 18px;
       font-weight: 700;
-      color: #fff;
+      color: var(--b-ink);
       letter-spacing: -.01em;
     }
 
@@ -392,7 +403,7 @@
       margin: 0;
       font-size: 15px;
       line-height: 1.6;
-      color: var(--b-muted);
+      color: var(--b-body);
     }
 
     /* ── Steps (horizontal ruled, like PDF page 4) ── */
@@ -425,14 +436,14 @@
       margin: 0 0 6px;
       font-family: 'Space Grotesk', sans-serif;
       font-size: 20px;
-      color: #fff;
+      color: var(--b-ink);
       font-weight: 700;
     }
 
     .blog-steps-ruled .step p {
       margin: 0;
       font-size: 14px;
-      color: var(--b-muted);
+      color: var(--b-body);
       line-height: 1.55;
     }
 
@@ -443,6 +454,7 @@
       border-left: 3px solid var(--b-accent);
       background: var(--b-surface);
       border-radius: 0 var(--b-r) var(--b-r) 0;
+      box-shadow: 0 10px 24px rgba(12, 23, 48, 0.06);
     }
 
     .blog-pullquote p {
@@ -450,7 +462,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(20px, 2.5vw, 28px);
       line-height: 1.4;
-      color: #fff;
+      color: var(--b-ink);
       font-weight: 600;
       letter-spacing: -.02em;
     }
@@ -462,7 +474,7 @@
       border: 1px solid var(--b-card-border);
       border-left: 3px solid var(--b-accent);
       border-radius: 0 var(--b-r) var(--b-r) 0;
-      background: rgba(0,69,186,.06);
+      background: rgba(0,69,186,.05);
     }
 
     .blog-callout p {
@@ -473,13 +485,13 @@
     }
 
     .blog-callout strong {
-      color: #fff;
+      color: var(--b-ink);
     }
 
     /* ── Divider ── */
     .blog-divider {
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(255,255,255,.08), transparent);
+      background: linear-gradient(to right, transparent, rgba(12, 23, 48, 0.14), transparent);
       margin: 40px 0;
     }
 
@@ -495,7 +507,7 @@
       background:
         radial-gradient(ellipse at 25% 80%, rgba(0,69,186,.15), transparent 50%),
         radial-gradient(ellipse at 75% 20%, rgba(229,106,30,.08), transparent 50%),
-        var(--b-surface);
+        #0c1730;
       border: 1px solid var(--b-card-border);
       border-radius: var(--b-r);
       text-align: center;
@@ -512,7 +524,7 @@
 
     .blog-cta p {
       margin: 0 auto 32px;
-      color: var(--b-muted);
+      color: rgba(255, 255, 255, 0.75);
       font-size: 17px;
       line-height: 1.6;
       max-width: 50ch;
@@ -560,7 +572,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(24px, 3vw, 32px);
       letter-spacing: -.02em;
-      color: #fff;
+      color: var(--b-ink);
     }
 
     .blog-related-header a {
@@ -598,12 +610,12 @@
     .blog-related-thumb {
       aspect-ratio: 16/9;
       background:
-        radial-gradient(ellipse at 50% 50%, rgba(0,69,186,.12), transparent 70%),
-        var(--b-surface);
+        radial-gradient(ellipse at 50% 50%, rgba(0,69,186,.08), transparent 70%),
+        #f8f9fc;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #2a3a5c;
+      color: #425276;
       font-family: 'Space Grotesk', sans-serif;
       font-size: 12px;
       font-weight: 600;
@@ -631,14 +643,14 @@
       font-family: 'Space Grotesk', sans-serif;
       font-size: 17px;
       line-height: 1.3;
-      color: #fff;
+      color: var(--b-ink);
     }
 
     .blog-related-body p {
       margin: 0;
       font-size: 14px;
       line-height: 1.55;
-      color: var(--b-muted);
+      color: var(--b-body);
     }
 
     /* ── Responsive ── */
@@ -1073,10 +1085,10 @@
       <div class="blog-text">
         <p>If you want to see how we structure this step-by-step, read:</p>
         <ul>
-          <li>How We Work (internal link to your "How we work" section/page)</li>
-          <li>Google Ads Lead Gen (internal link to your lead gen service page)</li>
-          <li>Meta Ads &amp; Paid Social (internal link to paid social page)</li>
-          <li>Case Studies (internal link to case study page)</li>
+          <li><a href="/#pipeline">How We Work</a></li>
+          <li><a href="/services/service.html?service=leads-generation">Google Ads Lead Gen</a></li>
+          <li><a href="/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a></li>
+          <li><a href="/#testimonials">Case Studies</a></li>
         </ul>
       </div>
     </section>
@@ -1095,7 +1107,7 @@
 
       <div class="blog-text">
         <p>If you want help identifying the real buying reasons in your market (and turning that into ads + landing pages that convert), that's exactly what we do at LYNCK Studio.</p>
-        <p>(Internal link idea: CTA button/link to your audit or strategy call page.)</p>
+        <p><a href="/apply/">Apply for a Strategy Call</a></p>
       </div>
     </section>
     </div>

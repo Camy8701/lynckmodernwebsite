@@ -589,6 +589,93 @@
       font-size: 1.08rem;
     }
     .ga-content li::before { content: none; }
+    .sevo-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0.6rem 0 1rem;
+      border: 1px solid rgba(15, 35, 74, 0.24);
+      border-radius: 1.2rem;
+      background:
+        linear-gradient(135deg, rgba(24, 74, 188, 0.08), rgba(229, 106, 30, 0.08) 55%, rgba(24, 74, 188, 0.06)),
+        rgba(252, 254, 255, 0.96);
+      box-shadow: 0 18px 34px rgba(9, 24, 52, 0.14);
+      backdrop-filter: blur(8px);
+    }
+    .sevo-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      min-width: 860px;
+      color: #193257;
+      font-size: 0.98rem;
+    }
+    .sevo-table th,
+    .sevo-table td {
+      text-align: left;
+      padding: 1rem 0.95rem;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(17, 26, 46, 0.14);
+      line-height: 1.62;
+      border-right: 1px solid rgba(17, 26, 46, 0.14);
+    }
+    .sevo-table th {
+      position: relative;
+      overflow: visible;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(17, 26, 46, 0.22);
+    }
+    .sevo-table th:last-child,
+    .sevo-table td:last-child { border-right: 0; }
+    .sevo-table th:first-child {
+      color: #0f2347;
+      background: linear-gradient(180deg, rgba(223, 230, 242, 0.98), rgba(212, 221, 238, 0.94));
+      border-top-left-radius: 0.9rem;
+    }
+    .sevo-table th:nth-child(2) {
+      color: #ffffff;
+      background: linear-gradient(135deg, #184abc, #2b69ec);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+      box-shadow: inset 4px 0 0 rgba(154, 188, 255, 0.42);
+    }
+    .sevo-table th:nth-child(3) {
+      color: #ffffff;
+      background: linear-gradient(135deg, #d66322, #ec8a33);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+      box-shadow: inset 4px 0 0 rgba(255, 206, 166, 0.45);
+      border-top-right-radius: 0.9rem;
+    }
+    .sevo-table td:first-child {
+      width: 22%;
+      font-weight: 700;
+      color: #132d57;
+      background: rgba(226, 234, 247, 0.93);
+    }
+    .sevo-table td:nth-child(2) {
+      color: #1a3f6f;
+      background: linear-gradient(180deg, rgba(24, 74, 188, 0.15), rgba(24, 74, 188, 0.08));
+      box-shadow: inset 4px 0 0 rgba(24, 74, 188, 0.33);
+    }
+    .sevo-table td:nth-child(3) {
+      color: #5b3317;
+      background: linear-gradient(180deg, rgba(229, 106, 30, 0.17), rgba(229, 106, 30, 0.09));
+      box-shadow: inset 4px 0 0 rgba(229, 106, 30, 0.34);
+    }
+    .sevo-table tbody tr:hover td:nth-child(2) {
+      background: linear-gradient(180deg, rgba(24, 74, 188, 0.22), rgba(24, 74, 188, 0.12));
+    }
+    .sevo-table tbody tr:hover td:nth-child(3) {
+      background: linear-gradient(180deg, rgba(229, 106, 30, 0.24), rgba(229, 106, 30, 0.13));
+    }
+    .sevo-table tr:last-child td {
+      border-bottom: 0;
+    }
+    @media (max-width: 980px) {
+      .sevo-table { min-width: 760px; }
+    }
     .ga-engine {
       margin-top: 1rem;
       padding-top: 1rem;
@@ -1051,7 +1138,7 @@
 
         <div class="ga-row">
           <div class="ga-media">
-            <img loading="lazy" decoding="async" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E" alt="Google Ads Strategie und Kampagnenarchitektur">
+            <img loading="lazy" decoding="async" src="/assets/google-ads-3d-icon-4k.webp" alt="Google Ads Strategie und Kampagnenarchitektur">
           </div>
           <div class="ga-content">
             <h2>Was Google Ads fuer dein Business leisten kann</h2>
@@ -1092,7 +1179,7 @@
             </div>
           </div>
           <div class="ga-media">
-            <img loading="lazy" decoding="async" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E" alt="Performance Dashboards und Paid Media Analyse">
+            <img loading="lazy" decoding="async" src="/assets/google-ads-image-2.png" alt="Performance Dashboards und Paid Media Analyse">
           </div>
         </div>
 
@@ -1529,9 +1616,9 @@
       "meta-ads": {
         title: "Meta Ads & Paid Social",
         lead: "Menschen erreichen, bevor sie suchen.",
-        imagePrimary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
-        imageSecondary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
-        imageTertiary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
+        imagePrimary: "/assets/meta-ads-image-1.jpeg",
+        imageSecondary: "/assets/meta-ads-3d-icon-4k.webp",
+        imageTertiary: "/assets/meta-ads-image-3.jpeg",
         imageAlt: "Meta Paid Social Performance und Creative-Operations",
         introParagraphs: [
           "Meta Ads (Facebook und Instagram) funktionieren grundlegend anders als Google. Statt darauf zu warten, dass jemand sucht, platzierst du deine Marke gezielt vor hochspezifischen Zielgruppen - basierend auf Interessen, Verhalten und Demografie - waehrend sie durch ihren Feed scrollen.",
@@ -1558,9 +1645,9 @@
       "ai-content": {
         title: "KI Content & Creative Production",
         lead: "Schneller umsetzen. Weniger ausgeben. Direkt zur Zielgruppe sprechen.",
-        imagePrimary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
-        imageSecondary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
-        imageTertiary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
+        imagePrimary: "/assets/ai-content-image-1.webp",
+        imageSecondary: "/assets/ai-content-image-2.jpeg",
+        imageTertiary: "/assets/ai-content-image-3.jpeg",
         imageAlt: "KI-gestuetzter Creative- und Content-Produktions-Workflow",
         introParagraphs: [
           "Content-Erstellung war frueher langsam und teuer. Eine einzelne Ad-Kampagne konnte Wochen an Produktion, Tausende an Designkosten und einen starren Kreativprozess erfordern, der kaum Raum zum Testen liess.",
@@ -1619,9 +1706,9 @@
       "web-systems": {
         title: "Conversion-Fokussierte Websysteme",
         lead: "Modern. Ueberzeugend. Gebaut, um zu arbeiten, waehrend du schlaefst.",
-        imagePrimary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
-        imageSecondary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
-        imageTertiary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
+        imagePrimary: "/assets/web-systems-image-1.jpeg",
+        imageSecondary: "/assets/laptop-emitting-colorful-digital-interface-elements-4k.webp",
+        imageTertiary: "/assets/web-systems-image-3.jpeg",
         imageAlt: "Conversion-fokussiertes Webdesign und Funnel-Systeme",
         introParagraphs: [
           "Deine Website ist keine Broschuere. Sie ist ein Business-System.",
@@ -1653,9 +1740,9 @@
       "growth-strategy": {
         title: "Growth Strategy & Brand Positioning",
         lead: "Klarheit vor Budget.",
-        imagePrimary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
-        imageSecondary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
-        imageTertiary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
+        imagePrimary: "/assets/growth-strategy-image-1.jpeg",
+        imageSecondary: "/assets/growth-strategy-image-2.jpeg",
+        imageTertiary: "/assets/growth-strategy-image-3.jpeg",
         imageAlt: "Strategische Planung und Brand-Positioning-Workshop",
         introParagraphs: [
           "Hier beginnt alles.",
@@ -1682,9 +1769,9 @@
       "leads-generation": {
         title: "Lead-Generierungssysteme",
         lead: "Planbare Pipeline. Qualifizierte Leads. Kein Streuverlust.",
-        imagePrimary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
-        imageSecondary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
-        imageTertiary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
+        imagePrimary: "/assets/leads-generation-image-1.png",
+        imageSecondary: "/assets/glowing-email-icon-in-dark-3d-interface-4k.webp",
+        imageTertiary: "/assets/leads-generation-image-3.webp",
         imageAlt: "Lead-Generierungs-Pipeline-Dashboards und Qualifizierungssysteme",
         introParagraphs: [
           "Hier ist die Realitaet, ueber die die meisten Unternehmen nicht offen sprechen:",
@@ -1712,9 +1799,9 @@
       "youtube-growth-services": {
         title: "YouTube Growth Services",
         lead: "Die Plattform, die sich ueber Jahre fuer dich auszahlt.",
-        imagePrimary: "/assets/youtube-hero-bg.webp",
-        imageSecondary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
-        imageTertiary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
+        imagePrimary: "/assets/youtube-growth-image-1.jpeg",
+        imageSecondary: "/assets/3d-play-button-icon-with-neon-gradient-glow-4k.webp",
+        imageTertiary: "/assets/youtube-growth-image-3-alt.jpeg",
         imageAlt: "YouTube-Kanalwachstum und Video-Distributionssystem",
         introParagraphs: [
           "YouTube ist das am meisten unterschaetzte Wachstums-Asset im digitalen Marketing.",
@@ -1744,9 +1831,9 @@
       "seo-sevo": {
         title: "SEO & SEvO (Search Everywhere Optimization)",
         lead: "Ueberall gefunden werden, wo deine Zielgruppe sucht. Nicht nur bei Google.",
-        imagePrimary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
-        imageSecondary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
-        imageTertiary: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230045ba'/%3E%3Cstop offset='1' stop-color='%230c1730'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3C/svg%3E",
+        imagePrimary: "/assets/seo-sevo-image-1.jpeg",
+        imageSecondary: "/assets/seo-sevo-analytics-4k.webp",
+        imageTertiary: "/assets/seo-sevo-image-3.webp",
         imageAlt: "Such-Performance und kanaluebergreifende Sichtbarkeitsanalysen",
         introParagraphs: [
           "Traditionelles SEO konzentriert sich darauf, deine Website in den Google-Suchergebnissen zu platzieren - durch Keywords, technische Optimierung, Backlinks und On-Page-Struktur. Es ist fundamental und es zaehlt immer noch. Eine gut optimierte Website bringt Monat fuer Monat organischen Traffic, ohne fuer jeden Klick zu zahlen.",
@@ -1840,7 +1927,7 @@
     if (slug === "youtube-growth-services") {
       if (serviceDetail) {
         serviceDetail.classList.add("youtube-hero");
-        serviceDetail.style.setProperty("--youtube-bg-image", "url('/assets/youtube-hero-bg.webp')");
+        serviceDetail.style.setProperty("--youtube-bg-image", "url('/assets/3d-play-button-icon-with-neon-gradient-glow-4k.webp')");
       }
     } else if (serviceDetail) {
       serviceDetail.classList.remove("youtube-hero");
