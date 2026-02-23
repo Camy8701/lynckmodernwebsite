@@ -270,102 +270,54 @@
                 { nameEn: 'Tourism', nameDe: 'Tourismus', query: 'tourism destination travel city', detailEn: 'Destination-focused campaigns that convert interest into bookings.', detailDe: 'Destinations-Kampagnen, die Interesse in Buchungen umwandeln.' },
             ];
 
-            const industryIconMap = {
-                'Accountant': 'finance',
-                'Architect': 'architecture',
-                'Automotive': 'automotive',
-                'B2B': 'network',
-                'Chiropractor': 'healthcare',
-                'Cleaning Services': 'sparkles',
-                'Construction': 'construction',
-                'Dentist': 'dental',
-                'Ecommerce': 'cart',
-                'Education': 'education',
-                'Electrician': 'bolt',
-                'Energy': 'energy',
-                'Entertainment': 'play',
-                'Events': 'calendar',
-                'Fashion': 'fashion',
-                'Fitness & Nutrition': 'fitness',
-                'Food': 'food',
-                'Healthcare': 'healthcare',
-                'Hotel': 'hotel',
-                'HVAC': 'fan',
-                'Insurance': 'shield',
-                'Interior Design': 'interior',
-                'Landscaping': 'leaf',
-                'Law': 'law',
-                'Logistics': 'logistics',
-                'Manufacturing': 'gear',
-                'Moving Company': 'box',
-                'Photography': 'camera',
-                'Plumbing': 'tool',
-                'Real Estate': 'house',
-                'Recruitment': 'search-user',
-                'Retail': 'bag',
-                'Roofing': 'roof',
-                'SaaS': 'cloud',
-                'Small Business': 'store',
-                'Sports': 'sports',
-                'Technology': 'chip',
-                'Therapist': 'wellness',
-                'Tourism': 'plane',
+            const industryImageMap = {
+                'Accountant': 'accountant.png',
+                'Architect': 'architect.png',
+                'Automotive': 'automotive.png',
+                'B2B': 'b2b.png',
+                'Chiropractor': 'chiropractor.png',
+                'Cleaning Services': 'cleaning-services.png',
+                'Construction': 'construction.png',
+                'Dentist': 'dentist.png',
+                'Ecommerce': 'e-commerce.png',
+                'Education': 'education.png',
+                'Electrician': 'electrician.png',
+                'Energy': 'energy.png',
+                'Entertainment': 'entertainment.png',
+                'Events': 'event.png',
+                'Fashion': 'fashion.png',
+                'Fitness & Nutrition': 'fitness.png',
+                'Food': 'food.png',
+                'Healthcare': 'healthcare.png',
+                'Hotel': 'hotel.png',
+                'HVAC': 'hvac.png',
+                'Insurance': 'insurance.png',
+                'Interior Design': 'interior-design.png',
+                'Landscaping': 'landscaping.png',
+                'Law': 'law.png',
+                'Logistics': 'logistic.png',
+                'Manufacturing': 'manufacturing.png',
+                'Moving Company': 'moving-company.png',
+                'Photography': 'photography.png',
+                'Plumbing': 'plumbing.png',
+                'Real Estate': 'real-estate.png',
+                'Recruitment': 'recruitement.png',
+                'Retail': 'retail.png',
+                'Roofing': 'roofing.png',
+                'SaaS': 'saas.png',
+                'Small Business': 'small-businesses.png',
+                'Sports': 'sport.png',
+                'Technology': 'technology.png',
+                'Therapist': 'therapist.png',
+                'Tourism': 'tourism.png',
             };
 
-            const makeVectorSvg = (title, iconName) => {
-                const palettes = [
-                    ['#184abc', '#0d2f7b'],
-                    ['#0f3b8f', '#061c55'],
-                    ['#1f4fb7', '#0b2d6e'],
-                    ['#153f9d', '#081f5f'],
-                ];
+            const makeFallbackSvg = (title) => {
+                const palettes = [['#184abc', '#0d2f7b'], ['#0f3b8f', '#061c55']];
                 const hash = Array.from(title).reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
                 const [start, end] = palettes[hash % palettes.length];
-                const icon = (() => {
-                    switch (iconName) {
-                        case 'finance': return "<rect x='130' y='130' width='100' height='130' rx='8'/><path d='M150 170h60M150 194h60M150 218h40'/><rect x='170' y='108' width='100' height='130' rx='8'/><path d='M190 148h60M190 172h60M190 196h40'/><path d='M148 282h24v-30h24v30h24v-50h24v50h24'/>";
-                        case 'architecture': return "<rect x='140' y='150' width='120' height='120' rx='6'/><path d='M140 190h120M140 230h120M180 150v120M220 150v120'/><path d='M100 140l100-40 100 40'/><path d='M110 280h180'/><path d='M280 120l20-20v50'/>";
-                        case 'automotive': return "<path d='M110 220h180'/><path d='M130 220l16-50h108l16 50'/><rect x='106' y='220' width='188' height='40' rx='12'/><circle cx='152' cy='264' r='16'/><circle cx='248' cy='264' r='16'/><path d='M164 196h72'/><path d='M290 200l16 8v28M110 200l-16 8v28'/>";
-                        case 'network': return "<circle cx='200' cy='128' r='22'/><circle cx='120' cy='240' r='22'/><circle cx='280' cy='240' r='22'/><path d='M186 146l-52 78M214 146l52 78M142 240h116'/><circle cx='200' cy='128' r='8' fill='%23eaf3ff'/><circle cx='120' cy='240' r='8' fill='%23eaf3ff'/><circle cx='280' cy='240' r='8' fill='%23eaf3ff'/>";
-                        case 'construction': return "<path d='M176 280V164l-50 26v90'/><path d='M176 164l-10-40h20l-10 40'/><path d='M126 280h160'/><rect x='192' y='200' width='80' height='80' rx='6'/><path d='M192 240h80'/><rect x='212' y='252' width='20' height='28' rx='3'/><path d='M232 208h20M232 224h20'/>";
-                        case 'dental': return "<path d='M168 140c-28 0-44 22-38 54 6 32 18 72 28 72 8 0 12-22 18-40 4-12 10-20 24-20s20 8 24 20c6 18 10 40 18 40 10 0 22-40 28-72 6-32-10-54-38-54-12 0-20 8-32 8s-20-8-32-8Z'/><circle cx='168' cy='168' r='6' fill='%23eaf3ff'/><circle cx='232' cy='168' r='6' fill='%23eaf3ff'/><path d='M186 180c4 6 12 10 14 10s10-4 14-10'/>";
-                        case 'cart': return "<path d='M112 136h28l8 16'/><path d='M148 152l20 80h92l24-60H160'/><circle cx='180' cy='258' r='14'/><circle cx='248' cy='258' r='14'/><rect x='164' y='174' width='24' height='18' rx='4'/><path d='M206 174v18M224 174v18'/>";
-                        case 'education': return "<path d='M200 120l-100 48 100 48 100-48-100-48Z'/><path d='M132 184v52c20 28 116 28 136 0v-52'/><path d='M300 168v64'/><circle cx='300' cy='240' r='8'/><path d='M200 168v48'/>";
-                        case 'bolt': return "<path d='M220 100l-80 112h56l-16 88 80-112h-56l16-88Z'/><path d='M132 148l-20 4M268 248l20-4'/>";
-                        case 'energy': return "<circle cx='200' cy='200' r='90'/><path d='M220 128l-52 80h36l-12 64 52-80h-36l12-64Z'/><path d='M200 108v-16M200 308v-16M108 200H92M308 200h-16M136 136l-10-10M274 274l-10-10M264 136l10-10M126 274l10-10'/>";
-                        case 'play': return "<rect x='116' y='124' width='168' height='152' rx='18'/><path d='M184 176v48l40-24-40-24Z'/><path d='M116 156h168'/><circle cx='140' cy='140' r='6' fill='%23eaf3ff'/><circle cx='160' cy='140' r='6' fill='%23eaf3ff'/><circle cx='180' cy='140' r='6' fill='%23eaf3ff'/>";
-                        case 'calendar': return "<rect x='118' y='136' width='164' height='140' rx='14'/><path d='M118 176h164'/><path d='M158 116v40M242 116v40'/><circle cx='160' cy='212' r='8' fill='%23eaf3ff'/><circle cx='200' cy='212' r='8' fill='%23eaf3ff'/><circle cx='240' cy='212' r='8' fill='%23eaf3ff'/><circle cx='160' cy='248' r='8' fill='%23eaf3ff'/><circle cx='200' cy='248' r='8' fill='%23eaf3ff'/>";
-                        case 'fashion': return "<path d='M200 120v160'/><path d='M168 120c0-18 14-32 32-32s32 14 32 32'/><path d='M148 156c0 28 24 50 52 50s52-22 52-50'/><path d='M152 280h96'/><path d='M168 244l-20-16M232 244l20-16'/><path d='M180 188l-12 20M220 188l12 20'/>";
-                        case 'fitness': return "<rect x='100' y='178' width='28' height='44' rx='8'/><rect x='272' y='178' width='28' height='44' rx='8'/><rect x='128' y='186' width='144' height='28' rx='10'/><rect x='128' y='172' width='18' height='56' rx='4'/><rect x='254' y='172' width='18' height='56' rx='4'/><path d='M200 156v-20M186 144h28'/>";
-                        case 'food': return "<ellipse cx='200' cy='230' rx='80' ry='40'/><path d='M200 190v-70'/><path d='M180 120c0 24 8 42 20 54'/><path d='M220 120c0 24-8 42-20 54'/><path d='M200 120v-8'/><path d='M120 230c0 14 36 30 80 30s80-16 80-30'/><path d='M280 250v20c0 10-36 20-80 20s-80-10-80-20v-20'/>";
-                        case 'healthcare': return "<path d='M200 130c-26-36-78-36-78 10 0 56 78 100 78 100s78-44 78-100c0-46-52-46-78-10'/><path d='M184 180h32M200 164v32'/>";
-                        case 'hotel': return "<rect x='108' y='200' width='184' height='70' rx='12'/><path d='M136 200v-36c0-12 10-22 22-22h0c12 0 22 10 22 22v36'/><path d='M220 200v-36c0-12 10-22 22-22h0c12 0 22 10 22 22v36'/><path d='M108 270h184'/><path d='M128 130h144v70H128'/><path d='M200 130v-16'/>";
-                        case 'fan': return "<circle cx='200' cy='200' r='16'/><path d='M200 184c-6-40 10-72 36-80 12 30 2 64-20 80'/><path d='M216 200c40-6 72 10 80 36-30 12-64 2-80-20'/><path d='M200 216c6 40-10 72-36 80-12-30-2-64 20-80'/><path d='M184 200c-40 6-72-10-80-36 30-12 64-2 80 20'/><circle cx='200' cy='200' r='6' fill='%23eaf3ff'/>";
-                        case 'shield': return "<path d='M200 112l-76 30v60c0 54 34 88 76 106 42-18 76-52 76-106v-60l-76-30Z'/><path d='M176 204l18 18 32-36'/>";
-                        case 'interior': return "<path d='M160 160h80v60h-80z'/><path d='M144 220h112'/><path d='M160 220v48M240 220v48'/><path d='M152 268h96'/><path d='M116 120v40h24v-40'/><path d='M128 120c0-10 8-16 16-16'/><circle cx='128' cy='108' r='10'/><path d='M280 160h-24v-40h24v-8c0-10-8-18-18-18h0c-10 0-18 8-18 18v68'/>";
-                        case 'leaf': return "<path d='M140 276c20-80 72-132 152-148'/><path d='M292 128c-4 80-56 140-136 160'/><path d='M140 276c24-20 42-46 56-76'/><path d='M184 212c16-22 36-42 60-56'/><path d='M224 180c14-12 30-24 48-32'/>";
-                        case 'law': return "<path d='M200 108v160'/><path d='M140 148h120'/><path d='M128 148l-24 44h48l-24-44Z'/><path d='M272 148l-24 44h48l-24-44Z'/><rect x='166' y='268' width='68' height='14' rx='6'/><path d='M104 192h48M248 192h48'/>";
-                        case 'logistics': return "<rect x='96' y='176' width='140' height='72' rx='10'/><path d='M236 204h56l20 44H236v-44Z'/><circle cx='148' cy='260' r='16'/><circle cx='272' cy='260' r='16'/><path d='M96 204h140'/><path d='M116 176v-24h100v24'/><path d='M128 152h-20v-16h60v16'/>";
-                        case 'gear': return "<circle cx='200' cy='200' r='32'/><circle cx='200' cy='200' r='14'/><path d='M200 116v28M200 256v28M116 200h28M256 200h28'/><path d='M142 142l20 20M238 238l20 20M258 142l-20 20M142 258l20-20'/><path d='M188 130l12-14M212 130l-12-14M188 270l12 14M212 270l-12 14'/>";
-                        case 'box': return "<path d='M200 116l-92 48v80l92 48 92-48v-80l-92-48Z'/><path d='M108 164l92 48 92-48'/><path d='M200 212v80'/><path d='M200 116v-20M152 128l-20-12M248 128l20-12'/>";
-                        case 'camera': return "<rect x='108' y='152' width='184' height='124' rx='16'/><circle cx='200' cy='214' r='36'/><circle cx='200' cy='214' r='18'/><path d='M156 152l12-28h64l12 28'/><circle cx='264' cy='176' r='8' fill='%23eaf3ff'/><path d='M128 176h16'/>";
-                        case 'tool': return "<path d='M272 128c-22 0-40 18-40 40 0 8 2 16 6 22l-112 112c-12 12-12 32 0 44s32 12 44 0l112-112c6 4 14 6 22 6 22 0 40-18 40-40l-28 28-24-24 28-28c-14-4-28-2-40 8'/><circle cx='158' cy='310' r='8'/>";
-                        case 'house': return "<path d='M108 204l92-76 92 76'/><rect x='136' y='204' width='128' height='76' rx='6'/><rect x='180' y='236' width='40' height='44' rx='4'/><path d='M160 228h24v20h-24zM216 228h24v20h-24z'/><path d='M200 128v-12h28v36'/>";
-                        case 'search-user': return "<circle cx='172' cy='168' r='24'/><path d='M144 228c8-22 42-22 56 0'/><circle cx='252' cy='228' r='32'/><path d='M276 252l28 28'/><rect x='120' y='120' width='80' height='120' rx='12'/>";
-                        case 'bag': return "<rect x='132' y='168' width='136' height='112' rx='14'/><path d='M168 168c0-22 14-40 32-40s32 18 32 40'/><path d='M132 208h136'/><circle cx='172' cy='188' r='6' fill='%23eaf3ff'/><circle cx='228' cy='188' r='6' fill='%23eaf3ff'/>";
-                        case 'roof': return "<path d='M100 216l100-80 100 80'/><rect x='132' y='216' width='136' height='64' rx='6'/><rect x='180' y='240' width='40' height='40' rx='3'/><path d='M100 216h200'/><path d='M152 144l-24 8M248 144l24 8'/><path d='M200 136v-24'/>";
-                        case 'cloud': return "<path d='M146 256h118c24 0 44-18 44-40s-20-40-44-40h-4c-8-28-34-44-64-44-36 0-62 24-68 54h-4c-20 0-36 16-36 35s16 35 36 35h22Z'/><path d='M186 220l12 12 24-28'/><path d='M176 188h48M176 200h32'/>";
-                        case 'store': return "<rect x='120' y='184' width='160' height='92' rx='8'/><path d='M120 184h160v-28c0-8-6-14-14-14H134c-8 0-14 6-14 14v28Z'/><rect x='184' y='224' width='36' height='52' rx='4'/><path d='M140 224h28v28h-28z'/><path d='M120 276h160'/><path d='M200 142v-24M168 148l-10-20M232 148l10-20'/>";
-                        case 'sports': return "<circle cx='200' cy='188' r='60'/><path d='M200 128v120M140 188h120'/><path d='M152 148c16 22 16 58 0 80'/><path d='M248 148c-16 22-16 58 0 80'/><path d='M164 276h72'/><path d='M200 248v28'/>";
-                        case 'chip': return "<rect x='144' y='144' width='112' height='112' rx='10'/><rect x='168' y='168' width='64' height='64' rx='6'/><path d='M164 126v18M196 126v18M228 126v18M164 256v18M196 256v18M228 256v18M126 164h18M126 196h18M126 228h18M256 164h18M256 196h18M256 228h18'/><circle cx='200' cy='200' r='12'/>";
-                        case 'wellness': return "<circle cx='200' cy='148' r='28'/><path d='M200 176v36'/><path d='M168 196l32 16 32-16'/><path d='M148 268c12-32 28-48 52-48s40 16 52 48'/><path d='M128 200c-16 8-24 20-24 36'/><path d='M272 200c16 8 24 20 24 36'/>";
-                        case 'plane': return "<path d='M200 108v184'/><path d='M200 148l-72 60v28l72-28 72 28v-28l-72-60Z'/><path d='M200 260l-36 28v16l36-16 36 16v-16l-36-28Z'/><circle cx='200' cy='124' r='12'/>";
-                        case 'sparkles': return "<path d='M200 112l20 48 48 20-48 20-20 48-20-48-48-20 48-20 20-48Z'/><path d='M280 224l10 22 22 10-22 10-10 22-10-22-22-10 22-10 10-22Z'/><path d='M120 224l8 18 18 8-18 8-8 18-8-18-18-8 18-8 8-18Z'/>";
-                        default: return "<circle cx='200' cy='200' r='60'/><path d='M200 160v80M160 200h80'/>";
-                    }
-                })();
-                const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0%' stop-color='${start}'/><stop offset='100%' stop-color='${end}'/></linearGradient><radialGradient id='gl' cx='30%' cy='20%' r='80%'><stop offset='0%' stop-color='rgba(255,255,255,0.22)'/><stop offset='100%' stop-color='rgba(255,255,255,0)'/></radialGradient></defs><rect width='400' height='400' rx='24' fill='url(#g)'/><rect width='400' height='400' rx='24' fill='url(#gl)'/><g fill='none' stroke='rgba(210,226,255,0.9)' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'>${icon}</g></svg>`;
-                return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+                const initial = encodeURIComponent(title.charAt(0).toUpperCase());
+                return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='${encodeURIComponent(start)}'/%3E%3Cstop offset='1' stop-color='${encodeURIComponent(end)}'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23g)'/%3E%3Ctext x='50%25' y='56%25' fill='%23f4f8ff' font-size='160' font-weight='700' font-family='Inter,Arial,sans-serif' text-anchor='middle' dominant-baseline='middle'%3E${initial}%3C/text%3E%3C/svg%3E`;
             };
 
             const createCard = (service, index, lang) => {
@@ -376,11 +328,13 @@
 
                 const image = document.createElement('img');
                 image.className = 'service-mini-image';
-                const iconName = industryIconMap[service.nameEn] || 'sparkles';
-                image.src = makeVectorSvg(serviceName, iconName);
+                const imgFile = industryImageMap[service.nameEn];
+                image.src = imgFile ? `/assets/industries/${imgFile}` : makeFallbackSvg(serviceName);
                 image.alt = `${serviceName} service`;
                 image.loading = 'lazy';
                 image.decoding = 'async';
+                image.width = 344;
+                image.height = 344;
 
                 const tint = document.createElement('div');
                 tint.className = 'service-mini-tint';
