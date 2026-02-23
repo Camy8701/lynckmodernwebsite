@@ -800,18 +800,9 @@
             let fallbackRemoved = false;
             let heroReady = false;
             let readyTimeout = 0;
-            const connection = window.navigator.connection || window.navigator.mozConnection || window.navigator.webkitConnection;
-            const isSmallViewport = window.matchMedia('(max-width: 1024px)').matches;
-            const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
-            const hasLowMemory = typeof window.navigator.deviceMemory === 'number' && window.navigator.deviceMemory <= 4;
-            const hasLowCpu = typeof window.navigator.hardwareConcurrency === 'number' && window.navigator.hardwareConcurrency <= 4;
             const shouldUseFallbackOnly = (
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-                Boolean(connection && connection.saveData) ||
-                isSmallViewport ||
-                isCoarsePointer ||
-                hasLowMemory ||
-                hasLowCpu
+                Boolean(window.navigator.connection && window.navigator.connection.saveData)
             );
 
             const hideFallback = () => {
