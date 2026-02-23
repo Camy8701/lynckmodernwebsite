@@ -765,9 +765,23 @@
             let fallbackRemoved = false;
             let heroReady = false;
             let readyTimeout = 0;
+            const connection = window.navigator.connection || window.navigator.mozConnection || window.navigator.webkitConnection;
+            const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 0;
+            const isSmallViewport = viewportWidth > 0 ? viewportWidth <= 1200 : window.matchMedia('(max-width: 1200px)').matches;
+            const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints || 0) > 0;
+            const isLikelyMobileUA = /Android|iPhone|iPad|iPod|Mobile|IEMobile|Opera Mini/i.test(navigator.userAgent || '');
+            const hasLowMemory = typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4;
+            const hasLowCpu = typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4;
             const shouldUseFallbackOnly = (
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-                Boolean(window.navigator.connection && window.navigator.connection.saveData)
+                Boolean(connection && connection.saveData) ||
+                isSmallViewport ||
+                isCoarsePointer ||
+                isTouchDevice ||
+                isLikelyMobileUA ||
+                hasLowMemory ||
+                hasLowCpu
             );
 
             const hideFallback = () => {
@@ -813,10 +827,7 @@
             if (heroShell) {
                 heroShell.addEventListener('mouseenter', bootFrame, { once: true, passive: true });
                 heroShell.addEventListener('pointerdown', bootFrame, { once: true, passive: true });
-                heroShell.addEventListener('touchstart', bootFrame, { once: true, passive: true });
             }
-            window.addEventListener('pointerdown', bootFrame, { once: true, passive: true });
-            window.addEventListener('scroll', bootFrame, { once: true, passive: true });
             window.addEventListener('keydown', bootFrame, { once: true });
         })();
 
