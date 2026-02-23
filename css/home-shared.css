@@ -724,13 +724,15 @@ margin-top: 0.45rem;
   z-index: 3;
   overflow: hidden;
   margin-top: -1px;
-  background: #0a0e1a;
+  background:
+    linear-gradient(rgba(241, 239, 230, 0.92), rgba(241, 239, 230, 0.92)),
+    url('/assets/soft-abstract-curved-waves-in-neutral-tones-4k.jpeg') center / cover no-repeat;
 }
 .mesh-pulse-unified::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: none;
+  background: linear-gradient(180deg, rgba(241, 239, 230, 0.12) 0%, rgba(241, 239, 230, 0.05) 42%, rgba(241, 239, 230, 0.18) 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -747,7 +749,7 @@ margin-top: 0.45rem;
 .mesh-pulse-unified .m-stat p { color: rgba(220, 228, 244, 0.8); }
 .neural-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: grid; grid-template-columns: repeat(auto-fill, minmax(30px, 1fr)); gap: 0; z-index: 0; }
 .neural-dot { width: 2px; height: 2px; background: rgba(12,23,48,0.2); border-radius: 50%; margin: 14px; transition: transform 0.1s ease-out, background 0.2s; will-change: transform; }
-#mesh .neural-dot { background: rgba(255,255,255,0.08); }
+#mesh .neural-dot { background: rgba(12,23,48,0.2); }
 .neural-dot.pushed { background: #555; }
 .neural-content { position: relative; z-index: 2; text-align: center; background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%); padding: 4rem 2rem; }
 .neural-header { font-size: clamp(3rem, 8vw, 7rem); margin-bottom: 2rem; color: var(--text); text-shadow: none; }
@@ -781,10 +783,12 @@ margin-bottom: 0.5rem;
   --why-card-collapsed: clamp(74px, 5.2vw, 90px);
 }
 .why-lynck-section#mesh {
-  border-radius: 0;
+  border-radius: clamp(20px, 2.4vw, 34px);
   overflow: hidden;
-  margin-inline: 0;
-  box-shadow: none;
+  margin-inline: clamp(0.6rem, 1.6vw, 1.2rem);
+  box-shadow:
+    0 0 0 clamp(8px, 1vw, 14px) rgba(237, 233, 224, 0.96),
+    0 20px 42px rgba(8, 14, 30, 0.22);
 }
 .why-lynck-content {
   position: relative;
@@ -827,7 +831,7 @@ margin-bottom: 0.5rem;
 .why-lynck-word {
   display: block;
 }
-.why-lynck-word-black { color: #fff; }
+.why-lynck-word-black { color: #0c1730; }
 .why-lynck-word-blue { color: var(--accent); }
 .why-lynck-word-orange { color: var(--accent-warm); }
 .why-lynck-accordion {
@@ -847,20 +851,20 @@ margin-bottom: 0.5rem;
   min-width: 0;
   height: var(--why-card-height);
   border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
   cursor: pointer;
-  transition: flex-basis 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  transition: flex-basis 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s ease, border-color 0.35s ease;
   will-change: transform;
 }
 .why-accordion-item:hover {
   transform: translateY(-2px);
-  border-color: rgba(163, 198, 255, 0.42);
+  border-color: rgba(163, 198, 255, 0.2);
 }
 .why-accordion-item.is-active {
   flex: 0 0 clamp(520px, 43vw, 700px);
-  box-shadow: 0 26px 70px rgba(3, 10, 24, 0.55);
-  border-color: rgba(165, 200, 255, 0.54);
+  box-shadow: none;
+  border-color: rgba(165, 200, 255, 0.2);
 }
 .why-accordion-media {
   position: absolute;
@@ -1523,16 +1527,16 @@ footer { position: relative; width: 100%; background: var(--accent-dark); z-inde
   aspect-ratio: 1 / 1;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.06);
   background: linear-gradient(180deg, rgba(18, 32, 60, 0.84) 0%, rgba(8, 13, 27, 0.98) 100%);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.28);
+  box-shadow: none;
   transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
   flex-shrink: 0;
 }
 .service-mini-card:hover {
   transform: translateY(-6px) scale(1.02);
-  border-color: rgba(255,255,255,0.28);
-  box-shadow: 0 24px 48px rgba(0,0,0,0.42);
+  border-color: rgba(255,255,255,0.18);
+  box-shadow: none;
 }
 .service-mini-image {
   display: block;
@@ -1882,8 +1886,11 @@ footer { height: auto; }
   --why-card-collapsed: 74px;
 }
 .why-lynck-section#mesh {
-  border-radius: 0;
-  margin-inline: 0;
+  border-radius: 18px;
+  margin-inline: 0.55rem;
+  box-shadow:
+    0 0 0 6px rgba(237, 233, 224, 0.96),
+    0 12px 26px rgba(8, 14, 30, 0.2);
 }
 .why-lynck-header {
   margin-bottom: 1.3rem;
