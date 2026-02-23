@@ -320,6 +320,15 @@
                 return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='${encodeURIComponent(start)}'/%3E%3Cstop offset='1' stop-color='${encodeURIComponent(end)}'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23g)'/%3E%3Ctext x='50%25' y='56%25' fill='%23f4f8ff' font-size='160' font-weight='700' font-family='Inter,Arial,sans-serif' text-anchor='middle' dominant-baseline='middle'%3E${initial}%3C/text%3E%3C/svg%3E`;
             };
 
+            // Scale adjustments to normalize icon visual sizes (target ~73% fill)
+            const iconScaleMap = {
+                'photography.png': 1.14, 'fashion.png': 1.12, 'b2b.png': 1.11,
+                'accountant.png': 1.09, 'energy.png': 1.09, 'manufacturing.png': 1.09,
+                'cleaning-services.png': 1.07, 'healthcare.png': 1.07,
+                'fitness.png': 0.89, 'retail.png': 0.87, 'interior-design.png': 0.86,
+                'moving-company.png': 0.84, 'roofing.png': 0.81,
+            };
+
             const createCard = (service, index, lang) => {
                 const serviceName = lang === 'de' ? (service.nameDe || service.nameEn) : service.nameEn;
                 const serviceDetail = lang === 'de' ? (service.detailDe || service.detailEn) : service.detailEn;
@@ -335,6 +344,8 @@
                 image.decoding = 'async';
                 image.width = 344;
                 image.height = 344;
+                const iconScale = imgFile && iconScaleMap[imgFile];
+                if (iconScale) image.style.setProperty('--icon-scale', iconScale);
 
                 const tint = document.createElement('div');
                 tint.className = 'service-mini-tint';
