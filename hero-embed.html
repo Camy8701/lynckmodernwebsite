@@ -34,7 +34,7 @@
       overflow: hidden;
       font-family: 'Inter', sans-serif;
     }
-    #root { width: 100vw; height: 100vh; }
+    #root { width: 100vw; height: 100vh; height: 100dvh; }
     /* Error overlay */
     #error-overlay { display: none; }
     </style></head>
@@ -55,6 +55,33 @@
             import * as THREE from 'three';
             import { Canvas, useFrame, useThree } from '@react-three/fiber';
             import { ScrollControls, useScroll, Image, Text, Float, Sparkles } from '@react-three/drei';
+
+            // --- Responsive Text Sizing ---
+            // At FOV 45, camera z=2, the visible width at z=0 is:
+            // 2 * tan(FOV/2) * distance * aspect = 2 * tan(22.5°) * 2 * aspect
+            // "STUDIO" at fontSize 1.2 with letterSpacing -0.08 is ~4.5 world units wide
+            // On desktop (16:9 aspect ~1.78) visible width ≈ 2 * 0.414 * 2 * 1.78 ≈ 2.95 → 1.2 fits
+            // On mobile (390/844 aspect ~0.46) visible width ≈ 2 * 0.414 * 2 * 0.46 ≈ 0.76 → need much smaller
+            // Using wider FOV on mobile helps: FOV 70 → tan(35°)=0.7 → visible width ≈ 2*0.7*2*0.46 = 1.29
+            function getResponsiveValues() {
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+                const aspect = w / h;
+
+                // Camera at z=2, titleGroup lerps to camera.z - 4 = -2
+                // So text is at world z≈-2, camera-to-text distance ≈ 4
+                // visibleWidth = 2 * tan(fov/2) * distance * aspect
+                const fov = w < 480 ? 70 : w < 768 ? 58 : w < 1024 ? 48 : 45;
+                const distance = 4; // camera z=2 to text z=-2
+                const visibleWidth = 2 * Math.tan((fov / 2) * Math.PI / 180) * distance * aspect;
+                // "STUDIO" with Inter, letterSpacing -0.08 is about 3.3x fontSize
+                // Allow 15% padding on each side
+                const maxFontSize = visibleWidth / (3.3 * 1.3);
+                const baseFontSize = w < 480 ? 0.5 : w < 768 ? 0.75 : w < 1024 ? 0.9 : 1.2;
+                const fontSize = Math.min(baseFontSize, maxFontSize);
+                const gap = fontSize * 0.75;
+                return { fontSize, gap, fov };
+            }
 
             // --- Configuration ---
             const IMAGES = [
@@ -115,11 +142,13 @@
                 const ref = useRef();
                 const [hovered, setHover] = useState(false);
 
+                const imgScale = window.innerWidth < 768 ? 0.6 : 1;
+
                 useFrame(() => {
                     if (!ref.current) return;
                     const targetScale = hovered ? 1.15 : 1;
-                    ref.current.scale.x = THREE.MathUtils.lerp(ref.current.scale.x, targetScale * 2, 0.1);
-                    ref.current.scale.y = THREE.MathUtils.lerp(ref.current.scale.y, targetScale * 3, 0.1);
+                    ref.current.scale.x = THREE.MathUtils.lerp(ref.current.scale.x, targetScale * 2 * imgScale, 0.1);
+                    ref.current.scale.y = THREE.MathUtils.lerp(ref.current.scale.y, targetScale * 3 * imgScale, 0.1);
                     ref.current.material.grayscale = THREE.MathUtils.lerp(ref.current.material.grayscale, hovered ? 0 : 0.3, 0.1);
                     ref.current.material.color.lerp(new THREE.Color(hovered ? '#ffffff' : '#e0e0e0'), 0.1);
                 });
@@ -149,6 +178,19 @@
                 const ctaRef = useRef();
                 const scrollSmooth = useRef(0);
                 const [ctaLabel, setCtaLabel] = useState(() => getCtaLabel());
+                const initVals = getResponsiveValues();
+                const [fontSize, setFontSize] = useState(() => initVals.fontSize);
+                const [gap, setGap] = useState(() => initVals.gap);
+
+                useEffect(() => {
+                    const onResize = () => {
+                        const v = getResponsiveValues();
+                        setFontSize(v.fontSize);
+                        setGap(v.gap);
+                    };
+                    window.addEventListener('resize', onResize);
+                    return () => window.removeEventListener('resize', onResize);
+                }, []);
 
                 useEffect(() => {
                     const updateCta = () => setCtaLabel(getCtaLabel());
@@ -213,7 +255,7 @@
 
                     const t = Math.min(1, scrollSmooth.current * 1.25);
                     const opacity = Math.max(0, 1 - t);
-                    const xSpread = 4;
+                    const xSpread = window.innerWidth < 768 ? 2 : 4;
                     const scaleMid = THREE.MathUtils.lerp(1, 2, t);
 
                     if (titleRefs.current[0]) {
@@ -245,7 +287,7 @@
                                 <Text
                                     ref={(el) => { titleRefs.current[0] = el; }}
                                     font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff"
-                                    fontSize={1.2}
+                                    fontSize={fontSize}
                                     letterSpacing={-0.08}
                                     color="#ffffff"
                                     renderOrder={30}
@@ -258,14 +300,14 @@
                                     strokeWidth={0}
                                     anchorX="center"
                                     anchorY="middle"
-                                    position={[0, 0.9, 0]}
+                                    position={[0, gap, 0]}
                                 >
                                     LYNCK
                                 </Text>
                                 <Text
                                     ref={(el) => { titleRefs.current[1] = el; }}
                                     font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff"
-                                    fontSize={1.2}
+                                    fontSize={fontSize}
                                     letterSpacing={-0.08}
                                     color="#ffffff"
                                     renderOrder={31}
@@ -285,7 +327,7 @@
                                 <Text
                                     ref={(el) => { titleRefs.current[2] = el; }}
                                     font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff"
-                                    fontSize={1.2}
+                                    fontSize={fontSize}
                                     letterSpacing={-0.08}
                                     color="#ffffff"
                                     renderOrder={32}
@@ -298,7 +340,7 @@
                                     strokeWidth={0}
                                     anchorX="center"
                                     anchorY="middle"
-                                    position={[0, -0.9, 0]}
+                                    position={[0, -gap, 0]}
                                 >
                                     PRO
                                 </Text>
@@ -314,7 +356,7 @@
                         <Text
                             ref={ctaRef}
                             position={[0, 0, -28]}
-                            fontSize={0.4}
+                            fontSize={fontSize * 0.33}
                             letterSpacing={0.1}
                             color="#ffffff"
                             material-transparent={true}
@@ -332,10 +374,11 @@
             }
 
             function App() {
+                const { fov } = getResponsiveValues();
                 return (
                     <Canvas
                         gl={{ antialias: true, toneMapping: THREE.ReinhardToneMapping, powerPreference: "high-performance" }}
-                        camera={{ position: [0, 0, 2], fov: 45 }}
+                        camera={{ position: [0, 0, 2], fov: fov }}
                         dpr={[1, 2]}
                     >
                         <fog attach="fog" args={['#050505', 4, 20]} />
