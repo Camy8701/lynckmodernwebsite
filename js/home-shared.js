@@ -823,6 +823,10 @@
             }
 
             window.addEventListener('message', onHeroMessage);
+            // Restore the original desktop behavior: boot the 3D hero right after initial paint.
+            window.requestAnimationFrame(() => {
+                window.setTimeout(bootFrame, 60);
+            });
 
             if (heroShell) {
                 heroShell.addEventListener('mouseenter', bootFrame, { once: true, passive: true });
