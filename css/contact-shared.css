@@ -223,13 +223,6 @@
       color: #0f172a;
     }
 
-    /* Beam CTA button styles inherited from home-shared.css */
-    @keyframes border-slide {
-      0% { transform: translateX(-5%); }
-      50% { transform: translateX(-30%); }
-      100% { transform: translateX(-5%); }
-    }
-
     @media (hover: hover) {
       .nav-dropdown:hover .nav-dropdown-menu { display: block; }
     }

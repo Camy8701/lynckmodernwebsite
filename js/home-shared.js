@@ -640,118 +640,38 @@
             });
         })();
 
-        // --- CONTACT BUTTON ---
-        (() => {
-            const buttons = document.querySelectorAll('[data-contact-btn]');
-            if (!buttons.length) return;
-            const getLang = () => {
-                if (window.location.pathname.includes('/de/')) return 'de';
-                try {
-                    const stored = localStorage.getItem('language');
-                    if (stored === 'de') return 'de';
-                } catch (e) {}
-                return 'en';
-            };
-            buttons.forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    const lang = getLang();
-                    const target = lang === 'de' ? '/de/apply/' : '/apply/';
-                    window.location.href = target;
-                });
-            });
-        })();
+        // --- SHARED LANG HELPER ---
+        const getLang = () => {
+            if (window.location.pathname.includes('/de/')) return 'de';
+            try { const stored = localStorage.getItem('language'); if (stored === 'de') return 'de'; } catch (e) {}
+            return 'en';
+        };
 
-        // --- APPLY BUTTON ---
-        (() => {
-            const buttons = document.querySelectorAll('[data-apply-btn]');
-            if (!buttons.length) return;
-            const getLang = () => {
-                if (window.location.pathname.includes('/de/')) return 'de';
-                try {
-                    const stored = localStorage.getItem('language');
-                    if (stored === 'de') return 'de';
-                } catch (e) {}
-                return 'en';
-            };
-            buttons.forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    const lang = getLang();
-                    const target = lang === 'de' ? '/de/apply/' : '/apply/';
-                    window.location.href = target;
-                });
+        // --- CONTACT / APPLY / STRATEGY CALL BUTTONS (all go to /apply/) ---
+        document.querySelectorAll('[data-contact-btn], [data-apply-btn], [data-strategy-call-btn], [data-build-growth-btn]').forEach((btn) => {
+            btn.addEventListener('click', (event) => {
+                event.preventDefault();
+                window.location.href = getLang() === 'de' ? '/de/apply/' : '/apply/';
             });
-        })();
-
-        // --- STRATEGY CALL / BUILD GROWTH CTA BUTTONS ---
-        (() => {
-            const buttons = document.querySelectorAll('[data-strategy-call-btn], [data-build-growth-btn]');
-            if (!buttons.length) return;
-            const getLang = () => {
-                if (window.location.pathname.includes('/de/')) return 'de';
-                try {
-                    const stored = localStorage.getItem('language');
-                    if (stored === 'de') return 'de';
-                } catch (e) {}
-                return 'en';
-            };
-            buttons.forEach((btn) => {
-                btn.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    const lang = getLang();
-                    const target = lang === 'de' ? '/de/apply/' : '/apply/';
-                    window.location.href = target;
-                });
-            });
-        })();
+        });
 
         // --- LANGUAGE SWITCH ---
-        (() => {
-            const langButtons = document.querySelectorAll('[data-lang-switch]');
-            if (!langButtons.length) return;
-            const getLang = () => {
-                if (window.location.pathname.includes('/de/')) return 'de';
-                try {
-                    const stored = localStorage.getItem('language');
-                    if (stored === 'de') return 'de';
-                } catch (e) {}
-                return 'en';
-            };
-            langButtons.forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    const lang = btn.getAttribute('data-lang-switch') || getLang();
-                    try {
-                        localStorage.setItem('language', lang);
-                    } catch (e) {}
-                    const dropdown = btn.closest('.nav-dropdown');
-                    if (dropdown) {
-                        dropdown.classList.remove('open');
-                    }
-                    const target = lang === 'de' ? '/de/index.html' : '/index.html';
-                    window.location.href = target;
-                });
+        document.querySelectorAll('[data-lang-switch]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang-switch') || getLang();
+                try { localStorage.setItem('language', lang); } catch (e) {}
+                const dropdown = btn.closest('.nav-dropdown');
+                if (dropdown) dropdown.classList.remove('open');
+                window.location.href = lang === 'de' ? '/de/index.html' : '/index.html';
             });
-        })();
+        });
 
         // --- HOME BUTTON ---
-        (() => {
-            const homeButtons = document.querySelectorAll('[data-home-btn]');
-            if (!homeButtons.length) return;
-            const getLang = () => {
-                if (window.location.pathname.includes('/de/')) return 'de';
-                try {
-                    const stored = localStorage.getItem('language');
-                    if (stored === 'de') return 'de';
-                } catch (e) {}
-                return 'en';
-            };
-            homeButtons.forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    const lang = getLang();
-                    const target = lang === 'de' ? '/de/index.html' : '/index.html';
-                    window.location.href = target;
-                });
+        document.querySelectorAll('[data-home-btn]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                window.location.href = getLang() === 'de' ? '/de/index.html' : '/index.html';
             });
-        })();
+        });
 
         // --- HERO FALLBACK ---
         (() => {
