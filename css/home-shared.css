@@ -746,10 +746,6 @@ margin-top: 0.45rem;
 .mesh-pulse-unified .neural-header { color: rgba(242, 247, 255, 0.97); }
 .mesh-pulse-unified .neural-sub { color: rgba(226, 234, 249, 0.88); }
 .mesh-pulse-unified .m-stat p { color: rgba(220, 228, 244, 0.8); }
-.neural-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: grid; grid-template-columns: repeat(auto-fill, minmax(30px, 1fr)); gap: 0; z-index: 0; }
-.neural-dot { width: 2px; height: 2px; background: rgba(12,23,48,0.2); border-radius: 50%; margin: 14px; transition: transform 0.1s ease-out, background 0.2s; will-change: transform; }
-#mesh .neural-dot { background: rgba(12,23,48,0.2); }
-.neural-dot.pushed { background: #555; }
 .neural-content { position: relative; z-index: 2; text-align: center; background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%); padding: 4rem 2rem; }
 .neural-header { font-size: clamp(3rem, 8vw, 7rem); margin-bottom: 2rem; color: var(--text); text-shadow: none; }
 .neural-sub { font-size: 1.5rem; max-width: 700px; margin: 0 auto 4rem; color: rgba(12,23,48,0.65); }
@@ -1130,6 +1126,7 @@ footer { position: relative; width: 100%; background: var(--accent-dark); z-inde
 .frame-section .pack-container { max-width: none; width: 100%; height: 100vh; display: flex; flex-direction: column; gap: 1.35rem; padding: 2rem; }
 .frame-section .pack-feature-header { margin-bottom: 0; }
 .frame-section .pack-title { color: var(--text); }
+.frame-section .pack-title.section-chip { color: #f5f8ff; }
 .frame-section .pack-nav-btn { background: var(--accent-dark); color: #fff; border-color: rgba(255,255,255,0.12); }
 .frame-section .pack-nav-btn.dark { background: #fff; color: var(--accent-dark); border-color: #fff; }
 .frame-grid {
@@ -1523,14 +1520,13 @@ footer { position: relative; width: 100%; background: var(--accent-dark); z-inde
   height: 100%;
   object-fit: contain;
   padding: 8% 8% 18% 8%;
-  filter: invert(1) brightness(1.8);
-  opacity: 1;
+  opacity: 0.85;
   transform: scale(var(--icon-scale, 1));
-  transition: transform 0.55s ease, filter 0.45s ease;
+  transition: transform 0.55s ease, opacity 0.45s ease;
 }
 .service-mini-card:hover .service-mini-image {
   transform: scale(calc(var(--icon-scale, 1) * 1.06));
-  filter: invert(1) brightness(2.2);
+  opacity: 1;
 }
 .service-mini-tint {
   position: absolute;
