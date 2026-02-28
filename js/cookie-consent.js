@@ -479,7 +479,7 @@
     syncToggleUi();
 
     ui.banner.hidden = hasChoice;
-    ui.launcher.hidden = !hasChoice;
+    ui.launcher.hidden = hasChoice;
   }
 
   function openPreferences() {
