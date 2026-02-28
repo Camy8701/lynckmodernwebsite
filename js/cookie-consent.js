@@ -1,0 +1,504 @@
+(function () {
+  var STORAGE_KEY = 'lynck_cookie_consent_v1';
+  var CONFIG = readConfig();
+  var COPY = getCopy(CONFIG.locale);
+  var currentConsent = readStoredConsent();
+  var ui = null;
+  var gaConfigured = false;
+  var gtmLoaded = false;
+  var vercelLoaded = false;
+
+  ensureGtagStub();
+  publishApi();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  function init() {
+    ui = renderUi();
+    bindUi();
+    applyConsentState(currentConsent, { emit: false });
+    updateUi();
+  }
+
+  function readConfig() {
+    var scripts = document.querySelectorAll('script[src$="/js/cookie-consent.js"]');
+    var script = scripts.length ? scripts[scripts.length - 1] : null;
+    var locale = window.location.pathname.indexOf('/de/') === 0 ? 'de' : 'en';
+
+    return {
+      gaId: script ? script.getAttribute('data-ga-id') || '' : '',
+      gtmId: script ? script.getAttribute('data-gtm-id') || '' : '',
+      vercelInsights: Boolean(script && script.getAttribute('data-vercel-insights') === 'true'),
+      locale: locale
+    };
+  }
+
+  function getCopy(locale) {
+    if (locale === 'de') {
+      return {
+        manage: 'Cookie-Einstellungen',
+        title: 'Datenschutz zuerst, Tracking nur mit deiner Freigabe.',
+        body: 'Wir nutzen notwendige Technologien fuer Sprache, Sicherheit und Formularstatus. Analyse- und Marketing-Cookies werden erst nach deiner Zustimmung aktiviert.',
+        accept: 'Alle akzeptieren',
+        reject: 'Nur notwendige',
+        customize: 'Auswahl anpassen',
+        policy: 'Cookie-Richtlinie',
+        modalTitle: 'Cookie-Praeferenzen',
+        modalBody: 'Fuer Besucher aus der EU, dem Vereinigten Koenigreich und der Schweiz bleiben nicht notwendige Technologien standardmaessig deaktiviert, bis du sie aktiv freigibst.',
+        necessaryTitle: 'Notwendig',
+        necessaryBody: 'Erforderlich fuer Spracheinstellungen, Sicherheitslogik und das Speichern deiner Einwilligung.',
+        analyticsTitle: 'Analyse',
+        analyticsBody: 'Erlaubt Google Analytics 4 und Vercel Insights, damit wir verstehen, welche Seiten besucht werden.',
+        marketingTitle: 'Marketing',
+        marketingBody: 'Erlaubt Attributionsdaten aus Kampagnenlinks und zusaetzliche Werbemessung.',
+        save: 'Auswahl speichern',
+        cancel: 'Abbrechen',
+        alwaysOn: 'Immer aktiv',
+        footer: 'Du kannst deine Auswahl jederzeit aendern.',
+        manageInline: 'Cookie-Auswahl aendern'
+      };
+    }
+
+    return {
+      manage: 'Cookie Settings',
+      title: 'Privacy first, tracking only after you say yes.',
+      body: 'We use necessary technologies for language preference, security and form continuity. Analytics and marketing cookies stay off until you opt in.',
+      accept: 'Accept all',
+      reject: 'Necessary only',
+      customize: 'Customize',
+      policy: 'Cookie Policy',
+      modalTitle: 'Cookie Preferences',
+      modalBody: 'For visitors in the EU, United Kingdom and Switzerland, non-essential technologies remain disabled until you actively allow them.',
+      necessaryTitle: 'Necessary',
+      necessaryBody: 'Required for language preference, security logic and storing your consent choice.',
+      analyticsTitle: 'Analytics',
+      analyticsBody: 'Allows Google Analytics 4 and Vercel Insights so we can understand which pages are being used.',
+      marketingTitle: 'Marketing',
+      marketingBody: 'Allows campaign attribution data from marketing links and additional ad measurement.',
+      save: 'Save preferences',
+      cancel: 'Cancel',
+      alwaysOn: 'Always on',
+      footer: 'You can change your choice at any time.',
+      manageInline: 'Update cookie choices'
+    };
+  }
+
+  function ensureGtagStub() {
+    window.dataLayer = window.dataLayer || [];
+    if (!window.gtag) {
+      window.gtag = function () {
+        window.dataLayer.push(arguments);
+      };
+    }
+
+    window.gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+  }
+
+  function readStoredConsent() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      return normalizeConsent(JSON.parse(raw));
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function normalizeConsent(value) {
+    value = value && typeof value === 'object' ? value : {};
+    return {
+      necessary: true,
+      analytics: Boolean(value.analytics),
+      marketing: Boolean(value.marketing),
+      ts: value.ts || null,
+      version: 1
+    };
+  }
+
+  function writeConsent(value) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
+    } catch (err) {
+      // Ignore storage failures.
+    }
+  }
+
+  function publishApi() {
+    window.LynckConsent = {
+      getConsent: function () {
+        return currentConsent ? Object.assign({}, currentConsent) : null;
+      },
+      hasConsent: function (category) {
+        if (category === 'necessary') return true;
+        return Boolean(currentConsent && currentConsent[category]);
+      },
+      openPreferences: openPreferences,
+      acceptAll: function () {
+        saveConsent({ analytics: true, marketing: true });
+      },
+      rejectNonEssential: function () {
+        saveConsent({ analytics: false, marketing: false });
+      }
+    };
+  }
+
+  function saveConsent(partial) {
+    var next = normalizeConsent({
+      analytics: Boolean(partial.analytics),
+      marketing: Boolean(partial.marketing),
+      ts: new Date().toISOString()
+    });
+
+    writeConsent(next);
+    applyConsentState(next, { emit: true });
+    updateUi();
+  }
+
+  function applyConsentState(next, options) {
+    currentConsent = next;
+
+    var analyticsGranted = Boolean(next && next.analytics);
+    var marketingGranted = Boolean(next && next.marketing);
+
+    window.gtag('consent', 'update', {
+      analytics_storage: analyticsGranted ? 'granted' : 'denied',
+      ad_storage: marketingGranted ? 'granted' : 'denied',
+      ad_user_data: marketingGranted ? 'granted' : 'denied',
+      ad_personalization: marketingGranted ? 'granted' : 'denied'
+    });
+
+    if (analyticsGranted) {
+      loadGaIfNeeded();
+      loadVercelInsightsIfNeeded();
+    } else {
+      clearAnalyticsCookies();
+    }
+
+    if (marketingGranted) {
+      commitAttributionIfAvailable();
+    } else {
+      clearAttributionIfAvailable();
+      clearMarketingCookies();
+    }
+
+    if (analyticsGranted || marketingGranted) {
+      loadTagManagerIfNeeded();
+    }
+
+    if (options && options.emit) {
+      emitConsentChange();
+    }
+  }
+
+  function loadGaIfNeeded() {
+    if (!CONFIG.gaId) return;
+
+    loadScriptOnce('lynck-ga4-script', 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(CONFIG.gaId), function () {
+      if (!gaConfigured) {
+        window.gtag('js', new Date());
+        gaConfigured = true;
+      }
+
+      window.gtag('config', CONFIG.gaId, {
+        anonymize_ip: true,
+        allow_google_signals: Boolean(currentConsent && currentConsent.marketing)
+      });
+    });
+  }
+
+  function loadTagManagerIfNeeded() {
+    if (!CONFIG.gtmId || gtmLoaded) return;
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js'
+    });
+
+    loadScriptOnce('lynck-gtm-script', 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(CONFIG.gtmId), function () {
+      gtmLoaded = true;
+    });
+  }
+
+  function loadVercelInsightsIfNeeded() {
+    if (!CONFIG.vercelInsights || vercelLoaded) return;
+
+    loadScriptOnce('lynck-vercel-insights', '/_vercel/insights/script.js', function () {
+      vercelLoaded = true;
+    });
+  }
+
+  function loadScriptOnce(id, src, onLoad) {
+    var existing = document.getElementById(id);
+
+    if (existing) {
+      if (existing.getAttribute('data-loaded') === 'true') {
+        if (typeof onLoad === 'function') onLoad();
+        return;
+      }
+
+      if (typeof onLoad === 'function') {
+        existing.addEventListener('load', onLoad, { once: true });
+      }
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.id = id;
+    script.async = true;
+    script.src = src;
+    script.addEventListener('load', function () {
+      script.setAttribute('data-loaded', 'true');
+      if (typeof onLoad === 'function') onLoad();
+    });
+    document.head.appendChild(script);
+  }
+
+  function clearAnalyticsCookies() {
+    eachCookie(function (name) {
+      if (/^(_ga|_gid|_gat|_ga_)/.test(name)) {
+        expireCookie(name);
+      }
+    });
+  }
+
+  function clearMarketingCookies() {
+    eachCookie(function (name) {
+      if (/^(_gcl_au|_fbp|_fbc)/.test(name)) {
+        expireCookie(name);
+      }
+    });
+  }
+
+  function eachCookie(visitor) {
+    var cookies = document.cookie ? document.cookie.split(';') : [];
+    cookies.forEach(function (entry) {
+      var name = entry.split('=')[0].trim();
+      if (name) visitor(name);
+    });
+  }
+
+  function expireCookie(name) {
+    var hostname = window.location.hostname;
+    var domains = [''];
+
+    if (hostname.indexOf('.') > -1) {
+      domains.push(hostname);
+      domains.push('.' + hostname);
+
+      var parts = hostname.split('.');
+      if (parts.length > 2) {
+        domains.push('.' + parts.slice(-2).join('.'));
+      }
+    }
+
+    domains.forEach(function (domain) {
+      document.cookie = name + '=; Path=/; Max-Age=0; SameSite=Lax' + (domain ? '; Domain=' + domain : '');
+    });
+  }
+
+  function commitAttributionIfAvailable() {
+    if (window.LynckAttribution && typeof window.LynckAttribution.commitPending === 'function') {
+      window.LynckAttribution.commitPending();
+    }
+  }
+
+  function clearAttributionIfAvailable() {
+    if (window.LynckAttribution && typeof window.LynckAttribution.clear === 'function') {
+      window.LynckAttribution.clear();
+    }
+  }
+
+  function emitConsentChange() {
+    try {
+      window.dispatchEvent(new CustomEvent('lynck:consent-updated', { detail: window.LynckConsent.getConsent() }));
+    } catch (err) {
+      // Ignore event dispatch failures.
+    }
+  }
+
+  function renderUi() {
+    var policyPath = CONFIG.locale === 'de' ? '/de/cookie-policy.html' : '/cookie-policy.html';
+    var wrapper = document.createElement('div');
+    wrapper.className = 'lynck-consent-root';
+    wrapper.innerHTML = [
+      '<style>',
+      '.lynck-consent-root{position:fixed;inset:auto 1rem 1rem 1rem;z-index:9999;pointer-events:none;font-family:"Manrope",sans-serif;}',
+      '.lynck-consent-banner,.lynck-consent-launcher,.lynck-consent-modal{pointer-events:auto;}',
+      '.lynck-consent-banner{max-width:30rem;margin-left:auto;display:grid;gap:1rem;padding:1.15rem;border:1px solid rgba(14,28,58,.16);border-radius:1.25rem;background:rgba(248,244,236,.96);color:#102145;box-shadow:0 24px 70px rgba(8,18,37,.22);backdrop-filter:blur(18px);}',
+      '.lynck-consent-banner[hidden],.lynck-consent-backdrop[hidden],.lynck-consent-modal[hidden]{display:none!important;}',
+      '.lynck-consent-eyebrow{display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#194dc1;font-weight:800;}',
+      '.lynck-consent-dot{width:.55rem;height:.55rem;border-radius:999px;background:#194dc1;box-shadow:0 0 0 .25rem rgba(25,77,193,.12);}',
+      '.lynck-consent-banner h2,.lynck-consent-modal h2{margin:0;font-family:"Space Grotesk",sans-serif;font-size:1.18rem;line-height:1.15;letter-spacing:-.02em;color:#102145;}',
+      '.lynck-consent-banner p,.lynck-consent-modal p,.lynck-consent-card-copy p{margin:0;color:#465a86;font-size:.95rem;line-height:1.6;}',
+      '.lynck-consent-actions{display:flex;flex-wrap:wrap;gap:.55rem;}',
+      '.lynck-consent-btn{appearance:none;border:1px solid rgba(16,33,69,.12);border-radius:999px;padding:.72rem 1rem;background:#fff;color:#102145;font:inherit;font-weight:700;cursor:pointer;transition:transform .16s ease,box-shadow .16s ease,background .16s ease;}',
+      '.lynck-consent-btn:hover{transform:translateY(-1px);box-shadow:0 12px 22px rgba(15,29,61,.12);}',
+      '.lynck-consent-btn-primary{background:linear-gradient(135deg,#184abc,#2e6df3);color:#fff;border-color:rgba(24,74,188,.45);}',
+      '.lynck-consent-btn-ghost{background:rgba(255,255,255,.7);}',
+      '.lynck-consent-meta{display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap;}',
+      '.lynck-consent-link{color:#194dc1;text-decoration:none;font-weight:700;}',
+      '.lynck-consent-launcher{position:fixed;right:1rem;bottom:1rem;display:inline-flex;align-items:center;gap:.5rem;padding:.78rem 1rem;border:none;border-radius:999px;background:#102145;color:#fff;font:inherit;font-weight:700;box-shadow:0 18px 34px rgba(8,18,37,.28);cursor:pointer;}',
+      '.lynck-consent-backdrop{position:fixed;inset:0;background:rgba(6,10,20,.44);backdrop-filter:blur(6px);z-index:10000;}',
+      '.lynck-consent-modal{position:fixed;left:50%;top:50%;width:min(42rem,calc(100vw - 2rem));max-height:min(88vh,48rem);overflow:auto;transform:translate(-50%,-50%);padding:1.3rem;border-radius:1.35rem;border:1px solid rgba(255,255,255,.12);background:#f7f2e9;color:#102145;box-shadow:0 34px 90px rgba(6,10,20,.34);z-index:10001;}',
+      '.lynck-consent-grid{display:grid;gap:.8rem;margin-top:1rem;}',
+      '.lynck-consent-card{display:grid;grid-template-columns:auto 1fr auto;gap:.9rem;align-items:start;padding:.95rem;border-radius:1rem;background:rgba(255,255,255,.8);border:1px solid rgba(16,33,69,.08);}',
+      '.lynck-consent-switch{position:relative;width:3.05rem;height:1.7rem;display:inline-flex;align-items:center;border-radius:999px;background:#cfd8ec;transition:background .18s ease;cursor:pointer;}',
+      '.lynck-consent-switch input{position:absolute;opacity:0;pointer-events:none;}',
+      '.lynck-consent-switch span{position:absolute;left:.15rem;width:1.38rem;height:1.38rem;border-radius:999px;background:#fff;box-shadow:0 4px 12px rgba(16,33,69,.2);transition:left .18s ease;}',
+      '.lynck-consent-switch input:checked + span{left:1.52rem;}',
+      '.lynck-consent-switch.is-on{background:#194dc1;}',
+      '.lynck-consent-pill{display:inline-flex;align-items:center;padding:.28rem .55rem;border-radius:999px;background:rgba(25,77,193,.12);color:#194dc1;font-size:.76rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;}',
+      '.lynck-consent-modal-footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1rem;}',
+      '.lynck-consent-inline-link{border:none;background:transparent;padding:0;color:#194dc1;font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;}',
+      '@media (max-width:640px){.lynck-consent-root{inset:auto .75rem .75rem .75rem}.lynck-consent-banner{padding:1rem}.lynck-consent-actions{display:grid}.lynck-consent-btn{width:100%;justify-content:center}.lynck-consent-launcher{right:.75rem;bottom:.75rem}.lynck-consent-card{grid-template-columns:1fr;}.lynck-consent-modal{padding:1rem;}}',
+      '</style>',
+      '<section class="lynck-consent-banner" role="dialog" aria-live="polite" aria-label="' + escapeHtml(COPY.modalTitle) + '">',
+      '  <span class="lynck-consent-eyebrow"><span class="lynck-consent-dot" aria-hidden="true"></span>' + escapeHtml(COPY.manage) + '</span>',
+      '  <h2>' + escapeHtml(COPY.title) + '</h2>',
+      '  <p>' + escapeHtml(COPY.body) + '</p>',
+      '  <div class="lynck-consent-actions">',
+      '    <button type="button" class="lynck-consent-btn lynck-consent-btn-primary" data-consent-accept>' + escapeHtml(COPY.accept) + '</button>',
+      '    <button type="button" class="lynck-consent-btn lynck-consent-btn-ghost" data-consent-reject>' + escapeHtml(COPY.reject) + '</button>',
+      '    <button type="button" class="lynck-consent-btn lynck-consent-btn-ghost" data-consent-manage>' + escapeHtml(COPY.customize) + '</button>',
+      '  </div>',
+      '  <div class="lynck-consent-meta">',
+      '    <a class="lynck-consent-link" href="' + policyPath + '">' + escapeHtml(COPY.policy) + '</a>',
+      '    <button type="button" class="lynck-consent-inline-link" data-consent-manage-inline>' + escapeHtml(COPY.manageInline) + '</button>',
+      '  </div>',
+      '</section>',
+      '<button type="button" class="lynck-consent-launcher" data-consent-open>' + escapeHtml(COPY.manage) + '</button>',
+      '<div class="lynck-consent-backdrop" hidden></div>',
+      '<section class="lynck-consent-modal" role="dialog" aria-modal="true" aria-label="' + escapeHtml(COPY.modalTitle) + '" hidden>',
+      '  <h2>' + escapeHtml(COPY.modalTitle) + '</h2>',
+      '  <p style="margin-top:.6rem;">' + escapeHtml(COPY.modalBody) + '</p>',
+      '  <div class="lynck-consent-grid">',
+      '    <div class="lynck-consent-card">',
+      '      <div class="lynck-consent-pill">' + escapeHtml(COPY.alwaysOn) + '</div>',
+      '      <div class="lynck-consent-card-copy"><strong>' + escapeHtml(COPY.necessaryTitle) + '</strong><p>' + escapeHtml(COPY.necessaryBody) + '</p></div>',
+      '      <label class="lynck-consent-switch is-on" aria-label="' + escapeHtml(COPY.necessaryTitle) + '"><input type="checkbox" checked disabled><span></span></label>',
+      '    </div>',
+      '    <div class="lynck-consent-card">',
+      '      <div class="lynck-consent-pill">GA4</div>',
+      '      <div class="lynck-consent-card-copy"><strong>' + escapeHtml(COPY.analyticsTitle) + '</strong><p>' + escapeHtml(COPY.analyticsBody) + '</p></div>',
+      '      <label class="lynck-consent-switch" data-switch-shell><input type="checkbox" data-consent-analytics><span></span></label>',
+      '    </div>',
+      '    <div class="lynck-consent-card">',
+      '      <div class="lynck-consent-pill">UTM</div>',
+      '      <div class="lynck-consent-card-copy"><strong>' + escapeHtml(COPY.marketingTitle) + '</strong><p>' + escapeHtml(COPY.marketingBody) + '</p></div>',
+      '      <label class="lynck-consent-switch" data-switch-shell><input type="checkbox" data-consent-marketing><span></span></label>',
+      '    </div>',
+      '  </div>',
+      '  <div class="lynck-consent-modal-footer">',
+      '    <p>' + escapeHtml(COPY.footer) + '</p>',
+      '    <div class="lynck-consent-actions">',
+      '      <button type="button" class="lynck-consent-btn lynck-consent-btn-ghost" data-consent-cancel>' + escapeHtml(COPY.cancel) + '</button>',
+      '      <button type="button" class="lynck-consent-btn lynck-consent-btn-primary" data-consent-save>' + escapeHtml(COPY.save) + '</button>',
+      '    </div>',
+      '  </div>',
+      '</section>'
+    ].join('');
+
+    document.body.appendChild(wrapper);
+    return {
+      root: wrapper,
+      banner: wrapper.querySelector('.lynck-consent-banner'),
+      launcher: wrapper.querySelector('.lynck-consent-launcher'),
+      backdrop: wrapper.querySelector('.lynck-consent-backdrop'),
+      modal: wrapper.querySelector('.lynck-consent-modal'),
+      analytics: wrapper.querySelector('[data-consent-analytics]'),
+      marketing: wrapper.querySelector('[data-consent-marketing]')
+    };
+  }
+
+  function bindUi() {
+    ui.root.querySelector('[data-consent-accept]').addEventListener('click', function () {
+      saveConsent({ analytics: true, marketing: true });
+      closePreferences();
+    });
+
+    ui.root.querySelector('[data-consent-reject]').addEventListener('click', function () {
+      saveConsent({ analytics: false, marketing: false });
+      closePreferences();
+    });
+
+    ui.root.querySelectorAll('[data-consent-manage],[data-consent-manage-inline],[data-consent-open]').forEach(function (button) {
+      button.addEventListener('click', openPreferences);
+    });
+
+    ui.root.querySelector('[data-consent-cancel]').addEventListener('click', function () {
+      updateUi();
+      closePreferences();
+    });
+
+    ui.root.querySelector('[data-consent-save]').addEventListener('click', function () {
+      saveConsent({
+        analytics: Boolean(ui.analytics.checked),
+        marketing: Boolean(ui.marketing.checked)
+      });
+      closePreferences();
+    });
+
+    ui.backdrop.addEventListener('click', closePreferences);
+
+    document.addEventListener('click', function (event) {
+      var trigger = event.target.closest('[data-open-cookie-settings]');
+      if (!trigger) return;
+      event.preventDefault();
+      openPreferences();
+    });
+
+    [ui.analytics, ui.marketing].forEach(function (input) {
+      input.addEventListener('change', syncToggleUi);
+    });
+  }
+
+  function syncToggleUi() {
+    ui.root.querySelectorAll('[data-switch-shell]').forEach(function (shell) {
+      var input = shell.querySelector('input');
+      shell.classList.toggle('is-on', Boolean(input && input.checked));
+    });
+  }
+
+  function updateUi() {
+    var hasChoice = Boolean(currentConsent);
+    var analytics = Boolean(currentConsent && currentConsent.analytics);
+    var marketing = Boolean(currentConsent && currentConsent.marketing);
+
+    ui.analytics.checked = analytics;
+    ui.marketing.checked = marketing;
+    syncToggleUi();
+
+    ui.banner.hidden = hasChoice;
+    ui.launcher.hidden = !hasChoice;
+  }
+
+  function openPreferences() {
+    ui.backdrop.hidden = false;
+    ui.modal.hidden = false;
+    syncToggleUi();
+  }
+
+  function closePreferences() {
+    ui.backdrop.hidden = true;
+    ui.modal.hidden = true;
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+})();

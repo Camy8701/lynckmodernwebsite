@@ -4,15 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/js/url-attribution-cleanup.js"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRWYGYSSMY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-GRWYGYSSMY');
-  </script>
+  <script src="/js/cookie-consent.js" defer data-ga-id="G-GRWYGYSSMY" data-gtm-id="GTM-N5757GT5"></script>
   <title>Cookie Policy | LYNCK Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,9 +25,11 @@
       --bg: #f1eee6;
       --text: #0f1d3d;
       --muted: #3a4d71;
-      --panel: rgba(255, 255, 255, 0.74);
-      --line: rgba(15, 29, 61, 0.16);
+      --panel: rgba(255, 255, 255, 0.78);
+      --line: rgba(15, 29, 61, 0.14);
       --accent: #184abc;
+      --accent-soft: rgba(24, 74, 188, 0.1);
+      --chip: rgba(15, 29, 61, 0.06);
     }
     * { box-sizing: border-box; }
     body {
@@ -101,12 +95,12 @@
       border-color: rgba(24, 74, 188, 0.5);
     }
     main {
-      width: min(980px, calc(100% - 2rem));
+      width: min(1040px, calc(100% - 2rem));
       margin: 2rem auto 3.5rem;
     }
     .policy {
       border: 1px solid var(--line);
-      border-radius: 24px;
+      border-radius: 26px;
       padding: clamp(1.2rem, 2.5vw, 2rem);
       background: var(--panel);
       box-shadow: 0 22px 56px rgba(13, 26, 52, 0.14);
@@ -124,30 +118,131 @@
       margin-bottom: 0.9rem;
       font-family: "Space Grotesk", sans-serif;
     }
+    h1, h2, h3 {
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: -0.02em;
+    }
     h1 {
-      margin: 0 0 0.8rem;
+      margin: 0;
       font-size: clamp(2rem, 4.4vw, 3rem);
       line-height: 1.05;
-      letter-spacing: -0.02em;
-      font-family: "Space Grotesk", sans-serif;
     }
     h2 {
-      margin: 1.2rem 0 0.5rem;
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      font-family: "Space Grotesk", sans-serif;
+      margin: 1.5rem 0 0.55rem;
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+    }
+    h3 {
+      margin: 0;
+      font-size: 1rem;
     }
     p {
-      margin: 0.5rem 0;
+      margin: 0.55rem 0;
       color: var(--muted);
       line-height: 1.72;
       font-size: 0.98rem;
     }
     ul {
-      margin: 0.35rem 0 0.7rem;
+      margin: 0.35rem 0 0.8rem;
       padding-left: 1.2rem;
       color: var(--muted);
       display: grid;
       gap: 0.35rem;
+    }
+    .lead {
+      max-width: 56rem;
+      margin-top: 0.9rem;
+      font-size: 1.02rem;
+    }
+    .meta-grid,
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.68);
+    }
+    .card p { margin-bottom: 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.55rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 0.22rem var(--accent-soft);
+    }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 0.8rem 0 1rem;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.42rem 0.7rem;
+      border-radius: 999px;
+      background: var(--chip);
+      color: var(--text);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .tech-item {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.66);
+    }
+    .tech-item p {
+      margin-top: 0.45rem;
+    }
+    .tech-list {
+      margin: 0.65rem 0 0;
+      padding-left: 1rem;
+      gap: 0.28rem;
+      font-size: 0.94rem;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .cta,
+    .cta-row a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 0.72rem 1rem;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.74);
+      cursor: pointer;
+      font: inherit;
+    }
+    .cta.primary {
+      color: #fff;
+      background: linear-gradient(120deg, #184abc, #2b69ec);
+      border-color: rgba(24, 74, 188, 0.5);
     }
     footer {
       width: min(1120px, calc(100% - 2rem));
@@ -167,7 +262,11 @@
       padding: 0.45rem 0.85rem;
       background: rgba(255, 255, 255, 0.72);
     }
-    @media (max-width: 720px) {
+    @media (max-width: 820px) {
+      .meta-grid,
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
       .topbar-inner { flex-direction: column; justify-content: center; padding: 0.8rem 0; }
       footer { flex-direction: column; align-items: flex-start; }
     }
@@ -194,32 +293,114 @@
     <article class="policy">
       <span class="kicker">Compliance</span>
       <h1>Cookie Policy</h1>
+      <p class="lead">This notice explains how <strong>lynckstudio</strong> (trading as <strong>LYNCK Studio</strong>) uses cookies and similar technologies on <strong>www.lynckstudio.pro</strong>. It is written for visitors in the European Union, the United Kingdom and Switzerland, and is administered under Spanish law.</p>
 
-      <p>LYNCK Studio uses cookies to enhance user experience, improve website performance, and analyze traffic.</p>
-      <p>Cookies are small files stored on your device that allow us to recognize your browser and collect usage data.</p>
+      <div class="chip-row" aria-label="Policy summary">
+        <span class="chip">Controller: lynckstudio</span>
+        <span class="chip">Country: Spain</span>
+        <span class="chip">Last updated: February 28, 2026</span>
+      </div>
 
-      <h2>Types of Cookies We Use</h2>
+      <div class="meta-grid">
+        <section class="card">
+          <span class="eyebrow">Business Details</span>
+          <h3>Controller</h3>
+          <p>lynckstudio<br>Av. Francesc Botey 5<br>08930 Barcelona<br>Spain</p>
+        </section>
+        <section class="card">
+          <span class="eyebrow">Contact</span>
+          <h3>Privacy Contact</h3>
+          <p>For cookie or privacy requests, email <a href="mailto:info@lynckstudio.pro">info@lynckstudio.pro</a>.</p>
+        </section>
+      </div>
+
+      <h2>How consent works on this site</h2>
+      <p>Necessary technologies can run without an opt-in because they are used to remember your language preference, preserve essential website behavior and save your consent choice. Analytics and marketing technologies stay disabled until you actively accept them in the consent banner or preferences panel.</p>
+      <p>You can reject non-essential cookies, accept all cookies, or reopen your preferences at any time.</p>
+
+      <div class="cta-row">
+        <button type="button" class="cta primary" data-open-cookie-settings>Update cookie choices</button>
+        <a href="/privacy-policy.html">Read privacy policy</a>
+      </div>
+
+      <h2>Technologies currently used</h2>
+      <div class="tech-grid">
+        <section class="tech-item">
+          <span class="eyebrow">Necessary</span>
+          <h3>Consent preference</h3>
+          <p><strong>Storage:</strong> <code>lynck_cookie_consent_v1</code> in localStorage</p>
+          <ul class="tech-list">
+            <li>Purpose: remembers whether you accepted or rejected analytics and marketing tracking</li>
+            <li>Provider: LYNCK Studio</li>
+            <li>Duration: stored until you clear browser storage or change your choice</li>
+          </ul>
+        </section>
+        <section class="tech-item">
+          <span class="eyebrow">Necessary</span>
+          <h3>Language preference</h3>
+          <p><strong>Storage:</strong> <code>language</code> in localStorage</p>
+          <ul class="tech-list">
+            <li>Purpose: remembers whether to show the English or German version of the site</li>
+            <li>Provider: LYNCK Studio</li>
+            <li>Duration: stored until you clear browser storage</li>
+          </ul>
+        </section>
+        <section class="tech-item">
+          <span class="eyebrow">Necessary</span>
+          <h3>Application draft</h3>
+          <p><strong>Storage:</strong> <code>lynck_strategy_call_application_v1</code> in localStorage</p>
+          <ul class="tech-list">
+            <li>Purpose: saves progress on the strategy application form before you submit</li>
+            <li>Provider: LYNCK Studio</li>
+            <li>Duration: stored until submitted, reset or manually cleared</li>
+          </ul>
+        </section>
+        <section class="tech-item">
+          <span class="eyebrow">Marketing (Optional)</span>
+          <h3>Campaign attribution</h3>
+          <p><strong>Storage:</strong> <code>lynck_attribution</code> cookie and sessionStorage entry</p>
+          <ul class="tech-list">
+            <li>Purpose: saves approved UTM and click identifier data from campaign links after marketing consent</li>
+            <li>Provider: LYNCK Studio</li>
+            <li>Duration: cookie lasts up to 30 days; sessionStorage lasts until the browser tab/session ends</li>
+          </ul>
+        </section>
+        <section class="tech-item">
+          <span class="eyebrow">Analytics (Optional)</span>
+          <h3>Google Analytics 4</h3>
+          <p><strong>Storage:</strong> Google may set cookies such as <code>_ga</code> and <code>_ga_*</code> after consent</p>
+          <ul class="tech-list">
+            <li>Purpose: measures visits, page usage and website performance</li>
+            <li>Provider: Google Ireland Limited / Google LLC</li>
+            <li>Duration: depends on Google settings and browser retention rules</li>
+          </ul>
+        </section>
+        <section class="tech-item">
+          <span class="eyebrow">Analytics (Optional)</span>
+          <h3>Vercel Insights</h3>
+          <p><strong>Storage:</strong> loaded only on contact pages and only after analytics consent</p>
+          <ul class="tech-list">
+            <li>Purpose: measures page performance and visitor behavior on the contact flow</li>
+            <li>Provider: Vercel Inc.</li>
+            <li>Duration: depends on Vercel implementation and browser retention rules</li>
+          </ul>
+        </section>
+      </div>
+
+      <h2>Google Tag Manager</h2>
+      <p>Google Tag Manager container <strong>GTM-N5757GT5</strong> is installed on the public site. It is loaded through our consent system and remains blocked until you allow analytics or marketing technologies. Any non-essential tags published through that container must follow the same consent rules described in this notice.</p>
+
+      <h2>Legal basis</h2>
       <ul>
-        <li>Essential cookies (website functionality)</li>
-        <li>Analytical cookies (traffic analysis)</li>
-        <li>Marketing cookies (campaign optimization)</li>
+        <li>Necessary technologies: legitimate interest in operating the website and providing the requested service</li>
+        <li>Analytics and marketing technologies: your consent, which you can withdraw at any time</li>
       </ul>
 
-      <h2>Third-Party Services</h2>
-      <p>We may use services such as:</p>
-      <ul>
-        <li>Google Analytics</li>
-        <li>Google Tag Manager</li>
-      </ul>
-      <p>These services may collect usage data and cookies in accordance with their own privacy policies.</p>
+      <h2>How to manage or withdraw consent</h2>
+      <p>You can use the cookie banner when you first visit the site, reopen the preferences panel using the floating cookie settings button, or use the button above on this page. You can also clear browser cookies and local storage manually from your browser settings.</p>
 
-      <h2>Managing Cookies</h2>
-      <p>You may configure your browser to reject cookies, accept cookies, or request permission before storing cookies.</p>
-      <p>You can manage cookies through your browser settings.</p>
-
-      <h2>Jurisdiction</h2>
-      <p>This Cookie Policy is governed by Spanish law.</p>
-      <p>If you do not agree with this policy, please disable cookies or refrain from using the website.</p>
+      <h2>International visitors</h2>
+      <p>This notice is designed for visitors in the EU, the United Kingdom and Switzerland. Where local law gives you additional rights, those rights continue to apply. The site operator is established in Spain, so this policy is interpreted under Spanish law and related EU privacy standards.</p>
     </article>
   </main>
 
