@@ -603,13 +603,12 @@ text-overflow: ellipsis;
     width: 78%;
     height: 78%;
   }
-  .lynck-mobile-menu-panel {
+  .lynck-mobile-menu.nav-dropdown.right .lynck-mobile-menu-panel {
     position: fixed;
-    left: 0.75rem;
-    right: 0.75rem;
-    width: auto;
-    right: 0;
-    transform: none;
+    left: 50%;
+    right: auto;
+    width: min(calc(100vw - 1.5rem), 22rem);
+    transform: translateX(-50%);
     top: calc(env(safe-area-inset-top, 0px) + 4.6rem);
     max-height: min(72vh, 34rem);
     overflow-y: auto;
@@ -2022,10 +2021,11 @@ footer { position: relative; width: 100%; background: var(--accent-dark); z-inde
   padding: 0 0.55rem;
   font-size: 0.68rem;
 }
-.lynck-mobile-menu-panel {
-  left: 0.6rem;
-  right: 0.6rem;
-  width: auto;
+.lynck-mobile-menu.nav-dropdown.right .lynck-mobile-menu-panel {
+  left: 50%;
+  right: auto;
+  width: min(calc(100vw - 1.2rem), 20.75rem);
+  transform: translateX(-50%);
   padding: 0.8rem;
 }
 .lynck-mobile-menu-cta {
