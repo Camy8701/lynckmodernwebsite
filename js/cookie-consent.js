@@ -333,7 +333,7 @@
     wrapper.innerHTML = [
       '<style>',
       '.lynck-consent-root{position:fixed;inset:auto 1rem 1rem 1rem;z-index:9999;pointer-events:none;font-family:"Manrope",sans-serif;}',
-      '.lynck-consent-banner,.lynck-consent-launcher,.lynck-consent-modal{pointer-events:auto;}',
+      '.lynck-consent-banner,.lynck-consent-modal{pointer-events:auto;}',
       '.lynck-consent-banner{max-width:30rem;margin-left:auto;display:grid;gap:1rem;padding:1.15rem;border:1px solid rgba(14,28,58,.16);border-radius:1.25rem;background:rgba(248,244,236,.96);color:#102145;box-shadow:0 24px 70px rgba(8,18,37,.22);backdrop-filter:blur(18px);}',
       '.lynck-consent-banner[hidden],.lynck-consent-backdrop[hidden],.lynck-consent-modal[hidden]{display:none!important;}',
       '.lynck-consent-eyebrow{display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#194dc1;font-weight:800;}',
@@ -347,7 +347,6 @@
       '.lynck-consent-btn-ghost{background:rgba(255,255,255,.7);}',
       '.lynck-consent-meta{display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap;}',
       '.lynck-consent-link{color:#194dc1;text-decoration:none;font-weight:700;}',
-      '.lynck-consent-launcher{position:fixed;right:1rem;bottom:1rem;display:inline-flex;align-items:center;gap:.5rem;padding:.78rem 1rem;border:none;border-radius:999px;background:#102145;color:#fff;font:inherit;font-weight:700;box-shadow:0 18px 34px rgba(8,18,37,.28);cursor:pointer;}',
       '.lynck-consent-backdrop{position:fixed;inset:0;background:rgba(6,10,20,.44);backdrop-filter:blur(6px);z-index:10000;}',
       '.lynck-consent-modal{position:fixed;left:50%;top:50%;width:min(42rem,calc(100vw - 2rem));max-height:min(88vh,48rem);overflow:auto;transform:translate(-50%,-50%);padding:1.3rem;border-radius:1.35rem;border:1px solid rgba(255,255,255,.12);background:#f7f2e9;color:#102145;box-shadow:0 34px 90px rgba(6,10,20,.34);z-index:10001;}',
       '.lynck-consent-grid{display:grid;gap:.8rem;margin-top:1rem;}',
@@ -360,7 +359,7 @@
       '.lynck-consent-pill{display:inline-flex;align-items:center;padding:.28rem .55rem;border-radius:999px;background:rgba(25,77,193,.12);color:#194dc1;font-size:.76rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;}',
       '.lynck-consent-modal-footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1rem;}',
       '.lynck-consent-inline-link{border:none;background:transparent;padding:0;color:#194dc1;font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;}',
-      '@media (max-width:640px){.lynck-consent-root{inset:auto .75rem .75rem .75rem}.lynck-consent-banner{padding:1rem}.lynck-consent-actions{display:grid}.lynck-consent-btn{width:100%;justify-content:center}.lynck-consent-launcher{right:.75rem;bottom:.75rem}.lynck-consent-card{grid-template-columns:1fr;}.lynck-consent-modal{padding:1rem;}}',
+      '@media (max-width:640px){.lynck-consent-root{inset:auto .75rem .75rem .75rem}.lynck-consent-banner{padding:1rem}.lynck-consent-actions{display:grid}.lynck-consent-btn{width:100%;justify-content:center}.lynck-consent-card{grid-template-columns:1fr;}.lynck-consent-modal{padding:1rem;}}',
       '</style>',
       '<section class="lynck-consent-banner" role="dialog" aria-live="polite" aria-label="' + escapeHtml(COPY.modalTitle) + '">',
       '  <span class="lynck-consent-eyebrow"><span class="lynck-consent-dot" aria-hidden="true"></span>' + escapeHtml(COPY.manage) + '</span>',
@@ -376,7 +375,6 @@
       '    <button type="button" class="lynck-consent-inline-link" data-consent-manage-inline>' + escapeHtml(COPY.manageInline) + '</button>',
       '  </div>',
       '</section>',
-      '<button type="button" class="lynck-consent-launcher" data-consent-open>' + escapeHtml(COPY.manage) + '</button>',
       '<div class="lynck-consent-backdrop" hidden></div>',
       '<section class="lynck-consent-modal" role="dialog" aria-modal="true" aria-label="' + escapeHtml(COPY.modalTitle) + '" hidden>',
       '  <h2>' + escapeHtml(COPY.modalTitle) + '</h2>',
@@ -412,7 +410,6 @@
     return {
       root: wrapper,
       banner: wrapper.querySelector('.lynck-consent-banner'),
-      launcher: wrapper.querySelector('.lynck-consent-launcher'),
       backdrop: wrapper.querySelector('.lynck-consent-backdrop'),
       modal: wrapper.querySelector('.lynck-consent-modal'),
       analytics: wrapper.querySelector('[data-consent-analytics]'),
@@ -431,7 +428,7 @@
       closePreferences();
     });
 
-    ui.root.querySelectorAll('[data-consent-manage],[data-consent-manage-inline],[data-consent-open]').forEach(function (button) {
+    ui.root.querySelectorAll('[data-consent-manage],[data-consent-manage-inline]').forEach(function (button) {
       button.addEventListener('click', openPreferences);
     });
 
@@ -479,7 +476,6 @@
     syncToggleUi();
 
     ui.banner.hidden = hasChoice;
-    ui.launcher.hidden = hasChoice;
   }
 
   function openPreferences() {
