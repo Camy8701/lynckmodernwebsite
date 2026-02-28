@@ -904,7 +904,13 @@
       gap: 0.7rem;
       margin-top: 1.45rem;
     }
+    .svc-contact-details {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
     .svc-contact-pill,
+    .svc-contact-phone,
     .svc-contact-btn {
       display: inline-flex;
       align-items: center;
@@ -919,6 +925,12 @@
     .svc-contact-pill {
       background: #f1efe6;
       color: #0f172a;
+    }
+    .svc-contact-phone {
+      justify-content: flex-start;
+      padding: 0;
+      border-radius: 0;
+      color: rgba(241, 239, 230, 0.82);
     }
     .svc-contact-btn {
       background: #0045ba;
@@ -1344,8 +1356,9 @@
         <h4>Connect With Us</h4>
         <h2>Let’s create something amazing together</h2>
         <p>Ready to scale your marketing? We’d love to hear about your goals and explore how we can work together to achieve them.</p>
-        <div class="svc-contact-actions">
-          <span class="svc-contact-pill">info@lynckstudio.pro</span>
+        <div class="svc-contact-actions svc-contact-details">
+          <a class="svc-contact-pill" href="mailto:info@lynckstudio.pro">info@lynckstudio.pro</a>
+          <a class="svc-contact-phone" href="tel:+491771878363">+49 177 1878363</a>
         </div>
       </div>
       <div class="svc-contact-card svc-contact-links">
@@ -2146,5 +2159,6 @@
       });
     });
   </script>
+  <script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
 </body>
 </html>
