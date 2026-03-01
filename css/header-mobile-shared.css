@@ -1,324 +1,101 @@
-/* ===== HEADER — exact copy from home-shared.css ===== */
+/* ===== MOBILE HEADER OVERRIDES ONLY ===== */
 
-.lynck-header {
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-z-index: 10050;
-padding: 0.75rem 1rem;
-display: flex;
-justify-content: center;
-pointer-events: none;
-}
-.lynck-header-inner {
-width: 100%;
-max-width: 1200px;
-pointer-events: auto;
-display: flex;
-align-items: center;
-gap: 1rem;
-}
 .lynck-mobile-menu {
-display: none;
-flex: 0 0 auto;
-position: relative;
+  display: none;
+  flex: 0 0 auto;
+  position: relative;
 }
+
 .lynck-mobile-about,
 .lynck-mobile-lang {
-display: none;
-}
-.lynck-mobile-menu-trigger {
-justify-content: center;
-gap: 0.6rem;
-width: auto;
-min-height: 46px;
-font-weight: 700;
-}
-.lynck-mobile-lang-trigger {
-justify-content: center;
-gap: 0.35rem;
-min-height: 44px;
-font-weight: 700;
-}
-.lynck-mobile-menu-text {
-display: inline;
-}
-.lynck-mobile-menu-icon {
-display: inline-flex;
-flex-direction: column;
-justify-content: center;
-gap: 3px;
-width: 15px;
-}
-.lynck-mobile-menu-icon span {
-display: block;
-width: 15px;
-height: 2px;
-border-radius: 999px;
-background: currentColor;
-}
-.lynck-mobile-menu-panel {
-width: min(92vw, 24rem);
-padding: 0.9rem;
-display: none;
-flex-direction: column;
-gap: 0.9rem;
-right: 0;
-left: auto;
-}
-.nav-dropdown.open .nav-dropdown-menu.lynck-mobile-menu-panel {
-display: flex;
-}
-.lynck-mobile-menu-group {
-display: grid;
-gap: 0.35rem;
-}
-.lynck-mobile-menu-label {
-font-size: 0.68rem;
-font-weight: 800;
-letter-spacing: 0.14em;
-text-transform: uppercase;
-color: rgba(148, 163, 184, 0.92);
-padding: 0 0.15rem 0.15rem;
-}
-.lynck-mobile-social {
-display: grid;
-gap: 0.35rem;
-}
-.lynck-mobile-social a {
-display: inline-flex;
-align-items: center;
-gap: 0.55rem;
-}
-.lynck-mobile-menu-cta {
-width: 100%;
-justify-content: center;
-min-height: 44px;
-}
-.lynck-header-bar {
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 1.5rem;
-padding: 0.45rem 0.9rem;
-border-radius: 999px;
-background: rgba(255, 255, 255, 0.84);
-border: 1px solid rgba(255, 255, 255, 0.62);
-backdrop-filter: blur(18px);
-box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.55);
-flex: 1;
-min-width: 0;
-}
-.lynck-home-logo {
-width: 72px;
-height: 72px;
-border-radius: 999px;
-border: 1px solid rgba(255, 255, 255, 0.18);
-background: rgba(8, 10, 15, 0.8);
-display: inline-flex;
-align-items: center;
-justify-content: center;
-overflow: hidden;
-box-shadow: 0 12px 24px rgba(0,0,0,0.45);
-transition: transform 0.2s ease, border-color 0.2s ease;
-margin-left: -0.75rem;
-}
-.lynck-partner-badge {
-width: 72px;
-height: 72px;
-border-radius: 18px;
-border: 1px solid rgba(255, 255, 255, 0.68);
-background: rgba(255, 255, 255, 0.36);
-backdrop-filter: blur(14px) saturate(1.2);
--webkit-backdrop-filter: blur(14px) saturate(1.2);
-display: inline-flex;
-align-items: center;
-justify-content: center;
-overflow: hidden;
-box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-margin-right: -0.75rem;
-}
-.lynck-partner-badge img {
-width: 84%;
-height: 84%;
-object-fit: contain;
-display: block;
-filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
-}
-.lynck-partner-badge:hover {
-transform: translateY(-2px) scale(1.03);
-border-color: rgba(255, 255, 255, 0.92);
-background: rgba(255, 255, 255, 0.48);
-}
-.lynck-home-logo img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-display: block;
-}
-.lynck-home-logo:hover {
-transform: scale(1.04);
-border-color: rgba(255, 255, 255, 0.4);
-}
-.lynck-header-left,
-.lynck-header-right {
-display: flex;
-align-items: center;
-gap: 0.75rem;
-}
-.lynck-header-right {
-justify-content: flex-end;
-flex-shrink: 0;
-min-width: 278px;
-}
-.nav-social {
-display: flex;
-align-items: center;
-gap: 0.35rem;
-}
-.nav-social a,
-.nav-social button {
-width: 30px;
-height: 30px;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-border-radius: 8px;
-border: 1px solid rgba(255,255,255,0.12);
-background: rgba(255, 255, 255, 0.72);
-color: rgba(15, 23, 42, 0.82);
-transition: 0.2s ease;
-text-decoration: none;
-}
-.nav-social a:hover,
-.nav-social button:hover {
-color: #0f172a;
-border-color: rgba(255, 255, 255, 0.82);
-background: rgba(255, 255, 255, 0.92);
-}
-.nav-pill {
-display: inline-flex;
-align-items: center;
-gap: 0.4rem;
-padding: 0.35rem 0.7rem;
-border-radius: 999px;
-background: rgba(255, 255, 255, 0.72);
-border: 1px solid rgba(255,255,255,0.12);
-color: rgba(15, 23, 42, 0.78);
-font-size: 0.8rem;
-cursor: pointer;
-transition: 0.2s ease;
-}
-.nav-pill:hover { color: #fff; border-color: rgba(255,255,255,0.35); }
-.nav-caret {
-width: 0;
-height: 0;
-border-left: 4px solid transparent;
-border-right: 4px solid transparent;
-border-top: 5px solid rgba(15, 23, 42, 0.7);
-}
-.nav-dropdown { position: relative; }
-.nav-dropdown-menu {
-position: absolute;
-top: calc(100% + 0.6rem);
-left: 0;
-min-width: 210px;
-padding: 0.4rem;
-border-radius: 14px;
-background: rgba(10, 12, 18, 0.98);
-border: 1px solid rgba(255,255,255,0.12);
-box-shadow: 0 20px 50px rgba(0,0,0,0.55);
-display: none;
-}
-.nav-dropdown.right .nav-dropdown-menu { right: 0; left: auto; }
-.nav-dropdown.open .nav-dropdown-menu { display: block; }
-.nav-dropdown-menu a,
-.nav-dropdown-menu button {
-display: block;
-padding: 0.5rem 0.7rem;
-border-radius: 10px;
-color: rgba(255,255,255,0.75);
-font-size: 0.85rem;
-transition: 0.2s ease;
-width: 100%;
-text-align: left;
-background: transparent;
-border: 0;
-text-decoration: none;
-cursor: pointer;
-font-family: inherit;
-}
-.nav-dropdown-menu a:hover,
-.nav-dropdown-menu button:hover { color: #fff; background: rgba(255,255,255,0.08); }
-.lynck-nav-links {
-display: flex;
-align-items: center;
-gap: 1.4rem;
-color: rgba(15, 23, 42, 0.82);
-font-size: 0.88rem;
-}
-.lynck-nav-links a,
-.lynck-nav-links button {
-color: inherit;
-background: transparent;
-border: 0;
-cursor: pointer;
-font: inherit;
-padding: 0;
-text-decoration: none;
-}
-.lynck-nav-links a:hover,
-.lynck-nav-links button:hover { color: #fff; }
-/* --- Header CTA Button --- */
-.gradient-border-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-width: 168px;
-  min-height: 44px;
-  padding: 0.65rem 1.5rem;
-  border-radius: 999px;
-  border: 0;
-  background: #0045ba;
-  color: #fff;
-  cursor: pointer;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 4px 20px rgba(0,69,186,0.25);
-}
-.gradient-border-btn:hover {
-  background: #e56a1e;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(229,106,30,0.3);
-}
-.gradient-border-btn .btn-beam,
-.gradient-border-btn .btn-bg { display: none; }
-.gradient-border-btn .btn-core {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: inherit;
-}
-@media (hover: hover) {
-  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-}
-@media (max-width: 1080px) {
-  .lynck-nav-links { display: none; }
+  display: none;
 }
 
-/* ===== MOBILE HEADER — exact copy from home-shared.css @media 900px ===== */
+.lynck-mobile-menu-trigger {
+  justify-content: center;
+  gap: 0.6rem;
+  width: auto;
+  min-height: 46px;
+  font-weight: 700;
+}
+
+.lynck-mobile-lang-trigger {
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  font-weight: 700;
+}
+
+.lynck-mobile-menu-text {
+  display: inline;
+}
+
+.lynck-mobile-menu-icon {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  width: 15px;
+}
+
+.lynck-mobile-menu-icon span {
+  display: block;
+  width: 15px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.lynck-mobile-menu-panel {
+  width: min(92vw, 24rem);
+  padding: 0.9rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.9rem;
+  right: 0;
+  left: auto;
+}
+
+.nav-dropdown.open .nav-dropdown-menu.lynck-mobile-menu-panel {
+  display: flex;
+}
+
+.lynck-mobile-menu-group {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.lynck-mobile-menu-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.92);
+  padding: 0 0.15rem 0.15rem;
+}
+
+.lynck-mobile-social {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.lynck-mobile-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.lynck-mobile-menu-cta {
+  width: 100%;
+  justify-content: center;
+  min-height: 44px;
+}
 
 @media (max-width: 900px) {
   .lynck-header {
     padding: 0.6rem 0.75rem;
   }
+
   .lynck-header-inner {
     display: flex;
     align-items: center;
@@ -331,9 +108,11 @@ text-decoration: none;
     backdrop-filter: blur(18px);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.55);
   }
+
   .lynck-mobile-menu {
     display: block;
   }
+
   .lynck-mobile-about {
     display: inline-flex;
     flex: 1 1 auto;
@@ -355,11 +134,13 @@ text-decoration: none;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
   .lynck-mobile-lang {
     display: block;
     flex: 0 0 auto;
     position: relative;
   }
+
   .lynck-home-logo,
   .lynck-partner-badge {
     width: 48px;
@@ -368,23 +149,29 @@ text-decoration: none;
     flex: 0 0 48px;
     box-shadow: none;
   }
+
   .lynck-header-bar {
     display: none;
   }
+
   .lynck-home-logo {
     border-radius: 14px;
   }
+
   .lynck-home-logo img {
     object-fit: cover;
   }
+
   .lynck-partner-badge {
     border-radius: 14px;
     background: rgba(255, 255, 255, 0.56);
   }
+
   .lynck-partner-badge img {
     width: 78%;
     height: 78%;
   }
+
   .lynck-mobile-menu.nav-dropdown.right .lynck-mobile-menu-panel {
     position: fixed;
     left: 50%;
@@ -399,6 +186,7 @@ text-decoration: none;
     box-sizing: border-box;
     overscroll-behavior: contain;
   }
+
   .lynck-mobile-menu-trigger {
     width: 44px;
     min-width: 44px;
@@ -408,16 +196,20 @@ text-decoration: none;
     font-size: 0;
     gap: 0;
   }
+
   .lynck-mobile-menu-text {
     display: none;
   }
+
   .lynck-mobile-menu-icon {
     width: 16px;
     gap: 3px;
   }
+
   .lynck-mobile-menu-icon span {
     width: 16px;
   }
+
   .lynck-mobile-lang-trigger {
     min-width: 52px;
     min-height: 44px;
@@ -425,15 +217,18 @@ text-decoration: none;
     border-radius: 14px;
     font-size: 0.74rem;
   }
+
   .lynck-mobile-lang-menu {
     right: 0;
     left: auto;
     min-width: 152px;
   }
+
   .lynck-mobile-menu-panel .lynck-mobile-menu-label {
     font-size: 0.66rem;
     letter-spacing: 0.12em;
   }
+
   .lynck-mobile-menu-panel a,
   .lynck-mobile-menu-panel button {
     padding: 0.72rem 0.85rem;
@@ -441,6 +236,7 @@ text-decoration: none;
     line-height: 1.4;
     white-space: normal;
   }
+
   .lynck-mobile-social {
     gap: 0.45rem;
   }
@@ -450,17 +246,20 @@ text-decoration: none;
   .lynck-header-right {
     min-width: 0;
   }
+
   .lynck-mobile-menu-trigger {
     min-height: 40px;
     width: 40px;
     min-width: 40px;
     padding: 0;
   }
+
   .lynck-mobile-about {
     min-height: 40px;
     padding: 0 0.55rem;
     font-size: 0.68rem;
   }
+
   .lynck-mobile-menu.nav-dropdown.right .lynck-mobile-menu-panel {
     left: 50%;
     right: auto;
@@ -468,16 +267,19 @@ text-decoration: none;
     transform: translateX(-50%);
     padding: 0.8rem;
   }
+
   .lynck-mobile-menu-cta {
     min-height: 40px;
     font-size: 0.72rem;
   }
+
   .lynck-mobile-lang-trigger {
     min-width: 46px;
     min-height: 40px;
     padding: 0 0.45rem;
     font-size: 0.68rem;
   }
+
   .lynck-home-logo,
   .lynck-partner-badge {
     width: 44px;
