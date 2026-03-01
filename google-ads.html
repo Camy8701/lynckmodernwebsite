@@ -435,9 +435,228 @@
     }
     .ga-footer-services-col a:hover { color: #fff; }
 
-    /* Header / Nav styles handled by /css/header-mobile-shared.css */
+    /* Header / Nav (from contact page, adapted) */
+    .lynck-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10050;
+      padding: 0.75rem 1rem;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .lynck-header-inner {
+      width: 100%;
+      max-width: 1200px;
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .lynck-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+      flex: 1;
+      min-width: 0;
+    }
+
+    .lynck-home-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(8, 10, 15, 0.8);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      margin-left: -0.75rem;
+    }
+
+    .lynck-home-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .lynck-home-logo:hover {
+      transform: scale(1.04);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .lynck-partner-badge {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.68);
+      background: rgba(255, 255, 255, 0.36);
+      backdrop-filter: blur(14px) saturate(1.2);
+      -webkit-backdrop-filter: blur(14px) saturate(1.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      margin-right: -0.75rem;
+    }
+
+    .lynck-partner-badge img {
+      width: 84%;
+      height: 84%;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+    }
+
+    .lynck-partner-badge:hover {
+      transform: translateY(-2px) scale(1.03);
+      border-color: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.48);
+    }
+
+    .lynck-header-left,
+    .lynck-header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-social {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-social a,
+    .nav-social button {
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.72);
+      color: rgba(15, 23, 42, 0.82);
+      transition: 0.2s ease;
+    }
+
+    .nav-social a:hover,
+    .nav-social button:hover {
+      color: #0f172a;
+      border-color: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(15, 23, 42, 0.78);
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .nav-pill:hover {
+      color: #0f172a;
+      border-color: rgba(255, 255, 255, 0.82);
+    }
+
+    .nav-caret {
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid rgba(15, 23, 42, 0.7);
+    }
+
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.6rem);
+      left: 0;
+      min-width: 210px;
+      padding: 0.4rem;
+      border-radius: 14px;
+      background: rgba(10, 12, 18, 0.98);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      display: none;
+    }
+
+    .nav-dropdown.right .nav-dropdown-menu {
+      right: 0;
+      left: auto;
+    }
+
+    .nav-dropdown.open .nav-dropdown-menu {
+      display: block;
+    }
+
+    .nav-dropdown-menu a,
+    .nav-dropdown-menu button {
+      display: block;
+      padding: 0.5rem 0.7rem;
+      border-radius: 10px;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.85rem;
+      transition: 0.2s ease;
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .nav-dropdown-menu a:hover,
+    .nav-dropdown-menu button:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .lynck-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      color: rgba(15, 23, 42, 0.82);
+      font-size: 0.88rem;
+    }
+
+    .lynck-nav-links button {
+      color: inherit;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+    }
 
     @media (max-width: 960px) {
+      .lynck-nav-links {
+        display: none;
+      }
       .ga-panel {
         padding: 28px;
       }
@@ -458,7 +677,7 @@
       }
     }
   </style>
-  <link rel="stylesheet" href="/css/header-mobile-shared.css?v=2">
+  <link rel="stylesheet" href="/css/header-mobile-shared.css?v=3">
 </head>
 <body>
 <header class="lynck-header">
