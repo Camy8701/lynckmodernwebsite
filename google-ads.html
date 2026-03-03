@@ -269,339 +269,77 @@
       font-size: 0.95rem;
     }
 
-    .ga-process-showcase {
+    .flip-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
-      gap: 24px;
-      margin-top: 32px;
-      align-items: stretch;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
     }
 
-    .ga-process-hero-card {
+    .flip-card {
+      perspective: 1400px;
+      min-height: 260px;
+    }
+
+    .flip-card-inner {
       position: relative;
-      min-height: 560px;
-      border-radius: 34px;
-      padding: 26px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background:
-        radial-gradient(circle at 82% 24%, rgba(255, 126, 36, 0.36), transparent 28%),
-        radial-gradient(circle at 18% 86%, rgba(56, 189, 248, 0.24), transparent 24%),
-        linear-gradient(155deg, #070b14 0%, #0c1020 48%, #1b0c06 100%);
-      box-shadow: 0 28px 70px rgba(5, 8, 16, 0.42);
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .flip-card.is-flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: 24px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      isolation: isolate;
-    }
-
-    .ga-process-hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 14px;
-      border-radius: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    .ga-process-hero-top,
-    .ga-process-hero-bottom,
-    .ga-process-rail {
-      position: relative;
-      z-index: 1;
-    }
-
-    .ga-process-hero-top,
-    .ga-process-hero-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .ga-process-micro,
-    .ga-process-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 34px;
-      padding: 0.45rem 0.85rem;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(244, 247, 255, 0.72);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.04);
     }
 
-    .ga-process-pill {
-      color: #fff;
-      background: rgba(0, 69, 186, 0.22);
-      border-color: rgba(84, 142, 255, 0.32);
-    }
-
-    .ga-process-rail {
-      display: grid;
-      gap: 14px;
-      margin: 28px 0;
-    }
-
-    .ga-process-rail-step {
-      position: relative;
-      padding: 18px 18px 18px 20px;
-      border-radius: 26px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .ga-process-rail-step::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 16px;
-      bottom: 16px;
-      width: 4px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .ga-process-rail-step.is-active {
+    .flip-back {
+      transform: rotateY(180deg);
       background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.14);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
     }
 
-    .ga-process-rail-step.is-active::before {
-      background: linear-gradient(180deg, #ff8a3d 0%, #1f5eff 100%);
-    }
-
-    .ga-process-step-num {
+    .flip-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.4rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       font-size: 0.7rem;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(198, 210, 235, 0.62);
+      color: rgba(255, 255, 255, 0.7);
     }
 
-    .ga-process-step-num strong {
-      color: #fff;
+    .flip-title {
       font-family: var(--font-head);
-      font-size: 0.92rem;
-      letter-spacing: 0;
+      font-size: 1.35rem;
+      margin-top: 16px;
     }
 
-    .ga-process-step-title {
-      margin-top: 10px;
-      font-family: var(--font-head);
-      font-size: 1.22rem;
-      line-height: 1.1;
-      color: #fff;
+    .flip-text {
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin-top: 12px;
     }
 
-    .ga-process-step-copy {
-      margin-top: 8px;
-      font-size: 0.94rem;
-      line-height: 1.65;
-      color: rgba(228, 235, 248, 0.68);
-    }
-
-    .ga-process-hero-bottom {
-      padding-top: 18px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .ga-process-stat {
-      display: grid;
-      gap: 4px;
-    }
-
-    .ga-process-stat-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(192, 203, 226, 0.58);
-    }
-
-    .ga-process-stat-value {
-      font-family: var(--font-head);
-      font-size: 1.1rem;
-      color: #fff;
-    }
-
-    .ga-process-side {
-      display: grid;
-      grid-template-rows: auto 1fr;
-      gap: 24px;
-    }
-
-    .ga-process-type-card,
-    .ga-process-detail-card {
-      border-radius: 30px;
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      background: rgba(255, 255, 255, 0.86);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-      color: #0b1323;
-    }
-
-    .ga-process-type-card {
-      padding: 28px 30px;
-    }
-
-    .ga-process-chip {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 34px;
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid rgba(15, 23, 42, 0.12);
-      background: rgba(255, 255, 255, 0.92);
-      color: rgba(15, 23, 42, 0.58);
-      font-size: 0.74rem;
-      font-style: italic;
-      font-weight: 700;
-    }
-
-    .ga-process-type-card h3 {
-      margin: 20px 0 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.25em;
-      font-family: var(--font-head);
-      font-size: clamp(2.7rem, 5vw, 4.6rem);
-      line-height: 0.9;
-      letter-spacing: -0.06em;
-      color: #0a0f18;
-    }
-
-    .ga-process-type-card p {
-      margin: 0;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: rgba(15, 23, 42, 0.68);
-      max-width: 34ch;
-    }
-
-    .ga-process-mode-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .ga-process-mode-row span {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 32px;
-      padding: 0.4rem 0.72rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.04);
-      color: rgba(15, 23, 42, 0.6);
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .ga-process-detail-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .ga-process-detail-card {
-      padding: 22px;
-    }
-
-    .ga-process-detail-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .ga-process-detail-index {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: #0a101b;
-      color: #fff;
-      font-family: var(--font-head);
-      font-size: 0.95rem;
-      font-weight: 700;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-    }
-
-    .ga-process-detail-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.35rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(0, 69, 186, 0.08);
-      color: rgba(0, 69, 186, 0.78);
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .ga-process-detail-card h4 {
-      margin: 0 0 10px;
-      font-family: var(--font-head);
-      font-size: 1.1rem;
-      line-height: 1.18;
-      color: #0a0f18;
-    }
-
-    .ga-process-detail-card p {
-      margin: 0;
-      color: rgba(15, 23, 42, 0.68);
-      font-size: 0.95rem;
-      line-height: 1.65;
-    }
-
-    @media (max-width: 980px) {
-      .ga-process-showcase {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .ga-process-hero-card {
-        min-height: 0;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .ga-process-detail-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .ga-process-type-card,
-      .ga-process-detail-card,
-      .ga-process-hero-card {
-        border-radius: 24px;
-      }
-
-      .ga-process-type-card {
-        padding: 24px;
-      }
-
-      .ga-process-detail-card,
-      .ga-process-hero-card {
-        padding: 20px;
-      }
+    .flip-hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
     }
 
     .faq-shell {
@@ -1146,94 +884,79 @@
         <div class="ga-panel-header">
           <p class="ga-kicker">How We Work</p>
           <h2>We do not launch ads. We build structured systems.</h2>
-          <p>Four focused stages turn paid search into a predictable growth engine. Each layer below shows how the system compounds from audit to scale.</p>
+          <p>Four focused stages turn paid search into a predictable growth engine. Click each card to reveal the full execution logic.</p>
         </div>
-        <div class="ga-process-showcase">
-          <section class="ga-process-hero-card" aria-label="Google Ads execution map">
-            <div class="ga-process-hero-top">
-              <span class="ga-process-micro">Execution map</span>
-              <span class="ga-process-pill">4 phases</span>
-            </div>
-            <div class="ga-process-rail">
-              <article class="ga-process-rail-step is-active">
-                <span class="ga-process-step-num"><strong>01</strong> Discovery</span>
-                <h3 class="ga-process-step-title">Free Strategy Call</h3>
-                <p class="ga-process-step-copy">We define fit, channel viability, and the structure required before a single euro is spent.</p>
-              </article>
-              <article class="ga-process-rail-step">
-                <span class="ga-process-step-num"><strong>02</strong> Roadmap</span>
-                <h3 class="ga-process-step-title">Audit + 60-90 Day Plan</h3>
-                <p class="ga-process-step-copy">Every decision is grounded in conversion logic, tracking fidelity, and wasted-spend control.</p>
-              </article>
-              <article class="ga-process-rail-step">
-                <span class="ga-process-step-num"><strong>03</strong> Execution</span>
-                <h3 class="ga-process-step-title">Build + Launch</h3>
-                <p class="ga-process-step-copy">We deploy clean campaign architecture first, then push traction before expansion.</p>
-              </article>
-              <article class="ga-process-rail-step">
-                <span class="ga-process-step-num"><strong>04</strong> Scale</span>
-                <h3 class="ga-process-step-title">Continuous Optimization</h3>
-                <p class="ga-process-step-copy">Budget follows measurable performance, not opinion, guesswork, or vanity metrics.</p>
-              </article>
-            </div>
-            <div class="ga-process-hero-bottom">
-              <div class="ga-process-stat">
-                <span class="ga-process-stat-label">Operating logic</span>
-                <span class="ga-process-stat-value">Structured. Conversion-first. Scalable.</span>
+        <div class="flip-grid">
+          <div class="flip-card" data-flip-card tabindex="0" role="button" aria-pressed="false">
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <div>
+                  <span class="flip-tag">Step 01</span>
+                  <div class="flip-title">Free Strategy Call</div>
+                </div>
+                <div class="flip-hint">Click to flip</div>
               </div>
-              <span class="ga-process-pill">LYNCK system</span>
-            </div>
-          </section>
-
-          <div class="ga-process-side">
-            <section class="ga-process-type-card" aria-label="Process positioning">
-              <span class="ga-process-chip">Execution system</span>
-              <h3>
-                <span>Clarity.</span>
-                <span>Control.</span>
-                <span>Scale.</span>
-              </h3>
-              <p>This is not a “launch and hope” workflow. It is a structured operating model designed to make Google Ads measurable, auditable, and predictable from day one.</p>
-              <div class="ga-process-mode-row">
-                <span>Audit-led</span>
-                <span>Signal-first</span>
-                <span>Operator-run</span>
+              <div class="flip-face flip-back">
+                <div>
+                  <span class="flip-tag">Discovery</span>
+                  <p class="flip-text">We dive into your business model, margins, sales process, current traffic, and existing campaigns. We determine whether Google Ads is the right channel for you and how it should be structured.</p>
+                </div>
+                <div class="flip-hint">Tap to close</div>
               </div>
-            </section>
-
-            <div class="ga-process-detail-grid">
-              <article class="ga-process-detail-card">
-                <div class="ga-process-detail-top">
-                  <span class="ga-process-detail-index">01</span>
-                  <span class="ga-process-detail-tag">Discovery</span>
+            </div>
+          </div>
+          <div class="flip-card" data-flip-card tabindex="0" role="button" aria-pressed="false">
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <div>
+                  <span class="flip-tag">Step 02</span>
+                  <div class="flip-title">Audit &amp; 60-90 Day Roadmap</div>
                 </div>
-                <h4>Clarity before spend</h4>
-                <p>We dive into your business model, margins, sales process, current traffic, and existing campaigns. We determine whether Google Ads is the right channel and how it should be structured.</p>
-              </article>
-              <article class="ga-process-detail-card">
-                <div class="ga-process-detail-top">
-                  <span class="ga-process-detail-index">02</span>
-                  <span class="ga-process-detail-tag">Roadmap</span>
+                <div class="flip-hint">Click to flip</div>
+              </div>
+              <div class="flip-face flip-back">
+                <div>
+                  <span class="flip-tag">Roadmap</span>
+                  <p class="flip-text">If you already run ads, we audit campaign structure, conversion tracking, wasted spend, keyword targeting, and funnel alignment. You get a concrete action plan, not vague advice.</p>
                 </div>
-                <h4>Concrete actions, not vague advice</h4>
-                <p>If you already run ads, we audit campaign structure, conversion tracking, wasted spend, keyword targeting, and funnel alignment. You get a clear action plan with short-term wins and long-term scale logic.</p>
-              </article>
-              <article class="ga-process-detail-card">
-                <div class="ga-process-detail-top">
-                  <span class="ga-process-detail-index">03</span>
-                  <span class="ga-process-detail-tag">Execution</span>
+                <div class="flip-hint">Tap to close</div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card" data-flip-card tabindex="0" role="button" aria-pressed="false">
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <div>
+                  <span class="flip-tag">Step 03</span>
+                  <div class="flip-title">Build &amp; Launch</div>
                 </div>
-                <h4>Execution with clean structure</h4>
-                <p>We build or restructure campaigns with clear naming logic, segmentation, conversion-first tracking, and creative alignment. We prioritize fast traction, then controlled expansion.</p>
-              </article>
-              <article class="ga-process-detail-card">
-                <div class="ga-process-detail-top">
-                  <span class="ga-process-detail-index">04</span>
-                  <span class="ga-process-detail-tag">Scale</span>
+                <div class="flip-hint">Click to flip</div>
+              </div>
+              <div class="flip-face flip-back">
+                <div>
+                  <span class="flip-tag">Execution</span>
+                  <p class="flip-text">We restructure or build campaigns with clean naming logic, clear segmentation, conversion-first tracking, and creative alignment. Short-term wins come first, long-term scale follows.</p>
                 </div>
-                <h4>Budget follows performance</h4>
-                <p>After the learning phase stabilizes (typically 2-4 weeks), we remove underperforming segments, expand profitable audiences, refine bidding, test creatives, and scale with measurable ROI.</p>
-              </article>
+                <div class="flip-hint">Tap to close</div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card" data-flip-card tabindex="0" role="button" aria-pressed="false">
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <div>
+                  <span class="flip-tag">Step 04</span>
+                  <div class="flip-title">Continuous Optimization &amp; Scale</div>
+                </div>
+                <div class="flip-hint">Click to flip</div>
+              </div>
+              <div class="flip-face flip-back">
+                <div>
+                  <span class="flip-tag">Scale</span>
+                  <p class="flip-text">After the learning phase stabilizes (typically 2-4 weeks), we cut underperformers, expand profitable segments, refine bidding, and test new creatives. Budget flows toward performance, not guesswork.</p>
+                </div>
+                <div class="flip-hint">Tap to close</div>
+              </div>
             </div>
           </div>
         </div>
@@ -1407,6 +1130,20 @@
           });
         });
       }
+
+      document.querySelectorAll('[data-flip-card]').forEach((card) => {
+        const toggle = () => {
+          card.classList.toggle('is-flipped');
+          card.setAttribute('aria-pressed', card.classList.contains('is-flipped') ? 'true' : 'false');
+        };
+        card.addEventListener('click', toggle);
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle();
+          }
+        });
+      });
 
       document.querySelectorAll('#faq [data-accordion="faq"]').forEach((btn) => {
         btn.addEventListener('click', () => {
