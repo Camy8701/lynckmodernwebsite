@@ -2009,10 +2009,24 @@
       serviceDetail.classList.remove("youtube-hero");
       serviceDetail.style.removeProperty("--youtube-bg-image");
     }
-    const langSwitchEn = document.getElementById("langSwitchEn");
-    const langSwitchDe = document.getElementById("langSwitchDe");
-    if (langSwitchEn) langSwitchEn.href = `/services/service.html?service=${encodeURIComponent(slug)}`;
-    if (langSwitchDe) langSwitchDe.href = `/de/services/service.html?service=${encodeURIComponent(slug)}`;
+    const langButtons = document.querySelectorAll('[data-lang-switch]');
+    if (langButtons.length) {
+      langButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang-switch');
+          if (!lang) return;
+          try {
+            localStorage.setItem('language', lang);
+          } catch (e) {}
+          const dropdown = btn.closest('.nav-dropdown');
+          if (dropdown) dropdown.classList.remove('open');
+          const target = lang === 'de'
+            ? `/de/services/service.html?service=${encodeURIComponent(slug)}`
+            : `/services/service.html?service=${encodeURIComponent(slug)}`;
+          window.location.href = target;
+        });
+      });
+    }
 
     const homeBtn = document.querySelector('[data-home-btn]');
     if (homeBtn) {
