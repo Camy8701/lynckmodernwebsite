@@ -731,32 +731,227 @@
     }
     .ga-steps {
       display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
       gap: 1rem;
+      align-items: stretch;
     }
     .ga-step {
-      border: 1px solid rgba(17, 26, 46, 0.2);
-      border-radius: 1rem;
-      background: rgba(255, 255, 255, 0.82);
-      padding: 1rem 1rem 1.05rem;
+      position: relative;
+      min-height: 16.5rem;
+      padding: 1px;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      background:
+        linear-gradient(140deg, rgba(255, 255, 255, 0.92), rgba(24, 74, 188, 0.18), rgba(255, 255, 255, 0.82));
+      box-shadow: 0 18px 40px rgba(12, 25, 58, 0.08);
+      isolation: isolate;
+    }
+    .ga-step::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 22% 22%, rgba(24, 74, 188, 0.14), transparent 22%),
+        radial-gradient(circle at 78% 80%, rgba(24, 74, 188, 0.08), transparent 26%);
+      opacity: 0;
+      transition: opacity 0.28s ease;
+      pointer-events: none;
+    }
+    .ga-step:hover::before {
+      opacity: 1;
+    }
+    .ga-step-shell {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+      padding: 1.05rem 1.05rem 1.1rem;
+      border-radius: calc(1.25rem - 1px);
+      border: 1px solid rgba(17, 26, 46, 0.08);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     .ga-step-num {
+      display: inline-flex;
+      width: fit-content;
       color: #184abc;
       font-weight: 700;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-family: "Space Grotesk", sans-serif;
+      padding: 0.38rem 0.72rem;
+      border-radius: 999px;
+      border: 1px solid rgba(24, 74, 188, 0.12);
+      background: rgba(24, 74, 188, 0.06);
     }
     .ga-step h3 {
-      margin: 0.3rem 0 0.45rem;
-      font-size: 1.08rem;
+      margin: 0.55rem 0 0.45rem;
+      font-size: 1.12rem;
+      line-height: 1.2;
       color: #0f1d3d;
     }
     .ga-step p {
       margin: 0;
       color: #2d4467;
       line-height: 1.64;
-      font-size: 1.05rem;
+      font-size: 1rem;
+    }
+    .ga-step-note {
+      margin-top: 1rem;
+      color: rgba(45, 68, 103, 0.78);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: "Space Grotesk", sans-serif;
+    }
+    .ga-step-card-1 { grid-area: 1 / 1 / 2 / 5; }
+    .ga-step-card-2 { grid-area: 2 / 1 / 3 / 5; }
+    .ga-step-card-visual { grid-area: 1 / 5 / 3 / 9; }
+    .ga-step-card-3 { grid-area: 1 / 9 / 2 / 13; }
+    .ga-step-card-4 { grid-area: 2 / 9 / 3 / 13; }
+    .ga-step-card-visual {
+      min-height: 100%;
+      overflow: visible;
+      animation: gaStepVisualPulse 4.2s ease-in-out infinite;
+    }
+    .ga-step-card-visual::before {
+      opacity: 1;
+      animation: gaStepVisualAura 5.8s ease-in-out infinite;
+    }
+    .ga-step-card-visual::after {
+      content: "";
+      position: absolute;
+      inset: -18%;
+      background:
+        conic-gradient(from 0deg,
+          transparent 0deg,
+          rgba(24, 74, 188, 0.28) 55deg,
+          transparent 118deg,
+          rgba(24, 74, 188, 0.12) 176deg,
+          transparent 236deg,
+          rgba(24, 74, 188, 0.24) 310deg,
+          transparent 360deg);
+      filter: blur(22px);
+      opacity: 0.65;
+      animation: gaStepVisualSpin 9s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .ga-step-card-visual .ga-step-shell {
+      justify-content: center;
+      padding: 0.9rem;
+      background:
+        linear-gradient(180deg, rgba(246, 249, 255, 0.95), rgba(237, 243, 255, 0.94));
+    }
+    .ga-step-card-visual-copy {
+      margin-top: 0.45rem;
+    }
+    .ga-step-visual-frame {
+      margin-top: 0;
+      padding: 0.85rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(17, 26, 46, 0.08);
+      background:
+        linear-gradient(145deg, rgba(24, 74, 188, 0.08), rgba(255, 255, 255, 0.92));
+    }
+    .ga-step-visual-placeholder {
+      position: relative;
+      min-height: 14.75rem;
+      border-radius: 0.9rem;
+      overflow: hidden;
+      border: 1px solid rgba(17, 26, 46, 0.08);
+      background:
+        radial-gradient(circle at 28% 24%, rgba(24, 74, 188, 0.16), transparent 18%),
+        radial-gradient(circle at 72% 72%, rgba(24, 74, 188, 0.1), transparent 22%),
+        linear-gradient(150deg, rgba(255, 255, 255, 0.9), rgba(233, 240, 255, 0.96));
+    }
+    .ga-step-visual-placeholder::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(15, 29, 61, 0.08));
+      pointer-events: none;
+    }
+    .ga-step-visual-placeholder::before {
+      content: "";
+      position: absolute;
+      inset: 0.85rem;
+      border-radius: 0.7rem;
+      border: 1px dashed rgba(24, 74, 188, 0.28);
+      pointer-events: none;
+    }
+    .ga-step-visual-image {
+      position: absolute;
+      inset: 0.9rem;
+      width: calc(100% - 1.8rem);
+      height: calc(100% - 1.8rem);
+      object-fit: cover;
+      object-position: center;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(15, 29, 61, 0.08);
+      box-shadow: 0 14px 30px rgba(12, 25, 58, 0.12);
+    }
+    @keyframes gaStepVisualSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes gaStepVisualPulse {
+      0%, 100% {
+        box-shadow:
+          0 0 0 1px rgba(24, 74, 188, 0.14),
+          0 0 24px rgba(24, 74, 188, 0.18),
+          0 18px 40px rgba(12, 25, 58, 0.08);
+      }
+      50% {
+        box-shadow:
+          0 0 0 1px rgba(24, 74, 188, 0.2),
+          0 0 46px rgba(24, 74, 188, 0.34),
+          0 22px 48px rgba(12, 25, 58, 0.12);
+      }
+    }
+    @keyframes gaStepVisualAura {
+      0%, 100% { opacity: 0.82; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.06); }
+    }
+
+    @media (max-width: 1000px) {
+      .ga-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .ga-step-card-1,
+      .ga-step-card-2,
+      .ga-step-card-3,
+      .ga-step-card-4,
+      .ga-step-card-visual {
+        grid-area: auto;
+      }
+      .ga-step-card-visual {
+        grid-column: 1 / -1;
+      }
+      .ga-step-visual-placeholder {
+        min-height: 12rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .ga-steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .ga-step-card-visual {
+        grid-column: auto;
+      }
+      .ga-step {
+        min-height: 0;
+      }
+      .ga-step-shell {
+        padding: 0.95rem;
+      }
     }
 
     .ga-faq {
@@ -1272,25 +1467,54 @@
           <h2>How We Work</h2>
           <p class="ga-process-intro">We do not launch ads. We build structured systems.</p>
           <div class="ga-steps">
-            <article class="ga-step">
-              <span class="ga-step-num">1 - Free Strategy Call</span>
-              <h3>Clarity before spend</h3>
-              <p>We dive into your business model, margins, sales process, current traffic, and existing campaigns. We define whether Google Ads is the right channel and how it should be structured.</p>
+            <article class="ga-step ga-step-card-1">
+              <div class="ga-step-shell">
+                <div>
+                  <span class="ga-step-num">1 - Free Strategy Call</span>
+                  <h3>Clarity before spend</h3>
+                  <p>We dive into your business model, margins, sales process, current traffic, and existing campaigns. We define whether Google Ads is the right channel and how it should be structured.</p>
+                </div>
+                <div class="ga-step-note">Discovery layer</div>
+              </div>
             </article>
-            <article class="ga-step">
-              <span class="ga-step-num">2 - Account Audit and 60-90 Day Roadmap</span>
-              <h3>Concrete actions, not vague advice</h3>
-              <p>We audit campaign structure, conversion tracking, wasted spend, keyword targeting, and funnel alignment. You receive a clear action plan with short-term wins and long-term scale logic.</p>
+            <article class="ga-step ga-step-card-2">
+              <div class="ga-step-shell">
+                <div>
+                  <span class="ga-step-num">2 - Account Audit and 60-90 Day Roadmap</span>
+                  <h3>Concrete actions, not vague advice</h3>
+                  <p>We audit campaign structure, conversion tracking, wasted spend, keyword targeting, and funnel alignment. You receive a clear action plan with short-term wins and long-term scale logic.</p>
+                </div>
+                <div class="ga-step-note">Planning layer</div>
+              </div>
             </article>
-            <article class="ga-step">
-              <span class="ga-step-num">3 - Build and Launch</span>
-              <h3>Execution with clean structure</h3>
-              <p>We build or restructure campaigns with clear naming logic, segmentation, conversion-first tracking, and creative alignment. We prioritize fast traction, then controlled expansion.</p>
+            <article class="ga-step ga-step-card-visual">
+              <div class="ga-step-shell">
+                <div class="ga-step-visual-frame">
+                  <div class="ga-step-visual-placeholder" role="img" aria-label="Placeholder image for the Google Ads process visual">
+                    <img class="ga-step-visual-image" loading="lazy" decoding="async" src="/assets/google-ads-3d-icon-4k.webp" alt="Google Ads campaign system preview">
+                  </div>
+                </div>
+              </div>
             </article>
-            <article class="ga-step">
-              <span class="ga-step-num">4 - Continuous Scaling and Optimization</span>
-              <h3>Budget follows performance</h3>
-              <p>After the learning phase stabilizes (typically 2-4 weeks), we remove underperforming segments, expand profitable audiences, refine bidding, test creatives, and scale with measurable ROI.</p>
+            <article class="ga-step ga-step-card-3">
+              <div class="ga-step-shell">
+                <div>
+                  <span class="ga-step-num">3 - Build and Launch</span>
+                  <h3>Execution with clean structure</h3>
+                  <p>We build or restructure campaigns with clear naming logic, segmentation, conversion-first tracking, and creative alignment. We prioritize fast traction, then controlled expansion.</p>
+                </div>
+                <div class="ga-step-note">Execution layer</div>
+              </div>
+            </article>
+            <article class="ga-step ga-step-card-4">
+              <div class="ga-step-shell">
+                <div>
+                  <span class="ga-step-num">4 - Continuous Scaling and Optimization</span>
+                  <h3>Budget follows performance</h3>
+                  <p>After the learning phase stabilizes (typically 2-4 weeks), we remove underperforming segments, expand profitable audiences, refine bidding, test creatives, and scale with measurable ROI.</p>
+                </div>
+                <div class="ga-step-note">Scale layer</div>
+              </div>
             </article>
           </div>
         </section>
