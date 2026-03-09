@@ -133,12 +133,18 @@
       align-items: center;
       gap: 0.75rem;
     }
+    .lynck-header-right {
+      justify-content: flex-end;
+      flex-shrink: 0;
+      min-width: 278px;
+    }
     .nav-social {
       display: flex;
       align-items: center;
       gap: 0.35rem;
     }
-    .nav-social a {
+    .nav-social a,
+    .nav-social button {
       width: 30px;
       height: 30px;
       display: inline-flex;
@@ -176,7 +182,7 @@
       position: absolute;
       top: calc(100% + 0.6rem);
       left: 0;
-      min-width: 260px;
+      min-width: 210px;
       padding: 0.4rem;
       border-radius: 14px;
       background: rgba(10, 12, 18, 0.98);
@@ -211,10 +217,15 @@
       color: rgba(15, 23, 42, 0.82);
       font-size: 0.88rem;
     }
-    .lynck-nav-links a {
+    .lynck-nav-links a,
+    .lynck-nav-links button {
       color: inherit;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
       text-decoration: none;
       font: inherit;
+      padding: 0;
     }
     .nav-social a:hover {
       color: #0f172a;
@@ -231,6 +242,8 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+      min-width: 168px;
+      min-height: 44px;
       padding: 0.65rem 1.5rem;
       border-radius: 999px;
       border: 0;
@@ -1342,7 +1355,7 @@
             <nav class="lynck-nav-links" aria-label="Primary">
                 <a href="/about.html">About LYNCK</a>
                 <a href="/#our-services">Our Services</a>
-                <a href="/#testimonials">Testimonials</a>
+                <a href="/case-studies/">Case Studies</a>
                 <a href="/blog-real-reason-your-ads-dont-convert.html">Blog</a>
             </nav>
 
@@ -1470,9 +1483,9 @@
             <article class="ga-step ga-step-card-1">
               <div class="ga-step-shell">
                 <div>
-                  <span class="ga-step-num">1 - Free Strategy Call</span>
-                  <h3>Clarity before spend</h3>
-                  <p>We dive into your business model, margins, sales process, current traffic, and existing campaigns. We define whether Google Ads is the right channel and how it should be structured.</p>
+                  <span class="ga-step-num">1 - First Strategy Call (Free)</span>
+                  <h3>Get aligned from the start</h3>
+                  <p>We dive into your business model, audit any existing data, and define your growth goals. The purpose is to get to know each other, resolve questions, and ensure our expertise aligns with your vision.</p>
                 </div>
                 <div class="ga-step-note">Discovery layer</div>
               </div>
@@ -1480,9 +1493,9 @@
             <article class="ga-step ga-step-card-2">
               <div class="ga-step-shell">
                 <div>
-                  <span class="ga-step-num">2 - Account Audit and 60-90 Day Roadmap</span>
-                  <h3>Concrete actions, not vague advice</h3>
-                  <p>We audit campaign structure, conversion tracking, wasted spend, keyword targeting, and funnel alignment. You receive a clear action plan with short-term wins and long-term scale logic.</p>
+                  <span class="ga-step-num">2 - Account Audit &amp; Roadmap</span>
+                  <h3>Quick wins first, long-term structure next</h3>
+                  <p>We identify quick wins to stop budget waste while architecting your long-term growth plan. Whether we are optimizing an existing account or building a new one from scratch, you get a clear 60-90 day roadmap designed to capture immediate demand and scale your results.</p>
                 </div>
                 <div class="ga-step-note">Planning layer</div>
               </div>
@@ -1499,9 +1512,9 @@
             <article class="ga-step ga-step-card-3">
               <div class="ga-step-shell">
                 <div>
-                  <span class="ga-step-num">3 - Build and Launch</span>
-                  <h3>Execution with clean structure</h3>
-                  <p>We build or restructure campaigns with clear naming logic, segmentation, conversion-first tracking, and creative alignment. We prioritize fast traction, then controlled expansion.</p>
+                  <span class="ga-step-num">3 - Kickoff Meeting</span>
+                  <h3>Move from planning to execution</h3>
+                  <p>Once the strategy is set, we align on the final details, creative assets, and the current tracking status. We then move from planning to action, immediately executing the short-term fixes and campaign setups discussed in your roadmap.</p>
                 </div>
                 <div class="ga-step-note">Execution layer</div>
               </div>
@@ -1509,9 +1522,9 @@
             <article class="ga-step ga-step-card-4">
               <div class="ga-step-shell">
                 <div>
-                  <span class="ga-step-num">4 - Continuous Scaling and Optimization</span>
+                  <span class="ga-step-num">4 - Continuous Scaling &amp; Optimization</span>
                   <h3>Budget follows performance</h3>
-                  <p>After the learning phase stabilizes (typically 2-4 weeks), we remove underperforming segments, expand profitable audiences, refine bidding, test creatives, and scale with measurable ROI.</p>
+                  <p>After launch, we proactively refine your strategy to ensure your budget is always directed toward the highest-performing opportunities. Depending on your growth stage and investment level, we scale your strategy from targeting immediate buyers to building brand visibility across YouTube and the wider web. This data-driven approach allows us to eliminate underperforming ads and double down on the channels that drive the most value for your business.</p>
                 </div>
                 <div class="ga-step-note">Scale layer</div>
               </div>
@@ -1523,47 +1536,47 @@
           <h2>FAQ</h2>
           <div class="ga-faq-item">
             <button class="ga-faq-toggle" type="button" aria-expanded="true">
-              <span>How much budget do I need?</span>
+              <span>How much budget do I need for Google Ads?</span>
               <span>+</span>
             </button>
             <div class="ga-faq-answer">
-              Most businesses start effectively between EUR1,000 and EUR2,000 per month. This generates enough data for intelligent optimization. Once ROI is validated, we scale strategically.
+              While costs vary by niche and competition, a monthly budget of EUR1,000-EUR2,000 is typically enough to establish consistent traffic and gather actionable data. Once we prove a positive return, we can strategically scale your investment to drive further growth.
             </div>
           </div>
           <div class="ga-faq-item">
             <button class="ga-faq-toggle" type="button" aria-expanded="false">
-              <span>How fast will I see results?</span>
+              <span>How long do I have to wait for the first results?</span>
               <span>+</span>
             </button>
             <div class="ga-faq-answer is-hidden">
-              Traffic starts immediately. Performance typically stabilizes after 2-4 weeks once campaigns exit the learning phase.
+              Ads go live immediately, so you will see initial traffic quickly. It typically takes 2 to 4 weeks for the system to exit the learning phase, stabilize, and build performance efficiently.
             </div>
           </div>
           <div class="ga-faq-item">
             <button class="ga-faq-toggle" type="button" aria-expanded="false">
-              <span>Are Google Ads still profitable with rising CPCs?</span>
+              <span>Is Google Ads still useful with increasing CPCs?</span>
               <span>+</span>
             </button>
             <div class="ga-faq-answer is-hidden">
-              Yes. High-intent search remains one of the most profitable acquisition channels. We optimize for conversion quality, not just click volume.
+              Yes, because high-intent search remains one of the most effective ways to reach ready-to-buy customers. By combining a full-funnel approach with a focus on conversion quality over click volume, we keep campaigns profitable even as market costs rise.
             </div>
           </div>
           <div class="ga-faq-item">
             <button class="ga-faq-toggle" type="button" aria-expanded="false">
-              <span>What if my industry is very competitive?</span>
+              <span>What happens if my industry is highly competitive?</span>
               <span>+</span>
             </button>
             <div class="ga-faq-answer is-hidden">
-              Competition means demand exists. We do not try to outspend larger competitors. We out-structure them with tighter targeting, cleaner architecture, and stronger funnel fit.
+              Competition is actually a signal of high demand. We do not try to outspend the giants. We out-maneuver them by targeting the specific, high-intent searches they overlook, which keeps your budget efficient.
             </div>
           </div>
           <div class="ga-faq-item">
             <button class="ga-faq-toggle" type="button" aria-expanded="false">
-              <span>How much time do I need to invest?</span>
+              <span>How much time do I need to invest each week?</span>
               <span>+</span>
             </button>
             <div class="ga-faq-answer is-hidden">
-              After kickoff and monthly strategy reviews, we handle day-to-day execution as an extension of your team.
+              Beyond the initial kickoff and monthly strategy reviews, we handle the heavy lifting. We act as an extension of your team so you can focus on running your business while we manage the growth engine.
             </div>
           </div>
         </section>
@@ -1676,7 +1689,7 @@
       <div class="footer-links-col">
         <a href="/about.html">About LYNCK</a>
         <a href="/#our-services">Our Services</a>
-        <a href="/#testimonials">Testimonials</a>
+        <a href="/case-studies/">Case Studies</a>
         <a href="/apply/">Contact Us</a>
       </div>
       <div class="footer-links-col">

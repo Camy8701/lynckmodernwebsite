@@ -133,12 +133,18 @@
       align-items: center;
       gap: 0.75rem;
     }
+    .lynck-header-right {
+      justify-content: flex-end;
+      flex-shrink: 0;
+      min-width: 278px;
+    }
     .nav-social {
       display: flex;
       align-items: center;
       gap: 0.35rem;
     }
-    .nav-social a {
+    .nav-social a,
+    .nav-social button {
       width: 30px;
       height: 30px;
       display: inline-flex;
@@ -176,7 +182,7 @@
       position: absolute;
       top: calc(100% + 0.6rem);
       left: 0;
-      min-width: 260px;
+      min-width: 210px;
       padding: 0.4rem;
       border-radius: 14px;
       background: rgba(10, 12, 18, 0.98);
@@ -211,10 +217,15 @@
       color: rgba(15, 23, 42, 0.82);
       font-size: 0.88rem;
     }
-    .lynck-nav-links a {
+    .lynck-nav-links a,
+    .lynck-nav-links button {
       color: inherit;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
       text-decoration: none;
       font: inherit;
+      padding: 0;
     }
     .nav-social a:hover {
       color: #0f172a;
@@ -231,6 +242,8 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+      min-width: 168px;
+      min-height: 44px;
       padding: 0.65rem 1.5rem;
       border-radius: 999px;
       border: 0;
@@ -1336,7 +1349,7 @@
             <nav class="lynck-nav-links" aria-label="Primary">
                 <a href="/de/about.html">Über uns</a>
                 <a href="#our-services">Leistungen</a>
-                <a href="#testimonials">Das sagen Kunden</a>
+                <a href="/de/case-studies/">Fallstudien</a>
                 <a href="/blog-real-reason-your-ads-dont-convert.html">Blog</a>
             </nav>
 
@@ -1464,9 +1477,9 @@
             <article class="ga-step ga-step-card-1">
               <div class="ga-step-shell">
                 <div>
-                  <span class="ga-step-num">1 - Kostenloses Strategiegespräch</span>
-                  <h3>Klarheit vor Budgeteinsatz</h3>
-                  <p>Wir analysieren Geschäftsmodell, Margen, Sales-Prozess, Traffic und bestehende Kampagnen. Danach ist klar, ob und wie Google Ads eingesetzt wird.</p>
+                  <span class="ga-step-num">1 - Erstes Strategiegespräch (kostenlos)</span>
+                  <h3>Erstmal sauber abstimmen</h3>
+                  <p>Wir gehen gemeinsam dein Geschäftsmodell durch, schauen uns vorhandene Daten an und stecken deine Wachstumsziele ab. So lernen wir uns kennen, klären offene Fragen und prüfen, ob unsere Expertise wirklich zu deiner Vision passt.</p>
                 </div>
                 <div class="ga-step-note">Analyse-Ebene</div>
               </div>
@@ -1474,9 +1487,9 @@
             <article class="ga-step ga-step-card-2">
               <div class="ga-step-shell">
                 <div>
-                  <span class="ga-step-num">2 - Kontoprüfung &amp; 60-90-Tage-Plan</span>
-                  <h3>Konkrete Massnahmen statt Allgemeinplätze</h3>
-                  <p>Wir prüfen Struktur, Tracking, Budgetverluste, Keywords und Funnel-Fit. Du bekommst einen klaren Aktionsplan mit Quick Wins und Skalierungslogik.</p>
+                  <span class="ga-step-num">2 - Kontoprüfung &amp; Fahrplan</span>
+                  <h3>Schnelle Hebel zuerst, Struktur für später direkt mitdenken</h3>
+                  <p>Wir identifizieren schnelle Hebel, um Budgetverschwendung sofort zu stoppen, und bauen parallel deinen langfristigen Wachstumsplan auf. Egal, ob wir ein bestehendes Konto optimieren oder ein neues von Grund auf aufsetzen: Du bekommst einen klaren 60- bis 90-Tage-Fahrplan, der direkte Nachfrage einfängt und deine Ergebnisse sauber skalierbar macht.</p>
                 </div>
                 <div class="ga-step-note">Planungs-Ebene</div>
               </div>
@@ -1493,9 +1506,9 @@
             <article class="ga-step ga-step-card-3">
               <div class="ga-step-shell">
                 <div>
-                  <span class="ga-step-num">3 - Aufbau & Start</span>
-                  <h3>Saubere Umsetzung</h3>
-                  <p>Wir bauen Kampagnen mit klarer Benennungslogik, Segmentierung, conversion-fokussiertem Tracking und passender Kreativstruktur auf.</p>
+                  <span class="ga-step-num">3 - Kickoff-Meeting</span>
+                  <h3>Von der Planung direkt in die Umsetzung</h3>
+                  <p>Sobald die Strategie steht, stimmen wir die letzten Details, die Werbemittel und den aktuellen Stand deines Trackings ab. Danach gehen wir direkt ins Tun und setzen die kurzfristigen Korrekturen und Kampagnen-Setups aus dem Fahrplan sofort um.</p>
                 </div>
                 <div class="ga-step-note">Umsetzungs-Ebene</div>
               </div>
@@ -1503,9 +1516,9 @@
             <article class="ga-step ga-step-card-4">
               <div class="ga-step-shell">
                 <div>
-                  <span class="ga-step-num">4 - Laufende Optimierung & Skalierung</span>
-                  <h3>Budget folgt Performance</h3>
-                  <p>Nach der Lernphase (typisch 2-4 Wochen) entfernen wir Underperformer, erweitern profitable Segmente und skalieren auf Basis valider Daten.</p>
+                  <span class="ga-step-num">4 - Laufende Skalierung &amp; Optimierung</span>
+                  <h3>Das Budget fließt dahin, wo es wirklich wirkt</h3>
+                  <p>Nach dem Launch verfeinern wir deine Strategie laufend, damit dein Budget immer in die stärksten Chancen fließt. Je nach Wachstumsphase und Investitionsniveau skalieren wir deine Strategie von der Ansprache kaufbereiter Nutzer bis zum Aufbau von Markenpräsenz auf YouTube und im gesamten Web. Dieser datenbasierte Ansatz hilft uns, schwache Anzeigen konsequent auszuschließen und die Kanäle auszubauen, die für dein Unternehmen den größten Wert liefern.</p>
                 </div>
                 <div class="ga-step-note">Skalierungs-Ebene</div>
               </div>
@@ -1517,47 +1530,47 @@
           <h2>FAQ</h2>
           <div class="ga-faq-item">
             <button class="ga-faq-toggle" type="button" aria-expanded="true">
-              <span>Wie viel Budget brauche ich?</span>
+              <span>Wie viel Budget brauche ich für Google Ads?</span>
               <span>+</span>
             </button>
             <div class="ga-faq-answer">
-              Die meisten Unternehmen starten sinnvoll zwischen EUR1.000 und EUR2.000 pro Monat. Das erzeugt genug Daten für intelligente Optimierung. Sobald ROI steht, skalieren wir strategisch.
+              Das hängt von Branche und Wettbewerb ab, aber mit 1.000 bis 2.000 EUR im Monat lässt sich in den meisten Fällen stabiler Traffic aufbauen und genug Daten sammeln, um fundiert zu optimieren. Sobald wir sehen, dass sich dein Budget sauber rechnet, skalieren wir gezielt weiter.
             </div>
           </div>
           <div class="ga-faq-item">
             <button class="ga-faq-toggle" type="button" aria-expanded="false">
-              <span>Wie schnell sehe ich Ergebnisse?</span>
+              <span>Wie lange dauert es bis zu den ersten Ergebnissen?</span>
               <span>+</span>
             </button>
             <div class="ga-faq-answer is-hidden">
-              Traffic startet sofort. Die Performance stabilisiert sich in der Regel nach 2-4 Wochen, sobald die Lernphase abgeschlossen ist.
+              Die Anzeigen gehen direkt live, daher siehst du in der Regel schnell erste Zugriffe. Bis das System aus der Lernphase raus ist, sich stabilisiert und sauber performt, dauert es meistens etwa 2 bis 4 Wochen.
             </div>
           </div>
           <div class="ga-faq-item">
             <button class="ga-faq-toggle" type="button" aria-expanded="false">
-              <span>Sind Google Ads bei steigenden CPCs noch profitabel?</span>
+              <span>Sind Google Ads trotz steigender CPCs noch sinnvoll?</span>
               <span>+</span>
             </button>
             <div class="ga-faq-answer is-hidden">
-              Ja. Suche mit klarer Kaufabsicht bleibt einer der profitabelsten Akquise-Kanäle. Wir optimieren auf Conversion-Qualität statt auf reines Klickvolumen.
+              Ja, denn Suchanfragen mit klarer Kaufabsicht sind nach wie vor der direkteste Weg zu Menschen, die schon bereit sind zu kaufen. In Kombination mit einem Full-Funnel-Ansatz und dem Fokus auf Conversion-Qualität statt bloßem Klickvolumen bleiben Kampagnen auch dann rentabel, wenn die Marktpreise steigen.
             </div>
           </div>
           <div class="ga-faq-item">
             <button class="ga-faq-toggle" type="button" aria-expanded="false">
-              <span>Was, wenn meine Branche stark umkämpft ist?</span>
+              <span>Was passiert, wenn meine Branche sehr umkämpft ist?</span>
               <span>+</span>
             </button>
             <div class="ga-faq-answer is-hidden">
-              Wettbewerb bedeutet Nachfrage. Wir überholen nicht durch höhere Budgets, sondern durch bessere Struktur, präziseres Targeting und saubereren Funnel-Fit.
+              Starker Wettbewerb ist erstmal ein Zeichen dafür, dass echte Nachfrage da ist. Wir versuchen nicht, die großen Player mit mehr Budget zu schlagen. Wir manövrieren smarter, indem wir gezielt die relevanten Suchanfragen besetzen, die andere übersehen, und dein Budget dadurch effizient halten.
             </div>
           </div>
           <div class="ga-faq-item">
             <button class="ga-faq-toggle" type="button" aria-expanded="false">
-              <span>Wie viel Zeit muss ich investieren?</span>
+              <span>Wie viel Zeit muss ich jede Woche investieren?</span>
               <span>+</span>
             </button>
             <div class="ga-faq-answer is-hidden">
-              Nach Kickoff und monatlichen Strategie-Reviews übernehmen wir die operative Umsetzung vollständig als Erweiterung deines Teams.
+              Abgesehen vom Kickoff und den monatlichen Strategie-Reviews übernehmen wir den Großteil der Arbeit. Wir arbeiten wie eine Erweiterung deines Teams, damit du dein Unternehmen führen kannst, während wir das Wachstumssystem steuern.
             </div>
           </div>
         </section>
@@ -1670,7 +1683,7 @@
       <div class="footer-links-col">
         <a href="/de/about.html">Über LYNCK</a>
         <a href="/de/#our-services">Unsere Leistungen</a>
-        <a href="/de/#testimonials">Referenzen</a>
+        <a href="/de/case-studies/">Fallstudien</a>
         <a href="/de/apply/">Kontakt</a>
       </div>
       <div class="footer-links-col">
