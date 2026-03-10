@@ -17,6 +17,7 @@
       cardCta: "Open case study",
       cardFocusLabel: "Project focus",
       backLabel: "Back to case studies",
+      expandImageLabel: "Expand image",
       relatedHeading: "More case studies",
       relatedCopy: "Each project is built as a full story page, so you can drop in final names, assets, and verified results later.",
       sidebarTitle: "Project Snapshot",
@@ -123,58 +124,109 @@
             "Once brand traffic, remarketing, and first-party data were separated cleanly, the account stopped guessing and started scaling with much steadier signals."
         },
         {
-          slug: "paid-social-launch-system",
+          slug: "djtechnik-youtube-growth",
           index: "02",
-          category: "social",
-          categoryLabel: "Social Ads",
-          title: "Paid Social Launch System",
-          subtitle: "UGC-style creative, stronger offer framing, and controlled testing",
+          category: "performance",
+          categoryLabel: "Performance",
+          title: "DJTechnik.de",
+          subtitle: "Music equipment e-commerce brand | Growing a YouTube audience and customer pipeline through Google Ads",
           overview:
-            "How we combine UGC-style creative with a tighter paid social structure so launches do not depend on one winning ad or one short-lived audience pocket.",
-          image: "/assets/ugc-image-2.webp",
-          imageAlt: "UGC-style content setup for paid social campaigns",
-          chips: ["Paid Social", "UGC", "Creative Testing"],
+            "How we helped a DJ equipment brand accelerate YouTube growth and build a larger audience of potential buyers through a structured Google Ads subscriber campaign.",
+          image: "/assets/case-study-djtechnik-youtube-04.jpg",
+          imageMode: "contain",
+          inlineHeroMedia: true,
+          imageAlt: "Google Ads campaign performance view showing subscriber growth and cost efficiency",
+          chips: ["YouTube", "Google Ads", "Subscriber Growth", "E-Commerce"],
+          cardFocus: "Audience growth + future buyer pipeline",
+          cardMetrics: [
+            { value: "+7.8k", label: "Subscribers" },
+            { value: "90 Days", label: "Timeframe" },
+            { value: "€0.22", label: "Cost / Subscriber" }
+          ],
+          heroMetrics: [
+            { value: "+7.8k", label: "Subscribers" },
+            { value: "90 Days", label: "Timeframe" },
+            { value: "€0.22", label: "Cost / Subscriber" }
+          ],
           snapshot: [
-            { label: "Channel", value: "Meta Ads" },
-            { label: "Scope", value: "UGC + retargeting" },
-            { label: "Priority", value: "Efficient scale" }
+            { label: "Client", value: "DJTechnik.de" },
+            { label: "Sector", value: "Music equipment e-commerce" },
+            { label: "Market", value: "Germany" },
+            { label: "Channel mix", value: "YouTube subscriber campaigns via Google Ads" },
+            { label: "Priority", value: "Grow the audience and future customer pipeline" }
+          ],
+          gallery: [
+            {
+              src: "/assets/case-study-djtechnik-youtube-03.png",
+              mode: "contain",
+              alt: "YouTube analytics showing subscriber growth over the last 90 days"
+            },
+            {
+              src: "/assets/case-study-djtechnik-youtube-02.png",
+              mode: "contain",
+              alt: "YouTube analytics showing subscriber growth over the last 28 days"
+            },
+            {
+              src: "/assets/case-study-djtechnik-youtube-01.png",
+              mode: "contain",
+              alt: "YouTube analytics showing channel growth since the account was created"
+            }
           ],
           sections: [
             {
-              kicker: "Situation",
-              title: "Creative was doing too much work by itself.",
+              kicker: "The Challenge",
+              title: "A niche e-commerce brand with strong products but limited audience reach.",
               body: [
-                "The brand needed a launch system that could introduce the offer to cold audiences, build conviction, and give the team room to iterate without resetting the whole account every time a creative angle changed.",
-                "That meant pairing creative variation with a clearer campaign framework, not relying on a single ad to carry performance."
-              ]
-            },
-            {
-              kicker: "What We Built",
-              title: "A launch structure that gives creative room to work.",
+                "The DJ equipment brand already had strong product demonstrations and educational videos on YouTube, but organic growth on its own was too slow to unlock the channel’s full sales potential.",
+                "Despite good content, the channel was still not reaching enough DJs, music producers, and equipment buyers in the market."
+              ],
               bullets: [
-                "Mapped the offer into colder-audience education, proof-driven middle stages, and sharper conversion pushes.",
-                "Used UGC-style formats to make the product feel native to the feed instead of over-produced.",
-                "Separated testing logic from scaling logic so useful learnings were easier to read.",
-                "Built a retargeting layer that reinforces the strongest messages instead of repeating the same angle."
+                "Limited reach: the channel was sitting at roughly 1,000 subscribers, which restricted organic discovery.",
+                "Slow organic growth: valuable videos were being published, but they were not reaching enough relevant viewers.",
+                "Missed sales potential: every engaged viewer was also a potential buyer of DJ equipment.",
+                "No structured audience acquisition: YouTube had not yet been turned into a scalable customer acquisition channel."
               ]
             },
             {
-              kicker: "Why It Matters",
-              title: "Paid social works better when message and structure move together.",
+              kicker: "The Approach",
+              title: "We built a YouTube subscriber growth campaign through Google Ads.",
               body: [
-                "The real value is not one short-term winner. It is a system that helps the team learn faster, keep creative fresh, and scale with more control.",
-                "This page is ready for the final launch timeline, creative examples, and verified blended ROAS detail."
+                "Instead of relying purely on organic discovery, we used Google Ads to accelerate channel growth and build a much larger audience of relevant future buyers."
+              ],
+              bullets: [
+                "Launched YouTube subscriber campaigns built specifically to grow the channel by promoting relevant videos to audiences interested in DJ equipment, music production, DJ tutorials, and electronic music performance.",
+                "Targeted users based on DJ and music production interests, relevant YouTube content viewers, music equipment search intent, and related channel audiences.",
+                "Promoted the channel’s existing best-performing videos instead of creating ad-only content, so strong videos could keep attracting subscribers organically afterwards.",
+                "Scaled budget gradually once the campaigns began producing subscribers at a very low acquisition cost.",
+                "Built the whole system around long-term channel growth rather than just short-term traffic."
+              ]
+            },
+            {
+              kicker: "The Results",
+              title: "Rapid subscriber growth at a very low acquisition cost.",
+              body: [
+                "Over roughly 90 days, the campaign helped grow the channel from around 1,000 subscribers on December 20 to about 8,800 subscribers by March 10.",
+                "That means roughly 7,800 net new subscribers with about €1,700 in ad spend, bringing the average cost per subscriber to around €0.22."
+              ],
+              bullets: [
+                "Roughly 7,800 net new subscribers during the 90-day campaign window",
+                "About €1,700 total ad spend",
+                "Around €0.22 average cost per subscriber",
+                "Channel growth from around 1,000 subscribers to approximately 8,800",
+                "A subscriber base that is now large enough to keep compounding through content and product demand",
+                "A larger long-term audience of DJs, music producers, and equipment buyers"
               ]
             }
           ],
           deliverables: [
-            "Creative testing matrix",
-            "UGC angle planning",
-            "Retargeting sequence",
-            "Offer-led campaign logic"
+            "YouTube subscriber acquisition campaign via Google Ads",
+            "Audience targeting for DJs and music production communities",
+            "Video promotion strategy for existing content",
+            "Budget scaling framework based on cost-per-subscriber performance",
+            "Channel growth used as a long-term lead and customer pipeline"
           ],
           quote:
-            "The point is not just better ads. The point is a launch structure that lets better ads compound."
+            "Instead of waiting for slow organic growth, the brand used Google Ads to accelerate audience acquisition and grow the channel from roughly 1,000 to about 8,800 subscribers in around 90 days."
         },
         {
           slug: "conversion-web-rebuild",
@@ -303,6 +355,7 @@
       cardCta: "Fallstudie ansehen",
       cardFocusLabel: "Projektfokus",
       backLabel: "Zurück zu den Fallstudien",
+      expandImageLabel: "Bild vergrößern",
       relatedHeading: "Weitere Fallstudien",
       relatedCopy: "Jedes Projekt ist als vollständige Story-Seite aufgebaut, damit später echte Namen, Assets und verifizierte Ergebnisse sauber ergänzt werden können.",
       sidebarTitle: "Projektüberblick",
@@ -409,58 +462,109 @@
             "Sobald Brand-Traffic, Remarketing und 1P Data sauber getrennt waren, wurde das Konto deutlich ruhiger, klarer und verlässlicher skalierbar."
         },
         {
-          slug: "paid-social-launch-system",
+          slug: "djtechnik-youtube-growth",
           index: "02",
-          category: "social",
-          categoryLabel: "Social Ads",
-          title: "Paid Social Launch System",
-          subtitle: "UGC-nahe Creatives, klareres Angebots-Framing und kontrolliertes Testing",
+          category: "performance",
+          categoryLabel: "Performance",
+          title: "DJTechnik.de",
+          subtitle: "Musikequipment-E-Commerce | YouTube-Audience und Käuferpotenzial mit Google Ads ausgebaut",
           overview:
-            "So kombinieren wir UGC-nahe Creatives mit einer saubereren Paid-Social-Struktur, damit ein Launch nicht an einer einzigen Anzeige oder einer kurzen Zielgruppenphase hängen bleibt.",
-          image: "/assets/ugc-image-2.webp",
-          imageAlt: "UGC-Setup für Social-Ads-Kampagnen",
-          chips: ["Social Ads", "UGC", "Creative-Tests"],
+            "So haben wir einer DJ-Equipment-Marke geholfen, ihr YouTube-Wachstum mit einer strukturierten Google-Ads-Kampagne zu beschleunigen und gleichzeitig eine größere Zielgruppe potenzieller Käufer aufzubauen.",
+          image: "/assets/case-study-djtechnik-youtube-04.jpg",
+          imageMode: "contain",
+          inlineHeroMedia: true,
+          imageAlt: "Google-Ads-Auswertung mit Abonnentenwachstum und effizientem Kostenverlauf",
+          chips: ["YouTube", "Google Ads", "Abonnentenwachstum", "E-Commerce"],
+          cardFocus: "Audience-Wachstum + künftige Käuferpipeline",
+          cardMetrics: [
+            { value: "+7,8k", label: "Abonnenten" },
+            { value: "90 Tage", label: "Zeitraum" },
+            { value: "€0,22", label: "Kosten / Abonnent" }
+          ],
+          heroMetrics: [
+            { value: "+7,8k", label: "Abonnenten" },
+            { value: "90 Tage", label: "Zeitraum" },
+            { value: "€0,22", label: "Kosten / Abonnent" }
+          ],
           snapshot: [
-            { label: "Kanal", value: "Meta Ads" },
-            { label: "Umfang", value: "UGC + Retargeting" },
-            { label: "Priorität", value: "Effizientes Skalieren" }
+            { label: "Kunde", value: "DJTechnik.de" },
+            { label: "Bereich", value: "Musikequipment-E-Commerce" },
+            { label: "Markt", value: "Deutschland" },
+            { label: "Kanalmix", value: "YouTube-Subscriber-Kampagnen über Google Ads" },
+            { label: "Priorität", value: "YouTube-Audience und Käuferpipeline ausbauen" }
+          ],
+          gallery: [
+            {
+              src: "/assets/case-study-djtechnik-youtube-03.png",
+              mode: "contain",
+              alt: "YouTube-Analytics mit Abonnentenwachstum der letzten 90 Tage"
+            },
+            {
+              src: "/assets/case-study-djtechnik-youtube-02.png",
+              mode: "contain",
+              alt: "YouTube-Analytics mit Abonnentenwachstum der letzten 28 Tage"
+            },
+            {
+              src: "/assets/case-study-djtechnik-youtube-01.png",
+              mode: "contain",
+              alt: "YouTube-Analytics mit Kanalentwicklung seit Kontoerstellung"
+            }
           ],
           sections: [
             {
-              kicker: "Ausgangslage",
-              title: "Das Creative musste zu viel alleine tragen.",
+              kicker: "Die Herausforderung",
+              title: "Eine starke Nischenmarke mit guten Inhalten, aber zu wenig Reichweite.",
               body: [
-                "Die Marke brauchte ein Launch-System, das kalte Zielgruppen sauber an das Angebot heranführt, Vertrauen aufbaut und dem Team Spielraum für Iterationen gibt, ohne das ganze Konto jedes Mal neu aufzusetzen.",
-                "Dafür reicht kein einzelnes starkes Ad. Es braucht eine Struktur, in der Creative-Varianten sinnvoll arbeiten können."
-              ]
-            },
-            {
-              kicker: "Was wir aufgebaut haben",
-              title: "Eine Launch-Struktur, die Creatives wirklich arbeiten lässt.",
+                "Die Marke hatte bereits starke Produktdemos und hilfreiche YouTube-Videos, aber rein organisches Wachstum war zu langsam, um das volle Potenzial des Kanals zu nutzen.",
+                "Trotz guter Inhalte erreichte der Kanal noch nicht genug DJs, Musikproduzenten und potenzielle Käufer im relevanten Markt."
+              ],
               bullets: [
-                "Das Angebot wurde in klare Phasen für kalte Zielgruppen, Vertrauensaufbau und Conversion unterteilt.",
-                "UGC-nahe Formate sorgen dafür, dass das Produkt im Feed glaubwürdiger und nativer wirkt.",
-                "Testing-Logik und Skalierungs-Logik wurden getrennt, damit Learnings besser lesbar bleiben.",
-                "Retargeting stärkt die besten Botschaften, statt einfach dieselbe Anzeige erneut auszuliefern."
+                "Begrenzte Reichweite: Mit rund 1.000 Abonnenten war die organische Auffindbarkeit noch stark eingeschränkt.",
+                "Langsames organisches Wachstum: Wertvolle Videos wurden veröffentlicht, erreichten aber zu wenige relevante Nutzer.",
+                "Verlorenes Verkaufspotenzial: Jeder qualifizierte Videozuschauer ist auch ein möglicher Käufer von DJ-Equipment.",
+                "Keine strukturierte Audience-Akquise: YouTube wurde noch nicht als skalierbarer Akquise-Kanal genutzt."
               ]
             },
             {
-              kicker: "Warum das wichtig ist",
-              title: "Paid Social wird stärker, wenn Botschaft und Struktur zusammenarbeiten.",
+              kicker: "Der Ansatz",
+              title: "Wir haben eine YouTube-Subscriber-Kampagne über Google Ads aufgebaut.",
               body: [
-                "Der eigentliche Wert liegt nicht in einem kurzfristigen Gewinner, sondern in einem System, das schneller lernt, Creatives frischer hält und kontrollierter skaliert.",
-                "Diese Seite ist bereit für die finale Launch-Chronologie, echte Creative-Beispiele und verifizierte kombinierte ROAS-Daten."
+                "Statt ausschließlich auf organische Reichweite zu warten, haben wir Google Ads genutzt, um das Kanalwachstum gezielt zu beschleunigen und eine größere relevante Zielgruppe aufzubauen."
+              ],
+              bullets: [
+                "Gestartet wurden spezielle YouTube-Kampagnen zur Abonnentengewinnung, die relevante Videos an Nutzer mit Interesse an DJ-Equipment, Musikproduktion, DJ-Tutorials und elektronischer Performance ausgespielt haben.",
+                "Das Targeting basierte auf Interessen rund um DJing und Musikproduktion, Zuschauern relevanter YouTube-Inhalte, Suchintentionen für Musikequipment und ähnlichen Kanal-Audiences.",
+                "Statt neue Videos nur für Anzeigen zu produzieren, wurden die bestehenden Top-Performer des Kanals beworben, damit sie danach auch organisch weiter Reichweite und Abonnenten einsammeln konnten.",
+                "Das Budget wurde schrittweise erhöht, sobald die Kampagnen Abonnenten zu sehr niedrigen Kosten geliefert haben.",
+                "Ziel war nicht nur mehr Traffic, sondern langfristiges Kanalwachstum mit echtem Marktwert."
+              ]
+            },
+            {
+              kicker: "Das Ergebnis",
+              title: "Schnelles Abonnentenwachstum zu sehr niedrigen Akquisekosten.",
+              body: [
+                "Innerhalb von rund 90 Tagen ist der Kanal von etwa 1.000 Abonnenten am 20. Dezember auf ungefähr 8.800 Abonnenten am 10. März gewachsen.",
+                "Das entspricht rund 7.800 neuen Abonnenten bei etwa 1.700 Euro Werbebudget. Die durchschnittlichen Kosten pro Abonnent lagen damit bei ungefähr 0,22 Euro."
+              ],
+              bullets: [
+                "Rund 7.800 neue Abonnenten im 90-Tage-Zeitraum",
+                "Etwa 1.700 Euro Gesamtbudget",
+                "Ungefähr 0,22 Euro durchschnittliche Kosten pro Abonnent",
+                "Wachstum von rund 1.000 auf ungefähr 8.800 Abonnenten",
+                "Eine Abonnentenbasis, die jetzt deutlich stärker organisch weiterwachsen kann",
+                "Eine deutlich größere langfristige Audience aus DJs, Musikproduzenten und potenziellen Käufern"
               ]
             }
           ],
           deliverables: [
-            "Creative-Testmatrix",
-            "UGC-Ansatzplanung",
-            "Retargeting-Sequenz",
-            "Angebotsorientierte Kampagnenlogik"
+            "YouTube-Subscriber-Kampagne über Google Ads",
+            "Targeting für DJs und Musikproduktions-Communities",
+            "Strategie zur Promotion bestehender Videos",
+            "Budget-Skalierung auf Basis der Kosten pro Abonnent",
+            "Kanalwachstum als langfristige Lead- und Käuferpipeline"
           ],
           quote:
-            "Es geht nicht nur um bessere Anzeigen. Es geht um eine Launch-Struktur, in der bessere Anzeigen weiter tragen."
+            "Statt auf langsames organisches Wachstum zu warten, hat die Marke Google Ads genutzt, um Reichweite und Community gezielt zu beschleunigen und den Kanal in rund 90 Tagen von etwa 1.000 auf ungefähr 8.800 Abonnenten zu bringen."
         },
         {
           slug: "conversion-web-rebuild",
@@ -590,6 +694,204 @@
   const createBackIcon = () =>
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/><path d="M9 12h10"/></svg>';
 
+  let mediaLightboxState;
+
+  const SCRAMBLE_CHARS = "0123456789+%€.,";
+
+  const scrambleMetricValue = (node, finalValue, duration = 1100) => {
+    const container = node.closest(".case-hero-metrics__item");
+    if (container) {
+      container.classList.add("is-scrambling");
+      container.classList.remove("is-settled");
+    }
+
+    const start = performance.now();
+    const characters = finalValue.split("");
+    const frame = (now) => {
+      const progress = Math.min(1, (now - start) / duration);
+      const revealCount = Math.floor(progress * characters.length);
+      node.textContent = characters
+        .map((char, index) => {
+          if (char === " ") return char;
+          if (index < revealCount) return char;
+          if (!SCRAMBLE_CHARS.includes(char)) return char;
+          return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+        })
+        .join("");
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+        return;
+      }
+
+      node.textContent = finalValue;
+      if (container) {
+        container.classList.remove("is-scrambling");
+        container.classList.add("is-settled");
+      }
+    };
+
+    requestAnimationFrame(frame);
+  };
+
+  const initHeroMetricScramble = (root) => {
+    const values = Array.from(root.querySelectorAll(".case-hero-metrics__item strong"));
+    if (!values.length) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+      values.forEach((node) => {
+        const finalValue = node.textContent.trim();
+        node.textContent = finalValue;
+        node.closest(".case-hero-metrics__item")?.classList.add("is-settled");
+      });
+      return;
+    }
+
+    const metricsGroup = root.querySelector(".case-hero-metrics");
+    if (!metricsGroup) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        observer.disconnect();
+        values.forEach((node, index) => {
+          const finalValue = node.textContent.trim();
+          window.setTimeout(() => {
+            scrambleMetricValue(node, finalValue);
+          }, index * 160);
+        });
+      },
+      { threshold: 0.45 }
+    );
+
+    observer.observe(metricsGroup);
+  };
+
+  const ensureMediaLightbox = () => {
+    if (mediaLightboxState) return mediaLightboxState;
+
+    const lightbox = document.createElement("div");
+    lightbox.className = "case-lightbox";
+    lightbox.setAttribute("hidden", "");
+    lightbox.innerHTML = `
+      <div class="case-lightbox-backdrop" data-lightbox-close></div>
+      <div class="case-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Expanded image">
+        <button type="button" class="case-lightbox-close" data-lightbox-close aria-label="Close image">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 6 6 18"/>
+            <path d="m6 6 12 12"/>
+          </svg>
+        </button>
+        <div class="case-lightbox-surface">
+          <img class="case-lightbox-image" alt="">
+        </div>
+        <p class="case-lightbox-caption"></p>
+      </div>
+    `;
+
+    document.body.appendChild(lightbox);
+
+    const image = lightbox.querySelector(".case-lightbox-image");
+    const caption = lightbox.querySelector(".case-lightbox-caption");
+
+    const close = () => {
+      lightbox.classList.remove("is-open");
+      document.body.classList.remove("case-lightbox-open");
+      window.setTimeout(() => {
+        lightbox.setAttribute("hidden", "");
+        if (image) image.setAttribute("src", "");
+      }, 180);
+    };
+
+    lightbox.querySelectorAll("[data-lightbox-close]").forEach((node) => {
+      node.addEventListener("click", close);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+        close();
+      }
+    });
+
+    const open = (src, alt) => {
+      if (!image || !caption) return;
+      image.setAttribute("src", src);
+      image.setAttribute("alt", alt || "");
+      caption.textContent = alt || "";
+      lightbox.removeAttribute("hidden");
+      document.body.classList.add("case-lightbox-open");
+      requestAnimationFrame(() => {
+        lightbox.classList.add("is-open");
+      });
+    };
+
+    mediaLightboxState = { lightbox, open, close };
+    return mediaLightboxState;
+  };
+
+  const initExpandableMedia = (root) => {
+    const triggers = Array.from(root.querySelectorAll("[data-expand-image]"));
+    if (!triggers.length) return;
+
+    const lightbox = ensureMediaLightbox();
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const src = trigger.getAttribute("data-expand-image");
+        const alt = trigger.getAttribute("data-expand-alt") || "";
+        if (!src) return;
+        lightbox.open(src, alt);
+      });
+    });
+  };
+
+  const initRelatedCarousel = (viewport, grid, controls, prevButton, nextButton) => {
+    if (!viewport || !grid || !controls || !prevButton || !nextButton) return;
+
+    const getScrollStep = () => {
+      const firstCard = grid.querySelector(".case-mini-card");
+      if (!firstCard) return viewport.clientWidth * 0.9;
+      const styles = window.getComputedStyle(grid);
+      const gap = parseFloat(styles.columnGap || styles.gap || "0");
+      return firstCard.getBoundingClientRect().width + gap;
+    };
+
+    const updateButtons = () => {
+      const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+      const scrollable = maxScroll > 8;
+      controls.classList.toggle("is-hidden", !scrollable);
+      viewport.classList.toggle("is-static", !scrollable);
+
+      if (!scrollable) {
+        viewport.scrollLeft = 0;
+        prevButton.disabled = true;
+        nextButton.disabled = true;
+        return;
+      }
+
+      prevButton.disabled = viewport.scrollLeft <= 8;
+      nextButton.disabled = viewport.scrollLeft >= maxScroll - 8;
+    };
+
+    prevButton.addEventListener("click", () => {
+      viewport.scrollBy({ left: -getScrollStep(), behavior: "smooth" });
+    });
+
+    nextButton.addEventListener("click", () => {
+      viewport.scrollBy({ left: getScrollStep(), behavior: "smooth" });
+    });
+
+    viewport.addEventListener("scroll", updateButtons, { passive: true });
+    window.addEventListener("resize", updateButtons);
+
+    if ("ResizeObserver" in window) {
+      const resizeObserver = new ResizeObserver(updateButtons);
+      resizeObserver.observe(viewport);
+      resizeObserver.observe(grid);
+    }
+
+    updateButtons();
+  };
+
   const renderMetrics = (metrics, className = "case-card-metrics") => {
     if (!Array.isArray(metrics) || !metrics.length) return "";
     return `
@@ -610,9 +912,10 @@
 
   const renderCard = (lang, content, study) => {
     const chips = study.chips.map((chip) => `<span class="case-chip">${chip}</span>`).join("");
+    const cardMediaClass = `case-card-media${study.imageMode === "contain" ? " is-framed" : ""}`;
     return `
       <a class="case-card" href="${getCaseUrl(lang, study.slug)}" data-category="${study.category}">
-        <div class="case-card-media">
+        <div class="${cardMediaClass}">
           <img loading="lazy" decoding="async" src="${study.image}" alt="${study.imageAlt}">
         </div>
         <div class="case-card-body">
@@ -693,6 +996,10 @@
     const detailRoot = document.querySelector("[data-case-detail]");
     const relatedRoot = document.querySelector("[data-related-grid]");
     const relatedCopy = document.querySelector("[data-related-copy]");
+    const relatedViewport = document.querySelector("[data-related-viewport]");
+    const relatedControls = document.querySelector("[data-related-controls]");
+    const relatedPrev = document.querySelector("[data-related-prev]");
+    const relatedNext = document.querySelector("[data-related-next]");
     if (!detailRoot) return;
 
     const params = new URLSearchParams(window.location.search);
@@ -714,8 +1021,7 @@
       )
       .join("");
 
-    const sections = study.sections
-      .map((section) => {
+    const renderSectionCard = (section) => {
         const body = Array.isArray(section.body)
           ? section.body.map((paragraph) => `<p>${paragraph}</p>`).join("")
           : "";
@@ -733,7 +1039,26 @@
             </div>
           </section>
         `;
-      })
+      };
+
+    const inlineHeroMedia = study.inlineHeroMedia
+      ? `
+        <section class="case-section-card case-inline-media${study.imageMode === "contain" ? " is-framed" : ""}">
+          <button
+            type="button"
+            class="case-inline-media-frame case-image-trigger"
+            data-expand-image="${study.image}"
+            data-expand-alt="${study.imageAlt}"
+            aria-label="${content.expandImageLabel}"
+          >
+            <img loading="eager" decoding="async" src="${study.image}" alt="${study.imageAlt}">
+          </button>
+        </section>
+      `
+      : "";
+
+    const sections = study.sections
+      .map((section, index) => `${renderSectionCard(section)}${study.inlineHeroMedia && index === 0 ? inlineHeroMedia : ""}`)
       .join("");
 
     const snapshotList = study.snapshot
@@ -758,9 +1083,15 @@
           ${study.gallery
             .map(
               (image) => `
-                <figure class="case-gallery-item">
+                <button
+                  type="button"
+                  class="case-gallery-item${image.mode === "contain" ? " is-framed" : ""} case-image-trigger"
+                  data-expand-image="${image.src}"
+                  data-expand-alt="${image.alt}"
+                  aria-label="${content.expandImageLabel}"
+                >
                   <img loading="lazy" decoding="async" src="${image.src}" alt="${image.alt}">
-                </figure>
+                </button>
               `
             )
             .join("")}
@@ -770,8 +1101,8 @@
 
     detailRoot.innerHTML = `
       <a class="case-back-link" href="${getHubUrl(lang)}">${createBackIcon()} ${content.backLabel}</a>
-      <div class="case-detail-hero">
-        <div class="case-detail-panel">
+      <div class="case-detail-hero${study.inlineHeroMedia ? " is-single" : ""}">
+        <div class="case-detail-panel${study.inlineHeroMedia ? " is-full" : ""}">
           <span class="case-section-kicker">${study.categoryLabel}</span>
           <div>
             <h1 class="case-detail-title">${study.title}</h1>
@@ -781,9 +1112,11 @@
           ${heroMetrics}
           <div class="case-stats">${stats}</div>
         </div>
-        <div class="case-detail-media">
-          <img loading="eager" decoding="async" src="${study.image}" alt="${study.imageAlt}">
-        </div>
+        ${study.inlineHeroMedia ? "" : `
+          <div class="case-detail-media${study.imageMode === "contain" ? " is-framed" : ""}">
+            <img loading="eager" decoding="async" src="${study.image}" alt="${study.imageAlt}">
+          </div>
+        `}
       </div>
       ${gallery}
       <div class="case-story-grid">
@@ -811,9 +1144,12 @@
       </div>
     `;
 
+    initHeroMetricScramble(detailRoot);
+    initExpandableMedia(detailRoot);
+
     if (relatedCopy) relatedCopy.textContent = content.relatedCopy;
     if (relatedRoot) {
-      const relatedStudies = content.studies.filter((item) => item.slug !== study.slug).slice(0, 3);
+      const relatedStudies = content.studies.filter((item) => item.slug !== study.slug);
       relatedRoot.innerHTML = relatedStudies
         .map(
           (item) => `
@@ -831,6 +1167,8 @@
           `
         )
         .join("");
+
+      initRelatedCarousel(relatedViewport, relatedRoot, relatedControls, relatedPrev, relatedNext);
     }
   };
 
