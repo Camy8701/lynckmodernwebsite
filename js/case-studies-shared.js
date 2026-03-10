@@ -128,14 +128,12 @@
           index: "02",
           category: "performance",
           categoryLabel: "Performance",
-          title: "DJTechnik.de",
+          title: "DJ-TECHNIK.DE",
           subtitle: "Music equipment e-commerce brand | Growing a YouTube audience and customer pipeline through Google Ads",
           overview:
             "How we helped a DJ equipment brand accelerate YouTube growth and build a larger audience of potential buyers through a structured Google Ads subscriber campaign.",
-          image: "/assets/case-study-djtechnik-youtube-04.jpg",
-          imageMode: "contain",
-          inlineHeroMedia: true,
-          imageAlt: "Google Ads campaign performance view showing subscriber growth and cost efficiency",
+          image: "/assets/case-study-djtechnik-cover.webp",
+          imageAlt: "DJ-TECHNIK.DE showroom with illuminated DJ equipment displays",
           chips: ["YouTube", "Google Ads", "Subscriber Growth", "E-Commerce"],
           cardFocus: "Audience growth + future buyer pipeline",
           cardMetrics: [
@@ -149,12 +147,17 @@
             { value: "€0.22", label: "Cost / Subscriber" }
           ],
           snapshot: [
-            { label: "Client", value: "DJTechnik.de" },
+            { label: "Client", value: "DJ-TECHNIK.DE" },
             { label: "Sector", value: "Music equipment e-commerce" },
             { label: "Market", value: "Germany" },
             { label: "Channel mix", value: "YouTube subscriber campaigns via Google Ads" },
             { label: "Priority", value: "Grow the audience and future customer pipeline" }
           ],
+          stackedMedia: {
+            src: "/assets/case-study-djtechnik-youtube-04.jpg",
+            alt: "Google Ads campaign performance view showing subscriber growth and cost efficiency",
+            mode: "contain"
+          },
           gallery: [
             {
               src: "/assets/case-study-djtechnik-youtube-03.png",
@@ -229,58 +232,97 @@
             "Instead of waiting for slow organic growth, the brand used Google Ads to accelerate audience acquisition and grow the channel from roughly 1,000 to about 8,800 subscribers in around 90 days."
         },
         {
-          slug: "conversion-web-rebuild",
+          slug: "dms-progrowers-workforce-campaign",
           index: "03",
-          category: "web",
-          categoryLabel: "Web Systems",
-          title: "Conversion Web Rebuild",
-          subtitle: "A sharper site journey designed to carry paid traffic",
+          category: "performance",
+          categoryLabel: "Performance",
+          title: "DMS Progrowers",
+          subtitle: "Zespri supply partner | Rapid workforce recruitment during peak harvest season",
           overview:
-            "What happens when a website stops acting like a brochure and starts behaving like the conversion layer behind paid media, offer clarity, and lead capture.",
-          image: "/assets/web-systems-image-3.webp",
-          imageAlt: "Conversion-focused website design interface",
-          chips: ["Web Systems", "Messaging", "Conversion"],
+            "How we helped a major kiwifruit packhouse operation secure the workforce needed to keep production running during a critical harvest period.",
+          image: "/assets/case-study-dms-zespri-main.png",
+          imageAlt: "DMS Progrowers and Zespri kiwifruit visual on a green background",
+          chips: ["Lead Gen", "Meta Ads", "Recruitment", "Harvest Season"],
+          cardFocus: "Secure workforce fast enough to keep operations running",
+          cardMetrics: [
+            { value: "100+", label: "Workers Recruited" },
+            { value: "Hundreds", label: "Qualified Leads" },
+            { value: "4-6 Weeks", label: "Workforce Stabilized" }
+          ],
+          heroMetrics: [
+            { value: "100+", label: "Workers Recruited" },
+            { value: "Hundreds", label: "Qualified Leads" },
+            { value: "4-6 Weeks", label: "To Stabilize Workforce" },
+            { value: "3 Months", label: "Season Sustained" }
+          ],
           snapshot: [
-            { label: "Channel", value: "Website" },
-            { label: "Scope", value: "UX + offer structure" },
-            { label: "Priority", value: "Lower friction" }
+            { label: "Client", value: "DMS Progrowers (Zespri supply partner)" },
+            { label: "Sector", value: "Kiwifruit packhouse operations" },
+            { label: "Market", value: "Regional seasonal labor market" },
+            { label: "Channel mix", value: "Meta Ads, social media groups, creator amplification" },
+            { label: "Priority", value: "Fill packhouse roles fast enough to protect the harvest season" }
+          ],
+          gallery: [
+            {
+              src: "/assets/case-study-dms-01.png",
+              alt: "Hands sorting Zespri kiwifruit in a packing tray"
+            },
+            {
+              src: "/assets/case-study-dms-02.png",
+              alt: "Workers processing kiwifruit on a DMS Progrowers packhouse line"
+            }
           ],
           sections: [
             {
-              kicker: "Situation",
-              title: "Traffic was arriving, but the site was not carrying the conversation forward.",
+              kicker: "The Challenge",
+              title: "A critical labor shortage right at the start of the packing season.",
               body: [
-                "A lot of paid traffic problems are not ad problems. They are handoff problems. The website was visually decent, but it was too broad in its messaging and too weak in how it guided next steps.",
-                "We treated the rebuild as part of the acquisition system, not as a separate branding task."
-              ]
-            },
-            {
-              kicker: "What We Built",
-              title: "A web layer that helps traffic convert instead of hesitate.",
+                "DMS Progrowers operates large packhouse facilities that process and prepare kiwifruit during the harvest season. At the start of the season, the business needed a large workforce to keep packing operations moving smoothly.",
+                "The initial target was to recruit around 30 seasonal workers for the early phase of operations. Then a major issue hit: many regular seasonal workers were unexpectedly unavailable, which created a much larger staffing gap across two large facilities."
+              ],
               bullets: [
-                "Clarified the value proposition earlier so users understood the offer faster.",
-                "Reduced visual and structural friction around core actions.",
-                "Reworked section order to support trust, proof, and momentum in a clearer sequence.",
-                "Created a page structure that is easier to test alongside paid traffic."
+                "Packing delays during peak harvest would have put the whole season under pressure.",
+                "Operational disruption across multiple facilities would have created immediate downstream strain.",
+                "Product throughput, timing, and revenue were all at risk without a rapid recruitment response."
               ]
             },
             {
-              kicker: "Why It Matters",
-              title: "The website becomes part of the growth engine.",
+              kicker: "The Approach",
+              title: "We built a rapid workforce acquisition campaign across paid and community distribution.",
+              bullets: [
+                "Launched targeted Meta recruitment campaigns focused on immediate job availability, seasonal work opportunities, and local employment.",
+                "Used local social media communities and job groups in parallel to extend reach beyond paid distribution alone.",
+                "Added creator amplification through trusted local networks, which helped compound visibility and accelerate applicant flow.",
+                "Handled incoming leads through qualification and follow-up so the pipeline turned into confirmed workers, not just form fills.",
+                "Scaled the system as staffing demand increased, so recruitment could support two large packhouse facilities instead of the original smaller target."
+              ]
+            },
+            {
+              kicker: "The Results",
+              title: "Rapid workforce deployment that kept the season operational.",
               body: [
-                "When the site aligns with the ad message and the offer framing, conversion quality becomes easier to improve without forcing media teams to compensate for weak pages.",
-                "This template is ready for final screenshots, before-and-after UX comparisons, and verified conversion-rate changes."
+                "Within the first two weeks, the original target of 30 workers was successfully delivered. As the staffing need expanded, the recruitment system scaled with it.",
+                "Over the following weeks, hundreds of candidate leads were generated and more than 100 seasonal workers were recruited, helping stabilize staffing across two large packhouse facilities for roughly three months until the end of the packing period."
+              ],
+              bullets: [
+                "100+ seasonal workers recruited",
+                "Hundreds of qualified candidate leads generated",
+                "Workforce stabilized across two large packhouse facilities within roughly 4-6 weeks",
+                "Recruitment support sustained across an approximately 3-month harvest season",
+                "The client credited the recruitment campaign as a major reason operations could continue without serious disruption"
               ]
             }
           ],
           deliverables: [
-            "Offer-first page structure",
-            "Message hierarchy refinement",
-            "Conversion path cleanup",
-            "Testing-ready web system"
+            "Paid Meta recruitment campaigns",
+            "Targeted seasonal job advertising",
+            "Social media group distribution strategy",
+            "Creator amplification through local networks",
+            "Lead qualification and candidate conversion pipeline",
+            "Scalable workforce recruitment framework"
           ],
           quote:
-            "Better websites do not just look more premium. They remove the friction that keeps paid traffic from becoming revenue."
+            "By combining paid social campaigns, community distribution, and rapid lead conversion, we built a recruitment engine capable of delivering the workforce needed during a critical harvest window."
         },
         {
           slug: "youtube-demand-engine",
@@ -466,14 +508,12 @@
           index: "02",
           category: "performance",
           categoryLabel: "Performance",
-          title: "DJTechnik.de",
+          title: "DJ-TECHNIK.DE",
           subtitle: "Musikequipment-E-Commerce | YouTube-Audience und Käuferpotenzial mit Google Ads ausgebaut",
           overview:
             "So haben wir einer DJ-Equipment-Marke geholfen, ihr YouTube-Wachstum mit einer strukturierten Google-Ads-Kampagne zu beschleunigen und gleichzeitig eine größere Zielgruppe potenzieller Käufer aufzubauen.",
-          image: "/assets/case-study-djtechnik-youtube-04.jpg",
-          imageMode: "contain",
-          inlineHeroMedia: true,
-          imageAlt: "Google-Ads-Auswertung mit Abonnentenwachstum und effizientem Kostenverlauf",
+          image: "/assets/case-study-djtechnik-cover.webp",
+          imageAlt: "Showroom von DJ-TECHNIK.DE mit beleuchteten DJ-Setups",
           chips: ["YouTube", "Google Ads", "Abonnentenwachstum", "E-Commerce"],
           cardFocus: "Audience-Wachstum + künftige Käuferpipeline",
           cardMetrics: [
@@ -487,12 +527,17 @@
             { value: "€0,22", label: "Kosten / Abonnent" }
           ],
           snapshot: [
-            { label: "Kunde", value: "DJTechnik.de" },
+            { label: "Kunde", value: "DJ-TECHNIK.DE" },
             { label: "Bereich", value: "Musikequipment-E-Commerce" },
             { label: "Markt", value: "Deutschland" },
             { label: "Kanalmix", value: "YouTube-Subscriber-Kampagnen über Google Ads" },
             { label: "Priorität", value: "YouTube-Audience und Käuferpipeline ausbauen" }
           ],
+          stackedMedia: {
+            src: "/assets/case-study-djtechnik-youtube-04.jpg",
+            alt: "Google-Ads-Auswertung mit Abonnentenwachstum und effizientem Kostenverlauf",
+            mode: "contain"
+          },
           gallery: [
             {
               src: "/assets/case-study-djtechnik-youtube-03.png",
@@ -567,58 +612,97 @@
             "Statt auf langsames organisches Wachstum zu warten, hat die Marke Google Ads genutzt, um Reichweite und Community gezielt zu beschleunigen und den Kanal in rund 90 Tagen von etwa 1.000 auf ungefähr 8.800 Abonnenten zu bringen."
         },
         {
-          slug: "conversion-web-rebuild",
+          slug: "dms-progrowers-workforce-campaign",
           index: "03",
-          category: "web",
-          categoryLabel: "Websysteme",
-          title: "Conversion Web Rebuild",
-          subtitle: "Ein klarerer Website-Aufbau, der bezahlten Traffic besser aufnimmt",
+          category: "performance",
+          categoryLabel: "Performance",
+          title: "DMS Progrowers",
+          subtitle: "Zespri-Lieferpartner | Schnelle Personalgewinnung in der Haupternte",
           overview:
-            "Was passiert, wenn eine Website nicht mehr nur wie eine Broschüre funktioniert, sondern wie die Conversion-Ebene hinter Paid Media, Angebotsklarheit und Lead-Erfassung.",
-          image: "/assets/web-systems-image-3.webp",
-          imageAlt: "Interface einer conversion-starken Website",
-          chips: ["Websysteme", "Messaging", "Conversion"],
+            "So haben wir einem großen Kiwifrucht-Packhausbetrieb geholfen, genau dann genug Personal zu sichern, als die Erntesaison in die heiße Phase ging.",
+          image: "/assets/case-study-dms-zespri-main.png",
+          imageAlt: "Visual von DMS Progrowers und Zespri-Kiwis auf gruenem Hintergrund",
+          chips: ["Lead Gen", "Meta Ads", "Recruiting", "Erntesaison"],
+          cardFocus: "Genug Personal, um den Packbetrieb stabil zu halten",
+          cardMetrics: [
+            { value: "100+", label: "Saisonkräfte" },
+            { value: "Hunderte", label: "Qualifizierte Leads" },
+            { value: "4-6 Wochen", label: "Team stabilisiert" }
+          ],
+          heroMetrics: [
+            { value: "100+", label: "Saisonkräfte" },
+            { value: "Hunderte", label: "Qualifizierte Leads" },
+            { value: "4-6 Wochen", label: "Bis der Betrieb stabil lief" },
+            { value: "3 Monate", label: "Saison abgesichert" }
+          ],
           snapshot: [
-            { label: "Kanal", value: "Website" },
-            { label: "Umfang", value: "UX + Angebotsstruktur" },
-            { label: "Priorität", value: "Weniger Reibung" }
+            { label: "Kunde", value: "DMS Progrowers (Zespri-Lieferpartner)" },
+            { label: "Branche", value: "Kiwifrucht-Packhausbetrieb" },
+            { label: "Markt", value: "Regionaler Arbeitsmarkt für Saisonkräfte" },
+            { label: "Kanalmix", value: "Meta Ads, Social-Media-Gruppen, Creator-Verstärkung" },
+            { label: "Priorität", value: "Schnell genug Personal finden, damit die Saison sauber durchläuft" }
+          ],
+          gallery: [
+            {
+              src: "/assets/case-study-dms-01.png",
+              alt: "Haende sortieren Zespri-Kiwis in einer Packschale"
+            },
+            {
+              src: "/assets/case-study-dms-02.png",
+              alt: "Mitarbeiter an einer Packlinie von DMS Progrowers beim Verarbeiten von Kiwis"
+            }
           ],
           sections: [
             {
-              kicker: "Ausgangslage",
-              title: "Traffic kam an, aber die Website hat das Gespräch nicht weitergeführt.",
+              kicker: "Die Herausforderung",
+              title: "Ein akuter Personalmangel direkt zum Start der Packhaussaison.",
               body: [
-                "Viele Probleme im Paid Traffic sind keine Anzeigenprobleme, sondern Übergabeprobleme. Die Website sah ordentlich aus, war in der Botschaft aber zu breit und in der Führung zum nächsten Schritt zu schwach.",
-                "Darum wurde der Relaunch als Teil des Akquise-Systems betrachtet und nicht als getrennte Branding-Übung."
-              ]
-            },
-            {
-              kicker: "Was wir aufgebaut haben",
-              title: "Eine Web-Ebene, die den Traffic nicht ausbremst.",
+                "DMS Progrowers betreibt große Packhäuser, in denen Kiwifrüchte während der Erntesaison verarbeitet und versandbereit gemacht werden. Zum Saisonstart musste schnell genügend Personal gefunden werden, damit der Betrieb ohne Reibung anlaufen konnte.",
+                "Ursprünglich sollten etwa 30 Saisonkräfte für die erste Phase gewonnen werden. Kurz nach Start der Suche fiel jedoch ein großer Teil der sonst verfügbaren Stammkräfte aus. Damit entstand plötzlich eine deutlich größere Lücke über zwei große Standorte hinweg."
+              ],
               bullets: [
-                "Das Leistungsversprechen wurde früher und klarer sichtbar gemacht.",
-                "Visuelle und strukturelle Reibung rund um die wichtigsten Aktionen wurde reduziert.",
-                "Die Seitenreihenfolge wurde so überarbeitet, dass Vertrauen, Belege und Momentum besser ineinandergreifen.",
-                "Die neue Struktur lässt sich sauberer zusammen mit Paid Traffic weiter testen."
+                "Verzögerungen in der Hochphase der Ernte hätten den gesamten Ablauf unter Druck gesetzt.",
+                "Mehrere Packhäuser gleichzeitig personell abzusichern wurde zur akuten operativen Aufgabe.",
+                "Ohne schnelle Rekrutierung standen Durchsatz, Produktfluss und Umsatz direkt auf dem Spiel."
               ]
             },
             {
-              kicker: "Warum das wichtig ist",
-              title: "Die Website wird Teil des Wachstumssystems.",
+              kicker: "Der Ansatz",
+              title: "Wir haben ein schnelles Recruiting-System über Paid und Community-Distribution aufgebaut.",
+              bullets: [
+                "Gestartet wurden gezielte Meta-Recruiting-Kampagnen mit Fokus auf sofort verfügbare Jobs, Saisonarbeit und lokale Beschäftigung.",
+                "Parallel wurden lokale Social-Media-Communities und Jobgruppen eingebunden, um die Reichweite deutlich über Paid allein hinaus zu erhöhen.",
+                "Zusätzlich kamen Creator aus passenden Netzwerken dazu, die die offenen Stellen in ihren eigenen Communities weitergetragen haben.",
+                "Alle eingehenden Leads wurden kontaktiert, vorqualifiziert und in bestätigte Kräfte für die Packhäuser überführt.",
+                "Als der Personalbedarf weiter stieg, wurde das System mit skaliert, damit nicht nur die erste Zielgröße erreicht, sondern zwei große Standorte personell abgesichert werden konnten."
+              ]
+            },
+            {
+              kicker: "Das Ergebnis",
+              title: "Schnelle Personalgewinnung, die die Saison stabil gehalten hat.",
               body: [
-                "Wenn Website, Anzeigenbotschaft und Angebots-Framing sauber zusammenpassen, lässt sich Conversion-Qualität verbessern, ohne dass Media-Teams ständig eine schwache Seite ausgleichen müssen.",
-                "Dieses Template ist bereit für finale Screenshots, Vorher-Nachher-Vergleiche und verifizierte Conversion-Rate-Entwicklungen."
+                "Schon innerhalb der ersten zwei Wochen wurde das ursprüngliche Ziel von 30 Kräften erreicht. Als der Bedarf anschließend größer wurde, konnte das Recruiting-System entsprechend mitwachsen.",
+                "In den darauffolgenden Wochen wurden Hunderte qualifizierte Leads generiert und mehr als 100 Saisonkräfte vermittelt. So ließ sich die Personalsituation über zwei große Packhäuser hinweg innerhalb von etwa vier bis sechs Wochen stabilisieren und über rund drei Monate bis zum Saisonende absichern."
+              ],
+              bullets: [
+                "100+ Saisonkräfte gewonnen",
+                "Hunderte qualifizierte Bewerber-Leads generiert",
+                "Stabilisierung des Personals über zwei große Packhausstandorte in rund 4-6 Wochen",
+                "Recruiting über ungefähr 3 Monate der Erntesaison aufrechterhalten",
+                "Laut Kunde war die Kampagne ein zentraler Grund dafür, dass der Betrieb ohne größere Unterbrechung weiterlaufen konnte"
               ]
             }
           ],
           deliverables: [
-            "Angebotsorientierte Seitenstruktur",
-            "Sauberere Message-Hierarchie",
-            "Bereinigter Conversion-Pfad",
-            "Testfähiges Websystem"
+            "Meta-Recruiting-Kampagnen",
+            "Gezielte Anzeigen für Saisonjobs",
+            "Distributionsstrategie über Social-Media-Gruppen",
+            "Creator-Verstärkung über lokale Netzwerke",
+            "Lead-Qualifizierung und Umwandlung in bestätigte Kräfte",
+            "Skalierbares Framework für die Personalgewinnung"
           ],
           quote:
-            "Bessere Websites wirken nicht nur hochwertiger. Sie nehmen die Reibung raus, die bezahlten Traffic von Umsatz trennt."
+            "Durch die Kombination aus Paid Social, Community-Distribution und schneller Lead-Umwandlung ist ein Recruiting-System entstanden, das genau im kritischen Erntefenster die nötigen Arbeitskräfte liefern konnte."
         },
         {
           slug: "youtube-demand-engine",
@@ -1074,24 +1158,24 @@
         `;
       };
 
-    const inlineHeroMedia = study.inlineHeroMedia
+    const stackedMedia = study.stackedMedia
       ? `
-        <section class="case-section-card case-inline-media${study.imageMode === "contain" ? " is-framed" : ""}">
+        <section class="case-section-card case-inline-media${study.stackedMedia.mode === "contain" ? " is-framed" : ""}">
           <button
             type="button"
             class="case-inline-media-frame case-image-trigger"
-            data-expand-image="${study.image}"
-            data-expand-alt="${study.imageAlt}"
+            data-expand-image="${study.stackedMedia.src}"
+            data-expand-alt="${study.stackedMedia.alt}"
             aria-label="${content.expandImageLabel}"
           >
-            <img loading="eager" decoding="async" src="${study.image}" alt="${study.imageAlt}">
+            <img loading="eager" decoding="async" src="${study.stackedMedia.src}" alt="${study.stackedMedia.alt}">
           </button>
         </section>
       `
       : "";
 
     const sections = study.sections
-      .map((section, index) => `${renderSectionCard(section)}${study.inlineHeroMedia && index === 0 ? inlineHeroMedia : ""}`)
+      .map((section, index) => `${renderSectionCard(section)}${study.stackedMedia && index === 0 ? stackedMedia : ""}`)
       .join("");
 
     const snapshotList = study.snapshot
@@ -1134,8 +1218,8 @@
 
     detailRoot.innerHTML = `
       <a class="case-back-link" href="${getHubUrl(lang)}">${createBackIcon()} ${content.backLabel}</a>
-      <div class="case-detail-hero${study.inlineHeroMedia ? " is-single" : ""}">
-        <div class="case-detail-panel${study.inlineHeroMedia ? " is-full" : ""}">
+      <div class="case-detail-hero">
+        <div class="case-detail-panel">
           <span class="case-section-kicker">${study.categoryLabel}</span>
           <div>
             <h1 class="case-detail-title">${study.title}</h1>
@@ -1145,11 +1229,9 @@
           ${heroMetrics}
           <div class="case-stats">${stats}</div>
         </div>
-        ${study.inlineHeroMedia ? "" : `
-          <div class="case-detail-media${study.imageMode === "contain" ? " is-framed" : ""}">
-            <img loading="eager" decoding="async" src="${study.image}" alt="${study.imageAlt}">
-          </div>
-        `}
+        <div class="case-detail-media${study.imageMode === "contain" ? " is-framed" : ""}">
+          <img loading="eager" decoding="async" src="${study.image}" alt="${study.imageAlt}">
+        </div>
       </div>
       ${gallery}
       <div class="case-story-grid">

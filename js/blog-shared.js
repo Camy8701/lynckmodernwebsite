@@ -31,6 +31,20 @@
       ctaSecondary: "Explore services",
       articles: [
         {
+          slug: "dj-technik-youtube-growth",
+          category: "ads",
+          categoryLabel: "Ads & Performance",
+          title: "How DJ TECHNIK.DE Used Google Ads to Grow Its YouTube Channel",
+          excerpt: "See how a DJ equipment store used Google Ads to add roughly 7,800 subscribers in 90 days and turn YouTube into a larger audience and demand channel.",
+          image: "/assets/blog-dj-showroom.webp",
+          imageAlt: "DJ TECHNIK.DE showroom with illuminated DJ gear displays",
+          chips: ["YouTube Growth", "Google Ads", "Ecommerce", "Case Study"],
+          date: "2026-03-10",
+          readMinutes: 7,
+          url: "/blog-how-dj-technik-used-google-ads-to-grow-youtube.html",
+          featured: true
+        },
+        {
           slug: "real-reason-ads-dont-convert",
           category: "ads",
           categoryLabel: "Ads & Performance",
@@ -72,6 +86,20 @@
       ctaPrimary: "Projekt starten",
       ctaSecondary: "Services entdecken",
       articles: [
+        {
+          slug: "dj-technik-youtube-growth",
+          category: "ads",
+          categoryLabel: "Ads & Performance",
+          title: "Wie DJ TECHNIK.DE mit Google Ads seinen YouTube Kanal ausgebaut hat",
+          excerpt: "So hat ein DJ Equipment Shop in rund 90 Tagen etwa 7.800 neue Abonnenten gewonnen und YouTube zu einem stärkeren Nachfragekanal gemacht.",
+          image: "/assets/blog-dj-showroom.webp",
+          imageAlt: "Showroom von DJ TECHNIK.DE mit beleuchtetem DJ Equipment",
+          chips: ["YouTube Wachstum", "Google Ads", "E Commerce", "Fallstudie"],
+          date: "2026-03-10",
+          readMinutes: 7,
+          url: "/de/blog-wie-dj-technik-mit-google-ads-seinen-youtube-kanal-ausgebaut-hat.html",
+          featured: true
+        },
         {
           slug: "real-reason-ads-dont-convert",
           category: "ads",

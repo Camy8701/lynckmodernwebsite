@@ -341,10 +341,15 @@ body.case-studies-page .noise-overlay {
   color: rgba(10, 18, 36, 0.6);
 }
 
-.case-card-metrics,
-.case-hero-metrics {
+.case-card-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.case-hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
   gap: 0.7rem;
 }
 
@@ -928,12 +933,21 @@ body.case-studies-page .noise-overlay {
 }
 
 .case-side-list strong {
+  display: inline-flex;
+  align-items: center;
   min-width: 7.6rem;
+  align-self: flex-start;
+  padding: 0.34rem 0.68rem;
+  border-radius: 999px;
   font-size: 0.8rem;
   font-family: var(--font-sub);
+  font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(10, 18, 36, 0.45);
+  color: var(--case-blue);
+  background: linear-gradient(135deg, rgba(20, 87, 215, 0.12), rgba(20, 87, 215, 0.04));
+  border: 1px solid rgba(20, 87, 215, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .case-side-list span {
