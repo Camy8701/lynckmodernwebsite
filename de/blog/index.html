@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/js/url-attribution-cleanup.js"></script>
   <script src="/js/cookie-consent.js" defer data-ga-id="G-GRWYGYSSMY" data-gtm-id="GTM-N5757GT5"></script>
-  <title>Fallstudie | LYNCK Studio</title>
-  <meta name="description" content="Detailliertes Fallstudien-Template für LYNCK Studio Projekte aus Performance-Marketing, Social Ads, Content-Systemen und conversion-starken Websites.">
+  <title>Blog | LYNCK Studio</title>
+  <meta name="description" content="Praxisnahe Analysen zu Ads, Kreativsystemen, Conversion-Logik und Wachstumsarchitektur — vom Team hinter LYNCK Studio.">
   <link rel="icon" type="image/webp" href="/assets/lynck-logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/css/home-shared.css?v=5">
-  <link rel="stylesheet" href="/css/case-studies.css?v=1">
+  <link rel="stylesheet" href="/css/blog.css?v=1">
 </head>
-<body class="case-studies-page">
+<body class="blog-hub-page">
   <div class="noise-overlay"></div>
   <header class="lynck-header">
     <div class="lynck-header-inner">
@@ -32,6 +32,12 @@
           <span class="lynck-mobile-menu-text">Menü</span>
         </button>
         <div class="nav-dropdown-menu lynck-mobile-menu-panel" role="menu">
+          <div class="lynck-mobile-menu-group">
+            <span class="lynck-mobile-menu-label">Navigation</span>
+            <a href="/de/about.html" role="menuitem">Über uns</a>
+            <a href="/de/case-studies/" role="menuitem">Fallstudien</a>
+            <a href="/de/blog/" role="menuitem">Blog</a>
+          </div>
           <div class="lynck-mobile-menu-group">
             <span class="lynck-mobile-menu-label">Leistungen</span>
             <a href="/de/services/service.html?service=google-ads" role="menuitem">Google Ads &amp; Performance-Marketing</a>
@@ -135,43 +141,62 @@
     </div>
   </header>
 
-  <main id="main-content" class="case-main">
-    <section class="case-shell case-detail-shell" data-case-detail></section>
-
-    <section class="case-shell case-related">
-      <div class="case-related-head">
-        <div>
-          <h2 data-related-heading>Weitere Fallstudien</h2>
-          <p data-related-copy>Jedes Projekt ist als vollständige Story-Seite aufgebaut, damit später echte Namen, Assets und verifizierte Ergebnisse sauber ergänzt werden können.</p>
+  <main id="main-content" class="blog-main">
+    <section class="blog-hero">
+      <div class="blog-shell">
+        <div class="blog-hero-grid">
+          <div>
+            <span class="blog-kicker" data-blog-kicker>Einblicke & Frameworks</span>
+            <h1 class="blog-title" data-blog-title>Blog</h1>
+          </div>
+          <div class="blog-intro">
+            <p data-blog-intro>
+              Praxisorientiertes Denken zu Ads, Kreativsystemen, Conversion-Architektur und den beweglichen Teilen hinter skalierbarem Wachstum.
+            </p>
+            <div class="blog-hero-note">
+              <span class="blog-note-mark" data-blog-note-count>01</span>
+              <div>
+                <span data-blog-note-strong><strong>Kein oberflächliches Thought-Leadership.</strong></span>
+                <span data-blog-note-soft>Jeder Artikel analysiert ein echtes Problem mit einem echten Framework, das du sofort anwenden kannst.</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="case-related-controls" data-related-controls>
-        <button type="button" class="case-related-arrow" data-related-prev aria-label="Fallstudien nach links scrollen">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="m15 18-6-6 6-6"/>
-          </svg>
-        </button>
-        <button type="button" class="case-related-arrow" data-related-next aria-label="Fallstudien nach rechts scrollen">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="m9 6 6 6-6 6"/>
-          </svg>
-        </button>
-      </div>
-      <div class="case-related-viewport" data-related-viewport>
-        <div class="case-related-grid" data-related-grid></div>
+        <div class="blog-search-bar">
+          <div class="blog-search-wrap">
+            <svg class="blog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input type="search" class="blog-search" data-blog-search placeholder="Artikel durchsuchen..." autocomplete="off">
+            <button type="button" class="blog-search-clear" data-blog-search-clear aria-label="Suche leeren">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+              </svg>
+            </button>
+          </div>
+          <div class="blog-filters" data-blog-filters></div>
+          <span class="blog-result-count" data-blog-result-count style="display:none"></span>
+        </div>
       </div>
     </section>
 
-    <section class="case-shell">
-      <div class="case-cta">
-        <div class="case-cta-inner">
-          <div class="case-cta-copy">
-            <h2 data-case-cta-title>Soll dein Wachstumssystem so aussehen?</h2>
-            <p data-case-cta-copy>
-              Wir bauen Strategie, Creative-Richtung, Tracking-Logik und Conversion-Architektur gemeinsam auf, damit die nächste Fallstudie kein Zufall ist, sondern Struktur hat.
+    <section>
+      <div class="blog-shell">
+        <div class="blog-grid" data-blog-grid></div>
+      </div>
+    </section>
+
+    <section class="blog-shell">
+      <div class="blog-cta">
+        <div class="blog-cta-inner">
+          <div class="blog-cta-copy">
+            <h2 data-blog-cta-title>Diese Frameworks auf deine Marke anwenden?</h2>
+            <p data-blog-cta-copy>
+              Wir entwickeln Strategie, kreative Ausrichtung, Tracking-Logik und Conversion-Architektur gemeinsam — damit Wachstum Struktur ist, kein Zufall.
             </p>
           </div>
-          <div class="case-cta-actions">
+          <div class="blog-cta-actions">
             <button type="button" class="gradient-border-btn" data-apply-btn>
               <div class="btn-beam"></div>
               <div class="btn-bg">
@@ -179,9 +204,9 @@
                 <div class="btn-bg-dots"></div>
                 <div class="btn-bg-glow"></div>
               </div>
-              <span class="btn-core" data-case-cta-primary>Projekt starten</span>
+              <span class="btn-core" data-blog-cta-primary>Projekt starten</span>
             </button>
-            <a class="case-text-link" href="/de/#our-services" data-case-cta-secondary>Leistungen ansehen</a>
+            <a class="blog-text-link" href="/de/#our-services" data-blog-cta-secondary>Leistungen ansehen</a>
           </div>
         </div>
       </div>
@@ -197,6 +222,7 @@
         <a href="/de/about.html">Über uns</a>
         <a href="/de/#our-services">Unsere Leistungen</a>
         <a href="/de/case-studies/">Fallstudien</a>
+        <a href="/de/blog/">Blog</a>
         <a href="/de/apply/">Kontakt</a>
       </div>
       <div class="footer-links-col">
@@ -222,7 +248,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 LYNCK Studio. Alle Rechte vorbehalten</span>
+      <span>&copy; 2026 LYNCK Studio. Alle Rechte vorbehalten</span>
       <div class="footer-bottom-legal">
         <a href="/de/cookie-policy.html">Cookie-Richtlinie</a>
         <a href="/de/privacy-policy.html">Datenschutz</a>
@@ -231,7 +257,7 @@
     </div>
   </footer>
 
-  <script src="/js/case-studies-shared.js" defer></script>
+  <script src="/js/blog-shared.js" defer></script>
   <script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
 </body>
 </html>

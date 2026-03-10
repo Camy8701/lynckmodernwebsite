@@ -977,10 +977,12 @@ body.case-studies-page .noise-overlay {
 }
 
 .case-related {
-  margin: 4rem 0 4.5rem;
-  display: grid;
+  margin: 4rem auto 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
-  justify-items: center;
+  text-align: center;
 }
 
 .case-related-head {
@@ -1042,7 +1044,8 @@ body.case-studies-page .noise-overlay {
 }
 
 .case-related-viewport {
-  width: min(100%, 1220px);
+  width: 100%;
+  max-width: 1220px;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scrollbar-width: none;
@@ -1051,18 +1054,16 @@ body.case-studies-page .noise-overlay {
 
 .case-related-viewport.is-static {
   overflow: visible;
-  display: flex;
-  justify-content: center;
-  width: 100%;
 }
 
 .case-related-viewport.is-static .case-related-grid {
-  display: flex;
-  flex-wrap: nowrap;
-  width: auto;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(19rem, 23rem);
+  width: fit-content;
   min-width: 0;
-  justify-content: flex-start;
-  margin: 0;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .case-related-viewport::-webkit-scrollbar {
@@ -1190,7 +1191,7 @@ body.case-studies-page .noise-overlay {
   }
 
   .case-related {
-    justify-items: center;
+    align-items: center;
   }
 
   .case-related-head {

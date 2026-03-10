@@ -847,6 +847,37 @@
   const initRelatedCarousel = (viewport, grid, controls, prevButton, nextButton) => {
     if (!viewport || !grid || !controls || !prevButton || !nextButton) return;
 
+    const applyStaticLayout = () => {
+      const cardCount = grid.querySelectorAll(".case-mini-card").length;
+      viewport.style.display = "flex";
+      viewport.style.justifyContent = "center";
+      viewport.style.overflowX = "visible";
+
+      grid.style.display = "grid";
+      grid.style.gridTemplateColumns = `repeat(${cardCount}, minmax(19rem, 23rem))`;
+      grid.style.gridAutoFlow = "row";
+      grid.style.gridAutoColumns = "unset";
+      grid.style.width = "fit-content";
+      grid.style.minWidth = "0";
+      grid.style.margin = "0 auto";
+      grid.style.justifyContent = "center";
+    };
+
+    const clearStaticLayout = () => {
+      viewport.style.display = "";
+      viewport.style.justifyContent = "";
+      viewport.style.overflowX = "";
+
+      grid.style.display = "";
+      grid.style.gridTemplateColumns = "";
+      grid.style.gridAutoFlow = "";
+      grid.style.gridAutoColumns = "";
+      grid.style.width = "";
+      grid.style.minWidth = "";
+      grid.style.margin = "";
+      grid.style.justifyContent = "";
+    };
+
     const getScrollStep = () => {
       const firstCard = grid.querySelector(".case-mini-card");
       if (!firstCard) return viewport.clientWidth * 0.9;
@@ -862,12 +893,14 @@
       viewport.classList.toggle("is-static", !scrollable);
 
       if (!scrollable) {
+        applyStaticLayout();
         viewport.scrollLeft = 0;
         prevButton.disabled = true;
         nextButton.disabled = true;
         return;
       }
 
+      clearStaticLayout();
       prevButton.disabled = viewport.scrollLeft <= 8;
       nextButton.disabled = viewport.scrollLeft >= maxScroll - 8;
     };
