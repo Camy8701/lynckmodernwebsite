@@ -128,31 +128,35 @@
           index: "02",
           category: "performance",
           categoryLabel: "Performance",
-          title: "DJ-TECHNIK.DE",
+          title: "DJ-Technik",
+          externalUrl: "https://www.dj-technik.de/",
           subtitle: "Music equipment e-commerce brand | Growing a YouTube audience and customer pipeline through Google Ads",
           overview:
-            "How we helped a DJ equipment brand accelerate YouTube growth and build a larger audience of potential buyers through a structured Google Ads subscriber campaign.",
+            "How we helped DJ-Technik accelerate YouTube growth and build a larger audience of potential buyers through a structured Google Ads subscriber campaign.",
           image: "/assets/case-study-djtechnik-cover.webp",
-          imageAlt: "DJ-TECHNIK.DE showroom with illuminated DJ equipment displays",
+          imageAlt: "DJ-Technik showroom with illuminated DJ equipment displays",
           chips: ["YouTube", "Google Ads", "Subscriber Growth", "E-Commerce"],
           cardFocus: "Audience growth + future buyer pipeline",
           cardMetrics: [
-            { value: "+7.8k", label: "Subscribers" },
+            { value: "9,000", label: "Subscribers" },
             { value: "90 Days", label: "Timeframe" },
-            { value: "€0.22", label: "Cost / Subscriber" }
+            { value: "€0.31", label: "Cost / Subscriber" }
           ],
           heroMetrics: [
-            { value: "+7.8k", label: "Subscribers" },
+            { value: "9,000", label: "Subscribers" },
             { value: "90 Days", label: "Timeframe" },
-            { value: "€0.22", label: "Cost / Subscriber" }
+            { value: "€0.31", label: "Cost / Subscriber" }
           ],
           snapshot: [
-            { label: "Client", value: "DJ-TECHNIK.DE" },
+            { label: "Client", value: "DJ-Technik", url: "https://www.dj-technik.de/" },
             { label: "Sector", value: "Music equipment e-commerce" },
             { label: "Market", value: "Germany" },
             { label: "Channel mix", value: "YouTube subscriber campaigns via Google Ads" },
             { label: "Priority", value: "Grow the audience and future customer pipeline" }
           ],
+          sidebarNote:
+            "Snapshot based on combined Google Ads spend and YouTube channel reporting covering December 20, 2025 through March 10, 2026.",
+          quoteSource: "Campaign performance summary based on Google Ads and YouTube reporting",
           stackedMedia: {
             src: "/assets/case-study-djtechnik-youtube-04.jpg",
             alt: "Google Ads campaign performance view showing subscriber growth and cost efficiency",
@@ -180,7 +184,7 @@
               kicker: "The Challenge",
               title: "A niche e-commerce brand with strong products but limited audience reach.",
               body: [
-                "The DJ equipment brand already had strong product demonstrations and educational videos on YouTube, but organic growth on its own was too slow to unlock the channel’s full sales potential.",
+                "DJ-Technik already had strong product demonstrations and educational videos on YouTube, but organic growth on its own was too slow to unlock the channel’s full sales potential.",
                 "Despite good content, the channel was still not reaching enough DJs, music producers, and equipment buyers in the market."
               ],
               bullets: [
@@ -208,14 +212,14 @@
               kicker: "The Results",
               title: "Rapid subscriber growth at a very low acquisition cost.",
               body: [
-                "Over roughly 90 days, the campaign helped grow the channel from around 1,000 subscribers on December 20 to about 8,800 subscribers by March 10.",
-                "That means roughly 7,800 net new subscribers with about €1,700 in ad spend, bringing the average cost per subscriber to around €0.22."
+                "Over roughly 90 days, the campaign helped grow the channel from around 1,000 subscribers on December 20 to about 9,000 subscribers by March 10.",
+                "That means roughly 8,000 net new subscribers with about €2,500 in ad spend, bringing the average cost per subscriber to around €0.31."
               ],
               bullets: [
-                "Roughly 7,800 net new subscribers during the 90-day campaign window",
-                "About €1,700 total ad spend",
-                "Around €0.22 average cost per subscriber",
-                "Channel growth from around 1,000 subscribers to approximately 8,800",
+                "Roughly 8,000 net new subscribers during the 90-day campaign window",
+                "About €2,500 total ad spend",
+                "Around €0.31 average cost per subscriber",
+                "Channel growth from around 1,000 subscribers to approximately 9,000",
                 "A subscriber base that is now large enough to keep compounding through content and product demand",
                 "A larger long-term audience of DJs, music producers, and equipment buyers"
               ]
@@ -229,7 +233,7 @@
             "Channel growth used as a long-term lead and customer pipeline"
           ],
           quote:
-            "Instead of waiting for slow organic growth, the brand used Google Ads to accelerate audience acquisition and grow the channel from roughly 1,000 to about 8,800 subscribers in around 90 days."
+            "Instead of waiting for slow organic growth, DJ-Technik used Google Ads to accelerate audience acquisition and grow the channel from roughly 1,000 to about 9,000 subscribers in around 90 days."
         },
         {
           slug: "dms-progrowers-workforce-campaign",
@@ -508,31 +512,35 @@
           index: "02",
           category: "performance",
           categoryLabel: "Performance",
-          title: "DJ-TECHNIK.DE",
+          title: "DJ-Technik",
+          externalUrl: "https://www.dj-technik.de/",
           subtitle: "Musikequipment-E-Commerce | YouTube-Audience und Käuferpotenzial mit Google Ads ausgebaut",
           overview:
-            "So haben wir einer DJ-Equipment-Marke geholfen, ihr YouTube-Wachstum mit einer strukturierten Google-Ads-Kampagne zu beschleunigen und gleichzeitig eine größere Zielgruppe potenzieller Käufer aufzubauen.",
+            "So haben wir DJ-Technik geholfen, das YouTube-Wachstum mit einer strukturierten Google-Ads-Kampagne zu beschleunigen und gleichzeitig eine größere Zielgruppe potenzieller Käufer aufzubauen.",
           image: "/assets/case-study-djtechnik-cover.webp",
-          imageAlt: "Showroom von DJ-TECHNIK.DE mit beleuchteten DJ-Setups",
+          imageAlt: "Showroom von DJ-Technik mit beleuchteten DJ-Setups",
           chips: ["YouTube", "Google Ads", "Abonnentenwachstum", "E-Commerce"],
           cardFocus: "Audience-Wachstum + künftige Käuferpipeline",
           cardMetrics: [
-            { value: "+7,8k", label: "Abonnenten" },
+            { value: "9.000", label: "Abonnenten" },
             { value: "90 Tage", label: "Zeitraum" },
-            { value: "€0,22", label: "Kosten / Abonnent" }
+            { value: "€0,31", label: "Kosten / Abonnent" }
           ],
           heroMetrics: [
-            { value: "+7,8k", label: "Abonnenten" },
+            { value: "9.000", label: "Abonnenten" },
             { value: "90 Tage", label: "Zeitraum" },
-            { value: "€0,22", label: "Kosten / Abonnent" }
+            { value: "€0,31", label: "Kosten / Abonnent" }
           ],
           snapshot: [
-            { label: "Kunde", value: "DJ-TECHNIK.DE" },
+            { label: "Kunde", value: "DJ-Technik", url: "https://www.dj-technik.de/" },
             { label: "Bereich", value: "Musikequipment-E-Commerce" },
             { label: "Markt", value: "Deutschland" },
             { label: "Kanalmix", value: "YouTube-Subscriber-Kampagnen über Google Ads" },
             { label: "Priorität", value: "YouTube-Audience und Käuferpipeline ausbauen" }
           ],
+          sidebarNote:
+            "Der Projektüberblick basiert auf kombiniertem Google-Ads-Spend und YouTube-Kanalreporting für den Zeitraum vom 20. Dezember 2025 bis 10. März 2026.",
+          quoteSource: "Leistungsauswertung auf Basis von Google Ads und YouTube Reporting",
           stackedMedia: {
             src: "/assets/case-study-djtechnik-youtube-04.jpg",
             alt: "Google-Ads-Auswertung mit Abonnentenwachstum und effizientem Kostenverlauf",
@@ -560,7 +568,7 @@
               kicker: "Die Herausforderung",
               title: "Eine starke Nischenmarke mit guten Inhalten, aber zu wenig Reichweite.",
               body: [
-                "Die Marke hatte bereits starke Produktdemos und hilfreiche YouTube-Videos, aber rein organisches Wachstum war zu langsam, um das volle Potenzial des Kanals zu nutzen.",
+                "DJ-Technik hatte bereits starke Produktdemos und hilfreiche YouTube-Videos, aber rein organisches Wachstum war zu langsam, um das volle Potenzial des Kanals zu nutzen.",
                 "Trotz guter Inhalte erreichte der Kanal noch nicht genug DJs, Musikproduzenten und potenzielle Käufer im relevanten Markt."
               ],
               bullets: [
@@ -588,14 +596,14 @@
               kicker: "Das Ergebnis",
               title: "Schnelles Abonnentenwachstum zu sehr niedrigen Akquisekosten.",
               body: [
-                "Innerhalb von rund 90 Tagen ist der Kanal von etwa 1.000 Abonnenten am 20. Dezember auf ungefähr 8.800 Abonnenten am 10. März gewachsen.",
-                "Das entspricht rund 7.800 neuen Abonnenten bei etwa 1.700 Euro Werbebudget. Die durchschnittlichen Kosten pro Abonnent lagen damit bei ungefähr 0,22 Euro."
+                "Innerhalb von rund 90 Tagen ist der Kanal von etwa 1.000 Abonnenten am 20. Dezember auf rund 9.000 Abonnenten am 10. März gewachsen.",
+                "Das entspricht rund 8.000 neuen Abonnenten bei etwa 2.500 Euro Werbebudget. Die durchschnittlichen Kosten pro Abonnent lagen damit bei ungefähr 0,31 Euro."
               ],
               bullets: [
-                "Rund 7.800 neue Abonnenten im 90-Tage-Zeitraum",
-                "Etwa 1.700 Euro Gesamtbudget",
-                "Ungefähr 0,22 Euro durchschnittliche Kosten pro Abonnent",
-                "Wachstum von rund 1.000 auf ungefähr 8.800 Abonnenten",
+                "Rund 8.000 neue Abonnenten im 90-Tage-Zeitraum",
+                "Etwa 2.500 Euro Gesamtbudget",
+                "Ungefähr 0,31 Euro durchschnittliche Kosten pro Abonnent",
+                "Wachstum von rund 1.000 auf ungefähr 9.000 Abonnenten",
                 "Eine Abonnentenbasis, die jetzt deutlich stärker organisch weiterwachsen kann",
                 "Eine deutlich größere langfristige Audience aus DJs, Musikproduzenten und potenziellen Käufern"
               ]
@@ -609,7 +617,7 @@
             "Kanalwachstum als langfristige Lead- und Käuferpipeline"
           ],
           quote:
-            "Statt auf langsames organisches Wachstum zu warten, hat die Marke Google Ads genutzt, um Reichweite und Community gezielt zu beschleunigen und den Kanal in rund 90 Tagen von etwa 1.000 auf ungefähr 8.800 Abonnenten zu bringen."
+            "Statt auf langsames organisches Wachstum zu warten, hat DJ-Technik Google Ads genutzt, um Reichweite und Community gezielt zu beschleunigen und den Kanal in rund 90 Tagen von etwa 1.000 auf rund 9.000 Abonnenten zu bringen."
         },
         {
           slug: "dms-progrowers-workforce-campaign",
@@ -777,6 +785,12 @@
 
   const createBackIcon = () =>
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/><path d="M9 12h10"/></svg>';
+
+  const renderExternalLink = (text, url, className = "") => {
+    if (!url) return text;
+    const classAttr = className ? ` class="${className}"` : "";
+    return `<a${classAttr} href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+  };
 
   let mediaLightboxState;
 
@@ -1136,7 +1150,7 @@
         (item) => `
           <div class="case-stat">
             <span class="case-stat-label">${item.label}</span>
-            <span class="case-stat-value">${item.value}</span>
+            <span class="case-stat-value">${renderExternalLink(item.value, item.url, "case-stat-link")}</span>
           </div>
         `
       )
@@ -1187,7 +1201,7 @@
         (item) => `
           <li>
             <strong>${item.label}</strong>
-            <span>${item.value}</span>
+            <span>${renderExternalLink(item.value, item.url, "case-side-link")}</span>
           </li>
         `
       )
@@ -1196,6 +1210,9 @@
     const deliverables = study.deliverables
       .map((item) => `<li>${item}</li>`)
       .join("");
+
+    const quoteSource = study.quoteSource || content.quoteSource;
+    const sidebarNote = study.sidebarNote || content.sidebarNote;
 
     const heroMetrics = renderMetrics(study.heroMetrics, "case-hero-metrics");
     const gallery = Array.isArray(study.gallery) && study.gallery.length
@@ -1226,7 +1243,7 @@
         <div class="case-detail-panel">
           <span class="case-section-kicker">${study.categoryLabel}</span>
           <div>
-            <h1 class="case-detail-title">${study.title}</h1>
+            <h1 class="case-detail-title">${renderExternalLink(study.title, study.externalUrl, "case-title-link")}</h1>
             <p class="case-detail-subtitle">${study.subtitle}</p>
           </div>
           <p class="case-detail-summary">${study.overview}</p>
@@ -1250,14 +1267,14 @@
           </section>
           <div class="case-quote">
             <p>${study.quote}</p>
-            <strong>${content.quoteSource}</strong>
+            <strong>${quoteSource}</strong>
           </div>
         </div>
         <aside class="case-side-panel">
           <h2 class="case-side-title">${content.sidebarTitle}</h2>
           <ul class="case-side-list">${snapshotList}</ul>
           <div class="case-side-note">
-            <p>${content.sidebarNote}</p>
+            <p>${sidebarNote}</p>
           </div>
         </aside>
       </div>
