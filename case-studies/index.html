@@ -13,9 +13,9 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/css/home-shared.css?v=6">
-  <link rel="stylesheet" href="/css/case-studies.css?v=2">
+  <link rel="stylesheet" href="/css/case-studies.css?v=3">
 </head>
-<body class="case-studies-page">
+<body class="case-studies-page case-studies-hub-page">
   <div class="noise-overlay"></div>
   <div class="case-bg-image"></div>
   <header class="lynck-header">
@@ -142,20 +142,39 @@
     </div>
   </header>
 
+  <section class="case-cinematic-hero">
+    <div class="case-cinematic-bg">
+      <img loading="eager" fetchpriority="high" decoding="async" src="/assets/case-studies-cinematic-bg.png" alt="Blurred creative interface with warm orange light behind dark silhouetted hands">
+    </div>
+    <div class="case-cinematic-overlay"></div>
+    <div class="case-cinematic-content">
+      <span class="case-cinematic-kicker">Selected Client Work</span>
+      <h1 class="case-cinematic-title">Case <span>Studies</span></h1>
+      <div class="case-cinematic-intro">
+        <p>
+          Real growth systems, campaign structures, and web architecture distilled into clear project stories.
+        </p>
+      </div>
+      <div class="case-cinematic-line" aria-hidden="true"></div>
+      <div class="case-cinematic-note">
+        <span class="case-cinematic-mark">03</span>
+        <div>
+          <strong>Strategy translated into visible structure.</strong>
+          <span>Each project page shows how media, creative, and conversion systems were built to work together.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <main id="main-content" class="case-main">
-    <section class="case-hero">
-      <div class="case-shell">
-        <div class="case-hero-grid">
-          <div>
-            <span class="case-kicker">Selected Client Work</span>
-            <h1 class="case-title">Case Studies</h1>
-          </div>
-          <div class="case-intro">
-            <p>
-              A closer look at how we structure growth across search, paid social, content systems,
-              and conversion-focused web experiences.
-            </p>
-          </div>
+    <section class="case-shell case-hub-overview">
+      <div class="case-hub-overview-panel">
+        <div class="case-hub-overview-copy">
+          <span class="case-overview-label">Browse The Systems</span>
+          <p>
+            A closer look at how we structure growth across search, paid social, content systems,
+            and conversion-focused web experiences.
+          </p>
         </div>
         <div class="case-filter-bar">
           <div class="case-filters" data-case-filters></div>

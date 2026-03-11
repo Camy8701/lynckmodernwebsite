@@ -6,1237 +6,407 @@
   <script src="/js/url-attribution-cleanup.js"></script>
   <script src="/js/cookie-consent.js" defer data-ga-id="G-GRWYGYSSMY" data-gtm-id="GTM-N5757GT5"></script>
   <title>The Real Reason Your Ads Don't Convert | LYNCK Studio</title>
-  <meta name="description" content="The real reason ads fail is usually messaging, not platform. Read the exact framework LYNCK Studio uses to fix underperforming campaigns fast.">
+  <meta name="description" content="Most campaigns fail because the message, offer, and landing page are misaligned. Here is the diagnostic framework LYNCK Studio uses to find the break and fix conversion performance.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Real Reason Your Ads Don't Convert">
+  <meta property="og:description" content="A practical breakdown of why ads usually fail because of message-to-offer mismatch, not because of the platform itself.">
+  <meta property="og:image" content="/assets/blog-ads-dont-convert-hero.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="/blog-real-reason-your-ads-dont-convert.html">
+  <link rel="alternate" hreflang="en" href="/blog-real-reason-your-ads-dont-convert.html">
+  <link rel="alternate" hreflang="de" href="/de/blog-real-reason-your-ads-dont-convert.html">
   <link rel="icon" type="image/webp" href="/assets/lynck-logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=optional" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/css/home-shared.css?v=6">
   <link rel="stylesheet" href="/css/blog-article.css?v=3">
-  <style>
-    /* ── Tokens ── */
-    :root {
-      --b-bg: #f1efe6;
-      --b-surface: #ffffff;
-      --b-card: #ffffff;
-      --b-card-border: rgba(12, 23, 48, 0.12);
-      --b-ink: #0c1730;
-      --b-muted: #5f6b82;
-      --b-body: #202c45;
-      --b-accent: #0045ba;
-      --b-accent-light: #3b7cef;
-      --b-warm: #e56a1e;
-      --b-line: rgba(12, 23, 48, 0.12);
-      --b-r: 16px;
-      --b-pill: 999px;
-      --b-max: 780px;
-      --b-wide: 1120px;
-    }
-
-    body.blog-article-page {
-      font-family: 'Manrope', sans-serif;
-    }
-
-    /* ── Hero section ── */
-    .blog-hero {
-      position: relative;
-      padding: 160px 0 80px;
-      overflow: hidden;
-      background:
-        radial-gradient(ellipse at 20% 80%, rgba(0,69,186,.26), transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(229,106,30,.12), transparent 50%),
-        #0c1730;
-    }
-
-    .blog-hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(0,69,186,.35), transparent);
-    }
-
-    .blog-hero-inner {
-      width: min(var(--b-wide), 92vw);
-      margin: 0 auto;
-    }
-
-    .blog-hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin: 0 0 28px;
-      padding: 7px 18px;
-      border-radius: var(--b-pill);
-      border: 1px solid var(--b-card-border);
-      background: rgba(0,69,186,.1);
-      color: var(--b-accent-light);
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .blog-hero-kicker svg {
-      opacity: .6;
-    }
-
-    .blog-hero-title {
-      margin: 0;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(40px, 5.5vw, 72px);
-      line-height: .98;
-      letter-spacing: -.04em;
-      color: #fff;
-      max-width: 18ch;
-      font-weight: 700;
-    }
-
-    .blog-hero-lead {
-      margin: 28px 0 0;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: clamp(16px, 1.8vw, 19px);
-      line-height: 1.65;
-      max-width: 56ch;
-    }
-
-    .blog-hero-actions {
-      margin-top: 36px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .blog-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border-radius: 10px;
-      padding: 13px 24px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform .2s, background .2s, border-color .2s;
-    }
-
-    .blog-btn:hover { transform: translateY(-1px); }
-
-    .blog-btn-primary {
-      background: var(--b-accent);
-      color: #fff;
-    }
-
-    .blog-btn-primary:hover {
-      background: var(--b-warm);
-    }
-
-    .blog-btn-secondary {
-      border: 1px solid rgba(0,69,186,.5);
-      color: var(--b-accent-light);
-      background: transparent;
-    }
-
-    .blog-btn-secondary:hover {
-      border-color: var(--b-warm);
-      color: var(--b-warm);
-    }
-
-    .blog-hero-meta {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-top: 32px;
-      padding-top: 24px;
-      border-top: 1px solid var(--b-line);
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.62);
-      font-weight: 500;
-    }
-
-    .blog-hero-meta .dot {
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: #3a4562;
-    }
-
-    /* ── Section wrapper ── */
-    #blog-article {
-      background: var(--b-bg);
-      color: var(--b-ink);
-    }
-
-    .blog-section {
-      position: relative;
-      width: min(var(--b-wide), 92vw);
-      margin: 0 auto;
-      padding: 72px 0;
-      opacity: 1;
-    }
-
-    .blog-section + .blog-section {
-      border-top: 1px solid var(--b-line);
-    }
-
-    /* ── Section kicker pill (PDF pattern) ── */
-    .blog-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin: 0 0 20px;
-      padding: 5px 14px;
-      border-radius: var(--b-pill);
-      border: 1px solid var(--b-card-border);
-      background: rgba(0,69,186,.08);
-      color: var(--b-accent-light);
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .blog-kicker svg {
-      width: 12px;
-      height: 12px;
-      opacity: .6;
-    }
-
-    /* ── Section heading (large display, PDF-style) ── */
-    .blog-section-title {
-      margin: 0 0 20px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(28px, 3.5vw, 46px);
-      line-height: 1.06;
-      letter-spacing: -.035em;
-      color: var(--b-ink);
-      font-weight: 700;
-      max-width: 22ch;
-    }
-
-    /* ── Body text ── */
-    .blog-text {
-      font-size: clamp(16px, 1.6vw, 18px);
-      line-height: 1.75;
-      color: var(--b-body);
-      max-width: var(--b-max);
-      opacity: 1;
-    }
-
-    .blog-text p {
-      margin: 0 0 16px;
-      color: inherit;
-    }
-
-    .blog-text ul, .blog-text ol {
-      margin: 0 0 18px;
-      padding-left: 22px;
-    }
-
-    .blog-text li {
-      margin-bottom: 6px;
-    }
-
-    .blog-text li::marker {
-      color: var(--b-accent-light);
-    }
-
-    .blog-text a {
-      color: var(--b-accent);
-      font-weight: 600;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .blog-text a:hover {
-      color: var(--b-warm);
-    }
-
-    /* ── Card grid (PDF 3-col pattern) ── */
-    .blog-card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-      margin: 28px 0 24px;
-    }
-
-    .blog-card {
-      background: var(--b-card);
-      border: 1px solid var(--b-card-border);
-      border-radius: var(--b-r);
-      padding: 28px 26px;
-      transition: border-color .25s, transform .25s;
-    }
-
-    .blog-card:hover {
-      border-color: rgba(0,69,186,.42);
-      transform: translateY(-2px);
-    }
-
-    .blog-card h4 {
-      margin: 0 0 8px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--b-ink);
-      letter-spacing: -.01em;
-    }
-
-    .blog-card p {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--b-body);
-    }
-
-    .blog-card-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: rgba(0,69,186,.08);
-      border: 1px solid rgba(0,69,186,.16);
-      color: var(--b-accent-light);
-      margin-bottom: 16px;
-    }
-
-    /* ── Two-column layout (PDF IS/IS NOT pattern) ── */
-    .blog-two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin: 24px 0;
-    }
-
-    .blog-col-card {
-      background: var(--b-card);
-      border: 1px solid var(--b-card-border);
-      border-radius: var(--b-r);
-      padding: 28px 26px;
-    }
-
-    .blog-col-card h4 {
-      margin: 0 0 14px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--b-ink);
-    }
-
-    .blog-col-card ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .blog-col-card li {
-      padding: 8px 0;
-      font-size: 15px;
-      color: var(--b-body);
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      line-height: 1.5;
-    }
-
-    .blog-col-card li::before {
-      content: '';
-      flex-shrink: 0;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--b-accent-light);
-      margin-top: 8px;
-    }
-
-    /* ── Numbered steps (PDF numbered circles) ── */
-    .blog-steps-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-      margin: 28px 0 24px;
-    }
-
-    .blog-step-card {
-      position: relative;
-      background: var(--b-card);
-      border: 1px solid var(--b-card-border);
-      border-radius: var(--b-r);
-      padding: 32px 26px 28px;
-    }
-
-    .blog-step-num {
-      position: absolute;
-      top: -14px;
-      left: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--b-accent);
-      color: #fff;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      box-shadow: 0 4px 12px rgba(0,69,186,.3);
-    }
-
-    .blog-step-card h4 {
-      margin: 4px 0 8px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--b-ink);
-      letter-spacing: -.01em;
-    }
-
-    .blog-step-card p {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--b-body);
-    }
-
-    /* ── Steps (horizontal ruled, like PDF page 4) ── */
-    .blog-steps-ruled {
-      margin: 28px 0 24px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      border-top: 2px solid var(--b-accent);
-    }
-
-    .blog-steps-ruled .step {
-      padding: 20px 20px 20px 0;
-      border-right: 1px solid var(--b-line);
-    }
-
-    .blog-steps-ruled .step:last-child {
-      border-right: none;
-    }
-
-    .blog-steps-ruled .step-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--b-muted);
-      margin: 0 0 8px;
-    }
-
-    .blog-steps-ruled .step h4 {
-      margin: 0 0 6px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 20px;
-      color: var(--b-ink);
-      font-weight: 700;
-    }
-
-    .blog-steps-ruled .step p {
-      margin: 0;
-      font-size: 14px;
-      color: var(--b-body);
-      line-height: 1.55;
-    }
-
-    /* ── Pull quote ── */
-    .blog-pullquote {
-      margin: 40px 0;
-      padding: 32px 36px;
-      border-left: 3px solid var(--b-accent);
-      background: var(--b-surface);
-      border-radius: 0 var(--b-r) var(--b-r) 0;
-      box-shadow: 0 10px 24px rgba(12, 23, 48, 0.06);
-    }
-
-    .blog-pullquote p {
-      margin: 0;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(20px, 2.5vw, 28px);
-      line-height: 1.4;
-      color: var(--b-ink);
-      font-weight: 600;
-      letter-spacing: -.02em;
-    }
-
-    /* ── Callout box (PDF info bar) ── */
-    .blog-callout {
-      margin: 28px 0;
-      padding: 22px 28px;
-      border: 1px solid var(--b-card-border);
-      border-left: 3px solid var(--b-accent);
-      border-radius: 0 var(--b-r) var(--b-r) 0;
-      background: rgba(0,69,186,.05);
-    }
-
-    .blog-callout p {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--b-body);
-    }
-
-    .blog-callout strong {
-      color: var(--b-ink);
-    }
-
-    /* ── Divider ── */
-    .blog-divider {
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(12, 23, 48, 0.14), transparent);
-      margin: 40px 0;
-    }
-
-    /* ── CTA section (full width dark card) ── */
-    .blog-cta-section {
-      width: min(var(--b-wide), 92vw);
-      margin: 0 auto;
-      padding: 0 0 80px;
-    }
-
-    .blog-cta {
-      padding: 52px 48px;
-      background:
-        radial-gradient(ellipse at 25% 80%, rgba(0,69,186,.15), transparent 50%),
-        radial-gradient(ellipse at 75% 20%, rgba(229,106,30,.08), transparent 50%),
-        #0c1730;
-      border: 1px solid var(--b-card-border);
-      border-radius: var(--b-r);
-      text-align: center;
-    }
-
-    .blog-cta h3 {
-      margin: 0 0 12px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(26px, 3vw, 36px);
-      color: #fff;
-      letter-spacing: -.025em;
-      font-weight: 700;
-    }
-
-    .blog-cta p {
-      margin: 0 auto 32px;
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 17px;
-      line-height: 1.6;
-      max-width: 50ch;
-    }
-
-    .blog-cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 34px;
-      border-radius: 10px;
-      background: var(--b-accent);
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background .25s, transform .2s;
-    }
-
-    .blog-cta-btn:hover {
-      background: var(--b-warm);
-      transform: translateY(-1px);
-    }
-
-    .blog-cta-btn svg { transition: transform .2s; }
-    .blog-cta-btn:hover svg { transform: translateX(3px); }
-
-    /* ── Related articles ── */
-    .blog-related {
-      width: min(var(--b-wide), 92vw);
-      margin: 0 auto;
-      padding: 0 0 96px;
-    }
-
-    .blog-related-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 28px;
-    }
-
-    .blog-related-header h2 {
-      margin: 0;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(24px, 3vw, 32px);
-      letter-spacing: -.02em;
-      color: var(--b-ink);
-    }
-
-    .blog-related-header a {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--b-accent-light);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: color .2s;
-    }
-
-    .blog-related-header a:hover { color: var(--b-warm); }
-
-    .blog-related-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .blog-related-card {
-      background: var(--b-card);
-      border: 1px solid var(--b-card-border);
-      border-radius: var(--b-r);
-      overflow: hidden;
-      transition: transform .25s, border-color .25s;
-    }
-
-    .blog-related-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(0,69,186,.35);
-    }
-
-    .blog-related-thumb {
-      aspect-ratio: 16/9;
-      background:
-        radial-gradient(ellipse at 50% 50%, rgba(0,69,186,.08), transparent 70%),
-        #f8f9fc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #425276;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .blog-related-body {
-      padding: 22px 24px 26px;
-    }
-
-    .blog-related-tag {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: var(--b-accent-light);
-      margin-bottom: 10px;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .blog-related-body h3 {
-      margin: 0 0 8px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 17px;
-      line-height: 1.3;
-      color: var(--b-ink);
-    }
-
-    .blog-related-body p {
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.55;
-      color: var(--b-body);
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .blog-hero { padding: 130px 0 56px; }
-      .blog-section { padding: 52px 0; }
-      .blog-two-col { grid-template-columns: 1fr; }
-      .blog-steps-row { grid-template-columns: 1fr; }
-      .blog-steps-ruled { grid-template-columns: 1fr; }
-      .blog-steps-ruled .step { border-right: none; border-bottom: 1px solid var(--b-line); padding: 16px 0; }
-      .blog-steps-ruled .step:last-child { border-bottom: none; }
-      .blog-pullquote { padding: 24px 22px; margin: 32px 0; }
-      .blog-cta { padding: 40px 24px; }
-      .blog-related-grid { grid-template-columns: 1fr; gap: 14px; }
-    }
-
-    @media (max-width: 480px) {
-      .blog-hero-title { font-size: 36px; }
-      .blog-section-title { font-size: 26px; }
-      .blog-card-grid { grid-template-columns: 1fr; }
-      .blog-hero-meta { flex-wrap: wrap; gap: 8px; }
-    }
-  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Real Reason Your Ads Don't Convert",
+      "description": "A practical breakdown of why ads usually fail because of message-to-offer mismatch, not because of the platform itself.",
+      "datePublished": "2026-02-18",
+      "dateModified": "2026-03-11",
+      "author": {
+        "@type": "Organization",
+        "name": "LYNCK Studio"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LYNCK Studio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "/assets/lynck-logo.webp"
+        }
+      },
+      "image": [
+        "/assets/blog-ads-dont-convert-hero.png"
+      ],
+      "mainEntityOfPage": "/blog-real-reason-your-ads-dont-convert.html"
+    }
+  </script>
 </head>
-<body class="blog-article-page" style="--blog-article-hero-bg: url('/assets/blog-ads-convert-bg.jpeg')">
+<body class="blog-article-page" style="--blog-article-hero-bg: url('/assets/blog-ads-dont-convert-hero.png')">
   <div class="noise-overlay"></div>
   <div class="blog-article-bg-image"></div>
-<header class="lynck-header">
-        <div class="lynck-header-inner">
-            <button type="button" class="lynck-home-logo" data-home-btn aria-label="LYNCK Studio Home">
-                <img loading="eager" fetchpriority="high" decoding="async" width="56" height="56" src="/assets/lynck-logo.webp" alt="LYNCK Studio">
-            </button>
-            <div class="lynck-mobile-menu nav-dropdown right">
-                <button class="nav-pill lynck-mobile-menu-trigger" type="button" aria-label="Open menu">
-                    <span class="lynck-mobile-menu-icon" aria-hidden="true">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </span>
-                    <span class="lynck-mobile-menu-text">Menu</span>
-                </button>
-                <div class="nav-dropdown-menu lynck-mobile-menu-panel" role="menu">
-                    <div class="lynck-mobile-menu-group">
-                        <span class="lynck-mobile-menu-label">Navigation</span>
-                        <a href="/about.html" role="menuitem">About LYNCK</a>
-                        <a href="/case-studies/" role="menuitem">Case Studies</a>
-                        <a href="/blog-real-reason-your-ads-dont-convert.html" role="menuitem">Blog</a>
-                    </div>
-                    <div class="lynck-mobile-menu-group">
-                        <span class="lynck-mobile-menu-label">Services</span>
-                        <a href="/services/service.html?service=google-ads" role="menuitem">Google Ads &amp; Performance Marketing</a>
-                        <a href="/services/service.html?service=meta-ads" role="menuitem">Meta Ads &amp; Paid Social</a>
-                        <a href="/services/service.html?service=ai-content" role="menuitem">AI Content &amp; Creative Production</a>
-                        <a href="/services/service.html?service=ugc-influencer" role="menuitem">UGC &amp; Influencer Marketing</a>
-                        <a href="/services/service.html?service=web-systems" role="menuitem">Conversion-Focused Web Systems</a>
-                        <a href="/services/service.html?service=growth-strategy" role="menuitem">Growth Strategy &amp; Brand Positioning</a>
-                        <a href="/services/service.html?service=leads-generation" role="menuitem">Leads Generation</a>
-                        <a href="/services/service.html?service=youtube-growth-services" role="menuitem">YouTube Growth Services</a>
-                        <a href="/services/service.html?service=seo-sevo" role="menuitem">SEO / SEvO</a>
-                    </div>
-                    <div class="lynck-mobile-menu-group">
-                        <span class="lynck-mobile-menu-label">Social</span>
-                        <div class="lynck-mobile-social">
-                            <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" role="menuitem">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-                                    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/>
-                                </svg>
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" role="menuitem">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-                                    <path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/>
-                                </svg>
-                                <span>Instagram</span>
-                            </a>
-                        </div>
-                    </div>
-                    <button type="button" class="gradient-border-btn lynck-mobile-menu-cta" data-apply-btn>
-                        <span class="btn-core">Let's connect <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-                    </button>
-                </div>
+  <header class="lynck-header">
+    <div class="lynck-header-inner">
+      <a href="/index.html" class="lynck-home-logo" aria-label="LYNCK Studio Home">
+        <img loading="eager" fetchpriority="high" decoding="async" width="56" height="56" src="/assets/lynck-logo.webp" alt="LYNCK Studio">
+      </a>
+      <div class="lynck-mobile-menu nav-dropdown right">
+        <button class="nav-pill lynck-mobile-menu-trigger" type="button" aria-label="Open menu">
+          <span class="lynck-mobile-menu-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="lynck-mobile-menu-text">Menu</span>
+        </button>
+        <div class="nav-dropdown-menu lynck-mobile-menu-panel" role="menu">
+          <div class="lynck-mobile-menu-group">
+            <span class="lynck-mobile-menu-label">Navigation</span>
+            <a href="/about.html" role="menuitem">About LYNCK</a>
+            <a href="/case-studies/" role="menuitem">Case Studies</a>
+            <a href="/blog/" role="menuitem">Blog</a>
+          </div>
+          <div class="lynck-mobile-menu-group">
+            <span class="lynck-mobile-menu-label">Services</span>
+            <a href="/services/service.html?service=google-ads" role="menuitem">Google Ads &amp; Performance Marketing</a>
+            <a href="/services/service.html?service=meta-ads" role="menuitem">Meta Ads &amp; Paid Social</a>
+            <a href="/services/service.html?service=ai-content" role="menuitem">AI Content &amp; Creative Production</a>
+            <a href="/services/service.html?service=ugc-influencer" role="menuitem">UGC &amp; Influencer Marketing</a>
+            <a href="/services/service.html?service=web-systems" role="menuitem">Conversion Focused Web Systems</a>
+            <a href="/services/service.html?service=growth-strategy" role="menuitem">Growth Strategy &amp; Brand Positioning</a>
+            <a href="/services/service.html?service=leads-generation" role="menuitem">Leads Generation</a>
+            <a href="/services/service.html?service=youtube-growth-services" role="menuitem">YouTube Growth Services</a>
+            <a href="/services/service.html?service=seo-sevo" role="menuitem">SEO / SEvO</a>
+          </div>
+          <div class="lynck-mobile-menu-group">
+            <span class="lynck-mobile-menu-label">Social</span>
+            <div class="lynck-mobile-social">
+              <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" role="menuitem">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/></svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" role="menuitem">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/></svg>
+                <span>Instagram</span>
+              </a>
             </div>
-            <a class="lynck-mobile-about" href="/about.html">About us</a>
-            <div class="lynck-mobile-lang nav-dropdown right">
-                <button class="nav-pill lynck-mobile-lang-trigger" type="button" aria-label="Change language">
-                    EN
-                    <span class="nav-caret" aria-hidden="true"></span>
-                </button>
-                <div class="nav-dropdown-menu lynck-mobile-lang-menu" role="menu">
-                    <button type="button" role="menuitem" data-lang-switch="en"><span aria-hidden="true">🇺🇸</span> English</button>
-                    <button type="button" role="menuitem" data-lang-switch="de"><span aria-hidden="true">🇩🇪</span> Deutsch</button>
-                </div>
-            </div>
-            <div class="lynck-header-bar">
-                <div class="lynck-header-left">
-                    <div class="nav-social">
-                        <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-                                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-                                <path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="nav-dropdown">
-                        <button class="nav-pill" type="button">
-                            All
-                            <span class="nav-caret" aria-hidden="true"></span>
-                        </button>
-                    <div class="nav-dropdown-menu" role="menu">
-                        <a href="/services/service.html?service=google-ads" role="menuitem">Google Ads &amp; Performance Marketing</a>
-                        <a href="/services/service.html?service=meta-ads" role="menuitem">Meta Ads &amp; Paid Social</a>
-                        <a href="/services/service.html?service=ai-content" role="menuitem">AI Content &amp; Creative Production</a>
-                        <a href="/services/service.html?service=ugc-influencer" role="menuitem">UGC &amp; Influencer Marketing</a>
-                        <a href="/services/service.html?service=web-systems" role="menuitem">Conversion-Focused Web Systems</a>
-                        <a href="/services/service.html?service=growth-strategy" role="menuitem">Growth Strategy &amp; Brand Positioning</a>
-                        <a href="/services/service.html?service=leads-generation" role="menuitem">Leads Generation</a>
-                        <a href="/services/service.html?service=youtube-growth-services" role="menuitem">YouTube Growth Services</a>
-                        <a href="/services/service.html?service=seo-sevo" role="menuitem">SEO / SEvO</a>
-                    </div>
-                </div>
-            </div>
-
-            <nav class="lynck-nav-links" aria-label="Primary">
-                <a href="/about.html">About LYNCK</a>
-                <div class="lynck-services-dropdown"><a href="/#our-services">Our Services <span class="svc-caret" aria-hidden="true"></span></a><div class="lynck-services-mega"><a href="/services/service.html?service=google-ads">Google Ads &amp; Performance</a><a href="/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a><a href="/services/service.html?service=ai-content">AI Content &amp; Creative</a><a href="/services/service.html?service=ugc-influencer">UGC &amp; Influencer</a><a href="/services/service.html?service=web-systems">Web Systems</a><a href="/services/service.html?service=growth-strategy">Growth Strategy</a><a href="/services/service.html?service=leads-generation">Leads Generation</a><a href="/services/service.html?service=youtube-growth-services">YouTube Growth</a><a href="/services/service.html?service=seo-sevo">SEO / SEvO</a></div></div>
-                <a href="/#testimonials">Testimonials</a>
-                <a href="/blog-real-reason-your-ads-dont-convert.html">Blog</a>
-            </nav>
-
-                <div class="lynck-header-right">
-                    <div class="nav-dropdown right">
-                        <button class="nav-pill" type="button">
-                            EN
-                            <span class="nav-caret" aria-hidden="true"></span>
-                        </button>
-                        <div class="nav-dropdown-menu" role="menu">
-                            <button type="button" role="menuitem" data-lang-switch="en"><span aria-hidden="true">🇺🇸</span> English</button>
-                            <button type="button" role="menuitem" data-lang-switch="de"><span aria-hidden="true">🇩🇪</span> Deutsch</button>
-                        </div>
-                    </div>
-                    <button type="button" class="gradient-border-btn" data-apply-btn>
-                        <div class="btn-beam"></div>
-                    <div class="btn-bg">
-                        <div class="btn-bg-grad"></div>
-                        <div class="btn-bg-dots"></div>
-                        <div class="btn-bg-glow"></div>
-                    </div>
-                    <span class="btn-core">Let's connect <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-                    </button>
-                </div>
-            </div>
-            <a href="https://www.google.com/partners/agency?id=6214402482" target="_blank" rel="noopener noreferrer" class="lynck-partner-badge" aria-label="Google Partner Badge">
-                <img loading="eager" fetchpriority="high" decoding="async" width="92" height="92" src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
-            </a>
+          </div>
+          <a href="/apply/" class="gradient-border-btn lynck-mobile-menu-cta">
+            <span class="btn-core">Let's connect <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </a>
         </div>
-    </header>
-  
+      </div>
+      <a class="lynck-mobile-about" href="/about.html">About us</a>
+      <div class="lynck-mobile-lang nav-dropdown right">
+        <button class="nav-pill lynck-mobile-lang-trigger" type="button" aria-label="Change language">
+          EN
+          <span class="nav-caret" aria-hidden="true"></span>
+        </button>
+        <div class="nav-dropdown-menu lynck-mobile-lang-menu" role="menu">
+          <a href="/blog-real-reason-your-ads-dont-convert.html" role="menuitem"><span aria-hidden="true">🇺🇸</span> English</a>
+          <a href="/de/blog-real-reason-your-ads-dont-convert.html" role="menuitem"><span aria-hidden="true">🇩🇪</span> Deutsch</a>
+        </div>
+      </div>
+      <div class="lynck-header-bar">
+        <div class="lynck-header-left">
+          <div class="nav-social">
+            <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/></svg>
+            </a>
+          </div>
+          <div class="nav-dropdown">
+            <button class="nav-pill" type="button">
+              All
+              <span class="nav-caret" aria-hidden="true"></span>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="/services/service.html?service=google-ads" role="menuitem">Google Ads &amp; Performance Marketing</a>
+              <a href="/services/service.html?service=meta-ads" role="menuitem">Meta Ads &amp; Paid Social</a>
+              <a href="/services/service.html?service=ai-content" role="menuitem">AI Content &amp; Creative Production</a>
+              <a href="/services/service.html?service=ugc-influencer" role="menuitem">UGC &amp; Influencer Marketing</a>
+              <a href="/services/service.html?service=web-systems" role="menuitem">Conversion Focused Web Systems</a>
+              <a href="/services/service.html?service=growth-strategy" role="menuitem">Growth Strategy &amp; Brand Positioning</a>
+              <a href="/services/service.html?service=leads-generation" role="menuitem">Leads Generation</a>
+              <a href="/services/service.html?service=youtube-growth-services" role="menuitem">YouTube Growth Services</a>
+              <a href="/services/service.html?service=seo-sevo" role="menuitem">SEO / SEvO</a>
+            </div>
+          </div>
+        </div>
+        <nav class="lynck-nav-links" aria-label="Primary">
+          <a href="/about.html">About LYNCK</a>
+          <div class="lynck-services-dropdown"><a href="/#our-services">Our Services <span class="svc-caret" aria-hidden="true"></span></a><div class="lynck-services-mega"><a href="/services/service.html?service=google-ads">Google Ads &amp; Performance</a><a href="/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a><a href="/services/service.html?service=ai-content">AI Content &amp; Creative</a><a href="/services/service.html?service=ugc-influencer">UGC &amp; Influencer</a><a href="/services/service.html?service=web-systems">Web Systems</a><a href="/services/service.html?service=growth-strategy">Growth Strategy</a><a href="/services/service.html?service=leads-generation">Leads Generation</a><a href="/services/service.html?service=youtube-growth-services">YouTube Growth</a><a href="/services/service.html?service=seo-sevo">SEO / SEvO</a></div></div>
+          <a href="/case-studies/">Case Studies</a>
+          <a href="/blog/">Blog</a>
+        </nav>
+        <div class="lynck-header-right">
+          <div class="nav-dropdown right">
+            <button class="nav-pill" type="button">
+              EN
+              <span class="nav-caret" aria-hidden="true"></span>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="/blog-real-reason-your-ads-dont-convert.html" role="menuitem"><span aria-hidden="true">🇺🇸</span> English</a>
+              <a href="/de/blog-real-reason-your-ads-dont-convert.html" role="menuitem"><span aria-hidden="true">🇩🇪</span> Deutsch</a>
+            </div>
+          </div>
+          <a href="/apply/" class="gradient-border-btn">
+            <div class="btn-beam"></div>
+            <div class="btn-bg">
+              <div class="btn-bg-grad"></div>
+              <div class="btn-bg-dots"></div>
+              <div class="btn-bg-glow"></div>
+            </div>
+            <span class="btn-core">Let's connect <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </a>
+        </div>
+      </div>
+      <a href="https://www.google.com/partners/agency?id=6214402482" target="_blank" rel="noopener noreferrer" class="lynck-partner-badge" aria-label="Google Partner Badge">
+        <img loading="eager" fetchpriority="high" decoding="async" width="92" height="92" src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
+      </a>
+    </div>
+  </header>
 
-  <main>
-    <!-- ═══ HERO ═══ -->
   <section class="article-cinematic-hero">
     <div class="article-cinematic-bg">
-      <img loading="eager" fetchpriority="high" decoding="async" src="/assets/blog-ads-convert-bg.jpeg" alt="Abstract orange desert dunes with floating sphere">
+      <img loading="eager" fetchpriority="high" decoding="async" src="/assets/blog-ads-dont-convert-hero.png" alt="Futuristic control room with large AI screens, code displays, and glowing neon interface lines">
     </div>
     <div class="article-cinematic-overlay"></div>
     <div class="article-cinematic-content">
-      <span class="article-cinematic-kicker">Strategy &amp; Messaging</span>
+      <span class="article-cinematic-kicker">Ads, Messaging &amp; Conversion</span>
       <h1 class="article-cinematic-title">The Real Reason Your Ads Don't Convert</h1>
-      <p class="article-cinematic-lead">If you've been burning budget across platforms and wondering why nothing sticks, the answer is almost never the channel. It's the message. Here's the exact framework we use to fix it.</p>
+      <p class="article-cinematic-lead">Most underperforming campaigns do not fail because of the platform. They fail because the message, the offer, and the landing page promise are out of sync. This is the framework we use to find the break in that chain fast.</p>
       <div class="article-cinematic-meta">
         <span>LYNCK Studio</span>
         <span class="meta-dot" aria-hidden="true"></span>
-        <span>10 min read</span>
+        <span>Feb 18, 2026</span>
         <span class="meta-dot" aria-hidden="true"></span>
-        <span>Strategy &amp; Messaging</span>
+        <span>8 min read</span>
       </div>
       <div class="article-cinematic-line" aria-hidden="true"></div>
     </div>
   </section>
 
   <div class="article-content-main">
-    <!-- ═══ INTRO ═══ -->
-    <div id="blog-article">
-    <section class="blog-section">
-      <div class="blog-text">
-        <p>Most business owners think marketing is about picking the right platform.</p>
-        <p>TikTok. Instagram. YouTube. Google. Maybe even billboards.</p>
-        <p>But platforms don't make you money.</p>
-        <p>Messaging does.</p>
-        <p>If your message is wrong, you can burn budget on any channel and still get mediocre results. If your message is right, you can win almost anywhere.</p>
-        <p>Here's the core idea (and the simple framework) we use at LYNCK Studio to fix underperforming ads and landing pages fast.</p>
-      </div>
-    </section>
+    <div class="article-shell">
+      <a class="article-back" href="/blog/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/><path d="M9 12h10"/></svg>
+        Back to Blog
+      </a>
 
-    <!-- ═══ SECTION 1: Assumed Reason ═══ -->
-    <section class="blog-section">
-      <span class="blog-kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> Foundation</span>
-      <h2 class="blog-section-title">Stop Selling the &ldquo;Assumed Reason&rdquo; People Buy</h2>
-      <div class="blog-text">
-        <p>There's a trap almost every business falls into:</p>
-        <p>You think you know why people buy your product&hellip; because you built it.</p>
-        <p>But customers don't buy for your reasons.<br>They buy for their reasons.</p>
-        <p>And those two are often not the same.</p>
-        <p>The simplest fix: ask "Why?" until you hit the truth</p>
-        <p>One of the best marketing lessons I've heard recently is this:</p>
-      </div>
-
-      <div class="blog-pullquote">
-        <p>Ask &ldquo;why&rdquo; 10 layers deep until the real buying reason shows up.</p>
-      </div>
-
-      <div class="blog-text">
-        <p>Not the polite answer.<br>Not the surface-level answer.<br>The real one.</p>
-        <p>Because the real reason is what you should lead with in your ads, your landing page, and your sales script.</p>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 2: Convenience Example ═══ -->
-    <section class="blog-section">
-      <span class="blog-kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Case Study</span>
-      <h2 class="blog-section-title">Example: &ldquo;Convenience&rdquo; Is Usually a Lie</h2>
-      <div class="blog-text">
-        <p>A meal plan company couldn't sell their supplements.</p>
-        <p>Their assumption:</p>
-        <p>"People buy our meal plans because they want convenience"</p>
-        <p>"So they'll also buy health supplements (greens, vitamins, etc.)"</p>
-        <p>Sounds logical.</p>
-        <p>But when you ask why deeper, it falls apart.</p>
-        <p>If someone truly wanted convenience&hellip; they'd just order everything via UberEats.</p>
-        <p>So why do they actually buy meal plans?</p>
-      </div>
-
-      <div class="blog-two-col">
-        <div class="blog-col-card">
-          <h4>The Real Reason: Control</h4>
-          <ul>
-            <li>macros</li>
-            <li>predictable calories</li>
-            <li>hitting a goal (fat loss, muscle, performance)</li>
-          </ul>
+      <div class="article-stats-bar">
+        <div class="article-stat">
+          <strong>10 Whys</strong>
+          <span>To Find the Truth</span>
         </div>
-        <div class="blog-col-card">
-          <h4>Supplements Should Match That</h4>
-          <ul>
-            <li>appetite support</li>
-            <li>fat loss support</li>
-            <li>sports nutrition</li>
-            <li>performance products</li>
-          </ul>
+        <div class="article-stat">
+          <strong>3 Leaks</strong>
+          <span>We Audit First</span>
+        </div>
+        <div class="article-stat">
+          <strong>1 Message</strong>
+          <span>That Must Stay Clear</span>
         </div>
       </div>
 
-      <div class="blog-text">
-        <p>Not generic "health" messaging.</p>
-        <p>The product didn't fail.<br>The message was just talking to the wrong reason.</p>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 3: Feature Stacking ═══ -->
-    <section class="blog-section">
-      <span class="blog-kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Case Study</span>
-      <h2 class="blog-section-title">Example: Feature Stacking Kills Performance</h2>
-      <div class="blog-text">
-        <p>Another brand sold "flavorless protein."</p>
-        <p>They were running ads talking about:</p>
-        <ul>
-          <li>health benefits</li>
-          <li>digestion</li>
-          <li>quality</li>
-          <li>protein amount</li>
-          <li>and a bunch of other stuff</li>
-        </ul>
-        <p>Then they asked customers why they actually buy it.</p>
-        <p>And almost everyone said the same thing:</p>
+      <div class="article-actions">
+        <a class="article-btn article-btn-primary" href="#article-start">Read the article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a class="article-btn article-btn-secondary" href="/services/service.html?service=google-ads">Explore Google Ads services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
       </div>
 
-      <div class="blog-pullquote">
-        <p>&ldquo;It's flavorless. I can mix it into anything.&rdquo;</p>
+      <div class="article-layout" id="article-start">
+        <article class="article-story">
+          <section class="article-section">
+            <div class="article-text">
+              <p>Most business owners assume poor results come from targeting, bidding, or the wrong media channel. Those things matter, but they are rarely the first problem.</p>
+              <p>What breaks most campaigns is simpler: the ad says one thing, the offer suggests another, and the landing page asks the visitor to make a leap that has not been earned yet.</p>
+              <p>When that chain is broken, budget gets burned no matter whether the traffic came from Google, Meta, YouTube, or anywhere else.</p>
+            </div>
+          </section>
+
+          <section class="article-section" id="message-fit">
+            <span class="article-section-kicker">Message Fit</span>
+            <h2 class="article-section-title">Stop selling the assumed reason people buy</h2>
+            <div class="article-text">
+              <p>Teams often build campaigns around the internal story of the product. That is the fastest way to miss the real buying trigger.</p>
+              <p>Your customer does not buy because your feature list looks rational on a slide. They buy because one problem feels urgent, one outcome feels valuable, or one promise finally sounds believable.</p>
+              <p>The practical fix is simple: keep asking why until the polite answer disappears and the emotional reason shows up.</p>
+            </div>
+            <div class="article-callout">
+              <strong>Core Rule</strong>
+              <p>If the headline, ad hook, and page introduction do not speak to the real reason people buy, the campaign will struggle long before targeting becomes the main issue.</p>
+            </div>
+          </section>
+
+          <section class="article-section" id="examples">
+            <span class="article-section-kicker">Examples</span>
+            <h2 class="article-section-title">Why convenience and feature stacking usually mislead teams</h2>
+            <div class="article-card-grid">
+              <div class="article-card">
+                <h3>Meal plans were not really about convenience</h3>
+                <p>Once you ask deeper, the real driver is often control: macros, calories, predictability, and progress.</p>
+              </div>
+              <div class="article-card">
+                <h3>Supplements failed because the promise drifted</h3>
+                <p>When the follow-up offer talks about generic health while the original buyer wanted control, the cross-sell feels disconnected.</p>
+              </div>
+              <div class="article-card">
+                <h3>Feature stacking buried the winning angle</h3>
+                <p>Brands often list every benefit instead of leading with the one use case customers actually repeat back in their own words.</p>
+              </div>
+            </div>
+            <div class="article-text">
+              <p>That is why some ads feel busy but weak. They are trying to be complete instead of clear.</p>
+              <p>Strong messaging usually feels narrower. It sacrifices breadth to make one valuable promise obvious.</p>
+            </div>
+          </section>
+
+          <section class="article-section" id="framework">
+            <span class="article-section-kicker">Framework</span>
+            <h2 class="article-section-title">Platforms distribute. Messaging converts.</h2>
+            <div class="article-card-grid">
+              <div class="article-card">
+                <h3>Promise</h3>
+                <p>What exact outcome is the ad asking someone to believe they can get?</p>
+              </div>
+              <div class="article-card">
+                <h3>Proof</h3>
+                <p>What makes that promise feel specific, credible, and anchored in reality?</p>
+              </div>
+              <div class="article-card">
+                <h3>Page Match</h3>
+                <p>Does the landing page continue the same story, or does it force the visitor into a new conversation?</p>
+              </div>
+            </div>
+            <div class="article-text">
+              <p>Google, Meta, YouTube, direct mail, or offline placements are all distribution systems. They can scale a strong message, but they cannot rescue a confused one.</p>
+              <p>When a campaign improves after a channel switch, that usually means the new setup accidentally created a better message-to-context match. The lesson is still about positioning, not just media buying.</p>
+            </div>
+          </section>
+
+          <section class="article-section" id="conversion-leak">
+            <span class="article-section-kicker">Diagnosis</span>
+            <h2 class="article-section-title">The three leaks we check first when ads stall</h2>
+            <div class="article-text">
+              <ul>
+                <li><strong>Offer confusion:</strong> the ad attracts attention, but the page does not make the value proposition feel sharp enough to act on.</li>
+                <li><strong>Message drift:</strong> the headline says one thing, while the body copy, testimonials, pricing, or CTA suggest a different buying reason.</li>
+                <li><strong>Audience mismatch:</strong> the campaign reaches people who could be interested in the category, but not people who recognize the urgency of the promise.</li>
+              </ul>
+              <p>These are the issues that make brands blame the platform. In practice, they are usually brand-message problems expressed through media performance.</p>
+            </div>
+            <div class="article-callout">
+              <strong>What We Audit</strong>
+              <p>Hook, first-screen promise, offer framing, supporting proof, CTA sequence, geo and intent precision, and whether the creative is selling one pain point or trying to explain the whole business at once.</p>
+            </div>
+          </section>
+
+          <section class="article-section" id="next-step">
+            <span class="article-section-kicker">Action Plan</span>
+            <h2 class="article-section-title">What to change this week if your ads are underperforming</h2>
+            <div class="article-card-grid">
+              <div class="article-card">
+                <h3>Pick one offer</h3>
+                <p>Do not start with your full service list. Choose the offer that already has the strongest proof or demand.</p>
+              </div>
+              <div class="article-card">
+                <h3>Ask why until you hit the real trigger</h3>
+                <p>Keep digging until you uncover the actual fear, goal, or desire behind the purchase.</p>
+              </div>
+              <div class="article-card">
+                <h3>Rewrite the first screen</h3>
+                <p>Make the ad hook, headline, proof, and CTA all support the same core reason to act.</p>
+              </div>
+            </div>
+            <div class="article-text">
+              <p>If you do only that, you will usually learn more about why performance is weak than another week of budget adjustments ever will.</p>
+              <p>The goal is not to say more. It is to say the one thing that makes the right prospect feel understood.</p>
+            </div>
+          </section>
+        </article>
+
+        <aside class="article-side">
+          <div class="article-side-card">
+            <h3>Quick Diagnosis</h3>
+            <p>Use these checkpoints if you want to find the break before spending more.</p>
+            <div class="article-side-list">
+              <a href="#message-fit">Check message fit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+              <a href="#examples">Study the examples <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+              <a href="#framework">Audit the framework <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+              <a href="#next-step">Apply the weekly fix <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+            </div>
+          </div>
+
+          <div class="article-side-card">
+            <h3>What usually breaks first</h3>
+            <p>Not targeting. Not bids. Usually the first failure is that the ad and the page are speaking to different motivations.</p>
+          </div>
+
+          <div class="article-side-card">
+            <h3>Need a structured audit?</h3>
+            <p>We rebuild the message, the angle, the targeting logic, and the page flow together so performance has a stronger foundation.</p>
+            <div class="article-side-list">
+              <a href="/services/service.html?service=google-ads">Google Ads &amp; Performance <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+              <a href="/apply/">Start a project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+            </div>
+          </div>
+        </aside>
       </div>
 
-      <div class="blog-text">
-        <p>That's the whole reason.</p>
-        <p>So they changed the messaging to one simple angle:</p>
-        <p>"Flavorless protein you can add to anything"</p>
-        <p>Result: the brand immediately grew.</p>
-        <p>This is a common pattern:</p>
-        <p>When marketing gets complicated, it's usually because the brand is avoiding the one clear truth people actually care about.</p>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 4: Platforms = Distribution ═══ -->
-    <section class="blog-section">
-      <span class="blog-kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg> Core Principle</span>
-      <h2 class="blog-section-title">The LYNCK Studio Rule: Platforms Are Distribution. Messaging Is the Business.</h2>
-      <div class="blog-text">
-        <p>TikTok, Instagram, YouTube, Google&hellip;</p>
-        <p>They're all just delivery systems.</p>
-        <p>The "engine" is your message:</p>
-      </div>
-
-      <div class="blog-card-grid">
-        <div class="blog-card">
-          <div class="blog-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <h4>What you promise</h4>
-          <p>The core commitment that gets people to stop scrolling and pay attention.</p>
-        </div>
-        <div class="blog-card">
-          <div class="blog-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg></div>
-          <h4>What you don't say</h4>
-          <p>Cutting the noise. Removing features and fluff that dilute the message.</p>
-        </div>
-        <div class="blog-card">
-          <div class="blog-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
-          <h4>What you lead with</h4>
-          <p>The hook. The first 3 seconds. The headline that earns the click.</p>
-        </div>
-      </div>
-
-      <div class="blog-text">
-        <p>This is why a great message works across channels.</p>
-        <p>(And why a weak message doesn't magically improve just because you switched platforms.)</p>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 5: 3-Part System ═══ -->
-    <section class="blog-section">
-      <span class="blog-kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Strategy</span>
-      <h2 class="blog-section-title">The 3-Part Business System (That We Use for Every Client)</h2>
-      <div class="blog-text">
-        <p>This is how we think about growth:</p>
-      </div>
-
-      <div class="blog-steps-ruled">
-        <div class="step">
-          <p class="step-label">01</p>
-          <h4>Attention</h4>
-          <p>Getting in front of the right people.</p>
-        </div>
-        <div class="step">
-          <p class="step-label">02</p>
-          <h4>Conversion</h4>
-          <p>Turning attention into leads, calls, purchases.</p>
-        </div>
-        <div class="step">
-          <p class="step-label">03</p>
-          <h4>Fulfillment</h4>
-          <p>Delivering the product/service.</p>
-        </div>
-      </div>
-
-      <div class="blog-text">
-        <p>Here's the hard truth:</p>
-        <p>Attention is the hardest part.</p>
-        <p>Fulfillment can be hired.<br>Conversion can be optimized.<br>But attention requires strong positioning + strong creative + strong targeting.</p>
-        <p>If you want to scale, you need to get really good at step 1 and step 2.</p>
-        <p>This is where LYNCK Studio spends most of its time.</p>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 6: General Services Don't Sell ═══ -->
-    <section class="blog-section">
-      <span class="blog-kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg> Messaging</span>
-      <h2 class="blog-section-title">Why &ldquo;General Marketing Services&rdquo; Don't Sell</h2>
-      <div class="blog-text">
-        <p>If you run ads that say:</p>
-        <p>"We do marketing for businesses"</p>
-        <p>No one cares.</p>
-        <p>It's too broad.</p>
-        <p>But if you say:</p>
-        <p>"Your Google Ads are wasting budget because of default geo targeting&mdash;here's how to fix it."</p>
-        <p>That gets attention.</p>
-        <p>Or:</p>
-        <p>"We'll reduce your CPA by restructuring your campaigns around search intent."</p>
-        <p>Now it's specific.<br>Now it's believable.<br>Now it converts.</p>
-        <p>This is also why our content strategy on LinkedIn works so well.</p>
-        <p>We don't post generic advice.</p>
-        <p>We post one mistake at a time (often using Lara + ROOAS), so the reader thinks:</p>
-        <p>"Wait&hellip; I think we're doing that."</p>
-        <p>If you've seen our "Mistake of the Week" comics, that's exactly the strategy.</p>
-        <p>(Internal link idea: link to your "Mistake of the Week" blog/category page.)</p>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 7: Saturation ═══ -->
-    <section class="blog-section">
-      <span class="blog-kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg> Opportunity</span>
-      <h2 class="blog-section-title">Saturation Creates Opportunity (Most People Miss This)</h2>
-      <div class="blog-text">
-        <p>Social media is crowded.</p>
-        <p>Everyone is fighting for attention in the feed.</p>
-        <p>So yes, you need better creative now than in 2017.</p>
-        <p>But here's the opportunity:</p>
-        <p>A lot of older channels are now underused:</p>
-      </div>
-
-      <div class="blog-card-grid">
-        <div class="blog-card">
-          <h4>Direct Mail</h4>
-          <p>Physical touchpoints cut through digital noise with surprisingly high open rates.</p>
-        </div>
-        <div class="blog-card">
-          <h4>TV / Streaming</h4>
-          <p>Connected TV placements are more affordable and targetable than ever before.</p>
-        </div>
-        <div class="blog-card">
-          <h4>Billboards &amp; Radio</h4>
-          <p>Local dominance channels that most digital-first brands completely overlook.</p>
+      <div class="article-cta">
+        <h2>Want us to diagnose the conversion leak in your funnel?</h2>
+        <p>We do not just adjust media settings. We trace the full chain from message to offer to landing page so performance gets fixed at the root.</p>
+        <div class="article-cta-actions">
+          <a class="article-btn article-btn-primary" href="/apply/">Start your project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          <a class="article-btn article-btn-secondary" href="/case-studies/">View case studies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
         </div>
       </div>
 
-      <div class="blog-text">
-        <p>They still work&hellip; and in some industries they're cheaper than ever.</p>
-        <p>The key is tracking.</p>
-        <p>You track "offline" the same way you track digital:</p>
-        <ul>
-          <li>unique phone numbers per channel</li>
-          <li>QR codes</li>
-          <li>dedicated landing pages</li>
-          <li>channel-specific coupon codes</li>
-        </ul>
-        <p>If it leads to a click, call, visit, or form fill &mdash; it's trackable.</p>
-        <p>(Internal link idea: link to a future blog post like "How we track offline marketing like digital".)</p>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 8: Practical Move ═══ -->
-    <section class="blog-section">
-      <span class="blog-kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Action Plan</span>
-      <h2 class="blog-section-title">The Most Practical Marketing Move You Can Make This Week</h2>
-      <div class="blog-text">
-        <p>Here's a simple exercise you can do today:</p>
-      </div>
-
-      <div class="blog-steps-row">
-        <div class="blog-step-card">
-          <div class="blog-step-num">1</div>
-          <h4>Pick your best-selling offer</h4>
-          <p>The product/service that already works.</p>
-        </div>
-        <div class="blog-step-card">
-          <div class="blog-step-num">2</div>
-          <h4>Ask &ldquo;why&rdquo; until it hurts</h4>
-          <p>Why do people buy it? Why does that matter? Why do they want that? Why now?</p>
-        </div>
-        <div class="blog-step-card">
-          <div class="blog-step-num">3</div>
-          <h4>Rewrite your hero section and ad hook</h4>
-          <p>Lead with the real reason. Not features. Not "about us." Not generic benefits.</p>
-        </div>
-      </div>
-
-      <div class="blog-text">
-        <p>Do this until you uncover:</p>
-        <ul>
-          <li>the real desire</li>
-          <li>the real fear</li>
-          <li>the real goal</li>
-        </ul>
-        <p>The real reason.</p>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 9: How LYNCK Applies This ═══ -->
-    <section class="blog-section">
-      <span class="blog-kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Featured Solution</span>
-      <h2 class="blog-section-title">How LYNCK Studio Applies This (So You Don't Have to Guess)</h2>
-      <div class="blog-text">
-        <p>When we audit campaigns, we usually find one of these problems:</p>
-        <ul>
-          <li>messaging is built around assumptions</li>
-          <li>ads are too broad</li>
-          <li>landing page doesn't match the ad promise</li>
-          <li>targeting is leaking budget (especially geo + intent)</li>
-          <li>there's no clear "one pain point" angle</li>
-        </ul>
-        <p>So we fix it in a predictable way:</p>
-      </div>
-
-      <div class="blog-steps-row">
-        <div class="blog-step-card">
-          <div class="blog-step-num">1</div>
-          <h4>Message Audit</h4>
-          <p>The "10 why's" exercise to find the real buying reason.</p>
-        </div>
-        <div class="blog-step-card">
-          <div class="blog-step-num">2</div>
-          <h4>Offer + Angle Rewrite</h4>
-          <p>Restructure the promise around what actually drives purchases.</p>
-        </div>
-        <div class="blog-step-card">
-          <div class="blog-step-num">3</div>
-          <h4>Campaign Restructuring</h4>
-          <p>Intent + geo precision to eliminate wasted spend.</p>
-        </div>
-      </div>
-
-      <div class="blog-card-grid" style="grid-template-columns: 1fr 1fr;">
-        <div class="blog-card">
-          <div class="blog-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
-          <h4>Creative System</h4>
-          <p>Ads that look native, but sell clearly.</p>
-        </div>
-        <div class="blog-card">
-          <div class="blog-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
-          <h4>Tracking + Measurement</h4>
-          <p>So scaling is safe and every dollar is accountable.</p>
-        </div>
-      </div>
-
-      <div class="blog-text">
-        <p>If you want to see how we structure this step-by-step, read:</p>
-        <ul>
-          <li><a href="/#pipeline">How We Work</a></li>
-          <li><a href="/services/service.html?service=leads-generation">Google Ads Lead Gen</a></li>
-          <li><a href="/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a></li>
-          <li><a href="/#testimonials">Case Studies</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 10: Final Thought ═══ -->
-    <section class="blog-section">
-      <h2 class="blog-section-title">Final Thought</h2>
-      <div class="blog-text">
-        <p>Marketing isn't about being everywhere.</p>
-        <p>It's about saying the right thing to the right person&hellip; in a way that makes them feel:</p>
-      </div>
-
-      <div class="blog-pullquote">
-        <p>&ldquo;Finally. Someone gets it.&rdquo;</p>
-      </div>
-
-      <div class="blog-text">
-        <p>If you want help identifying the real buying reasons in your market (and turning that into ads + landing pages that convert), that's exactly what we do at LYNCK Studio.</p>
-        <p><a href="/apply/">Apply for a Strategy Call</a></p>
-      </div>
-    </section>
+      <section class="article-resource-grid">
+        <article class="article-resource-card">
+          <div class="article-resource-thumb">
+            <img loading="lazy" decoding="async" src="/assets/blog-dj-showroom.webp" alt="DJ showroom with illuminated equipment displays">
+          </div>
+          <div class="article-resource-body">
+            <span class="article-resource-tag">Case Study</span>
+            <h3>How DJ-Technik used Google Ads to grow YouTube</h3>
+            <p>A practical example of using paid media to grow demand and future buyer attention instead of chasing short term traffic alone.</p>
+            <a class="article-resource-link" href="/blog-how-dj-technik-used-google-ads-to-grow-youtube.html">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          </div>
+        </article>
+        <article class="article-resource-card">
+          <div class="article-resource-thumb">
+            <img loading="lazy" decoding="async" src="/assets/case-studies-cinematic-bg.png" alt="Futuristic strategy room background">
+          </div>
+          <div class="article-resource-body">
+            <span class="article-resource-tag">Case Studies</span>
+            <h3>See how these systems look in client work</h3>
+            <p>Browse the project pages to see how growth structure, media, and conversion systems are presented across the site.</p>
+            <a class="article-resource-link" href="/case-studies/">Open case studies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          </div>
+        </article>
+        <article class="article-resource-card">
+          <div class="article-resource-thumb">
+            <img loading="lazy" decoding="async" src="/assets/blog-ads-dont-convert-hero.png" alt="AI strategy room with large digital screens">
+          </div>
+          <div class="article-resource-body">
+            <span class="article-resource-tag">Service</span>
+            <h3>Fix the full Google Ads conversion chain</h3>
+            <p>From targeting and tracking to the offer framing and landing page experience that determines whether the click ever becomes revenue.</p>
+            <a class="article-resource-link" href="/services/service.html?service=google-ads">Explore service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          </div>
+        </article>
+      </section>
     </div>
-
-    <!-- ═══ CTA ═══ -->
-    <div class="blog-cta-section">
-      <div class="blog-cta">
-        <h3>Ready to Fix Your Messaging?</h3>
-        <p>If you want us to map your message to conversion-ready campaigns and pages, let's do it with structure.</p>
-        <a class="blog-cta-btn" href="/apply/">LET'S TALK <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-      </div>
-    </div>
-
-    <!-- ═══ Related Articles ═══ -->
-    <section class="blog-related">
-      <div class="blog-related-header">
-        <h2>More from the blog</h2>
-        <a href="#">View all <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-      </div>
-      <div class="blog-related-grid">
-        <div class="blog-related-card">
-          <div class="blog-related-thumb">Coming Soon</div>
-          <div class="blog-related-body">
-            <span class="blog-related-tag">Google Ads</span>
-            <h3>5 Geo-Targeting Mistakes That Drain Your Ad Budget</h3>
-            <p>Default settings in Google Ads cost more than most businesses realize. Here's what to fix first.</p>
-          </div>
-        </div>
-        <div class="blog-related-card">
-          <div class="blog-related-thumb">Coming Soon</div>
-          <div class="blog-related-body">
-            <span class="blog-related-tag">Creative Strategy</span>
-            <h3>Why Your Landing Page Doesn't Match Your Ad</h3>
-            <p>The biggest conversion killer isn't bad design. It's a broken promise between the click and the page.</p>
-          </div>
-        </div>
-        <div class="blog-related-card">
-          <div class="blog-related-thumb">Coming Soon</div>
-          <div class="blog-related-body">
-            <span class="blog-related-tag">Growth</span>
-            <h3>How We Track Offline Marketing Like Digital</h3>
-            <p>QR codes, dedicated numbers, and channel-specific landing pages. The playbook for measurable offline ROI.</p>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
 
   <footer>
@@ -1247,7 +417,8 @@
       <div class="footer-links-col">
         <a href="/about.html">About LYNCK</a>
         <a href="/#our-services">Our Services</a>
-        <a href="/#testimonials">Testimonials</a>
+        <a href="/case-studies/">Case Studies</a>
+        <a href="/blog/">Blog</a>
         <a href="/apply/">Contact Us</a>
       </div>
       <div class="footer-links-col">
@@ -1255,7 +426,7 @@
         <a href="/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a>
         <a href="/services/service.html?service=ai-content">AI Content &amp; Creative Production</a>
         <a href="/services/service.html?service=ugc-influencer">UGC &amp; Influencer Marketing</a>
-        <a href="/services/service.html?service=web-systems">Conversion-Focused Web Systems</a>
+        <a href="/services/service.html?service=web-systems">Conversion Focused Web Systems</a>
       </div>
       <div class="footer-links-col">
         <a href="/services/service.html?service=growth-strategy">Growth Strategy &amp; Brand Positioning</a>
@@ -1282,7 +453,6 @@
     </div>
   </footer>
 
-  <script src="/js/home-shared.js?v=3" defer></script>
-  <script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
+  <script src="/js/blog-article-shared.js" defer></script>
 </body>
 </html>

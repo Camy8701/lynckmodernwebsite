@@ -13,9 +13,9 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/css/home-shared.css?v=6">
-  <link rel="stylesheet" href="/css/case-studies.css?v=2">
+  <link rel="stylesheet" href="/css/case-studies.css?v=3">
 </head>
-<body class="case-studies-page">
+<body class="case-studies-page case-studies-hub-page">
   <div class="noise-overlay"></div>
   <div class="case-bg-image"></div>
   <header class="lynck-header">
@@ -136,20 +136,39 @@
     </div>
   </header>
 
+  <section class="case-cinematic-hero">
+    <div class="case-cinematic-bg">
+      <img loading="eager" fetchpriority="high" decoding="async" src="/assets/case-studies-cinematic-bg.png" alt="Unscharfes Interface mit warmem Orangeton hinter dunklen Silhouetten von Händen">
+    </div>
+    <div class="case-cinematic-overlay"></div>
+    <div class="case-cinematic-content">
+      <span class="case-cinematic-kicker">Ausgewählte Projekte</span>
+      <h1 class="case-cinematic-title">Fall <span>studien</span></h1>
+      <div class="case-cinematic-intro">
+        <p>
+          Reale Wachstumssysteme, Kampagnenstrukturen und Web-Architektur verdichtet zu klaren Projektgeschichten.
+        </p>
+      </div>
+      <div class="case-cinematic-line" aria-hidden="true"></div>
+      <div class="case-cinematic-note">
+        <span class="case-cinematic-mark">03</span>
+        <div>
+          <strong>Strategie in sichtbare Struktur übersetzt.</strong>
+          <span>Jede Projektseite zeigt, wie Media, Creative und Conversion-Systeme gemeinsam aufgebaut wurden.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <main id="main-content" class="case-main">
-    <section class="case-hero">
-      <div class="case-shell">
-        <div class="case-hero-grid">
-          <div>
-            <span class="case-kicker">Ausgewählte Projekte</span>
-            <h1 class="case-title">Fallstudien</h1>
-          </div>
-          <div class="case-intro">
-            <p>
-              Ein genauer Blick darauf, wie wir Wachstum über Google Ads, Social Ads,
-              Content-Systeme und conversion-starke Websysteme strukturiert aufbauen.
-            </p>
-          </div>
+    <section class="case-shell case-hub-overview">
+      <div class="case-hub-overview-panel">
+        <div class="case-hub-overview-copy">
+          <span class="case-overview-label">Systeme durchsuchen</span>
+          <p>
+            Ein genauer Blick darauf, wie wir Wachstum über Google Ads, Social Ads,
+            Content-Systeme und conversion-starke Websysteme strukturiert aufbauen.
+          </p>
         </div>
         <div class="case-filter-bar">
           <div class="case-filters" data-case-filters></div>
