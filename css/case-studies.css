@@ -778,6 +778,17 @@ body.case-studies-page .noise-overlay {
   gap: 0.85rem;
 }
 
+.case-cta-actions .gradient-border-btn,
+.case-cta-actions .gradient-border-btn:visited,
+.case-cta-actions .gradient-border-btn .btn-core {
+  color: #fff;
+}
+
+.case-cta-actions .gradient-border-btn:hover,
+.case-cta-actions .gradient-border-btn:hover .btn-core {
+  color: #fff;
+}
+
 .case-text-link {
   display: inline-flex;
   align-items: center;
@@ -788,6 +799,10 @@ body.case-studies-page .noise-overlay {
   color: var(--case-ink);
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(10, 18, 36, 0.08);
+}
+
+.case-text-link:visited {
+  color: var(--case-ink);
 }
 
 .case-text-link:hover {
