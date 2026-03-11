@@ -241,6 +241,7 @@
           category: "performance",
           categoryLabel: "Performance",
           title: "DMS Progrowers",
+          detailMediaLayout: "gallery-stack",
           subtitle: "Zespri supply partner | Rapid workforce recruitment during peak harvest season",
           overview:
             "How we helped a major kiwifruit packhouse operation secure the workforce needed to keep production running during a critical harvest period.",
@@ -625,6 +626,7 @@
           category: "performance",
           categoryLabel: "Performance",
           title: "DMS Progrowers",
+          detailMediaLayout: "gallery-stack",
           subtitle: "Zespri-Lieferpartner | Schnelle Personalgewinnung in der Haupternte",
           overview:
             "So haben wir einem großen Kiwifrucht-Packhausbetrieb geholfen, genau dann genug Personal zu sichern, als die Erntesaison in die heiße Phase ging.",
@@ -1213,17 +1215,52 @@
 
     const quoteSource = study.quoteSource || content.quoteSource;
     const sidebarNote = study.sidebarNote || content.sidebarNote;
+    const useGalleryStackHero =
+      study.detailMediaLayout === "gallery-stack" &&
+      Array.isArray(study.gallery) &&
+      study.gallery.length > 0;
 
     const heroMetrics = renderMetrics(study.heroMetrics, "case-hero-metrics");
-    const gallery = Array.isArray(study.gallery) && study.gallery.length
+    const heroMedia = useGalleryStackHero
       ? `
-        <section class="case-gallery">
+        <div class="case-hero-gallery">
           ${study.gallery
             .map(
               (image) => `
                 <button
                   type="button"
-                  class="case-gallery-item${image.mode === "contain" ? " is-framed" : ""} case-image-trigger"
+                  class="case-gallery-item case-hero-gallery-item${image.mode === "contain" ? " is-framed" : ""} case-image-trigger"
+                  data-expand-image="${image.src}"
+                  data-expand-alt="${image.alt}"
+                  aria-label="${content.expandImageLabel}"
+                >
+                  <img loading="lazy" decoding="async" src="${image.src}" alt="${image.alt}">
+                </button>
+              `
+            )
+            .join("")}
+        </div>
+      `
+      : `
+        <div class="case-detail-media${study.imageMode === "contain" ? " is-framed" : ""}">
+          <img loading="eager" decoding="async" src="${study.image}" alt="${study.imageAlt}">
+        </div>
+      `;
+
+    const galleryImages =
+      useGalleryStackHero
+        ? [{ src: study.image, alt: study.imageAlt, mode: "contain", feature: true }]
+        : study.gallery;
+
+    const gallery = Array.isArray(galleryImages) && galleryImages.length
+      ? `
+        <section class="case-gallery${useGalleryStackHero ? " case-gallery--feature" : ""}">
+          ${galleryImages
+            .map(
+              (image) => `
+                <button
+                  type="button"
+                  class="case-gallery-item${image.mode === "contain" ? " is-framed" : ""}${image.feature ? " case-gallery-item--feature" : ""} case-image-trigger"
                   data-expand-image="${image.src}"
                   data-expand-alt="${image.alt}"
                   aria-label="${content.expandImageLabel}"
@@ -1239,7 +1276,7 @@
 
     detailRoot.innerHTML = `
       <a class="case-back-link" href="${getHubUrl(lang)}">${createBackIcon()} ${content.backLabel}</a>
-      <div class="case-detail-hero">
+      <div class="case-detail-hero${useGalleryStackHero ? " has-gallery-stack" : ""}">
         <div class="case-detail-panel">
           <span class="case-section-kicker">${study.categoryLabel}</span>
           <div>
@@ -1250,9 +1287,7 @@
           ${heroMetrics}
           <div class="case-stats">${stats}</div>
         </div>
-        <div class="case-detail-media${study.imageMode === "contain" ? " is-framed" : ""}">
-          <img loading="eager" decoding="async" src="${study.image}" alt="${study.imageAlt}">
-        </div>
+        ${heroMedia}
       </div>
       ${gallery}
       <div class="case-story-grid">
