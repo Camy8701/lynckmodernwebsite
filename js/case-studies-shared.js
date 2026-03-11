@@ -1127,6 +1127,10 @@
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) metaDescription.setAttribute("content", study.overview);
 
+    if (study.image) {
+      document.body.style.setProperty("--case-hero-bg", `url('${study.image}')`);
+    }
+
     const stats = study.snapshot
       .map(
         (item) => `

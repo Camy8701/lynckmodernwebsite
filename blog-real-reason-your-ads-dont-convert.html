@@ -12,7 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="/css/home-shared.css">
+  <link rel="stylesheet" href="/css/home-shared.css?v=6">
+  <link rel="stylesheet" href="/css/blog-article.css?v=3">
   <style>
     /* ── Tokens ── */
     :root {
@@ -33,9 +34,7 @@
       --b-wide: 1120px;
     }
 
-    body.blog-page {
-      background: var(--b-bg);
-      color: var(--b-ink);
+    body.blog-article-page {
       font-family: 'Manrope', sans-serif;
     }
 
@@ -677,7 +676,9 @@
     }
   </style>
 </head>
-<body class="blog-page">
+<body class="blog-article-page" style="--blog-article-hero-bg: url('/assets/blog-ads-convert-bg.jpeg')">
+  <div class="noise-overlay"></div>
+  <div class="blog-article-bg-image"></div>
 <header class="lynck-header">
         <div class="lynck-header-inner">
             <button type="button" class="lynck-home-logo" data-home-btn aria-label="LYNCK Studio Home">
@@ -779,7 +780,7 @@
 
             <nav class="lynck-nav-links" aria-label="Primary">
                 <a href="/about.html">About LYNCK</a>
-                <a href="/#our-services">Our Services</a>
+                <div class="lynck-services-dropdown"><a href="/#our-services">Our Services <span class="svc-caret" aria-hidden="true"></span></a><div class="lynck-services-mega"><a href="/services/service.html?service=google-ads">Google Ads &amp; Performance</a><a href="/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a><a href="/services/service.html?service=ai-content">AI Content &amp; Creative</a><a href="/services/service.html?service=ugc-influencer">UGC &amp; Influencer</a><a href="/services/service.html?service=web-systems">Web Systems</a><a href="/services/service.html?service=growth-strategy">Growth Strategy</a><a href="/services/service.html?service=leads-generation">Leads Generation</a><a href="/services/service.html?service=youtube-growth-services">YouTube Growth</a><a href="/services/service.html?service=seo-sevo">SEO / SEvO</a></div></div>
                 <a href="/#testimonials">Testimonials</a>
                 <a href="/blog-real-reason-your-ads-dont-convert.html">Blog</a>
             </nav>
@@ -815,25 +816,27 @@
 
   <main>
     <!-- ═══ HERO ═══ -->
-    <section class="blog-hero">
-      <div class="blog-hero-inner">
-        <span class="blog-hero-kicker"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg> LYNCK Studio Blog</span>
-        <h1 class="blog-hero-title">The Real Reason Your Ads Don't Convert (Hint: It's Not the Platform)</h1>
-        <p class="blog-hero-lead">If you've been burning budget across platforms and wondering why nothing sticks, the answer is almost never the channel. It's the message. Here's the exact framework we use to fix it.</p>
-        <div class="blog-hero-actions">
-          <a class="blog-btn blog-btn-primary" href="#blog-article">Read Article</a>
-          <a class="blog-btn blog-btn-secondary" href="/apply/">Let's Connect</a>
-        </div>
-        <div class="blog-hero-meta">
-          <span>LYNCK Studio</span>
-          <span class="dot"></span>
-          <span>10 min read</span>
-          <span class="dot"></span>
-          <span>Strategy &amp; Messaging</span>
-        </div>
+  <section class="article-cinematic-hero">
+    <div class="article-cinematic-bg">
+      <img loading="eager" fetchpriority="high" decoding="async" src="/assets/blog-ads-convert-bg.jpeg" alt="Abstract orange desert dunes with floating sphere">
+    </div>
+    <div class="article-cinematic-overlay"></div>
+    <div class="article-cinematic-content">
+      <span class="article-cinematic-kicker">Strategy &amp; Messaging</span>
+      <h1 class="article-cinematic-title">The Real Reason Your Ads Don't Convert</h1>
+      <p class="article-cinematic-lead">If you've been burning budget across platforms and wondering why nothing sticks, the answer is almost never the channel. It's the message. Here's the exact framework we use to fix it.</p>
+      <div class="article-cinematic-meta">
+        <span>LYNCK Studio</span>
+        <span class="meta-dot" aria-hidden="true"></span>
+        <span>10 min read</span>
+        <span class="meta-dot" aria-hidden="true"></span>
+        <span>Strategy &amp; Messaging</span>
       </div>
-    </section>
+      <div class="article-cinematic-line" aria-hidden="true"></div>
+    </div>
+  </section>
 
+  <div class="article-content-main">
     <!-- ═══ INTRO ═══ -->
     <div id="blog-article">
     <section class="blog-section">
@@ -1234,7 +1237,7 @@
         </div>
       </div>
     </section>
-  </main>
+  </div>
 
   <footer>
     <div class="footer-big-wrap">

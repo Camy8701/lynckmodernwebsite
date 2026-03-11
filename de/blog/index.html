@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="/css/home-shared.css?v=5">
-  <link rel="stylesheet" href="/css/blog.css?v=1">
+  <link rel="stylesheet" href="/css/home-shared.css?v=6">
+  <link rel="stylesheet" href="/css/blog.css?v=2">
 </head>
 <body class="blog-hub-page">
   <div class="noise-overlay"></div>
@@ -109,7 +109,7 @@
         </div>
         <nav class="lynck-nav-links" aria-label="Primäre Navigation">
           <a href="/de/about.html">Über uns</a>
-          <a href="/de/#our-services">Leistungen</a>
+          <div class="lynck-services-dropdown"><a href="/de/#our-services">Leistungen <span class="svc-caret" aria-hidden="true"></span></a><div class="lynck-services-mega"><a href="/de/services/service.html?service=google-ads">Google Ads &amp; Performance</a><a href="/de/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a><a href="/de/services/service.html?service=ai-content">KI-Content &amp; Kreativ</a><a href="/de/services/service.html?service=ugc-influencer">UGC &amp; Influencer</a><a href="/de/services/service.html?service=web-systems">Websysteme</a><a href="/de/services/service.html?service=growth-strategy">Wachstumsstrategie</a><a href="/de/services/service.html?service=leads-generation">Lead-Generierung</a><a href="/de/services/service.html?service=youtube-growth-services">YouTube Growth</a><a href="/de/services/service.html?service=seo-sevo">SEO / SEvO</a></div></div>
           <a href="/de/case-studies/">Fallstudien</a>
           <a href="/de/blog/">Blog</a>
         </nav>
@@ -141,27 +141,33 @@
     </div>
   </header>
 
-  <main id="main-content" class="blog-main">
-    <section class="blog-hero">
-      <div class="blog-shell">
-        <div class="blog-hero-grid">
-          <div>
-            <span class="blog-kicker" data-blog-kicker>Einblicke & Frameworks</span>
-            <h1 class="blog-title" data-blog-title>Blog</h1>
-          </div>
-          <div class="blog-intro">
-            <p data-blog-intro>
-              Praxisorientiertes Denken zu Ads, Kreativsystemen, Conversion-Architektur und den beweglichen Teilen hinter skalierbarem Wachstum.
-            </p>
-            <div class="blog-hero-note">
-              <span class="blog-note-mark" data-blog-note-count>01</span>
-              <div>
-                <span data-blog-note-strong><strong>Kein oberflächliches Thought-Leadership.</strong></span>
-                <span data-blog-note-soft>Jeder Artikel analysiert ein echtes Problem mit einem echten Framework, das du sofort anwenden kannst.</span>
-              </div>
-            </div>
-          </div>
+  <section class="blog-cinematic-hero">
+    <div class="blog-cinematic-bg">
+      <img loading="eager" fetchpriority="high" decoding="async" src="/assets/blog-ads-convert-bg.jpeg" alt="Abstrakte orangefarbene Wüstenlandschaft">
+    </div>
+    <div class="blog-cinematic-overlay"></div>
+    <div class="blog-cinematic-content">
+      <span class="blog-kicker" data-blog-kicker>Einblicke & Frameworks</span>
+      <h1 class="blog-title" data-blog-title>Blog</h1>
+      <div class="blog-intro">
+        <p data-blog-intro>
+          Praxisorientiertes Denken zu Ads, Kreativsystemen, Conversion-Architektur und den beweglichen Teilen hinter skalierbarem Wachstum.
+        </p>
+      </div>
+      <div class="blog-hero-line" aria-hidden="true"></div>
+      <div class="blog-hero-note">
+        <span class="blog-note-mark" data-blog-note-count>01</span>
+        <div>
+          <span data-blog-note-strong><strong>Kein oberflächliches Thought-Leadership.</strong></span>
+          <span data-blog-note-soft>Jeder Artikel analysiert ein echtes Problem mit einem echten Framework, das du sofort anwenden kannst.</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content" class="blog-main">
+    <section>
+      <div class="blog-shell">
         <div class="blog-search-bar">
           <div class="blog-search-wrap">
             <svg class="blog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

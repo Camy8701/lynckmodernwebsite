@@ -14,10 +14,30 @@
 }
 
 body.case-studies-page {
-  background:
-    linear-gradient(rgba(241, 239, 230, 0.92), rgba(241, 239, 230, 0.92)),
-    url('/assets/soft-abstract-curved-waves-in-neutral-tones-4k.webp') center / cover no-repeat;
+  background-color: #f1efe6;
+  background-image:
+    radial-gradient(rgba(17, 30, 55, 0.14) 0.9px, transparent 0.9px),
+    radial-gradient(1100px 620px at 12% -8%, rgba(255, 255, 255, 0.92), transparent 64%),
+    radial-gradient(980px 560px at 95% 6%, rgba(196, 206, 224, 0.42), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(241, 238, 230, 0.94));
+  background-size: 24px 24px, auto, auto, auto;
   color: var(--case-ink);
+}
+
+.case-bg-image {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--case-hero-bg, none) center / cover no-repeat;
+  opacity: 0.22;
+}
+
+.case-studies-page .case-shell,
+.case-studies-page .case-main,
+.case-studies-page footer {
+  position: relative;
+  z-index: 1;
 }
 
 body.case-lightbox-open {

@@ -20,8 +20,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=optional" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="/css/home-shared.css?v=5">
-  <link rel="stylesheet" href="/css/blog-article.css">
+  <link rel="stylesheet" href="/css/home-shared.css?v=6">
+  <link rel="stylesheet" href="/css/blog-article.css?v=3">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -52,8 +52,9 @@
     }
   </script>
 </head>
-<body class="blog-article-page">
+<body class="blog-article-page" style="--blog-article-hero-bg: url('/assets/blog-dj-bg.png')">
   <div class="noise-overlay"></div>
+  <div class="blog-article-bg-image"></div>
   <header class="lynck-header">
     <div class="lynck-header-inner">
       <a href="/de/index.html" class="lynck-home-logo" aria-label="LYNCK Studio Startseite">
@@ -146,7 +147,7 @@
         </div>
         <nav class="lynck-nav-links" aria-label="Primäre Navigation">
           <a href="/de/about.html">Über uns</a>
-          <a href="/de/#our-services">Leistungen</a>
+          <div class="lynck-services-dropdown"><a href="/de/#our-services">Leistungen <span class="svc-caret" aria-hidden="true"></span></a><div class="lynck-services-mega"><a href="/de/services/service.html?service=google-ads">Google Ads &amp; Performance</a><a href="/de/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a><a href="/de/services/service.html?service=ai-content">KI-Content &amp; Kreativ</a><a href="/de/services/service.html?service=ugc-influencer">UGC &amp; Influencer</a><a href="/de/services/service.html?service=web-systems">Websysteme</a><a href="/de/services/service.html?service=growth-strategy">Wachstumsstrategie</a><a href="/de/services/service.html?service=leads-generation">Lead-Generierung</a><a href="/de/services/service.html?service=youtube-growth-services">YouTube Growth</a><a href="/de/services/service.html?service=seo-sevo">SEO / SEvO</a></div></div>
           <a href="/de/case-studies/">Fallstudien</a>
           <a href="/de/blog/">Blog</a>
         </nav>
@@ -178,48 +179,52 @@
     </div>
   </header>
 
-  <main class="article-main">
+  <section class="article-cinematic-hero">
+    <div class="article-cinematic-bg">
+      <img loading="eager" fetchpriority="high" decoding="async" src="/assets/blog-dj-bg.png" alt="DJ-Mischpult Nahaufnahme mit violetter Beleuchtung">
+    </div>
+    <div class="article-cinematic-overlay"></div>
+    <div class="article-cinematic-content">
+      <span class="article-cinematic-kicker">E-Commerce &amp; YouTube-Wachstum</span>
+      <h1 class="article-cinematic-title">Wie DJ TECHNIK.DE mit Google Ads seinen YouTube-Kanal ausgebaut hat</h1>
+      <p class="article-cinematic-lead">Viele Onlineshops behandeln YouTube wie einen Zusatzkanal. Search bekommt das Budget. Meta bekommt die Creatives. Für YouTube bleibt oft nur der Rest. Gerade bei Produkten, die man sehen und verstehen muss, ist das verschenktes Potenzial.</p>
+      <div class="article-cinematic-meta">
+        <span>LYNCK Studio</span>
+        <span class="meta-dot" aria-hidden="true"></span>
+        <span>10. März 2026</span>
+        <span class="meta-dot" aria-hidden="true"></span>
+        <span>7 Min. Lesezeit</span>
+      </div>
+      <div class="article-cinematic-line" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <div class="article-content-main">
     <div class="article-shell">
       <a class="article-back" href="/de/blog/">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/><path d="M9 12h10"/></svg>
         Zurück zum Blog
       </a>
 
-      <section class="article-hero">
-        <div class="article-panel">
-          <span class="article-kicker">E Commerce und YouTube Wachstum</span>
-          <h1 class="article-title">Wie DJ TECHNIK.DE mit Google Ads seinen YouTube Kanal ausgebaut und mehr potenzielle Käufer erreicht hat</h1>
-          <p class="article-lead">Viele Onlineshops behandeln YouTube immer noch wie einen Zusatzkanal. Search bekommt das Budget. Meta bekommt die Creatives. E Mail kümmert sich um Bestandskunden. Für YouTube bleibt oft nur der Rest. Gerade bei Produkten, die man sehen und verstehen muss, ist das verschenktes Potenzial. Genau das zeigt das Beispiel von DJ TECHNIK.DE.</p>
-          <div class="article-meta">
-            <span>LYNCK Studio</span>
-            <span class="article-meta-dot" aria-hidden="true"></span>
-            <span>10. März 2026</span>
-            <span class="article-meta-dot" aria-hidden="true"></span>
-            <span>7 Min. Lesezeit</span>
-          </div>
-          <div class="article-actions">
-            <a class="article-btn article-btn-primary" href="#article-start">Artikel lesen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-            <a class="article-btn article-btn-secondary" href="/de/case-studies/case.html?study=djtechnik-youtube-growth">Fallstudie ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-          </div>
-          <div class="article-stats">
-            <div class="article-stat">
-              <strong>+7.800</strong>
-              <span>Abonnenten</span>
-            </div>
-            <div class="article-stat">
-              <strong>90 Tage</strong>
-              <span>Kampagnenzeitraum</span>
-            </div>
-            <div class="article-stat">
-              <strong>0,22 €</strong>
-              <span>Kosten pro Abonnent</span>
-            </div>
-          </div>
+      <div class="article-stats-bar">
+        <div class="article-stat">
+          <strong>+7.800</strong>
+          <span>Abonnenten</span>
         </div>
-        <figure class="article-hero-media">
-          <img loading="eager" fetchpriority="high" decoding="async" src="/assets/blog-dj-showroom.webp" alt="Showroom von DJ TECHNIK.DE mit beleuchtetem DJ Equipment">
-        </figure>
-      </section>
+        <div class="article-stat">
+          <strong>90 Tage</strong>
+          <span>Kampagnenzeitraum</span>
+        </div>
+        <div class="article-stat">
+          <strong>0,22 €</strong>
+          <span>Kosten pro Abonnent</span>
+        </div>
+      </div>
+
+      <div class="article-actions">
+        <a class="article-btn article-btn-primary" href="#article-start">Artikel lesen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a class="article-btn article-btn-secondary" href="/de/case-studies/case.html?study=djtechnik-youtube-growth">Fallstudie ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
 
       <div class="article-layout" id="article-start">
         <article class="article-story">
@@ -427,7 +432,7 @@
         </article>
       </section>
     </div>
-  </main>
+  </div>
 
   <footer>
     <div class="footer-big-wrap">

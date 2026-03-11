@@ -342,7 +342,74 @@ font: inherit;
 padding: 0;
 }
 .lynck-nav-links a:hover,
-.lynck-nav-links button:hover { color: #fff; }
+.lynck-nav-links button:hover { color: #e36b21; }
+
+/* --- Services Mega Menu --- */
+.lynck-services-dropdown {
+  position: relative;
+}
+.lynck-services-dropdown > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.lynck-services-dropdown .svc-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-top: 3.5px solid currentColor;
+  transition: transform 0.2s ease;
+}
+.lynck-services-dropdown:hover .svc-caret {
+  transform: rotate(180deg);
+}
+.lynck-services-mega {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 1.1rem;
+  padding: 1.6rem 1.8rem;
+  min-width: 520px;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(10, 18, 36, 0.1);
+  border-radius: 1.2rem;
+  box-shadow: 0 24px 64px rgba(10, 18, 36, 0.14), 0 0 0 1px rgba(10, 18, 36, 0.04);
+  z-index: 100;
+}
+.lynck-services-mega::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+.lynck-services-dropdown:hover .lynck-services-mega {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.lynck-services-mega a {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.55rem;
+  color: #0a1224 !important;
+  font-size: 0.86rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.lynck-services-mega a:hover {
+  background: rgba(227, 107, 33, 0.08) !important;
+  color: #e36b21 !important;
+}
+
 /* --- Header CTA Button --- */
 .gradient-border-btn {
   display: inline-flex;

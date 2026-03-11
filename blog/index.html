@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="/css/home-shared.css?v=5">
-  <link rel="stylesheet" href="/css/blog.css?v=1">
+  <link rel="stylesheet" href="/css/home-shared.css?v=6">
+  <link rel="stylesheet" href="/css/blog.css?v=2">
 </head>
 <body class="blog-hub-page">
   <div class="noise-overlay"></div>
@@ -109,7 +109,7 @@
         </div>
         <nav class="lynck-nav-links" aria-label="Primary">
           <a href="/about.html">About LYNCK</a>
-          <a href="/#our-services">Our Services</a>
+          <div class="lynck-services-dropdown"><a href="/#our-services">Our Services <span class="svc-caret" aria-hidden="true"></span></a><div class="lynck-services-mega"><a href="/services/service.html?service=google-ads">Google Ads &amp; Performance</a><a href="/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a><a href="/services/service.html?service=ai-content">AI Content &amp; Creative</a><a href="/services/service.html?service=ugc-influencer">UGC &amp; Influencer</a><a href="/services/service.html?service=web-systems">Web Systems</a><a href="/services/service.html?service=growth-strategy">Growth Strategy</a><a href="/services/service.html?service=leads-generation">Leads Generation</a><a href="/services/service.html?service=youtube-growth-services">YouTube Growth</a><a href="/services/service.html?service=seo-sevo">SEO / SEvO</a></div></div>
           <a href="/case-studies/">Case Studies</a>
           <a href="/blog/">Blog</a>
         </nav>
@@ -141,27 +141,33 @@
     </div>
   </header>
 
-  <main id="main-content" class="blog-main">
-    <section class="blog-hero">
-      <div class="blog-shell">
-        <div class="blog-hero-grid">
-          <div>
-            <span class="blog-kicker" data-blog-kicker>Insights & Frameworks</span>
-            <h1 class="blog-title" data-blog-title>Blog</h1>
-          </div>
-          <div class="blog-intro">
-            <p data-blog-intro>
-              Practical thinking on ads, creative systems, conversion architecture, and the moving parts behind scalable growth.
-            </p>
-            <div class="blog-hero-note">
-              <span class="blog-note-mark" data-blog-note-count>01</span>
-              <div>
-                <span data-blog-note-strong><strong>Not thought-leadership fluff.</strong></span>
-                <span data-blog-note-soft>Each article breaks down a real problem with a real framework you can use today.</span>
-              </div>
-            </div>
-          </div>
+  <section class="blog-cinematic-hero">
+    <div class="blog-cinematic-bg">
+      <img loading="eager" fetchpriority="high" decoding="async" src="/assets/blog-ads-convert-bg.jpeg" alt="Abstract orange desert landscape">
+    </div>
+    <div class="blog-cinematic-overlay"></div>
+    <div class="blog-cinematic-content">
+      <span class="blog-kicker" data-blog-kicker>Insights & Frameworks</span>
+      <h1 class="blog-title" data-blog-title>Blog</h1>
+      <div class="blog-intro">
+        <p data-blog-intro>
+          Practical thinking on ads, creative systems, conversion architecture, and the moving parts behind scalable growth.
+        </p>
+      </div>
+      <div class="blog-hero-line" aria-hidden="true"></div>
+      <div class="blog-hero-note">
+        <span class="blog-note-mark" data-blog-note-count>01</span>
+        <div>
+          <span data-blog-note-strong><strong>Not thought-leadership fluff.</strong></span>
+          <span data-blog-note-soft>Each article breaks down a real problem with a real framework you can use today.</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content" class="blog-main">
+    <section>
+      <div class="blog-shell">
         <div class="blog-search-bar">
           <div class="blog-search-wrap">
             <svg class="blog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
