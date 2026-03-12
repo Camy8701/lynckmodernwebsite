@@ -155,11 +155,11 @@
             { label: "Priority", value: "Grow the audience and future customer pipeline" }
           ],
           sidebarNote:
-            "Snapshot based on combined Google Ads spend and YouTube channel reporting covering December 20, 2025 through March 10, 2026.",
+            "Snapshot based on combined Google Ads spend and YouTube channel reporting covering December 20, 2025 through March 10, 2026. Google Ads reported just over 9,000 subscriber conversions, while verified channel growth was closer to 8,000 net new subscribers because subscriber tracking on the platform was not perfectly precise.",
           quoteSource: "Campaign performance summary based on Google Ads and YouTube reporting",
           stackedMedia: {
-            src: "/assets/case-study-djtechnik-youtube-04.jpg",
-            alt: "Google Ads campaign performance view showing subscriber growth and cost efficiency",
+            src: "/assets/case-study-djtechnik-youtube-09k.jpg",
+            alt: "Google Ads campaign view showing 9.01K reported subscriber conversions during the DJ-Technik campaign",
             mode: "contain"
           },
           gallery: [
@@ -184,7 +184,7 @@
               kicker: "The Challenge",
               title: "A niche e-commerce brand with strong products but limited audience reach.",
               body: [
-                "DJ-Technik already had strong product demonstrations and educational videos on YouTube, but organic growth on its own was too slow to unlock the channel’s full sales potential.",
+                "DJ-Technik already had strong product demonstrations, unboxings, and product-focused videos on YouTube, but organic growth on its own was too slow to unlock the channel’s full sales potential.",
                 "Despite good content, the channel was still not reaching enough DJs, music producers, and equipment buyers in the market."
               ],
               bullets: [
@@ -203,8 +203,8 @@
               bullets: [
                 "Launched YouTube subscriber campaigns built specifically to grow the channel by promoting relevant videos to audiences interested in DJ equipment, music production, DJ tutorials, and electronic music performance.",
                 "Targeted users based on DJ and music production interests, relevant YouTube content viewers, music equipment search intent, and related channel audiences.",
-                "Promoted the channel’s existing best-performing videos instead of creating ad-only content, so strong videos could keep attracting subscribers organically afterwards.",
-                "Scaled budget gradually once the campaigns began producing subscribers at a very low acquisition cost.",
+                "Promoted the channel’s videos featuring top-selling products, so the content being amplified was already closely tied to demand and future purchases.",
+                "Used a consistently strong upfront budget to accelerate the learning phase quickly instead of scaling spend slowly over time.",
                 "Built the whole system around long-term channel growth rather than just short-term traffic."
               ]
             },
@@ -213,12 +213,13 @@
               title: "Rapid subscriber growth at a very low acquisition cost.",
               body: [
                 "Over roughly 90 days, the campaign helped grow the channel from around 1,000 subscribers on December 20 to about 9,000 subscribers by March 10.",
-                "That means roughly 8,000 net new subscribers with about €2,500 in ad spend, bringing the average cost per subscriber to around €0.31."
+                "Google Ads reported just over 9,000 subscriber conversions during the campaign, but verified YouTube channel growth was closer to 8,000 net new subscribers because Google’s subscriber tracking was not perfectly efficient. Based on the real channel growth and about €2,500 in ad spend, the average cost per subscriber landed around €0.31."
               ],
               bullets: [
                 "Roughly 8,000 net new subscribers during the 90-day campaign window",
+                "Google Ads reporting showed 9K+ subscriber conversions, while verified channel growth was closer to 8,000",
                 "About €2,500 total ad spend",
-                "Around €0.31 average cost per subscriber",
+                "Around €0.31 average cost per subscriber based on verified channel growth",
                 "Channel growth from around 1,000 subscribers to approximately 9,000",
                 "A subscriber base that is now large enough to keep compounding through content and product demand",
                 "A larger long-term audience of DJs, music producers, and equipment buyers"
@@ -229,7 +230,7 @@
             "YouTube subscriber acquisition campaign via Google Ads",
             "Audience targeting for DJs and music production communities",
             "Video promotion strategy for existing content",
-            "Budget scaling framework based on cost-per-subscriber performance",
+            "Consistent upfront budget structure designed to accelerate the learning phase",
             "Channel growth used as a long-term lead and customer pipeline"
           ],
           quote:
@@ -263,7 +264,7 @@
           snapshot: [
             { label: "Client", value: "DMS Progrowers (Zespri supply partner)" },
             { label: "Sector", value: "Kiwifruit packhouse operations" },
-            { label: "Market", value: "Regional seasonal labor market" },
+            { label: "Market", value: "New Zealand" },
             { label: "Channel mix", value: "Meta Ads, social media groups, creator amplification" },
             { label: "Priority", value: "Fill packhouse roles fast enough to protect the harvest season" }
           ],
@@ -540,11 +541,11 @@
             { label: "Priorität", value: "YouTube-Audience und Käuferpipeline ausbauen" }
           ],
           sidebarNote:
-            "Der Projektüberblick basiert auf kombiniertem Google-Ads-Spend und YouTube-Kanalreporting für den Zeitraum vom 20. Dezember 2025 bis 10. März 2026.",
+            "Der Projektüberblick basiert auf kombiniertem Google-Ads-Spend und YouTube-Kanalreporting für den Zeitraum vom 20. Dezember 2025 bis 10. März 2026. Google Ads meldete etwas über 9.000 Subscriber-Conversions, während das verifizierte Kanalwachstum wegen nicht ganz präzisem Subscriber-Tracking eher bei rund 8.000 neuen Abonnenten lag.",
           quoteSource: "Leistungsauswertung auf Basis von Google Ads und YouTube Reporting",
           stackedMedia: {
-            src: "/assets/case-study-djtechnik-youtube-04.jpg",
-            alt: "Google-Ads-Auswertung mit Abonnentenwachstum und effizientem Kostenverlauf",
+            src: "/assets/case-study-djtechnik-youtube-09k.jpg",
+            alt: "Google-Ads-Auswertung mit 9,01 Tsd. gemeldeten Subscriber-Conversions während der DJ-Technik-Kampagne",
             mode: "contain"
           },
           gallery: [
@@ -569,7 +570,7 @@
               kicker: "Die Herausforderung",
               title: "Eine starke Nischenmarke mit guten Inhalten, aber zu wenig Reichweite.",
               body: [
-                "DJ-Technik hatte bereits starke Produktdemos und hilfreiche YouTube-Videos, aber rein organisches Wachstum war zu langsam, um das volle Potenzial des Kanals zu nutzen.",
+                "DJ-Technik hatte bereits starke Produktdemos, Unboxings und produktfokussierte YouTube-Videos, aber rein organisches Wachstum war zu langsam, um das volle Potenzial des Kanals zu nutzen.",
                 "Trotz guter Inhalte erreichte der Kanal noch nicht genug DJs, Musikproduzenten und potenzielle Käufer im relevanten Markt."
               ],
               bullets: [
@@ -588,8 +589,8 @@
               bullets: [
                 "Gestartet wurden spezielle YouTube-Kampagnen zur Abonnentengewinnung, die relevante Videos an Nutzer mit Interesse an DJ-Equipment, Musikproduktion, DJ-Tutorials und elektronischer Performance ausgespielt haben.",
                 "Das Targeting basierte auf Interessen rund um DJing und Musikproduktion, Zuschauern relevanter YouTube-Inhalte, Suchintentionen für Musikequipment und ähnlichen Kanal-Audiences.",
-                "Statt neue Videos nur für Anzeigen zu produzieren, wurden die bestehenden Top-Performer des Kanals beworben, damit sie danach auch organisch weiter Reichweite und Abonnenten einsammeln konnten.",
-                "Das Budget wurde schrittweise erhöht, sobald die Kampagnen Abonnenten zu sehr niedrigen Kosten geliefert haben.",
+                "Beworben wurden vor allem die Kanalvideos mit Topsellern, damit die ausgespielten Inhalte direkt an Nachfrage und künftige Käufe gekoppelt waren.",
+                "Statt das Budget schrittweise zu erhöhen, wurde von Anfang an mit einem stabil hohen Budget gearbeitet, um die Lernphase schneller zu durchlaufen.",
                 "Ziel war nicht nur mehr Traffic, sondern langfristiges Kanalwachstum mit echtem Marktwert."
               ]
             },
@@ -598,12 +599,13 @@
               title: "Schnelles Abonnentenwachstum zu sehr niedrigen Akquisekosten.",
               body: [
                 "Innerhalb von rund 90 Tagen ist der Kanal von etwa 1.000 Abonnenten am 20. Dezember auf rund 9.000 Abonnenten am 10. März gewachsen.",
-                "Das entspricht rund 8.000 neuen Abonnenten bei etwa 2.500 Euro Werbebudget. Die durchschnittlichen Kosten pro Abonnent lagen damit bei ungefähr 0,31 Euro."
+                "Google Ads meldete im Kampagnenzeitraum etwas über 9.000 Subscriber-Conversions, das verifizierte YouTube-Kanalwachstum lag wegen nicht ganz präzisem Google-Tracking aber eher bei rund 8.000 neuen Abonnenten. Auf Basis dieses realen Kanalwachstums und rund 2.500 Euro Werbebudget lagen die durchschnittlichen Kosten pro Abonnent bei ungefähr 0,31 Euro."
               ],
               bullets: [
                 "Rund 8.000 neue Abonnenten im 90-Tage-Zeitraum",
+                "Google Ads meldete 9 Tsd.+ Subscriber-Conversions, während das verifizierte Kanalwachstum eher bei rund 8.000 lag",
                 "Etwa 2.500 Euro Gesamtbudget",
-                "Ungefähr 0,31 Euro durchschnittliche Kosten pro Abonnent",
+                "Ungefähr 0,31 Euro durchschnittliche Kosten pro Abonnent auf Basis des verifizierten Kanalwachstums",
                 "Wachstum von rund 1.000 auf ungefähr 9.000 Abonnenten",
                 "Eine Abonnentenbasis, die jetzt deutlich stärker organisch weiterwachsen kann",
                 "Eine deutlich größere langfristige Audience aus DJs, Musikproduzenten und potenziellen Käufern"
@@ -614,7 +616,7 @@
             "YouTube-Subscriber-Kampagne über Google Ads",
             "Targeting für DJs und Musikproduktions-Communities",
             "Strategie zur Promotion bestehender Videos",
-            "Budget-Skalierung auf Basis der Kosten pro Abonnent",
+            "Stabile Budgetstruktur von Beginn an, um die Lernphase zu beschleunigen",
             "Kanalwachstum als langfristige Lead- und Käuferpipeline"
           ],
           quote:
@@ -648,7 +650,7 @@
           snapshot: [
             { label: "Kunde", value: "DMS Progrowers (Zespri-Lieferpartner)" },
             { label: "Branche", value: "Kiwifrucht-Packhausbetrieb" },
-            { label: "Markt", value: "Regionaler Arbeitsmarkt für Saisonkräfte" },
+            { label: "Markt", value: "Neuseeland" },
             { label: "Kanalmix", value: "Meta Ads, Social-Media-Gruppen, Creator-Verstärkung" },
             { label: "Priorität", value: "Schnell genug Personal finden, damit die Saison sauber durchläuft" }
           ],
