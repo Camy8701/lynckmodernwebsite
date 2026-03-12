@@ -48,7 +48,7 @@
           slug: "dj-technik-youtube-growth",
           category: "ads",
           categoryLabel: "Ads & Performance",
-          title: "How DJ-Technik Used Google Ads to Grow Its YouTube Channel",
+          title: "How to Grow Your YouTube Channel With Targeted Google Ads",
           excerpt: "See how a DJ equipment store used Google Ads to grow its channel from about 1,000 to roughly 9,000 subscribers in 90 days and turn YouTube into a larger audience and demand channel.",
           image: "/assets/blog-dj-showroom.webp",
           imageAlt: "DJ-Technik showroom with illuminated DJ gear displays",

@@ -13,10 +13,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/home-shared.css?v=6">
+  <link rel="stylesheet" href="/css/site-shell.css?v=1">
   <link rel="stylesheet" href="/css/apply-shared.css?v=1">
 </head>
-<body class="apply-body">
+<body class="apply-body" data-shell-page="apply">
 <header class="lynck-header">
         <div class="lynck-header-inner">
             <button type="button" class="lynck-home-logo" data-home-btn aria-label="LYNCK Studio Home">
@@ -621,54 +621,8 @@
       companyAddressPlaceholder: 'COMPANY_ADDRESS'
     };
 
-    (function initApplyNav() {
-      function getLang() {
-        if (window.location.pathname.indexOf('/de/') > -1) return 'de';
-        try {
-          var stored = localStorage.getItem('language');
-          if (stored === 'de') return 'de';
-        } catch (e) {}
-        return 'en';
-      }
-
-      const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
-      dropdowns.forEach(function (dropdown) {
-        const button = dropdown.querySelector('.nav-pill');
-        if (!button) return;
-        button.addEventListener('click', function (event) {
-          event.stopPropagation();
-          dropdowns.forEach(function (d) { if (d !== dropdown) d.classList.remove('open'); });
-          dropdown.classList.toggle('open');
-        });
-      });
-      document.addEventListener('click', function () { dropdowns.forEach(function (d) { d.classList.remove('open'); }); });
-
-      var homeBtn = document.querySelector('[data-home-btn]');
-      if (homeBtn) {
-        homeBtn.addEventListener('click', function () {
-          var target = getLang() === 'de' ? '/de/index.html' : '/index.html';
-          window.location.href = target;
-        });
-      }
-
-      document.querySelectorAll('[data-lang-switch]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var targetLang = btn.getAttribute('data-lang-switch');
-          if (!targetLang) return;
-          try { localStorage.setItem('language', targetLang); } catch (e) {}
-          var target = targetLang === 'de' ? '/de/apply/' : '/apply/';
-          window.location.href = target;
-        });
-      });
-
-      document.querySelectorAll('[data-apply-btn]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var target = getLang() === 'de' ? '/de/apply/' : '/apply/';
-          window.location.href = target;
-        });
-      });
-    })();
   </script>
+  <script src="/js/site-shell-nav.js" defer></script>
   <script src="/js/apply-page.js?v=1" defer></script>
   <script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
 </body>
