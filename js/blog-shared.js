@@ -77,16 +77,16 @@
     de: {
       pageTitle: "Blog | LYNCK Studio",
       pageDescription: "Praxisnahe Analysen zu Ads, Kreativsystemen, Conversion-Logik und Wachstumsarchitektur — vom Team hinter LYNCK Studio.",
-      kicker: "Einblicke & Frameworks",
+      kicker: "Einblicke & Methoden",
       title: "Blog",
-      intro: "Praxisorientiertes Denken zu Ads, Kreativsystemen, Conversion-Architektur und den beweglichen Teilen hinter skalierbarem Wachstum.",
+      intro: "Praxisnahe Analysen zu Anzeigen, Kreativsystemen, Conversion-Architektur und den Hebeln hinter skalierbarem Wachstum.",
       noteCount: "01",
-      noteStrong: "Kein oberflächliches Thought-Leadership.",
-      noteSoft: "Jeder Artikel analysiert ein echtes Problem mit einem echten Framework, das du sofort anwenden kannst.",
+      noteStrong: "Kein leeres Marketing-Gerede.",
+      noteSoft: "Jeder Artikel nimmt ein echtes Problem auseinander und zeigt einen Ansatz, den du direkt anwenden kannst.",
       searchPlaceholder: "Artikel durchsuchen...",
       filters: [
         { id: "all", label: "Alle" },
-        { id: "ads", label: "Ads & Performance" },
+        { id: "ads", label: "Anzeigen & Performance" },
         { id: "strategy", label: "Strategie" },
         { id: "web", label: "Web & Conversion" },
         { id: "creative", label: "Kreativ" }
@@ -95,20 +95,20 @@
       emptyCopy: "Versuche ein anderes Stichwort oder wechsle die Kategorie.",
       cardCta: "Artikel lesen",
       readTime: "Min. Lesezeit",
-      ctaTitle: "Diese Frameworks auf deine Marke anwenden?",
+      ctaTitle: "Diesen Ansatz auf deine Marke anwenden?",
       ctaCopy: "Wir entwickeln Strategie, kreative Ausrichtung, Tracking-Logik und Conversion-Architektur gemeinsam — damit Wachstum Struktur ist, kein Zufall.",
       ctaPrimary: "Projekt starten",
-      ctaSecondary: "Services entdecken",
+      ctaSecondary: "Leistungen entdecken",
       articles: [
         {
           slug: "dj-technik-youtube-growth",
           category: "ads",
-          categoryLabel: "Ads & Performance",
+          categoryLabel: "Anzeigen & Performance",
           title: "Wie DJ-Technik.de mit Google Ads seinen YouTube-Kanal ausgebaut hat",
           excerpt: "So hat ein DJ-Equipment-Shop seinen YouTube-Kanal mit Google Ads in rund 90 Tagen von etwa 1.000 auf rund 9.000 Abonnenten ausgebaut und YouTube zu einem stärkeren Nachfragekanal gemacht.",
           image: "/assets/blog-dj-showroom.webp",
           imageAlt: "Showroom von DJ-Technik.de mit beleuchtetem DJ Equipment",
-          chips: ["YouTube Wachstum", "Google Ads", "E Commerce", "Fallstudie"],
+          chips: ["YouTube-Wachstum", "Google Ads", "E-Commerce", "Fallstudie"],
           date: "2026-03-10",
           readMinutes: 7,
           url: "/de/blog-wie-dj-technik-mit-google-ads-seinen-youtube-kanal-ausgebaut-hat.html",
@@ -117,12 +117,12 @@
         {
           slug: "real-reason-ads-dont-convert",
           category: "ads",
-          categoryLabel: "Ads & Performance",
+          categoryLabel: "Anzeigen & Performance",
           title: "Der wahre Grund, warum deine Ads nicht konvertieren",
-          excerpt: "Die meisten Kampagnen scheitern nicht an Targeting oder Budget — sondern daran, dass die Kette von Botschaft zu Landingpage gebrochen ist. Hier ist das Diagnose-Framework, mit dem wir das Leck finden.",
+          excerpt: "Die meisten Kampagnen scheitern nicht an der Zielgruppenansprache oder am Budget — sondern daran, dass die Kette von Botschaft zu Landingpage gebrochen ist. Hier ist das Diagnosemodell, mit dem wir das Leck finden.",
           image: "/assets/blog-ads-dont-convert-hero.webp",
           imageAlt: "Illustration von Google Suchwachstum mit Laptop und aufsteigenden Pfeilen",
-          chips: ["Google Ads", "Meta Ads", "Conversion", "Messaging"],
+          chips: ["Google Ads", "Meta Ads", "Conversion", "Botschaft"],
           date: "2026-02-18",
           readMinutes: 8,
           url: "/de/blog-real-reason-your-ads-dont-convert.html",
@@ -250,7 +250,7 @@
 
       if (resultCount) {
         if (searchTerm || activeFilter !== "all") {
-          resultCount.textContent = `${articles.length} article${articles.length !== 1 ? "s" : ""}`;
+          resultCount.textContent = `${articles.length} Artikel`;
           resultCount.style.display = "";
         } else {
           resultCount.style.display = "none";
