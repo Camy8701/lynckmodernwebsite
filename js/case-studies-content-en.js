@@ -126,13 +126,13 @@ export default {
           index: "02",
           category: "performance",
           categoryLabel: "Performance",
-          title: "DJ-Technik",
+          title: "DJ-Technik.de",
           externalUrl: "https://www.dj-technik.de/",
           subtitle: "Music equipment e-commerce brand | Growing a YouTube audience and customer pipeline through Google Ads",
           overview:
-            "How we helped DJ-Technik accelerate YouTube growth and build a larger audience of potential buyers through a structured Google Ads subscriber campaign.",
+            "How we helped DJ-Technik.de accelerate YouTube growth and build a larger audience of potential buyers through a structured Google Ads subscriber campaign.",
           image: "/assets/case-study-djtechnik-cover.webp",
-          imageAlt: "DJ-Technik showroom with illuminated DJ equipment displays",
+          imageAlt: "DJ-Technik.de showroom with illuminated DJ equipment displays",
           chips: ["YouTube", "Google Ads", "Subscriber Growth", "E-Commerce"],
           cardFocus: "Audience growth + future buyer pipeline",
           cardMetrics: [
@@ -146,7 +146,7 @@ export default {
             { value: "€0.31", label: "Cost / Subscriber" }
           ],
           snapshot: [
-            { label: "Client", value: "DJ-Technik", url: "https://www.dj-technik.de/" },
+            { label: "Client", value: "DJ-Technik.de", url: "https://www.dj-technik.de/" },
             { label: "Sector", value: "Music equipment e-commerce" },
             { label: "Market", value: "Germany" },
             { label: "Channel mix", value: "YouTube subscriber campaigns via Google Ads" },
@@ -157,7 +157,7 @@ export default {
           quoteSource: "Campaign performance summary based on Google Ads and YouTube reporting",
           stackedMedia: {
             src: "/assets/case-study-djtechnik-youtube-09k.jpg",
-            alt: "Google Ads campaign view showing 9.01K reported subscriber conversions during the DJ-Technik campaign",
+            alt: "Google Ads campaign view showing 9.01K reported subscriber conversions during the DJ-Technik.de campaign",
             mode: "contain"
           },
           gallery: [
@@ -182,7 +182,7 @@ export default {
               kicker: "The Challenge",
               title: "A niche e-commerce brand with strong products but limited audience reach.",
               body: [
-                "DJ-Technik already had strong product demonstrations, unboxings, and product-focused videos on YouTube, but organic growth on its own was too slow to unlock the channel’s full sales potential.",
+                "DJ-Technik.de already had strong product demonstrations, unboxings, and product-focused videos on YouTube, but organic growth on its own was too slow to unlock the channel’s full sales potential.",
                 "Despite good content, the channel was still not reaching enough DJs, music producers, and equipment buyers in the market."
               ],
               bullets: [
@@ -232,7 +232,7 @@ export default {
             "Channel growth used as a long-term lead and customer pipeline"
           ],
           quote:
-            "Instead of waiting for slow organic growth, DJ-Technik used Google Ads to accelerate audience acquisition and grow the channel from roughly 1,000 to about 9,000 subscribers in around 90 days."
+            "Instead of waiting for slow organic growth, DJ-Technik.de used Google Ads to accelerate audience acquisition and grow the channel from roughly 1,000 to about 9,000 subscribers in around 90 days."
         },
         {
           slug: "dms-progrowers-workforce-campaign",

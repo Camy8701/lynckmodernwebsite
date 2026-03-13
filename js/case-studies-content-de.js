@@ -126,13 +126,13 @@ export default {
           index: "02",
           category: "performance",
           categoryLabel: "Performance",
-          title: "DJ-Technik",
+          title: "DJ-Technik.de",
           externalUrl: "https://www.dj-technik.de/",
           subtitle: "Musikequipment-E-Commerce | YouTube-Audience und Käuferpotenzial mit Google Ads ausgebaut",
           overview:
-            "So haben wir DJ-Technik geholfen, das YouTube-Wachstum mit einer strukturierten Google-Ads-Kampagne zu beschleunigen und gleichzeitig eine größere Zielgruppe potenzieller Käufer aufzubauen.",
+            "So haben wir DJ-Technik.de geholfen, das YouTube-Wachstum mit einer strukturierten Google-Ads-Kampagne zu beschleunigen und gleichzeitig eine größere Zielgruppe potenzieller Käufer aufzubauen.",
           image: "/assets/case-study-djtechnik-cover.webp",
-          imageAlt: "Showroom von DJ-Technik mit beleuchteten DJ-Setups",
+          imageAlt: "Showroom von DJ-Technik.de mit beleuchteten DJ-Setups",
           chips: ["YouTube", "Google Ads", "Abonnentenwachstum", "E-Commerce"],
           cardFocus: "Audience-Wachstum + künftige Käuferpipeline",
           cardMetrics: [
@@ -146,7 +146,7 @@ export default {
             { value: "€0,31", label: "Kosten / Abonnent" }
           ],
           snapshot: [
-            { label: "Kunde", value: "DJ-Technik", url: "https://www.dj-technik.de/" },
+            { label: "Kunde", value: "DJ-Technik.de", url: "https://www.dj-technik.de/" },
             { label: "Bereich", value: "Musikequipment-E-Commerce" },
             { label: "Markt", value: "Deutschland" },
             { label: "Kanalmix", value: "YouTube-Subscriber-Kampagnen über Google Ads" },
@@ -157,7 +157,7 @@ export default {
           quoteSource: "Leistungsauswertung auf Basis von Google Ads und YouTube Reporting",
           stackedMedia: {
             src: "/assets/case-study-djtechnik-youtube-09k.jpg",
-            alt: "Google-Ads-Auswertung mit 9,01 Tsd. gemeldeten Subscriber-Conversions während der DJ-Technik-Kampagne",
+            alt: "Google-Ads-Auswertung mit 9,01 Tsd. gemeldeten Subscriber-Conversions während der DJ-Technik.de-Kampagne",
             mode: "contain"
           },
           gallery: [
@@ -182,7 +182,7 @@ export default {
               kicker: "Die Herausforderung",
               title: "Eine starke Nischenmarke mit guten Inhalten, aber zu wenig Reichweite.",
               body: [
-                "DJ-Technik hatte bereits starke Produktdemos, Unboxings und produktfokussierte YouTube-Videos, aber rein organisches Wachstum war zu langsam, um das volle Potenzial des Kanals zu nutzen.",
+                "DJ-Technik.de hatte bereits starke Produktdemos, Unboxings und produktfokussierte YouTube-Videos, aber rein organisches Wachstum war zu langsam, um das volle Potenzial des Kanals zu nutzen.",
                 "Trotz guter Inhalte erreichte der Kanal noch nicht genug DJs, Musikproduzenten und potenzielle Käufer im relevanten Markt."
               ],
               bullets: [
@@ -232,7 +232,7 @@ export default {
             "Kanalwachstum als langfristige Lead- und Käuferpipeline"
           ],
           quote:
-            "Statt auf langsames organisches Wachstum zu warten, hat DJ-Technik Google Ads genutzt, um Reichweite und Community gezielt zu beschleunigen und den Kanal in rund 90 Tagen von etwa 1.000 auf rund 9.000 Abonnenten zu bringen."
+            "Statt auf langsames organisches Wachstum zu warten, hat DJ-Technik.de Google Ads genutzt, um Reichweite und Community gezielt zu beschleunigen und den Kanal in rund 90 Tagen von etwa 1.000 auf rund 9.000 Abonnenten zu bringen."
         },
         {
           slug: "dms-progrowers-workforce-campaign",
