@@ -238,23 +238,28 @@
     }
     .lynck-nav-links a:hover { color: #e36b21; }
     /* Services Mega Menu */
-    .lynck-services-dropdown { position: relative; }
+    .lynck-services-dropdown { position: relative; padding-bottom: 1rem; margin-bottom: -1rem; }
     .lynck-services-dropdown > a { display: inline-flex; align-items: center; gap: 0.3rem; }
     .lynck-services-dropdown .svc-caret {
       display: inline-block; width: 0; height: 0;
       border-left: 3.5px solid transparent; border-right: 3.5px solid transparent;
       border-top: 3.5px solid currentColor; transition: transform 0.2s ease;
     }
-    .lynck-services-dropdown:hover .svc-caret { transform: rotate(180deg); }
+    .lynck-services-dropdown:is(:hover, :focus-within) .svc-caret { transform: rotate(180deg); }
     .lynck-services-mega {
-      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-      margin-top: 1.1rem; padding: 1.6rem 1.8rem; min-width: 520px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      position: absolute; top: calc(100% + 0.2rem); left: 50%; transform: translateX(-50%) translateY(0.35rem);
+      padding: 1.6rem 1.8rem; min-width: 520px;
       background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(10,18,36,0.1); border-radius: 1.2rem;
       box-shadow: 0 24px 64px rgba(10,18,36,0.14), 0 0 0 1px rgba(10,18,36,0.04); z-index: 100;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
     }
-    .lynck-services-mega::before { content:''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
-    .lynck-services-dropdown:hover .lynck-services-mega { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .lynck-services-mega::before { content:''; position: absolute; top: -18px; left: 0; right: 0; height: 18px; }
+    .lynck-services-dropdown:is(:hover, :focus-within) .lynck-services-mega {
+      opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); transition-delay: 0s;
+    }
     .lynck-services-mega a {
       display: block; padding: 0.6rem 0.8rem; border-radius: 0.55rem;
       color: #0a1224 !important; font-size: 0.86rem; font-weight: 500;
@@ -1363,23 +1368,6 @@
                             </svg>
                         </a>
                     </div>
-                    <div class="nav-dropdown">
-                        <button class="nav-pill" type="button">
-                            All
-                            <span class="nav-caret" aria-hidden="true"></span>
-                        </button>
-                    <div class="nav-dropdown-menu" role="menu">
-                        <a href="/services/service.html?service=google-ads" role="menuitem">Google Ads &amp; Performance Marketing</a>
-                        <a href="/services/service.html?service=meta-ads" role="menuitem">Meta Ads &amp; Paid Social</a>
-                        <a href="/services/service.html?service=ai-content" role="menuitem">AI Content &amp; Creative Production</a>
-                        <a href="/services/service.html?service=ugc-influencer" role="menuitem">UGC &amp; Influencer Marketing</a>
-                        <a href="/services/service.html?service=web-systems" role="menuitem">Conversion-Focused Web Systems</a>
-                        <a href="/services/service.html?service=growth-strategy" role="menuitem">Growth Strategy &amp; Brand Positioning</a>
-                        <a href="/services/service.html?service=leads-generation" role="menuitem">Leads Generation</a>
-                        <a href="/services/service.html?service=youtube-growth-services" role="menuitem">YouTube Growth Services</a>
-                        <a href="/services/service.html?service=seo-sevo" role="menuitem">SEO / SEvO</a>
-                    </div>
-                </div>
             </div>
 
             <nav class="lynck-nav-links" aria-label="Primary">

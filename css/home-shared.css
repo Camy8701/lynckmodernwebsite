@@ -347,6 +347,8 @@ padding: 0;
 /* --- Services Mega Menu --- */
 .lynck-services-dropdown {
   position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: -1rem;
 }
 .lynck-services-dropdown > a {
   display: inline-flex;
@@ -362,16 +364,17 @@ padding: 0;
   border-top: 3.5px solid currentColor;
   transition: transform 0.2s ease;
 }
-.lynck-services-dropdown:hover .svc-caret {
+.lynck-services-dropdown:is(:hover, :focus-within) .svc-caret {
   transform: rotate(180deg);
 }
 .lynck-services-mega {
-  display: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 0.2rem);
   left: 50%;
-  transform: translateX(-50%);
-  margin-top: 1.1rem;
+  transform: translateX(-50%) translateY(0.35rem);
   padding: 1.6rem 1.8rem;
   min-width: 520px;
   background: rgba(255, 255, 255, 0.97);
@@ -381,19 +384,25 @@ padding: 0;
   border-radius: 1.2rem;
   box-shadow: 0 24px 64px rgba(10, 18, 36, 0.14), 0 0 0 1px rgba(10, 18, 36, 0.04);
   z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
 }
 .lynck-services-mega::before {
   content: '';
   position: absolute;
-  top: -12px;
+  top: -18px;
   left: 0;
   right: 0;
-  height: 12px;
+  height: 18px;
 }
-.lynck-services-dropdown:hover .lynck-services-mega {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
+.lynck-services-dropdown:is(:hover, :focus-within) .lynck-services-mega {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  transition-delay: 0s;
 }
 .lynck-services-mega a {
   display: block;
