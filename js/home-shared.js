@@ -598,6 +598,48 @@
             });
         });
 
+        // --- LAZY CONTACT BUTTON ---
+        (() => {
+            const contactButtonSrc = 'https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c';
+            let hasLoadedContactButton = false;
+            let idleTimer = 0;
+
+            const detachTriggers = () => {
+                window.removeEventListener('pointerdown', onIntent);
+                window.removeEventListener('keydown', onIntent);
+                window.removeEventListener('scroll', onIntent);
+            };
+
+            const loadContactButton = () => {
+                if (hasLoadedContactButton) return;
+                if (document.querySelector(`script[src="${contactButtonSrc}"]`)) {
+                    hasLoadedContactButton = true;
+                    detachTriggers();
+                    return;
+                }
+
+                hasLoadedContactButton = true;
+                detachTriggers();
+                loadScriptOnce(contactButtonSrc).catch(() => {
+                    hasLoadedContactButton = false;
+                });
+            };
+
+            const onIntent = () => {
+                if (idleTimer) {
+                    window.clearTimeout(idleTimer);
+                    idleTimer = 0;
+                }
+                loadContactButton();
+            };
+
+            window.addEventListener('pointerdown', onIntent, { once: true, passive: true });
+            window.addEventListener('keydown', onIntent, { once: true });
+            window.addEventListener('scroll', onIntent, { once: true, passive: true });
+
+            idleTimer = window.setTimeout(loadContactButton, 5500);
+        })();
+
         // --- HERO FALLBACK ---
         (() => {
             const frame = document.querySelector('.hero-embed-frame');
@@ -608,8 +650,8 @@
             const lazySrc = frame.getAttribute('data-src');
             let booted = false;
             let fallbackRemoved = false;
-            let heroReady = false;
             let readyTimeout = 0;
+            let deferredBootTimer = 0;
             const connection = window.navigator.connection || window.navigator.mozConnection || window.navigator.webkitConnection;
             const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 0;
             const isSmallViewport = viewportWidth > 0 ? viewportWidth <= 1200 : window.matchMedia('(max-width: 1200px)').matches;
@@ -646,14 +688,26 @@
             const onHeroMessage = (event) => {
                 if (event.source !== frame.contentWindow) return;
                 if (!event.data || event.data.type !== 'hero-ready') return;
-                heroReady = true;
                 hideFallback();
             };
 
             const bootFrame = () => {
                 if (booted || !lazySrc || shouldUseFallbackOnly) return;
+                if (deferredBootTimer) {
+                    window.clearTimeout(deferredBootTimer);
+                    deferredBootTimer = 0;
+                }
                 booted = true;
                 frame.src = lazySrc;
+            };
+
+            const scheduleDeferredBoot = () => {
+                if (booted || deferredBootTimer || shouldUseFallbackOnly) return;
+                deferredBootTimer = window.setTimeout(() => {
+                    deferredBootTimer = 0;
+                    if (document.visibilityState !== 'visible') return;
+                    bootFrame();
+                }, 1200);
             };
 
             frame.addEventListener('load', () => {
@@ -668,16 +722,16 @@
             }
 
             window.addEventListener('message', onHeroMessage);
-            // Restore the original desktop behavior: boot the 3D hero right after initial paint.
-            window.requestAnimationFrame(() => {
-                window.setTimeout(bootFrame, 60);
-            });
+            // Keep the fast fallback visible for the initial paint, then boot
+            // the 3D scene shortly after so the hero still feels alive.
+            scheduleDeferredBoot();
 
             if (heroShell) {
                 heroShell.addEventListener('mouseenter', bootFrame, { once: true, passive: true });
                 heroShell.addEventListener('pointerdown', bootFrame, { once: true, passive: true });
             }
             window.addEventListener('keydown', bootFrame, { once: true });
+            window.addEventListener('scroll', bootFrame, { once: true, passive: true });
         })();
 
         // --- HERO SCRAMBLE TEXT ---
