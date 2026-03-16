@@ -2139,11 +2139,27 @@ footer { position: relative; width: 100%; background: var(--accent-dark); z-inde
   flex-basis: 44px;
 }
 /* Pipeline */
-.pipeline-heading { top: 1rem; left: 4vw; right: 4vw; }
+.pipeline-heading {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  padding: calc(var(--header-height) + 2.35rem) 4vw 0;
+  margin-bottom: 1rem;
+  pointer-events: auto;
+}
 .pipeline-heading-title { font-size: clamp(1.55rem, 6.2vw, 2.4rem); }
-.pin-wrap-container { height: auto; min-height: 100vh; overflow: visible; align-items: flex-start; }
-.pin-wrap { padding: calc(var(--header-height) + 4.25rem) 4vw 4vh; align-items: flex-start; min-height: 100vh; }
-.horiz-card { width: 86vw; height: auto; min-height: 620px; padding: 1.1rem; margin-right: 4vw; justify-content: flex-start; }
+.pipeline-section { overflow: visible; }
+.pin-wrap-container { height: auto; min-height: 0; overflow: visible; align-items: flex-start; }
+.pin-wrap {
+  width: 100%;
+  min-height: 0;
+  padding: 1.15rem 4vw 4rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+}
+.horiz-card { width: 100%; height: auto; min-height: clamp(540px, 118vw, 660px); padding: 1.1rem; margin-right: 0; justify-content: flex-start; }
 .horiz-content { max-width: 100%; max-height: none; overflow: visible; padding-right: 0; }
 .horiz-list { grid-template-columns: 1fr; gap: 0.35rem; }
 .horiz-title { font-size: clamp(1.8rem, 8.2vw, 2.45rem); line-height: 0.95; margin-bottom: 0.45rem; }
@@ -2177,8 +2193,11 @@ footer { position: relative; width: 100%; background: var(--accent-dark); z-inde
 /* Footer */
 .footer-big { font-size: clamp(3.6rem, 13.2vw, 7.2rem); }
 .footer-big-wrap { padding: 2rem 1.5rem 1.5rem; }
-.footer-links-row { flex-direction: column; gap: 1.5rem; padding: 2rem 1.5rem; }
-.footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.8rem; padding: 1rem 1.5rem; }
+.footer-links-row { flex-direction: column; gap: 1.5rem; padding: 2rem 1.5rem; width: 100%; box-sizing: border-box; }
+.footer-links-col { width: 100%; }
+.footer-social-row { flex-wrap: wrap; }
+.footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.8rem; padding: 1rem 1.5rem; width: 100%; box-sizing: border-box; }
+.footer-bottom-legal { width: 100%; flex-wrap: wrap; gap: 0.75rem 1.2rem; }
 footer { height: auto; }
 .pack-benefit-row { flex-direction: column; }
 .pack-benefit-row.reverse { flex-direction: column; }

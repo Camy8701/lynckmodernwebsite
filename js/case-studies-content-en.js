@@ -33,12 +33,12 @@ export default {
           index: "01",
           category: "performance",
           categoryLabel: "Performance",
-          title: "Büchelbergerei",
-          subtitle: "Chalet Vacation Homes | More bookings through cleaner Google Ads signals",
+          title: "Chalet Vacation Homes",
+          subtitle: "Luxury vacation rentals | More bookings through cleaner Google Ads signals",
           overview:
             "How we restructured Google Ads for a chalet-vacation brand so rising tourism costs, seasonal pressure, and mixed brand signals stopped distorting performance.",
           image: "/assets/case-study-buechelbergerei-01.jpg",
-          imageAlt: "Büchelbergerei chalet homes at dusk",
+          imageAlt: "Chalet Vacation Homes at dusk",
           chips: ["Google Ads", "Tourism", "Remarketing", "1P Data"],
           cardFocus: "Bookings + cleaner Google Ads signals",
           cardMetrics: [
@@ -52,8 +52,8 @@ export default {
             { value: "+25%", label: "CTR" }
           ],
           snapshot: [
-            { label: "Client", value: "Büchelbergerei" },
-            { label: "Sector", value: "Chalet vacation homes / tourism" },
+            { label: "Client", value: "Chalet Vacation Homes" },
+            { label: "Sector", value: "Luxury vacation rentals / tourism" },
             { label: "Market", value: "Germany" },
             { label: "Channel mix", value: "Google Ads, Demand Gen, Display remarketing" },
             { label: "Priority", value: "More bookings with cleaner signals" }
@@ -61,15 +61,15 @@ export default {
           gallery: [
             {
               src: "/assets/case-study-buechelbergerei-02.jpg",
-              alt: "Private sauna and hot tub at a Büchelbergerei chalet"
+              alt: "Private sauna and hot tub at Chalet Vacation Homes"
             },
             {
               src: "/assets/case-study-buechelbergerei-03.jpg",
-              alt: "Interior dining and living area of a Büchelbergerei chalet"
+              alt: "Interior dining and living area at Chalet Vacation Homes"
             },
             {
-              src: "/assets/case-study-buechelbergerei-04.jpg",
-              alt: "Exterior path between Büchelbergerei chalet homes at dusk"
+              src: "/assets/case-study-chalet-vacation-homes-bedroom.jpg",
+              alt: "Bedroom interior at Chalet Vacation Homes"
             }
           ],
           sections: [
@@ -92,7 +92,7 @@ export default {
                 "Built a dedicated Brand Search campaign targeting all of Germany so brand and non-brand traffic were finally separated cleanly.",
                 "Shifted budget into the campaigns that were already proving profitable instead of spreading spend too widely.",
                 "Built a full-funnel audience across all visitor touchpoints, from general browsing to deeper engagement, request pages, and booking pages.",
-                "Restructured remarketing with Demand Gen for upper-funnel re-engagement and a separate Display campaign for direct retargeting.",
+                "Restructured remarketing with Demand Gen for upper-funnel activity and a separate Display campaign for direct retargeting.",
                 "Refocused creatives around what already showed the strongest pull: pool, private sauna and hot tub, and the breakfast basket.",
                 "Set a target CPA inside PMax campaigns and integrated first-party data to strengthen signals and reduce algorithm volatility."
               ]

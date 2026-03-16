@@ -455,7 +455,7 @@
             if (!sentinel) return;
 
             const initGsapSections = (gsap, ScrollTrigger) => {
-                if (races && pipelineSection) {
+                if (races && pipelineSection && !window.matchMedia('(max-width: 900px)').matches) {
                     const getScrollAmount = () => -(races.scrollWidth - window.innerWidth);
                     const tween = gsap.to(races, { x: getScrollAmount, ease: "none" });
                     ScrollTrigger.create({
@@ -514,6 +514,34 @@
             }, { rootMargin: '220px 0px' });
 
             observer.observe(sentinel);
+        })();
+
+        // --- 3.1 MOBILE TESTIMONIAL DEDUPE ---
+        (() => {
+            const testimonialLists = Array.from(document.querySelectorAll('.testimonials-col ul'));
+            if (!testimonialLists.length) return;
+
+            const mobileQuery = window.matchMedia('(max-width: 900px)');
+
+            const syncTestimonials = () => {
+                testimonialLists.forEach((list) => {
+                    const seen = new Set();
+                    Array.from(list.children).forEach((item) => {
+                        const key = item.textContent.replace(/\s+/g, ' ').trim();
+                        const isDuplicate = mobileQuery.matches && seen.has(key);
+                        item.hidden = isDuplicate;
+                        if (!seen.has(key)) seen.add(key);
+                    });
+                });
+            };
+
+            if (typeof mobileQuery.addEventListener === 'function') {
+                mobileQuery.addEventListener('change', syncTestimonials);
+            } else if (typeof mobileQuery.addListener === 'function') {
+                mobileQuery.addListener(syncTestimonials);
+            }
+
+            syncTestimonials();
         })();
 
 

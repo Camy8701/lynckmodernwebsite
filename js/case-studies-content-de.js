@@ -33,12 +33,12 @@ export default {
           index: "01",
           category: "performance",
           categoryLabel: "Performance",
-          title: "Büchelbergerei",
-          subtitle: "Chalets | Mehr Buchungen durch sauberere Google-Ads-Signale",
+          title: "Chalet Vacation Homes",
+          subtitle: "Luxus-Ferienchalets | Mehr Buchungen durch sauberere Google-Ads-Signale",
           overview:
             "Wie wir Google Ads für einen Chalet-Anbieter neu aufgesetzt haben, damit steigende Klickpreise, saisonale Schwankungen und vermischte Markensignale die Performance nicht länger verzerren.",
           image: "/assets/case-study-buechelbergerei-01.jpg",
-          imageAlt: "Chalet-Anlage der Büchelbergerei in der Abendstimmung",
+          imageAlt: "Chalet Vacation Homes in der Abendstimmung",
           chips: ["Google Ads", "Tourismus", "Remarketing", "1P Data"],
           cardFocus: "Mehr Buchungen + sauberere Google-Ads-Signale",
           cardMetrics: [
@@ -52,8 +52,8 @@ export default {
             { value: "+25%", label: "CTR" }
           ],
           snapshot: [
-            { label: "Kunde", value: "Büchelbergerei" },
-            { label: "Branche", value: "Chalets / Tourismus" },
+            { label: "Kunde", value: "Chalet Vacation Homes" },
+            { label: "Branche", value: "Luxus-Ferienchalets / Tourismus" },
             { label: "Markt", value: "Deutschland" },
             { label: "Kanalmix", value: "Google Ads, Demand Gen, Display-Retargeting" },
             { label: "Priorität", value: "Mehr Buchungen bei saubereren Signalen" }
@@ -61,15 +61,15 @@ export default {
           gallery: [
             {
               src: "/assets/case-study-buechelbergerei-02.jpg",
-              alt: "Private Sauna und Hot Tub in einem Chalet der Büchelbergerei"
+              alt: "Private Sauna und Hot Tub bei Chalet Vacation Homes"
             },
             {
               src: "/assets/case-study-buechelbergerei-03.jpg",
-              alt: "Wohn- und Essbereich in einem Chalet der Büchelbergerei"
+              alt: "Wohn- und Essbereich bei Chalet Vacation Homes"
             },
             {
-              src: "/assets/case-study-buechelbergerei-04.jpg",
-              alt: "Weg zwischen den Chalet-Häusern der Büchelbergerei in der Abendstimmung"
+              src: "/assets/case-study-chalet-vacation-homes-bedroom.jpg",
+              alt: "Schlafzimmer in einem Chalet von Chalet Vacation Homes"
             }
           ],
           sections: [
