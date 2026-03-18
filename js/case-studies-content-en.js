@@ -329,8 +329,109 @@ export default {
             "By combining paid social campaigns, community distribution, and rapid lead conversion, we built a recruitment engine capable of delivering the workforce needed during a critical harvest window."
         },
         {
-          slug: "youtube-demand-engine",
+          slug: "fitness-coach-web-system",
           index: "04",
+          category: "web",
+          categoryLabel: "Web Systems",
+          title: "Fitness Coach Website",
+          subtitle: "Personal training brand | A conversion-focused coaching site built for mobile-first enquiries",
+          overview:
+            "How we structured a fitness coach website so profile traffic, referrals, and cold visitors land on a clearer offer, stronger trust cues, and a direct path into coaching calls.",
+          image: "/assets/case-study-fitness-coach-cover.png",
+          imageAlt: "Sweat-covered athlete in focus with a training partner blurred in the background",
+          chips: ["Web Design", "Mobile UX", "Funnels", "Fitness Brand"],
+          cardFocus: "Premium positioning + direct consult path",
+          cardMetrics: [
+            { value: "4", label: "Core Pages" },
+            { value: "1", label: "Booking Flow" },
+            { value: "24/7", label: "Lead Capture" }
+          ],
+          heroMetrics: [
+            { value: "4", label: "Core Pages" },
+            { value: "1", label: "Booking Flow" },
+            { value: "24/7", label: "Lead Capture" }
+          ],
+          snapshot: [
+            { label: "Client", value: "Fitness coach / personal training brand" },
+            { label: "Sector", value: "Online fitness coaching" },
+            { label: "Market", value: "Germany / remote coaching" },
+            { label: "Channel mix", value: "Website system, mobile UX, booking flow" },
+            { label: "Priority", value: "Turn profile traffic into booked consultations" }
+          ],
+          sidebarNote:
+            "This case study focuses on conversion architecture, visual positioning, and mobile clarity. Final testimonials, launch screenshots, and verified lead data can be layered into the structure later.",
+          quoteSource: "Fitness coaching web system prepared for final launch assets",
+          gallery: [
+            {
+              src: "/assets/case-study-fitness-coach-01.png",
+              mode: "contain",
+              alt: "Fitness coach holding a dumbbell in a dimly lit gym"
+            },
+            {
+              src: "/assets/case-study-fitness-coach-02.png",
+              alt: "Female athlete wearing headphones in a moody gym setting"
+            },
+            {
+              src: "/assets/case-study-fitness-coach-03.png",
+              alt: "Female athlete pushing through a heavy back squat in orange light"
+            }
+          ],
+          sections: [
+            {
+              kicker: "The Challenge",
+              title: "Strong coach energy, but the website still needed to convert attention into action.",
+              body: [
+                "The coach already had strong imagery, a clear training philosophy, and an offer with real transformation potential. The website needed to do more than look motivational. It had to explain the coaching model, build trust fast, and guide people toward the next step.",
+                "Visitors coming from Instagram, referrals, or direct traffic needed to understand who the coaching was for, how the process worked, and why this brand felt more premium than a typical link-in-bio setup."
+              ],
+              bullets: [
+                "Social traffic was landing without enough context and trust cues to turn motivation into a serious enquiry.",
+                "The offer needed a cleaner structure between positioning, coaching process, and expected outcomes.",
+                "Mobile visitors needed a faster path from first impression to booking intent."
+              ]
+            },
+            {
+              kicker: "The Approach",
+              title: "We built the site as a coaching funnel, not just a brochure.",
+              bullets: [
+                "Built the hero section around coach presence, the transformation promise, and one clear call to action.",
+                "Structured the page flow from credibility to offer fit, coaching process, social proof, and FAQs.",
+                "Used the training imagery to reinforce intensity and premium positioning while keeping copy blocks concise.",
+                "Designed the experience mobile first because most traffic was expected to come from Instagram, TikTok, and direct shares.",
+                "Added repeated booking and application entry points so motivated visitors never had to hunt for the next step.",
+                "Framed the offer around outcomes, accountability, and coach fit instead of generic workout language."
+              ]
+            },
+            {
+              kicker: "The Result",
+              title: "A sharper digital presence built to convert interest into qualified coaching enquiries.",
+              body: [
+                "The finished structure gives the coach a website that feels more premium, more focused, and more ready for scale. Instead of sending prospects into a loose social-media journey, the site now works as a clearer conversion environment.",
+                "It is also ready for future proof layers such as testimonials, transformation screenshots, FAQs, and paid-traffic landing paths without rebuilding the core structure."
+              ],
+              bullets: [
+                "Premium positioning for the coaching offer",
+                "Clearer consultation and application path",
+                "Stronger trust stack through coach presence, offer framing, and proof sections",
+                "Mobile-first browsing flow built for social traffic",
+                "Structure ready for testimonials, FAQs, and future offer expansion"
+              ]
+            }
+          ],
+          deliverables: [
+            "Positioning-led homepage structure",
+            "Offer and coaching-program architecture",
+            "Transformation and trust-section framework",
+            "Mobile-first CTA and booking flow",
+            "Objection-handling FAQ sequence",
+            "Launch-ready web copy structure"
+          ],
+          quote:
+            "For a fitness coach, the website should not just look intense. It should make the offer, the trust, and the next step feel obvious within seconds."
+        },
+        {
+          slug: "youtube-demand-engine",
+          index: "05",
           category: "content",
           categoryLabel: "Content",
           title: "YouTube Demand Engine",

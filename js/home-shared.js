@@ -634,8 +634,16 @@
 
             const detachTriggers = () => {
                 window.removeEventListener('pointerdown', onIntent);
+                window.removeEventListener('touchstart', onIntent);
                 window.removeEventListener('keydown', onIntent);
                 window.removeEventListener('scroll', onIntent);
+                window.removeEventListener('load', onWindowLoad);
+            };
+
+            const queueLoad = (delay = 0) => {
+                if (hasLoadedContactButton) return;
+                if (idleTimer) window.clearTimeout(idleTimer);
+                idleTimer = window.setTimeout(loadContactButton, delay);
             };
 
             const loadContactButton = () => {
@@ -654,18 +662,25 @@
             };
 
             const onIntent = () => {
-                if (idleTimer) {
-                    window.clearTimeout(idleTimer);
-                    idleTimer = 0;
-                }
-                loadContactButton();
+                queueLoad(0);
+            };
+
+            const onWindowLoad = () => {
+                queueLoad(900);
             };
 
             window.addEventListener('pointerdown', onIntent, { once: true, passive: true });
+            window.addEventListener('touchstart', onIntent, { once: true, passive: true });
             window.addEventListener('keydown', onIntent, { once: true });
             window.addEventListener('scroll', onIntent, { once: true, passive: true });
 
-            idleTimer = window.setTimeout(loadContactButton, 5500);
+            if (document.readyState === 'complete') {
+                onWindowLoad();
+            } else {
+                window.addEventListener('load', onWindowLoad, { once: true });
+            }
+
+            queueLoad(2800);
         })();
 
         // --- HERO FALLBACK ---

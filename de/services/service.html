@@ -1271,6 +1271,18 @@
       .hero.youtube-hero .cta-row { max-width: 100%; }
     }
 
+    @media (max-width: 768px) {
+      .footer-big-wrap { overflow: visible; }
+      .footer-big {
+        font-size: clamp(3rem, 12vw, 6.2rem);
+        line-height: 0.9;
+        white-space: normal;
+        max-width: 7.4ch;
+        margin-inline: auto;
+        text-wrap: balance;
+      }
+    }
+
     @media (max-width: 620px) {
       .shell { width: min(1140px, calc(100% - 1.2rem)); }
       .shell { margin-top: 106px; }
