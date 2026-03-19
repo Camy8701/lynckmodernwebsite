@@ -340,6 +340,7 @@ export default {
           image: "/assets/case-study-fitness-coach-01.png",
           imageAlt: "Fitness-Coach mit Kurzhantel in einem dunkel ausgeleuchteten Gym",
           imageMode: "contain",
+          detailImageFrame: "portrait",
           chips: ["Webdesign", "Mobile UX", "Funnels", "Fitness Brand"],
           cardFocus: "Premium-Positionierung + klarer Anfragepfad",
           cardMetrics: [
@@ -430,58 +431,109 @@ export default {
             "Bei einer Fitness-Coach Website reicht starke Optik nicht. Angebot, Vertrauen und naechster Schritt muessen in wenigen Sekunden klar werden."
         },
         {
-          slug: "youtube-demand-engine",
+          slug: "dosatronic-yoy-growth-lead-generation",
           index: "05",
-          category: "content",
-          categoryLabel: "Inhalte",
-          title: "YouTube-Nachfragesystem",
-          subtitle: "Langformat-Sichtbarkeit mit Suchlogik, starken Einstiegen und klareren Zielgruppensignalen",
+          category: "performance",
+          categoryLabel: "Performance",
+          title: "DOSATRONIC",
+          subtitle: "Industrielle Dosiersysteme | YoY-Wachstum und stabile Lead-Generierung durch eine sauberere Google-Ads-Struktur",
           overview:
-            "Ein strukturiertes YouTube-Wachstumssystem, das Expertise in Sichtbarkeit, qualifizierte Nachfrage und bessere Signale für spätere Retargeting-Schritte übersetzt.",
-          image: "/assets/youtube-growth-image-1.webp",
-          imageAlt: "Visual für YouTube-Wachstumsstrategie",
-          chips: ["YouTube", "Inhaltsstrategie", "Zielgruppensignale"],
+            "Wie wir ein schwer messbares industrielles Google-Ads-Konto in ein strukturiertes B2B-Leadgenerierungssystem mit klarerer Funnel-Sicht, niedrigerem CPA und stabilerem Zufluss qualifizierter Leads verwandelt haben.",
+          image: "/assets/case-study-dosatronic-01.jpg",
+          imageAlt: "Industrielle Abfuellanlage mit Dosiertechnik und Wasserflaschen in der Produktion",
+          chips: ["Google Ads", "B2B-Leadgenerierung", "Tracking", "Industrie"],
+          cardFocus: "YoY-Wachstum + stabiler qualifizierter Leadfluss",
+          cardMetrics: [
+            { value: "+45%", label: "Conversions" },
+            { value: "-52%", label: "CPA" },
+            { value: "35+", label: "Abgeschlossene Leads / Monat" }
+          ],
+          heroMetrics: [
+            { value: "+45%", label: "Conversions" },
+            { value: "-52%", label: "CPA" },
+            { value: "35+", label: "Abgeschlossene Leads / Monat" }
+          ],
           snapshot: [
-            { label: "Kanal", value: "YouTube" },
-            { label: "Umfang", value: "Titel, Thumbnails + Distribution" },
-            { label: "Priorität", value: "Qualifizierte Aufmerksamkeit" }
+            { label: "Kunde", value: "DOSATRONIC" },
+            { label: "Branche", value: "Industrielle Dosiersysteme" },
+            { label: "Markt", value: "B2B-Kaeufer mit langen Entscheidungszyklen" },
+            { label: "Kanalmix", value: "Google Ads Search, Performance Max, Display-Retargeting" },
+            { label: "Prioritaet", value: "Stabile qualifizierte Lead-Generierung bei niedrigerem CPA" }
+          ],
+          sidebarNote:
+            "Diese Fallstudie basiert auf der Year-over-Year-Kontoperformance, abgeschlossenen Lead-Daten und der Kampagnenstruktur, die fuer komplexe industrielle Kaufprozesse aufgebaut wurde.",
+          quoteSource: "Year-over-Year-Auswertung aus Google Ads und Lead-Generierung",
+          gallery: [
+            {
+              src: "/assets/case-study-dosatronic-02.jpg",
+              alt: "Schwimmbahnen als Beispiel fuer Anwendungen von Dosiersystemen in der Wasseraufbereitung"
+            },
+            {
+              src: "/assets/case-study-dosatronic-03.jpg",
+              alt: "Landwirtschaftliches Spruehsystem auf dem Feld als Beispiel fuer Dosieranwendungen in der Agrarwirtschaft"
+            },
+            {
+              src: "/assets/case-study-dosatronic-04.jpg",
+              alt: "Automatische Waschanlage als Beispiel fuer Dosieranwendungen im Fahrzeugwaschbereich"
+            }
           ],
           sections: [
             {
-              kicker: "Ausgangslage",
-              title: "Inhalte waren da, aber noch kein echter Wachstumshebel.",
+              kicker: "Die Herausforderung",
+              title: "Ein technisches B2B-Angebot, lange Kaufzyklen und zu wenig Sicht auf den Funnel.",
               body: [
-                "Die Marke hatte das Know-how für relevante Inhalte, aber Sichtbarkeit, Video-Verpackung und Zielgruppenpfade waren zu inkonsistent, um daraus nachhaltige Dynamik entstehen zu lassen.",
-                "Deshalb haben wir YouTube als System behandelt: Positionierung, Einstiege, Struktur, Veroeffentlichungsrhythmus und nachgelagerter Wert fuer die weiteren Kaufphasen."
-              ]
-            },
-            {
-              kicker: "Was wir aufgebaut haben",
-              title: "Ein klarerer Weg von Inhalten zu Nachfrage.",
+                "DOSATRONIC verkauft industrielle Dosiersysteme in einem Umfeld, in dem der Produktwert fuer technische Teams klar ist, fuer breitere Buying Groups aber nicht sofort greifbar wird. Dadurch war es schwieriger, den Nutzen ueber Anzeigen und Landingpages sauber zu kommunizieren.",
+                "Gleichzeitig war das Konto nur unvollstaendig messbar und nicht sauber nach Produktkategorie oder Kaufabsicht strukturiert. Dadurch fehlte Sichtbarkeit, und Budgets konnten nicht effizient verteilt werden."
+              ],
               bullets: [
-                "Die Positionierung jeder Video-Säule wurde enger an konkrete Zielgruppenabsicht angepasst.",
-                "Titel, Thumbnail-Logik und Hooks wurden für bessere Auffindbarkeit und Watchtime geschärft.",
-                "Die Veröffentlichung wurde entlang wiederholbarer Themen statt isolierter Uploads strukturiert.",
-                "Zielgruppensignale aus den Inhalten fließen gezielter in spätere Anzeigen- und Remarketing-Entscheidungen ein."
+                "Komplexe technische Produkte liessen sich fuer nicht-technische Einkaeufer ueber Standard-Anzeigen nur schwer greifbar machen.",
+                "Lange B2B-Sales-Cycles mit mehreren Stakeholdern fuehrten zu langsameren Entscheidungen und verspaeteten Conversions.",
+                "Wichtige Aktionen entlang des Funnels wurden nicht sauber getrackt, wodurch unklar blieb, was qualifizierte Leads wirklich ausloest.",
+                "Die Kampagnen waren weder nach Produktkategorie noch nach Suchintention sauber segmentiert, was Optimierung und Budgetverteilung ineffizient machte."
               ]
             },
             {
-              kicker: "Warum das wichtig ist",
-              title: "Inhalte werden wertvoller, wenn sie die naechsten Kaufphasen mitsteuern.",
+              kicker: "Der Ansatz",
+              title: "Wir haben das Konto um Full-Funnel-Tracking, klare Kampagnenstruktur und staerkere Intent-Signale neu aufgebaut.",
               body: [
-                "Ein stärkeres YouTube-System erzeugt nicht nur Views. Es schafft besseres Zielgruppenverständnis, wärmere Remarketing-Pools und eine tiefere Vertrauensebene für die Marke.",
-                "Diese Fallstudie ist bereit für finale Watchtime-Daten, Titel-Thumbnail-Beispiele und die verifizierte Wachstumsgeschichte."
+                "Der erste Hebel war Messbarkeit. Sobald der komplette Funnel sichtbar war, konnte die Kampagnenstruktur auf echte Kaufabsicht statt auf diffuse Traffic-Muster ausgerichtet werden."
+              ],
+              bullets: [
+                "Full-Funnel-Conversion-Tracking implementiert, von Engagement-Signalen wie Verweildauer bis zu Klicks auf Kontakt-Elemente und abgeschickten Lead-Formularen.",
+                "Search-Kampagnen nach Produktkategorien segmentiert und Performance Max fuer breitere Reichweite sowie Keyword-Discovery genutzt.",
+                "Display-Retargeting ergaenzt, um waehrend der langen B2B-Entscheidungsphase praesent zu bleiben.",
+                "Anzeigentexte neu geschrieben, damit komplexe industrielle Produkte zugaenglicher wirken, ohne an fachlicher Glaubwuerdigkeit zu verlieren.",
+                "Quality Score laufend verbessert, Suchbegriffe verfeinert und Kampagnen staerker an Queries mit echter Kaufabsicht ausgerichtet."
+              ]
+            },
+            {
+              kicker: "Das Ergebnis",
+              title: "Staerkere Year-over-Year-Performance mit einer deutlich stabileren Pipeline qualifizierter B2B-Leads.",
+              body: [
+                "Mit klarerem Tracking, besserer Segmentierung und verstaendlicherer Kommunikation wurde aus einem nur teilweise sichtbaren Konto eine skalierbare Lead-Generierungsstruktur.",
+                "Das Ergebnis waren nicht nur guenstigere Conversions, sondern ein verlaesslicherer Strom abgeschlossener Leads und ein Setup, das auch mit hoeheren Budgets effizient blieb."
+              ],
+              bullets: [
+                "+45% mehr Conversions im Jahresvergleich",
+                "-52% CPA",
+                "35+ abgeschlossene Leads pro Monat",
+                "Stabile Pipeline qualifizierter B2B-Anfragen aus relevanten Branchen",
+                "Regionale Budgets nach Produktnachfrage statt nach Gleichverteilung gesteuert",
+                "Kampagnenstruktur konnte mit Budgetsteigerungen von rund 10K pro Jahr mitwachsen, ohne Performance zu verlieren",
+                "Hoeherer Anteil qualifizierter Leads durch bessere Ausrichtung und sauberere Kampagnenstruktur"
               ]
             }
           ],
           deliverables: [
-            "Kanal-Positionierung",
-            "Titel-Thumbnail-System",
-            "Publishing-Rhythmus",
-            "Feedback-Loop für Zielgruppen-Signale"
+            "Full-Funnel-Google-Ads-Tracking",
+            "Search-Segmentierung nach Produktkategorie und Suchintention",
+            "Performance-Max-Struktur fuer breitere Reichweite und Keyword-Discovery",
+            "Display-Retargeting fuer lange B2B-Sales-Cycles",
+            "Neu geschriebene Anzeigentexte fuer technische Produkte",
+            "Laufende Quality-Score- und Search-Term-Optimierung"
           ],
           quote:
-            "Es geht nicht nur um mehr Inhalte. Es geht um ein System, das dem Unternehmen ständig zeigt, wo Nachfrage entsteht."
+            "Sobald Tracking, Kampagnenstruktur und Messaging sauber ausgerichtet waren, hatte DOSATRONIC ein Lead-Generierungssystem, das deutlich stabiler skalieren und mehr qualifizierte B2B-Ergebnisse liefern konnte."
         }
       ]
     }

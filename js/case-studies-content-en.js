@@ -340,6 +340,7 @@ export default {
           image: "/assets/case-study-fitness-coach-01.png",
           imageAlt: "Fitness coach holding a dumbbell in a dimly lit gym",
           imageMode: "contain",
+          detailImageFrame: "portrait",
           chips: ["Web Design", "Mobile UX", "Funnels", "Fitness Brand"],
           cardFocus: "Premium positioning + direct consult path",
           cardMetrics: [
@@ -430,58 +431,109 @@ export default {
             "For a fitness coach, the website should not just look intense. It should make the offer, the trust, and the next step feel obvious within seconds."
         },
         {
-          slug: "youtube-demand-engine",
+          slug: "dosatronic-yoy-growth-lead-generation",
           index: "05",
-          category: "content",
-          categoryLabel: "Content",
-          title: "YouTube Demand Engine",
-          subtitle: "Long-form visibility supported by search, hooks, and audience signals",
+          category: "performance",
+          categoryLabel: "Performance",
+          title: "DOSATRONIC",
+          subtitle: "Industrial dosing systems | YoY growth and stable lead generation through a cleaner Google Ads structure",
           overview:
-            "A structured YouTube growth system designed to turn authority content into discoverability, warmer demand, and stronger retargeting inputs for the wider funnel.",
-          image: "/assets/youtube-growth-image-1.webp",
-          imageAlt: "YouTube growth strategy visual",
-          chips: ["YouTube", "Content Strategy", "Audience Signals"],
+            "How we turned a hard-to-track industrial Google Ads account into a structured B2B lead generation system with clearer funnel visibility, lower CPA, and a steadier flow of qualified leads.",
+          image: "/assets/case-study-dosatronic-01.jpg",
+          imageAlt: "Industrial bottling line with dosing system machinery and water bottles moving through production",
+          chips: ["Google Ads", "B2B Lead Gen", "Tracking", "Industrial"],
+          cardFocus: "YoY growth + stable qualified lead flow",
+          cardMetrics: [
+            { value: "+45%", label: "Conversions" },
+            { value: "-52%", label: "CPA" },
+            { value: "35+", label: "Closed Leads / Month" }
+          ],
+          heroMetrics: [
+            { value: "+45%", label: "Conversions" },
+            { value: "-52%", label: "CPA" },
+            { value: "35+", label: "Closed Leads / Month" }
+          ],
           snapshot: [
-            { label: "Channel", value: "YouTube" },
-            { label: "Scope", value: "Packaging + distribution" },
-            { label: "Priority", value: "Qualified attention" }
+            { label: "Client", value: "DOSATRONIC" },
+            { label: "Sector", value: "Industrial dosing systems" },
+            { label: "Market", value: "B2B buyers with long decision cycles" },
+            { label: "Channel mix", value: "Google Ads Search, Performance Max, Display remarketing" },
+            { label: "Priority", value: "Stable qualified lead generation with lower CPA" }
+          ],
+          sidebarNote:
+            "This case study is based on year-over-year account performance, closed-lead reporting, and the campaign structure built to support complex industrial buying journeys.",
+          quoteSource: "Year-over-year Google Ads and lead generation performance summary",
+          gallery: [
+            {
+              src: "/assets/case-study-dosatronic-02.jpg",
+              alt: "Swimming pool lanes representing water treatment applications for industrial dosing systems"
+            },
+            {
+              src: "/assets/case-study-dosatronic-03.jpg",
+              alt: "Agricultural spraying equipment in the field representing dosing applications in agriculture"
+            },
+            {
+              src: "/assets/case-study-dosatronic-04.jpg",
+              alt: "Automated car wash tunnel representing vehicle wash dosing applications"
+            }
           ],
           sections: [
             {
-              kicker: "Situation",
-              title: "Content existed, but it was not yet behaving like a growth asset.",
+              kicker: "The Challenge",
+              title: "A technical B2B offer, long buying cycles, and weak funnel visibility.",
               body: [
-                "The brand had the expertise to create useful content, but discoverability, packaging, and audience pathways were too inconsistent to turn that effort into compounding momentum.",
-                "We approached YouTube as a system: positioning, hooks, structure, publishing rhythm, and downstream audience value."
-              ]
-            },
-            {
-              kicker: "What We Built",
-              title: "A more deliberate path from content to demand.",
+                "DOSATRONIC sells industrial dosing systems across use cases where the product value is obvious to technical teams, but not immediately clear to broader buying groups. That made it harder to communicate benefits through ads and landing pages.",
+                "At the same time, the account had incomplete tracking and no clear segmentation by product category or buying intent, which limited visibility and made budget allocation less efficient."
+              ],
               bullets: [
-                "Tightened positioning so each video speaks to clearer audience intent.",
-                "Improved title, thumbnail, and hook logic to support discoverability and watch-through.",
-                "Structured publishing around repeatable themes instead of isolated uploads.",
-                "Used audience signals from content performance to strengthen future paid and remarketing decisions."
+                "Complex technical products were harder to explain to non-technical buyers through standard ad messaging.",
+                "Long B2B sales cycles meant multiple stakeholders, slower decisions, and delayed conversions.",
+                "Key actions across the funnel were not being tracked properly, so qualified lead sources were unclear.",
+                "Campaigns were not segmented by product category or intent, which made optimisation and budget allocation inefficient."
               ]
             },
             {
-              kicker: "Why It Matters",
-              title: "Content becomes more valuable when it informs the rest of the funnel.",
+              kicker: "The Approach",
+              title: "We rebuilt the account around full-funnel tracking, cleaner campaign structure, and clearer intent signals.",
               body: [
-                "A stronger YouTube engine creates more than views. It creates better audience understanding, warmer remarketing pools, and a deeper trust layer around the brand.",
-                "This case page is ready for final watch-time data, packaging examples, and the verified growth story."
+                "The first step was measurement. Once the full funnel was visible, the campaign structure could be aligned around real buying intent instead of loose traffic patterns."
+              ],
+              bullets: [
+                "Implemented full-funnel conversion tracking, from engagement signals like time on site to contact-click actions and submitted lead forms.",
+                "Segmented search campaigns by product category while using Performance Max for broader reach and keyword discovery.",
+                "Added display remarketing to stay visible throughout the longer B2B consideration cycle.",
+                "Rewrote ad copy so complex industrial products felt more approachable while still staying informative and credible.",
+                "Continuously improved quality score, refined search terms, and aligned campaigns more closely with queries that signal real buying intent."
+              ]
+            },
+            {
+              kicker: "The Result",
+              title: "Stronger year-over-year performance with a more stable pipeline of qualified B2B leads.",
+              body: [
+                "With clearer tracking, better segmentation, and more informative messaging, the account moved from partial visibility to a scalable lead generation structure.",
+                "The result was not just cheaper conversions, but a more reliable stream of closed leads and a campaign setup that could absorb higher budgets without losing efficiency."
+              ],
+              bullets: [
+                "+45% more conversions year over year",
+                "-52% CPA",
+                "35+ closed leads per month",
+                "Stable pipeline of qualified B2B enquiries from relevant industries",
+                "Regional budgets allocated based on product demand instead of being spread evenly",
+                "Campaign structure scaled with budgets increasing by around 10K per year while maintaining performance",
+                "Higher share of qualified leads through stronger targeting and cleaner campaign structure"
               ]
             }
           ],
           deliverables: [
-            "Channel positioning",
-            "Packaging system",
-            "Publishing rhythm",
-            "Audience signal feedback loop"
+            "Full-funnel Google Ads tracking",
+            "Search segmentation by product category and intent",
+            "Performance Max structure for broader reach and keyword discovery",
+            "Display remarketing for long B2B sales cycles",
+            "Ad copy rewrite for technical products",
+            "Ongoing quality score and search-term optimisation"
           ],
           quote:
-            "The goal is not just content output. The goal is a content system that keeps teaching the business where demand is coming from."
+            "Once tracking, campaign segmentation, and messaging were aligned, DOSATRONIC had a lead generation system that could scale more cleanly and produce far more stable B2B results."
         }
       ]
     }

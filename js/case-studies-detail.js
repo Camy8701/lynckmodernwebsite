@@ -354,7 +354,7 @@ export const initCaseStudiesDetail = ({ lang, content }) => {
       </div>
     `
     : `
-      <div class="case-detail-media${study.imageMode === "contain" ? " is-framed" : ""}">
+      <div class="case-detail-media${study.imageMode === "contain" ? " is-framed" : ""}${study.detailImageFrame === "portrait" ? " is-portrait-frame" : ""}">
         <img loading="eager" decoding="async" src="${study.image}" alt="${study.imageAlt}">
       </div>
     `;
