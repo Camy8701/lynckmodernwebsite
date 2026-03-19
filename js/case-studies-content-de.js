@@ -337,8 +337,9 @@ export default {
           subtitle: "Personal-Training-Brand | Conversion-starke Coaching-Seite fuer mobile Anfragen",
           overview:
             "Wie wir eine Fitness-Coach Website so strukturiert haben, dass Profil-Traffic, Empfehlungen und kalte Besucher auf ein klareres Angebot, mehr Vertrauen und einen direkten Weg zur Coaching-Anfrage treffen.",
-          image: "/assets/case-study-fitness-coach-cover.png",
-          imageAlt: "Sportlerin im Fokus mit unscharfem Trainingspartner im Hintergrund",
+          image: "/assets/case-study-fitness-coach-01.png",
+          imageAlt: "Fitness-Coach mit Kurzhantel in einem dunkel ausgeleuchteten Gym",
+          imageMode: "contain",
           chips: ["Webdesign", "Mobile UX", "Funnels", "Fitness Brand"],
           cardFocus: "Premium-Positionierung + klarer Anfragepfad",
           cardMetrics: [
@@ -363,9 +364,8 @@ export default {
           quoteSource: "Fitness-Coaching-Websystem vorbereitet fuer finale Launch-Assets",
           gallery: [
             {
-              src: "/assets/case-study-fitness-coach-01.png",
-              mode: "contain",
-              alt: "Fitness-Coach mit Kurzhantel in einem dunkel ausgeleuchteten Gym"
+              src: "/assets/case-study-fitness-coach-cover.png",
+              alt: "Sportlerin im Fokus mit unscharfem Trainingspartner im Hintergrund"
             },
             {
               src: "/assets/case-study-fitness-coach-02.png",

@@ -337,8 +337,9 @@ export default {
           subtitle: "Personal training brand | A conversion-focused coaching site built for mobile-first enquiries",
           overview:
             "How we structured a fitness coach website so profile traffic, referrals, and cold visitors land on a clearer offer, stronger trust cues, and a direct path into coaching calls.",
-          image: "/assets/case-study-fitness-coach-cover.png",
-          imageAlt: "Sweat-covered athlete in focus with a training partner blurred in the background",
+          image: "/assets/case-study-fitness-coach-01.png",
+          imageAlt: "Fitness coach holding a dumbbell in a dimly lit gym",
+          imageMode: "contain",
           chips: ["Web Design", "Mobile UX", "Funnels", "Fitness Brand"],
           cardFocus: "Premium positioning + direct consult path",
           cardMetrics: [
@@ -363,9 +364,8 @@ export default {
           quoteSource: "Fitness coaching web system prepared for final launch assets",
           gallery: [
             {
-              src: "/assets/case-study-fitness-coach-01.png",
-              mode: "contain",
-              alt: "Fitness coach holding a dumbbell in a dimly lit gym"
+              src: "/assets/case-study-fitness-coach-cover.png",
+              alt: "Sweat-covered athlete in focus with a training partner blurred in the background"
             },
             {
               src: "/assets/case-study-fitness-coach-02.png",
