@@ -365,7 +365,7 @@ export const initCaseStudiesDetail = ({ lang, content }) => {
 
   const gallery = Array.isArray(galleryImages) && galleryImages.length
     ? `
-      <section class="case-gallery${useGalleryStackHero ? " case-gallery--feature" : ""}">
+      <section class="case-gallery${useGalleryStackHero ? " case-gallery--feature" : ""}${study.galleryLayout === "landscape" ? " case-gallery--landscape" : ""}">
         ${galleryImages
           .map(
             (image) => `

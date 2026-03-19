@@ -463,6 +463,7 @@ export default {
           sidebarNote:
             "Diese Fallstudie basiert auf der Year-over-Year-Kontoperformance, abgeschlossenen Lead-Daten und der Kampagnenstruktur, die fuer komplexe industrielle Kaufprozesse aufgebaut wurde.",
           quoteSource: "Year-over-Year-Auswertung aus Google Ads und Lead-Generierung",
+          galleryLayout: "landscape",
           gallery: [
             {
               src: "/assets/case-study-dosatronic-02.jpg",

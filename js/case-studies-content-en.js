@@ -463,6 +463,7 @@ export default {
           sidebarNote:
             "This case study is based on year-over-year account performance, closed-lead reporting, and the campaign structure built to support complex industrial buying journeys.",
           quoteSource: "Year-over-year Google Ads and lead generation performance summary",
+          galleryLayout: "landscape",
           gallery: [
             {
               src: "/assets/case-study-dosatronic-02.jpg",
