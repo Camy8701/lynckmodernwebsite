@@ -4,14 +4,18 @@ import {
   renderMetrics,
 } from "./case-studies-common.js";
 
-const renderOverviewBadges = (badges = []) =>
-  badges
+const renderFilters = (filters = [], activeFilter) =>
+  filters
     .map(
-      (badge) => `
-        <div class="sample-overview-badge">
-          <span>${badge.eyebrow}</span>
-          <strong>${badge.value}</strong>
-        </div>
+      (filter) => `
+        <button
+          type="button"
+          class="sample-filter-card${filter.id === activeFilter ? " is-active" : ""}"
+          data-sample-filter="${filter.id}"
+          aria-pressed="${String(filter.id === activeFilter)}"
+        >
+          <span>${filter.label}</span>
+        </button>
       `
     )
     .join("");
@@ -61,23 +65,48 @@ const setText = (selector, value) => {
 };
 
 export const initWebsiteSamplesHub = ({ lang, content }) => {
-  setText("[data-samples-kicker]", content.heroKicker);
   setText("[data-samples-title]", content.heroTitle);
   setText("[data-samples-title-accent]", content.heroTitleAccent);
   setText("[data-samples-intro]", content.heroIntro);
-  setText("[data-samples-note-count]", String(content.samples.length).padStart(2, "0"));
-  setText("[data-samples-note-title]", content.heroNoteTitle);
-  setText("[data-samples-note-copy]", content.heroNoteCopy);
-  setText("[data-samples-overview-label]", content.overviewLabel);
-  setText("[data-samples-overview-copy]", content.overviewCopy);
-
-  const badgesRoot = document.querySelector("[data-samples-overview-badges]");
-  if (badgesRoot) badgesRoot.innerHTML = renderOverviewBadges(content.overviewBadges);
 
   const gridRoot = document.querySelector("[data-sample-grid]");
-  if (gridRoot) {
-    gridRoot.innerHTML = content.samples.map((sample) => renderCard(lang, content, sample)).join("");
-  }
+  const filtersRoot = document.querySelector("[data-samples-filters]");
+  if (!gridRoot || !filtersRoot) return;
+
+  let activeFilter = "all";
+
+  const updateGrid = () => {
+    const samples =
+      activeFilter === "all"
+        ? content.samples
+        : content.samples.filter((sample) => sample.category === activeFilter);
+
+    if (!samples.length) {
+      gridRoot.innerHTML = `
+        <div class="case-empty">
+          <strong>${content.emptyStateTitle}</strong>
+          <p>${content.emptyStateCopy}</p>
+        </div>
+      `;
+      return;
+    }
+
+    gridRoot.innerHTML = samples.map((sample) => renderCard(lang, content, sample)).join("");
+  };
+
+  const updateFilters = () => {
+    filtersRoot.innerHTML = renderFilters(content.filters, activeFilter);
+    filtersRoot.querySelectorAll("[data-sample-filter]").forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilter = button.getAttribute("data-sample-filter") || "all";
+        updateFilters();
+        updateGrid();
+      });
+    });
+  };
+
+  updateFilters();
+  updateGrid();
 
   applySharedCopy(content);
 };

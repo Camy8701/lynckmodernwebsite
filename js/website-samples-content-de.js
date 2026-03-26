@@ -1,23 +1,20 @@
 export default {
   pageTitle: "Website-Beispiele | LYNCK Studio",
   pageDescription:
-    "Live Website-Beispiele von LYNCK Studio mit Richtungen fuer Premium-Service-Marken, Storefronts und conversion-starke Websysteme.",
-  heroKicker: "Live Website-Referenzen",
+    "Live Website-Beispiele von LYNCK Studio mit Richtungen fuer Healthcare-, Coaching-, Storefront- und Studio-Websites.",
   heroTitle: "Website",
   heroTitleAccent: "Beispiele",
   heroIntro:
-    "Eine kuratierte Seite mit live verfuegbaren Website-Referenzen, die du direkt oeffnen, pruefen und als Ausgangspunkt fuer dein eigenes Projekt nutzen kannst.",
-  heroNoteTitle: "Reale Homepage-Visuals, reale Live-Links.",
-  heroNoteCopy:
-    "Jede Karte verbindet einen Hero-Screenshot mit einer schnellen Einordnung, damit du die Richtung in wenigen Sekunden bewerten kannst.",
-  overviewLabel: "Referenzen durchsuchen",
-  overviewCopy:
-    "Starte mit einer Premium-Service-Website und einem markanten digitalen Storefront. Weitere Beispiele lassen sich spaeter in dieselbe Bibliothek integrieren.",
-  overviewBadges: [
-    { eyebrow: "Live", value: "2 Website-Beispiele" },
-    { eyebrow: "Format", value: "Karten mit Hero-Screenshot" },
-    { eyebrow: "Aktionen", value: "Website ansehen + Kontakt CTA" },
+    "Eine kuratierte Seite mit Website-Referenzen, die du direkt oeffnen, pruefen und als Ausgangspunkt fuer dein eigenes Projekt nutzen kannst.",
+  filters: [
+    { id: "all", label: "Alle" },
+    { id: "healthcare", label: "Healthcare" },
+    { id: "fitness", label: "Fitness" },
+    { id: "ecommerce", label: "E-Commerce" },
+    { id: "creative", label: "Kreativ" },
   ],
+  emptyStateTitle: "Noch keine Websites in dieser Kategorie",
+  emptyStateCopy: "Waehle eine andere Kategorie, um die restlichen Beispiele zu sehen.",
   cardFocusLabel: "Besonders passend fuer",
   visitLabel: "Website ansehen",
   contactLabel: "Kontakt aufnehmen",
@@ -28,6 +25,7 @@ export default {
   ctaSecondary: "Leistungen ansehen",
   samples: [
     {
+      category: "healthcare",
       categoryLabel: "Service-Website",
       title: "LËTZ Physio",
       subtitle: "Website fuer eine Physiotherapie-Praxis",
@@ -45,6 +43,61 @@ export default {
       url: "https://leitzphysiolux.netlify.app/",
     },
     {
+      category: "healthcare",
+      categoryLabel: "Service-Website",
+      title: "Lucas Bey",
+      subtitle: "Website fuer eine Osteopathie-Praxis",
+      overview:
+        "Eine ruhige Healthcare-Website mit Serif-Typografie, klarer Servicenavigation und einem markanten Hero, der das medizinische Angebot modern und zugaenglich wirken laesst.",
+      image: "/assets/website-sample-mrlucasbey.png",
+      imageAlt: "Homepage-Vorschau von Cabinet d'Osteopathie Mr Lucas Bey",
+      chips: ["Medical Practice", "Editorial Serif", "Trust-UX"],
+      bestFor: "Osteopathen, Privatkliniken und Healthcare-Marken mit Vertrauensfokus",
+      cardMetrics: [
+        { value: "Service", label: "Typ" },
+        { value: "FR / LU", label: "Sprache" },
+        { value: "Buchungen", label: "Ziel" },
+      ],
+      url: "https://mrlucasbey.netlify.app/",
+    },
+    {
+      category: "healthcare",
+      categoryLabel: "Service-Website",
+      title: "Yan Goergen & Chiara Arneodo",
+      subtitle: "Website fuer eine Physiotherapie-Klinik",
+      overview:
+        "Eine warme Klinik-Website mit softer Bildsprache, klaren Erklaerungen zu Behandlungen und lokalen Vertrauenssignalen rund um Kontakt und Terminbuchung.",
+      image: "/assets/website-sample-georgenkine.jpg",
+      imageAlt: "Hero-Bild von der Website von Yan Goergen und Chiara Arneodo",
+      chips: ["Klinik-Website", "Lokales Vertrauen", "Booking CTA"],
+      bestFor: "Physiotherapeuten, Wellness-Kliniken und terminbasierte Praxen",
+      cardMetrics: [
+        { value: "Service", label: "Typ" },
+        { value: "FR / LU", label: "Sprache" },
+        { value: "Termine", label: "Ziel" },
+      ],
+      url: "https://georgenkine.netlify.app/",
+    },
+    {
+      category: "fitness",
+      categoryLabel: "Coaching-Website",
+      title: "Bademba Training",
+      subtitle: "Website fuer Fitness-Coaching",
+      overview:
+        "Eine kontrastreiche Coaching-Website mit markanter Typografie, Social Proof und direkten Wegen in Programme, Resultate und konsultationsorientierte CTAs.",
+      image: "/assets/website-sample-badembatraining.png",
+      imageAlt: "Homepage-Vorschau von Bademba Training",
+      chips: ["Fitness Coaching", "Performance Brand", "Bold Hero"],
+      bestFor: "Personal Trainer, Coaching-Marken und performancegetriebene Angebote",
+      cardMetrics: [
+        { value: "Coaching", label: "Typ" },
+        { value: "Fitness", label: "Branche" },
+        { value: "Consults", label: "Ziel" },
+      ],
+      url: "https://badembatraining.netlify.app/",
+    },
+    {
+      category: "ecommerce",
       categoryLabel: "Digitaler Storefront",
       title: "LYNCK Digital",
       subtitle: "Storefront fuer digitale Produkte",
@@ -60,6 +113,24 @@ export default {
         { value: "Sales", label: "Ziel" },
       ],
       url: "https://lynckdigital.store/",
+    },
+    {
+      category: "creative",
+      categoryLabel: "Agency-Website",
+      title: "Lofty Lab",
+      subtitle: "Website fuer ein Kreativstudio",
+      overview:
+        "Eine verspielte Studio-Landingpage mit uebergrosser Typografie, soften Farbverlaeufen und einem direkten Contact-First-Hero mit bewusst experimentellem Charakter.",
+      image: "/assets/website-sample-loftylabrep.png",
+      imageAlt: "Homepage-Vorschau von Lofty Lab",
+      chips: ["Creative Studio", "Playful Hero", "Contact CTA"],
+      bestFor: "Kreativagenturen, Designstudios und portfoliogetriebene Service-Marken",
+      cardMetrics: [
+        { value: "Studio", label: "Typ" },
+        { value: "Portfolio", label: "Modell" },
+        { value: "Leads", label: "Ziel" },
+      ],
+      url: "https://loftylabrep.vercel.app/",
     },
   ],
 };
