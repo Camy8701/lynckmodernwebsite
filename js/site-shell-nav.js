@@ -14,6 +14,10 @@
       en: "/apply/",
       de: "/de/apply/",
     },
+    samples: {
+      en: "/website-samples/",
+      de: "/de/website-samples/",
+    },
   };
 
   const getLang = () => {

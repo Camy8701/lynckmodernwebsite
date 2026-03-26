@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/js/url-attribution-cleanup.js"></script>
   <script src="/js/cookie-consent.js" defer data-ga-id="G-GRWYGYSSMY" data-gtm-id="GTM-N5757GT5"></script>
-  <title>Case Studies | LYNCK Studio</title>
-  <meta name="description" content="A closer look at how LYNCK Studio structures growth across search, paid social, content systems, and conversion-focused web experiences.">
+  <title>Website Samples | LYNCK Studio</title>
+  <meta name="description" content="Live website samples from LYNCK Studio, showing premium service-brand, storefront, and conversion-first website directions.">
   <link rel="icon" type="image/webp" href="/assets/lynck-logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +14,9 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/css/site-shell.css?v=1">
   <link rel="stylesheet" href="/css/case-studies.css?v=3">
+  <link rel="stylesheet" href="/css/website-samples.css?v=1">
 </head>
-<body class="case-studies-page case-studies-hub-page">
+<body class="case-studies-page case-studies-hub-page website-samples-page" data-shell-page="samples">
   <div class="noise-overlay"></div>
   <div class="case-bg-image"></div>
   <header class="lynck-header">
@@ -33,15 +34,15 @@
           <span class="lynck-mobile-menu-text">Menu</span>
         </button>
         <div class="nav-dropdown-menu lynck-mobile-menu-panel" role="menu">
-                    <div class="lynck-mobile-menu-group">
-                        <span class="lynck-mobile-menu-label">Navigation</span>
-                        <a href="/about.html" role="menuitem">About LYNCK</a>
-                        <a href="/case-studies/" role="menuitem">Case Studies</a>
-                        <a href="/website-samples/" role="menuitem">Samples</a>
-                        <a href="/blog/" role="menuitem">Blog</a>
-                    </div>
-                    <div class="lynck-mobile-menu-group">
-                        <span class="lynck-mobile-menu-label">Services</span>
+          <div class="lynck-mobile-menu-group">
+            <span class="lynck-mobile-menu-label">Navigation</span>
+            <a href="/about.html" role="menuitem">About LYNCK</a>
+            <a href="/case-studies/" role="menuitem">Case Studies</a>
+            <a href="/website-samples/" role="menuitem">Samples</a>
+            <a href="/blog/" role="menuitem">Blog</a>
+          </div>
+          <div class="lynck-mobile-menu-group">
+            <span class="lynck-mobile-menu-label">Services</span>
             <a href="/services/service.html?service=google-ads" role="menuitem">Google Ads &amp; Performance Marketing</a>
             <a href="/services/service.html?service=meta-ads" role="menuitem">Meta Ads &amp; Paid Social</a>
             <a href="/services/service.html?service=ai-content" role="menuitem">AI Content &amp; Creative Production</a>
@@ -133,19 +134,19 @@
     </div>
     <div class="case-cinematic-overlay"></div>
     <div class="case-cinematic-content">
-      <span class="case-cinematic-kicker">Selected Client Work</span>
-      <h1 class="case-cinematic-title">Case <span>Studies</span></h1>
+      <span class="case-cinematic-kicker" data-samples-kicker>Live Website References</span>
+      <h1 class="case-cinematic-title"><span class="sample-title-lead" data-samples-title>Website</span> <span data-samples-title-accent>Samples</span></h1>
       <div class="case-cinematic-intro">
-        <p>
-          Real growth systems, campaign structures, and web architecture distilled into clear project stories.
+        <p data-samples-intro>
+          A curated page of live website references you can open, review, and use as a starting point for your own build.
         </p>
       </div>
       <div class="case-cinematic-line" aria-hidden="true"></div>
       <div class="case-cinematic-note">
-        <span class="case-cinematic-mark">03</span>
+        <span class="case-cinematic-mark" data-samples-note-count>02</span>
         <div>
-          <strong>Strategy translated into visible structure.</strong>
-          <span>Each project page shows how media, creative, and conversion systems were built to work together.</span>
+          <strong data-samples-note-title>Real homepage visuals, real live links.</strong>
+          <span data-samples-note-copy>Each card pairs a hero screenshot with a quick positioning summary so you can evaluate the design direction in seconds.</span>
         </div>
       </div>
     </div>
@@ -153,23 +154,20 @@
 
   <main id="main-content" class="case-main">
     <section class="case-shell case-hub-overview">
-      <div class="case-hub-overview-panel">
+      <div class="case-hub-overview-panel sample-hub-overview-panel">
         <div class="case-hub-overview-copy">
-          <span class="case-overview-label">Browse The Systems</span>
-          <p>
-            A closer look at how we structure growth across search, paid social, content systems,
-            and conversion-focused web experiences.
+          <span class="case-overview-label" data-samples-overview-label>Browse the references</span>
+          <p data-samples-overview-copy>
+            Start with a premium service-brand site and a bold digital-products storefront. More samples can be added into the same library as the collection grows.
           </p>
         </div>
-        <div class="case-filter-bar">
-          <div class="case-filters" data-case-filters></div>
-        </div>
+        <div class="sample-overview-badges" data-samples-overview-badges></div>
       </div>
     </section>
 
     <section>
       <div class="case-shell">
-        <div class="case-grid" data-case-grid></div>
+        <div class="case-grid" data-sample-grid></div>
       </div>
     </section>
 
@@ -177,9 +175,9 @@
       <div class="case-cta">
         <div class="case-cta-inner">
           <div class="case-cta-copy">
-            <h2 data-case-cta-title>Want your growth system to look like this?</h2>
+            <h2 data-case-cta-title>Need a version tailored to your business?</h2>
             <p data-case-cta-copy>
-              We build the strategy, creative direction, tracking logic, and conversion architecture together, so the next case study is not luck. It is structure.
+              We can adapt the structure, visual direction, and conversion flow into a website system built around your offer, market, and lead path.
             </p>
           </div>
           <div class="case-cta-actions">
@@ -208,6 +206,7 @@
         <a href="/about.html">About LYNCK</a>
         <a href="/#our-services">Our Services</a>
         <a href="/case-studies/">Case Studies</a>
+        <a href="/website-samples/">Samples</a>
         <a href="/apply/">Contact Us</a>
       </div>
       <div class="footer-links-col">
@@ -242,6 +241,7 @@
     </div>
   </footer>
 
-  <script type="module" src="/js/case-studies-shared.js"></script>
+  <script src="/js/site-shell-nav.js" defer></script>
+  <script type="module" src="/js/website-samples-shared.js"></script>
 </body>
 </html>
