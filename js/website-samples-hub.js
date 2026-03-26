@@ -26,9 +26,15 @@ const renderCard = (lang, content, sample) => {
 
   return `
     <article class="case-card sample-card">
-      <div class="case-card-media sample-card-media">
+      <a
+        class="case-card-media sample-card-media sample-card-media-link"
+        href="${sample.url}"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="${content.visitLabel}: ${sample.title}"
+      >
         <img loading="lazy" decoding="async" src="${sample.image}" alt="${sample.imageAlt}">
-      </div>
+      </a>
       <div class="case-card-body sample-card-body">
         <div class="case-card-meta">
           <span class="case-card-category">${sample.categoryLabel}</span>
