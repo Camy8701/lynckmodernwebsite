@@ -26,6 +26,24 @@ export default {
   ctaSecondary: "Leistungen ansehen",
   samples: [
     {
+      category: "creative",
+      categoryLabel: "Editorial-Website",
+      title: "UTOPAI Blog",
+      subtitle: "AI-Editorial- und Insights-Website",
+      overview:
+        "Eine moderne AI-Editorial-Website mit praegnanter Typografie, klarer Artikelstruktur und einer produktartigen Huelle fuer Stories, Tools und Trendanalysen.",
+      image: "/assets/website-sample-utopai.png",
+      imageAlt: "Homepage-Vorschau der UTOPAI-Blog-Website",
+      chips: ["AI Editorial", "Content Hub", "Modern Publishing"],
+      bestFor: "AI-Marken, Editorial-Plattformen und contentgetriebene Produkte mit starkem Publishing-Fokus",
+      cardMetrics: [
+        { value: "Editorial", label: "Typ" },
+        { value: "AI", label: "Branche" },
+        { value: "Discovery", label: "Ziel" },
+      ],
+      url: "https://utopai-with-claude-new-new-o136.vercel.app/",
+    },
+    {
       category: "healthcare",
       categoryLabel: "Service-Website",
       title: "LËTZ Physio",
