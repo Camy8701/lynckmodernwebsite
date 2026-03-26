@@ -1,7 +1,7 @@
 export default {
   pageTitle: "Website Samples | LYNCK Studio",
   pageDescription:
-    "Live website samples from LYNCK Studio, showing healthcare, coaching, storefront, and creative-studio website directions.",
+    "Live website samples from LYNCK Studio, showing healthcare, fitness, storefront, portfolio, and lead-generation website directions.",
   heroTitle: "Website",
   heroTitleAccent: "Samples",
   heroIntro:
@@ -12,6 +12,7 @@ export default {
     { id: "fitness", label: "Fitness" },
     { id: "ecommerce", label: "E-Commerce" },
     { id: "creative", label: "Creative" },
+    { id: "leadgen", label: "Lead Gen" },
   ],
   emptyStateTitle: "No websites in this category yet",
   emptyStateCopy: "Choose another category to see the rest of the sample library.",
@@ -97,6 +98,24 @@ export default {
       url: "https://badembatraining.netlify.app/",
     },
     {
+      category: "fitness",
+      categoryLabel: "Fitness Membership Website",
+      title: "CoreActive Sports",
+      subtitle: "Boutique gym and membership website",
+      overview:
+        "A premium fitness site that mixes high-contrast photography, class-driven navigation, and membership-first calls to action for studios selling recurring access and personal training.",
+      image: "/assets/website-sample-coreactive.jpg",
+      imageAlt: "Hero image from the CoreActive Sports fitness website",
+      chips: ["Gym Brand", "Membership UX", "High-Contrast Hero"],
+      bestFor: "Gyms, boutique studios, and fitness brands selling memberships or PT",
+      cardMetrics: [
+        { value: "Membership", label: "Type" },
+        { value: "Fitness", label: "Sector" },
+        { value: "Sales", label: "Goal" },
+      ],
+      url: "https://coreactivedemo.vercel.app/index.html",
+    },
+    {
       category: "ecommerce",
       categoryLabel: "Digital Storefront",
       title: "LYNCK Digital",
@@ -131,6 +150,42 @@ export default {
         { value: "Leads", label: "Goal" },
       ],
       url: "https://loftylabrep.vercel.app/",
+    },
+    {
+      category: "creative",
+      categoryLabel: "Portfolio Website",
+      title: "Kodak Black",
+      subtitle: "Cinematic photography portfolio",
+      overview:
+        "A dark editorial portfolio with immersive imagery, minimal navigation, and a premium contact-led structure built to showcase personal style and commissioned work.",
+      image: "/assets/website-sample-noiri.webp",
+      imageAlt: "Gallery image from the Kodak Black photography website",
+      chips: ["Photography Portfolio", "Editorial Art Direction", "Dark Aesthetic"],
+      bestFor: "Photographers, directors, and creative portfolios that need a premium presentation",
+      cardMetrics: [
+        { value: "Portfolio", label: "Type" },
+        { value: "Creative", label: "Sector" },
+        { value: "Inquiries", label: "Goal" },
+      ],
+      url: "https://noiriwebsite.vercel.app/",
+    },
+    {
+      category: "leadgen",
+      categoryLabel: "Lead-Gen Landing Page",
+      title: "The Billion Dollar Pie",
+      subtitle: "YouTube revenue system landing page",
+      overview:
+        "A conversion-led sales page with hard proof blocks, ROI calculators, offer stacking, and bold CTA rhythm built to sell a specialized YouTube growth offer.",
+      image: "/assets/website-sample-billiondollarpie.png",
+      imageAlt: "Homepage preview of The Billion Dollar Pie",
+      chips: ["Sales Landing", "Offer Stack", "Trust Proof"],
+      bestFor: "Media offers, growth services, and direct-response landing pages",
+      cardMetrics: [
+        { value: "Landing", label: "Type" },
+        { value: "YouTube", label: "Offer" },
+        { value: "Leads", label: "Goal" },
+      ],
+      url: "https://landingpageyoutubeserv.vercel.app/",
     },
   ],
 };
