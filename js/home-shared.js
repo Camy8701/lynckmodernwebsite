@@ -693,8 +693,6 @@
             const lazySrc = frame.getAttribute('data-src');
             let booted = false;
             let fallbackRemoved = false;
-            let readyTimeout = 0;
-            let deferredBootTimer = 0;
             const connection = window.navigator.connection || window.navigator.mozConnection || window.navigator.webkitConnection;
             const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 0;
             const isSmallViewport = viewportWidth > 0 ? viewportWidth <= 1200 : window.matchMedia('(max-width: 1200px)').matches;
@@ -703,6 +701,7 @@
             const isLikelyMobileUA = /Android|iPhone|iPad|iPod|Mobile|IEMobile|Opera Mini/i.test(navigator.userAgent || '');
             const hasLowMemory = typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4;
             const hasLowCpu = typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4;
+            const isSlowConnection = Boolean(connection && ['slow-2g', '2g', '3g'].includes(connection.effectiveType || ''));
             const shouldUseFallbackOnly = (
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
                 Boolean(connection && connection.saveData) ||
@@ -711,16 +710,15 @@
                 isTouchDevice ||
                 isLikelyMobileUA ||
                 hasLowMemory ||
-                hasLowCpu
+                hasLowCpu ||
+                isSlowConnection
             );
+            let hasEnteredViewport = false;
+            let idleBootQueued = false;
 
             const hideFallback = () => {
                 if (fallbackRemoved) return;
                 fallbackRemoved = true;
-                if (readyTimeout) {
-                    window.clearTimeout(readyTimeout);
-                    readyTimeout = 0;
-                }
                 window.removeEventListener('message', onHeroMessage);
                 fallback.classList.add('is-hidden');
                 window.setTimeout(() => {
@@ -736,21 +734,18 @@
 
             const bootFrame = () => {
                 if (booted || !lazySrc || shouldUseFallbackOnly) return;
-                if (deferredBootTimer) {
-                    window.clearTimeout(deferredBootTimer);
-                    deferredBootTimer = 0;
-                }
                 booted = true;
                 frame.src = lazySrc;
             };
 
-            const scheduleDeferredBoot = () => {
-                if (booted || deferredBootTimer || shouldUseFallbackOnly) return;
-                deferredBootTimer = window.setTimeout(() => {
-                    deferredBootTimer = 0;
-                    if (document.visibilityState !== 'visible') return;
+            const scheduleIdleBoot = () => {
+                if (booted || idleBootQueued || shouldUseFallbackOnly || !hasEnteredViewport) return;
+                idleBootQueued = true;
+                runWhenIdle(() => {
+                    idleBootQueued = false;
+                    if (document.visibilityState !== 'visible' || !hasEnteredViewport) return;
                     bootFrame();
-                }, 1200);
+                }, 3200);
             };
 
             frame.addEventListener('load', () => {
@@ -765,13 +760,41 @@
             }
 
             window.addEventListener('message', onHeroMessage);
-            // Keep the fast fallback visible for the initial paint, then boot
-            // the 3D scene shortly after so the hero still feels alive.
-            scheduleDeferredBoot();
+
+            const observeTarget = heroShell || frame;
+            const canObserveViewport = 'IntersectionObserver' in window && Boolean(observeTarget);
+            if (canObserveViewport) {
+                const viewportObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) return;
+                        hasEnteredViewport = true;
+                        viewportObserver.disconnect();
+                        scheduleIdleBoot();
+                    });
+                }, { threshold: 0.2 });
+                viewportObserver.observe(observeTarget);
+            } else {
+                hasEnteredViewport = true;
+                scheduleIdleBoot();
+            }
+
+            const onPageSettled = () => {
+                if (!canObserveViewport && !hasEnteredViewport) {
+                    hasEnteredViewport = true;
+                }
+                scheduleIdleBoot();
+            };
+
+            if (document.readyState === 'complete') {
+                onPageSettled();
+            } else {
+                window.addEventListener('load', onPageSettled, { once: true });
+            }
 
             if (heroShell) {
                 heroShell.addEventListener('mouseenter', bootFrame, { once: true, passive: true });
                 heroShell.addEventListener('pointerdown', bootFrame, { once: true, passive: true });
+                heroShell.addEventListener('focusin', bootFrame, { once: true });
             }
             window.addEventListener('keydown', bootFrame, { once: true });
             window.addEventListener('scroll', bootFrame, { once: true, passive: true });

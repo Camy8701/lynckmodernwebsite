@@ -3,7 +3,7 @@ import {
   createArrowIcon,
   getCaseUrl,
   renderMetrics,
-} from "./case-studies-common.js";
+} from "./case-studies-common.js?v=20260330";
 
 const renderCard = (lang, content, study) => {
   const chips = study.chips.map((chip) => `<span class="case-chip">${chip}</span>`).join("");

@@ -244,7 +244,7 @@ export default {
           subtitle: "Zespri supply partner | Rapid workforce recruitment during peak harvest season",
           overview:
             "How we helped a major kiwifruit packhouse operation secure the workforce needed to keep production running during a critical harvest period.",
-          image: "/assets/case-study-dms-zespri-main.png",
+          image: "/assets/case-study-dms-zespri-main.webp",
           imageAlt: "DMS Progrowers and Zespri kiwifruit visual on a green background",
           chips: ["Lead Gen", "Meta Ads", "Recruitment", "Harvest Season"],
           cardFocus: "Secure workforce fast enough to keep operations running",
@@ -268,11 +268,11 @@ export default {
           ],
           gallery: [
             {
-              src: "/assets/case-study-dms-01.png",
+              src: "/assets/case-study-dms-01.webp",
               alt: "Hands sorting Zespri kiwifruit in a packing tray"
             },
             {
-              src: "/assets/case-study-dms-02.png",
+              src: "/assets/case-study-dms-02.webp",
               alt: "Workers processing kiwifruit on a DMS Progrowers packhouse line"
             }
           ],
@@ -337,7 +337,7 @@ export default {
           subtitle: "Personal training brand | A conversion-focused coaching site built for mobile-first enquiries",
           overview:
             "How we structured a fitness coach website so profile traffic, referrals, and cold visitors land on a clearer offer, stronger trust cues, and a direct path into coaching calls.",
-          image: "/assets/case-study-fitness-coach-01.png",
+          image: "/assets/case-study-fitness-coach-01.webp",
           imageAlt: "Fitness coach holding a dumbbell in a dimly lit gym",
           imageMode: "contain",
           detailImageFrame: "portrait",
@@ -365,15 +365,15 @@ export default {
           quoteSource: "Fitness coaching web system prepared for final launch assets",
           gallery: [
             {
-              src: "/assets/case-study-fitness-coach-cover.png",
+              src: "/assets/case-study-fitness-coach-cover.webp",
               alt: "Sweat-covered athlete in focus with a training partner blurred in the background"
             },
             {
-              src: "/assets/case-study-fitness-coach-02.png",
+              src: "/assets/case-study-fitness-coach-02.webp",
               alt: "Female athlete wearing headphones in a moody gym setting"
             },
             {
-              src: "/assets/case-study-fitness-coach-03.png",
+              src: "/assets/case-study-fitness-coach-03.webp",
               alt: "Female athlete pushing through a heavy back squat in orange light"
             }
           ],

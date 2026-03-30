@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
-  <script src="/js/url-attribution-cleanup.js"></script>
-  <script src="/js/cookie-consent.js" defer data-ga-id="G-GRWYGYSSMY" data-gtm-id="GTM-N5757GT5"></script>
+  <script src="/js/url-attribution-cleanup.js?v=20260330"></script>
+  <script src="/js/cookie-consent.js?v=20260330" defer data-ga-id="G-GRWYGYSSMY" data-gtm-id="GTM-N5757GT5"></script>
   <title>Strategie-Call Anfrage | LYNCK Studio</title>
   <meta name="description" content="Sicher dir deinen Strategie-Call mit LYNCK Studio. Erzähl uns kurz, wo du stehst, damit wir uns perfekt vorbereiten können.">
   <link rel="icon" type="image/webp" href="/assets/lynck-logo.webp">
@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/site-shell.css?v=1">
-  <link rel="stylesheet" href="/css/apply-shared.css?v=1">
+  <link rel="stylesheet" href="/css/site-shell.css?v=20260330">
+  <link rel="stylesheet" href="/css/apply-shared.css?v=20260330">
 </head>
 <body class="apply-body" data-shell-page="apply">
 <header class="lynck-header">
@@ -587,12 +587,13 @@
           <li>Wenn es nicht passt, sagen wir es dir direkt.</li>
         </ul>
 
-        <div class="apply-calendar-wrap">
+        <div class="apply-calendar-wrap" data-calendar-wrap>
           <iframe data-calendar-frame src="about:blank" title="Buchung des Strategiegesprächs"></iframe>
         </div>
 
+        <p class="apply-email-alt" data-calendar-fallback style="display:none;">Wir schicken dir die Buchungsoptionen per E-Mail, falls kein direkter Kalender-Slot verfügbar ist.</p>
         <p class="apply-email-alt">Lieber per E-Mail? <a href="mailto:info@lynckstudio.pro">info@lynckstudio.pro</a></p>
-        <p class="apply-email-alt">Buchungslink: <a data-calendar-link href="#" target="_blank" rel="noopener noreferrer">CALENDAR_URL</a></p>
+        <p class="apply-email-alt" data-booking-link-row style="display:none;">Buchungslink: <a data-calendar-link href="#" target="_blank" rel="noopener noreferrer">Buchung öffnen</a></p>
       </div>
     </section>
   </main>
@@ -601,14 +602,12 @@
     window.APPLY_CONFIG = {
       lang: 'de',
       homePath: '/de/index.html',
-      contactPath: '/de/apply/',
-      calendarUrl: 'CALENDAR_URL',
-      companyAddressPlaceholder: 'COMPANY_ADDRESS'
+      contactPath: '/de/apply/'
     };
 
   </script>
-  <script src="/js/site-shell-nav.js" defer></script>
-  <script src="/js/apply-page.js?v=1" defer></script>
+  <script src="/js/site-shell-nav.js?v=20260330" defer></script>
+  <script src="/js/apply-page.js?v=20260330" defer></script>
   <script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
 </body>
 </html>

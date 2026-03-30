@@ -2,7 +2,7 @@ import {
   applySharedCopy,
   createArrowIcon,
   renderMetrics,
-} from "./case-studies-common.js";
+} from "./case-studies-common.js?v=20260330";
 
 const renderFilters = (filters = [], activeFilter) =>
   filters

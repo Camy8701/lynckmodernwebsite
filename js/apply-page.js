@@ -4,7 +4,9 @@
   const config = window.APPLY_CONFIG || {};
   const lang = config.lang === 'de' ? 'de' : 'en';
   const storageKey = 'lynck_strategy_call_application_v1';
-  const calendarUrl = config.calendarUrl || 'CALENDAR_URL';
+  const calendarUrl = typeof config.calendarUrl === 'string' && config.calendarUrl.trim()
+    ? config.calendarUrl.trim()
+    : null;
 
   const flow = document.getElementById('applyFlow');
   if (!flow) return;
@@ -27,6 +29,20 @@
 
   const calendarLink = flow.querySelector('[data-calendar-link]');
   const calendarFrame = flow.querySelector('[data-calendar-frame]');
+  const calendarWrap = flow.querySelector('[data-calendar-wrap]');
+  const bookingLinkRow = flow.querySelector('[data-booking-link-row]');
+  const fallbackNote = flow.querySelector('[data-calendar-fallback]');
+  const submitErrorCopy = {
+    default: lang === 'de'
+      ? 'Ein Fehler ist aufgetreten. Bitte versuche es erneut oder schreibe an info@lynckstudio.pro.'
+      : 'Submission failed. Please try again or email info@lynckstudio.pro.',
+    leadNotPersisted: lang === 'de'
+      ? 'Deine Anfrage wurde fuer eine manuelle Pruefung erfasst, aber der Buchungsschritt konnte gerade nicht geoeffnet werden. Bitte schreibe an info@lynckstudio.pro.'
+      : 'Your application was captured for manual review, but we could not open the booking step right now. Please email info@lynckstudio.pro.',
+    leadNotPersistedNoBackup: lang === 'de'
+      ? 'Wir konnten deine Anfrage nicht bestaetigen. Bitte versuche es erneut oder schreibe an info@lynckstudio.pro.'
+      : 'We could not confirm your application. Please try again or email info@lynckstudio.pro.'
+  };
 
   const questionLabels = {
     q1: "What’s the biggest challenge you’re facing right now with growth/marketing?",
@@ -433,19 +449,39 @@
     showStep(0);
   }
 
+  function setDisplayState(node, visible, displayValue) {
+    if (!node) return;
+    node.style.display = visible ? (displayValue || '') : 'none';
+  }
+
   function showSuccess(calendar) {
     form.style.display = 'none';
     if (intro) intro.classList.remove('is-active');
     success.classList.add('is-active');
 
-    const resolvedCalendar = calendar || calendarUrl;
-    if (calendarLink) {
+    const resolvedCalendar = typeof calendar === 'string' && calendar.trim()
+      ? calendar.trim()
+      : calendarUrl;
+    const hasCalendar = Boolean(resolvedCalendar);
+
+    setDisplayState(calendarWrap, hasCalendar, '');
+    setDisplayState(bookingLinkRow, hasCalendar, '');
+    setDisplayState(fallbackNote, !hasCalendar, '');
+
+    if (calendarLink && hasCalendar) {
       calendarLink.href = resolvedCalendar;
       calendarLink.textContent = resolvedCalendar;
+    } else if (calendarLink) {
+      calendarLink.removeAttribute('href');
+      calendarLink.textContent = lang === 'de'
+        ? 'Der Buchungslink wird per E-Mail geteilt.'
+        : 'Booking details will be shared by email.';
     }
-    if (calendarFrame) {
+    if (calendarFrame && hasCalendar) {
       calendarFrame.src = resolvedCalendar;
       calendarFrame.title = 'Strategy call booking calendar';
+    } else if (calendarFrame) {
+      calendarFrame.src = 'about:blank';
     }
   }
 
@@ -457,6 +493,9 @@
     submitBtn.disabled = true;
     const originalLabel = submitBtn.textContent;
     submitBtn.textContent = lang === 'de' ? 'Wird gesendet...' : 'Submitting...';
+    if (stepError) stepError.textContent = '';
+
+    let failureMessage = submitErrorCopy.default;
 
     try {
       const response = await fetch('/api/lead', {
@@ -470,7 +509,12 @@
 
       const result = await response.json();
       if (!response.ok || !result.success) {
-        throw new Error(result.message || 'Unable to submit application');
+        if (result && result.error_code === 'lead_not_persisted') {
+          failureMessage = result.backup_notified
+            ? submitErrorCopy.leadNotPersisted
+            : submitErrorCopy.leadNotPersistedNoBackup;
+        }
+        throw new Error('Unable to submit application');
       }
 
       try {
@@ -480,9 +524,7 @@
       showSuccess(result.calendar_url || calendarUrl);
     } catch (error) {
       if (stepError) {
-        stepError.textContent = lang === 'de'
-          ? 'Ein Fehler ist aufgetreten. Bitte versuche es erneut oder schreibe an info@lynckstudio.pro.'
-          : 'Submission failed. Please try again or email info@lynckstudio.pro.';
+        stepError.textContent = failureMessage;
       }
       submitBtn.disabled = false;
       submitBtn.textContent = originalLabel;

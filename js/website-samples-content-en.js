@@ -32,7 +32,7 @@ export default {
       subtitle: "AI editorial and insights website",
       overview:
         "A modern AI editorial site with sharp typography, structured article discovery, and a clean product-like shell for publishing stories, tools, and trend analysis.",
-      image: "/assets/website-sample-utopai.png",
+      image: "/assets/website-sample-utopai.webp",
       imageAlt: "Homepage preview of the UTOPAI Blog website",
       chips: ["AI Editorial", "Content Hub", "Modern Publishing"],
       bestFor: "AI brands, editorial platforms, and content-led products with a strong publishing layer",
@@ -68,7 +68,7 @@ export default {
       subtitle: "Creative studio website",
       overview:
         "A playful creative-studio landing page with oversized type, soft gradients, and a direct contact-first hero that feels intentionally experimental.",
-      image: "/assets/website-sample-loftylabrep.png",
+      image: "/assets/website-sample-loftylabrep.webp",
       imageAlt: "Homepage preview of Digital Lab",
       chips: ["Creative Studio", "Playful Hero", "Contact CTA"],
       bestFor: "Creative agencies, design studios, and portfolio-led service brands",
@@ -86,7 +86,7 @@ export default {
       subtitle: "Fitness coaching website",
       overview:
         "A high-contrast coaching site built around bold typography, social proof, and direct routes into programs, results, and consultation-led calls to action.",
-      image: "/assets/website-sample-badembatraining.png",
+      image: "/assets/website-sample-badembatraining.webp",
       imageAlt: "Homepage preview of Fitness Madness",
       chips: ["Fitness Coaching", "Performance Brand", "Bold Hero"],
       bestFor: "Personal trainers, coaching brands, and performance-led offers",
@@ -122,7 +122,7 @@ export default {
       subtitle: "Osteopathy practice website",
       overview:
         "A calm healthcare website with serif-led typography, clear service navigation, and a sculptural hero that makes the clinical offer feel modern and approachable.",
-      image: "/assets/website-sample-mrlucasbey.png",
+      image: "/assets/website-sample-mrlucasbey.webp",
       imageAlt: "Homepage preview of Cabinet d'Osteopathie Mr Lucas Bey",
       chips: ["Medical Practice", "Editorial Serif", "Trust-Led UX"],
       bestFor: "Osteopaths, private clinics, and high-trust healthcare brands",
@@ -158,7 +158,7 @@ export default {
       subtitle: "Physiotherapy practice website",
       overview:
         "A premium wellness-led service site with soft editorial visuals, multilingual navigation, and a clear appointment-driven conversion path.",
-      image: "/assets/website-sample-leitzphysiolux.png",
+      image: "/assets/website-sample-leitzphysiolux.webp",
       imageAlt: "Homepage preview of LËTZ Physio",
       chips: ["Editorial Hero", "Service Brand", "Appointment UX"],
       bestFor: "Clinics, wellness brands, and high-trust local services",
@@ -176,7 +176,7 @@ export default {
       subtitle: "Digital products storefront",
       overview:
         "A bold digital-commerce landing experience built around premium templates, product-led navigation, and direct paths into featured offers.",
-      image: "/assets/website-sample-lynckdigital.png",
+      image: "/assets/website-sample-lynckdigital.webp",
       imageAlt: "Homepage preview of LYNCK Digital",
       chips: ["Product Landing", "Bold Branding", "Digital Commerce"],
       bestFor: "Creators, template brands, and digital product launches",
@@ -194,7 +194,7 @@ export default {
       subtitle: "YouTube revenue system landing page",
       overview:
         "A conversion-led sales page with hard proof blocks, ROI calculators, offer stacking, and bold CTA rhythm built to sell a specialized YouTube growth offer.",
-      image: "/assets/website-sample-billiondollarpie.png",
+      image: "/assets/website-sample-billiondollarpie.webp",
       imageAlt: "Homepage preview of The Billion Dollar Pie",
       chips: ["Sales Landing", "Offer Stack", "Trust Proof"],
       bestFor: "Media offers, growth services, and direct-response landing pages",

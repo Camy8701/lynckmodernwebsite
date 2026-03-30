@@ -244,7 +244,7 @@ export default {
           subtitle: "Zespri-Lieferpartner | Schnelle Personalgewinnung in der Haupternte",
           overview:
             "So haben wir einem großen Kiwifrucht-Packhausbetrieb geholfen, genau dann genug Personal zu sichern, als die Erntesaison in die heiße Phase ging.",
-          image: "/assets/case-study-dms-zespri-main.png",
+          image: "/assets/case-study-dms-zespri-main.webp",
           imageAlt: "Visual von DMS Progrowers und Zespri-Kiwis auf gruenem Hintergrund",
           chips: ["Leadgenerierung", "Meta Ads", "Recruiting", "Erntesaison"],
           cardFocus: "Genug Personal, um den Packbetrieb stabil zu halten",
@@ -268,11 +268,11 @@ export default {
           ],
           gallery: [
             {
-              src: "/assets/case-study-dms-01.png",
+              src: "/assets/case-study-dms-01.webp",
               alt: "Haende sortieren Zespri-Kiwis in einer Packschale"
             },
             {
-              src: "/assets/case-study-dms-02.png",
+              src: "/assets/case-study-dms-02.webp",
               alt: "Mitarbeiter an einer Packlinie von DMS Progrowers beim Verarbeiten von Kiwis"
             }
           ],
@@ -337,7 +337,7 @@ export default {
           subtitle: "Personal-Training-Brand | Conversion-starke Coaching-Seite fuer mobile Anfragen",
           overview:
             "Wie wir eine Fitness-Coach Website so strukturiert haben, dass Profil-Traffic, Empfehlungen und kalte Besucher auf ein klareres Angebot, mehr Vertrauen und einen direkten Weg zur Coaching-Anfrage treffen.",
-          image: "/assets/case-study-fitness-coach-01.png",
+          image: "/assets/case-study-fitness-coach-01.webp",
           imageAlt: "Fitness-Coach mit Kurzhantel in einem dunkel ausgeleuchteten Gym",
           imageMode: "contain",
           detailImageFrame: "portrait",
@@ -365,15 +365,15 @@ export default {
           quoteSource: "Fitness-Coaching-Websystem vorbereitet fuer finale Launch-Assets",
           gallery: [
             {
-              src: "/assets/case-study-fitness-coach-cover.png",
+              src: "/assets/case-study-fitness-coach-cover.webp",
               alt: "Sportlerin im Fokus mit unscharfem Trainingspartner im Hintergrund"
             },
             {
-              src: "/assets/case-study-fitness-coach-02.png",
+              src: "/assets/case-study-fitness-coach-02.webp",
               alt: "Athletin mit Kopfhoerern in einer stimmungsvoll beleuchteten Trainingsumgebung"
             },
             {
-              src: "/assets/case-study-fitness-coach-03.png",
+              src: "/assets/case-study-fitness-coach-03.webp",
               alt: "Athletin bei einer schweren Kniebeuge im orange beleuchteten Gym"
             }
           ],

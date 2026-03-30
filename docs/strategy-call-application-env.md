@@ -3,7 +3,8 @@
 Set these in your deployment environment:
 
 - `CALENDAR_URL`
-  - Booking URL embedded/shown on the success screen after submission.
+  - Optional booking URL shown on the success screen after submission.
+  - If omitted, the form still stores the lead and falls back to manual email follow-up.
 - `SUPABASE_URL`
   - Supabase project URL used by `/api/lead`.
 - `SUPABASE_SERVICE_ROLE_KEY`
@@ -20,8 +21,4 @@ Optional rate limit tuning:
 - `LEAD_RATE_WINDOW_MS` (default `60000`)
 - `LEAD_RATE_MAX` (default `8`)
 
-Related placeholder strings in templates/config:
-
-- `CALENDAR_URL`
-- `COMPANY_ADDRESS`
-
+There are no longer literal booking placeholders in the apply-page templates.

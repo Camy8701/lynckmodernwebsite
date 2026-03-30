@@ -7,7 +7,7 @@ import {
   getStudyBySlug,
   renderExternalLink,
   renderMetrics,
-} from "./case-studies-common.js";
+} from "./case-studies-common.js?v=20260330";
 
 let mediaLightboxState;
 

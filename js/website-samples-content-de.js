@@ -32,7 +32,7 @@ export default {
       subtitle: "AI-Editorial- und Insights-Website",
       overview:
         "Eine moderne AI-Editorial-Website mit praegnanter Typografie, klarer Artikelstruktur und einer produktartigen Huelle fuer Stories, Tools und Trendanalysen.",
-      image: "/assets/website-sample-utopai.png",
+      image: "/assets/website-sample-utopai.webp",
       imageAlt: "Homepage-Vorschau der UTOPAI-Blog-Website",
       chips: ["AI Editorial", "Content Hub", "Modern Publishing"],
       bestFor: "AI-Marken, Editorial-Plattformen und contentgetriebene Produkte mit starkem Publishing-Fokus",
@@ -68,7 +68,7 @@ export default {
       subtitle: "Website fuer ein Kreativstudio",
       overview:
         "Eine verspielte Studio-Landingpage mit uebergrosser Typografie, soften Farbverlaeufen und einem direkten Contact-First-Hero mit bewusst experimentellem Charakter.",
-      image: "/assets/website-sample-loftylabrep.png",
+      image: "/assets/website-sample-loftylabrep.webp",
       imageAlt: "Homepage-Vorschau von Digital Lab",
       chips: ["Creative Studio", "Playful Hero", "Contact CTA"],
       bestFor: "Kreativagenturen, Designstudios und portfoliogetriebene Service-Marken",
@@ -86,7 +86,7 @@ export default {
       subtitle: "Website fuer Fitness-Coaching",
       overview:
         "Eine kontrastreiche Coaching-Website mit markanter Typografie, Social Proof und direkten Wegen in Programme, Resultate und konsultationsorientierte CTAs.",
-      image: "/assets/website-sample-badembatraining.png",
+      image: "/assets/website-sample-badembatraining.webp",
       imageAlt: "Homepage-Vorschau von Fitness Madness",
       chips: ["Fitness Coaching", "Performance Brand", "Bold Hero"],
       bestFor: "Personal Trainer, Coaching-Marken und performancegetriebene Angebote",
@@ -122,7 +122,7 @@ export default {
       subtitle: "Website fuer eine Osteopathie-Praxis",
       overview:
         "Eine ruhige Healthcare-Website mit Serif-Typografie, klarer Servicenavigation und einem markanten Hero, der das medizinische Angebot modern und zugaenglich wirken laesst.",
-      image: "/assets/website-sample-mrlucasbey.png",
+      image: "/assets/website-sample-mrlucasbey.webp",
       imageAlt: "Homepage-Vorschau von Cabinet d'Osteopathie Mr Lucas Bey",
       chips: ["Medical Practice", "Editorial Serif", "Trust-UX"],
       bestFor: "Osteopathen, Privatkliniken und Healthcare-Marken mit Vertrauensfokus",
@@ -158,7 +158,7 @@ export default {
       subtitle: "Website fuer eine Physiotherapie-Praxis",
       overview:
         "Eine hochwertige serviceorientierte Website mit ruhiger Editorial-Bildsprache, mehrsprachiger Navigation und einer klaren Termin-Conversion-Route.",
-      image: "/assets/website-sample-leitzphysiolux.png",
+      image: "/assets/website-sample-leitzphysiolux.webp",
       imageAlt: "Homepage-Vorschau von LËTZ Physio",
       chips: ["Editorial Hero", "Service-Marke", "Termin-UX"],
       bestFor: "Praxen, Wellness-Marken und lokale Vertrauensangebote",
@@ -176,7 +176,7 @@ export default {
       subtitle: "Storefront fuer digitale Produkte",
       overview:
         "Eine markante E-Commerce-Landingpage fuer Premium-Templates, Produktnavigation und direkte Wege in ausgewaehlte Angebote.",
-      image: "/assets/website-sample-lynckdigital.png",
+      image: "/assets/website-sample-lynckdigital.webp",
       imageAlt: "Homepage-Vorschau von LYNCK Digital",
       chips: ["Produkt-Landingpage", "Markante Marke", "Digital Commerce"],
       bestFor: "Creator, Template-Marken und digitale Produkt-Launches",
@@ -194,7 +194,7 @@ export default {
       subtitle: "Landingpage fuer ein YouTube-Revenue-System",
       overview:
         "Eine conversionorientierte Sales-Landingpage mit Proof-Bloecken, ROI-Rechnern, klarer Angebotsstaffelung und direkter CTA-Rhythmik fuer ein spezialisiertes YouTube-Angebot.",
-      image: "/assets/website-sample-billiondollarpie.png",
+      image: "/assets/website-sample-billiondollarpie.webp",
       imageAlt: "Homepage-Vorschau von The Billion Dollar Pie",
       chips: ["Sales Landing", "Offer Stack", "Trust Proof"],
       bestFor: "Media-Angebote, Growth-Services und direct-response Landingpages",
