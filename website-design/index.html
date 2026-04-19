@@ -15,7 +15,7 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/css/site-shell.css?v=20260330">
-  <link rel="stylesheet" href="/css/website-design.css?v=20260419c">
+  <link rel="stylesheet" href="/css/website-design.css?v=20260419e">
 </head>
 <body class="wdl-page" data-shell-page="samples">
   <div class="noise-overlay"></div>
@@ -153,6 +153,54 @@
     </div>
   </section>
 
+  <div class="wdl-contact-widget is-open" data-contact-widget>
+    <div class="wdl-contact-panel" id="wdl-contact-panel" aria-hidden="false">
+      <div class="wdl-contact-card">
+        <div class="wdl-contact-card-head">
+          <img loading="lazy" decoding="async" src="/assets/lynck-logo.webp" alt="LYNCK Studio">
+          <div>
+            <strong>Lynck Studio</strong>
+            <span>Quick contact</span>
+          </div>
+        </div>
+        <div class="wdl-contact-links">
+          <a
+            class="wdl-contact-link wdl-contact-link--whatsapp"
+            href="https://wa.me/491771878363?text=Hi%20LYNCK%20Studio%2C%20I%20want%20help%20with%20my%20website."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>WhatsApp</span>
+            <svg viewBox="0 0 24 24" width="23" height="23" aria-hidden="true">
+              <path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.03 2a9.88 9.88 0 0 0-8.58 14.77L2 22l5.38-1.41A9.88 9.88 0 0 0 12.03 22c5.46 0 9.9-4.43 9.9-9.89a9.8 9.8 0 0 0-2.88-7.2m-7.02 15.42a8.24 8.24 0 0 1-4.2-1.15l-.3-.17-3.2.84.86-3.12-.2-.32a8.22 8.22 0 0 1 7.04-12.63a8.2 8.2 0 0 1 5.84 2.42a8.15 8.15 0 0 1 2.4 5.83a8.24 8.24 0 0 1-8.24 8.3m4.52-6.15c-.25-.13-1.48-.73-1.71-.81c-.23-.08-.4-.12-.57.12c-.17.25-.65.81-.8.98c-.15.17-.29.19-.54.06c-.25-.12-1.04-.38-1.98-1.2c-.73-.66-1.23-1.47-1.38-1.72c-.15-.25-.02-.38.11-.5c.11-.11.25-.29.38-.44c.13-.15.17-.25.25-.42c.08-.17.04-.31-.02-.44c-.06-.12-.57-1.37-.77-1.88c-.2-.47-.4-.41-.57-.42h-.48c-.17 0-.44.06-.67.31c-.23.25-.88.86-.88 2.1c0 1.25.9 2.45 1.02 2.62c.13.17 1.77 2.71 4.29 3.8c.6.26 1.07.42 1.44.54c.6.19 1.15.16 1.58.1c.48-.08 1.48-.6 1.69-1.18c.21-.58.21-1.08.15-1.18c-.06-.1-.23-.17-.48-.29"></path>
+            </svg>
+          </a>
+          <a class="wdl-contact-link wdl-contact-link--call" href="tel:+491771878363">
+            <span>Call Us</span>
+            <svg viewBox="0 0 24 24" width="23" height="23" aria-hidden="true">
+              <path fill="currentColor" d="m21.38 17.46l-2.2-2.52a2.16 2.16 0 0 0-2.84-.38l-1.1.72a1.75 1.75 0 0 1-2.13-.18l-4.18-4.18a1.75 1.75 0 0 1-.18-2.13l.72-1.1a2.16 2.16 0 0 0-.38-2.84L6.54 2.62a2.16 2.16 0 0 0-2.84 0L2.47 3.84c-.95.95-1.33 2.33-1 3.64c.77 3.06 2.43 5.99 4.88 8.44c2.45 2.45 5.38 4.11 8.44 4.88c1.3.33 2.69-.05 3.64-1l1.22-1.22a2.16 2.16 0 0 0 .03-2.12"></path>
+            </svg>
+          </a>
+          <button type="button" class="wdl-contact-link wdl-contact-link--hours" data-hours-toggle aria-expanded="false">
+            <span>Office Hours</span>
+            <svg viewBox="0 0 24 24" width="23" height="23" aria-hidden="true">
+              <path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2m4.5 11h-5a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0v4h4a1 1 0 0 1 0 2"></path>
+            </svg>
+          </button>
+        </div>
+        <p class="wdl-contact-hours" data-hours-panel hidden>Mon - Fri · 9:00 - 18:00 CET</p>
+      </div>
+    </div>
+    <button type="button" class="wdl-contact-toggle" data-widget-toggle aria-controls="wdl-contact-panel" aria-expanded="true">
+      <span class="wdl-contact-toggle-label">Let's Talk</span>
+      <span class="wdl-contact-toggle-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22">
+          <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"></path>
+        </svg>
+      </span>
+    </button>
+  </div>
+
   <footer>
     <div class="footer-big-wrap">
       <div class="footer-big">LYNCK STUDIO</div>
@@ -198,6 +246,6 @@
   </footer>
 
   <script src="/js/site-shell-nav.js?v=20260330" defer></script>
-  <script type="module" src="/js/website-design-page.js?v=20260419c"></script>
+  <script type="module" src="/js/website-design-page.js?v=20260419e"></script>
 </body>
 </html>

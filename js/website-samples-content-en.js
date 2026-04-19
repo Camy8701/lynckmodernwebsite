@@ -85,6 +85,24 @@ export default {
       url: "https://loftylabrep.vercel.app/",
     },
     {
+      category: "creative",
+      categoryLabel: "Artist Portfolio Website",
+      title: "Usama Neal",
+      subtitle: "Dark visual artist portfolio",
+      overview:
+        "A cinematic artist portfolio with immersive motion, monochrome luxury styling, audio-reactive atmosphere, and dedicated sections for 3D art, photography, and videography.",
+      image: "https://glittering-gumdrop-8698ef.netlify.app/assets/hero-car.jpg",
+      imageAlt: "Hero preview of the Usama Neal visual artist portfolio website",
+      chips: ["Artist Portfolio", "Dark Editorial", "Immersive Motion"],
+      bestFor: "Visual artists, photographers, directors, and creative portfolios that need a moody premium presentation with section-led browsing",
+      cardMetrics: [
+        { value: "Portfolio", label: "Type" },
+        { value: "Creative", label: "Sector" },
+        { value: "Inquiries", label: "Goal" },
+      ],
+      url: "/website-samples/usama-neal/",
+    },
+    {
       category: "fitness",
       categoryLabel: "Coaching Website",
       title: "Fitness Madness",

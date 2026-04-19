@@ -1,4 +1,4 @@
-import content from "./website-samples-content-en.js?v=20260419c";
+import content from "./website-samples-content-en.js?v=20260419e";
 
 const gridRoot = document.querySelector("[data-template-grid]");
 const emptyRoot = document.querySelector("[data-template-empty]");
@@ -162,6 +162,48 @@ document.addEventListener("click", (event) => {
     event.preventDefault();
     window.location.href = "/apply/";
   }
+});
+
+const widgetRoot = document.querySelector("[data-contact-widget]");
+const widgetToggle = document.querySelector("[data-widget-toggle]");
+const widgetPanel = document.getElementById("wdl-contact-panel");
+const hoursToggle = document.querySelector("[data-hours-toggle]");
+const hoursPanel = document.querySelector("[data-hours-panel]");
+
+const setWidgetOpen = (open) => {
+  if (!widgetRoot || !widgetToggle || !widgetPanel) return;
+  widgetRoot.classList.toggle("is-open", open);
+  widgetToggle.setAttribute("aria-expanded", String(open));
+  widgetPanel.setAttribute("aria-hidden", String(!open));
+  if (!open) setHoursOpen(false);
+};
+
+const setHoursOpen = (open) => {
+  if (!hoursToggle || !hoursPanel) return;
+  hoursToggle.setAttribute("aria-expanded", String(open));
+  hoursPanel.hidden = !open;
+};
+
+widgetToggle?.addEventListener("click", () => {
+  const isOpen = widgetRoot?.classList.contains("is-open");
+  setWidgetOpen(!isOpen);
+});
+
+hoursToggle?.addEventListener("click", () => {
+  const isOpen = hoursToggle.getAttribute("aria-expanded") === "true";
+  setHoursOpen(!isOpen);
+});
+
+document.addEventListener("click", (event) => {
+  if (!widgetRoot || widgetRoot.contains(event.target)) return;
+  setHoursOpen(false);
+  setWidgetOpen(false);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  setHoursOpen(false);
+  setWidgetOpen(false);
 });
 
 render();

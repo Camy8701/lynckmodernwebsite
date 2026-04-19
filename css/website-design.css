@@ -505,6 +505,188 @@ button {
   font-size: clamp(4rem, 6vw, 5.8rem);
 }
 
+.wdl-contact-widget {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 11020;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.7rem;
+  pointer-events: none;
+}
+
+.wdl-contact-widget > * {
+  pointer-events: auto;
+}
+
+.wdl-contact-panel {
+  width: min(22.5rem, calc(100vw - 1.5rem));
+  transform: translateY(0) scale(1);
+  transform-origin: bottom right;
+  transition:
+    opacity 0.24s ease,
+    transform 0.24s ease,
+    visibility 0.24s ease;
+}
+
+.wdl-contact-widget:not(.is-open) .wdl-contact-panel {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.8rem) scale(0.96);
+}
+
+.wdl-contact-card {
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #ffffff;
+  border: 1px solid rgba(15, 15, 15, 0.08);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+}
+
+.wdl-contact-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.15rem 1rem;
+  background: #343131;
+  color: #fff;
+}
+
+.wdl-contact-card-head img {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 0.85rem;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.wdl-contact-card-head strong {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.wdl-contact-card-head span {
+  display: block;
+  margin-top: 0.15rem;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.wdl-contact-links {
+  display: grid;
+  gap: 0.62rem;
+  padding: 0.85rem 0.85rem 0.65rem;
+}
+
+.wdl-contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  min-height: 2.75rem;
+  width: 100%;
+  padding: 0.8rem 0.95rem;
+  border: 0;
+  border-radius: 0.8rem;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.wdl-contact-link:hover {
+  transform: translateY(-1px);
+  filter: saturate(1.02) brightness(1.02);
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.12), 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+.wdl-contact-link svg {
+  flex: 0 0 auto;
+}
+
+.wdl-contact-link--whatsapp {
+  background: linear-gradient(180deg, #2fd166 0%, #22c55e 100%);
+}
+
+.wdl-contact-link--call {
+  background: linear-gradient(180deg, #ff3a52 0%, #ff2744 100%);
+}
+
+.wdl-contact-link--hours {
+  background: linear-gradient(180deg, #ffab18 0%, #ff8d17 100%);
+  cursor: pointer;
+}
+
+.wdl-contact-hours {
+  padding: 0 1rem 1rem;
+  color: rgba(24, 24, 24, 0.72);
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.wdl-contact-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 3.4rem;
+  padding: 0.32rem 0.32rem 0.32rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: #343131;
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.wdl-contact-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.26);
+}
+
+.wdl-contact-toggle-label {
+  font-family: "Inter", sans-serif;
+  font-size: 0.98rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.wdl-contact-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #31d36b 0%, #1fc95b 100%);
+  color: #fff;
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 255, 255, 0.94),
+    0 8px 14px rgba(33, 197, 94, 0.28);
+}
+
+.wdl-contact-toggle-icon svg {
+  transition: transform 0.22s ease;
+}
+
+.wdl-contact-widget.is-open .wdl-contact-toggle-icon svg {
+  transform: rotate(45deg);
+}
+
 @media (max-width: 1180px) {
   .wdl-shell {
     width: min(100%, calc(100% - 2rem));
@@ -566,6 +748,11 @@ button {
   .wdl-jumbo-arrow {
     min-height: 6rem;
   }
+
+  .wdl-contact-widget {
+    right: 0.85rem;
+    bottom: 0.85rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -597,5 +784,20 @@ button {
     padding: 0.48rem 1rem;
     font-size: 0.7rem;
     letter-spacing: 0.14em;
+  }
+
+  .wdl-contact-widget {
+    right: 0.75rem;
+    left: 0.75rem;
+    align-items: stretch;
+  }
+
+  .wdl-contact-panel {
+    width: 100%;
+  }
+
+  .wdl-contact-toggle {
+    width: fit-content;
+    margin-left: auto;
   }
 }
