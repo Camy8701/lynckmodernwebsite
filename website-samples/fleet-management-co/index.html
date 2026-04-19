@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/js/url-attribution-cleanup.js?v=20260330"></script>
+  <script src="/js/cookie-consent.js?v=20260418a" defer data-ga-id="G-GRWYGYSSMY" data-gtm-id="GTM-N5757GT5" data-clarity-id="wdni5ogrju"></script>
+  <title>Fleet Management &amp; Co | Premier Real Estate</title>
+  <meta name="description" content="Luxury real-estate and property-management sample website for premium listings, suburb discovery, and appraisal-led lead generation.">
+  <meta name="robots" content="noindex, noarchive">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 45s linear infinite;
+    }
+
+    .marquee-container:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="font-sans font-light text-zinc-900 bg-zinc-50 selection:bg-zinc-900 selection:text-white">
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out backdrop-blur-md border-b border-zinc-300 bg-white/90">
+    <div class="w-full max-w-7xl mx-auto px-6 md:px-8 h-auto md:h-20 flex flex-col md:flex-row items-center justify-between py-4 md:py-0 gap-4 md:gap-0">
+      <div class="flex md:justify-start md:gap-8 lg:gap-12 md:w-1/3 order-2 md:order-1 flex-wrap w-full gap-x-6 gap-y-6 items-center justify-center">
+        <a href="#featured-listings" class="text-xs uppercase tracking-widest font-medium text-black hover:text-zinc-500 transition-colors duration-300">Buy</a>
+        <a href="#featured-listings" class="text-xs uppercase tracking-widest font-medium text-black hover:text-zinc-500 transition-colors duration-300">Sell</a>
+        <a href="#fleet-advantage" class="text-xs uppercase tracking-widest font-medium text-black hover:text-zinc-500 transition-colors duration-300">Manage</a>
+      </div>
+
+      <div class="flex justify-center w-full md:w-1/3 order-1 md:order-2">
+        <a href="#" class="font-sans text-xl md:text-2xl font-medium tracking-tight text-black">
+          FLEET &amp; CO.
+        </a>
+      </div>
+
+      <div class="flex items-center justify-center md:justify-end gap-6 md:gap-8 lg:gap-12 w-full md:w-1/3 order-3 md:order-3">
+        <a href="#fleet-advantage" class="text-xs uppercase tracking-widest font-medium text-black hover:text-zinc-500 transition-colors duration-300">Our Team</a>
+        <a href="#featured-listings" class="text-xs uppercase tracking-widest font-medium text-black hover:text-zinc-500 transition-colors duration-300">Our Listings</a>
+        <a href="#site-footer" class="bg-transparent border border-black px-6 py-2.5 text-xs uppercase tracking-widest font-medium text-black hover:bg-black hover:text-white transition-all duration-300">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="min-h-[750px] flex flex-col md:pb-32 md:px-12 overflow-hidden bg-zinc-900 w-full h-screen pr-6 pb-24 pl-6 relative justify-end">
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c9070952-37a3-41e4-bed6-847746be5b06_3840w.png?w=800&amp;q=80" alt="Luxury Property" class="w-full h-full object-cover hero-bg-img" style="transform: scale(1.05);">
+      <div class="absolute inset-0 bg-zinc-900/30"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-transparent to-transparent"></div>
+    </div>
+
+    <div class="absolute top-32 left-6 md:left-12 z-10 w-full max-w-[1400px] mx-auto">
+      <span class="block uppercase text-xs font-medium text-white tracking-widest drop-shadow-md">
+        North Shore, NZ
+      </span>
+    </div>
+
+    <div class="z-10 w-full max-w-[1400px] mr-auto ml-auto relative">
+      <div class="max-w-4xl">
+        <div class="w-full max-w-5xl bg-white/10 backdrop-blur-xl border border-white/20 hero-search-bar opacity-0 shadow-2xl overflow-hidden" style="transform: translateY(40px) scale(0.95);">
+          <div class="flex border-b border-white/20">
+            <button onclick="switchSearchTab('buy')" class="flex-1 md:text-sm uppercase transition-colors text-xs font-semibold text-white tracking-widest bg-white/20 border-r border-white/20 pt-4 pb-4" id="tab-buy">
+              Buy
+            </button>
+            <button id="tab-rent" onclick="switchSearchTab('rent')" class="flex-1 py-4 text-xs md:text-sm uppercase tracking-widest font-semibold bg-transparent text-white/70 hover:bg-white/10 border-r border-white/20 transition-colors">
+              Rent
+            </button>
+            <button onclick="switchSearchTab('sell')" class="flex-1 md:text-sm uppercase hover:bg-white/10 transition-colors text-xs font-semibold text-white/70 tracking-widest bg-transparent pt-4 pb-4" id="tab-sell">
+              <span class="hidden sm:inline">Sell My Property</span>
+              <span class="sm:hidden">Sell</span>
+            </button>
+          </div>
+
+          <div class="md:p-8 pt-6 pr-6 pb-6 pl-6">
+            <div id="form-buy-rent" class="flex flex-col md:flex-row gap-6 md:gap-8 items-end">
+              <div class="flex-1 w-full">
+                <label class="block text-xs uppercase tracking-widest text-white/90 font-semibold mb-2">Location</label>
+                <input type="text" placeholder="Search North Shore..." class="w-full bg-transparent border-b border-white/40 py-2 text-white placeholder:text-white/60 font-medium focus:outline-none focus:border-white transition-colors">
+              </div>
+
+              <div class="w-full md:w-32 relative">
+                <label class="block text-xs uppercase tracking-widest text-white/90 font-semibold mb-2">Bedrooms</label>
+                <div class="relative">
+                  <select class="w-full bg-transparent border-b border-white/40 py-2 text-white font-medium focus:outline-none appearance-none cursor-pointer pr-8 [&amp;&gt;option]:text-black">
+                    <option value="">Any</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                  </select>
+                  <iconify-icon icon="solar:alt-arrow-down-linear" class="absolute right-0 top-1/2 -translate-y-1/2 text-white pointer-events-none"></iconify-icon>
+                </div>
+              </div>
+
+              <div class="w-full md:w-32 relative">
+                <label class="block text-xs uppercase tracking-widest text-white/90 font-semibold mb-2">Bathrooms</label>
+                <div class="relative">
+                  <select class="w-full bg-transparent border-b border-white/40 py-2 text-white font-medium focus:outline-none appearance-none cursor-pointer pr-8 [&amp;&gt;option]:text-black">
+                    <option value="">Any</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                  </select>
+                  <iconify-icon icon="solar:alt-arrow-down-linear" class="absolute right-0 top-1/2 -translate-y-1/2 text-white pointer-events-none"></iconify-icon>
+                </div>
+              </div>
+
+              <div class="w-full md:w-auto mt-4 md:mt-0">
+                <button class="w-full bg-white text-black border border-white px-10 py-3.5 text-xs uppercase tracking-widest font-semibold hover:bg-white/20 hover:text-white hover:border-transparent backdrop-blur-md transition-all duration-300" type="button">
+                  Search
+                </button>
+              </div>
+            </div>
+
+            <div id="form-sell" class="hidden flex-col md:flex-row gap-6 md:gap-8 items-end">
+              <div class="flex-1 w-full">
+                <label class="block text-xs uppercase tracking-widest text-white/90 font-semibold mb-2">Property Address</label>
+                <input type="text" placeholder="Enter your full property address..." class="w-full bg-transparent border-b border-white/40 py-2 text-white placeholder:text-white/60 font-medium focus:outline-none focus:border-white transition-colors">
+              </div>
+
+              <div class="w-full md:w-auto mt-4 md:mt-0">
+                <button class="w-full bg-white text-black border border-white px-10 py-3.5 text-xs uppercase tracking-widest font-semibold hover:bg-white/20 hover:text-white hover:border-transparent backdrop-blur-md transition-all duration-300 whitespace-nowrap" type="button">
+                  Get Appraisal
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="fleet-advantage" class="pt-32 md:pt-48 pb-20 md:pb-32 px-6 md:px-12 max-w-[1400px] mx-auto gsap-section bg-zinc-50">
+    <div class="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
+      <div class="w-full md:w-1/4 pt-2 border-t border-zinc-300">
+        <span class="block text-xs uppercase tracking-widest mt-4 text-zinc-600 font-medium">
+          01 The Advantage
+        </span>
+      </div>
+      <div class="w-full md:w-3/4">
+        <h2 class="text-3xl md:text-5xl font-sans leading-tight mb-10 font-normal tracking-tight text-zinc-900 max-w-3xl">
+          End-to-end expertise. Unmatched market knowledge across the region.
+        </h2>
+        <div class="border-t border-zinc-300 py-6 mb-10 flex flex-col md:flex-row gap-4 md:gap-12 md:items-center">
+          <span class="text-xs uppercase tracking-widest text-zinc-600 font-medium flex items-center gap-2">
+            <iconify-icon icon="solar:check-circle-linear" class="text-zinc-400 text-lg"></iconify-icon> Specialist Team
+          </span>
+          <span class="text-xs uppercase tracking-widest text-zinc-600 font-medium flex items-center gap-2">
+            <iconify-icon icon="solar:home-linear" class="text-zinc-400 text-lg"></iconify-icon> Extensive Listings
+          </span>
+          <span class="text-xs uppercase tracking-widest text-zinc-600 font-medium flex items-center gap-2">
+            <iconify-icon icon="solar:star-linear" class="text-zinc-400 text-lg"></iconify-icon> 5-Star Service
+          </span>
+        </div>
+        <div class="w-full aspect-[21/9] overflow-hidden border border-zinc-300 mb-10 group bg-zinc-100">
+          <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="Team at work" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]">
+        </div>
+        <div class="max-w-2xl">
+          <p class="text-zinc-600 font-light leading-relaxed mb-8 text-base">
+            Our specialist team delivers an end-to-end service. We manage diverse property types with precision, ensuring your investment thrives.
+          </p>
+          <a href="#site-footer" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-zinc-900 border-b border-zinc-900 pb-1 hover:text-zinc-500 hover:border-zinc-500 transition-colors font-medium">
+            Meet the Directors <iconify-icon icon="solar:arrow-right-linear" class="text-sm"></iconify-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="w-full max-w-[1400px] mx-auto px-6 md:px-12 py-12 md:py-16">
+    <div class="w-full border-t border-zinc-300 relative flex justify-center">
+      <span class="absolute top-0 -translate-y-1/2 bg-zinc-50 px-4 text-xs uppercase tracking-widest text-zinc-500 bg-white">
+        Next Focus
+      </span>
+    </div>
+  </div>
+
+  <section class="w-full relative pt-20 md:pt-32 pb-32 md:pb-48 px-6 md:px-12 max-w-[1400px] mx-auto gsap-section bg-white">
+    <div class="grid md:grid-cols-12 gap-12 items-center">
+      <div class="md:col-span-7">
+        <div class="aspect-[16/9] w-full overflow-hidden relative border border-zinc-300 group shadow-sm">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="North Shore Coast" class="w-full h-full object-cover transform transition duration-700 ease-out group-hover:scale-[1.02]">
+          <div class="absolute bottom-4 left-4 z-10 bg-white/90 backdrop-blur-sm border border-zinc-300 px-4 py-2 shadow-sm">
+            <span class="text-xs uppercase tracking-widest text-zinc-900 font-medium">
+              Takapuna North Shore
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="md:col-span-5 md:pl-16 md:-translate-y-4 max-w-md">
+        <span class="block text-xs uppercase tracking-widest mb-6 text-zinc-600 font-medium">
+          02 Local Specialists
+        </span>
+        <h3 class="font-sans text-3xl md:text-4xl mb-6 font-normal leading-tight tracking-tight text-zinc-900">
+          Deep roots in our communities.
+        </h3>
+        <p class="text-zinc-600 font-light leading-relaxed mb-8">
+          We possess deep local knowledge. From beachfront estates to modern apartments, we connect clients with the North Shore's best.
+        </p>
+
+        <div class="border-t border-zinc-300 pt-6 mt-8 mb-10 grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-4">
+          <div class="flex items-baseline gap-4 justify-between border-b border-zinc-200 pb-2">
+            <span class="text-xs uppercase tracking-widest text-zinc-900 font-medium shrink-0">Area</span>
+            <span class="text-sm text-zinc-600 font-light text-right">Takapuna &amp; Milford</span>
+          </div>
+          <div class="flex items-baseline gap-4 justify-between border-b border-zinc-200 pb-2">
+            <span class="text-xs uppercase tracking-widest text-zinc-900 font-medium shrink-0">Area</span>
+            <span class="text-sm text-zinc-600 font-light text-right">Devonport Heritage</span>
+          </div>
+          <div class="flex items-baseline gap-4 justify-between border-b border-zinc-200 pb-2">
+            <span class="text-xs uppercase tracking-widest text-zinc-900 font-medium shrink-0">Area</span>
+            <span class="text-sm text-zinc-600 font-light text-right">Albany Lifestyle</span>
+          </div>
+          <div class="flex items-baseline gap-4 justify-between border-b border-zinc-200 pb-2">
+            <span class="text-xs uppercase tracking-widest text-zinc-900 font-medium shrink-0">Area</span>
+            <span class="text-sm text-zinc-600 font-light text-right">East Coast Bays</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-start gap-4">
+          <a href="#featured-listings" class="text-xs uppercase tracking-widest border border-zinc-900 px-8 py-3.5 font-semibold text-zinc-900 hover:bg-zinc-900 hover:text-white transition-all duration-300">
+            Explore Neighbourhoods
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured-listings" class="py-24 md:py-32 bg-zinc-900 text-white overflow-hidden gsap-section">
+    <div class="px-6 md:px-12 max-w-[1400px] mx-auto mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <div>
+        <span class="block text-xs uppercase tracking-widest mb-4 text-zinc-400 font-medium">
+          03 Featured Properties
+        </span>
+        <h2 class="text-3xl md:text-5xl font-sans font-normal tracking-tight">
+          Curated collection.
+        </h2>
+      </div>
+      <a href="#site-footer" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest border-b border-white pb-1 hover:text-zinc-400 hover:border-zinc-400 transition-colors font-medium">
+        View All Listings <iconify-icon icon="solar:arrow-right-linear" class="text-sm"></iconify-icon>
+      </a>
+    </div>
+
+    <div class="flex gap-6 px-6 md:px-12 pb-12 overflow-x-auto hide-scrollbar snap-x snap-mandatory">
+      <div class="min-w-[85vw] md:min-w-[400px] max-w-[500px] shrink-0 snap-center group cursor-pointer">
+        <div class="aspect-[4/5] overflow-hidden relative mb-6 bg-zinc-800">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="Luxury Property" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+          <div class="absolute top-4 right-4 bg-white text-zinc-900 px-4 py-1.5 text-xs uppercase tracking-widest font-semibold z-10 shadow-lg">
+            For Sale
+          </div>
+        </div>
+        <div class="flex justify-between items-start gap-4">
+          <div>
+            <h4 class="text-lg font-medium mb-1 tracking-tight">142 Seaview Road</h4>
+            <p class="text-zinc-400 text-sm font-light">Castor Bay, North Shore</p>
+          </div>
+          <div class="text-right">
+            <p class="text-lg font-medium tracking-tight">Offers</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-6 mt-5 text-sm text-zinc-300 border-t border-zinc-800 pt-5 font-light">
+          <span class="flex items-center gap-2"><iconify-icon icon="solar:bed-linear" class="text-lg"></iconify-icon> 4</span>
+          <span class="flex items-center gap-2"><iconify-icon icon="solar:bath-linear" class="text-lg"></iconify-icon> 3</span>
+          <span class="flex items-center gap-2"><iconify-icon icon="solar:ruler-linear" class="text-lg"></iconify-icon> 280 sqm</span>
+        </div>
+      </div>
+
+      <div class="min-w-[85vw] md:min-w-[400px] max-w-[500px] shrink-0 snap-center group cursor-pointer">
+        <div class="aspect-[4/5] overflow-hidden relative mb-6 bg-zinc-800">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Modern Home" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+          <div class="absolute top-4 right-4 bg-white text-zinc-900 px-4 py-1.5 text-xs uppercase tracking-widest font-semibold z-10 shadow-lg">
+            Auction
+          </div>
+        </div>
+        <div class="flex justify-between items-start gap-4">
+          <div>
+            <h4 class="text-lg font-medium mb-1 tracking-tight">88 Hurstmere Road</h4>
+            <p class="text-zinc-400 text-sm font-light">Takapuna, North Shore</p>
+          </div>
+          <div class="text-right">
+            <p class="text-lg font-medium tracking-tight">To Be Auctioned</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-6 mt-5 text-sm text-zinc-300 border-t border-zinc-800 pt-5 font-light">
+          <span class="flex items-center gap-2"><iconify-icon icon="solar:bed-linear" class="text-lg"></iconify-icon> 3</span>
+          <span class="flex items-center gap-2"><iconify-icon icon="solar:bath-linear" class="text-lg"></iconify-icon> 2</span>
+          <span class="flex items-center gap-2"><iconify-icon icon="solar:ruler-linear" class="text-lg"></iconify-icon> 195 sqm</span>
+        </div>
+      </div>
+
+      <div class="min-w-[85vw] md:min-w-[400px] max-w-[500px] shrink-0 snap-center group cursor-pointer">
+        <div class="aspect-[4/5] overflow-hidden relative mb-6 bg-zinc-800">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Minimalist Interior" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+          <div class="absolute top-4 right-4 bg-zinc-900 text-white border border-zinc-700 px-4 py-1.5 text-xs uppercase tracking-widest font-semibold z-10 shadow-lg">
+            For Rent
+          </div>
+        </div>
+        <div class="flex justify-between items-start gap-4">
+          <div>
+            <h4 class="text-lg font-medium mb-1 tracking-tight">21a Victoria Road</h4>
+            <p class="text-zinc-400 text-sm font-light">Devonport, North Shore</p>
+          </div>
+          <div class="text-right">
+            <p class="text-lg font-medium tracking-tight">$1,200 / wk</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-6 mt-5 text-sm text-zinc-300 border-t border-zinc-800 pt-5 font-light">
+          <span class="flex items-center gap-2"><iconify-icon icon="solar:bed-linear" class="text-lg"></iconify-icon> 3</span>
+          <span class="flex items-center gap-2"><iconify-icon icon="solar:bath-linear" class="text-lg"></iconify-icon> 2</span>
+          <span class="flex items-center gap-2"><iconify-icon icon="solar:ruler-linear" class="text-lg"></iconify-icon> --</span>
+        </div>
+      </div>
+
+      <div class="min-w-[20px] md:min-w-[48px] shrink-0"></div>
+    </div>
+  </section>
+
+  <div class="bg-zinc-200 py-5 overflow-hidden marquee-container flex items-center border-y border-zinc-300">
+    <div class="marquee-track flex gap-12 md:gap-20 items-center text-xs uppercase tracking-widest font-medium text-zinc-600">
+      <span>Award Winning Agency 2023</span>
+      <span class="w-1.5 h-1.5 bg-zinc-400 rounded-full"></span>
+      <span>$500M+ Property Managed</span>
+      <span class="w-1.5 h-1.5 bg-zinc-400 rounded-full"></span>
+      <span>98% Auction Success Rate</span>
+      <span class="w-1.5 h-1.5 bg-zinc-400 rounded-full"></span>
+      <span>Over 2,000 Happy Clients</span>
+      <span class="w-1.5 h-1.5 bg-zinc-400 rounded-full"></span>
+      <span>Award Winning Agency 2023</span>
+      <span class="w-1.5 h-1.5 bg-zinc-400 rounded-full"></span>
+      <span>$500M+ Property Managed</span>
+      <span class="w-1.5 h-1.5 bg-zinc-400 rounded-full"></span>
+      <span>98% Auction Success Rate</span>
+      <span class="w-1.5 h-1.5 bg-zinc-400 rounded-full"></span>
+      <span>Over 2,000 Happy Clients</span>
+      <span class="w-1.5 h-1.5 bg-zinc-400 rounded-full"></span>
+    </div>
+  </div>
+
+  <footer id="site-footer" class="bg-white pt-24 pb-12 px-6 md:px-12 border-t border-zinc-300">
+    <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-8 mb-24">
+      <div class="md:col-span-2 pr-0 md:pr-12">
+        <a href="#" class="font-sans text-2xl font-medium tracking-tight text-zinc-900 block mb-6">
+          FLEET &amp; CO.
+        </a>
+        <p class="text-zinc-600 font-light leading-relaxed max-w-sm mb-10 text-sm">
+          Premier real estate and property management services across Auckland's North Shore. We define modern luxury real estate through expert knowledge and unmatched service.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="#site-footer" class="w-10 h-10 border border-zinc-300 flex items-center justify-center rounded-full text-zinc-600 hover:bg-zinc-900 hover:text-white hover:border-zinc-900 transition-all duration-300">
+            <iconify-icon icon="ri:instagram-line" class="text-lg"></iconify-icon>
+          </a>
+          <a href="#site-footer" class="w-10 h-10 border border-zinc-300 flex items-center justify-center rounded-full text-zinc-600 hover:bg-zinc-900 hover:text-white hover:border-zinc-900 transition-all duration-300">
+            <iconify-icon icon="ri:linkedin-fill" class="text-lg"></iconify-icon>
+          </a>
+          <a href="#site-footer" class="w-10 h-10 border border-zinc-300 flex items-center justify-center rounded-full text-zinc-600 hover:bg-zinc-900 hover:text-white hover:border-zinc-900 transition-all duration-300">
+            <iconify-icon icon="ri:facebook-fill" class="text-lg"></iconify-icon>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-8">Services</h4>
+        <ul class="space-y-4">
+          <li><a href="#featured-listings" class="text-zinc-600 hover:text-zinc-900 text-sm font-light transition-colors">Buy Property</a></li>
+          <li><a href="#featured-listings" class="text-zinc-600 hover:text-zinc-900 text-sm font-light transition-colors">Sell Property</a></li>
+          <li><a href="#fleet-advantage" class="text-zinc-600 hover:text-zinc-900 text-sm font-light transition-colors">Property Management</a></li>
+          <li><a href="#site-footer" class="text-zinc-600 hover:text-zinc-900 text-sm font-light transition-colors">Free Appraisal</a></li>
+          <li><a href="#site-footer" class="text-zinc-600 hover:text-zinc-900 text-sm font-light transition-colors">Project Marketing</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-8">Contact Us</h4>
+        <ul class="space-y-5">
+          <li class="text-zinc-600 text-sm font-light leading-relaxed">
+            123 Hurstmere Road,<br>Takapuna, Auckland 0622
+          </li>
+          <li>
+            <a href="mailto:hello@fleetandco.co.nz" class="text-zinc-900 hover:text-zinc-500 text-sm font-medium transition-colors border-b border-zinc-900 hover:border-zinc-500 pb-0.5 inline-block">
+              hello@fleetandco.co.nz
+            </a>
+          </li>
+          <li>
+            <a href="tel:+6491234567" class="text-zinc-600 hover:text-zinc-900 text-sm font-light transition-colors">
+              +64 9 123 4567
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-[1400px] mx-auto border-t border-zinc-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      <p class="text-xs text-zinc-500 font-light uppercase tracking-widest">© 2024 Fleet Management &amp; Co.</p>
+      <div class="flex gap-8">
+        <a href="#site-footer" class="text-xs text-zinc-500 hover:text-zinc-900 font-light uppercase tracking-widest transition-colors">Privacy Policy</a>
+        <a href="#site-footer" class="text-xs text-zinc-500 hover:text-zinc-900 font-light uppercase tracking-widest transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function switchSearchTab(tab) {
+      const buyRentForm = document.getElementById('form-buy-rent');
+      const sellForm = document.getElementById('form-sell');
+
+      const tabBuy = document.getElementById('tab-buy');
+      const tabRent = document.getElementById('tab-rent');
+      const tabSell = document.getElementById('tab-sell');
+
+      [tabBuy, tabRent, tabSell].forEach((node) => {
+        node.classList.remove('bg-white/20', 'text-white');
+        node.classList.add('bg-transparent', 'text-white/70', 'hover:bg-white/10');
+      });
+
+      const activeTab = document.getElementById(`tab-${tab}`);
+      activeTab.classList.remove('bg-transparent', 'text-white/70', 'hover:bg-white/10');
+      activeTab.classList.add('bg-white/20', 'text-white');
+
+      if (tab === 'sell') {
+        buyRentForm.classList.add('hidden');
+        buyRentForm.classList.remove('flex');
+        sellForm.classList.remove('hidden');
+        sellForm.classList.add('flex');
+      } else {
+        sellForm.classList.add('hidden');
+        sellForm.classList.remove('flex');
+        buyRentForm.classList.remove('hidden');
+        buyRentForm.classList.add('flex');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+          nav.classList.add('shadow-sm', 'bg-white/95');
+          nav.classList.remove('bg-white/90');
+        } else {
+          nav.classList.remove('shadow-sm', 'bg-white/95');
+          nav.classList.add('bg-white/90');
+        }
+      });
+
+      const heroTl = gsap.timeline({ delay: 0.2 });
+      heroTl.to('.hero-search-bar', {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1.2,
+        ease: 'power3.out',
+      });
+
+      gsap.utils.toArray('.gsap-section').forEach((section) => {
+        gsap.fromTo(
+          section,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 80%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      });
+    });
+  </script>
+</body>
+</html>

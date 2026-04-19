@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serene Wellness - Integrative Health</title>
+  <meta
+    name="description"
+    content="Serene Wellness combines botanical wisdom and modern metabolic science across clinic care, longevity programs, and wellness products."
+  >
+  <meta name="robots" content="noindex, noarchive">
+  <script src="/js/url-attribution-cleanup.js?v=20260330"></script>
+  <script
+    src="/js/cookie-consent.js?v=20260418a"
+    defer
+    data-ga-id="G-GRWYGYSSMY"
+    data-gtm-id="GTM-N5757GT5"
+    data-clarity-id="wdni5ogrju"
+  ></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: "Inter", sans-serif; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .snap-x { scroll-snap-type: x mandatory; }
+    .snap-center { scroll-snap-align: center; }
+    .word-wrapper {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      padding-bottom: 2px;
+      margin-right: 0.25em;
+    }
+    .word-inner {
+      display: inline-block;
+      transform: translateY(110%);
+    }
+    @keyframes scroll-loop {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-scroll-infinite {
+      animation: scroll-loop 40s linear infinite;
+    }
+    .animate-scroll-infinite:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden bg-stone-50 text-stone-800 antialiased selection:bg-green-900 selection:text-white">
+  <nav class="fixed top-0 z-50 flex w-full items-center justify-between px-6 py-6 text-white mix-blend-difference">
+    <div class="flex items-center gap-2">
+      <iconify-icon icon="solar:leaf-linear" width="28" height="28"></iconify-icon>
+      <span class="text-xl font-medium uppercase tracking-tighter">Serene</span>
+    </div>
+    <div class="hidden items-center gap-8 rounded-full border border-white/10 bg-stone-900/10 px-6 py-3 text-sm font-medium tracking-tight backdrop-blur-md md:flex">
+      <a href="#" class="transition hover:opacity-70">Philosophy</a>
+      <a href="#" class="transition hover:opacity-70">Clinic</a>
+      <a href="#" class="transition hover:opacity-70">Apothecary</a>
+      <a href="#" class="transition hover:opacity-70">Journal</a>
+    </div>
+    <button class="rounded-full bg-white px-5 py-2.5 text-xs font-medium text-stone-950 transition hover:bg-stone-200">
+      Member Login
+    </button>
+  </nav>
+
+  <header id="hero-section" class="relative h-screen min-h-[800px] w-full overflow-hidden">
+    <div class="absolute inset-0 h-full w-full overflow-hidden">
+      <img
+        id="hero-bg"
+        src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a6489cc1-a452-4e39-acc1-4f45e9db3f5b_3840w.webp"
+        alt="Woman relaxing"
+        class="absolute inset-0 -top-[10%] h-[120%] w-full object-cover brightness-[0.75] will-change-transform"
+      >
+    </div>
+
+    <div class="absolute inset-0 z-10 flex flex-col justify-end px-6 pb-12 md:px-12 md:pb-24">
+      <div class="mx-auto grid w-full max-w-7xl grid-cols-1 items-end gap-12 lg:grid-cols-2">
+        <div>
+          <div class="mb-6 flex items-center gap-2 opacity-80">
+            <div class="h-2 w-2 animate-pulse rounded-full bg-green-400"></div>
+            <span class="text-xs font-medium uppercase tracking-wide">New York • London • Tokyo</span>
+          </div>
+          <h1 class="reveal-text mb-6 text-5xl font-light tracking-tighter leading-[1.05] md:text-7xl">
+            Reclaiming silence in a noisy world.
+          </h1>
+        </div>
+        <div class="flex flex-col items-start justify-end gap-8 lg:items-end">
+          <p class="max-w-md text-left text-lg font-light leading-relaxed opacity-90 lg:text-right md:text-xl">
+            We merge ancient botanical wisdom with modern metabolic science to restore your body's innate rhythm.
+          </p>
+          <button class="group flex items-center gap-3 rounded-full bg-white py-2 pl-6 pr-2 text-stone-950 transition hover:bg-stone-200">
+            <span class="text-sm font-medium">Begin assessment</span>
+            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-stone-950 text-white transition duration-300 group-hover:rotate-45">
+              <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-12 flex w-full max-w-7xl justify-between border-t border-white/20 pt-6 text-xs font-medium uppercase tracking-widest opacity-50">
+        <span>Integrated Health Systems</span>
+        <span>2026 Serene Wellness</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="mx-auto max-w-[1600px] px-6 py-24 md:px-12">
+    <div class="mb-12 flex items-baseline justify-between border-b border-stone-200 pb-4">
+      <span class="text-xs uppercase tracking-widest text-stone-400">/ 01 Our Philosophy</span>
+      <span class="font-mono text-xs text-stone-400">[ 01 ]</span>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
+      <div class="group relative h-[500px] overflow-hidden rounded-2xl lg:col-span-4">
+        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/d52fd1be-07f8-4dcd-ade8-996c23619599_1600w.webp" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="Portrait">
+        <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-stone-900/80 to-transparent p-8">
+          <p class="text-lg font-light leading-snug text-white">"The most comprehensive approach to longevity I've ever experienced."</p>
+          <div class="mt-4 flex items-center gap-1 text-[#D4E8B0]">
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+            <span class="ml-1 text-sm font-medium text-white">Verified Member</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex h-full flex-col justify-between gap-8 lg:col-span-4">
+        <div>
+          <h2 class="reveal-text mb-8 text-3xl font-light leading-tight tracking-tight text-stone-900">
+            " Wellness is not a destination, but a daily practice of balance, clarity, and intentional living. "
+          </h2>
+          <p class="text-base leading-relaxed text-stone-500">Our clinical approach moves beyond symptom management to address root-cause vitality.</p>
+        </div>
+        <div class="group relative flex flex-1 flex-col justify-end overflow-hidden rounded-2xl border border-stone-100 bg-white p-6 shadow-sm">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6cf3e4f7-c5af-4cfc-b1aa-e6f42add03ab_1600w.webp" class="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-700 group-hover:scale-105" alt="Interior">
+        </div>
+        <div class="flex items-center justify-between">
+          <p class="max-w-[200px] text-sm text-stone-500">12k+ Global Members</p>
+          <button class="flex items-center gap-2 rounded-full bg-stone-900 py-2 pl-5 pr-2 text-white transition hover:bg-stone-800">
+            <span class="text-xs font-medium">Explore Methodology</span>
+            <div class="rounded-full bg-white p-1 text-black">
+              <iconify-icon icon="solar:arrow-right-linear" width="12"></iconify-icon>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="relative flex min-h-[500px] flex-col justify-between overflow-hidden rounded-2xl bg-[#2C3E35] p-8 text-[#D4E8B0] lg:col-span-4">
+        <div class="pointer-events-none absolute right-0 top-0 p-8 text-white opacity-10">
+          <iconify-icon icon="solar:graph-new-linear" width="120" height="120"></iconify-icon>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <div class="h-2 w-2 animate-pulse rounded-full bg-[#D4E8B0]"></div>
+          <span class="text-xs font-medium uppercase tracking-wide">Community Impact</span>
+        </div>
+
+        <div>
+          <h3 class="mb-2 text-6xl font-light tracking-tighter text-white">94%</h3>
+          <p class="mb-8 text-sm text-[#D4E8B0] opacity-80">Of members report improved sleep quality within 14 days.</p>
+
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="relative flex h-10 w-full items-center overflow-hidden rounded-full bg-white/10 px-4">
+                <span class="relative z-10 text-xs font-medium text-white">Cortisol Reduction</span>
+                <div class="absolute left-0 top-0 h-full w-[82%] bg-[#D4E8B0]/20"></div>
+              </div>
+              <span class="text-sm font-medium text-white">82%</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="relative flex h-10 w-full items-center overflow-hidden rounded-full bg-white/10 px-4">
+                <span class="relative z-10 text-xs font-medium text-white">Metabolic Flexibility</span>
+                <div class="absolute left-0 top-0 h-full w-[65%] bg-[#D4E8B0]/20"></div>
+              </div>
+              <span class="text-sm font-medium text-white">65%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div
+    class="relative flex w-full items-center justify-center overflow-hidden border-y border-stone-200 bg-white py-12"
+    style="-webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);"
+  >
+    <div class="animate-scroll-infinite flex w-max items-center">
+      <div class="flex items-center gap-20 px-10 opacity-30 grayscale transition-all duration-500 ease-out hover:opacity-100 hover:grayscale-0">
+        <iconify-icon icon="simple-icons:nasa" width="64" height="64"></iconify-icon>
+        <iconify-icon icon="simple-icons:spacex" width="56" height="56"></iconify-icon>
+        <iconify-icon icon="simple-icons:uber" width="56" height="56"></iconify-icon>
+        <iconify-icon icon="simple-icons:visa" width="64" height="64"></iconify-icon>
+        <iconify-icon icon="simple-icons:bitwig" width="64" height="64" style="color: rgb(41, 37, 36);"></iconify-icon>
+        <iconify-icon icon="simple-icons:agora" width="56" height="56" style="color: rgb(41, 37, 36)"></iconify-icon>
+        <iconify-icon icon="simple-icons:aboutdotme" width="56" height="56" style="color: rgb(41, 37, 36);"></iconify-icon>
+        <iconify-icon icon="simple-icons:99designs" width="56" height="56" style="color: rgb(41, 37, 36);"></iconify-icon>
+      </div>
+      <div class="flex items-center gap-20 px-10 opacity-30 grayscale transition-all duration-500 ease-out hover:opacity-100 hover:grayscale-0">
+        <iconify-icon icon="simple-icons:nasa" width="64" height="64"></iconify-icon>
+        <iconify-icon icon="simple-icons:spacex" width="56" height="56"></iconify-icon>
+        <iconify-icon icon="simple-icons:uber" width="56" height="56"></iconify-icon>
+        <iconify-icon icon="simple-icons:visa" width="64" height="64"></iconify-icon>
+        <iconify-icon icon="simple-icons:allegro" width="64" height="64" style="color: rgb(41, 37, 36);"></iconify-icon>
+        <iconify-icon icon="simple-icons:stripe" width="56" height="56"></iconify-icon>
+        <iconify-icon icon="simple-icons:linear" width="56" height="56"></iconify-icon>
+        <iconify-icon icon="simple-icons:vercel" width="56" height="56"></iconify-icon>
+      </div>
+    </div>
+  </div>
+
+  <section class="mx-auto max-w-[1600px] px-6 py-24 md:px-12">
+    <div class="relative overflow-hidden rounded-[40px] bg-[#2C3E35] p-8 text-white md:p-16">
+      <div class="pointer-events-none absolute right-0 top-0 p-12 opacity-5">
+        <iconify-icon icon="solar:dna-linear" width="400" height="400"></iconify-icon>
+      </div>
+
+      <div class="relative z-10 mb-12 flex items-baseline justify-between border-b border-white/10 pb-4">
+        <span class="text-xs uppercase tracking-widest text-[#D4E8B0]/60">/ 02 Clinical Care</span>
+        <span class="font-mono text-xs text-[#D4E8B0]/60">[ 02 ]</span>
+      </div>
+
+      <div class="relative z-10 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-24">
+        <div class="order-2 flex flex-col justify-between gap-12 lg:order-1">
+          <div>
+            <div class="flex items-start justify-between gap-6">
+              <h2 class="mb-8 max-w-md text-4xl font-light tracking-tight text-white lg:text-5xl">
+                Precision medicine for the modern human.
+              </h2>
+              <div class="hidden shrink-0 rounded-full border border-[#D4E8B0]/20 p-2 lg:block">
+                <iconify-icon icon="solar:dna-linear" width="24" height="24" class="text-[#D4E8B0]"></iconify-icon>
+              </div>
+            </div>
+
+            <div class="mb-8 flex flex-wrap gap-3">
+              <span class="cursor-pointer rounded-full border border-[#D4E8B0]/20 px-4 py-2 text-xs font-medium text-[#D4E8B0] transition hover:bg-[#D4E8B0] hover:text-[#2C3E35]">Biomarker Analysis</span>
+              <span class="cursor-pointer rounded-full border border-[#D4E8B0]/20 px-4 py-2 text-xs font-medium text-[#D4E8B0] transition hover:bg-[#D4E8B0] hover:text-[#2C3E35]">Hormone Optimization</span>
+              <span class="cursor-pointer rounded-full border border-[#D4E8B0]/20 px-4 py-2 text-xs font-medium text-[#D4E8B0] transition hover:bg-[#D4E8B0] hover:text-[#2C3E35]">Gut Microbiome</span>
+              <span class="cursor-pointer rounded-full border border-[#D4E8B0]/20 px-4 py-2 text-xs font-medium text-[#D4E8B0] transition hover:bg-[#D4E8B0] hover:text-[#2C3E35]">Peptide Therapy</span>
+              <span class="cursor-pointer rounded-full border border-[#D4E8B0]/20 px-4 py-2 text-xs font-medium text-[#D4E8B0] transition hover:bg-[#D4E8B0] hover:text-[#2C3E35]">Tele-Health</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-6 rounded-2xl border border-white/5 bg-[#23322b] p-6">
+            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/801bd63e-8f7f-44cc-af22-fe89e783cb33_320w.webp" class="h-20 w-20 rounded-xl object-cover grayscale opacity-80" alt="Doctor">
+            <div>
+              <h4 class="text-lg font-medium text-white">Dr. Julian Vance, MD</h4>
+              <div class="mb-2 flex items-center gap-2">
+                <span class="text-xs text-white/50">Chief Medical Officer</span>
+              </div>
+              <p class="mb-4 max-w-xs text-sm text-white/70">"We don't just treat symptoms; we engineer your biology for resilience."</p>
+              <button class="flex w-max items-center gap-2 rounded-full bg-[#D4E8B0] py-1.5 pl-4 pr-1 text-xs font-medium text-[#2C3E35] transition hover:bg-white">
+                Consultation
+                <div class="rounded-full bg-[#2C3E35] p-1 text-[#D4E8B0]">
+                  <iconify-icon icon="solar:arrow-right-linear" width="12"></iconify-icon>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="group order-1 relative h-[500px] overflow-hidden rounded-3xl lg:order-2 lg:h-[600px]">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/98495472-aacd-4d19-bf19-cd2454d9e387_1600w.webp" class="h-full w-full object-cover opacity-90 transition duration-700 group-hover:scale-105" alt="Healthy Food">
+
+          <div class="absolute right-6 top-6 w-72 rounded-2xl border border-white/10 bg-[#1A2621]/90 p-5 shadow-xl backdrop-blur-md">
+            <div class="mb-4 flex items-end justify-between border-b border-white/10 pb-2">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-[#D4E8B0]/60">Active Metabolism</span>
+                <div class="text-2xl font-light tracking-tight text-white">2,450 <span class="text-xs font-normal text-white/40">kcal</span></div>
+              </div>
+              <div class="text-right">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-[#D4E8B0]/60">Index</span>
+                <div class="text-2xl font-light tracking-tight text-white">98 <span class="text-xs font-normal text-white/40">opt</span></div>
+              </div>
+            </div>
+            <div class="flex h-10 items-end justify-between gap-1">
+              <div class="h-[40%] w-2 rounded-full bg-white/10"></div>
+              <div class="h-[60%] w-2 rounded-full bg-white/10"></div>
+              <div class="h-[50%] w-2 rounded-full bg-white/10"></div>
+              <div class="h-[80%] w-2 rounded-full bg-white/10"></div>
+              <div class="h-[70%] w-2 rounded-full bg-[#D4E8B0] shadow-[0_0_10px_rgba(212,232,176,0.5)]"></div>
+              <div class="h-[90%] w-2 rounded-full bg-white/10"></div>
+              <div class="h-[75%] w-2 rounded-full bg-white/10"></div>
+              <div class="h-[100%] w-2 rounded-full bg-white/10"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto my-12 max-w-[1600px] rounded-[40px] border border-stone-100 bg-stone-50 px-6 py-24 md:px-12">
+    <div class="mb-16 flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
+      <div>
+        <span class="mb-4 block text-xs uppercase tracking-widest text-stone-400">/ 03 Programs</span>
+        <h2 class="max-w-lg text-4xl font-light tracking-tight text-stone-900 md:text-5xl">
+          Personalized protocols for every body.
+        </h2>
+      </div>
+      <div class="hidden lg:block">
+        <p class="max-w-xs text-right text-sm text-stone-500">Data-driven health plans designed by world-class specialists.</p>
+        <span class="mt-2 block text-right font-mono text-xs text-stone-400">[ 03 ]</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
+      <div class="relative h-[700px] overflow-hidden rounded-3xl">
+        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ec2179d5-e4f7-4e85-86d0-d004ca187d61_1600w.webp" class="h-full w-full object-cover" alt="Yoga">
+
+        <div class="absolute bottom-8 left-8 right-8 rounded-2xl border border-stone-100 bg-white p-6 shadow-xl">
+          <div class="mb-4 flex items-start justify-between">
+            <div>
+              <p class="text-xs font-medium uppercase text-stone-500">Metabolic Reset Program</p>
+              <h3 class="text-3xl font-light tracking-tight text-stone-900">$299<span class="text-sm font-light text-stone-400">/mo</span></h3>
+            </div>
+            <div class="rounded bg-stone-900 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-white">
+              Most Popular
+            </div>
+          </div>
+          <div class="mb-4 h-1 w-full overflow-hidden rounded-full bg-stone-100">
+            <div class="h-full w-[70%] bg-[#2C3E35]"></div>
+          </div>
+          <div class="flex justify-between text-xs font-medium text-stone-500">
+            <div class="flex items-center gap-1">
+              <iconify-icon icon="solar:check-circle-linear" class="text-[#2C3E35]"></iconify-icon>
+              <span>Daily Coaching</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <iconify-icon icon="solar:check-circle-linear" class="text-[#2C3E35]"></iconify-icon>
+              <span>Meal Plans</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <iconify-icon icon="solar:check-circle-linear" class="text-[#2C3E35]"></iconify-icon>
+              <span>Lab Work</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <div class="group cursor-pointer rounded-2xl border border-stone-100 bg-white p-8 shadow-sm transition">
+          <div class="flex items-start gap-6">
+            <div class="flex h-8 w-8 items-center justify-center rounded-full border border-stone-300 font-mono text-xs text-stone-500">01</div>
+            <div class="flex-1">
+              <h3 class="mb-3 text-2xl font-light tracking-tight text-stone-900">Foundations Weight Loss</h3>
+              <p class="mb-6 text-base font-light leading-relaxed text-stone-500">
+                A GLP-1 supported program that combines medication with behavioral coaching to ensure sustainable, long-term weight management.
+              </p>
+              <div class="flex items-center justify-between">
+                <button class="flex items-center gap-2 rounded-full bg-[#2C3E35] py-2 pl-5 pr-2 text-white transition hover:bg-stone-800">
+                  <span class="text-xs font-medium">View Eligibility</span>
+                  <div class="rounded-full bg-white/20 p-1 text-white">
+                    <iconify-icon icon="solar:arrow-right-linear" width="12"></iconify-icon>
+                  </div>
+                </button>
+                <div class="flex items-center gap-1 text-sm font-medium text-[#2C3E35]">
+                  <iconify-icon icon="solar:users-group-rounded-linear"></iconify-icon>
+                  <span class="text-xs text-stone-600">2k+ enrolled</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="group cursor-pointer rounded-2xl border border-transparent p-8 transition hover:border-stone-100 hover:bg-white">
+          <div class="flex items-center gap-6 opacity-60 transition group-hover:opacity-100">
+            <div class="flex h-8 w-8 items-center justify-center rounded-full border border-stone-200 font-mono text-xs text-stone-400 group-hover:border-stone-400 group-hover:text-stone-600">02</div>
+            <div>
+              <h3 class="text-xl font-medium tracking-tight text-stone-900">Cognitive Performance</h3>
+              <p class="mt-1 text-sm text-stone-400">Nootropic protocols for focus and clarity.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group cursor-pointer rounded-2xl border border-transparent p-8 transition hover:border-stone-100 hover:bg-white">
+          <div class="flex items-center gap-6 opacity-60 transition group-hover:opacity-100">
+            <div class="flex h-8 w-8 items-center justify-center rounded-full border border-stone-200 font-mono text-xs text-stone-400 group-hover:border-stone-400 group-hover:text-stone-600">03</div>
+            <div>
+              <h3 class="text-xl font-medium tracking-tight text-stone-900">Hormonal Balance</h3>
+              <p class="mt-1 text-sm text-stone-400">TRT and HRT therapies for vitality.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group cursor-pointer rounded-2xl border border-transparent p-8 transition hover:border-stone-100 hover:bg-white">
+          <div class="flex items-center gap-6 opacity-60 transition group-hover:opacity-100">
+            <div class="flex h-8 w-8 items-center justify-center rounded-full border border-stone-200 font-mono text-xs text-stone-400 group-hover:border-stone-400 group-hover:text-stone-600">04</div>
+            <div>
+              <h3 class="text-xl font-medium tracking-tight text-stone-900">Longevity Protocol</h3>
+              <p class="mt-1 text-sm text-stone-400">Cellular repair and anti-aging support.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1600px] px-6 py-24 md:px-12">
+    <div class="mb-8 flex items-baseline justify-between border-b border-stone-200 pb-4">
+      <span class="text-xs uppercase tracking-widest text-stone-400">/ 04 Apothecary</span>
+      <span class="font-mono text-xs text-stone-400">[ 04 ]</span>
+    </div>
+
+    <div class="mb-12 flex flex-col items-end justify-between gap-6 md:flex-row">
+      <h2 class="max-w-lg text-4xl font-light tracking-tight text-stone-900">
+        Daily rituals crafted to restore your natural rhythm.
+      </h2>
+      <div class="flex gap-2">
+        <button class="rounded-full bg-stone-900 px-4 py-1.5 text-xs font-medium text-white">All</button>
+        <button class="rounded-full border border-stone-200 px-4 py-1.5 text-xs font-medium text-stone-600 transition hover:border-stone-400">Topicals</button>
+        <button class="rounded-full border border-stone-200 px-4 py-1.5 text-xs font-medium text-stone-600 transition hover:border-stone-400">Ingestibles</button>
+      </div>
+    </div>
+
+    <div class="grid h-auto grid-cols-1 gap-6 md:h-[600px] md:grid-cols-4">
+      <div class="relative flex flex-col justify-between overflow-hidden rounded-3xl bg-stone-100 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e87981b4-9f1d-4525-86d0-b75c15667294_1600w.webp)] bg-cover bg-center px-10 pb-10 pt-10 md:col-span-2 md:row-span-2">
+        <div class="relative z-10">
+          <span class="rounded border border-stone-200 bg-white/80 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-stone-900 backdrop-blur">Best Seller</span>
+          <h3 class="mb-2 mt-6 text-4xl font-light text-stone-900">Dawn Serum</h3>
+          <p class="max-w-sm text-stone-500">Antioxidant-rich morning defense to awaken your skin's natural barrier.</p>
+        </div>
+
+        <div class="relative z-10 flex items-end justify-between">
+          <div class="text-2xl font-light text-stone-900">$85</div>
+          <button class="flex h-12 w-12 items-center justify-center rounded-full border border-stone-200 bg-white shadow-sm transition hover:scale-110">
+            <iconify-icon icon="solar:bag-linear" width="20"></iconify-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="relative flex flex-col justify-between overflow-hidden rounded-3xl bg-[#E8F0D6] p-6">
+        <div class="absolute right-4 top-4 opacity-0 transition group-hover:opacity-100">
+          <iconify-icon icon="solar:arrow-right-up-linear" width="20"></iconify-icon>
+        </div>
+        <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#2C3E35] text-white">
+          <iconify-icon icon="solar:sun-2-linear" width="32"></iconify-icon>
+        </div>
+        <div>
+          <h4 class="text-lg font-medium text-[#2C3E35]">Solar Energy</h4>
+          <p class="mt-1 text-xs text-[#2C3E35]/70">Focus &amp; Clarity Blend</p>
+        </div>
+        <div class="mt-4 flex items-center justify-between border-t border-[#2C3E35]/10 pt-4">
+          <span class="font-medium text-[#2C3E35]">$45</span>
+          <span class="text-[10px] uppercase tracking-wide text-[#2C3E35]/60">60 Caps</span>
+        </div>
+      </div>
+
+      <div class="relative flex flex-col justify-between overflow-hidden rounded-3xl border border-stone-200 bg-white p-6">
+        <div class="absolute right-4 top-4 opacity-0 transition group-hover:opacity-100">
+          <iconify-icon icon="solar:arrow-right-up-linear" width="20"></iconify-icon>
+        </div>
+        <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-stone-100 text-stone-400">
+          <iconify-icon icon="solar:moon-stars-linear" width="32"></iconify-icon>
+        </div>
+        <div>
+          <h4 class="text-lg font-medium text-stone-900">Lunar Rest</h4>
+          <p class="mt-1 text-xs text-stone-500">Deep Sleep Support</p>
+        </div>
+        <div class="mt-4 flex items-center justify-between border-t border-stone-100 pt-4">
+          <span class="font-medium text-stone-900">$45</span>
+          <span class="text-[10px] uppercase tracking-wide text-stone-400">60 Caps</span>
+        </div>
+      </div>
+
+      <div class="relative flex items-center justify-between overflow-hidden rounded-3xl bg-[#2C3E35] p-8 text-white md:col-span-2">
+        <div class="relative z-10 max-w-[60%]">
+          <h4 class="mb-2 text-2xl font-light">The Starter Kit</h4>
+          <p class="mb-6 text-sm text-white/60">Complete protocol for beginners. Includes AM/PM formulations.</p>
+          <button class="border-b border-white pb-0.5 text-xs font-medium transition hover:border-[#D4E8B0] hover:text-[#D4E8B0]">Shop Collection</button>
+        </div>
+        <div class="absolute bottom-0 right-0 h-full w-1/3 bg-gradient-to-l from-white/10 to-transparent"></div>
+        <div class="flex h-24 w-24 items-center justify-center rounded-full border border-white/20 transition duration-500 group-hover:scale-110">
+          <span class="text-lg font-medium">$120</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1600px] px-6 py-24 md:px-12">
+    <div class="relative overflow-hidden rounded-[40px] bg-[#2C3E35] p-8 text-white md:p-16">
+      <div class="relative z-10 mb-12 flex items-start justify-between">
+        <div>
+          <span class="mb-4 block text-xs uppercase tracking-widest text-white/50">/ 05 Testimonials</span>
+          <h2 class="max-w-lg text-3xl font-light leading-tight tracking-tight md:text-5xl">
+            Stories from our community.
+          </h2>
+        </div>
+        <div class="flex gap-2">
+          <button id="prevBtn" class="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 transition duration-300 hover:bg-white hover:text-[#2C3E35]">
+            <iconify-icon icon="solar:arrow-left-linear" width="20"></iconify-icon>
+          </button>
+          <button id="nextBtn" class="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 transition duration-300 hover:bg-white hover:text-[#2C3E35]">
+            <iconify-icon icon="solar:arrow-right-linear" width="20"></iconify-icon>
+          </button>
+        </div>
+      </div>
+
+      <div id="testimonial-container" class="hide-scrollbar snap-x flex gap-6 overflow-x-auto scroll-smooth pb-4">
+        <div class="min-w-[100%] snap-center md:min-w-[80%] lg:min-w-[70%]">
+          <div class="grid grid-cols-1 gap-8 overflow-hidden rounded-3xl bg-[#23322b] p-6 lg:grid-cols-12 lg:gap-12 lg:p-0">
+            <div class="relative h-64 lg:col-span-4 lg:h-auto">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fba47e77-83f6-4793-8497-3ada589e2f9a_800w.jpg" class="h-full w-full rounded-2xl object-cover opacity-90 lg:rounded-none lg:rounded-l-3xl" alt="User">
+            </div>
+            <div class="flex flex-col justify-center lg:col-span-8 lg:py-12 lg:pr-12">
+              <iconify-icon icon="solar:quote-up-bold" width="40" height="40" class="mb-6 text-[#D4E8B0] opacity-30"></iconify-icon>
+              <blockquote class="mb-8 text-xl font-light leading-snug tracking-tight md:text-3xl">
+                "Being part of the metabolic reset program shifted my perspective entirely. It's not about restriction, it's about deep nourishment."
+              </blockquote>
+              <div class="flex items-center gap-4">
+                <div>
+                  <div class="text-lg font-medium text-[#D4E8B0]">Savannah Watson</div>
+                  <div class="text-xs uppercase tracking-wider opacity-60">Architect, London</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="min-w-[100%] snap-center md:min-w-[80%] lg:min-w-[70%]">
+          <div class="grid grid-cols-1 gap-8 overflow-hidden rounded-3xl bg-[#23322b] p-6 lg:grid-cols-12 lg:gap-12 lg:p-0">
+            <div class="relative h-64 lg:col-span-4 lg:h-auto">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7977c000-ef3e-47cb-8975-a36e84609b59_800w.webp" class="h-full w-full rounded-2xl object-cover opacity-90 lg:rounded-none lg:rounded-l-3xl" alt="User">
+            </div>
+            <div class="flex flex-col justify-center lg:col-span-8 lg:py-12 lg:pr-12">
+              <iconify-icon icon="solar:quote-up-bold" width="40" height="40" class="mb-6 text-[#D4E8B0] opacity-30"></iconify-icon>
+              <blockquote class="mb-8 text-xl font-light leading-snug tracking-tight md:text-3xl">
+                "The Nootropic protocols gave me a clarity I haven't felt in years. The brain fog lifted within the first week of the regimen."
+              </blockquote>
+              <div class="flex items-center gap-4">
+                <div>
+                  <div class="text-lg font-medium text-[#D4E8B0]">Marcus Chen</div>
+                  <div class="text-xs uppercase tracking-wider opacity-60">Software Engineer, SF</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="min-w-[100%] snap-center md:min-w-[80%] lg:min-w-[70%]">
+          <div class="grid grid-cols-1 gap-8 overflow-hidden rounded-3xl bg-[#23322b] p-6 lg:grid-cols-12 lg:gap-12 lg:p-0">
+            <div class="relative h-64 lg:col-span-4 lg:h-auto">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/dab93e0a-ecb6-458e-9f0d-b757ddd7056f_800w.webp" class="h-full w-full rounded-2xl object-cover opacity-90 grayscale lg:rounded-none lg:rounded-l-3xl" alt="User">
+            </div>
+            <div class="flex flex-col justify-center lg:col-span-8 lg:py-12 lg:pr-12">
+              <iconify-icon icon="solar:quote-up-bold" width="40" height="40" class="mb-6 text-[#D4E8B0] opacity-30"></iconify-icon>
+              <blockquote class="mb-8 text-xl font-light leading-snug tracking-tight md:text-3xl">
+                "I was skeptical about telehealth, but the level of personalization in the bloodwork analysis was superior to my local clinic."
+              </blockquote>
+              <div class="flex items-center gap-4">
+                <div>
+                  <div class="text-lg font-medium text-[#D4E8B0]">Elena Rodriguez</div>
+                  <div class="text-xs uppercase tracking-wider opacity-60">Chef, Madrid</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1600px] border-b border-stone-200 px-6 py-24 md:px-12">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <span class="mb-4 block text-xs uppercase tracking-widest text-stone-400">/ 06 FAQ</span>
+        <h2 class="mb-12 text-4xl font-light tracking-tight text-stone-900 md:text-5xl">Common Inquiries</h2>
+
+        <div class="mb-12">
+          <div class="mb-2 flex items-end justify-between">
+            <span class="text-[10px] font-bold uppercase text-stone-400">Membership Capacity</span>
+            <span class="text-[10px] font-bold text-stone-400">92% Full</span>
+          </div>
+          <div class="h-1.5 w-full overflow-hidden rounded-full bg-stone-100">
+            <div class="h-full w-[92%] bg-[#2C3E35]"></div>
+          </div>
+        </div>
+
+        <button class="flex w-full items-center justify-between rounded-full bg-stone-900 py-3 pl-6 pr-2 text-white transition hover:bg-stone-800 md:w-auto md:justify-start md:gap-4">
+          <span class="text-sm font-medium">Apply for Membership</span>
+          <div class="rounded-full bg-white p-1.5 text-black">
+            <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+          </div>
+        </button>
+      </div>
+
+      <div class="space-y-6 lg:col-span-8">
+        <div class="border-b border-stone-200 pb-6">
+          <div class="group flex cursor-pointer items-center justify-between">
+            <h3 class="text-xl font-light text-stone-500 transition group-hover:text-stone-900">Do you accept insurance?</h3>
+            <div class="flex h-8 w-8 items-center justify-center rounded-full border border-stone-200 text-stone-400 transition group-hover:border-stone-900 group-hover:text-stone-900">
+              <iconify-icon icon="solar:add-linear" width="16"></iconify-icon>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-b border-stone-200 pb-6">
+          <div class="group flex cursor-pointer items-center justify-between">
+            <h3 class="text-xl font-light text-stone-500 transition group-hover:text-stone-900">What does the initial assessment involve?</h3>
+            <div class="flex h-8 w-8 items-center justify-center rounded-full border border-stone-200 text-stone-400 transition group-hover:border-stone-900 group-hover:text-stone-900">
+              <iconify-icon icon="solar:minus-linear" width="16"></iconify-icon>
+            </div>
+          </div>
+          <p class="mt-4 max-w-2xl text-sm leading-relaxed text-stone-400">
+            Our 75-minute intake includes a comprehensive review of your medical history, metabolic panel analysis, lifestyle audit, and goal setting with a functional medicine practitioner.
+          </p>
+        </div>
+
+        <div class="border-b border-stone-200 pb-6">
+          <div class="group flex cursor-pointer items-center justify-between">
+            <h3 class="text-xl font-light text-stone-500 transition group-hover:text-stone-900">Are products vegan and cruelty-free?</h3>
+            <div class="flex h-8 w-8 items-center justify-center rounded-full border border-stone-200 text-stone-400 transition group-hover:border-stone-900 group-hover:text-stone-900">
+              <iconify-icon icon="solar:add-linear" width="16"></iconify-icon>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-b border-stone-200 pb-6">
+          <div class="group flex cursor-pointer items-center justify-between">
+            <h3 class="text-xl font-light text-stone-500 transition group-hover:text-stone-900">Can I pause my membership?</h3>
+            <div class="flex h-8 w-8 items-center justify-center rounded-full border border-stone-200 text-stone-400 transition group-hover:border-stone-900 group-hover:text-stone-900">
+              <iconify-icon icon="solar:add-linear" width="16"></iconify-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-[#2C3E35] px-6 py-24 text-white md:px-12">
+    <div class="mx-auto grid max-w-[1600px] grid-cols-1 gap-12 lg:grid-cols-4 lg:gap-24">
+      <div class="lg:col-span-1">
+        <h2 class="mb-8 text-2xl font-light tracking-tight">Harmony for your whole self.</h2>
+        <button class="flex items-center gap-4 rounded-full bg-[#D4E8B0] py-2 pl-6 pr-2 text-[#2C3E35] transition hover:bg-white">
+          <span class="text-sm font-medium">Book Consultation</span>
+          <div class="rounded-full bg-[#2C3E35] p-1.5 text-[#D4E8B0]">
+            <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+          </div>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-2 gap-8 text-[10px] uppercase tracking-widest text-[#D4E8B0]/60 lg:col-span-3">
+        <div class="space-y-8">
+          <div>
+            <span class="mb-4 block text-[#D4E8B0]">Clinic Hours</span>
+            <div class="text-sm font-light normal-case text-white">08:00 AM - 08:00 PM EST</div>
+          </div>
+          <div>
+            <span class="mb-4 block text-[#D4E8B0]">Contact</span>
+            <div class="block text-sm font-light normal-case text-white">(+1) 415 789 3456</div>
+            <div class="block text-sm font-light normal-case text-white">care@serenewellness.com</div>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div>
+            <span class="mb-4 block text-[#D4E8B0]">Locations</span>
+            <div class="mb-4 text-sm font-light normal-case text-white">
+              42 Westbrook Lane, NYC
+            </div>
+            <div class="text-sm font-light normal-case text-white">
+              18 Kensington High St, London
+            </div>
+          </div>
+
+          <div class="pt-8">
+            <span class="mb-4 block text-[#D4E8B0]">Connect</span>
+            <div class="flex gap-2">
+              <a href="#" class="flex h-8 w-8 items-center justify-center rounded border border-[#D4E8B0]/20 text-white transition hover:bg-[#D4E8B0] hover:text-[#2C3E35]">
+                <iconify-icon icon="simple-icons:instagram"></iconify-icon>
+              </a>
+              <a href="#" class="flex h-8 w-8 items-center justify-center rounded border border-[#D4E8B0]/20 text-white transition hover:bg-[#D4E8B0] hover:text-[#2C3E35]">
+                <iconify-icon icon="simple-icons:twitter"></iconify-icon>
+              </a>
+              <a href="#" class="flex h-8 w-8 items-center justify-center rounded border border-[#D4E8B0]/20 text-white transition hover:bg-[#D4E8B0] hover:text-[#2C3E35]">
+                <iconify-icon icon="simple-icons:linkedin"></iconify-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto mt-24 flex max-w-[1600px] flex-col justify-between gap-4 border-t border-[#D4E8B0]/20 pt-8 text-[10px] uppercase tracking-wider text-[#D4E8B0]/60 md:flex-row">
+      <div class="mb-4 flex gap-6 md:mb-0">
+        <a href="#" class="transition hover:text-white">Philosophy</a>
+        <a href="#" class="transition hover:text-white">Science</a>
+        <a href="#" class="transition hover:text-white">Shop</a>
+      </div>
+      <div class="flex gap-6">
+        <span>© 2024 Serene Wellness Co.</span>
+        <a href="#" class="transition hover:text-white">Privacy</a>
+        <a href="#" class="transition hover:text-white">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    function splitTextForReveal(element) {
+      const text = element.textContent.trim();
+      const words = text.split(" ");
+      element.textContent = "";
+
+      words.forEach((word) => {
+        const wrapper = document.createElement("span");
+        wrapper.classList.add("word-wrapper");
+
+        const inner = document.createElement("span");
+        inner.classList.add("word-inner");
+        inner.textContent = word + "\u00A0";
+
+        wrapper.appendChild(inner);
+        element.appendChild(wrapper);
+      });
+    }
+
+    const revealElements = document.querySelectorAll(".reveal-text");
+
+    revealElements.forEach((element) => {
+      splitTextForReveal(element);
+
+      const innerWords = element.querySelectorAll(".word-inner");
+
+      gsap.to(innerWords, {
+        y: 0,
+        duration: 1.2,
+        stagger: 0.05,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
+
+    gsap.to("#hero-bg", {
+      yPercent: 30,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#hero-section",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+
+    const container = document.getElementById("testimonial-container");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    if (container && nextBtn && prevBtn) {
+      nextBtn.addEventListener("click", () => {
+        container.scrollBy({ left: container.clientWidth * 0.7, behavior: "smooth" });
+      });
+
+      prevBtn.addEventListener("click", () => {
+        container.scrollBy({ left: -(container.clientWidth * 0.7), behavior: "smooth" });
+      });
+    }
+  </script>
+</body>
+</html>

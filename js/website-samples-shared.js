@@ -4,8 +4,8 @@ import { initWebsiteSamplesHub } from "./website-samples-hub.js?v=20260330";
 const lang = getLang();
 
 const contentModule = lang === "de"
-  ? import("./website-samples-content-de.js?v=20260330")
-  : import("./website-samples-content-en.js?v=20260330");
+  ? import("./website-samples-content-de.js?v=20260419c")
+  : import("./website-samples-content-en.js?v=20260419c");
 
 contentModule
   .then(({ default: content }) => {

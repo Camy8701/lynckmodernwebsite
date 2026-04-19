@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/js/url-attribution-cleanup.js?v=20260330"></script>
+  <script src="/js/cookie-consent.js?v=20260418a" defer data-ga-id="G-GRWYGYSSMY" data-gtm-id="GTM-N5757GT5" data-clarity-id="wdni5ogrju"></script>
+  <title>Himalayan Peaks - Luxury Trekking</title>
+  <meta name="description" content="Luxury trekking sample website concept for Himalayan expeditions, premium base-camp packages, and high-end mountain adventure bookings.">
+  <meta name="robots" content="noindex, noarchive">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-[#1a2c2b] text-slate-200 antialiased selection:bg-[#cda036] selection:text-white">
+  <div class="bg-[#111e1d] text-slate-400 py-2 px-6 text-xs hidden md:flex justify-between items-center border-b border-white/5">
+    <div class="flex items-center gap-4">
+      <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5" stroke-width="1.5"></i> Sun to Friday: 8:00 am - 7:00 pm</span>
+    </div>
+    <div class="flex items-center gap-6">
+      <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#cda036]" stroke-width="1.5"></i> Kathmandu: 01:15 PM</span>
+      <a href="#blog-news" class="hover:text-[#cda036] transition-colors">FAQ</a>
+      <a href="#booking-form" class="flex items-center gap-1.5 hover:text-[#cda036] transition-colors"><i data-lucide="headphones" class="w-3.5 h-3.5" stroke-width="1.5"></i> Support</a>
+      <div class="flex items-center gap-1.5 cursor-pointer hover:text-white transition-colors">
+        <span>EN</span> <i data-lucide="chevron-down" class="w-3 h-3" stroke-width="1.5"></i>
+      </div>
+    </div>
+  </div>
+
+  <nav class="bg-[#152524]/90 backdrop-blur-md sticky top-0 z-50 border-b border-white/5">
+    <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-8">
+        <button class="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors group" type="button">
+          <i data-lucide="menu" class="w-5 h-5 group-hover:text-[#cda036]" stroke-width="1.5"></i> MENU
+        </button>
+        <a href="#featured-trails" class="hidden md:flex items-center gap-1 text-sm text-slate-300 hover:text-white transition-colors">
+          TREKS <i data-lucide="chevron-down" class="w-3.5 h-3.5" stroke-width="1.5"></i>
+        </a>
+      </div>
+
+      <div class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center justify-center">
+        <div class="w-10 h-10 border border-[#cda036] rounded-full flex items-center justify-center mb-1">
+          <i data-lucide="mountain" class="w-5 h-5 text-[#cda036]" stroke-width="1.5"></i>
+        </div>
+        <div class="text-white font-medium tracking-widest text-xs uppercase text-center leading-none">
+          Himalayan<br><span class="text-[10px] text-slate-400">Peaks Co.</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-8">
+        <a href="#about-himalayan-peaks" class="hidden md:flex items-center gap-1 text-sm text-slate-300 hover:text-white transition-colors">
+          COMPANY <i data-lucide="chevron-down" class="w-3.5 h-3.5" stroke-width="1.5"></i>
+        </a>
+        <a href="#booking-form" class="flex items-center gap-2 text-sm text-white hover:text-[#cda036] transition-colors">
+          BOOKING <i data-lucide="arrow-up-right" class="w-4 h-4" stroke-width="1.5"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="relative h-[85vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-black/40 z-10"></div>
+    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2074&auto=format&fit=crop" alt="Himalayas" class="absolute inset-0 w-full h-full object-cover">
+
+    <div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-[-10vh]">
+      <div class="flex items-center justify-center mb-8">
+        <button class="w-20 h-20 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors backdrop-blur-sm group" type="button">
+          <i data-lucide="play" class="w-6 h-6 text-white group-hover:text-[#cda036] ml-1" stroke-width="1.5"></i>
+        </button>
+      </div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-medium text-white tracking-tight leading-[1.1] mb-6">
+        Exclusive &amp; Authentic<br>Himalayan Expeditions
+      </h1>
+      <p class="text-base md:text-lg text-slate-200 font-light max-w-2xl mx-auto">
+        Himalayan Peaks is a premium trekking agency designed to help you discover the majestic mountains and recover your spirit with great adventures.
+      </p>
+    </div>
+
+    <div class="absolute right-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center gap-4">
+      <span class="text-xs text-white [writing-mode:vertical-lr] rotate-180 tracking-widest uppercase">Scroll Down</span>
+      <div class="w-[1px] h-12 bg-white/30 relative">
+        <div class="absolute top-0 left-0 w-full h-1/2 bg-[#cda036]"></div>
+      </div>
+    </div>
+
+    <div class="absolute left-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col gap-4">
+      <a href="#site-footer" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#cda036] transition-colors"><i data-lucide="facebook" class="w-4 h-4 text-white" stroke-width="1.5"></i></a>
+      <a href="#gallery-section" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#cda036] transition-colors"><i data-lucide="instagram" class="w-4 h-4 text-white" stroke-width="1.5"></i></a>
+      <a href="#blog-news" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#cda036] transition-colors"><i data-lucide="twitter" class="w-4 h-4 text-white" stroke-width="1.5"></i></a>
+    </div>
+  </header>
+
+  <div class="relative z-30 max-w-[1200px] mx-auto px-4 -mt-16 sm:-mt-12">
+    <div class="bg-[#12201e] border border-white/5 p-4 md:p-6 shadow-2xl flex flex-col lg:flex-row gap-4 items-end relative">
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-4 bg-[#cda036] rounded-t-sm flex items-center justify-center">
+        <i data-lucide="chevron-down" class="w-3 h-3 text-white" stroke-width="1.5"></i>
+      </div>
+
+      <div class="w-full lg:w-1/5">
+        <label class="block text-xs text-[#cda036] mb-2 uppercase tracking-wider">Region</label>
+        <div class="relative bg-[#192b2a] border border-white/5 p-3 flex items-center justify-between cursor-pointer">
+          <span class="text-sm text-white">Everest Region</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400" stroke-width="1.5"></i>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/5">
+        <label class="block text-xs text-[#cda036] mb-2 uppercase tracking-wider">Start Date</label>
+        <div class="relative bg-[#192b2a] border border-white/5 p-3 flex items-center justify-between cursor-pointer">
+          <span class="text-sm text-white">15 Oct 2024</span>
+          <i data-lucide="calendar" class="w-4 h-4 text-slate-400" stroke-width="1.5"></i>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/5">
+        <label class="block text-xs text-[#cda036] mb-2 uppercase tracking-wider">Trekkers</label>
+        <div class="relative bg-[#192b2a] border border-white/5 p-3 flex items-center justify-between cursor-pointer">
+          <span class="text-sm text-white">02 Adults</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400" stroke-width="1.5"></i>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/5">
+        <label class="block text-xs text-[#cda036] mb-2 uppercase tracking-wider">Duration</label>
+        <div class="relative bg-[#192b2a] border border-white/5 p-3 flex items-center justify-between cursor-pointer">
+          <span class="text-sm text-white">10 - 15 Days</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400" stroke-width="1.5"></i>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/5 h-[46px]">
+        <a href="#featured-trails" class="w-full h-full bg-[#cda036] hover:bg-[#b58b2e] text-white text-xs font-medium tracking-wider uppercase transition-colors inline-flex items-center justify-center">
+          Find Treks
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section id="featured-trails" class="py-24 max-w-[1400px] mx-auto px-6 relative">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+      <div>
+        <span class="text-[#cda036] text-xs uppercase tracking-widest flex items-center gap-2 mb-3">
+          <span class="w-8 h-[1px] bg-[#cda036]"></span> PREMIUM ADVENTURES
+        </span>
+        <h2 class="text-3xl md:text-5xl font-medium text-white tracking-tight">Popular Trails &amp; Routes</h2>
+      </div>
+      <div class="text-[#243c3a] text-6xl md:text-8xl font-medium tracking-tighter opacity-30 select-none absolute right-6 top-12 pointer-events-none">
+        Popular routes &amp; trails
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="group bg-[#162524] relative overflow-hidden">
+        <div class="relative h-[300px] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=2003&auto=format&fit=crop" alt="Everest" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="p-6 text-center border-t-2 border-[#1a2c2b]">
+          <h3 class="text-xl font-medium text-white tracking-tight mb-2">Everest Base Camp</h3>
+          <p class="text-sm text-slate-400">Price Starts at $1,290</p>
+        </div>
+      </div>
+
+      <div class="group bg-[#162524] relative overflow-hidden">
+        <div class="relative h-[300px] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?q=80&w=2070&auto=format&fit=crop" alt="Annapurna" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <i data-lucide="arrow-right" class="w-5 h-5 text-white" stroke-width="1.5"></i>
+          </div>
+        </div>
+        <div class="p-6 text-center border-t-2 border-[#1a2c2b]">
+          <h3 class="text-xl font-medium text-white tracking-tight mb-2">Annapurna Circuit</h3>
+          <p class="text-sm text-slate-400">Price Starts at $990</p>
+        </div>
+      </div>
+
+      <div class="group bg-[#162524] relative overflow-hidden">
+        <div class="relative h-[300px] overflow-hidden">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="Langtang" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="p-6 text-center border-t-2 border-[#1a2c2b]">
+          <h3 class="text-xl font-medium text-white tracking-tight mb-2">Langtang Valley</h3>
+          <p class="text-sm text-slate-400">Price Starts at $750</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-himalayan-peaks" class="py-24 bg-[#142221]">
+    <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="relative h-[500px] w-full">
+        <div class="absolute top-0 left-0 w-4/5 h-[400px] overflow-hidden border border-white/5">
+          <img src="https://images.unsplash.com/photo-1533130061792-64b345e4a833?q=80&w=2070&auto=format&fit=crop" alt="Trekking Team" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute bottom-0 right-0 w-[55%] h-[280px] border-8 border-[#142221] overflow-hidden bg-[#162524] z-10 flex flex-col items-center justify-center p-6 text-center shadow-2xl">
+          <div class="w-12 h-12 border border-[#cda036] rounded-full flex items-center justify-center mb-3">
+            <i data-lucide="award" class="w-6 h-6 text-[#cda036]" stroke-width="1.5"></i>
+          </div>
+          <h4 class="text-white font-medium text-lg tracking-tight leading-tight">Award Winning<br>Agency Since 1999</h4>
+        </div>
+        <div class="absolute -left-4 top-20 w-8 h-20 bg-[#cda036] opacity-80"></div>
+      </div>
+
+      <div>
+        <span class="text-[#cda036] text-xs uppercase tracking-widest flex items-center gap-2 mb-4">
+          <span class="w-8 h-[1px] bg-[#cda036]"></span> ABOUT HIMALAYAN PEAKS
+        </span>
+        <h2 class="text-3xl md:text-5xl font-medium text-white tracking-tight mb-6 leading-tight">
+          Welcome To The Heart<br>Of The Himalayas
+        </h2>
+        <p class="text-base text-slate-400 leading-relaxed mb-6">
+          Based in Kathmandu, Himalayan Peaks is a premier trekking and expedition company. We offer an exclusive and authentic experience in the world's most dramatic landscapes, where the focus is on safety, culture, and profound personal achievement.
+        </p>
+        <p class="text-base text-slate-400 leading-relaxed mb-10">
+          You can expect expert guidance, premium logistics, and a commitment to sustainable tourism when you journey with us. Our approach combines traditional Sherpa hospitality with modern expedition standards.
+        </p>
+
+        <div class="grid grid-cols-3 gap-6 mb-10 pb-10 border-b border-white/5">
+          <div>
+            <div class="text-3xl md:text-4xl text-[#cda036] font-medium tracking-tight mb-1">250+</div>
+            <div class="text-sm text-slate-400">Routes Explored</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl text-[#cda036] font-medium tracking-tight mb-1">4.9+</div>
+            <div class="text-sm text-slate-400">Guest Rating</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl text-[#cda036] font-medium tracking-tight mb-1">15k+</div>
+            <div class="text-sm text-slate-400">Happy Trekkers</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <a href="#trek-amenities" class="bg-[#cda036] hover:bg-[#b58b2e] text-white text-xs font-medium tracking-wider uppercase px-8 py-3.5 transition-colors flex items-center gap-2">
+            Learn More <i data-lucide="arrow-right" class="w-4 h-4" stroke-width="1.5"></i>
+          </a>
+          <a href="#testimonials" class="text-white text-xs font-medium tracking-wider uppercase flex items-center gap-2 hover:text-[#cda036] transition-colors border border-white/20 px-8 py-3.5">
+            Explore Team <i data-lucide="arrow-right" class="w-4 h-4" stroke-width="1.5"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="base-camp-packages" class="py-24 max-w-[1400px] mx-auto px-6">
+    <div class="flex justify-between items-end mb-12">
+      <div>
+        <span class="text-[#cda036] text-xs uppercase tracking-widest flex items-center gap-2 mb-3">
+          <span class="w-8 h-[1px] bg-[#cda036]"></span> DISCOVER PACKAGES
+        </span>
+        <h2 class="text-3xl md:text-4xl font-medium text-white tracking-tight">Stay Packages At<br>Base Camps</h2>
+      </div>
+      <a href="#gallery-section" class="hidden md:flex text-white text-xs font-medium tracking-wider uppercase items-center gap-2 hover:text-[#cda036] transition-colors border border-white/20 px-6 py-2.5">
+        Explore All <i data-lucide="arrow-right" class="w-4 h-4" stroke-width="1.5"></i>
+      </a>
+    </div>
+
+    <div class="flex gap-6 overflow-x-auto hide-scrollbar snap-x pb-8">
+      <div class="min-w-[80px] md:min-w-[100px] h-[400px] bg-[#162524] flex items-center justify-center border border-white/5 relative group cursor-pointer snap-start shrink-0">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity">
+        <span class="text-white text-sm tracking-widest uppercase [writing-mode:vertical-rl] rotate-180 z-10 whitespace-nowrap">A Seamless Experience</span>
+        <span class="absolute top-6 text-[#cda036] text-[10px] uppercase tracking-widest [writing-mode:vertical-rl] rotate-180 z-10">Special Offers</span>
+      </div>
+
+      <div class="min-w-[300px] md:min-w-[600px] h-[400px] relative group overflow-hidden snap-start shrink-0">
+        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2074&auto=format&fit=crop" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#111e1d] via-[#111e1d]/40 to-transparent"></div>
+
+        <div class="absolute bottom-0 left-0 w-full p-8 flex justify-between items-end">
+          <div>
+            <span class="text-[#cda036] text-xs uppercase tracking-widest flex items-center gap-2 mb-2">
+              <span class="w-4 h-[1px] bg-[#cda036]"></span> Special Offers
+            </span>
+            <h3 class="text-2xl font-medium text-white tracking-tight mb-2">Helicopter Tour &amp; Spa Day</h3>
+            <div class="text-sm text-slate-300 flex items-center gap-3">
+              <span>From $1,200</span> <span class="w-1 h-1 rounded-full bg-slate-500"></span> <span>2 Persons</span> <span class="w-1 h-1 rounded-full bg-slate-500"></span> <span>Full Day</span>
+            </div>
+          </div>
+          <button class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors backdrop-blur-sm" type="button">
+            <i data-lucide="arrow-right" class="w-5 h-5 text-white" stroke-width="1.5"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="min-w-[80px] md:min-w-[100px] h-[400px] bg-[#162524] flex items-center justify-center border border-white/5 relative group cursor-pointer snap-start shrink-0">
+        <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=2003&auto=format&fit=crop" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity">
+        <span class="text-white text-sm tracking-widest uppercase [writing-mode:vertical-rl] rotate-180 z-10 whitespace-nowrap">Events &amp; Activities</span>
+        <span class="absolute top-6 text-[#cda036] text-[10px] uppercase tracking-widest [writing-mode:vertical-rl] rotate-180 z-10">Special Offers</span>
+      </div>
+
+      <div class="min-w-[300px] h-[400px] relative group overflow-hidden snap-start shrink-0 border border-white/5">
+        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="" class="w-full h-full object-cover opacity-50">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <button class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-sm hover:bg-[#cda036] transition-colors" type="button">
+            <i data-lucide="plus" class="w-5 h-5 text-white" stroke-width="1.5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center mt-6 border-t border-white/10 pt-6">
+      <div class="w-8 h-8 rounded-full bg-[#cda036] flex items-center justify-center cursor-pointer">
+        <i data-lucide="arrow-left" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+      </div>
+      <div class="flex-1 mx-6 bg-white/10 h-[1px]">
+        <div class="w-1/4 h-[1px] bg-[#cda036]"></div>
+      </div>
+      <div class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center cursor-pointer hover:bg-white/10 transition-colors">
+        <i data-lucide="arrow-right" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+      </div>
+    </div>
+  </section>
+
+  <section id="trek-amenities" class="py-24 bg-[#142221] relative overflow-hidden">
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] overflow-hidden whitespace-nowrap">
+      <span class="text-[150px] font-medium tracking-tighter">CELEBRATIONS EVENTS CELEBRATIONS</span>
+    </div>
+
+    <div class="max-w-[1000px] mx-auto px-6 text-center relative z-10 mb-16">
+      <span class="text-[#cda036] text-xs uppercase tracking-widest flex items-center justify-center gap-2 mb-3">
+        <span class="w-8 h-[1px] bg-[#cda036]"></span> TREK AMENITIES <span class="w-8 h-[1px] bg-[#cda036]"></span>
+      </span>
+      <h2 class="text-3xl md:text-5xl font-medium text-white tracking-tight mb-6">All Included Services</h2>
+      <p class="text-base text-slate-400 max-w-2xl mx-auto">
+        A lavish experience is our priority. We provide our clients with several first-rate services to ensure the ideal vacation in the mountains.
+      </p>
+    </div>
+
+    <div class="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+      <div class="flex flex-col gap-8 mt-12">
+        <div class="flex items-center gap-4 justify-end text-right group cursor-pointer">
+          <div>
+            <h4 class="text-white font-medium mb-1 group-hover:text-[#cda036] transition-colors">Expert Guides</h4>
+            <p class="text-xs text-slate-500">Certified local professionals</p>
+          </div>
+          <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-[#1a2c2b] group-hover:border-[#cda036] transition-colors shrink-0">
+            <i data-lucide="users" class="w-5 h-5 text-slate-300 group-hover:text-[#cda036]" stroke-width="1.5"></i>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 justify-end text-right group cursor-pointer">
+          <div>
+            <h4 class="text-white font-medium mb-1 group-hover:text-[#cda036] transition-colors">Premium Gear</h4>
+            <p class="text-xs text-slate-500">High-altitude equipment</p>
+          </div>
+          <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-[#1a2c2b] group-hover:border-[#cda036] transition-colors shrink-0">
+            <i data-lucide="backpack" class="w-5 h-5 text-slate-300 group-hover:text-[#cda036]" stroke-width="1.5"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative border border-white/10 p-2 bg-[#1a2c2b]">
+        <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=2003&auto=format&fit=crop" alt="Meals at base camp" class="w-full h-[300px] object-cover">
+        <div class="absolute bottom-0 left-0 w-full bg-[#111e1d]/90 backdrop-blur-sm p-4 text-center border-t border-white/10">
+          <h4 class="text-white font-medium text-sm">Full Board Meals</h4>
+          <p class="text-xs text-slate-400 mt-1">Nutritious mountain diet</p>
+        </div>
+        <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-[#cda036] rounded-full border-4 border-[#142221] flex items-center justify-center">
+          <i data-lucide="utensils-crossed" class="w-5 h-5 text-white" stroke-width="1.5"></i>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-8 mt-12">
+        <div class="flex items-center gap-4 group cursor-pointer">
+          <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-[#1a2c2b] group-hover:border-[#cda036] transition-colors shrink-0">
+            <i data-lucide="file-text" class="w-5 h-5 text-slate-300 group-hover:text-[#cda036]" stroke-width="1.5"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-medium mb-1 group-hover:text-[#cda036] transition-colors">Permits Sorted</h4>
+            <p class="text-xs text-slate-500">All TIMS &amp; National Park fees</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 group cursor-pointer">
+          <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-[#1a2c2b] group-hover:border-[#cda036] transition-colors shrink-0">
+            <i data-lucide="shield-check" class="w-5 h-5 text-slate-300 group-hover:text-[#cda036]" stroke-width="1.5"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-medium mb-1 group-hover:text-[#cda036] transition-colors">Safety First</h4>
+            <p class="text-xs text-slate-500">Oximeters &amp; First Aid kits</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-[1400px] mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="relative h-[400px] border border-white/10 group overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2074&auto=format&fit=crop" alt="Corporate retreat in the mountains" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 border-[12px] border-transparent group-hover:border-white/10 transition-all duration-500">
+          <h3 class="text-3xl font-medium text-white tracking-tight mb-4">Corporate Retreats<br>In The Mountains</h3>
+          <p class="text-sm text-slate-300 max-w-sm mb-6 leading-relaxed">Experience formal business meetings with a completely different atmosphere. Beautiful spaces and quality food.</p>
+          <a href="#booking-form" class="text-white text-xs font-medium tracking-wider uppercase border border-white/30 hover:border-white px-6 py-2.5 transition-colors">See More</a>
+        </div>
+      </div>
+
+      <div class="relative h-[400px] border border-white/10 group overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1533130061792-64b345e4a833?q=80&w=2070&auto=format&fit=crop" alt="Private group trek" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 border-[12px] border-transparent group-hover:border-white/10 transition-all duration-500">
+          <h3 class="text-3xl font-medium text-white tracking-tight mb-4">Organize Private<br>Group Treks</h3>
+          <p class="text-sm text-slate-300 max-w-sm mb-6 leading-relaxed">We know how important your event is for you, whether it is a jubilee, anniversary or reunion.</p>
+          <a href="#booking-form" class="bg-[#cda036] hover:bg-[#b58b2e] text-white text-xs font-medium tracking-wider uppercase px-6 py-2.5 transition-colors">See More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="py-24 bg-[#142221]">
+    <div class="max-w-[1400px] mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+        <div>
+          <span class="text-[#cda036] text-xs uppercase tracking-widest flex items-center gap-2 mb-3">
+            <span class="w-8 h-[1px] bg-[#cda036]"></span> TESTIMONIALS
+          </span>
+          <h2 class="text-3xl md:text-4xl font-medium text-white tracking-tight leading-tight">Explore More, Worry Less<br>Book A Trek Now</h2>
+        </div>
+        <a href="#blog-news" class="hidden md:flex text-white text-xs font-medium tracking-wider uppercase items-center gap-2 hover:text-[#cda036] transition-colors border border-white/20 px-6 py-2.5 mt-6 md:mt-0">
+          View All <i data-lucide="arrow-right" class="w-4 h-4" stroke-width="1.5"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-[#1a2c2b] border border-white/5 p-8 flex flex-col justify-between opacity-50 hover:opacity-100 transition-opacity">
+          <div>
+            <i data-lucide="quote" class="w-10 h-10 text-[#cda036] mb-6 fill-[#cda036]/20" stroke-width="1"></i>
+            <p class="text-base text-slate-400 leading-relaxed italic mb-8">
+              "Ready to book your vacation? Our trekking category provides an extensive array of choices, from lavish resorts to economical lodgings, guaranteeing a delightful experience."
+            </p>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="relative">
+              <img src="https://i.pravatar.cc/150?img=11" alt="Jonathan Smith" class="w-12 h-12 rounded-full border-2 border-white/10">
+              <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-[#cda036] rounded-full flex items-center justify-center text-[8px] font-medium text-white border-2 border-[#1a2c2b]">4.8</div>
+            </div>
+            <div>
+              <h4 class="text-white font-medium text-sm">Jonathan Smith</h4>
+              <p class="text-xs text-slate-500">Trekker</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#1a2c2b] border border-white/10 p-8 flex flex-col justify-between shadow-lg relative transform md:-translate-y-4">
+          <div class="absolute top-0 left-0 w-full h-1 bg-[#cda036]"></div>
+          <div>
+            <i data-lucide="quote" class="w-10 h-10 text-[#cda036] mb-6 fill-[#cda036]/20" stroke-width="1"></i>
+            <p class="text-base text-white leading-relaxed italic mb-8">
+              "Perfect place for a business trip! The location was convenient, and the guides were reliable. I had everything I needed, from a quiet workspace to a great breakfast in the morning."
+            </p>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="relative">
+              <img src="https://i.pravatar.cc/150?img=33" alt="Marshell Jack" class="w-12 h-12 rounded-full border-2 border-[#cda036]">
+              <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-[#cda036] rounded-full flex items-center justify-center text-[8px] font-medium text-white border-2 border-[#1a2c2b]">4.8</div>
+            </div>
+            <div>
+              <h4 class="text-white font-medium text-sm">Marshell Jack</h4>
+              <p class="text-xs text-slate-400">Expedition Leader</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#1a2c2b] border border-white/5 p-8 flex flex-col justify-between opacity-50 hover:opacity-100 transition-opacity">
+          <div>
+            <i data-lucide="quote" class="w-10 h-10 text-[#cda036] mb-6 fill-[#cda036]/20" stroke-width="1"></i>
+            <p class="text-base text-slate-400 leading-relaxed italic mb-8">
+              "Ready to book your vacation? Our trekking category provides an extensive array of choices, from lavish resorts to economical lodgings, guaranteeing a delightful experience."
+            </p>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="relative">
+              <img src="https://i.pravatar.cc/150?img=44" alt="William Jenny" class="w-12 h-12 rounded-full border-2 border-white/10">
+              <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-[#cda036] rounded-full flex items-center justify-center text-[8px] font-medium text-white border-2 border-[#1a2c2b]">4.8</div>
+            </div>
+            <div>
+              <h4 class="text-white font-medium text-sm">William Jenny</h4>
+              <p class="text-xs text-slate-500">Hiker</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center mt-8">
+        <div class="w-8 h-8 rounded-full bg-[#cda036] flex items-center justify-center cursor-pointer">
+          <i data-lucide="arrow-left" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+        </div>
+        <div class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center cursor-pointer hover:bg-white/10 transition-colors">
+          <i data-lucide="arrow-right" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery-section" class="py-24 max-w-[1400px] mx-auto px-6">
+    <div class="flex flex-col md:flex-row gap-12">
+      <div class="w-full md:w-1/3 flex flex-col justify-end pb-8">
+        <span class="text-[#cda036] text-xs uppercase tracking-widest flex items-center gap-2 mb-3">
+          <span class="w-8 h-[1px] bg-[#cda036]"></span> INSTAGRAM
+        </span>
+        <h2 class="text-3xl md:text-4xl font-medium text-white tracking-tight mb-4">Awesome Gallery</h2>
+        <p class="text-sm text-slate-400 mb-8 max-w-sm">We provide you with the best quality of services and facilities for all your travel and place needs.</p>
+
+        <div class="mt-auto hidden md:block">
+          <h3 class="text-xl font-medium text-white mb-4">@HimalayanPeaks</h3>
+          <a href="#booking-form" class="inline-flex text-white text-xs font-medium tracking-wider uppercase items-center gap-2 hover:text-[#cda036] transition-colors border border-white/20 px-6 py-2.5">
+            Explore More <i data-lucide="arrow-right" class="w-4 h-4" stroke-width="1.5"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="w-full md:w-2/3 grid grid-cols-2 gap-4 auto-rows-[200px]">
+        <div class="row-span-2 relative group overflow-hidden bg-[#162524]">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop" alt="Mountain gallery image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+        </div>
+        <div class="relative group overflow-hidden bg-[#162524] flex items-center justify-center">
+          <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2074&auto=format&fit=crop" alt="Mountain gallery image" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+          <div class="z-10 w-12 h-12 bg-black/40 rounded flex items-center justify-center backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+            <i data-lucide="instagram" class="w-6 h-6 text-white" stroke-width="1.5"></i>
+          </div>
+        </div>
+        <div class="relative group overflow-hidden bg-[#162524]">
+          <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=2003&auto=format&fit=crop" alt="Mountain gallery image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+        </div>
+        <div class="row-span-2 relative group overflow-hidden bg-[#162524]">
+          <img src="https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?q=80&w=2070&auto=format&fit=crop" alt="Mountain gallery image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+        </div>
+        <div class="relative group overflow-hidden bg-[#162524]">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="Mountain gallery image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+        </div>
+      </div>
+
+      <div class="mt-6 md:hidden">
+        <h3 class="text-xl font-medium text-white mb-4">@HimalayanPeaks</h3>
+        <a href="#booking-form" class="inline-flex text-white text-xs font-medium tracking-wider uppercase items-center gap-2 hover:text-[#cda036] transition-colors border border-white/20 px-6 py-2.5">
+          Explore More <i data-lucide="arrow-right" class="w-4 h-4" stroke-width="1.5"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="border-y border-white/5 bg-[#142221]">
+    <div class="max-w-[1400px] mx-auto px-6 py-10 flex flex-wrap justify-between items-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+      <div class="flex items-center gap-2 text-white font-medium tracking-widest uppercase text-sm"><i data-lucide="mountain-snow" class="w-5 h-5 text-[#cda036]" stroke-width="1.5"></i> North Face</div>
+      <div class="flex items-center gap-2 text-white font-medium tracking-widest uppercase text-sm"><i data-lucide="compass" class="w-5 h-5 text-[#cda036]" stroke-width="1.5"></i> Osprey</div>
+      <div class="flex items-center gap-2 text-white font-medium tracking-widest uppercase text-sm"><i data-lucide="map" class="w-5 h-5 text-[#cda036]" stroke-width="1.5"></i> Garmin</div>
+      <div class="flex items-center gap-2 text-white font-medium tracking-widest uppercase text-sm"><i data-lucide="sun" class="w-5 h-5 text-[#cda036]" stroke-width="1.5"></i> Patagonia</div>
+      <div class="flex items-center gap-2 text-white font-medium tracking-widest uppercase text-sm"><i data-lucide="tent-tree" class="w-5 h-5 text-[#cda036]" stroke-width="1.5"></i> MSR</div>
+    </div>
+  </div>
+
+  <section id="booking-form" class="py-24 bg-[#111e1d] relative overflow-hidden">
+    <div class="absolute right-0 top-0 w-1/2 h-full hidden lg:block opacity-30 pointer-events-none">
+      <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2074&auto=format&fit=crop" alt="" class="w-full h-full object-cover [mask-image:linear-gradient(to_left,white,transparent)]">
+    </div>
+
+    <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
+      <div class="bg-[#162524] border border-white/5 p-8 md:p-10 shadow-2xl relative">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-4 bg-[#cda036] rounded-t-sm flex items-center justify-center"></div>
+
+        <span class="text-[#cda036] text-xs uppercase tracking-widest flex items-center justify-center gap-2 mb-6">
+          TREK RESERVATION
+        </span>
+        <h3 class="text-2xl font-medium text-white tracking-tight mb-8 text-center border-b border-white/5 pb-6">Check Availability</h3>
+
+        <form class="space-y-5">
+          <div>
+            <label class="block text-xs text-slate-400 mb-2 uppercase tracking-wider">Arrival Date</label>
+            <div class="relative bg-[#192b2a] border border-white/5 p-3.5 flex items-center justify-between cursor-pointer">
+              <span class="text-sm text-white">19 Dec 2024</span>
+              <i data-lucide="calendar" class="w-4 h-4 text-slate-500" stroke-width="1.5"></i>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs text-slate-400 mb-2 uppercase tracking-wider">Departure Date</label>
+            <div class="relative bg-[#192b2a] border border-white/5 p-3.5 flex items-center justify-between cursor-pointer">
+              <span class="text-sm text-white">21 Dec 2024</span>
+              <i data-lucide="calendar" class="w-4 h-4 text-slate-500" stroke-width="1.5"></i>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs text-slate-400 mb-2 uppercase tracking-wider">Trekkers</label>
+            <div class="relative bg-[#192b2a] border border-white/5 p-3.5 flex items-center justify-between cursor-pointer">
+              <span class="text-sm text-white">Adult 01</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500" stroke-width="1.5"></i>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs text-slate-400 mb-2 uppercase tracking-wider">Guide Level</label>
+            <div class="relative bg-[#192b2a] border border-white/5 p-3.5 flex items-center justify-between cursor-pointer mb-8">
+              <span class="text-sm text-white">Senior Guide</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500" stroke-width="1.5"></i>
+            </div>
+          </div>
+
+          <button type="submit" class="w-full bg-[#cda036] hover:bg-[#b58b2e] text-white text-xs font-medium tracking-wider uppercase py-4 transition-colors">
+            Check Availability
+          </button>
+        </form>
+      </div>
+
+      <div class="flex flex-col justify-center">
+        <span class="text-[#cda036] text-xs uppercase tracking-widest flex items-center gap-2 mb-4">
+          <span class="w-8 h-[1px] bg-[#cda036]"></span> BOOKING ROOM
+        </span>
+        <h2 class="text-4xl md:text-5xl font-medium text-white tracking-tight mb-8 leading-tight">
+          Excellence In Every<br>Moment Of Your Trek
+        </h2>
+        <div class="flex items-center gap-6 mt-4">
+          <div class="w-14 h-14 rounded-full border border-[#cda036] flex items-center justify-center bg-[#1a2c2b]">
+            <i data-lucide="phone-call" class="w-6 h-6 text-[#cda036]" stroke-width="1.5"></i>
+          </div>
+          <div>
+            <p class="text-xs text-slate-400 uppercase tracking-wider mb-1">Booking Now</p>
+            <p class="text-xl text-white font-medium tracking-wide">+00123 456 789</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog-news" class="py-24 max-w-[1400px] mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+      <div>
+        <span class="text-[#cda036] text-xs uppercase tracking-widest flex items-center gap-2 mb-3">
+          <span class="w-8 h-[1px] bg-[#cda036]"></span> BLOG &amp; NEWS
+        </span>
+        <h2 class="text-3xl md:text-4xl font-medium text-white tracking-tight leading-tight">Room Refresh Service Morning<br>Wake-Up Call Tour</h2>
+      </div>
+      <a href="#site-footer" class="hidden md:flex text-white text-xs font-medium tracking-wider uppercase items-center gap-2 hover:text-[#cda036] transition-colors border border-white/20 px-6 py-2.5">
+        View All <i data-lucide="arrow-right" class="w-4 h-4" stroke-width="1.5"></i>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="group">
+        <div class="relative h-[300px] overflow-hidden mb-6 border border-white/5">
+          <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=2003&auto=format&fit=crop" alt="Mountain blog image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+        </div>
+        <div class="flex items-center gap-3 text-[10px] text-[#cda036] uppercase tracking-widest mb-3">
+          <span>22 Dec, 2024</span> <span class="w-8 h-[1px] bg-slate-700"></span> <span>Trekking Guide</span>
+        </div>
+        <h3 class="text-xl font-medium text-white tracking-tight mb-3 group-hover:text-[#cda036] transition-colors leading-snug">Luxury twin bed room of rotal sign throughout the hotel</h3>
+        <p class="text-sm text-slate-400 mb-6 leading-relaxed line-clamp-3">Ready to book your vacation? Our hotel booking category provides an extensive array of choices, from lavish resorts to economical lodgings, guaranteeing a delightful and unforgettable experience without breaking the bank.</p>
+        <a href="#booking-form" class="inline-block text-white text-xs font-medium tracking-wider uppercase border border-white/20 hover:border-[#cda036] hover:text-[#cda036] px-6 py-2.5 transition-colors">
+          Read More
+        </a>
+      </div>
+
+      <div class="group">
+        <div class="relative h-[300px] overflow-hidden mb-6 border border-white/5">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="Mountain blog image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+        </div>
+        <div class="flex items-center gap-3 text-[10px] text-[#cda036] uppercase tracking-widest mb-3">
+          <span>22 Dec, 2024</span> <span class="w-8 h-[1px] bg-slate-700"></span> <span>Preparation</span>
+        </div>
+        <h3 class="text-xl font-medium text-white tracking-tight mb-3 group-hover:text-[#cda036] transition-colors leading-snug">Gastronomy of Rotal throughout the luxury hotel</h3>
+        <p class="text-sm text-slate-400 mb-6 leading-relaxed line-clamp-3">Ready to book your vacation? Our hotel booking category provides an extensive array of choices, from lavish resorts to economical lodgings, guaranteeing a delightful and unforgettable experience without breaking the bank.</p>
+        <a href="#booking-form" class="inline-block bg-[#cda036] hover:bg-[#b58b2e] text-white text-xs font-medium tracking-wider uppercase px-6 py-2.5 transition-colors">
+          Read More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="site-footer" class="bg-[#111e1d] border-t border-white/5 pt-16">
+    <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-2 md:grid-cols-4 border-b border-white/5 pb-12">
+      <a href="#site-footer" class="flex flex-col items-center justify-center gap-3 p-6 border-r border-b md:border-b-0 border-white/5 hover:bg-white/5 transition-colors group">
+        <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#cda036] transition-colors">
+          <i data-lucide="facebook" class="w-4 h-4 text-slate-400 group-hover:text-white" stroke-width="1.5"></i>
+        </div>
+        <span class="text-xs text-slate-500 uppercase tracking-widest group-hover:text-white transition-colors">Facebook</span>
+      </a>
+      <a href="#site-footer" class="flex flex-col items-center justify-center gap-3 p-6 border-b md:border-b-0 md:border-r border-white/5 hover:bg-white/5 transition-colors group">
+        <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#cda036] transition-colors">
+          <i data-lucide="twitter" class="w-4 h-4 text-slate-400 group-hover:text-white" stroke-width="1.5"></i>
+        </div>
+        <span class="text-xs text-slate-500 uppercase tracking-widest group-hover:text-white transition-colors">Twitter X</span>
+      </a>
+      <a href="#site-footer" class="flex flex-col items-center justify-center gap-3 p-6 border-r border-white/5 hover:bg-white/5 transition-colors group">
+        <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#cda036] transition-colors">
+          <i data-lucide="linkedin" class="w-4 h-4 text-slate-400 group-hover:text-white" stroke-width="1.5"></i>
+        </div>
+        <span class="text-xs text-slate-500 uppercase tracking-widest group-hover:text-white transition-colors">Linkedin</span>
+      </a>
+      <a href="#gallery-section" class="flex flex-col items-center justify-center gap-3 p-6 hover:bg-white/5 transition-colors group">
+        <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#cda036] transition-colors">
+          <i data-lucide="instagram" class="w-4 h-4 text-slate-400 group-hover:text-white" stroke-width="1.5"></i>
+        </div>
+        <span class="text-xs text-slate-500 uppercase tracking-widest group-hover:text-white transition-colors">Instagram</span>
+      </a>
+    </div>
+
+    <div class="max-w-[1400px] mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
+        <div class="flex flex-col items-center md:items-start justify-center mb-6">
+          <div class="w-12 h-12 border border-[#cda036] rounded-full flex items-center justify-center mb-2">
+            <i data-lucide="mountain" class="w-6 h-6 text-[#cda036]" stroke-width="1.5"></i>
+          </div>
+          <div class="text-white font-medium tracking-widest text-sm uppercase leading-none">
+            Himalayan<br><span class="text-[10px] text-slate-400">Peaks Co.</span>
+          </div>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed">Himalayan Peaks is a premium trekking agency designed to help you discover the majestic mountains and recover your spirit with great adventures.</p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-medium mb-6 uppercase tracking-widest text-sm">Useful Links</h4>
+        <ul class="space-y-4">
+          <li><a href="#about-himalayan-peaks" class="text-slate-400 hover:text-[#cda036] text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3" stroke-width="1.5"></i> About Us</a></li>
+          <li><a href="#featured-trails" class="text-slate-400 hover:text-[#cda036] text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3" stroke-width="1.5"></i> Featured Routes</a></li>
+          <li><a href="#trek-amenities" class="text-slate-400 hover:text-[#cda036] text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3" stroke-width="1.5"></i> Our Best Services</a></li>
+          <li><a href="#booking-form" class="text-slate-400 hover:text-[#cda036] text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3" stroke-width="1.5"></i> Request a Booking</a></li>
+          <li><a href="#blog-news" class="text-slate-400 hover:text-[#cda036] text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3" stroke-width="1.5"></i> FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-medium mb-6 uppercase tracking-widest text-sm">Explore</h4>
+        <ul class="space-y-4">
+          <li><a href="#base-camp-packages" class="text-slate-400 hover:text-[#cda036] text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3" stroke-width="1.5"></i> All Offers</a></li>
+          <li><a href="#testimonials" class="text-slate-400 hover:text-[#cda036] text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3" stroke-width="1.5"></i> Our Team</a></li>
+          <li><a href="#gallery-section" class="text-slate-400 hover:text-[#cda036] text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3" stroke-width="1.5"></i> Our Gallery</a></li>
+          <li><a href="#testimonials" class="text-slate-400 hover:text-[#cda036] text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3" stroke-width="1.5"></i> Client Reviews</a></li>
+          <li><a href="#site-footer" class="text-slate-400 hover:text-[#cda036] text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3" stroke-width="1.5"></i> Community</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-medium mb-6 uppercase tracking-widest text-sm">Get In Touch</h4>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3 text-slate-400 text-sm">
+            <i data-lucide="map-pin" class="w-5 h-5 text-[#cda036] shrink-0 mt-0.5" stroke-width="1.5"></i>
+            <span>Thamel Marg, Kathmandu<br>Bagmati Province, Nepal</span>
+          </li>
+          <li class="flex items-start gap-3 text-slate-400 text-sm">
+            <i data-lucide="phone" class="w-5 h-5 text-[#cda036] shrink-0 mt-0.5" stroke-width="1.5"></i>
+            <span>+977 1 4412345<br>+977 9801234567</span>
+          </li>
+          <li class="flex items-start gap-3 text-slate-400 text-sm">
+            <i data-lucide="mail" class="w-5 h-5 text-[#cda036] shrink-0 mt-0.5" stroke-width="1.5"></i>
+            <span>info@himalayanpeaks.com<br>support@himalayanpeaks.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-[1400px] mx-auto px-6 pb-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="h-24 bg-[#162524] border border-white/5 relative group overflow-hidden flex items-center justify-between px-6">
+        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2074&auto=format&fit=crop" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700">
+        <span class="relative z-10 text-white font-medium tracking-wide">Popular Treks</span>
+        <button class="relative z-10 w-8 h-8 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors" type="button">
+          <i data-lucide="arrow-right" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+        </button>
+      </div>
+      <div class="h-24 bg-[#162524] border border-white/5 relative group overflow-hidden flex items-center justify-between px-6">
+        <img src="https://images.unsplash.com/photo-1533130061792-64b345e4a833?q=80&w=2070&auto=format&fit=crop" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700">
+        <span class="relative z-10 text-white font-medium tracking-wide">Make Reservation</span>
+        <button class="relative z-10 w-8 h-8 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors" type="button">
+          <i data-lucide="arrow-right" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+        </button>
+      </div>
+      <div class="h-24 bg-[#162524] border border-white/5 relative group overflow-hidden flex items-center justify-between px-6">
+        <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=2003&auto=format&fit=crop" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700">
+        <span class="relative z-10 text-white font-medium tracking-wide">Contact Us</span>
+        <button class="relative z-10 w-8 h-8 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors" type="button">
+          <i data-lucide="arrow-right" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="border-t border-white/5 py-6 text-center md:flex md:justify-between md:items-center max-w-[1400px] mx-auto px-6">
+      <p class="text-xs text-slate-500 mb-4 md:mb-0">Copyright © 2024 Himalayan Peaks. All rights reserved.</p>
+      <div class="flex items-center justify-center gap-6 text-xs text-slate-500">
+        <a href="#site-footer" class="hover:text-[#cda036] transition-colors">Terms of service</a>
+        <a href="#site-footer" class="hover:text-[#cda036] transition-colors">Privacy policy</a>
+        <a href="#site-footer" class="hover:text-[#cda036] transition-colors">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
