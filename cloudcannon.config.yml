@@ -1,0 +1,36 @@
+paths:
+  static: ''
+  uploads: uploads
+timezone: Europe/Madrid
+markdown:
+  engine: commonmark
+  options: {}
+source: /
+collections_config:
+  pages:
+    path: ''
+    icon: wysiwyg
+  apply:
+    path: apply
+    icon: apps
+  blog:
+    path: blog
+    icon: event_available
+  case_studies:
+    path: case-studies
+    icon: amp_stories
+  de:
+    path: de
+    icon: 1k
+  docs:
+    path: docs
+    icon: docs
+  services:
+    path: services
+    icon: devices
+  website_design:
+    path: website-design
+    icon: density_medium
+  website_samples:
+    path: website-samples
+    icon: density_small
