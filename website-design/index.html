@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
   <script src="/js/url-attribution-cleanup.js?v=20260330"></script>
   <script src="/js/cookie-consent.js?v=20260418a" defer data-ga-id="G-GRWYGYSSMY" data-gtm-id="GTM-N5757GT5" data-clarity-id="wdni5ogrju"></script>
-  <title>Website Templates | LYNCK Studio</title>
-  <meta name="description" content="Hidden LYNCK Studio landing page for paid traffic, focused on browsing website template directions and starting a project.">
+  <title>LYNCK Studio | Websites that turn ad spend into customers</title>
+  <meta name="description" content="Conversion-focused websites paired with Google Ads from ex-Google strategists. Real clients turn ad spend into revenue, bookings, and qualified applications month after month.">
   <meta name="robots" content="noindex, noarchive">
   <link rel="canonical" href="/website-design/">
   <link rel="icon" type="image/webp" href="/assets/lynck-logo.webp">
@@ -15,10 +15,16 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/css/site-shell.css?v=20260330">
-  <link rel="stylesheet" href="/css/website-design.css?v=20260419e">
+  <link rel="stylesheet" href="/css/website-design.css?v=20260426f">
 </head>
 <body class="wdl-page" data-shell-page="samples">
   <div class="noise-overlay"></div>
+  <div class="wdl-cube-layer" aria-hidden="true">
+    <div class="wdl-cube-gradient wdl-cube-gradient--blue"></div>
+    <div class="wdl-cube-gradient wdl-cube-gradient--warm"></div>
+    <div class="wdl-cube-grid"></div>
+    <div id="wdl-cube-canvas" class="wdl-cube-canvas"></div>
+  </div>
   <header class="lynck-header">
     <div class="lynck-header-inner">
       <button type="button" class="lynck-home-logo" data-home-btn aria-label="LYNCK Studio Home">
@@ -90,17 +96,303 @@
       </a>
     </div>
   </header>
+
   <main class="wdl-main">
     <section class="wdl-hero">
       <div class="wdl-shell">
         <div class="wdl-hero-copy">
-          <span class="wdl-eyebrow">Website design directions</span>
-          <h1>Pick the Website Template You Love</h1>
-          <p>
-            Browse curated website directions for clinics, coaches, storefronts, service brands,
-            and high-conversion landing pages. Pick the direction you want, and we adapt it to your business.
+          <span class="wdl-chip">
+            <span class="wdl-chip-dot" aria-hidden="true"></span>
+            Google Partner - Real client results
+          </span>
+          <h1 class="wdl-display">
+            <span>Your website should</span>
+            <span>be a customer machine.</span>
+          </h1>
+          <p class="wdl-lead">
+            Conversion-focused websites paired with Google Ads from ex-Google strategists.
+            Real clients see 3X to 15X return on ad spend, month after month.
           </p>
+          <div class="wdl-hero-actions">
+            <a class="wdl-btn wdl-btn--primary" href="/apply/">Apply for a free strategy call</a>
+            <a class="wdl-btn wdl-btn--ghost" href="#templates">Browse templates</a>
+          </div>
+          <p class="wdl-hero-note">
+            Free Google Ads setup (EUR 500-1,500 value) included for accepted clients.
+            Website builds and ad management billed separately.
+          </p>
+        </div>
 
+        <div class="wdl-snapshot" aria-label="Client campaign snapshot" data-hero-snapshot>
+          <div class="wdl-snapshot-head" data-snapshot-panel>
+            <div>
+              <span class="wdl-snapshot-kicker">Real client account</span>
+              <h2 data-snapshot-title>Client campaign snapshot</h2>
+              <p data-snapshot-description>A 30-day window from an active account. Names anonymized.</p>
+            </div>
+            <div class="wdl-snapshot-side">
+              <div class="wdl-snapshot-tags">
+                <span data-snapshot-tag-primary>E-com Brand</span>
+                <span data-snapshot-tag-secondary>30-day window</span>
+              </div>
+              <div class="wdl-snapshot-rotation" data-snapshot-rotation aria-label="Hero account snapshots"></div>
+            </div>
+          </div>
+
+          <div class="wdl-snapshot-metrics" data-snapshot-panel>
+            <article class="wdl-metric-card wdl-metric-card--spend" data-snapshot-metric-card>
+              <span data-snapshot-metric-label>Cost</span>
+              <strong class="wdl-value wdl-value--spend" data-snapshot-metric-value data-countup data-countup-prefix="EUR " data-countup-value="10690">EUR 10,690</strong>
+              <small data-snapshot-metric-note>Down 7.5% vs prev</small>
+            </article>
+            <article class="wdl-metric-card wdl-metric-card--revenue" data-snapshot-metric-card>
+              <span data-snapshot-metric-label>Conv. value</span>
+              <strong class="wdl-value wdl-value--revenue" data-snapshot-metric-value data-countup data-countup-prefix="EUR " data-countup-value="50358">EUR 50,358</strong>
+              <small data-snapshot-metric-note>Up 15.2% vs prev</small>
+            </article>
+            <article class="wdl-metric-card wdl-metric-card--accent" data-snapshot-metric-card>
+              <span data-snapshot-metric-label>ROAS</span>
+              <strong class="wdl-value wdl-value--accent" data-snapshot-metric-value data-countup data-countup-value="10.67" data-countup-decimals="2" data-countup-suffix="X">10.67X</strong>
+              <small data-snapshot-metric-note>Trending upward</small>
+            </article>
+            <article class="wdl-metric-card wdl-metric-card--success" data-snapshot-metric-card>
+              <span data-snapshot-metric-label>Conversions</span>
+              <strong class="wdl-value wdl-value--success" data-snapshot-metric-value data-countup data-countup-value="1206">1,206</strong>
+              <small data-snapshot-metric-note>Up 23.1% vs prev</small>
+            </article>
+          </div>
+
+          <div class="wdl-chart-card" data-snapshot-panel>
+            <div class="wdl-chart-head">
+              <div>
+                <h3 data-snapshot-chart-title>Conversion value over time</h3>
+                <p data-snapshot-chart-subtitle>Daily revenue from Google Ads campaigns</p>
+              </div>
+              <div class="wdl-chart-legend">
+                <span><i class="wdl-legend-dot wdl-legend-dot--blue"></i><em data-snapshot-legend-primary>Conv. value</em></span>
+                <span><i class="wdl-legend-dot wdl-legend-dot--red"></i><em data-snapshot-legend-secondary>Cost</em></span>
+              </div>
+            </div>
+            <div class="wdl-chart-wrap" data-chart-animate data-snapshot-chart-wrap>
+              <svg viewBox="0 0 640 220" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="wdlArea" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#3f79ff" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#3f79ff" stop-opacity="0"/>
+                  </linearGradient>
+                  <filter id="wdlGlowPrimary">
+                    <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
+                    <feMerge>
+                      <feMergeNode in="blur"></feMergeNode>
+                      <feMergeNode in="SourceGraphic"></feMergeNode>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <path class="wdl-chart-area" data-snapshot-chart-area d="M0 176L24 170L48 180L72 174L96 178L120 166L144 171L168 152L192 160L216 164L240 136L264 124L288 112L312 58L336 22L360 60L384 76L408 72L432 92L456 102L480 114L504 82L528 92L552 114L576 126L600 128L624 88L640 70L640 220L0 220Z" fill="url(#wdlArea)"/>
+                <path class="wdl-chart-line wdl-chart-line--primary" data-snapshot-chart-primary d="M0 176L24 170L48 180L72 174L96 178L120 166L144 171L168 152L192 160L216 164L240 136L264 124L288 112L312 58L336 22L360 60L384 76L408 72L432 92L456 102L480 114L504 82L528 92L552 114L576 126L600 128L624 88L640 70" fill="none" stroke="#0045ba" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#wdlGlowPrimary)"/>
+                <path class="wdl-chart-line wdl-chart-line--cost" data-snapshot-chart-cost d="M0 190L24 186L48 194L72 192L96 194L120 186L144 188L168 180L192 184L216 188L240 170L264 162L288 156L312 132L336 108L360 140L384 150L408 146L432 158L456 164L480 170L504 154L528 158L552 170L576 176L600 178L624 160L640 146" fill="none" stroke="#d84f1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle class="wdl-chart-node" data-snapshot-chart-node cx="336" cy="22" r="6.5" fill="#0045ba"/>
+              </svg>
+              <div class="wdl-chart-callout" data-snapshot-callout>10.67X ROAS</div>
+            </div>
+            <div class="wdl-chart-axis">
+              <span>Day 1</span>
+              <span>Day 7</span>
+              <span>Day 14</span>
+              <span>Day 21</span>
+              <span>Day 30</span>
+            </div>
+          </div>
+
+          <div class="wdl-campaign-grid" data-snapshot-panel>
+            <div class="wdl-campaign-card" data-chart-animate data-snapshot-campaign-card>
+              <div class="wdl-campaign-head">
+                <h3>Top campaigns</h3>
+                <span data-snapshot-campaign-sort>Sorted by ROAS</span>
+              </div>
+              <div class="wdl-campaign-list">
+                <div class="wdl-campaign-item" data-snapshot-campaign-item>
+                  <div class="wdl-campaign-copy">
+                    <strong data-snapshot-campaign-name>Performance Max - Brand</strong>
+                    <span data-snapshot-campaign-value>10.67X</span>
+                  </div>
+                  <div class="wdl-campaign-bar"><span class="wdl-campaign-bar__fill" data-snapshot-campaign-bar style="width:95%"></span></div>
+                </div>
+                <div class="wdl-campaign-item" data-snapshot-campaign-item>
+                  <div class="wdl-campaign-copy">
+                    <strong data-snapshot-campaign-name>Search - Generic</strong>
+                    <span data-snapshot-campaign-value>9.15X</span>
+                  </div>
+                  <div class="wdl-campaign-bar"><span class="wdl-campaign-bar__fill" data-snapshot-campaign-bar style="width:82%"></span></div>
+                </div>
+                <div class="wdl-campaign-item" data-snapshot-campaign-item>
+                  <div class="wdl-campaign-copy">
+                    <strong data-snapshot-campaign-name>Shopping - All products</strong>
+                    <span data-snapshot-campaign-value>6.71X</span>
+                  </div>
+                  <div class="wdl-campaign-bar"><span class="wdl-campaign-bar__fill" data-snapshot-campaign-bar style="width:65%"></span></div>
+                </div>
+                <div class="wdl-campaign-item" data-snapshot-campaign-item>
+                  <div class="wdl-campaign-copy">
+                    <strong data-snapshot-campaign-name>DemandGen - Lookalike</strong>
+                    <span data-snapshot-campaign-value>4.95X</span>
+                  </div>
+                  <div class="wdl-campaign-bar"><span class="wdl-campaign-bar__fill" data-snapshot-campaign-bar style="width:48%"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <aside class="wdl-highlight-card" data-snapshot-highlight>
+              <span class="wdl-highlight-kicker" data-snapshot-highlight-kicker>Peak ROAS</span>
+              <strong class="wdl-value wdl-value--accent" data-snapshot-highlight-total data-countup data-countup-value="10.67" data-countup-decimals="2" data-countup-suffix="X">10.67X</strong>
+              <p data-snapshot-highlight-note>EUR 1 in -> EUR 10.67 back</p>
+              <dl>
+                <div class="wdl-highlight-row wdl-highlight-row--spend" data-snapshot-highlight-row><dt data-snapshot-highlight-label>Spend</dt><dd class="wdl-value wdl-value--spend" data-snapshot-highlight-value-row data-countup data-countup-prefix="EUR " data-countup-value="10690">EUR 10,690</dd></div>
+                <div class="wdl-highlight-row wdl-highlight-row--revenue" data-snapshot-highlight-row><dt data-snapshot-highlight-label>Revenue</dt><dd class="wdl-value wdl-value--revenue" data-snapshot-highlight-value-row data-countup data-countup-prefix="EUR " data-countup-value="50358">EUR 50,358</dd></div>
+                <div class="wdl-highlight-row wdl-highlight-row--success" data-snapshot-highlight-row><dt data-snapshot-highlight-label>Profit</dt><dd class="wdl-value wdl-value--success" data-snapshot-highlight-value-row data-countup data-countup-prefix="+EUR " data-countup-value="39668">+EUR 39,668</dd></div>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wdl-proof" id="proof">
+      <div class="wdl-shell">
+        <div class="wdl-section-intro">
+          <span class="wdl-section-kicker">Real Client Accounts</span>
+          <h2>The numbers behind the work.</h2>
+          <p>Raw Google Ads data from active client accounts. Names blurred for privacy. Everything else is what we deliver.</p>
+        </div>
+
+        <div class="wdl-proof-grid">
+          <article class="wdl-proof-card">
+            <div class="wdl-proof-top">
+              <span class="wdl-proof-badge">E-com Brand</span>
+              <span class="wdl-proof-date">Mar 2026</span>
+            </div>
+            <div class="wdl-proof-shot" data-chart-animate>
+              <span class="wdl-proof-shot-label">Account preview</span>
+              <div class="wdl-proof-bars">
+                <span style="height:35%"></span>
+                <span style="height:45%"></span>
+                <span style="height:55%"></span>
+                <span style="height:50%"></span>
+                <span style="height:70%"></span>
+                <span style="height:85%"></span>
+                <span style="height:95%"></span>
+              </div>
+              <div class="wdl-proof-veil" aria-hidden="true"></div>
+            </div>
+            <div class="wdl-proof-stats">
+              <div class="wdl-proof-stat wdl-proof-stat--spend"><span>Spend</span><strong class="wdl-value wdl-value--spend" data-countup data-countup-prefix="EUR " data-countup-value="11861">EUR 11,861</strong></div>
+              <div class="wdl-proof-stat wdl-proof-stat--revenue"><span>Revenue</span><strong class="wdl-value wdl-value--revenue" data-countup data-countup-prefix="EUR " data-countup-value="79606">EUR 79,606</strong></div>
+              <div class="wdl-proof-stat wdl-proof-stat--accent"><span>ROAS</span><strong class="wdl-value wdl-value--accent" data-countup data-countup-value="6.7" data-countup-decimals="1" data-countup-suffix="X">6.7X</strong></div>
+            </div>
+            <p>Single month. Sustained 5-7X ROAS over 5+ consecutive months.</p>
+          </article>
+
+          <article class="wdl-proof-card">
+            <div class="wdl-proof-top">
+              <span class="wdl-proof-badge">E-com Brand</span>
+              <span class="wdl-proof-date">Apr 2026</span>
+            </div>
+            <div class="wdl-proof-shot" data-chart-animate>
+              <span class="wdl-proof-shot-label">Account preview</span>
+              <svg class="wdl-proof-chart" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="wdlProofAreaA" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#6450ff" stop-opacity="0.28"></stop>
+                    <stop offset="100%" stop-color="#6450ff" stop-opacity="0"></stop>
+                  </linearGradient>
+                </defs>
+                <path class="wdl-proof-chart-area" d="M0 92L18 90L36 85L54 80L72 68L90 58L108 44L126 36L144 28L162 22L180 16L200 10L220 8L220 120L0 120Z" fill="url(#wdlProofAreaA)"/>
+                <path class="wdl-proof-chart-line wdl-proof-chart-line--violet" d="M0 92L18 90L36 85L54 80L72 68L90 58L108 44L126 36L144 28L162 22L180 16L200 10L220 8" fill="none" stroke="#6450ff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle class="wdl-proof-chart-node wdl-proof-chart-node--violet" cx="220" cy="8" r="4.5" fill="#6450ff"></circle>
+              </svg>
+              <div class="wdl-proof-veil" aria-hidden="true"></div>
+            </div>
+            <div class="wdl-proof-stats">
+              <div class="wdl-proof-stat wdl-proof-stat--spend"><span>Spend</span><strong class="wdl-value wdl-value--spend" data-countup data-countup-prefix="EUR " data-countup-value="6256">EUR 6,256</strong></div>
+              <div class="wdl-proof-stat wdl-proof-stat--revenue"><span>Revenue</span><strong class="wdl-value wdl-value--revenue" data-countup data-countup-prefix="EUR " data-countup-value="66729">EUR 66,729</strong></div>
+              <div class="wdl-proof-stat wdl-proof-stat--accent"><span>ROAS</span><strong class="wdl-value wdl-value--accent" data-countup data-countup-value="10.67" data-countup-decimals="2" data-countup-suffix="X">10.67X</strong></div>
+            </div>
+            <p>Latest month. 9X+ returns sustained from December through April.</p>
+          </article>
+
+          <article class="wdl-proof-card">
+            <div class="wdl-proof-top">
+              <span class="wdl-proof-badge">Hotel Brand</span>
+              <span class="wdl-proof-date">30 days</span>
+            </div>
+            <div class="wdl-proof-shot" data-chart-animate>
+              <span class="wdl-proof-shot-label">Account preview</span>
+              <svg class="wdl-proof-chart" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="wdlProofAreaB" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#d97706" stop-opacity="0.26"></stop>
+                    <stop offset="100%" stop-color="#d97706" stop-opacity="0"></stop>
+                  </linearGradient>
+                </defs>
+                <path class="wdl-proof-chart-area" d="M0 78L16 64L32 70L48 54L64 61L80 46L96 36L112 48L128 38L144 28L160 34L176 20L192 28L208 22L220 18L220 120L0 120Z" fill="url(#wdlProofAreaB)"/>
+                <path class="wdl-proof-chart-line wdl-proof-chart-line--amber" d="M0 78L16 64L32 70L48 54L64 61L80 46L96 36L112 48L128 38L144 28L160 34L176 20L192 28L208 22L220 18" fill="none" stroke="#d97706" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle class="wdl-proof-chart-node wdl-proof-chart-node--amber" cx="220" cy="18" r="4.5" fill="#d97706"></circle>
+              </svg>
+              <div class="wdl-proof-veil" aria-hidden="true"></div>
+            </div>
+            <div class="wdl-proof-stats">
+              <div class="wdl-proof-stat wdl-proof-stat--spend"><span>Spend</span><strong class="wdl-value wdl-value--spend" data-countup data-countup-prefix="EUR " data-countup-value="7986">EUR 7,986</strong></div>
+              <div class="wdl-proof-stat wdl-proof-stat--success"><span>Bookings</span><strong class="wdl-value wdl-value--success" data-countup data-countup-value="374">374</strong></div>
+              <div class="wdl-proof-stat wdl-proof-stat--success"><span>EUR / Book</span><strong class="wdl-value wdl-value--success" data-countup data-countup-value="21">21</strong></div>
+            </div>
+            <p>Direct hotel bookings at less than half what booking platforms typically charge in commission.</p>
+          </article>
+
+          <article class="wdl-proof-card">
+            <div class="wdl-proof-top">
+              <span class="wdl-proof-badge">Education Brand</span>
+              <span class="wdl-proof-date">30 days</span>
+            </div>
+            <div class="wdl-proof-shot" data-chart-animate>
+              <span class="wdl-proof-shot-label">Account preview</span>
+              <div class="wdl-proof-bars wdl-proof-bars--pink">
+                <span style="height:50%"></span>
+                <span style="height:65%"></span>
+                <span style="height:60%"></span>
+                <span style="height:75%"></span>
+                <span style="height:70%"></span>
+                <span style="height:85%"></span>
+                <span style="height:90%"></span>
+              </div>
+              <div class="wdl-proof-veil" aria-hidden="true"></div>
+            </div>
+            <div class="wdl-proof-stats">
+              <div class="wdl-proof-stat wdl-proof-stat--spend"><span>Spend</span><strong class="wdl-value wdl-value--spend" data-countup data-countup-prefix="EUR " data-countup-value="3750">EUR 3,750</strong></div>
+              <div class="wdl-proof-stat wdl-proof-stat--success"><span>Leads</span><strong class="wdl-value wdl-value--success" data-countup data-countup-value="385">385</strong></div>
+              <div class="wdl-proof-stat wdl-proof-stat--success"><span>EUR / Lead</span><strong class="wdl-value wdl-value--success" data-countup data-countup-value="9.74" data-countup-decimals="2">9.74</strong></div>
+            </div>
+            <p>385 qualified student applications. For high-ticket education offers, return can exceed 50X.</p>
+          </article>
+        </div>
+
+        <div class="wdl-proof-cta">
+          <a class="wdl-btn wdl-btn--primary" href="/apply/">Apply for a free strategy call</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="wdl-template-library" id="templates">
+      <div class="wdl-shell">
+        <div class="wdl-section-intro">
+          <span class="wdl-section-kicker">Website Design Directions</span>
+          <h2>Pick the Website Template You Love</h2>
+          <p>
+            Browse curated website directions for clinics, coaches, storefronts, service brands, and
+            high-conversion landing pages. Pick the direction you want, and we adapt it to your business.
+          </p>
+        </div>
+
+        <div class="wdl-browser-controls">
           <label class="wdl-search" aria-label="Search templates">
             <input type="search" placeholder="Search website templates..." data-template-search>
             <span class="wdl-search-icon" aria-hidden="true">
@@ -110,96 +402,196 @@
               </svg>
             </span>
           </label>
-
           <div class="wdl-filter-pills" data-category-pills role="tablist" aria-label="Template categories"></div>
+        </div>
+
+        <div class="wdl-library-frame">
+          <div class="wdl-grid-head">
+            <div>
+              <h3>All Website Templates</h3>
+              <p data-template-count>0 templates</p>
+            </div>
+            <div class="wdl-sort">
+              <span>Sort by:</span>
+              <select data-sort aria-label="Sort templates">
+                <option value="recommended" selected>Recommended</option>
+                <option value="name">Name</option>
+                <option value="industry">Industry</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="wdl-grid" data-template-grid></div>
+
+          <div class="wdl-empty" data-template-empty hidden>
+            <strong>No templates match these filters.</strong>
+            <p>Choose another category or try a different search to see the rest of the library.</p>
+          </div>
+
+          <div class="wdl-browser-footer">
+            <p>Need a version tailored to your business? We can adapt the structure, visual direction, and conversion flow into a website system built around your offer.</p>
+            <a class="wdl-browser-link" href="/apply/">Start your project</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="wdl-browser">
+    <section class="wdl-process" id="process">
       <div class="wdl-shell">
-        <div class="wdl-grid-head">
-          <div>
-            <h2>All Website Templates</h2>
-            <p data-template-count>0 templates</p>
-          </div>
-
-          <label class="wdl-sort">
-            <span>Sort by:</span>
-            <select data-sort>
-              <option value="recommended">Recommended</option>
-              <option value="name">Name</option>
-              <option value="industry">Industry</option>
-            </select>
-          </label>
+        <div class="wdl-section-intro">
+          <span class="wdl-section-kicker">How It Works</span>
+          <h2>A growth system, not a service invoice.</h2>
+          <p>Three differences that change everything about your return on investment.</p>
         </div>
 
-        <div class="wdl-grid" data-template-grid></div>
+        <div class="wdl-process-grid">
+          <article class="wdl-process-card">
+            <span class="wdl-process-tag">Direct access</span>
+            <h3>Talk to the people building your campaigns.</h3>
+            <p>You work directly with the ex-Google strategists. No junior account managers. No agencies subcontracting agencies.</p>
+            <div class="wdl-process-foot">
+              <strong>What you get instead</strong>
+              <span>A senior team that knows your account, your numbers, and your customers by name.</span>
+            </div>
+          </article>
 
-        <div class="wdl-empty" data-template-empty hidden>
-          <strong>No templates match these filters.</strong>
-          <p>Try another category or search term to see the rest of the library.</p>
+          <article class="wdl-process-card">
+            <span class="wdl-process-tag">One system</span>
+            <h3>A site and ad system that work as one.</h3>
+            <p>We design the conversion architecture and the Google Ads system together. Your traffic and your site are built to fit each other from day one.</p>
+            <div class="wdl-process-foot">
+              <strong>What you get instead</strong>
+              <span>Higher conversion rates, lower cost per customer, and ROAS that compounds month after month.</span>
+            </div>
+          </article>
+
+          <article class="wdl-process-card">
+            <span class="wdl-process-tag">Zero setup fees</span>
+            <h3>No upfront cost to launch with us.</h3>
+            <p>Most agencies charge EUR 500-1,500 just to launch the first Google Ads campaign. For accepted clients, we waive that setup fee.</p>
+            <div class="wdl-process-foot">
+              <strong>What you get instead</strong>
+              <span>Skin in the game. We only succeed when your campaigns succeed, so we treat them like our own.</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="wdl-process-panel">
+          <div class="wdl-process-panel-copy">
+            <span class="wdl-process-panel-kicker">For accepted applications</span>
+            <h3>Everything you need to launch - at zero setup cost.</h3>
+            <div class="wdl-process-checks">
+              <div>
+                <strong>Free Google Ads setup</strong>
+                <span>EUR 500-1,500 value, one-time</span>
+              </div>
+              <div>
+                <strong>First campaign architecture</strong>
+                <span>Built and launched for you</span>
+              </div>
+              <div>
+                <strong>48-hour application review</strong>
+                <span>Honest yes, no, or follow-up</span>
+              </div>
+              <div>
+                <strong>Honest no if we cannot deliver</strong>
+                <span>Clear answer within the first 48 hours</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="wdl-process-panel-side">
+            <div class="wdl-capacity-card">
+              <span>Hands-on capacity</span>
+              <strong>3-5 new clients per quarter</strong>
+            </div>
+            <a class="wdl-btn wdl-btn--primary" href="/apply/">Submit your application</a>
+            <p>Already have a website? We can audit it and build the Google Ads system around what you have.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wdl-faq" id="faq">
+      <div class="wdl-shell wdl-shell--narrow">
+        <div class="wdl-section-intro">
+          <span class="wdl-section-kicker">Common Questions</span>
+          <h2>What you're probably wondering.</h2>
+        </div>
+
+        <div class="wdl-faq-list">
+          <details class="wdl-faq-item">
+            <summary>I just need a website - no Google Ads. Can you help?</summary>
+            <p>Yes. We build standalone conversion-focused websites with the same approach. Apply through the same form and note your preference.</p>
+          </details>
+
+          <details class="wdl-faq-item">
+            <summary>I already have a website. Can you just manage Google Ads?</summary>
+            <p>Absolutely. We will audit your existing site, ensure it can handle conversions properly, and build the Google Ads system around it.</p>
+          </details>
+
+          <details class="wdl-faq-item">
+            <summary>How much does this cost?</summary>
+            <p>Pricing depends on your industry, complexity, and growth goals. Website builds are billed as a project fee, and Google Ads management runs as a monthly retainer.</p>
+          </details>
+
+          <details class="wdl-faq-item">
+            <summary>What's actually free vs. paid?</summary>
+            <p>The strategy call and Google Ads setup are free for accepted clients. Website builds, monthly ad management, and your ad spend are paid separately.</p>
+          </details>
+
+          <details class="wdl-faq-item">
+            <summary>What does accepted applications mean?</summary>
+            <p>We are a hands-on team with limited capacity - usually 3 to 5 new clients per quarter. Every application is reviewed personally to ensure we can deliver.</p>
+          </details>
+
+          <details class="wdl-faq-item">
+            <summary>How long until I see results?</summary>
+            <p>Ads go live immediately after launch. The learning phase takes 2 to 4 weeks, and most clients see positive returns within 30 to 60 days.</p>
+          </details>
+
+          <details class="wdl-faq-item">
+            <summary>How much ad budget do I need to start?</summary>
+            <p>Most clients start between EUR 1,000 and EUR 3,000 per month in ad spend. That is enough to generate meaningful data and prove ROI.</p>
+          </details>
+
+          <details class="wdl-faq-item">
+            <summary>What if my site is on Shopify, WordPress, Wix, or Squarespace?</summary>
+            <p>We work with any platform. Platform does not matter nearly as much as conversion quality, tracking, and how the ad system connects to the site.</p>
+          </details>
+
+          <details class="wdl-faq-item">
+            <summary>What industries do you work with?</summary>
+            <p>We have proven results across e-commerce, hospitality, and education. We also work with local services, healthcare, coaching, SaaS, and B2B.</p>
+          </details>
+
+          <details class="wdl-faq-item">
+            <summary>What if it doesn't work?</summary>
+            <p>You see every number from day one. If performance is not trending in the right direction, we adjust. If it is truly not viable, we will tell you before you waste budget.</p>
+          </details>
+
+          <details class="wdl-faq-item">
+            <summary>What makes you different from other agencies?</summary>
+            <p>Our team includes strategists who worked inside Google. We hold active Google Partner status, we do not outsource, and we optimize for the metric that actually matters to your business.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="wdl-closing">
+      <div class="wdl-shell">
+        <div class="wdl-closing-card">
+          <h2>Ready to stop guessing?</h2>
+          <p>
+            Apply for a free strategy call. We will review your business, audit your current setup,
+            and show you exactly how the system would work for you.
+          </p>
+          <a class="wdl-btn wdl-btn--primary" href="/apply/">Submit your application</a>
+          <span>Takes 2 minutes. We review every application personally within 48 hours.</span>
         </div>
       </div>
     </section>
   </main>
-
-  <section class="wdl-jumbo-cta">
-    <div class="wdl-jumbo-cta-shell">
-      <button type="button" class="wdl-jumbo-cta-link" data-start-btn>
-        <span class="wdl-jumbo-copy">Get Started</span>
-        <span class="wdl-jumbo-arrow" aria-hidden="true">→</span>
-      </button>
-    </div>
-  </section>
-
-  <div class="wdl-contact-widget is-open" data-contact-widget>
-    <div class="wdl-contact-panel" id="wdl-contact-panel" aria-hidden="false">
-      <div class="wdl-contact-card">
-        <div class="wdl-contact-card-head">
-          <img loading="lazy" decoding="async" src="/assets/lynck-logo.webp" alt="LYNCK Studio">
-          <div>
-            <strong>Lynck Studio</strong>
-            <span>Quick contact</span>
-          </div>
-        </div>
-        <div class="wdl-contact-links">
-          <a
-            class="wdl-contact-link wdl-contact-link--whatsapp"
-            href="https://wa.me/491771878363?text=Hi%20LYNCK%20Studio%2C%20I%20want%20help%20with%20my%20website."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span>WhatsApp</span>
-            <svg viewBox="0 0 24 24" width="23" height="23" aria-hidden="true">
-              <path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.03 2a9.88 9.88 0 0 0-8.58 14.77L2 22l5.38-1.41A9.88 9.88 0 0 0 12.03 22c5.46 0 9.9-4.43 9.9-9.89a9.8 9.8 0 0 0-2.88-7.2m-7.02 15.42a8.24 8.24 0 0 1-4.2-1.15l-.3-.17-3.2.84.86-3.12-.2-.32a8.22 8.22 0 0 1 7.04-12.63a8.2 8.2 0 0 1 5.84 2.42a8.15 8.15 0 0 1 2.4 5.83a8.24 8.24 0 0 1-8.24 8.3m4.52-6.15c-.25-.13-1.48-.73-1.71-.81c-.23-.08-.4-.12-.57.12c-.17.25-.65.81-.8.98c-.15.17-.29.19-.54.06c-.25-.12-1.04-.38-1.98-1.2c-.73-.66-1.23-1.47-1.38-1.72c-.15-.25-.02-.38.11-.5c.11-.11.25-.29.38-.44c.13-.15.17-.25.25-.42c.08-.17.04-.31-.02-.44c-.06-.12-.57-1.37-.77-1.88c-.2-.47-.4-.41-.57-.42h-.48c-.17 0-.44.06-.67.31c-.23.25-.88.86-.88 2.1c0 1.25.9 2.45 1.02 2.62c.13.17 1.77 2.71 4.29 3.8c.6.26 1.07.42 1.44.54c.6.19 1.15.16 1.58.1c.48-.08 1.48-.6 1.69-1.18c.21-.58.21-1.08.15-1.18c-.06-.1-.23-.17-.48-.29"></path>
-            </svg>
-          </a>
-          <a class="wdl-contact-link wdl-contact-link--call" href="tel:+491771878363">
-            <span>Call Us</span>
-            <svg viewBox="0 0 24 24" width="23" height="23" aria-hidden="true">
-              <path fill="currentColor" d="m21.38 17.46l-2.2-2.52a2.16 2.16 0 0 0-2.84-.38l-1.1.72a1.75 1.75 0 0 1-2.13-.18l-4.18-4.18a1.75 1.75 0 0 1-.18-2.13l.72-1.1a2.16 2.16 0 0 0-.38-2.84L6.54 2.62a2.16 2.16 0 0 0-2.84 0L2.47 3.84c-.95.95-1.33 2.33-1 3.64c.77 3.06 2.43 5.99 4.88 8.44c2.45 2.45 5.38 4.11 8.44 4.88c1.3.33 2.69-.05 3.64-1l1.22-1.22a2.16 2.16 0 0 0 .03-2.12"></path>
-            </svg>
-          </a>
-          <button type="button" class="wdl-contact-link wdl-contact-link--hours" data-hours-toggle aria-expanded="false">
-            <span>Office Hours</span>
-            <svg viewBox="0 0 24 24" width="23" height="23" aria-hidden="true">
-              <path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2m4.5 11h-5a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0v4h4a1 1 0 0 1 0 2"></path>
-            </svg>
-          </button>
-        </div>
-        <p class="wdl-contact-hours" data-hours-panel hidden>Mon - Fri · 9:00 - 18:00 CET</p>
-      </div>
-    </div>
-    <button type="button" class="wdl-contact-toggle" data-widget-toggle aria-controls="wdl-contact-panel" aria-expanded="true">
-      <span class="wdl-contact-toggle-label">Let's Talk</span>
-      <span class="wdl-contact-toggle-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="22" height="22">
-          <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"></path>
-        </svg>
-      </span>
-    </button>
-  </div>
 
   <footer>
     <div class="footer-big-wrap">
@@ -236,7 +628,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 LYNCK Studio. All rights reserved</span>
+      <span>&copy; 2026 LYNCK Studio. All rights reserved</span>
       <div class="footer-bottom-legal">
         <a href="/cookie-policy.html">Cookie Policy</a>
         <a href="/privacy-policy.html">Privacy Policy</a>
@@ -246,6 +638,8 @@
   </footer>
 
   <script src="/js/site-shell-nav.js?v=20260330" defer></script>
-  <script type="module" src="/js/website-design-page.js?v=20260419e"></script>
+  <script type="module" src="/js/website-design-page.js?v=20260426b"></script>
+  <script src="/js/vendor/three.min.js" defer></script>
+  <script src="/js/website-design-cube.js?v=20260426c" defer></script>
 </body>
 </html>
