@@ -139,401 +139,195 @@
 
   <main class="apply-main" id="main-content">
     <section class="apply-card" id="applyFlow">
-      <div class="apply-intro is-active" data-screen="intro">
-        <span class="apply-chip">Strategie-Call Anfrage</span>
-        <h1 class="apply-title">Sicher dir deinen Strategie-Call</h1>
-        <p class="apply-copy">Wir bauen strukturierte Wachstumssysteme (Google, Meta, UGC, YouTube, Web). Erzähl uns kurz, wo du stehst, damit wir uns perfekt vorbereiten können. Dauer: ~2 Minuten.</p>
-        <ul class="apply-list">
-          <li>Du bekommst einen klaren Plan mit den nächsten Schritten.</li>
-          <li>Wenn es nicht passt, sagen wir es dir direkt.</li>
-        </ul>
-        <div class="apply-nav">
-          <span></span>
-          <button type="button" class="apply-btn" data-action="start">Anfrage starten</button>
-        </div>
-      </div>
-
       <form id="strategyApplicationForm" novalidate>
         <div class="apply-progress">
           <div class="apply-progress-top">
-            <strong>Schritt <span data-progress-current>1</span>/<span data-progress-total>5</span></strong>
-            <span data-progress-label>Unternehmen</span>
+            <strong>Schritt <span data-progress-current>1</span>/<span data-progress-total>2</span></strong>
+            <span data-progress-label>Fit und Leistung</span>
           </div>
           <div class="apply-progress-bar"><span class="apply-progress-fill" data-progress-fill></span></div>
         </div>
 
-        <section class="apply-step" data-step data-step-label="Unternehmen">
-          <h2 class="apply-step-title">Schritt 1 — Dein Unternehmen</h2>
-          <p class="apply-step-copy">Sag uns, wer du bist und wer die finale Entscheidung trifft.</p>
+        <section class="apply-step" data-step data-step-label="Fit und Leistung">
+          <span class="apply-chip">Strategie Call Anfrage</span>
+          <h1 class="apply-title">Sicher dir deinen Strategie Call</h1>
+          <p class="apply-copy">Sag uns kurz, was du brauchst und wo die groesste Chance liegt. Dauert etwa 2 Minuten.</p>
 
           <div class="apply-grid">
             <div class="apply-field">
-              <label class="apply-label" for="fullName">Vollständiger Name <span class="req">*</span></label>
+              <label class="apply-label" for="fullName">Vollstaendiger Name <span class="req">*</span></label>
               <input class="apply-input" id="fullName" name="full_name" type="text" autocomplete="name" required>
               <div class="apply-error" data-error-for="fullName"></div>
             </div>
-
             <div class="apply-field">
-              <label class="apply-label" for="workEmail">Geschäftliche E-Mail <span class="req">*</span></label>
+              <label class="apply-label" for="workEmail">Geschaeftliche E-Mail <span class="req">*</span></label>
               <input class="apply-input" id="workEmail" name="work_email" type="email" autocomplete="email" required>
               <div class="apply-error" data-error-for="workEmail"></div>
             </div>
-
             <div class="apply-field">
               <label class="apply-label" for="companyName">Unternehmen / Marke <span class="req">*</span></label>
               <input class="apply-input" id="companyName" name="company_name" type="text" required>
               <div class="apply-error" data-error-for="companyName"></div>
             </div>
-
             <div class="apply-field" id="websiteFieldWrap">
-              <label class="apply-label" for="websiteUrl">Website URL <span class="req">*</span></label>
-              <input class="apply-input" id="websiteUrl" name="website_url" type="url" placeholder="https://deine-domain.de">
+              <label class="apply-label" for="websiteUrl">Website URL</label>
+              <input class="apply-input" id="websiteUrl" name="website_url" type="url" placeholder="https://yourdomain.com">
+              <div class="apply-help">Optional. Lass das Feld leer, wenn du noch keine Website hast.</div>
               <div class="apply-error" data-error-for="websiteUrl"></div>
             </div>
-
             <div class="apply-field">
-              <label class="apply-check">
-                <input id="noWebsiteYet" name="no_website_yet" type="checkbox">
-                <span>Noch keine Website</span>
-              </label>
+              <label class="apply-check"><input id="noWebsiteYet" name="no_website_yet" type="checkbox"> <span>Neinch keine Website</span></label>
             </div>
-
-            <div class="apply-field">
-              <label class="apply-label" for="timezone">Land / Zeitzone <span class="req">*</span></label>
-              <select class="apply-select" id="timezone" name="country_timezone" required>
-                <option value="">Zeitzone wählen</option>
-                <option value="Europe/Berlin">Europe/Berlin (CET)</option>
-                <option value="Europe/Madrid">Europe/Madrid (CET)</option>
-                <option value="Europe/London">Europe/London (GMT)</option>
-                <option value="America/New_York">America/New_York (EST)</option>
-                <option value="America/Los_Angeles">America/Los_Angeles (PST)</option>
-                <option value="Asia/Dubai">Asia/Dubai (GST)</option>
-                <option value="Other">Sonstige</option>
-              </select>
-              <div class="apply-error" data-error-for="timezone"></div>
-            </div>
-
             <div class="apply-field">
               <label class="apply-label" for="industry">Branche <span class="req">*</span></label>
               <select class="apply-select" id="industry" name="industry" required>
-                <option value="">Branche wählen</option>
-                <option value="Hotel/Tourism">Hotel/Tourismus</option>
-                <option value="Local Services">Lokale Dienstleistungen (Handwerk/Sanitär)</option>
-                <option value="Physiotherapy/Healthcare">Physiotherapie/Gesundheit</option>
-                <option value="E-commerce">E-commerce</option>
-                <option value="Education">Bildung</option>
+                <option value="">Branche waehlen</option>
+                <option value="Hotel/Tourismus">Hotel/Tourismus</option>
+                <option value="Lokale Dienstleistungen">Lokale Dienstleistungen</option>
+                <option value="Physiotherapie/Gesundheit">Physiotherapie/Gesundheit</option>
+                <option value="E-Commerce">E-Commerce</option>
+                <option value="Bildung">Bildung</option>
                 <option value="SaaS">SaaS</option>
-                <option value="Creators/Media">Creator/Medien</option>
-                <option value="Real Estate">Immobilien</option>
-                <option value="Other">Sonstige</option>
+                <option value="Creator/Medien">Creator/Medien</option>
+                <option value="Immobilien">Immobilien</option>
+                <option value="Sonstige">Sonstige</option>
               </select>
               <div class="apply-error" data-error-for="industry"></div>
             </div>
-
             <div class="apply-field">
-              <label class="apply-label" for="industryOther">Branche (Sonstige)</label>
-              <input class="apply-input" id="industryOther" name="industry_other" type="text" placeholder="Falls Sonstige, bitte angeben">
-              <div class="apply-error" data-error-for="industryOther"></div>
-            </div>
-
-            <div class="apply-field">
-              <label class="apply-label" for="role">Deine Rolle <span class="req">*</span></label>
-              <select class="apply-select" id="role" name="role" required>
-                <option value="">Rolle wählen</option>
-                <option value="Founder/Owner">Gründer/Inhaber</option>
-                <option value="Marketing Lead">Marketingleitung</option>
-                <option value="Operator/GM">Geschäftsführung</option>
-                <option value="Agency">Agentur</option>
-                <option value="Other">Sonstige</option>
-              </select>
-              <div class="apply-error" data-error-for="role"></div>
-            </div>
-
-            <div class="apply-field">
-              <label class="apply-label" for="decisionMaker">Bist du der Entscheider? <span class="req">*</span></label>
-              <select class="apply-select" id="decisionMaker" name="is_decision_maker" required>
-                <option value="">Bitte wählen</option>
-                <option value="Yes">Ja</option>
-                <option value="No">Nein</option>
-              </select>
-              <div class="apply-error" data-error-for="decisionMaker"></div>
+              <label class="apply-label" for="industrySonstige">Branche (Sonstige)</label>
+              <input class="apply-input" id="industrySonstige" name="industry_other" type="text" placeholder="If Sonstige, specify">
+              <div class="apply-error" data-error-for="industrySonstige"></div>
             </div>
           </div>
 
-          <div class="apply-group is-hidden" id="decisionMakerDetails">
+          <div class="apply-group">
+            <h4>Welche Leistung brauchst du? <span class="req">*</span></h4>
+            <div class="apply-check-grid">
+              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="Conversion-Focused Web Systems" data-service="website"> <span>Website / Landingpage</span></label>
+              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="Google Ads & Performance Marketing" data-service="google"> <span>Google Ads Management</span></label>
+              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="Meta Ads & Paid Social" data-service="meta"> <span>Meta Ads</span></label>
+              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="UGC & Influencer Marketing"> <span>UGC / Influencer Marketing</span></label>
+              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="Growth Strategy & Brand Positioning"> <span>Wachstumsstrategie</span></label>
+              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="SEO / SEvO"> <span>SEO / SEvO</span></label>
+            </div>
+            <div class="apply-error" data-error-for="servicesInterested"></div>
+          </div>
+
+          <div class="apply-group is-hidden" id="websiteBudgetWrap">
             <div class="apply-grid single">
               <div class="apply-field">
-                <label class="apply-label" for="decisionMakerName">Wer trifft die finale Entscheidung? <span class="req">*</span></label>
-                <input class="apply-input" id="decisionMakerName" name="final_decision_maker" type="text">
-                <div class="apply-error" data-error-for="decisionMakerName"></div>
-              </div>
-              <div class="apply-field">
-                <label class="apply-label" for="decisionMakerJoin">Wird diese Person beim Call dabei sein? <span class="req">*</span></label>
-                <select class="apply-select" id="decisionMakerJoin" name="decision_maker_will_join">
-                  <option value="">Bitte wählen</option>
-                  <option value="Yes">Ja</option>
-                  <option value="No">Nein</option>
+                <label class="apply-label" for="websiteBudgetRange">Budget fuer die Website <span class="req">*</span></label>
+                <select class="apply-select" id="websiteBudgetRange" name="website_budget_range">
+                  <option value="">Budget waehlen</option>
+                  <option value="€499–€1,499">€499–€1,499</option>
+                  <option value="€1,599–€2,999">€1,599–€2,999</option>
+                  <option value="€3,099–€4,999">€3,099–€4,999</option>
+                  <option value="€5k+">€5k+</option>
                 </select>
-                <div class="apply-error" data-error-for="decisionMakerJoin"></div>
+                <div class="apply-error" data-error-for="websiteBudgetRange"></div>
               </div>
             </div>
           </div>
-        </section>
 
-        <section class="apply-step" data-step data-step-label="Entscheidende Fragen">
-          <h2 class="apply-step-title">Schritt 2 — Die entscheidenden Fragen</h2>
-          <p class="apply-step-copy">Beantworte diese Fragen direkt, damit wir den Strategie-Call um echte Herausforderungen und echte Ziele strukturieren können.</p>
-
-          <div class="apply-grid single">
-            <div class="apply-field">
-              <label class="apply-label" for="combinationQ1">Was ist gerade deine größte Herausforderung beim Wachstum/Marketing? <span class="req">*</span></label>
-              <textarea class="apply-textarea" id="combinationQ1" name="combination_q1" placeholder="In deinen eigenen Worten. Je konkreter, desto besser."></textarea>
-              <div class="apply-help">In deinen eigenen Worten. Je konkreter, desto besser.</div>
-              <div class="apply-error" data-error-for="combinationQ1"></div>
-            </div>
-
-            <div class="apply-field">
-              <label class="apply-label" for="combinationQ2">Was hast du bisher versucht, um das zu lösen? <span class="req">*</span></label>
-              <textarea class="apply-textarea" id="combinationQ2" name="combination_q2" placeholder="Anzeigen, Agentur, Inhalte, SEO, Angebote, Anfrageweg – alles."></textarea>
-              <div class="apply-help">Anzeigen, Agentur, Inhalte, SEO, Angebote, Anfrageweg – alles.</div>
-              <div class="apply-error" data-error-for="combinationQ2"></div>
-            </div>
-
-            <div class="apply-field">
-              <label class="apply-label" for="combinationQ3">Falls wir nicht zusammenarbeiten: Was ist dein Plan B? <span class="req">*</span></label>
-              <textarea class="apply-textarea" id="combinationQ3" name="combination_q3"></textarea>
-              <div class="apply-help">Das hilft uns, Dringlichkeit und Rahmenbedingungen einzuschätzen.</div>
-              <div class="apply-error" data-error-for="combinationQ3"></div>
-            </div>
-
-            <div class="apply-field">
-              <label class="apply-label" for="combinationQ4">Beschreib, wie Erfolg in 6 Monaten aussieht, wenn wir das hier richtig gut machen. <span class="req">*</span></label>
-              <textarea class="apply-textarea" id="combinationQ4" name="combination_q4" placeholder="Umsatz, Leads, Buchungen, CAC/CPA – mal dir das Bild."></textarea>
-              <div class="apply-help">Umsatz, Leads, Buchungen, CAC/CPA – mal dir das Bild.</div>
-              <div class="apply-error" data-error-for="combinationQ4"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="apply-step" data-step data-step-label="Ziele &amp; Wirtschaftlichkeit">
-          <h2 class="apply-step-title">Schritt 3 — Ziele, Wirtschaftlichkeit, Timing</h2>
-          <p class="apply-step-copy">Diese Antworten zeigen uns, wie aggressiv dein System sein soll und wo wir priorisieren.</p>
-
-          <div class="apply-grid">
-            <div class="apply-field">
-              <label class="apply-label" for="primaryGoal">Hauptziel <span class="req">*</span></label>
-              <select class="apply-select" id="primaryGoal" name="primary_goal">
-                <option value="">Bitte wählen</option>
-                <option value="More qualified leads">Mehr qualifizierte Leads</option>
-                <option value="More online sales">Mehr Online-Umsatz</option>
-                <option value="More hotel bookings">Mehr Hotelbuchungen</option>
-                <option value="Grow YouTube channel / demand">YouTube-Kanal / Nachfrage aufbauen</option>
-                <option value="Build brand awareness + pipeline">Markenbekanntheit + Pipeline aufbauen</option>
-                <option value="Fix tracking / measurement">Tracking / Messung korrigieren</option>
-                <option value="Other">Sonstige</option>
-              </select>
-              <div class="apply-error" data-error-for="primaryGoal"></div>
-            </div>
-
-            <div class="apply-field">
-              <label class="apply-label" for="targetMetric">Ziel-Kennzahl <span class="req">*</span></label>
-              <input class="apply-input" id="targetMetric" name="target_outcome_metric" type="text" placeholder="CPA unter EUR X / X Buchungen pro Monat / ROAS X">
-              <div class="apply-error" data-error-for="targetMetric"></div>
-            </div>
-
-            <div class="apply-field">
-              <label class="apply-label" for="adSpendRange">Monatliches Werbebudget <span class="req">*</span></label>
-              <select class="apply-select" id="adSpendRange" name="ad_spend_range">
-                <option value="">Budget wählen</option>
-                <option value="€0–€1k">€0–€1k</option>
-                <option value="€1k–€3k">€1k–€3k</option>
-                <option value="€3k–€7k">€3k–€7k</option>
-                <option value="€7k–€15k">€7k–€15k</option>
-                <option value="€15k+">€15k+</option>
-              </select>
-              <div class="apply-error" data-error-for="adSpendRange"></div>
-            </div>
-
-            <div class="apply-field">
-              <label class="apply-label" for="canIncreaseBudget">Kannst du das Budget erhöhen, wenn der ROI bestätigt ist? <span class="req">*</span></label>
-              <select class="apply-select" id="canIncreaseBudget" name="can_increase_budget">
-                <option value="">Bitte wählen</option>
-                <option value="Yes">Ja</option>
-                <option value="No">Nein</option>
-              </select>
-              <div class="apply-error" data-error-for="canIncreaseBudget"></div>
-            </div>
-
-            <div class="apply-field">
-              <label class="apply-label" for="timeline">Zeitrahmen <span class="req">*</span></label>
-              <select class="apply-select" id="timeline" name="timeline">
-                <option value="">Bitte wählen</option>
-                <option value="ASAP (0–2 weeks)">Sofort (0–2 Wochen)</option>
-                <option value="This month">Diesen Monat</option>
-                <option value="Next 30-60 days">Nächste 30–60 Tage</option>
-                <option value="60-90 days">60–90 Tage</option>
-                <option value="Just exploring">Erst mal orientieren</option>
-              </select>
-              <div class="apply-error" data-error-for="timeline"></div>
-            </div>
-          </div>
-
-          <div class="apply-group">
-            <h4>Größte Einschränkung (max. 2 wählen) <span class="req">*</span></h4>
-            <div class="apply-check-grid">
-              <label class="apply-check"><input type="checkbox" name="constraints" value="Budget"> <span>Budget</span></label>
-              <label class="apply-check"><input type="checkbox" name="constraints" value="Time / team capacity"> <span>Zeit / Teamkapazität</span></label>
-              <label class="apply-check"><input type="checkbox" name="constraints" value="Creative production"> <span>Kreativproduktion</span></label>
-              <label class="apply-check"><input type="checkbox" name="constraints" value="Tracking / data quality"> <span>Tracking / Datenqualität</span></label>
-              <label class="apply-check"><input type="checkbox" name="constraints" value="Offer unclear"> <span>Angebot unklar</span></label>
-              <label class="apply-check"><input type="checkbox" name="constraints" value="Too much competition / CPCs rising"> <span>Zu viel Wettbewerb / steigende CPCs</span></label>
-              <label class="apply-check"><input type="checkbox" name="constraints" value="Lead quality"> <span>Lead-Qualität</span></label>
-              <label class="apply-check"><input type="checkbox" name="constraints" value="Other"> <span>Sonstige</span></label>
-            </div>
-            <div class="apply-error" data-error-for="constraints"></div>
-          </div>
-        </section>
-
-        <section class="apply-step" data-step data-step-label="Kanäle &amp; Readiness">
-          <h2 class="apply-step-title">Schritt 4 — Kanäle, Assets, Tracking-Readiness</h2>
-          <p class="apply-step-copy">Damit wir die Setup-Qualität vor dem Call einschätzen können.</p>
-
-          <div class="apply-group">
-            <h4>Welche Kanäle nutzt du aktuell? <span class="req">*</span></h4>
-            <div class="apply-check-grid">
-              <label class="apply-check"><input type="checkbox" name="channels_used" value="Google Ads (Search/Shopping/PMax/YouTube)"> <span>Google Ads (Search/Shopping/PMax/YouTube)</span></label>
-              <label class="apply-check"><input type="checkbox" name="channels_used" value="Meta Ads"> <span>Meta Ads</span></label>
-              <label class="apply-check"><input type="checkbox" name="channels_used" value="TikTok"> <span>TikTok</span></label>
-              <label class="apply-check"><input type="checkbox" name="channels_used" value="SEO"> <span>SEO</span></label>
-              <label class="apply-check"><input type="checkbox" name="channels_used" value="Email/SMS"> <span>E-Mail/SMS</span></label>
-              <label class="apply-check"><input type="checkbox" name="channels_used" value="Influencers/UGC"> <span>Influencer / UGC</span></label>
-              <label class="apply-check"><input type="checkbox" name="channels_used" value="YouTube organic"> <span>YouTube organisch</span></label>
-              <label class="apply-check"><input type="checkbox" name="channels_used" value="None yet"> <span>Noch keine</span></label>
-            </div>
-            <div class="apply-error" data-error-for="channels_used"></div>
-          </div>
-
-          <div class="apply-group is-hidden" id="googleChannelDetails">
-            <h4>Google Ads Details</h4>
+          <div class="apply-group is-hidden" id="googleBudgetWrap">
             <div class="apply-grid">
               <div class="apply-field">
-                <label class="apply-label" for="googleSpend">Aktuelles monatliches Google-Budget</label>
-                <input class="apply-input" id="googleSpend" name="google_monthly_spend" type="text" placeholder="EUR-Betrag">
+                <label class="apply-label" for="adSpendRange">Monatliches Google Ads Budget <span class="req">*</span></label>
+                <select class="apply-select" id="adSpendRange" name="ad_spend_range">
+                  <option value="">Budget waehlen</option>
+                  <option value="€1k–€3k">€1k–€3k</option>
+                  <option value="€3k–€7k">€3k–€7k</option>
+                  <option value="€7k–€15k">€7k–€15k</option>
+                  <option value="€15k+">€15k+</option>
+                </select>
+                <div class="apply-help">Google Ads Arbeit startet ab mindestens 1.000 € Werbebudget pro Monat.</div>
+                <div class="apply-error" data-error-for="adSpendRange"></div>
               </div>
               <div class="apply-field">
-                <label class="apply-label" for="googleTracking">Hast du Conversion-Tracking eingerichtet (Anrufe/Formulare/Käufe)? <span class="req">*</span></label>
+                <label class="apply-label" for="googleTracking">Conversion Tracking eingerichtet?</label>
                 <select class="apply-select" id="googleTracking" name="google_tracking_ready">
-                  <option value="">Bitte wählen</option>
-                  <option value="Yes">Ja</option>
-                  <option value="No">Nein</option>
-                  <option value="Not sure">Nicht sicher</option>
+                  <option value="">Bitte waehlen</option>
+                  <option value="Ja">Ja</option>
+                  <option value="Nein">Nein</option>
+                  <option value="Neint sure">Neint sure</option>
                 </select>
                 <div class="apply-error" data-error-for="googleTracking"></div>
               </div>
             </div>
           </div>
 
-          <div class="apply-group is-hidden" id="metaChannelDetails">
-            <h4>Meta Ads Details</h4>
-            <div class="apply-grid single">
-              <div class="apply-field">
-                <label class="apply-label" for="metaPixelCapi">Hast du Pixel + CAPI? <span class="req">*</span></label>
-                <select class="apply-select" id="metaPixelCapi" name="meta_pixel_capi">
-                  <option value="">Bitte wählen</option>
-                  <option value="Yes">Ja</option>
-                  <option value="No">Nein</option>
-                  <option value="Not sure">Nicht sicher</option>
-                </select>
-                <div class="apply-error" data-error-for="metaPixelCapi"></div>
-              </div>
+          <div class="apply-grid single">
+            <div class="apply-field">
+              <label class="apply-label" for="combinationQ1">Was ist gerade deine groesste Herausforderung bei Wachstum oder Marketing? <span class="req">*</span></label>
+              <textarea class="apply-textarea" id="combinationQ1" name="combination_q1" placeholder="In deinen eigenen Worten. Je konkreter, desto besser."></textarea>
+              <div class="apply-error" data-error-for="combinationQ1"></div>
             </div>
-          </div>
-
-          <div class="apply-group">
-            <h4>Vorhandene Assets <span class="req">*</span></h4>
-            <div class="apply-check-grid">
-              <label class="apply-check"><input type="checkbox" name="assets_available" value="Existing landing pages"> <span>Bestehende Landingpages</span></label>
-              <label class="apply-check"><input type="checkbox" name="assets_available" value="Product photos"> <span>Produktfotos</span></label>
-              <label class="apply-check"><input type="checkbox" name="assets_available" value="Video content"> <span>Videoinhalte</span></label>
-              <label class="apply-check"><input type="checkbox" name="assets_available" value="UGC creator content"> <span>UGC-Material von Creatorn</span></label>
-              <label class="apply-check"><input type="checkbox" name="assets_available" value="Testimonials/reviews"> <span>Testimonials/Bewertungen</span></label>
-              <label class="apply-check"><input type="checkbox" name="assets_available" value="Email list"> <span>E-Mail-Liste</span></label>
-              <label class="apply-check"><input type="checkbox" name="assets_available" value="None"> <span>Keine</span></label>
-            </div>
-            <div class="apply-error" data-error-for="assets_available"></div>
-          </div>
-
-          <div class="apply-group">
-            <h4>Tracking &amp; Systeme <span class="req">*</span></h4>
-            <div class="apply-grid">
-              <div class="apply-field">
-                <label class="apply-label" for="hasCrm">Hast du ein CRM? <span class="req">*</span></label>
-                <select class="apply-select" id="hasCrm" name="has_crm">
-                  <option value="">Bitte wählen</option>
-                  <option value="Yes">Ja</option>
-                  <option value="No">Nein</option>
-                  <option value="Not sure">Nicht sicher</option>
-                </select>
-                <div class="apply-error" data-error-for="hasCrm"></div>
-              </div>
-
-              <div class="apply-field is-hidden" id="crmNameWrap">
-                <label class="apply-label" for="crmName">Welches CRM?</label>
-                <select class="apply-select" id="crmName" name="crm_name">
-                  <option value="">Bitte wählen</option>
-                  <option value="HubSpot">HubSpot</option>
-                  <option value="Pipedrive">Pipedrive</option>
-                  <option value="GoHighLevel">GoHighLevel</option>
-                  <option value="Other">Sonstige</option>
-                </select>
-                <div class="apply-error" data-error-for="crmName"></div>
-              </div>
-            </div>
-
-            <div class="apply-group" style="margin-top:14px;">
-              <h4 style="margin-bottom:10px;">Wie kommen Leads aktuell rein? <span class="req">*</span></h4>
-              <div class="apply-check-grid">
-                <label class="apply-check"><input type="checkbox" name="leadIntakeChannels" value="Calls"> <span>Anrufe</span></label>
-                <label class="apply-check"><input type="checkbox" name="leadIntakeChannels" value="Forms"> <span>Formulare</span></label>
-                <label class="apply-check"><input type="checkbox" name="leadIntakeChannels" value="DMs"> <span>Direktnachrichten</span></label>
-                <label class="apply-check"><input type="checkbox" name="leadIntakeChannels" value="Booking engine"> <span>Buchungssystem</span></label>
-                <label class="apply-check"><input type="checkbox" name="leadIntakeChannels" value="Shopify checkout"> <span>Shopify-Checkout</span></label>
-                <label class="apply-check"><input type="checkbox" name="leadIntakeChannels" value="Other"> <span>Sonstige</span></label>
-              </div>
-              <div class="apply-error" data-error-for="leadIntakeChannels"></div>
-            </div>
-
-            <div class="apply-field" style="margin-top:14px;">
-              <label class="apply-label" for="numbersKnowledge">Kennst du deine Zahlen? <span class="req">*</span></label>
-              <select class="apply-select" id="numbersKnowledge" name="numbers_knowledge">
-                <option value="">Bitte wählen</option>
-                <option value="Yes (CPA/CAC/LTV)">Ja (CPA/CAC/LTV)</option>
-                <option value="Somewhat">Teilweise</option>
-                <option value="Not yet">Noch nicht</option>
-              </select>
-              <div class="apply-error" data-error-for="numbersKnowledge"></div>
+            <div class="apply-field">
+              <label class="apply-label" for="combinationQ4">Wie sieht Erfolg in 6 Monaten aus? <span class="req">*</span></label>
+              <textarea class="apply-textarea" id="combinationQ4" name="combination_q4" placeholder="Umsatz, Leads, Buchungen, CAC/CPA - beschreib das Zielbild."></textarea>
+              <div class="apply-error" data-error-for="combinationQ4"></div>
             </div>
           </div>
         </section>
 
-        <section class="apply-step" data-step data-step-label="Letzte Details">
-          <h2 class="apply-step-title">Schritt 5 — Letzte Details + Einwilligung</h2>
-          <p class="apply-step-copy">Letzte Infos vor dem Absenden. Danach kannst du direkt einen Termin buchen.</p>
+        <section class="apply-step" data-step data-step-label="Finaler Kontext">
+          <h2 class="apply-step-title">Schritt 2 — Ziel, Timing und Einwilligung</h2>
+          <p class="apply-step-copy">Finaler Kontext before submission. After this, you’ll unlock the booking calendar.</p>
+
+          <div class="apply-grid">
+            <div class="apply-field">
+              <label class="apply-label" for="primaryGoal">Hauptziel <span class="req">*</span></label>
+              <select class="apply-select" id="primaryGoal" name="primary_goal">
+                <option value="">Bitte waehlen</option>
+                <option value="Mehr qualifizierte Leads">Mehr qualifizierte Leads</option>
+                <option value="Mehr Online Umsatz">Mehr Online Umsatz</option>
+                <option value="Mehr Hotelbuchungen">Mehr Hotelbuchungen</option>
+                <option value="Markenbekanntheit + Pipeline aufbauen">Markenbekanntheit + Pipeline aufbauen</option>
+                <option value="Tracking / Messung korrigieren">Tracking / Messung korrigieren</option>
+                <option value="Sonstige">Sonstige</option>
+              </select>
+              <div class="apply-error" data-error-for="primaryGoal"></div>
+            </div>
+            <div class="apply-field">
+              <label class="apply-label" for="targetMetric">Ziel Kennzahl</label>
+              <input class="apply-input" id="targetMetric" name="target_outcome_metric" type="text" placeholder="CPA unter EUR X / X Buchungen pro Monat / ROAS X">
+              <div class="apply-error" data-error-for="targetMetric"></div>
+            </div>
+            <div class="apply-field">
+              <label class="apply-label" for="timeline">Zeitrahmen <span class="req">*</span></label>
+              <select class="apply-select" id="timeline" name="timeline">
+                <option value="">Bitte waehlen</option>
+                <option value="Sofort (0-2 Wochen)">Sofort (0-2 Wochen)</option>
+                <option value="Diesen Monat">Diesen Monat</option>
+                <option value="Naechste 30-60 Tage">Naechste 30-60 Tage</option>
+                <option value="60-90 days">60-90 days</option>
+                <option value="Erst mal orientieren">Erst mal orientieren</option>
+              </select>
+              <div class="apply-error" data-error-for="timeline"></div>
+            </div>
+            <div class="apply-field">
+              <label class="apply-label" for="canIncreaseBudget">Kannst du das Budget erhoehen, wenn der ROI stimmt?</label>
+              <select class="apply-select" id="canIncreaseBudget" name="can_increase_budget">
+                <option value="">Bitte waehlen</option>
+                <option value="Ja">Ja</option>
+                <option value="Nein">Nein</option>
+              </select>
+              <div class="apply-error" data-error-for="canIncreaseBudget"></div>
+            </div>
+          </div>
 
           <div class="apply-group">
-            <h4>Welche Leistungen interessieren dich am meisten? <span class="req">*</span></h4>
+            <h4>Groesste Einschraenkung (max. 2 waehlen)</h4>
             <div class="apply-check-grid">
-              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="Google Ads & Performance Marketing"> <span>Google Ads &amp; Performance-Marketing</span></label>
-              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="Meta Ads & Paid Social"> <span>Meta Ads &amp; Social-Media-Anzeigen</span></label>
-              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="AI Content & Creative Production"> <span>KI-Inhalte &amp; Kreativproduktion</span></label>
-              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="UGC & Influencer Marketing"> <span>UGC &amp; Influencer-Marketing</span></label>
-              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="Conversion-Focused Web Systems"> <span>Conversion-starke Websysteme</span></label>
-              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="Growth Strategy & Brand Positioning"> <span>Wachstumsstrategie &amp; Markenpositionierung</span></label>
-              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="Lead Generation Systems"> <span>Lead-Generierung (qualifizierte Leads)</span></label>
-              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="YouTube-Wachstumsservices"> <span>YouTube-Wachstumssysteme</span></label>
-              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="SEO / SEvO"> <span>SEO / SEvO (plattformübergreifende Suchoptimierung)</span></label>
+              <label class="apply-check"><input type="checkbox" name="constraints" value="Budget"> <span>Budget</span></label>
+              <label class="apply-check"><input type="checkbox" name="constraints" value="Zeit / Teamkapazitaet"> <span>Zeit / Teamkapazitaet</span></label>
+              <label class="apply-check"><input type="checkbox" name="constraints" value="Kreativproduktion"> <span>Kreativproduktion</span></label>
+              <label class="apply-check"><input type="checkbox" name="constraints" value="Tracking / Datenqualitaet"> <span>Tracking / Datenqualitaet</span></label>
+              <label class="apply-check"><input type="checkbox" name="constraints" value="Angebot unklar"> <span>Angebot unklar</span></label>
+              <label class="apply-check"><input type="checkbox" name="constraints" value="Lead Qualitaet"> <span>Lead Qualitaet</span></label>
             </div>
-            <div class="apply-error" data-error-for="servicesInterested"></div>
+            <div class="apply-error" data-error-for="constraints"></div>
           </div>
 
           <div class="apply-field" style="margin-top:16px;">
@@ -542,22 +336,11 @@
           </div>
 
           <div class="apply-group">
-            <label class="apply-check">
-              <input id="consentContact" name="consent_contact" type="checkbox">
-              <span>Ich stimme zu, von LYNCK Studio zu dieser Anfrage kontaktiert zu werden.</span>
-            </label>
+            <label class="apply-check"><input id="consentContact" name="consent_contact" type="checkbox"> <span>Ich stimme zu, von LYNCK Studio zu dieser Anfrage kontaktiert zu werden.</span></label>
             <div class="apply-error" data-error-for="consentContact"></div>
-
-            <label class="apply-check" style="margin-top:8px;">
-              <input id="consentPrivacy" name="consent_privacy" type="checkbox">
-              <span>Ich habe die <a href="/de/privacy-policy.html" style="color:#fff;">Datenschutzerklärung</a> gelesen und akzeptiere sie.</span>
-            </label>
+            <label class="apply-check" style="margin-top:8px;"><input id="consentPrivacy" name="consent_privacy" type="checkbox"> <span>Ich habe die <a href="/de/privacy-policy.html" style="color:#fff;">Datenschutzerklaerung</a> gelesen und akzeptiere sie.</span></label>
             <div class="apply-error" data-error-for="consentPrivacy"></div>
-
-            <label class="apply-check" style="margin-top:8px;">
-              <input id="consentNewsletter" name="consent_newsletter" type="checkbox">
-              <span>Schick mir Einblicke und Updates (Newsletter).</span>
-            </label>
+            <label class="apply-check" style="margin-top:8px;"><input id="consentNewsletter" name="consent_newsletter" type="checkbox"> <span>Schick mir Einblicke und Updates (Newsletter).</span></label>
           </div>
 
           <div class="apply-hp-wrap" aria-hidden="true">
@@ -567,7 +350,7 @@
         </section>
 
         <div class="apply-nav">
-          <button type="button" class="apply-btn-secondary" data-action="prev">Zurück</button>
+          <button type="button" class="apply-btn-secondary" data-action="prev">Zurueck</button>
           <div style="display:flex; gap:10px; align-items:center;">
             <span class="apply-error" data-step-error></span>
             <button type="button" class="apply-btn" data-action="next">Weiter</button>

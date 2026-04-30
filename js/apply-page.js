@@ -46,28 +46,28 @@
 
   const questionLabels = {
     q1: "What’s the biggest challenge you’re facing right now with growth/marketing?",
-    q2: "What have you already tried to fix this?",
-    q3: "If we don’t end up working together, what’s your plan B?",
     q4: "Describe what success looks like 6 months from now if we absolutely nail this."
   };
 
   let currentStep = 0;
 
   const getField = (id) => document.getElementById(id);
+  const fieldChecked = (id) => {
+    const el = getField(id);
+    return Boolean(el && el.checked);
+  };
 
   const conditional = {
     websiteBlock: getField('websiteFieldWrap'),
     websiteInput: getField('websiteUrl'),
     noWebsite: getField('noWebsiteYet'),
-    dmBlock: getField('decisionMakerDetails'),
-    dmSelect: getField('decisionMaker'),
-    googleBlock: getField('googleChannelDetails'),
-    metaBlock: getField('metaChannelDetails'),
-    crmBlock: getField('crmNameWrap'),
-    channels: Array.from(form.querySelectorAll('input[name="channels_used"]')),
-    hasCrm: getField('hasCrm')
+    websiteBudgetBlock: getField('websiteBudgetWrap'),
+    websiteBudget: getField('websiteBudgetRange'),
+    googleBudgetBlock: getField('googleBudgetWrap'),
+    googleBudget: getField('adSpendRange'),
+    googleTracking: getField('googleTracking'),
+    services: Array.from(form.querySelectorAll('input[name="servicesInterested"]'))
   };
-
   function setFieldError(fieldId, message) {
     const target = document.querySelector('[data-error-for="' + fieldId + '"]');
     if (!target) return;
@@ -118,31 +118,42 @@
     });
   }
 
+  function selectedServices() {
+    return checkedValues('servicesInterested');
+  }
+
+  function wantsWebsite() {
+    return conditional.services.some((input) => input.checked && (
+      input.dataset.service === 'website' || input.value.indexOf('Web Systems') > -1 || input.value.indexOf('Website') > -1
+    ));
+  }
+
+  function wantsGoogle() {
+    return conditional.services.some((input) => input.checked && (
+      input.dataset.service === 'google' || input.value.indexOf('Google Ads') === 0
+    ));
+  }
+
   function applyConditionals() {
     if (conditional.websiteBlock && conditional.noWebsite && conditional.websiteInput) {
       const disabled = conditional.noWebsite.checked;
-      conditional.websiteBlock.classList.toggle('is-hidden', disabled);
       conditional.websiteInput.disabled = disabled;
       if (disabled) conditional.websiteInput.value = '';
     }
 
-    if (conditional.dmBlock && conditional.dmSelect) {
-      const show = conditional.dmSelect.value === 'No';
-      conditional.dmBlock.classList.toggle('is-hidden', !show);
+    if (conditional.websiteBudgetBlock) {
+      const show = wantsWebsite();
+      conditional.websiteBudgetBlock.classList.toggle('is-hidden', !show);
+      if (!show && conditional.websiteBudget) conditional.websiteBudget.value = '';
     }
 
-    if (conditional.googleBlock) {
-      const showGoogle = conditional.channels.some((input) => input.checked && input.value.indexOf('Google Ads') === 0);
-      conditional.googleBlock.classList.toggle('is-hidden', !showGoogle);
-    }
-
-    if (conditional.metaBlock) {
-      const showMeta = conditional.channels.some((input) => input.checked && input.value === 'Meta Ads');
-      conditional.metaBlock.classList.toggle('is-hidden', !showMeta);
-    }
-
-    if (conditional.crmBlock && conditional.hasCrm) {
-      conditional.crmBlock.classList.toggle('is-hidden', conditional.hasCrm.value !== 'Yes');
+    if (conditional.googleBudgetBlock) {
+      const show = wantsGoogle();
+      conditional.googleBudgetBlock.classList.toggle('is-hidden', !show);
+      if (!show) {
+        if (conditional.googleBudget) conditional.googleBudget.value = '';
+        if (conditional.googleTracking) conditional.googleTracking.value = '';
+      }
     }
   }
 
@@ -185,10 +196,9 @@
         ['fullName', value('fullName')],
         ['workEmail', value('workEmail')],
         ['companyName', value('companyName')],
-        ['timezone', value('timezone')],
         ['industry', value('industry')],
-        ['role', value('role')],
-        ['decisionMaker', value('decisionMaker')]
+        ['combinationQ1', value('combinationQ1')],
+        ['combinationQ4', value('combinationQ4')]
       ];
 
       required.forEach(([id, val]) => {
@@ -202,15 +212,10 @@
         valid = false;
       }
 
-      if (!conditional.noWebsite.checked) {
-        const website = value('websiteUrl');
-        if (!website) {
-          setFieldError('websiteUrl', lang === 'de' ? 'Pflichtfeld' : 'Required field');
-          valid = false;
-        } else if (!isValidUrl(website)) {
-          setFieldError('websiteUrl', lang === 'de' ? 'Bitte gueltige URL eingeben' : 'Please enter a valid URL');
-          valid = false;
-        }
+      const website = value('websiteUrl');
+      if (website && !isValidUrl(website)) {
+        setFieldError('websiteUrl', lang === 'de' ? 'Bitte gueltige URL eingeben' : 'Please enter a valid URL');
+        valid = false;
       }
 
       const email = value('workEmail');
@@ -219,99 +224,36 @@
         valid = false;
       }
 
-      if (value('decisionMaker') === 'No') {
-        if (!value('decisionMakerName')) {
-          setFieldError('decisionMakerName', lang === 'de' ? 'Pflichtfeld' : 'Required field');
-          valid = false;
-        }
-        if (!value('decisionMakerJoin')) {
-          setFieldError('decisionMakerJoin', lang === 'de' ? 'Pflichtfeld' : 'Required field');
-          valid = false;
-        }
-      }
-    }
-
-    if (index === 1) {
-      ['combinationQ1', 'combinationQ2', 'combinationQ3', 'combinationQ4'].forEach((id) => {
-        if (value(id)) return;
-        setFieldError(id, lang === 'de' ? 'Pflichtfeld' : 'Required field');
-        valid = false;
-      });
-    }
-
-    if (index === 2) {
-      ['primaryGoal', 'targetMetric', 'adSpendRange', 'canIncreaseBudget', 'timeline'].forEach((id) => {
-        if (value(id)) return;
-        setFieldError(id, lang === 'de' ? 'Pflichtfeld' : 'Required field');
-        valid = false;
-      });
-
-      const constraints = checkedValues('constraints');
-      if (!constraints.length) {
-        setFieldError('constraints', lang === 'de' ? 'Bitte mindestens eine Option waehlen' : 'Select at least one option');
-        valid = false;
-      } else if (constraints.length > 2) {
-        setFieldError('constraints', lang === 'de' ? 'Bitte maximal zwei waehlen' : 'Please select no more than two');
-        valid = false;
-      }
-    }
-
-    if (index === 3) {
-      const channels = checkedValues('channels_used');
-      if (!channels.length) {
-        setFieldError('channels_used', lang === 'de' ? 'Bitte mindestens eine Option waehlen' : 'Select at least one option');
-        valid = false;
-      }
-
-      const assets = checkedValues('assets_available');
-      if (!assets.length) {
-        setFieldError('assets_available', lang === 'de' ? 'Bitte mindestens eine Option waehlen' : 'Select at least one option');
-        valid = false;
-      }
-
-      ['hasCrm', 'numbersKnowledge'].forEach((id) => {
-        if (value(id)) return;
-        setFieldError(id, lang === 'de' ? 'Pflichtfeld' : 'Required field');
-        valid = false;
-      });
-
-      if (value('hasCrm') === 'Yes' && !value('crmName')) {
-        setFieldError('crmName', lang === 'de' ? 'Bitte waehlen oder angeben' : 'Please choose or specify');
-        valid = false;
-      }
-
-      const intake = checkedValues('leadIntakeChannels');
-      if (!intake.length) {
-        setFieldError('leadIntakeChannels', lang === 'de' ? 'Bitte mindestens eine Option waehlen' : 'Select at least one option');
-        valid = false;
-      }
-
-      const hasGoogle = channels.some((item) => item.indexOf('Google Ads') === 0);
-      if (hasGoogle && !value('googleTracking')) {
-        setFieldError('googleTracking', lang === 'de' ? 'Pflichtfeld' : 'Required field');
-        valid = false;
-      }
-
-      const hasMeta = channels.indexOf('Meta Ads') > -1;
-      if (hasMeta && !value('metaPixelCapi')) {
-        setFieldError('metaPixelCapi', lang === 'de' ? 'Pflichtfeld' : 'Required field');
-        valid = false;
-      }
-    }
-
-    if (index === 4) {
-      const services = checkedValues('servicesInterested');
+      const services = selectedServices();
       if (!services.length) {
         setFieldError('servicesInterested', lang === 'de' ? 'Bitte mindestens eine Option waehlen' : 'Select at least one option');
         valid = false;
       }
 
-      if (!getField('consentContact').checked) {
+      if (wantsWebsite() && !value('websiteBudgetRange')) {
+        setFieldError('websiteBudgetRange', lang === 'de' ? 'Bitte Budget waehlen' : 'Please choose a budget range');
+        valid = false;
+      }
+
+      if (wantsGoogle() && !value('adSpendRange')) {
+        setFieldError('adSpendRange', lang === 'de' ? 'Bitte Werbebudget waehlen' : 'Please choose an ad spend range');
+        valid = false;
+      }
+    }
+
+    if (index === 1) {
+      ['primaryGoal', 'timeline'].forEach((id) => {
+        if (value(id)) return;
+        setFieldError(id, lang === 'de' ? 'Pflichtfeld' : 'Required field');
+        valid = false;
+      });
+
+      if (!fieldChecked('consentContact')) {
         setFieldError('consentContact', lang === 'de' ? 'Bitte bestaetigen' : 'Required consent');
         valid = false;
       }
 
-      if (!getField('consentPrivacy').checked) {
+      if (!fieldChecked('consentPrivacy')) {
         setFieldError('consentPrivacy', lang === 'de' ? 'Bitte bestaetigen' : 'Required consent');
         valid = false;
       }
@@ -332,45 +274,29 @@
       full_name: value('fullName'),
       work_email: value('workEmail'),
       company_name: value('companyName'),
-      website_url: conditional.noWebsite.checked ? null : value('websiteUrl'),
-      no_website_yet: conditional.noWebsite.checked,
-      country_timezone: value('timezone'),
+      website_url: fieldChecked('noWebsiteYet') ? null : value('websiteUrl'),
+      no_website_yet: fieldChecked('noWebsiteYet'),
       industry: value('industry'),
       industry_other: value('industryOther'),
-      role: value('role'),
-      is_decision_maker: value('decisionMaker'),
-      final_decision_maker: value('decisionMakerName'),
-      decision_maker_will_join: value('decisionMakerJoin'),
 
       combination_q1: value('combinationQ1'),
-      combination_q2: value('combinationQ2'),
-      combination_q3: value('combinationQ3'),
       combination_q4: value('combinationQ4'),
 
       primary_goal: value('primaryGoal'),
       target_outcome_metric: value('targetMetric'),
       ad_spend_range: value('adSpendRange'),
+      website_budget_range: value('websiteBudgetRange'),
       can_increase_budget: value('canIncreaseBudget'),
       timeline: value('timeline'),
       biggest_constraints: checkedValues('constraints'),
-
-      channels_used: checkedValues('channels_used'),
-      google_monthly_spend: value('googleSpend'),
       google_tracking_ready: value('googleTracking'),
-      meta_pixel_capi: value('metaPixelCapi'),
-
-      assets_available: checkedValues('assets_available'),
-      has_crm: value('hasCrm'),
-      crm_name: value('crmName'),
-      lead_intake_channels: checkedValues('leadIntakeChannels'),
-      numbers_knowledge: value('numbersKnowledge'),
 
       services_interested: checkedValues('servicesInterested'),
       anything_else: value('anythingElse'),
 
-      consent_contact: getField('consentContact').checked,
-      consent_privacy: getField('consentPrivacy').checked,
-      consent_newsletter: getField('consentNewsletter').checked,
+      consent_contact: fieldChecked('consentContact'),
+      consent_privacy: fieldChecked('consentPrivacy'),
+      consent_newsletter: fieldChecked('consentNewsletter'),
 
       honeypot: value('websiteHidden'),
       source_url: window.location.href,
@@ -605,13 +531,8 @@
   applyConditionals();
   showStep(0);
 
-  if (hasHeroPrefill) {
-    form.style.display = 'block';
-    if (intro) intro.classList.remove('is-active');
-  } else {
-    form.style.display = 'none';
-    if (intro) intro.classList.add('is-active');
-  }
+  form.style.display = 'block';
+  if (intro) intro.classList.remove('is-active');
 
   // Keep global nav behavior consistent on static pages using shared snippet patterns.
   if (window.__lynckSharedNavInit) {
