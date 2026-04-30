@@ -440,6 +440,33 @@
     }
   }
 
+  function applyPrefillFromQuery() {
+    const params = new URLSearchParams(window.location.search);
+    const firstName = (params.get('first_name') || '').trim();
+    const email = (params.get('email') || '').trim();
+
+    let hasPrefill = false;
+
+    if (firstName) {
+      const fullNameField = getField('fullName');
+      if (fullNameField) {
+        fullNameField.value = firstName;
+        hasPrefill = true;
+      }
+    }
+
+    if (email) {
+      const workEmailField = getField('workEmail');
+      if (workEmailField) {
+        workEmailField.value = email;
+        hasPrefill = true;
+      }
+    }
+
+    if (hasPrefill) saveState();
+    return hasPrefill;
+  }
+
   function resetFlow() {
     form.reset();
     try {
@@ -574,10 +601,17 @@
 
   enforceConstraintLimit();
   loadState();
+  const hasHeroPrefill = applyPrefillFromQuery();
   applyConditionals();
-  form.style.display = 'none';
-  intro.classList.add('is-active');
   showStep(0);
+
+  if (hasHeroPrefill) {
+    form.style.display = 'block';
+    if (intro) intro.classList.remove('is-active');
+  } else {
+    form.style.display = 'none';
+    if (intro) intro.classList.add('is-active');
+  }
 
   // Keep global nav behavior consistent on static pages using shared snippet patterns.
   if (window.__lynckSharedNavInit) {

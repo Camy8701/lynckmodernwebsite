@@ -6,6 +6,7 @@
   var ui = null;
   var gaConfigured = false;
   var gtmLoaded = false;
+  var clarityLoaded = false;
   var vercelLoaded = false;
 
   ensureGtagStub();
@@ -32,6 +33,7 @@
     return {
       gaId: script ? script.getAttribute('data-ga-id') || '' : '',
       gtmId: script ? script.getAttribute('data-gtm-id') || '' : '',
+      clarityId: script ? script.getAttribute('data-clarity-id') || '' : '',
       vercelInsights: Boolean(script && script.getAttribute('data-vercel-insights') === 'true'),
       locale: locale
     };
@@ -52,7 +54,7 @@
         necessaryTitle: 'Notwendig',
         necessaryBody: 'Erforderlich fuer Spracheinstellungen, Sicherheitslogik und das Speichern deiner Einwilligung.',
         analyticsTitle: 'Analyse',
-        analyticsBody: 'Erlaubt Google Analytics 4 und Vercel Insights, damit wir verstehen, welche Seiten besucht werden.',
+        analyticsBody: 'Erlaubt Google Analytics 4, Microsoft Clarity und Vercel Insights, damit wir verstehen, welche Seiten besucht werden.',
         marketingTitle: 'Marketing',
         marketingBody: 'Erlaubt Attributionsdaten aus Kampagnenlinks und zusaetzliche Werbemessung.',
         save: 'Auswahl speichern',
@@ -76,7 +78,7 @@
       necessaryTitle: 'Necessary',
       necessaryBody: 'Required for language preference, security logic and storing your consent choice.',
       analyticsTitle: 'Analytics',
-      analyticsBody: 'Allows Google Analytics 4 and Vercel Insights so we can understand which pages are being used.',
+      analyticsBody: 'Allows Google Analytics 4, Microsoft Clarity and Vercel Insights so we can understand which pages are being used.',
       marketingTitle: 'Marketing',
       marketingBody: 'Allows campaign attribution data from marketing links and additional ad measurement.',
       save: 'Save preferences',
@@ -178,8 +180,10 @@
 
     if (analyticsGranted) {
       loadGaIfNeeded();
+      loadClarityIfNeeded();
       loadVercelInsightsIfNeeded();
     } else {
+      revokeClarityConsent();
       clearAnalyticsCookies();
     }
 
@@ -229,6 +233,35 @@
     });
   }
 
+  function loadClarityIfNeeded() {
+    if (!CONFIG.clarityId) return;
+
+    ensureClarityStub();
+    loadScriptOnce('lynck-clarity-script', 'https://www.clarity.ms/tag/' + encodeURIComponent(CONFIG.clarityId), function () {
+      clarityLoaded = true;
+      grantClarityConsent();
+    });
+  }
+
+  function ensureClarityStub() {
+    if (!window.clarity) {
+      window.clarity = function () {
+        (window.clarity.q = window.clarity.q || []).push(arguments);
+      };
+    }
+  }
+
+  function grantClarityConsent() {
+    if (typeof window.clarity === 'function') {
+      window.clarity('consent');
+    }
+  }
+
+  function revokeClarityConsent() {
+    if (!clarityLoaded || typeof window.clarity !== 'function') return;
+    window.clarity('consent', false);
+  }
+
   function loadVercelInsightsIfNeeded() {
     if (!CONFIG.vercelInsights || vercelLoaded) return;
 
@@ -265,7 +298,7 @@
 
   function clearAnalyticsCookies() {
     eachCookie(function (name) {
-      if (/^(_ga|_gid|_gat|_ga_)/.test(name)) {
+      if (/^(_ga|_gid|_gat|_ga_|_clck|_clsk)/.test(name)) {
         expireCookie(name);
       }
     });

@@ -60,21 +60,13 @@ const initCube = () => {
   const cubeGroup = new THREE.Group();
   scene.add(cubeGroup);
 
-  const baseMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0x111111,
-    metalness: 0.8,
-    roughness: 0.2,
-    clearcoat: 1,
-    clearcoatRoughness: 0.1,
-  });
-
   const stickerColors = [
     0x6366f1,
-    0x14b8a6,
-    0xd946ef,
+    0xffffff,
+    0xf38b00,
     0x3b82f6,
     0x8b5cf6,
-    0xf59e0b,
+    0x16a34a,
   ];
 
   const stickerMaterials = stickerColors.map(
@@ -85,7 +77,18 @@ const initCube = () => {
         roughness: 0.4,
         clearcoat: 0.5,
         emissive: color,
-        emissiveIntensity: 0.1,
+        emissiveIntensity: color === 0xffffff ? 0.02 : 0.1,
+      }),
+  );
+
+  const baseMaterials = stickerColors.map(
+    (color) =>
+      new THREE.MeshPhysicalMaterial({
+        color,
+        metalness: 0.22,
+        roughness: 0.42,
+        clearcoat: 0.62,
+        clearcoatRoughness: 0.18,
       }),
   );
 
@@ -104,7 +107,7 @@ const initCube = () => {
   for (let x = -1; x <= 1; x += 1) {
     for (let y = -1; y <= 1; y += 1) {
       for (let z = -1; z <= 1; z += 1) {
-        const miniCube = new THREE.Mesh(boxGeometry, baseMaterial);
+        const miniCube = new THREE.Mesh(boxGeometry, baseMaterials);
 
         const targetPosition = new THREE.Vector3(x * offset, y * offset, z * offset);
         const startPosition = new THREE.Vector3(
@@ -242,7 +245,7 @@ const initCube = () => {
     renderer.dispose();
     boxGeometry.dispose();
     stickerGeometry.dispose();
-    baseMaterial.dispose();
+    baseMaterials.forEach((material) => material.dispose());
     stickerMaterials.forEach((material) => material.dispose());
 
     container.replaceChildren();
