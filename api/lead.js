@@ -47,26 +47,21 @@ function cleanArray(value) {
   return value.map((item) => cleanString(item)).filter(Boolean);
 }
 
+function serviceIncludes(payload, patterns) {
+  const services = cleanArray(payload.services_interested);
+  return services.some((service) => patterns.some((pattern) => pattern.test(service)));
+}
+
 function validatePayload(payload) {
   const required = [
     'full_name',
     'work_email',
     'company_name',
-    'country_timezone',
     'industry',
-    'role',
-    'is_decision_maker',
     'combination_q1',
-    'combination_q2',
-    'combination_q3',
     'combination_q4',
     'primary_goal',
-    'target_outcome_metric',
-    'ad_spend_range',
-    'can_increase_budget',
-    'timeline',
-    'has_crm',
-    'numbers_knowledge'
+    'timeline'
   ];
 
   for (const field of required) {
@@ -80,28 +75,8 @@ function validatePayload(payload) {
     return 'Invalid email format';
   }
 
-  if (!payload.no_website_yet && !cleanString(payload.website_url)) {
-    return 'Website URL is required unless no website yet is selected';
-  }
-
-  if (cleanString(payload.is_decision_maker) === 'No') {
-    if (!cleanString(payload.final_decision_maker) || !cleanString(payload.decision_maker_will_join)) {
-      return 'Decision maker details are required when applicant is not decision maker';
-    }
-  }
-
   const constraints = cleanArray(payload.biggest_constraints);
-  if (!constraints.length) return 'At least one constraint is required';
   if (constraints.length > 2) return 'No more than two constraints are allowed';
-
-  const channels = cleanArray(payload.channels_used);
-  if (!channels.length) return 'At least one channel is required';
-
-  const assets = cleanArray(payload.assets_available);
-  if (!assets.length) return 'At least one asset selection is required';
-
-  const leadIntake = cleanArray(payload.lead_intake_channels);
-  if (!leadIntake.length) return 'At least one lead intake channel is required';
 
   const services = cleanArray(payload.services_interested);
   if (!services.length) return 'At least one service interest is required';
@@ -110,16 +85,12 @@ function validatePayload(payload) {
     return 'Required consent missing';
   }
 
-  if (channels.some((channel) => channel.startsWith('Google Ads')) && !cleanString(payload.google_tracking_ready)) {
-    return 'Google tracking readiness is required when Google Ads is selected';
+  if (serviceIncludes(payload, [/Google Ads/i]) && !cleanString(payload.ad_spend_range)) {
+    return 'Ad spend range is required when Google Ads is selected';
   }
 
-  if (channels.includes('Meta Ads') && !cleanString(payload.meta_pixel_capi)) {
-    return 'Meta Pixel + CAPI readiness is required when Meta Ads is selected';
-  }
-
-  if (cleanString(payload.has_crm) === 'Yes' && !cleanString(payload.crm_name)) {
-    return 'CRM name is required when CRM is set to Yes';
+  if (serviceIncludes(payload, [/Website/i, /Web Systems/i]) && !cleanString(payload.website_budget_range)) {
+    return 'Website budget range is required when website service is selected';
   }
 
   return null;
@@ -135,42 +106,46 @@ function deriveLeadStatus(payload) {
 }
 
 function sanitizePayload(payload, req) {
+  const websiteBudget = cleanString(payload.website_budget_range);
+  const adSpend = cleanString(payload.ad_spend_range);
+  const budgetRange = adSpend || websiteBudget || 'Not selected';
+
   return {
     full_name: cleanString(payload.full_name),
     work_email: cleanString(payload.work_email),
     company_name: cleanString(payload.company_name),
     website_url: payload.no_website_yet ? null : cleanString(payload.website_url),
     no_website_yet: Boolean(payload.no_website_yet),
-    country_timezone: cleanString(payload.country_timezone),
+    country_timezone: cleanString(payload.country_timezone) || 'Not asked in simplified form',
     industry: cleanString(payload.industry),
     industry_other: cleanString(payload.industry_other),
-    role: cleanString(payload.role),
-    is_decision_maker: cleanString(payload.is_decision_maker),
+    role: cleanString(payload.role) || 'Not asked in simplified form',
+    is_decision_maker: cleanString(payload.is_decision_maker) || 'Not asked in simplified form',
     final_decision_maker: cleanString(payload.final_decision_maker),
     decision_maker_will_join: cleanString(payload.decision_maker_will_join),
 
     combination_q1: cleanString(payload.combination_q1),
-    combination_q2: cleanString(payload.combination_q2),
-    combination_q3: cleanString(payload.combination_q3),
+    combination_q2: cleanString(payload.combination_q2) || 'Removed from simplified form',
+    combination_q3: cleanString(payload.combination_q3) || 'Removed from simplified form',
     combination_q4: cleanString(payload.combination_q4),
 
     primary_goal: cleanString(payload.primary_goal),
-    target_outcome_metric: cleanString(payload.target_outcome_metric),
-    ad_spend_range: cleanString(payload.ad_spend_range),
-    can_increase_budget: cleanString(payload.can_increase_budget),
+    target_outcome_metric: cleanString(payload.target_outcome_metric) || 'Not provided',
+    ad_spend_range: budgetRange,
+    can_increase_budget: cleanString(payload.can_increase_budget) || 'Not answered',
     timeline: cleanString(payload.timeline),
     biggest_constraints: cleanArray(payload.biggest_constraints),
 
-    channels_used: cleanArray(payload.channels_used),
+    channels_used: cleanArray(payload.channels_used).length ? cleanArray(payload.channels_used) : cleanArray(payload.services_interested),
     google_monthly_spend: cleanString(payload.google_monthly_spend),
     google_tracking_ready: cleanString(payload.google_tracking_ready),
     meta_pixel_capi: cleanString(payload.meta_pixel_capi),
 
     assets_available: cleanArray(payload.assets_available),
-    has_crm: cleanString(payload.has_crm),
+    has_crm: cleanString(payload.has_crm) || 'Not asked in simplified form',
     crm_name: cleanString(payload.crm_name),
     lead_intake_channels: cleanArray(payload.lead_intake_channels),
-    numbers_knowledge: cleanString(payload.numbers_knowledge),
+    numbers_knowledge: cleanString(payload.numbers_knowledge) || 'Not asked in simplified form',
 
     services_interested: cleanArray(payload.services_interested),
     anything_else: cleanString(payload.anything_else),
