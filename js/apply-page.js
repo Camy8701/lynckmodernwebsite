@@ -36,11 +36,8 @@
     default: lang === 'de'
       ? 'Ein Fehler ist aufgetreten. Bitte versuche es erneut oder schreibe an info@lynckstudio.pro.'
       : 'Submission failed. Please try again or email info@lynckstudio.pro.',
-    leadNotPersisted: lang === 'de'
-      ? 'Deine Anfrage wurde fuer eine manuelle Pruefung erfasst, aber der Buchungsschritt konnte gerade nicht geoeffnet werden. Bitte schreibe an info@lynckstudio.pro.'
-      : 'Your application was captured for manual review, but we could not open the booking step right now. Please email info@lynckstudio.pro.',
-    leadNotPersistedNoBackup: lang === 'de'
-      ? 'Wir konnten deine Anfrage nicht bestaetigen. Bitte versuche es erneut oder schreibe an info@lynckstudio.pro.'
+    leadEmailFailed: lang === 'de'
+      ? 'Wir konnten deine Anfrage nicht per E-Mail bestaetigen. Bitte versuche es erneut oder schreibe an info@lynckstudio.pro.'
       : 'We could not confirm your application. Please try again or email info@lynckstudio.pro.'
   };
 
@@ -438,6 +435,36 @@
     }
   }
 
+  function trackApplicationConversion(payload, result) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'strategy_call_application_submitted',
+      form_name: 'strategy_call_application',
+      form_language: lang,
+      lead_status: result && result.lead_status ? result.lead_status : null,
+      booking_available: Boolean(result && result.booking_available),
+      services_interested: Array.isArray(payload.services_interested) ? payload.services_interested.join(', ') : '',
+      application_path: window.location.pathname,
+      virtual_page_path: lang === 'de' ? '/de/apply/thank-you' : '/apply/thank-you',
+      virtual_page_title: lang === 'de' ? 'Strategy Call Application Submitted' : 'Strategy Call Application Submitted'
+    });
+  }
+
+  function goToThankYou(result) {
+    const thankYouPath = lang === 'de' ? '/de/apply/thank-you/' : '/apply/thank-you/';
+    try {
+      sessionStorage.setItem('lynck_last_application', JSON.stringify({
+        calendar_url: result && result.calendar_url ? result.calendar_url : calendarUrl,
+        booking_available: Boolean(result && result.booking_available),
+        lead_status: result && result.lead_status ? result.lead_status : null,
+        submitted_at: new Date().toISOString()
+      }));
+    } catch (e) {
+      // ignore storage failures
+    }
+    window.location.assign(thankYouPath);
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
     if (!validateStep(currentStep)) return;
@@ -462,10 +489,8 @@
 
       const result = await response.json();
       if (!response.ok || !result.success) {
-        if (result && result.error_code === 'lead_not_persisted') {
-          failureMessage = result.backup_notified
-            ? submitErrorCopy.leadNotPersisted
-            : submitErrorCopy.leadNotPersistedNoBackup;
+        if (result && result.error_code === 'lead_email_failed') {
+          failureMessage = submitErrorCopy.leadEmailFailed;
         }
         throw new Error('Unable to submit application');
       }
@@ -474,7 +499,8 @@
         localStorage.removeItem(storageKey);
       } catch (e) {}
 
-      showSuccess(result.calendar_url || calendarUrl);
+      trackApplicationConversion(payload, result);
+      goToThankYou(result);
     } catch (error) {
       if (stepError) {
         stepError.textContent = failureMessage;

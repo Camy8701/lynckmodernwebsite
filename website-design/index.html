@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/url-attribution-cleanup.js?v=20260330"></script>
+<script src="/js/cookie-consent.js?v=20260330" defer data-ga-id="G-GRWYGYSSMY" data-gtm-id="GTM-PTGQ2ST2"></script>
 <title>LYNCK Studio - Website Design and Google Ads Growth Systems</title>
 <meta name="description" content="LYNCK builds premium conversion websites and Google Ads systems under one roof so businesses can turn traffic into customers, leads, and tracked revenue.">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -532,6 +534,48 @@ footer {
 .hero-word:nth-child(3) {
   animation-delay: 240ms;
 }
+.hero-word--accent {
+  color: #f97316;
+}
+.hero-rotator {
+  display: inline-grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: minmax(0, 1fr);
+  position: relative;
+  width: 3.65em;
+  height: 1.08em;
+  box-sizing: border-box;
+  overflow: hidden;
+  vertical-align: baseline;
+  margin-left: 0.05em;
+  padding: 0.02em 0.14em 0.16em;
+  border-radius: 0.08em;
+  background: #f97316;
+  color: #fff;
+}
+.hero-rotator-word {
+  grid-area: 1 / 1;
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+  opacity: 0;
+  transform: translateY(112%);
+  transition:
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 280ms ease;
+  will-change: transform, opacity;
+  text-align: center;
+  white-space: nowrap;
+}
+.hero-rotator-word.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero-rotator-word.is-exiting {
+  opacity: 0;
+  transform: translateY(-122%);
+}
 .hero-visual {
   opacity: 0;
   transform: translateY(22px) scale(0.985);
@@ -886,7 +930,7 @@ iconify-icon {
         <h1 class="max-w-5xl text-[4.3rem] sm:text-[6.2rem] md:text-[8rem] lg:text-[8.5rem] leading-[0.84] font-semibold tracking-tighter-custom">
           <span class="hero-word">Websites</span>
           <span class="hero-word">built to sell.</span>
-          <span class="hero-word text-[#f97316]">Ads built to scale them.</span>
+          <span class="hero-word hero-word--accent">Ads built to <span class="hero-rotator" data-hero-rotator data-words='["scale","grow","convert","track"]' aria-live="polite"><span class="hero-rotator-word is-active">scale</span></span></span>
         </h1>
 
         <p class="mt-8 max-w-3xl text-xl md:text-2xl leading-snug text-[#0f2a56]/72">
@@ -1691,6 +1735,48 @@ iconify-icon {
 </a>
 
 <script>
+  (function () {
+    const rotators = document.querySelectorAll('[data-hero-rotator]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!rotators.length || reduceMotion) return;
+
+    rotators.forEach((rotator) => {
+      let words = [];
+      try {
+        words = JSON.parse(rotator.dataset.words || '[]');
+      } catch (error) {
+        words = [];
+      }
+
+      if (words.length < 2) return;
+
+      let index = 0;
+      let active = rotator.querySelector('.hero-rotator-word');
+
+      window.setInterval(() => {
+        const nextIndex = (index + 1) % words.length;
+        const nextWord = words[nextIndex];
+        const next = document.createElement('span');
+        next.className = 'hero-rotator-word';
+        next.textContent = nextWord;
+        rotator.appendChild(next);
+
+        window.requestAnimationFrame(() => {
+          active.classList.add('is-exiting');
+          active.classList.remove('is-active');
+          next.classList.add('is-active');
+        });
+
+        window.setTimeout(() => {
+          active.remove();
+          active = next;
+          index = nextIndex;
+        }, 720);
+      }, 2200);
+    });
+  })();
+
   (function () {
     const counters = document.querySelectorAll('.count-up');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

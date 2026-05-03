@@ -4,15 +4,12 @@ Set these in your deployment environment:
 
 - `CALENDAR_URL`
   - Optional booking URL shown on the success screen after submission.
-  - If omitted, the form still stores the lead and falls back to manual email follow-up.
-- `SUPABASE_URL`
-  - Supabase project URL used by `/api/lead`.
-- `SUPABASE_SERVICE_ROLE_KEY`
-  - Service role key for writing to `strategy_call_applications`.
+  - If omitted, the form still sends the lead and falls back to manual email follow-up.
 - `RESEND_API_KEY`
-  - API key for sending user/internal notification emails.
+  - API key for sending internal and visitor notification emails.
 - `MAIL_FROM`
   - Sender email identity used by Resend.
+  - Must be a sender/domain verified in Resend.
 - `INTERNAL_NOTIFY_EMAIL`
   - Internal inbox for lead notifications (default: `info@lynckstudio.pro`).
 
@@ -22,3 +19,5 @@ Optional rate limit tuning:
 - `LEAD_RATE_MAX` (default `8`)
 
 There are no longer literal booking placeholders in the apply-page templates.
+
+The form is Resend-only. It does not require Supabase. A submission is considered successful after the internal notification email is sent.

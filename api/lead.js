@@ -2,7 +2,8 @@
 
 // Runtime requirements:
 // - CALENDAR_URL (optional but recommended for direct booking after submission)
-// - SMTP/mail provider credentials (currently using Resend envs)
+// - Resend envs: RESEND_API_KEY, MAIL_FROM
+// - INTERNAL_NOTIFY_EMAIL (optional, defaults to info@lynckstudio.pro)
 
 const RATE_LIMIT_WINDOW_MS = Number(process.env.LEAD_RATE_WINDOW_MS || 60_000);
 const RATE_LIMIT_MAX = Number(process.env.LEAD_RATE_MAX || 8);
@@ -170,37 +171,6 @@ function sanitizePayload(payload, req) {
   };
 }
 
-async function persistToSupabase(record) {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) {
-    return { persisted: false, reason: 'Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY' };
-  }
-
-  const endpoint = `${url.replace(/\/$/, '')}/rest/v1/strategy_call_applications`;
-  const response = await fetch(endpoint, {
-    method: 'POST',
-    headers: {
-      apikey: key,
-      Authorization: `Bearer ${key}`,
-      'Content-Type': 'application/json',
-      Prefer: 'return=representation'
-    },
-    body: JSON.stringify(record)
-  });
-
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`Supabase insert failed: ${response.status} ${text}`);
-  }
-
-  const data = await response.json();
-  return {
-    persisted: true,
-    id: Array.isArray(data) && data.length ? data[0].id : null
-  };
-}
-
 async function sendWithResend({ to, subject, html, text }) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.MAIL_FROM;
@@ -342,29 +312,6 @@ function internalEmailTemplate(record) {
   return { subject, text: summary, html };
 }
 
-function internalAlertEmailTemplate(record, persistenceInfo) {
-  const subject = `Lead capture alert: ${record.company_name || 'Unknown company'} was not persisted`;
-  const detail = persistenceInfo?.reason || 'Unknown persistence failure';
-  const summary = [
-    'A strategy call application was submitted but could not be persisted to Supabase.',
-    `Persistence issue: ${detail}`,
-    '',
-    internalEmailTemplate(record).text
-  ].join('\n');
-
-  const html = `
-    <div style="font-family:Inter,Arial,sans-serif;line-height:1.55;color:#101728;max-width:760px;margin:0 auto;">
-      <h2 style="margin:0 0 12px;">Lead capture alert</h2>
-      <p><strong>Persistence issue:</strong> ${detail}</p>
-      <p>The application payload is included below for manual follow-up.</p>
-      <hr>
-      ${internalEmailTemplate(record).html}
-    </div>
-  `;
-
-  return { subject, text: summary, html };
-}
-
 async function deliverEmail({ label, to, subject, html, text, warnings }) {
   try {
     const result = await sendWithResend({ to, subject, html, text });
@@ -426,40 +373,25 @@ module.exports = async (req, res) => {
   const record = sanitizePayload(payload, req);
   const calendarUrl = DEFAULT_CALENDAR_URL;
 
-  let persistenceInfo = { persisted: false, reason: 'Not attempted' };
-  try {
-    persistenceInfo = await persistToSupabase(record);
-  } catch (error) {
-    console.error('Lead persistence failed', error);
-    persistenceInfo = { persisted: false, reason: error.message };
-  }
-
   const internalTo = process.env.INTERNAL_NOTIFY_EMAIL || 'info@lynckstudio.pro';
   const emailErrors = [];
 
-  if (!persistenceInfo.persisted) {
-    const alertMail = internalAlertEmailTemplate(record, persistenceInfo);
-    const backupNotified = await deliverEmail({
-      label: 'Internal alert email',
-      to: [internalTo],
-      subject: alertMail.subject,
-      html: alertMail.html,
-      text: alertMail.text,
-      warnings: emailErrors
-    });
+  const internalMail = internalEmailTemplate(record);
+  const internalSent = await deliverEmail({
+    label: 'Internal email',
+    to: [internalTo],
+    subject: internalMail.subject,
+    html: internalMail.html,
+    text: internalMail.text,
+    warnings: emailErrors
+  });
 
-    if (emailErrors.length) {
-      console.error('Lead capture warnings', emailErrors);
-    }
-
+  if (!internalSent) {
+    console.error('Lead notification failed', emailErrors);
     return json(res, 503, {
       success: false,
-      error_code: 'lead_not_persisted',
-      backup_notified: backupNotified,
-      message: backupNotified
-        ? 'We received your application for manual review, but could not open the booking step right now. Please email info@lynckstudio.pro and we will follow up directly.'
-        : 'We could not confirm your application. Please try again or email info@lynckstudio.pro.',
-      persistence: persistenceInfo,
+      error_code: 'lead_email_failed',
+      message: 'We could not confirm your application. Please try again or email info@lynckstudio.pro.',
       email_warnings: emailErrors
     });
   }
@@ -474,16 +406,6 @@ module.exports = async (req, res) => {
     warnings: emailErrors
   });
 
-  const internalMail = internalEmailTemplate(record);
-  await deliverEmail({
-    label: 'Internal email',
-    to: [internalTo],
-    subject: internalMail.subject,
-    html: internalMail.html,
-    text: internalMail.text,
-    warnings: emailErrors
-  });
-
   if (emailErrors.length) {
     console.error('Lead delivery warnings', emailErrors);
   }
@@ -493,7 +415,6 @@ module.exports = async (req, res) => {
     lead_status: record.lead_status,
     calendar_url: calendarUrl,
     booking_available: Boolean(calendarUrl),
-    persistence: persistenceInfo,
     email_warnings: emailErrors
   });
 };

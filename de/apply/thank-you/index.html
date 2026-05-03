@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+  <script src="/js/url-attribution-cleanup.js?v=20260330"></script>
+  <script src="/js/cookie-consent.js?v=20260330" defer data-ga-id="G-GRWYGYSSMY" data-gtm-id="GTM-PTGQ2ST2"></script>
+  <title>Anfrage erhalten | LYNCK Studio</title>
+  <meta name="description" content="Deine LYNCK Studio Strategiegespraech Anfrage wurde erhalten.">
+  <link rel="icon" type="image/webp" href="/assets/lynck-logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site-shell.css?v=20260330">
+  <link rel="stylesheet" href="/css/apply-shared.css?v=20260330">
+</head>
+<body class="apply-body" data-shell-page="apply">
+  <main class="apply-main" id="main-content">
+    <section class="apply-card">
+      <span class="apply-chip">Anfrage eingegangen</span>
+      <h1 class="apply-title">Deine Anfrage ist da.</h1>
+      <p class="apply-copy">Wir haben deine Antworten erhalten und pruefen sie vor dem Call, damit das Gespraech auf den klarsten naechsten Schritt fuer dein Wachstumssystem fokussiert ist.</p>
+
+      <div class="apply-success-box" style="margin-top:22px;">Naechster Schritt: Pruefe dein Postfach fuer die Bestaetigung. Falls ein direkter Buchungslink verfuegbar ist, erscheint er unten.</div>
+
+      <ul class="apply-list" style="margin-top:18px;">
+        <li>Wir pruefen dein Unternehmen, dein Angebot und deinen aktuellen Wachstumskontext.</li>
+        <li>Wir bereiten eine fokussierte Empfehlung fuer den Call vor.</li>
+        <li>Wenn es nicht passt, sagen wir es dir direkt.</li>
+      </ul>
+
+      <p class="apply-email-alt" data-booking-link-row style="display:none; margin-top:24px;">
+        Buchungslink: <a data-calendar-link href="#" target="_blank" rel="noopener noreferrer">Buchung oeffnen</a>
+      </p>
+      <p class="apply-email-alt" data-no-booking style="margin-top:24px;">Wir schicken dir die Buchungsoptionen per E-Mail, falls kein direkter Kalender-Slot verfuegbar ist.</p>
+
+      <div class="apply-nav" style="margin-top:28px;">
+        <a class="apply-btn-secondary" href="/de/website-design/">Zur Webdesign Seite</a>
+        <a class="apply-btn" href="/de/">Zur Startseite</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'strategy_call_thank_you_view',
+      form_name: 'strategy_call_application',
+      virtual_page_path: '/de/apply/thank-you',
+      virtual_page_title: 'Strategy Call Application Thank You'
+    });
+
+    (function () {
+      var bookingRow = document.querySelector('[data-booking-link-row]');
+      var bookingLink = document.querySelector('[data-calendar-link]');
+      var noBooking = document.querySelector('[data-no-booking]');
+      var calendarUrl = null;
+
+      try {
+        var raw = sessionStorage.getItem('lynck_last_application');
+        var data = raw ? JSON.parse(raw) : null;
+        calendarUrl = data && typeof data.calendar_url === 'string' ? data.calendar_url.trim() : null;
+      } catch (e) {}
+
+      if (calendarUrl && bookingRow && bookingLink) {
+        bookingLink.href = calendarUrl;
+        bookingLink.textContent = calendarUrl;
+        bookingRow.style.display = '';
+        if (noBooking) noBooking.style.display = 'none';
+      }
+    })();
+  </script>
+  <script src="/js/site-shell-nav.js?v=20260330" defer></script>
+</body>
+</html>
