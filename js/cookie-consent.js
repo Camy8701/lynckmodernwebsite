@@ -1,12 +1,10 @@
 (function () {
   var STORAGE_KEY = 'lynck_cookie_consent_v1';
+  var COOKIE_NAME = 'lynck_cookie_consent';
   var CONFIG = readConfig();
   var COPY = getCopy(CONFIG.locale);
   var currentConsent = readStoredConsent();
   var ui = null;
-  var gaConfigured = false;
-  var clarityLoaded = false;
-  var vercelLoaded = false;
 
   ensureGtagStub();
   publishApi();
@@ -20,19 +18,17 @@
   function init() {
     ui = renderUi();
     bindUi();
+    if (currentConsent) {
+      writeConsent(currentConsent);
+    }
     applyConsentState(currentConsent, { emit: false });
     updateUi();
   }
 
   function readConfig() {
-    var scripts = document.querySelectorAll('script[src$="/js/cookie-consent.js"]');
-    var script = scripts.length ? scripts[scripts.length - 1] : null;
     var locale = window.location.pathname.indexOf('/de/') === 0 ? 'de' : 'en';
 
     return {
-      gaId: script ? script.getAttribute('data-ga-id') || '' : '',
-      clarityId: script ? script.getAttribute('data-clarity-id') || '' : '',
-      vercelInsights: Boolean(script && script.getAttribute('data-vercel-insights') === 'true'),
       locale: locale
     };
   }
@@ -52,9 +48,9 @@
         necessaryTitle: 'Notwendig',
         necessaryBody: 'Erforderlich fuer Spracheinstellungen, Sicherheitslogik und das Speichern deiner Einwilligung.',
         analyticsTitle: 'Analyse',
-        analyticsBody: 'Erlaubt Google Analytics 4, Microsoft Clarity und Vercel Insights, damit wir verstehen, welche Seiten besucht werden.',
+        analyticsBody: 'Erlaubt Analyse-Tags, die ueber den Google Tag Manager verwaltet werden, damit wir verstehen, welche Seiten besucht werden.',
         marketingTitle: 'Marketing',
-        marketingBody: 'Erlaubt Attributionsdaten aus Kampagnenlinks und zusaetzliche Werbemessung.',
+        marketingBody: 'Erlaubt Attributionsdaten aus Kampagnenlinks und Werbemessung ueber den Google Tag Manager.',
         save: 'Auswahl speichern',
         cancel: 'Abbrechen',
         alwaysOn: 'Immer aktiv',
@@ -76,9 +72,9 @@
       necessaryTitle: 'Necessary',
       necessaryBody: 'Required for language preference, security logic and storing your consent choice.',
       analyticsTitle: 'Analytics',
-      analyticsBody: 'Allows Google Analytics 4, Microsoft Clarity and Vercel Insights so we can understand which pages are being used.',
+      analyticsBody: 'Allows analytics tags managed through Google Tag Manager so we can understand which pages are being used.',
       marketingTitle: 'Marketing',
-      marketingBody: 'Allows campaign attribution data from marketing links and additional ad measurement.',
+      marketingBody: 'Allows campaign attribution data from marketing links and ad measurement through Google Tag Manager.',
       save: 'Save preferences',
       cancel: 'Cancel',
       alwaysOn: 'Always on',
@@ -94,23 +90,24 @@
         window.dataLayer.push(arguments);
       };
     }
-
-    window.gtag('consent', 'default', {
-      analytics_storage: 'denied',
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied'
-    });
   }
 
   function readStoredConsent() {
+    var stored = null;
+    var cookie = readConsentCookie();
+
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return null;
-      return normalizeConsent(JSON.parse(raw));
+      if (raw) stored = normalizeConsent(JSON.parse(raw));
     } catch (err) {
-      return null;
+      stored = null;
     }
+
+    if (stored && cookie) {
+      return getConsentTimestamp(cookie) > getConsentTimestamp(stored) ? cookie : stored;
+    }
+
+    return stored || cookie || null;
   }
 
   function normalizeConsent(value) {
@@ -130,6 +127,40 @@
     } catch (err) {
       // Ignore storage failures.
     }
+
+    writeConsentCookie(value);
+  }
+
+  function readConsentCookie() {
+    var prefix = COOKIE_NAME + '=';
+    var cookies = document.cookie ? document.cookie.split(';') : [];
+
+    for (var i = 0; i < cookies.length; i += 1) {
+      var entry = cookies[i].trim();
+      if (entry.indexOf(prefix) !== 0) continue;
+
+      try {
+        return normalizeConsent(JSON.parse(decodeURIComponent(entry.slice(prefix.length))));
+      } catch (err) {
+        return null;
+      }
+    }
+
+    return null;
+  }
+
+  function writeConsentCookie(value) {
+    try {
+      document.cookie = COOKIE_NAME + '=' + encodeURIComponent(JSON.stringify(value)) + '; Path=/; Max-Age=15552000; SameSite=Lax';
+    } catch (err) {
+      // Ignore cookie write failures.
+    }
+  }
+
+  function getConsentTimestamp(value) {
+    if (!value || !value.ts) return 0;
+    var time = Date.parse(value.ts);
+    return Number.isFinite(time) ? time : 0;
   }
 
   function publishApi() {
@@ -166,6 +197,14 @@
   function applyConsentState(next, options) {
     currentConsent = next;
 
+    if (!next) {
+      if (options && options.emit) {
+        emitConsentChange();
+      }
+
+      return;
+    }
+
     var analyticsGranted = Boolean(next && next.analytics);
     var marketingGranted = Boolean(next && next.marketing);
 
@@ -176,12 +215,7 @@
       ad_personalization: marketingGranted ? 'granted' : 'denied'
     });
 
-    if (analyticsGranted) {
-      loadGaIfNeeded();
-      loadClarityIfNeeded();
-      loadVercelInsightsIfNeeded();
-    } else {
-      revokeClarityConsent();
+    if (!analyticsGranted) {
       clearAnalyticsCookies();
     }
 
@@ -195,85 +229,6 @@
     if (options && options.emit) {
       emitConsentChange();
     }
-  }
-
-  function loadGaIfNeeded() {
-    if (!CONFIG.gaId) return;
-
-    loadScriptOnce('lynck-ga4-script', 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(CONFIG.gaId), function () {
-      if (!gaConfigured) {
-        window.gtag('js', new Date());
-        gaConfigured = true;
-      }
-
-      window.gtag('config', CONFIG.gaId, {
-        anonymize_ip: true,
-        allow_google_signals: Boolean(currentConsent && currentConsent.marketing)
-      });
-    });
-  }
-
-  function loadClarityIfNeeded() {
-    if (!CONFIG.clarityId) return;
-
-    ensureClarityStub();
-    loadScriptOnce('lynck-clarity-script', 'https://www.clarity.ms/tag/' + encodeURIComponent(CONFIG.clarityId), function () {
-      clarityLoaded = true;
-      grantClarityConsent();
-    });
-  }
-
-  function ensureClarityStub() {
-    if (!window.clarity) {
-      window.clarity = function () {
-        (window.clarity.q = window.clarity.q || []).push(arguments);
-      };
-    }
-  }
-
-  function grantClarityConsent() {
-    if (typeof window.clarity === 'function') {
-      window.clarity('consent');
-    }
-  }
-
-  function revokeClarityConsent() {
-    if (!clarityLoaded || typeof window.clarity !== 'function') return;
-    window.clarity('consent', false);
-  }
-
-  function loadVercelInsightsIfNeeded() {
-    if (!CONFIG.vercelInsights || vercelLoaded) return;
-
-    loadScriptOnce('lynck-vercel-insights', '/_vercel/insights/script.js', function () {
-      vercelLoaded = true;
-    });
-  }
-
-  function loadScriptOnce(id, src, onLoad) {
-    var existing = document.getElementById(id);
-
-    if (existing) {
-      if (existing.getAttribute('data-loaded') === 'true') {
-        if (typeof onLoad === 'function') onLoad();
-        return;
-      }
-
-      if (typeof onLoad === 'function') {
-        existing.addEventListener('load', onLoad, { once: true });
-      }
-      return;
-    }
-
-    var script = document.createElement('script');
-    script.id = id;
-    script.async = true;
-    script.src = src;
-    script.addEventListener('load', function () {
-      script.setAttribute('data-loaded', 'true');
-      if (typeof onLoad === 'function') onLoad();
-    });
-    document.head.appendChild(script);
   }
 
   function clearAnalyticsCookies() {
@@ -399,12 +354,12 @@
       '      <label class="lynck-consent-switch is-on" aria-label="' + escapeHtml(COPY.necessaryTitle) + '"><input type="checkbox" checked disabled><span></span></label>',
       '    </div>',
       '    <div class="lynck-consent-card">',
-      '      <div class="lynck-consent-pill">GA4</div>',
+      '      <div class="lynck-consent-pill">GTM</div>',
       '      <div class="lynck-consent-card-copy"><strong>' + escapeHtml(COPY.analyticsTitle) + '</strong><p>' + escapeHtml(COPY.analyticsBody) + '</p></div>',
       '      <label class="lynck-consent-switch" data-switch-shell><input type="checkbox" data-consent-analytics><span></span></label>',
       '    </div>',
       '    <div class="lynck-consent-card">',
-      '      <div class="lynck-consent-pill">UTM</div>',
+      '      <div class="lynck-consent-pill">ADS</div>',
       '      <div class="lynck-consent-card-copy"><strong>' + escapeHtml(COPY.marketingTitle) + '</strong><p>' + escapeHtml(COPY.marketingBody) + '</p></div>',
       '      <label class="lynck-consent-switch" data-switch-shell><input type="checkbox" data-consent-marketing><span></span></label>',
       '    </div>',
