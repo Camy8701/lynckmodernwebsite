@@ -598,6 +598,12 @@ footer {
   transform: translateY(22px) scale(0.985);
   animation: hero-rise 950ms cubic-bezier(0.16, 1, 0.3, 1) 360ms forwards;
 }
+@media (min-width: 1024px) {
+  .hero-visual-shell {
+    transform: translateY(-15%) scale(1.2);
+    transform-origin: top right;
+  }
+}
 .template-card,
 .proof-card {
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
@@ -982,6 +988,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="lg:col-span-5 p-4 md:p-8 lg:p-10 flex items-center">
+        <div class="hero-visual-shell w-full">
         <div class="hero-visual w-full rounded-[2.2rem] bg-white border border-[#0f2a56]/16 p-4 md:p-5 shadow-brutal relative overflow-hidden min-h-[620px]">
           <div class="absolute inset-0 dot-matrix opacity-30"></div>
           <div class="absolute -top-24 -right-16 w-64 h-64 rounded-full bg-[#93c5fd]/45 blur-3xl"></div>
@@ -1050,6 +1057,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>
