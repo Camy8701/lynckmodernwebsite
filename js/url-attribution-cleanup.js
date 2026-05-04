@@ -95,6 +95,94 @@
     clearPersistedAttribution();
   });
 
+  var WHATSAPP_NUMBER = '491771878363';
+
+  function normalizeWhatsAppHref(href) {
+    if (!href || href.indexOf('whatsapp') === -1 && href.indexOf('wa.me') === -1) {
+      return href;
+    }
+
+    try {
+      var parsed = new URL(href, window.location.href);
+      var host = parsed.hostname.toLowerCase();
+      var digits = '';
+
+      if (host === 'api.whatsapp.com' && parsed.pathname.indexOf('/send') === 0) {
+        digits = (parsed.searchParams.get('phone') || '').replace(/\D/g, '');
+        if (digits === WHATSAPP_NUMBER) {
+          parsed.searchParams.set('phone', WHATSAPP_NUMBER);
+          return parsed.toString();
+        }
+      }
+
+      if (host === 'wa.me') {
+        digits = parsed.pathname.replace(/\D/g, '');
+        if (digits === WHATSAPP_NUMBER) {
+          parsed.pathname = '/' + WHATSAPP_NUMBER;
+          return parsed.toString();
+        }
+      }
+    } catch (err) {
+      // Ignore malformed URLs from third-party widgets.
+    }
+
+    return href;
+  }
+
+  function normalizeWhatsAppLink(link) {
+    if (!link || !link.getAttribute) return false;
+
+    var href = link.getAttribute('href');
+    var normalized = normalizeWhatsAppHref(href);
+    if (normalized !== href) {
+      link.setAttribute('href', normalized);
+      return true;
+    }
+
+    return false;
+  }
+
+  function normalizeWhatsAppLinks(root) {
+    if (!root || !root.querySelectorAll) return;
+
+    if (root.tagName === 'A') {
+      normalizeWhatsAppLink(root);
+    }
+
+    root.querySelectorAll('a[href*="whatsapp"], a[href*="wa.me"]').forEach(normalizeWhatsAppLink);
+  }
+
+  function findClosestLink(target) {
+    while (target && target !== document) {
+      if (target.tagName === 'A') return target;
+      target = target.parentNode;
+    }
+
+    return null;
+  }
+
+  function installWhatsAppLinkFix() {
+    normalizeWhatsAppLinks(document);
+
+    document.addEventListener('click', function (event) {
+      normalizeWhatsAppLink(findClosestLink(event.target));
+    }, true);
+
+    if (!window.MutationObserver || !document.body) return;
+
+    new MutationObserver(function (records) {
+      records.forEach(function (record) {
+        record.addedNodes.forEach(normalizeWhatsAppLinks);
+      });
+    }).observe(document.body, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', installWhatsAppLinkFix, { once: true });
+  } else {
+    installWhatsAppLinkFix();
+  }
+
   var url;
   try {
     url = new URL(window.location.href);
