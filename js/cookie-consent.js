@@ -21,6 +21,7 @@
   function init() {
     ui = renderUi();
     bindUi();
+    loadTagManagerIfNeeded();
     applyConsentState(currentConsent, { emit: false });
     updateUi();
   }
@@ -192,10 +193,6 @@
     } else {
       clearAttributionIfAvailable();
       clearMarketingCookies();
-    }
-
-    if (analyticsGranted || marketingGranted) {
-      loadTagManagerIfNeeded();
     }
 
     if (options && options.emit) {
