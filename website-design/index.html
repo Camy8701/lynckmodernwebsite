@@ -609,7 +609,24 @@ footer {
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 .template-card {
+  display: block;
   position: relative;
+  color: inherit;
+  text-decoration: none;
+}
+.template-card[hidden] {
+  display: none !important;
+}
+.template-title {
+  color: #f97316;
+  font-size: 1.45rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.template-card:focus-visible {
+  outline: 3px solid #ff8a1f;
+  outline-offset: 4px;
 }
 .template-number {
   position: absolute;
@@ -634,6 +651,12 @@ footer {
   transform: translateY(-5px);
   box-shadow: 0 24px 70px rgba(15,42,86,0.12);
   border-color: rgba(15,42,86,0.3);
+}
+.template-toggle iconify-icon {
+  transition: transform 180ms ease;
+}
+.template-toggle[aria-expanded="true"] iconify-icon {
+  transform: rotate(180deg);
 }
 .proof-image-card {
   overflow: hidden;
@@ -1076,84 +1099,111 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-4 md:p-8 bg-[#f3f4ef]">
-      <article class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden">
-        <span class="template-number">01</span>
-        <div class="h-64 overflow-hidden bg-[#0f2a56]">
-          <img src="/assets/website-sample-coreactive.jpg" alt="Local services website direction" class="template-image w-full h-full object-cover object-top">
-        </div>
-        <div class="p-5">
-          <span class="text-[10px] uppercase tracking-widest font-bold text-[#f97316]">Local services</span>
-          <h3 class="mt-2 text-2xl font-semibold tracking-tighter-custom">High-trust booking page</h3>
-          <p class="mt-2 text-sm text-[#0f2a56]/62">For clinics, fitness brands, home services, and operators who need qualified inquiries.</p>
-          <a href="/apply/" class="mt-5 inline-flex items-center gap-2 font-bold text-sm">Use this direction <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon></a>
-        </div>
-      </article>
+    <div class="bg-[#f3f4ef]" data-template-section>
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-4 md:p-8">
+        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://coreactivedemo.vercel.app/index.html" target="_blank" rel="noopener noreferrer">
+          <span class="template-number">01</span>
+          <div class="h-64 overflow-hidden bg-[#0f2a56]">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-coreactive.jpg" alt="CoreActive Sports website preview" class="template-image w-full h-full object-cover object-top">
+          </div>
+          <div class="p-5"><h3 class="template-title">CoreActive Sports</h3></div>
+        </a>
 
-      <article class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden">
-        <span class="template-number">02</span>
-        <div class="h-64 overflow-hidden bg-[#0f2a56]">
-          <img src="/assets/website-sample-noiri.webp" alt="Premium brand website direction" class="template-image w-full h-full object-cover object-top">
-        </div>
-        <div class="p-5">
-          <span class="text-[10px] uppercase tracking-widest font-bold text-[#f97316]">Premium brand</span>
-          <h3 class="mt-2 text-2xl font-semibold tracking-tighter-custom">Editorial authority page</h3>
-          <p class="mt-2 text-sm text-[#0f2a56]/62">For brands that need image, trust, and conversion architecture in one page.</p>
-          <a href="/apply/" class="mt-5 inline-flex items-center gap-2 font-bold text-sm">Use this direction <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon></a>
-        </div>
-      </article>
+        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://noiriwebsite.vercel.app/" target="_blank" rel="noopener noreferrer">
+          <span class="template-number">02</span>
+          <div class="h-64 overflow-hidden bg-[#0f2a56]">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-noiri.webp" alt="Kodak Black website preview" class="template-image w-full h-full object-cover object-top">
+          </div>
+          <div class="p-5"><h3 class="template-title">Kodak Black</h3></div>
+        </a>
 
-      <article class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden">
-        <span class="template-number">03</span>
-        <div class="h-64 overflow-hidden bg-[#0f2a56]">
-          <img src="/assets/website-sample-badembatraining.webp" alt="Fitness website direction" class="template-image w-full h-full object-cover object-top">
-        </div>
-        <div class="p-5">
-          <span class="text-[10px] uppercase tracking-widest font-bold text-[#f97316]">Fitness + coaching</span>
-          <h3 class="mt-2 text-2xl font-semibold tracking-tighter-custom">Transformation funnel</h3>
-          <p class="mt-2 text-sm text-[#0f2a56]/62">For coaches, studios, trainers, and programs selling outcomes.</p>
-          <a href="/apply/" class="mt-5 inline-flex items-center gap-2 font-bold text-sm">Use this direction <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon></a>
-        </div>
-      </article>
+        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://badembatraining.netlify.app/" target="_blank" rel="noopener noreferrer">
+          <span class="template-number">03</span>
+          <div class="h-64 overflow-hidden bg-[#0f2a56]">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-badembatraining.webp" alt="Fitness Madness website preview" class="template-image w-full h-full object-cover object-top">
+          </div>
+          <div class="p-5"><h3 class="template-title">Fitness Madness</h3></div>
+        </a>
 
-      <article class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden">
-        <span class="template-number">04</span>
-        <div class="h-64 overflow-hidden bg-[#0f2a56]">
-          <img src="/assets/website-sample-loftylabrep.webp" alt="B2B website direction" class="template-image w-full h-full object-cover object-top">
-        </div>
-        <div class="p-5">
-          <span class="text-[10px] uppercase tracking-widest font-bold text-[#f97316]">B2B + agency</span>
-          <h3 class="mt-2 text-2xl font-semibold tracking-tighter-custom">Conversion authority system</h3>
-          <p class="mt-2 text-sm text-[#0f2a56]/62">For service providers that need sharper positioning and fewer weak leads.</p>
-          <a href="/apply/" class="mt-5 inline-flex items-center gap-2 font-bold text-sm">Use this direction <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon></a>
-        </div>
-      </article>
+        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://loftylabrep.vercel.app/" target="_blank" rel="noopener noreferrer">
+          <span class="template-number">04</span>
+          <div class="h-64 overflow-hidden bg-[#0f2a56]">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-loftylabrep.webp" alt="Digital Lab website preview" class="template-image w-full h-full object-cover object-top">
+          </div>
+          <div class="p-5"><h3 class="template-title">Digital Lab</h3></div>
+        </a>
 
-      <article class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden">
-        <span class="template-number">05</span>
-        <div class="h-64 overflow-hidden bg-[#0f2a56]">
-          <img src="/assets/website-sample-lynckdigital.webp" alt="E-commerce website direction" class="template-image w-full h-full object-cover object-top">
-        </div>
-        <div class="p-5">
-          <span class="text-[10px] uppercase tracking-widest font-bold text-[#f97316]">E-commerce</span>
-          <h3 class="mt-2 text-2xl font-semibold tracking-tighter-custom">Paid-traffic storefront</h3>
-          <p class="mt-2 text-sm text-[#0f2a56]/62">For stores that need product story, offer clarity, and profitable traffic.</p>
-          <a href="/apply/" class="mt-5 inline-flex items-center gap-2 font-bold text-sm">Use this direction <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon></a>
-        </div>
-      </article>
+        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://lynckdigital.store/" target="_blank" rel="noopener noreferrer">
+          <span class="template-number">05</span>
+          <div class="h-64 overflow-hidden bg-[#0f2a56]">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-lynckdigital.webp" alt="LYNCK Digital website preview" class="template-image w-full h-full object-cover object-top">
+          </div>
+          <div class="p-5"><h3 class="template-title">LYNCK Digital</h3></div>
+        </a>
 
-      <article class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#0f2a56] text-white overflow-hidden">
-        <span class="template-number">06</span>
-        <div class="h-64 overflow-hidden bg-[#0f2a56]">
-          <img src="/assets/website-sample-mrlucasbey.webp" alt="Personal brand website direction" class="template-image w-full h-full object-cover object-top opacity-90">
-        </div>
-        <div class="p-5">
-          <span class="text-[10px] uppercase tracking-widest font-bold text-[#ff8a1f]">Personal brand</span>
-          <h3 class="mt-2 text-2xl font-semibold tracking-tighter-custom">Expert positioning page</h3>
-          <p class="mt-2 text-sm text-white/62">For founders, consultants, creators, and specialists selling high-trust offers.</p>
-          <a href="/apply/" class="mt-5 inline-flex items-center gap-2 font-bold text-sm text-[#ff8a1f]">Use this direction <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon></a>
-        </div>
-      </article>
+        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://mrlucasbey.netlify.app/" target="_blank" rel="noopener noreferrer">
+          <span class="template-number">06</span>
+          <div class="h-64 overflow-hidden bg-[#0f2a56]">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-mrlucasbey.webp" alt="Lucas Bey website preview" class="template-image w-full h-full object-cover object-top">
+          </div>
+          <div class="p-5"><h3 class="template-title">Lucas Bey</h3></div>
+        </a>
+
+        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://utopai-with-claude-new-new-o136.vercel.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
+          <span class="template-number">07</span>
+          <div class="h-64 overflow-hidden bg-[#0f2a56]">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-utopai.webp" alt="UTOPAI Blog website preview" class="template-image w-full h-full object-cover object-top">
+          </div>
+          <div class="p-5"><h3 class="template-title">UTOPAI Blog</h3></div>
+        </a>
+
+        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://georgenkine.netlify.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
+          <span class="template-number">08</span>
+          <div class="h-64 overflow-hidden bg-[#0f2a56]">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-georgenkine.jpg" alt="Yan Georgen website preview" class="template-image w-full h-full object-cover object-top">
+          </div>
+          <div class="p-5"><h3 class="template-title">Yan Georgen</h3></div>
+        </a>
+
+        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://leitzphysiolux.netlify.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
+          <span class="template-number">09</span>
+          <div class="h-64 overflow-hidden bg-[#0f2a56]">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-leitzphysiolux.webp" alt="LËTZ Physio website preview" class="template-image w-full h-full object-cover object-top">
+          </div>
+          <div class="p-5"><h3 class="template-title">LËTZ Physio</h3></div>
+        </a>
+
+        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://landingpageyoutubeserv.vercel.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
+          <span class="template-number">10</span>
+          <div class="h-64 overflow-hidden bg-[#0f2a56]">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-billiondollarpie.webp" alt="The Billion Dollar Pie website preview" class="template-image w-full h-full object-cover object-top">
+          </div>
+          <div class="p-5"><h3 class="template-title">The Billion Dollar Pie</h3></div>
+        </a>
+
+        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/rollicious-vietnamese/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
+          <span class="template-number">11</span>
+          <div class="h-64 overflow-hidden bg-[#0f2a56]">
+            <img loading="lazy" decoding="async" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7124a270-90d0-4e08-8d0d-b6441341a99a_1600w.png" alt="Rollicious website preview" class="template-image w-full h-full object-cover object-top">
+          </div>
+          <div class="p-5"><h3 class="template-title">Rollicious</h3></div>
+        </a>
+
+        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/serene-wellness/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
+          <span class="template-number">12</span>
+          <div class="h-64 overflow-hidden bg-[#0f2a56]">
+            <img loading="lazy" decoding="async" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a6489cc1-a452-4e39-acc1-4f45e9db3f5b_3840w.webp" alt="Serene Wellness website preview" class="template-image w-full h-full object-cover object-top">
+          </div>
+          <div class="p-5"><h3 class="template-title">Serene Wellness</h3></div>
+        </a>
+      </div>
+
+      <div class="px-4 md:px-8 pb-8 flex justify-center">
+        <button type="button" class="template-toggle inline-flex items-center justify-center gap-2 rounded-full border border-[#0f2a56]/18 bg-white px-7 py-4 text-base font-semibold text-[#0f2a56] hover:bg-[#ff8a1f] transition-colors" data-template-toggle data-more-label="View more templates" data-less-label="Show fewer templates" aria-expanded="false">
+          <span data-template-toggle-label>View more templates</span>
+          <iconify-icon icon="solar:alt-arrow-down-linear" width="18"></iconify-icon>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -1803,6 +1853,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           index = nextIndex;
         }, 720);
       }, 2200);
+    });
+  })();
+
+  (function () {
+    const sections = document.querySelectorAll('[data-template-section]');
+
+    sections.forEach((section) => {
+      const button = section.querySelector('[data-template-toggle]');
+      const label = button ? button.querySelector('[data-template-toggle-label]') : null;
+      const extraCards = section.querySelectorAll('[data-template-extra]');
+
+      if (!button || !label || !extraCards.length) return;
+
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        const nextExpanded = !expanded;
+
+        extraCards.forEach((card) => {
+          card.hidden = !nextExpanded;
+        });
+
+        button.setAttribute('aria-expanded', String(nextExpanded));
+        label.textContent = nextExpanded ? button.dataset.lessLabel : button.dataset.moreLabel;
+      });
     });
   })();
 
