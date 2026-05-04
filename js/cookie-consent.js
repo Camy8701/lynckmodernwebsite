@@ -5,7 +5,6 @@
   var currentConsent = readStoredConsent();
   var ui = null;
   var gaConfigured = false;
-  var gtmLoaded = false;
   var clarityLoaded = false;
   var vercelLoaded = false;
 
@@ -21,7 +20,6 @@
   function init() {
     ui = renderUi();
     bindUi();
-    loadTagManagerIfNeeded();
     applyConsentState(currentConsent, { emit: false });
     updateUi();
   }
@@ -33,7 +31,6 @@
 
     return {
       gaId: script ? script.getAttribute('data-ga-id') || '' : '',
-      gtmId: script ? script.getAttribute('data-gtm-id') || '' : '',
       clarityId: script ? script.getAttribute('data-clarity-id') || '' : '',
       vercelInsights: Boolean(script && script.getAttribute('data-vercel-insights') === 'true'),
       locale: locale
@@ -213,20 +210,6 @@
         anonymize_ip: true,
         allow_google_signals: Boolean(currentConsent && currentConsent.marketing)
       });
-    });
-  }
-
-  function loadTagManagerIfNeeded() {
-    if (!CONFIG.gtmId || gtmLoaded) return;
-
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      'gtm.start': new Date().getTime(),
-      event: 'gtm.js'
-    });
-
-    loadScriptOnce('lynck-gtm-script', 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(CONFIG.gtmId), function () {
-      gtmLoaded = true;
     });
   }
 
