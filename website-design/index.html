@@ -611,40 +611,54 @@ footer {
 .template-card {
   display: block;
   position: relative;
+  border-radius: 0.9rem !important;
   color: inherit;
   text-decoration: none;
 }
 .template-card[hidden] {
   display: none !important;
 }
+.template-media {
+  height: 22rem;
+  overflow: hidden;
+  background: #0f2a56;
+}
+.template-meta {
+  min-height: 3.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 0.9rem;
+  background: #fff;
+  border-top: 1px solid rgba(15,42,86,0.12);
+}
 .template-title {
   color: #f97316;
-  font-size: 1.45rem;
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-size: 0.72rem;
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 .template-card:focus-visible {
   outline: 3px solid #ff8a1f;
   outline-offset: 4px;
 }
 .template-number {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 3;
-  width: 46px;
-  height: 46px;
-  border-radius: 999px;
-  display: grid;
+  flex: 0 0 auto;
+  min-width: 2.15rem;
+  height: 1.45rem;
+  border-radius: 0.45rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   place-items: center;
   background: #ff8a1f;
   color: #0f2a56;
   border: 1px solid rgba(255,255,255,0.64);
-  box-shadow: 0 16px 34px rgba(15,42,86,0.18);
-  font-size: 13px;
+  font-size: 0.7rem;
   font-weight: 900;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.02em;
 }
 .template-card:hover,
 .proof-card:hover {
@@ -915,6 +929,9 @@ iconify-icon {
   .hero-word {
     transform: translateY(14px);
   }
+  .template-media {
+    height: 18rem;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1101,100 +1118,88 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="bg-[#f3f4ef]" data-template-section>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-4 md:p-8">
-        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://coreactivedemo.vercel.app/index.html" target="_blank" rel="noopener noreferrer">
-          <span class="template-number">01</span>
-          <div class="h-64 overflow-hidden bg-[#0f2a56]">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://coreactivedemo.vercel.app/index.html" target="_blank" rel="noopener noreferrer">
+          <div class="template-media">
             <img loading="lazy" decoding="async" src="/assets/website-sample-coreactive.jpg" alt="CoreActive Sports website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="p-5"><h3 class="template-title">CoreActive Sports</h3></div>
+          <div class="template-meta"><span class="template-number">01</span><h3 class="template-title">Fitness studio / membership</h3></div>
         </a>
 
-        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://noiriwebsite.vercel.app/" target="_blank" rel="noopener noreferrer">
-          <span class="template-number">02</span>
-          <div class="h-64 overflow-hidden bg-[#0f2a56]">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-noiri.webp" alt="Kodak Black website preview" class="template-image w-full h-full object-cover object-top">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://noiriwebsite.vercel.app/" target="_blank" rel="noopener noreferrer">
+          <div class="template-media">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-noiri.webp" alt="Photography portfolio website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="p-5"><h3 class="template-title">Kodak Black</h3></div>
+          <div class="template-meta"><span class="template-number">02</span><h3 class="template-title">Photography / portfolio</h3></div>
         </a>
 
-        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://badembatraining.netlify.app/" target="_blank" rel="noopener noreferrer">
-          <span class="template-number">03</span>
-          <div class="h-64 overflow-hidden bg-[#0f2a56]">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-badembatraining.webp" alt="Fitness Madness website preview" class="template-image w-full h-full object-cover object-top">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://badembatraining.netlify.app/" target="_blank" rel="noopener noreferrer">
+          <div class="template-media">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-badembatraining.webp" alt="Fitness coaching website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="p-5"><h3 class="template-title">Fitness Madness</h3></div>
+          <div class="template-meta"><span class="template-number">03</span><h3 class="template-title">Fitness coaching</h3></div>
         </a>
 
-        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://loftylabrep.vercel.app/" target="_blank" rel="noopener noreferrer">
-          <span class="template-number">04</span>
-          <div class="h-64 overflow-hidden bg-[#0f2a56]">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-loftylabrep.webp" alt="Digital Lab website preview" class="template-image w-full h-full object-cover object-top">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://loftylabrep.vercel.app/" target="_blank" rel="noopener noreferrer">
+          <div class="template-media">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-loftylabrep.webp" alt="Creative agency website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="p-5"><h3 class="template-title">Digital Lab</h3></div>
+          <div class="template-meta"><span class="template-number">04</span><h3 class="template-title">Creative agency</h3></div>
         </a>
 
-        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://lynckdigital.store/" target="_blank" rel="noopener noreferrer">
-          <span class="template-number">05</span>
-          <div class="h-64 overflow-hidden bg-[#0f2a56]">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-lynckdigital.webp" alt="LYNCK Digital website preview" class="template-image w-full h-full object-cover object-top">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://lynckdigital.store/" target="_blank" rel="noopener noreferrer">
+          <div class="template-media">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-lynckdigital.webp" alt="Digital product e-commerce website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="p-5"><h3 class="template-title">LYNCK Digital</h3></div>
+          <div class="template-meta"><span class="template-number">05</span><h3 class="template-title">Digital product / e-com</h3></div>
         </a>
 
-        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://mrlucasbey.netlify.app/" target="_blank" rel="noopener noreferrer">
-          <span class="template-number">06</span>
-          <div class="h-64 overflow-hidden bg-[#0f2a56]">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-mrlucasbey.webp" alt="Lucas Bey website preview" class="template-image w-full h-full object-cover object-top">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://mrlucasbey.netlify.app/" target="_blank" rel="noopener noreferrer">
+          <div class="template-media">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-mrlucasbey.webp" alt="Physiotherapist website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="p-5"><h3 class="template-title">Lucas Bey</h3></div>
+          <div class="template-meta"><span class="template-number">06</span><h3 class="template-title">Physiotherapist</h3></div>
         </a>
 
-        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://utopai-with-claude-new-new-o136.vercel.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
-          <span class="template-number">07</span>
-          <div class="h-64 overflow-hidden bg-[#0f2a56]">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-utopai.webp" alt="UTOPAI Blog website preview" class="template-image w-full h-full object-cover object-top">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://utopai-with-claude-new-new-o136.vercel.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
+          <div class="template-media">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-utopai.webp" alt="AI editorial website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="p-5"><h3 class="template-title">UTOPAI Blog</h3></div>
+          <div class="template-meta"><span class="template-number">07</span><h3 class="template-title">AI editorial / content hub</h3></div>
         </a>
 
-        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://georgenkine.netlify.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
-          <span class="template-number">08</span>
-          <div class="h-64 overflow-hidden bg-[#0f2a56]">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-georgenkine.jpg" alt="Yan Georgen website preview" class="template-image w-full h-full object-cover object-top">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://georgenkine.netlify.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
+          <div class="template-media">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-georgenkine.jpg" alt="Physiotherapist website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="p-5"><h3 class="template-title">Yan Georgen</h3></div>
+          <div class="template-meta"><span class="template-number">08</span><h3 class="template-title">Physiotherapist</h3></div>
         </a>
 
-        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://leitzphysiolux.netlify.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
-          <span class="template-number">09</span>
-          <div class="h-64 overflow-hidden bg-[#0f2a56]">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-leitzphysiolux.webp" alt="LËTZ Physio website preview" class="template-image w-full h-full object-cover object-top">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://leitzphysiolux.netlify.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
+          <div class="template-media">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-leitzphysiolux.webp" alt="Physiotherapist website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="p-5"><h3 class="template-title">LËTZ Physio</h3></div>
+          <div class="template-meta"><span class="template-number">09</span><h3 class="template-title">Physiotherapist</h3></div>
         </a>
 
-        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://landingpageyoutubeserv.vercel.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
-          <span class="template-number">10</span>
-          <div class="h-64 overflow-hidden bg-[#0f2a56]">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-billiondollarpie.webp" alt="The Billion Dollar Pie website preview" class="template-image w-full h-full object-cover object-top">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://landingpageyoutubeserv.vercel.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
+          <div class="template-media">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-billiondollarpie.webp" alt="Lead generation landing page preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="p-5"><h3 class="template-title">The Billion Dollar Pie</h3></div>
+          <div class="template-meta"><span class="template-number">10</span><h3 class="template-title">Lead-gen landing page</h3></div>
         </a>
 
-        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/rollicious-vietnamese/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
-          <span class="template-number">11</span>
-          <div class="h-64 overflow-hidden bg-[#0f2a56]">
-            <img loading="lazy" decoding="async" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7124a270-90d0-4e08-8d0d-b6441341a99a_1600w.png" alt="Rollicious website preview" class="template-image w-full h-full object-cover object-top">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/rollicious-vietnamese/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
+          <div class="template-media">
+            <img loading="lazy" decoding="async" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7124a270-90d0-4e08-8d0d-b6441341a99a_1600w.png" alt="Restaurant hospitality website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="p-5"><h3 class="template-title">Rollicious</h3></div>
+          <div class="template-meta"><span class="template-number">11</span><h3 class="template-title">Restaurant / hospitality</h3></div>
         </a>
 
-        <a class="template-card rounded-[1.75rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/serene-wellness/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
-          <span class="template-number">12</span>
-          <div class="h-64 overflow-hidden bg-[#0f2a56]">
-            <img loading="lazy" decoding="async" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a6489cc1-a452-4e39-acc1-4f45e9db3f5b_3840w.webp" alt="Serene Wellness website preview" class="template-image w-full h-full object-cover object-top">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/serene-wellness/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
+          <div class="template-media">
+            <img loading="lazy" decoding="async" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a6489cc1-a452-4e39-acc1-4f45e9db3f5b_3840w.webp" alt="Wellness longevity clinic website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="p-5"><h3 class="template-title">Serene Wellness</h3></div>
+          <div class="template-meta"><span class="template-number">12</span><h3 class="template-title">Wellness / longevity clinic</h3></div>
         </a>
       </div>
 
