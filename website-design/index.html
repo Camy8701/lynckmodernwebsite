@@ -868,14 +868,20 @@ iconify-icon {
     padding: 6px 8px 6px 12px;
   }
   .lynck-main-nav,
-  .lynck-lang-pill,
   .lynck-partner-badge {
     display: none;
+  }
+  .lynck-lang-pill {
+    min-width: 44px;
+    padding: 0 9px;
+    font-size: 11px;
+    flex: 0 0 auto;
   }
   .lynck-header-cta {
     min-height: 38px;
     padding: 0 14px;
     font-size: 12px;
+    flex: 1;
   }
   .roi-lane,
   .proof-image-stack,
@@ -931,6 +937,18 @@ iconify-icon {
   }
   .template-media {
     height: 18rem;
+  }
+  .hero-metric p:last-child {
+    font-size: 0.78rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .roi-chart {
+    display: none;
+  }
+  .footer-big {
+    font-size: clamp(2.2rem, 10vw, 5rem);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1612,52 +1630,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2">
       <div class="border-grid p-8 md:p-12 bg-[#f3f4ef]">
-        <div class="inline-flex items-center gap-2 rounded-full bg-[#0f2a56] px-4 py-2 text-xs font-bold uppercase tracking-widest text-white mb-8">Good fit</div>
+        <div class="inline-flex items-center gap-2 rounded-full bg-[#16a34a] px-4 py-2 text-xs font-bold uppercase tracking-widest text-white mb-8">Good fit</div>
         <ul class="space-y-4">
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/80 leading-relaxed">You need a new website and want it to generate leads</span>
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/80 leading-relaxed">You need a new website and want it to actually generate leads, not just look professional</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
             <span class="text-[#0f2a56]/80 leading-relaxed">You have a website but it brings no calls, bookings, or enquiries</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/80 leading-relaxed">You want to run Google Ads properly</span>
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/80 leading-relaxed">You want to run Google Ads without sending traffic to a page that does not convert</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/80 leading-relaxed">You are tired of multiple agencies and unclear responsibility</span>
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/80 leading-relaxed">You are tired of your website, ads, and tracking being managed by three different teams</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/80 leading-relaxed">You can invest at least €1,000/month in ads</span>
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/80 leading-relaxed">You can invest at least €1,000/month in ads once the system is ready</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/80 leading-relaxed">You want clear numbers, not vague reports</span>
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/80 leading-relaxed">You want clear numbers, not vague monthly reports</span>
           </li>
         </ul>
       </div>
       <div class="p-8 md:p-12 bg-white">
-        <div class="inline-flex items-center gap-2 rounded-full border border-[#0f2a56]/14 px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#0f2a56]/48 mb-8">Not for you</div>
+        <div class="inline-flex items-center gap-2 rounded-full bg-[#dc2626] px-4 py-2 text-xs font-bold uppercase tracking-widest text-white mb-8">Not for you</div>
         <ul class="space-y-4">
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#0f2a56]/28 shrink-0 mt-0.5"></iconify-icon>
+            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#dc2626] shrink-0 mt-0.5"></iconify-icon>
             <span class="text-[#0f2a56]/55 leading-relaxed">You are looking for the cheapest possible website</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#0f2a56]/28 shrink-0 mt-0.5"></iconify-icon>
+            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#dc2626] shrink-0 mt-0.5"></iconify-icon>
             <span class="text-[#0f2a56]/55 leading-relaxed">You are not ready to invest in traffic</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#0f2a56]/28 shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/55 leading-relaxed">You want design only, with no strategy</span>
+            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#dc2626] shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/55 leading-relaxed">You want design only, with no strategy or conversion thinking behind it</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#0f2a56]/28 shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/55 leading-relaxed">You expect guaranteed results without testing and optimization</span>
+            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#dc2626] shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/55 leading-relaxed">You expect guaranteed results without testing, data, or optimization</span>
           </li>
         </ul>
       </div>
@@ -1679,11 +1697,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="bg-[#f3f4ef]" data-template-section>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-4 md:p-8">
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://coreactivedemo.vercel.app/index.html" target="_blank" rel="noopener noreferrer">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/blade-co/">
           <div class="template-media">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-coreactive.jpg" alt="CoreActive Sports website preview" class="template-image w-full h-full object-cover object-top">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=1200&q=85&auto=format&fit=crop" alt="Barbershop website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="template-meta"><span class="template-number">01</span><h3 class="template-title">Fitness studio / membership</h3></div>
+          <div class="template-meta"><span class="template-number">01</span><h3 class="template-title">Barbershop / grooming</h3></div>
         </a>
 
         <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://noiriwebsite.vercel.app/" target="_blank" rel="noopener noreferrer">
@@ -1707,18 +1725,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="template-meta"><span class="template-number">04</span><h3 class="template-title">Creative agency</h3></div>
         </a>
 
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://lynckdigital.store/" target="_blank" rel="noopener noreferrer">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/london-house-pools/">
           <div class="template-media">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-lynckdigital.webp" alt="Digital product ecommerce website preview" class="template-image w-full h-full object-cover object-top">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Pool builder website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="template-meta"><span class="template-number">05</span><h3 class="template-title">Digital product / ecommerce</h3></div>
+          <div class="template-meta"><span class="template-number">05</span><h3 class="template-title">Pool builder / home services</h3></div>
         </a>
 
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://mrlucasbey.netlify.app/" target="_blank" rel="noopener noreferrer">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/fleet-management-co/">
           <div class="template-media">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-mrlucasbey.webp" alt="Physiotherapist website preview" class="template-image w-full h-full object-cover object-top">
+            <img loading="lazy" decoding="async" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c9070952-37a3-41e4-bed6-847746be5b06_3840w.png?w=1200&q=80" alt="Real estate website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="template-meta"><span class="template-number">06</span><h3 class="template-title">Physiotherapist</h3></div>
+          <div class="template-meta"><span class="template-number">06</span><h3 class="template-title">Real estate / property</h3></div>
         </a>
 
         <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://utopai-with-claude-new-new-o136.vercel.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>

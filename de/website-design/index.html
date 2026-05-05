@@ -868,14 +868,20 @@ iconify-icon {
     padding: 6px 8px 6px 12px;
   }
   .lynck-main-nav,
-  .lynck-lang-pill,
   .lynck-partner-badge {
     display: none;
+  }
+  .lynck-lang-pill {
+    min-width: 44px;
+    padding: 0 9px;
+    font-size: 11px;
+    flex: 0 0 auto;
   }
   .lynck-header-cta {
     min-height: 38px;
     padding: 0 14px;
     font-size: 12px;
+    flex: 1;
   }
   .roi-lane,
   .proof-image-stack,
@@ -931,6 +937,18 @@ iconify-icon {
   }
   .template-media {
     height: 18rem;
+  }
+  .hero-metric p:last-child {
+    font-size: 0.78rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .roi-chart {
+    display: none;
+  }
+  .footer-big {
+    font-size: clamp(2.2rem, 10vw, 5rem);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1542,51 +1560,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2">
       <div class="border-grid p-8 md:p-12 bg-[#f3f4ef]">
-        <div class="inline-flex items-center gap-2 rounded-full bg-[#0f2a56] px-4 py-2 text-xs font-bold uppercase tracking-widest text-white mb-8">Gut geeignet</div>
+        <div class="inline-flex items-center gap-2 rounded-full bg-[#16a34a] px-4 py-2 text-xs font-bold uppercase tracking-widest text-white mb-8">Gut geeignet</div>
         <ul class="space-y-4">
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
             <span class="text-[#0f2a56]/80 leading-relaxed">Du brauchst eine neue Website und willst, dass sie Leads generiert</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
             <span class="text-[#0f2a56]/80 leading-relaxed">Du hast eine Website, aber sie bringt keine Anrufe oder Anfragen</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
             <span class="text-[#0f2a56]/80 leading-relaxed">Du willst Google Ads richtig einsetzen</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
             <span class="text-[#0f2a56]/80 leading-relaxed">Du bist müde von mehreren Agenturen und unklarer Verantwortung</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
             <span class="text-[#0f2a56]/80 leading-relaxed">Du kannst mindestens 1.000 EUR pro Monat in Ads investieren</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
             <span class="text-[#0f2a56]/80 leading-relaxed">Du willst klare Zahlen, keine vagen Berichte</span>
           </li>
         </ul>
       </div>
       <div class="p-8 md:p-12 bg-white">
-        <div class="inline-flex items-center gap-2 rounded-full border border-[#0f2a56]/14 px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#0f2a56]/48 mb-8">Nicht für dich</div>
+        <div class="inline-flex items-center gap-2 rounded-full bg-[#dc2626] px-4 py-2 text-xs font-bold uppercase tracking-widest text-white mb-8">Nicht für dich</div>
         <ul class="space-y-4">
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#0f2a56]/28 shrink-0 mt-0.5"></iconify-icon>
+            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#dc2626] shrink-0 mt-0.5"></iconify-icon>
             <span class="text-[#0f2a56]/55 leading-relaxed">Du suchst die billigste mögliche Website</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#0f2a56]/28 shrink-0 mt-0.5"></iconify-icon>
+            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#dc2626] shrink-0 mt-0.5"></iconify-icon>
             <span class="text-[#0f2a56]/55 leading-relaxed">Du bist nicht bereit, in Traffic zu investieren</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#0f2a56]/28 shrink-0 mt-0.5"></iconify-icon>
+            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#dc2626] shrink-0 mt-0.5"></iconify-icon>
             <span class="text-[#0f2a56]/55 leading-relaxed">Du willst nur Design ohne Strategie</span>
           </li>
           <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#0f2a56]/28 shrink-0 mt-0.5"></iconify-icon>
+            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#dc2626] shrink-0 mt-0.5"></iconify-icon>
             <span class="text-[#0f2a56]/55 leading-relaxed">Du erwartest garantierte Ergebnisse ohne Tests und Optimierung</span>
           </li>
         </ul>
@@ -1609,11 +1627,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="bg-[#f3f4ef]" data-template-section>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-4 md:p-8">
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://coreactivedemo.vercel.app/index.html" target="_blank" rel="noopener noreferrer">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/blade-co/">
           <div class="template-media">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-coreactive.jpg" alt="CoreActive Sports Website Vorschau" class="template-image w-full h-full object-cover object-top">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=1200&q=85&auto=format&fit=crop" alt="Barbershop Website Vorschau" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="template-meta"><span class="template-number">01</span><h3 class="template-title">Fitnessstudio / Mitgliedschaft</h3></div>
+          <div class="template-meta"><span class="template-number">01</span><h3 class="template-title">Barbershop / Grooming</h3></div>
         </a>
 
         <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://noiriwebsite.vercel.app/" target="_blank" rel="noopener noreferrer">
@@ -1637,18 +1655,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="template-meta"><span class="template-number">04</span><h3 class="template-title">Kreativagentur</h3></div>
         </a>
 
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://lynckdigital.store/" target="_blank" rel="noopener noreferrer">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/london-house-pools/">
           <div class="template-media">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-lynckdigital.webp" alt="Digitales Produkt und Ecommerce Website Vorschau" class="template-image w-full h-full object-cover object-top">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Poolbau Website Vorschau" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="template-meta"><span class="template-number">05</span><h3 class="template-title">Digitales Produkt / Ecommerce</h3></div>
+          <div class="template-meta"><span class="template-number">05</span><h3 class="template-title">Poolbau / Handwerk</h3></div>
         </a>
 
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://mrlucasbey.netlify.app/" target="_blank" rel="noopener noreferrer">
+        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/fleet-management-co/">
           <div class="template-media">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-mrlucasbey.webp" alt="Physiotherapeut Website Vorschau" class="template-image w-full h-full object-cover object-top">
+            <img loading="lazy" decoding="async" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c9070952-37a3-41e4-bed6-847746be5b06_3840w.png?w=1200&q=80" alt="Immobilien Website Vorschau" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="template-meta"><span class="template-number">06</span><h3 class="template-title">Physiotherapeut</h3></div>
+          <div class="template-meta"><span class="template-number">06</span><h3 class="template-title">Immobilien / Property</h3></div>
         </a>
 
         <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://utopai-with-claude-new-new-o136.vercel.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
