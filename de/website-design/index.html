@@ -701,6 +701,7 @@ footer {
   display: block;
   transform: scale(1.01);
   transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: zoom-in;
 }
 .proof-image-card:hover .proof-screenshot img {
   transform: scale(1.055);
@@ -1093,6 +1094,48 @@ iconify-icon {
   0%,100% { box-shadow: 0 0 0 0 rgba(10,85,216,0.14); }
   45%     { box-shadow: 0 0 0 7px rgba(10,85,216,0); }
 }
+#proof-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(10,20,40,0.95);
+  cursor: zoom-out;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+#proof-lightbox.is-open {
+  display: flex;
+}
+#proof-lightbox-img {
+  max-width: min(95vw, 1300px);
+  max-height: 90vh;
+  border-radius: 0.75rem;
+  object-fit: contain;
+  cursor: default;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+}
+#proof-lightbox-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+#proof-lightbox-close:hover {
+  background: rgba(255,255,255,0.22);
+}
 </style>
 </head>
 <body class="selection:bg-orange-200 selection:text-black">
@@ -1483,21 +1526,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	          <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-white/48 mb-4">So liest du jede Karte</p>
 	          <div class="space-y-3.5">
 	            <div class="flex items-start gap-3">
-	              <span class="w-2 h-2 rounded-full bg-[#dc2626] mt-1.5 shrink-0"></span>
 	              <div>
 	                <p class="text-[13px] font-semibold text-white">Werbebudget</p>
 	                <p class="text-xs text-white/54 mt-0.5 leading-relaxed">Was in diesem Zeitraum in Google Ads investiert wurde.</p>
 	              </div>
 	            </div>
 	            <div class="flex items-start gap-3">
-	              <span class="w-2 h-2 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></span>
 	              <div>
 	                <p class="text-[13px] font-semibold text-white">Gemessener Wert</p>
 	                <p class="text-xs text-white/54 mt-0.5 leading-relaxed">Umsatz oder Leads, die diesen Anzeigen zugeordnet wurden.</p>
 	              </div>
 	            </div>
 	            <div class="flex items-start gap-3">
-	              <span class="w-2 h-2 rounded-full bg-[#ff8a1f] mt-1.5 shrink-0"></span>
 	              <div>
 	                <p class="text-[13px] font-semibold text-white">Return Multiple (X)</p>
 	                <p class="text-xs text-white/54 mt-0.5 leading-relaxed">Wie oft das Werbebudget als gemessener Wert zurückgeführt wurde.</p>
@@ -1644,7 +1684,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </p>
         <ul class="mt-6 space-y-3 text-sm font-medium text-[#0f2a56]/76">
           <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#0f2a56] shrink-0"></iconify-icon>Kampagnenarchitektur</li>
-          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#0f2a56] shrink-0"></iconify-icon>Conversion Tracking Prüfung</li>
+          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#0f2a56] shrink-0"></iconify-icon>Conversion Tracking Prüfung oder Setup</li>
           <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#0f2a56] shrink-0"></iconify-icon>Wöchentliche Optimierung Richtung ROI</li>
         </ul>
         <a href="/de/apply/" class="mt-auto pt-8 inline-flex items-center gap-2 font-bold hover:opacity-70">Ads mit uns starten <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
@@ -1725,7 +1765,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </li>
           <li class="flex gap-3 items-start">
             <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/80 leading-relaxed">Du bist müde von mehreren Agenturen und unklarer Verantwortung</span>
+            <span class="text-[#0f2a56]/80 leading-relaxed">Du hast es satt, dass deine Website, Anzeigen und das Tracking von drei verschiedenen Teams verwaltet werden</span>
           </li>
           <li class="flex gap-3 items-start">
             <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
@@ -1903,7 +1943,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
               <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
             </summary>
-	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Die Kosten hängen von Branche, Komplexität und Wachstumszielen ab. Sowohl <strong class="text-[#0f2a56]">Website Aufbau als auch Google Ads Management sind kostenpflichtig</strong>: Websites werden als Projekt abgerechnet, Ads Management als monatlicher Retainer. Im Strategiegespräch bekommst du konkrete Zahlen, bevor du dich entscheidest.</div>
+	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Die Kosten hängen von Branche, Komplexität und Wachstumszielen ab. <strong class="text-[#0f2a56]">Websites starten ab ca. 1.000 € für eine einfache Landing Page bis ca. 5.000 € für komplexere Projekte</strong> und können in bis zu 3 Raten gezahlt werden. Google Ads Management wird als monatlicher Retainer abgerechnet. Im Strategiegespräch bekommst du konkrete Zahlen, bevor du dich entscheidest.</div>
           </details>
 
           <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
@@ -1943,7 +1983,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
               <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
             </summary>
-	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Ads gehen nach dem Launch <strong class="text-[#0f2a56]">direkt</strong> live. Die Lernphase dauert meist 2 bis 4 Wochen. Viele Kunden sehen innerhalb von <strong class="text-[#0f2a56]">30 bis 60 Tagen</strong> positive Returns. Ecommerce und Hotelkunden von uns haben bereits im ersten Monat <strong class="text-[#0f2a56]">6X+ ROAS</strong> erreicht.</div>
+	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Ads gehen nach dem Launch <strong class="text-[#0f2a56]">direkt</strong> live. Die Lernphase dauert meist 2 bis 4 Wochen. Viele Kunden sehen innerhalb von <strong class="text-[#0f2a56]">30 bis 60 Tagen</strong> positive Returns.</div>
           </details>
 
           <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
@@ -1988,7 +2028,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
               <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
             </summary>
-	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">In unserem Team arbeiten <strong class="text-[#0f2a56]">Strategen mit Erfahrung bei Google</strong>. Wir haben aktiven <strong class="text-[#0f2a56]">Google Partner Status</strong>. Wir lagern deine Kampagnen nicht an wechselnde Teams aus. Und wir optimieren auf die Kennzahl, die für dein Geschäft wirklich zählt: ROAS für Onlinehandel und Hotels, Kosten pro qualifiziertem Lead für Dienstleistungen und Bildungsangebote, nicht auf Vanity KPIs.</div>
+	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">In unserem Team arbeiten <strong class="text-[#0f2a56]">Strategen mit Erfahrung bei Google</strong>. Wir haben den aktiven <strong class="text-[#0f2a56]">Google Partner Status</strong>. Wir lagern deine Kampagnen nicht an wechselnde Teams aus. Und wir optimieren auf die Kennzahl, die für dein Geschäft wirklich zählt: ROAS für Onlinehandel und Hotels, Kosten pro qualifiziertem Lead für Dienstleistungen und Bildungsangebote, nicht auf Vanity KPIs.</div>
           </details>
         </div>
       </div>
@@ -2211,8 +2251,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
   })();
+
+  (function () {
+    const lightbox = document.getElementById('proof-lightbox');
+    const lbImg = document.getElementById('proof-lightbox-img');
+    const lbClose = document.getElementById('proof-lightbox-close');
+    if (!lightbox || !lbImg) return;
+    function openLightbox(img) {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.proof-screenshot img').forEach((img) => {
+      img.addEventListener('click', () => openLightbox(img));
+    });
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox || e.target === lbClose) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  })();
 </script>
 
 <script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
+
+<div id="proof-lightbox" role="dialog" aria-modal="true" aria-label="Bildanzeige">
+  <button id="proof-lightbox-close" aria-label="Schließen">&times;</button>
+  <img id="proof-lightbox-img" src="" alt="">
+</div>
 </body>
 </html>

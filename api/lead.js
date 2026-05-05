@@ -204,36 +204,52 @@ async function sendWithResend({ to, subject, html, text }) {
   return { sent: true };
 }
 
-function userEmailTemplate(record, calendarUrl) {
-  const subject = 'Your LYNCK Strategy Call Application';
-  const textLines = [
-    `Hi ${record.full_name || 'there'},`,
-    '',
-    'Thanks for applying for a Strategy Call with LYNCK Studio.',
-    'Your application was received successfully.',
-  ];
+function userEmailTemplate(record, calendarUrl, lang) {
+  const isDE = lang === 'de';
+
+  const subject = isDE
+    ? 'Deine Strategie-Call Anfrage bei LYNCK Studio'
+    : 'Your LYNCK Strategy Call Application';
+
+  const textLines = isDE
+    ? [
+        `Hallo ${record.full_name || ''},`,
+        '',
+        'Deine Anfrage für einen Strategie-Call bei LYNCK Studio ist eingegangen.',
+        'Wir schauen uns deine Antworten vorher an, damit der Call fokussiert ist.',
+      ]
+    : [
+        `Hi ${record.full_name || 'there'},`,
+        '',
+        'Thanks for applying for a Strategy Call with LYNCK Studio.',
+        'Your application was received successfully.',
+      ];
 
   if (calendarUrl) {
     textLines.push(
       '',
-      'Next step: book your slot here:',
+      isDE ? 'Nächster Schritt: Buche jetzt deinen Termin:' : 'Next step: book your slot here:',
       calendarUrl
     );
   } else {
     textLines.push(
       '',
-      'Next step: we will follow up directly by email with booking details.'
+      isDE
+        ? 'Nächster Schritt: Wir schicken dir die Buchungsoptionen per E-Mail.'
+        : 'Next step: we will follow up directly by email with booking details.'
     );
   }
 
   textLines.push(
     '',
-    'What to prepare for the call:',
-    '- Your current lead/sales goals',
-    '- Any key numbers you have (CPA/CAC/LTV/ROAS)',
-    '- Optional: account access context (Google/Meta/Analytics)',
+    isDE ? 'Was du für den Call vorbereiten solltest:' : 'What to prepare for the call:',
+    isDE ? '- Deine aktuellen Lead- und Umsatzziele' : '- Your current lead/sales goals',
+    isDE ? '- Wichtige Kennzahlen (CPA/CAC/LTV/ROAS)' : '- Any key numbers you have (CPA/CAC/LTV/ROAS)',
+    isDE ? '- Optional: Zugangsdaten Google/Meta/Analytics' : '- Optional: account access context (Google/Meta/Analytics)',
     '',
-    'If it turns out there is no fit, we will tell you directly.',
+    isDE
+      ? 'Wenn wir merken, dass es keinen guten Fit gibt, sagen wir dir das direkt.'
+      : 'If it turns out there is no fit, we will tell you directly.',
     '',
     'LYNCK Studio',
     'info@lynckstudio.pro'
@@ -242,11 +258,28 @@ function userEmailTemplate(record, calendarUrl) {
   const text = textLines.join('\n');
 
   const nextStepHtml = calendarUrl
-    ? `<p><strong>Next step:</strong> book your slot now:</p>
+    ? `<p><strong>${isDE ? 'Nächster Schritt' : 'Next step'}:</strong> ${isDE ? 'Buche deinen Termin hier' : 'book your slot now'}:</p>
       <p><a href="${calendarUrl}" target="_blank" rel="noopener noreferrer">${calendarUrl}</a></p>`
-    : `<p><strong>Next step:</strong> we will follow up directly by email with booking details.</p>`;
+    : `<p><strong>${isDE ? 'Nächster Schritt' : 'Next step'}:</strong> ${isDE ? 'Wir schicken dir die Buchungsoptionen per E-Mail.' : 'we will follow up directly by email with booking details.'}</p>`;
 
-  const html = `
+  const html = isDE
+    ? `
+    <div style="font-family:Inter,Arial,sans-serif;line-height:1.6;color:#101728;max-width:640px;margin:0 auto;">
+      <h2 style="margin:0 0 12px;">Deine Anfrage ist eingegangen.</h2>
+      <p>Hallo ${record.full_name || ''},</p>
+      <p>Deine Anfrage für einen Strategie-Call bei LYNCK Studio ist eingegangen. Wir schauen uns deine Antworten vorher an, damit der Call fokussiert ist.</p>
+      ${nextStepHtml}
+      <p><strong>Was du für den Call vorbereiten solltest:</strong></p>
+      <ul>
+        <li>Deine aktuellen Lead- und Umsatzziele</li>
+        <li>Wichtige Kennzahlen (CPA/CAC/LTV/ROAS)</li>
+        <li>Optional: Zugangsdaten Google/Meta/Analytics</li>
+      </ul>
+      <p>Wenn wir merken, dass es keinen guten Fit gibt, sagen wir dir das direkt.</p>
+      <p>LYNCK Studio<br>info@lynckstudio.pro</p>
+    </div>
+  `
+    : `
     <div style="font-family:Inter,Arial,sans-serif;line-height:1.6;color:#101728;max-width:640px;margin:0 auto;">
       <h2 style="margin:0 0 12px;">Your Strategy Call Application is in.</h2>
       <p>Hi ${record.full_name || 'there'},</p>
@@ -399,7 +432,7 @@ module.exports = async (req, res) => {
     });
   }
 
-  const userMail = userEmailTemplate(record, calendarUrl);
+  const userMail = userEmailTemplate(record, calendarUrl, cleanString(payload.lang));
   await deliverEmail({
     label: 'User email',
     to: [record.work_email],

@@ -37,7 +37,7 @@
       ? 'Ein Fehler ist aufgetreten. Bitte versuche es erneut oder schreibe an info@lynckstudio.pro.'
       : 'Submission failed. Please try again or email info@lynckstudio.pro.',
     leadEmailFailed: lang === 'de'
-      ? 'Wir konnten deine Anfrage nicht per E-Mail bestaetigen. Bitte versuche es erneut oder schreibe an info@lynckstudio.pro.'
+      ? 'Wir konnten deine Anfrage nicht per E-Mail bestätigen. Bitte versuche es erneut oder schreibe an info@lynckstudio.pro.'
       : 'We could not confirm your application. Please try again or email info@lynckstudio.pro.'
   };
 
@@ -211,29 +211,29 @@
 
       const website = value('websiteUrl');
       if (website && !isValidUrl(website)) {
-        setFieldError('websiteUrl', lang === 'de' ? 'Bitte gueltige URL eingeben' : 'Please enter a valid URL');
+        setFieldError('websiteUrl', lang === 'de' ? 'Bitte gültige URL eingeben' : 'Please enter a valid URL');
         valid = false;
       }
 
       const email = value('workEmail');
       if (email && !isValidEmail(email)) {
-        setFieldError('workEmail', lang === 'de' ? 'Bitte gueltige E-Mail eingeben' : 'Please enter a valid email');
+        setFieldError('workEmail', lang === 'de' ? 'Bitte gültige E-Mail eingeben' : 'Please enter a valid email');
         valid = false;
       }
 
       const services = selectedServices();
       if (!services.length) {
-        setFieldError('servicesInterested', lang === 'de' ? 'Bitte mindestens eine Option waehlen' : 'Select at least one option');
+        setFieldError('servicesInterested', lang === 'de' ? 'Bitte mindestens eine Option wählen' : 'Select at least one option');
         valid = false;
       }
 
       if (wantsWebsite() && !value('websiteBudgetRange')) {
-        setFieldError('websiteBudgetRange', lang === 'de' ? 'Bitte Budget waehlen' : 'Please choose a budget range');
+        setFieldError('websiteBudgetRange', lang === 'de' ? 'Bitte Budget wählen' : 'Please choose a budget range');
         valid = false;
       }
 
       if (wantsGoogle() && !value('adSpendRange')) {
-        setFieldError('adSpendRange', lang === 'de' ? 'Bitte Werbebudget waehlen' : 'Please choose an ad spend range');
+        setFieldError('adSpendRange', lang === 'de' ? 'Bitte Werbebudget wählen' : 'Please choose an ad spend range');
         valid = false;
       }
     }
@@ -246,19 +246,19 @@
       });
 
       if (!fieldChecked('consentContact')) {
-        setFieldError('consentContact', lang === 'de' ? 'Bitte bestaetigen' : 'Required consent');
+        setFieldError('consentContact', lang === 'de' ? 'Bitte bestätigen' : 'Required consent');
         valid = false;
       }
 
       if (!fieldChecked('consentPrivacy')) {
-        setFieldError('consentPrivacy', lang === 'de' ? 'Bitte bestaetigen' : 'Required consent');
+        setFieldError('consentPrivacy', lang === 'de' ? 'Bitte bestätigen' : 'Required consent');
         valid = false;
       }
     }
 
     if (!valid && stepError) {
       stepError.textContent = lang === 'de'
-        ? 'Bitte pruefe die markierten Felder, bevor du fortfaehrst.'
+        ? 'Bitte prüfe die markierten Felder, bevor du fortfährst.'
         : 'Please check the highlighted fields before continuing.';
     }
 
@@ -295,6 +295,7 @@
       consent_privacy: fieldChecked('consentPrivacy'),
       consent_newsletter: fieldChecked('consentNewsletter'),
 
+      lang: lang,
       honeypot: value('websiteHidden'),
       source_url: window.location.href,
       referrer_url: document.referrer || null,
