@@ -22,7 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/js/url-attribution-cleanup.js?v=20260504"></script>
 <script src="/js/cookie-consent.js?v=20260504b" defer></script>
-<title>LYNCK Studio - Website Design and Google Ads Growth Systems</title>
+  <title>LYNCK Studio | Website Design and Google Ads Growth Systems</title>
 <meta name="description" content="LYNCK builds premium conversion websites and Google Ads systems under one roof so businesses can turn traffic into customers, leads, and tracked revenue.">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -941,6 +941,76 @@ iconify-icon {
     transition-duration: 0.01ms !important;
   }
 }
+.proof-bullet {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 550ms ease, transform 550ms ease;
+}
+.proof-bullet.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.proof-bullet:nth-child(2) { transition-delay: 160ms; }
+.proof-bullet:nth-child(3) { transition-delay: 320ms; }
+.roi-bar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.roi-bar-fill {
+  width: 3rem;
+  border-radius: 0.5rem 0.5rem 0.25rem 0.25rem;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  opacity: 0;
+  animation: bar-rise 1000ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.proof-screenshot img {
+  cursor: zoom-in;
+}
+#proof-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(10,20,40,0.95);
+  cursor: zoom-out;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+#proof-lightbox.is-open {
+  display: flex;
+}
+#proof-lightbox-img {
+  max-width: min(95vw, 1300px);
+  max-height: 90vh;
+  border-radius: 0.75rem;
+  object-fit: contain;
+  cursor: default;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+}
+#proof-lightbox-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+#proof-lightbox-close:hover {
+  background: rgba(255,255,255,0.22);
+}
 </style>
 </head>
 <body class="selection:bg-orange-200 selection:text-black">
@@ -968,7 +1038,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="lynck-header-actions">
         <a href="/de/website-design/" class="lynck-lang-pill" aria-label="Switch language">EN <iconify-icon icon="solar:alt-arrow-down-linear" width="12"></iconify-icon></a>
         <a href="/apply/" class="lynck-header-cta">
-          Build my system
+          Apply now
           <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
         </a>
       </div>
@@ -991,22 +1061,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="lg:col-span-7 border-grid px-4 md:px-8 py-10 md:py-16 lg:py-20">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0f2a56]/14 bg-white text-[11px] md:text-xs font-bold tracking-wider uppercase mb-8">
           <span class="w-2 h-2 rounded-full bg-[#f97316] animate-pulse"></span>
-          Website design + Google Ads management
+          Website Design + Google Ads Management
         </div>
 
         <h1 class="max-w-5xl text-[4.3rem] sm:text-[6.2rem] md:text-[8rem] lg:text-[8.5rem] leading-[0.84] font-semibold tracking-tighter-custom">
-          <span class="hero-word">Websites</span>
-          <span class="hero-word">built to sell.</span>
-          <span class="hero-word hero-word--accent">Ads built to <span class="hero-rotator" data-hero-rotator data-words='["scale","grow","convert","track"]' aria-live="polite"><span class="hero-rotator-word is-active">scale</span></span></span>
+          <span class="hero-word">Websites built</span>
+          <span class="hero-word">to sell.</span>
+          <span class="hero-word hero-word--accent">Ads built to scale.</span>
         </h1>
 
-        <p class="mt-8 max-w-3xl text-xl md:text-2xl leading-snug text-[#0f2a56]/72">
-          LYNCK designs premium conversion websites and runs Google Ads campaigns under one roof, so your brand, landing pages, tracking, and paid traffic work as one customer acquisition system.
+        <p class="mt-8 max-w-3xl text-2xl md:text-3xl font-semibold leading-tight text-[#0f2a56]">
+          Turn your website into a system that brings you customers.
+        </p>
+
+        <p class="mt-5 max-w-3xl text-xl md:text-2xl leading-snug text-[#0f2a56]/72">
+          We design premium websites and connect them with Google Ads, tracking, and optimization, so your traffic, pages, and budget all work toward one goal: getting you more customers.
         </p>
 
         <div class="mt-8 flex flex-col sm:flex-row gap-3">
           <a href="/apply/" class="group inline-flex items-center justify-center gap-3 rounded-full bg-[#0f2a56] px-7 py-4 text-base font-semibold text-white transition-transform hover:-translate-y-1 active:scale-95">
-            Build my website + ads system
+            Apply for a Website + Ads Growth System
             <span class="w-8 h-8 rounded-full bg-[#ff8a1f] text-[#0f2a56] flex items-center justify-center group-hover:rotate-45 transition-transform">
               <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
             </span>
@@ -1016,14 +1090,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </a>
         </div>
 
-        <p class="mt-5 max-w-2xl text-sm text-[#0f2a56]/55">
-          We start with a short review of your business before recommending a website build, Google Ads retainer, or the combined system.
-        </p>
-
-        <div class="mt-8 flex flex-wrap gap-2">
-          <span class="rounded-full border border-[#0f2a56]/16 bg-white px-4 py-2 text-sm font-bold">Premium websites</span>
-          <span class="rounded-full border border-[#0f2a56]/16 bg-[#ff8a1f] px-4 py-2 text-sm font-bold">Google Ads retainers</span>
-          <span class="rounded-full border border-[#0f2a56]/16 bg-[#93c5fd] px-4 py-2 text-sm font-bold">Tracking + optimization</span>
+        <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[#0f2a56]/60">
+          <span class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#f97316]"></span>
+            🎯 Google Ads setup included (€1,000 to €2,000 value)
+          </span>
+          <span class="hidden sm:block text-[#0f2a56]/20">·</span>
+          <span class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#93c5fd]"></span>
+            Built by strategists with experience inside Google
+          </span>
         </div>
       </div>
 
@@ -1103,15 +1179,500 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
+  <section id="problem" class="section-shell">
+    <div class="grid grid-cols-1 lg:grid-cols-12">
+      <div class="lg:col-span-4 border-grid p-8 md:p-12 bg-[#0f2a56] text-white">
+        <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-3 py-1 text-xs uppercase tracking-widest font-bold text-[#ff8a1f]">
+          <iconify-icon icon="solar:danger-triangle-bold" width="14"></iconify-icon>
+          The real problem
+        </span>
+        <h2 class="mt-6 text-4xl md:text-6xl font-semibold tracking-tighter-custom leading-[0.95]">
+          A website alone does not create customers.
+        </h2>
+        <p class="mt-6 text-lg text-white/66 leading-relaxed">
+          It has to be designed to convert, connected to the right traffic, and measured properly. When design, ads, and tracking are handled separately, money leaks at every step.
+        </p>
+      </div>
+
+      <div class="lg:col-span-8 p-4 md:p-8 bg-white">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <article class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-6 min-h-[300px] flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-[#ff8a1f] flex items-center justify-center mb-6">
+                <iconify-icon icon="solar:shop-bold" width="24"></iconify-icon>
+              </div>
+              <h3 class="text-2xl font-semibold tracking-tighter-custom">No website or marketing</h3>
+              <p class="mt-4 text-[#0f2a56]/65 leading-relaxed">
+                People are already searching for what you offer. There is no clear place to send them, convince them, or turn them into leads.
+              </p>
+            </div>
+            <p class="mt-6 text-sm font-bold text-[#0f2a56]">You are leaving demand on the table.</p>
+          </article>
+
+          <article class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#93c5fd] p-6 min-h-[300px] flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center mb-6">
+                <iconify-icon icon="solar:cloud-cross-bold" width="24"></iconify-icon>
+              </div>
+              <h3 class="text-2xl font-semibold tracking-tighter-custom">Website collecting dust</h3>
+              <p class="mt-4 text-[#0f2a56]/72 leading-relaxed">
+                Your site exists, but it does not generate calls, bookings, or enquiries because there is no real traffic or conversion strategy behind it.
+              </p>
+            </div>
+            <p class="mt-6 text-sm font-bold text-[#0f2a56]">Your asset is not producing.</p>
+          </article>
+
+          <article class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#ff8a1f] p-6 min-h-[300px] flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-[#0f2a56] text-white flex items-center justify-center mb-6">
+                <iconify-icon icon="solar:cursor-bold" width="24"></iconify-icon>
+              </div>
+              <h3 class="text-2xl font-semibold tracking-tighter-custom">Google Ads not converting</h3>
+              <p class="mt-4 text-[#0f2a56]/72 leading-relaxed">
+                Ads may not be the problem. A weak page, poor trust signals, or broken tracking can make perfectly good traffic look like wasted money.
+              </p>
+            </div>
+            <p class="mt-6 text-sm font-bold text-[#0f2a56]">Traffic is being wasted.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell bg-white">
+    <div class="grid grid-cols-1 lg:grid-cols-12">
+      <div class="lg:col-span-5 border-grid p-8 md:p-12">
+        <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#f97316]">The fragmented agency problem</span>
+        <h2 class="mt-4 text-4xl md:text-6xl font-semibold tracking-tighter-custom leading-[0.96]">Your website agency, your ads agency, and your tracking developer all blame each other.</h2>
+        <p class="mt-5 text-lg text-[#0f2a56]/64 leading-relaxed">
+          In the time it takes three teams to agree on who owns the problem, you have already paid for another month of ads that are not converting. Meanwhile your budget keeps running.
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-5">
+            <p class="text-xs font-bold uppercase tracking-widest text-[#93c5fd] mb-4">Pain</p>
+            <div class="space-y-3">
+              <div class="rounded-2xl bg-white border border-[#0f2a56]/12 p-4">
+                <p class="font-bold">Website agency</p>
+                <p class="text-sm text-[#0f2a56]/58">"That sounds like a tracking issue."</p>
+              </div>
+              <div class="rounded-2xl bg-white border border-[#0f2a56]/12 p-4">
+                <p class="font-bold">Ads agency</p>
+                <p class="text-sm text-[#0f2a56]/58">"That needs to be fixed on the website."</p>
+              </div>
+              <div class="rounded-2xl bg-[#93c5fd] border border-[#0f2a56]/18 p-4">
+                <p class="font-bold">Two weeks later</p>
+                <p class="text-sm text-[#0f2a56]/72">Budget is still running. Attribution is still unclear.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#0f2a56] text-white p-5">
+            <p class="text-xs font-bold uppercase tracking-widest text-[#ff8a1f] mb-4">Solution</p>
+            <div class="space-y-3">
+              <div class="rounded-2xl bg-white/7 border border-white/10 p-4">
+                <p class="font-bold">Same team reviews the issue</p>
+                <p class="text-sm text-white/58">We know the page, campaign, conversion event, and tracking setup.</p>
+              </div>
+              <div class="rounded-2xl bg-white/7 border border-white/10 p-4">
+                <p class="font-bold">Same team fixes the issue</p>
+                <p class="text-sm text-white/58">No handoff maze. No blame loop.</p>
+              </div>
+              <div class="rounded-2xl bg-[#ff8a1f] text-[#0f2a56] p-4">
+                <p class="font-bold">Same system improves performance</p>
+                <p class="text-sm text-[#0f2a56]/72">Website, ads, and tracking learn from the same data.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="section-shell bg-[#0f2a56] text-white overflow-hidden">
+    <div class="grid grid-cols-1 lg:grid-cols-12">
+      <div class="lg:col-span-5 border-grid border-white/10 p-8 md:p-12 relative">
+        <div class="absolute top-0 right-0 w-72 h-72 rounded-full bg-[#ff8a1f]/20 blur-3xl pointer-events-none"></div>
+        <div class="relative">
+          <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#ff8a1f]">Real client results</span>
+          <h2 class="mt-4 text-4xl md:text-6xl font-semibold tracking-tighter-custom leading-[0.96]">Real ad data from active client accounts.</h2>
+          <p class="mt-5 text-lg text-white/70 leading-relaxed">
+            Screenshots and summary metrics from Google Ads accounts, anonymized for privacy and reviewed by campaign window.
+          </p>
+
+          <div class="mt-8 space-y-3" id="proof-bullets">
+            <div class="proof-bullet flex items-start gap-3 rounded-2xl bg-white/8 border border-white/10 px-4 py-4">
+              <span class="w-2 h-2 rounded-full bg-[#ff8a1f] mt-2 shrink-0"></span>
+              <p class="text-sm text-white/80 leading-relaxed">For <strong class="text-white">ecommerce,</strong> we track revenue returned for every euro spent on ads.</p>
+            </div>
+            <div class="proof-bullet flex items-start gap-3 rounded-2xl bg-white/8 border border-white/10 px-4 py-4">
+              <span class="w-2 h-2 rounded-full bg-[#93c5fd] mt-2 shrink-0"></span>
+              <p class="text-sm text-white/80 leading-relaxed">For <strong class="text-white">service businesses,</strong> we track cost per lead, booked calls, and form submissions.</p>
+            </div>
+            <div class="proof-bullet flex items-start gap-3 rounded-2xl bg-[#ff8a1f]/15 border border-[#ff8a1f]/30 px-4 py-4">
+              <span class="w-2 h-2 rounded-full bg-[#ff8a1f] mt-2 shrink-0"></span>
+              <p class="text-sm text-white/80 leading-relaxed">The strongest results come when <strong class="text-white">the website, ads, and tracking are managed as one system</strong> instead of separate parts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 p-4 md:p-8">
+        <div class="proof-flow-card rounded-[2rem] bg-white text-[#0f2a56] p-6 md:p-8 shadow-brutal">
+          <div class="relative grid grid-cols-1 xl:grid-cols-[0.95fr_1.05fr] gap-8 items-center">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.22em] text-[#0f2a56]/42 mb-3">Ecommerce · real campaign window</p>
+              <h3 class="text-2xl md:text-3xl font-semibold tracking-tighter-custom leading-snug">
+                Tracked conversion value exceeded ad spend during this campaign window.
+              </h3>
+            </div>
+
+            <div class="roi-lane">
+              <div class="roi-box metric-spend">
+                <p class="text-xs font-bold uppercase tracking-widest text-[#0f2a56]/54">Ad spend</p>
+                <p class="mt-2 text-4xl font-semibold tracking-tighter-custom count-up" data-count="6256" data-prefix="€" data-decimals="0">€0</p>
+                <p class="mt-3 text-sm text-[#0f2a56]/58">Money invested into Google Ads.</p>
+              </div>
+              <div class="roi-arrow" aria-hidden="true">
+                <iconify-icon icon="solar:arrow-right-linear" width="24"></iconify-icon>
+              </div>
+              <div class="roi-box bg-[#0f2a56] text-white border-white/10">
+                <p class="text-xs font-bold uppercase tracking-widest metric-value-bright">Tracked value</p>
+                <p class="mt-2 text-4xl font-semibold tracking-tighter-custom metric-value-bright count-up" data-count="66729" data-prefix="€" data-decimals="0">€0</p>
+                <p class="mt-3 text-sm text-white/62">Revenue or conversion value attributed to the ads.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="relative mt-6 text-base md:text-lg font-semibold text-[#0f2a56]/78">
+            During this window, tracked conversion value was <span class="metric-return count-up" data-count="10.67" data-decimals="2" data-suffix="X">0X</span> the recorded <span class="metric-spend">ad spend</span>.
+          </p>
+
+          <div class="relative mt-8 grid grid-cols-1 gap-6 items-end">
+            <div class="rounded-[1.5rem] bg-white/72 border border-[#0f2a56]/10 p-5">
+              <div class="flex items-end justify-between gap-5">
+                <div>
+                  <p class="text-sm font-bold uppercase tracking-widest text-[#0f2a56]/58">Return multiple</p>
+                  <p class="mt-1 text-6xl font-semibold tracking-tighter-custom metric-return count-up" data-count="10.67" data-decimals="2" data-suffix="X">0X</p>
+                </div>
+                <div class="roi-chart" aria-hidden="true">
+                  <div class="roi-bar spend"></div>
+                  <div class="roi-bar revenue"></div>
+                </div>
+              </div>
+              <div class="mt-3 flex justify-end gap-3 text-[11px] font-bold uppercase tracking-widest text-[#0f2a56]/58">
+                <span class="metric-spend">Spend</span>
+                <span class="metric-value">Value</span>
+              </div>
+            </div>
+
+            <img src="/assets/google-ads-image-2.webp" alt="Google Ads growth system visual" class="rounded-[1.5rem] border border-white/40 object-cover h-48 w-full">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-4 md:p-8 border-t border-white/10">
+      <div class="mb-5 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-5 items-stretch">
+        <div class="flex h-full flex-col justify-center rounded-[1.25rem] border border-white/8 bg-white/[0.025] p-6 md:p-7">
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-[#93c5fd]">Verified client accounts</p>
+          <h3 class="mt-3 max-w-3xl text-2xl md:text-4xl font-semibold tracking-tighter-custom leading-tight">Real campaign data. No estimates. No inflated numbers.</h3>
+          <p class="mt-4 max-w-2xl text-sm text-white/66 leading-relaxed">Each screenshot below is taken directly from Google Ads, with client names removed. You can see what was spent, what was tracked, and how performance looked over time.</p>
+          <p class="mt-5 max-w-3xl border-l-2 border-[#93c5fd]/70 pl-4 text-sm font-semibold leading-relaxed text-white/82">These are not promises. They are examples of what happens when the website, ads, and tracking are built and managed as one system.</p>
+        </div>
+        <div class="h-full rounded-[1.25rem] border border-white/10 bg-white/[0.035] p-5" aria-label="How to read the results cards">
+          <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-white/48 mb-4">How to read each card</p>
+          <div class="space-y-3.5">
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-[#dc2626] mt-1.5 shrink-0"></span>
+              <div>
+                <p class="text-[13px] font-semibold text-white">Ad spend</p>
+                <p class="text-xs text-white/54 mt-0.5 leading-relaxed">What was invested into Google Ads during that period.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></span>
+              <div>
+                <p class="text-[13px] font-semibold text-white">Tracked value</p>
+                <p class="text-xs text-white/54 mt-0.5 leading-relaxed">Revenue or leads attributed back to those ads.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-[#ff8a1f] mt-1.5 shrink-0"></span>
+              <div>
+                <p class="text-[13px] font-semibold text-white">Return multiple (X)</p>
+                <p class="text-xs text-white/54 mt-0.5 leading-relaxed">How many times the spend was tracked back in value.</p>
+              </div>
+            </div>
+          </div>
+          <p class="mt-4 pt-4 border-t border-white/8 text-[11px] leading-relaxed text-white/42">Performance varies by industry, offer, budget, and market conditions.</p>
+        </div>
+      </div>
+
+      <p class="mb-5 max-w-4xl text-sm font-medium leading-relaxed text-white/68">For service businesses, we focus on cost per lead, booked calls, and conversion quality, not just revenue multiples.</p>
+
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
+          <div class="proof-screenshot">
+            <img src="/assets/google-ads-proof-lp/proof-result-01.webp" alt="Anonymized Google Ads account screenshot showing April 2026 conversion value" loading="lazy">
+            <span class="proof-result-chip"><strong class="count-up" data-count="12.58" data-decimals="2" data-suffix="X">0X</strong> return</span>
+          </div>
+          <div class="proof-image-body">
+            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">Ecommerce account · April 2026</p>
+            <p class="proof-impact-number metric-return count-up" data-count="12.58" data-decimals="2" data-suffix="X">0X</p>
+            <p class="proof-impact-sentence"><span class="spend-word">€12,429.85 in ad spend</span> generated <span class="value-word">€156,405.87 in revenue</span>.</p>
+          </div>
+        </article>
+
+        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
+          <div class="proof-screenshot">
+            <img src="/assets/google-ads-proof-lp/proof-result-02.webp" alt="Anonymized Google Ads account screenshot showing February 2026 conversion value" loading="lazy">
+            <span class="proof-result-chip"><strong class="count-up" data-count="10.08" data-decimals="2" data-suffix="X">0X</strong> return</span>
+          </div>
+          <div class="proof-image-body">
+            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">Ecommerce account · February 2026</p>
+            <p class="proof-impact-number metric-return count-up" data-count="10.08" data-decimals="2" data-suffix="X">0X</p>
+            <p class="proof-impact-sentence"><span class="spend-word">€9,012.37 in ad spend</span> generated <span class="value-word">€90,837.65 in revenue</span>.</p>
+          </div>
+        </article>
+
+        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
+          <div class="proof-screenshot">
+            <img src="/assets/google-ads-proof-lp/proof-result-03.webp" alt="Anonymized Google Ads account screenshot showing December 2025 conversion value" loading="lazy">
+            <span class="proof-result-chip"><strong class="count-up" data-count="9.40" data-decimals="2" data-suffix="X">0X</strong> return</span>
+          </div>
+          <div class="proof-image-body">
+            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">Ecommerce account · December 2025</p>
+            <p class="proof-impact-number metric-return count-up" data-count="9.40" data-decimals="2" data-suffix="X">0X</p>
+            <p class="proof-impact-sentence"><span class="spend-word">€12,206.52 in ad spend</span> generated <span class="value-word">€114,734.12 in revenue</span>.</p>
+          </div>
+        </article>
+
+        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
+          <div class="proof-screenshot">
+            <img src="/assets/google-ads-proof-lp/proof-result-04.webp" alt="Anonymized Google Ads account screenshot showing November 2025 conversion value" loading="lazy">
+            <span class="proof-result-chip"><strong class="count-up" data-count="6.71" data-decimals="2" data-suffix="X">0X</strong> return</span>
+          </div>
+          <div class="proof-image-body">
+            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">Ecommerce account · November 2025</p>
+            <p class="proof-impact-number metric-return count-up" data-count="6.71" data-decimals="2" data-suffix="X">0X</p>
+            <p class="proof-impact-sentence"><span class="spend-word">€11,861.41 in ad spend</span> generated <span class="value-word">€79,605.98 in revenue</span>.</p>
+          </div>
+        </article>
+
+        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
+          <div class="proof-screenshot">
+            <img src="/assets/google-ads-proof-lp/proof-result-05.webp" alt="Anonymized Google Ads account screenshot showing February 2026 leads" loading="lazy">
+            <span class="proof-result-chip"><strong class="count-up" data-count="7.43" data-prefix="€" data-decimals="2">€0</strong> cost/conv.</span>
+          </div>
+          <div class="proof-image-body">
+            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">Lead generation account · February 2026</p>
+            <p class="proof-impact-number metric-return count-up" data-count="7.43" data-prefix="€" data-decimals="2">€0</p>
+            <p class="proof-impact-sentence"><span class="spend-word">€3,738.62 in ad spend</span> generated <span class="value-word">658.42 leads</span> at €7.43 each.</p>
+          </div>
+        </article>
+
+        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
+          <div class="proof-screenshot">
+            <img src="/assets/google-ads-proof-lp/proof-result-06.webp" alt="Anonymized Google Ads account screenshot showing March 2026 leads" loading="lazy">
+            <span class="proof-result-chip"><strong class="count-up" data-count="3.44" data-prefix="€" data-decimals="2">€0</strong> cost/conv.</span>
+          </div>
+          <div class="proof-image-body">
+            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">Lead generation account · March 2026</p>
+            <p class="proof-impact-number metric-return count-up" data-count="3.44" data-prefix="€" data-decimals="2">€0</p>
+            <p class="proof-impact-sentence"><span class="spend-word">€5,056.87 in ad spend</span> generated <span class="value-word">1,468.49 leads</span> at €3.44 each.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="offer" class="section-shell bg-white">
+    <div class="p-8 md:p-12 border-b border-[#0f2a56]/14">
+      <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#f97316]">Services</span>
+      <h2 class="mt-4 text-4xl md:text-7xl font-semibold tracking-tighter-custom leading-[0.95] max-w-5xl">Choose the path that fits where you are now. Most clients choose the full system.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3">
+      <article class="border-grid p-8 md:p-10 bg-[#f3f4ef] min-h-[420px] flex flex-col">
+        <div class="w-14 h-14 rounded-2xl bg-white border border-[#0f2a56]/14 flex items-center justify-center">
+          <iconify-icon icon="solar:monitor-smartphone-bold" width="28"></iconify-icon>
+        </div>
+        <h3 class="mt-8 text-3xl font-semibold tracking-tighter-custom">Website Design</h3>
+        <p class="mt-4 text-[#0f2a56]/64 leading-relaxed">
+          For businesses that need a sharper, more convincing website that turns visitors into leads or buyers.
+        </p>
+        <ul class="mt-6 space-y-3 text-sm font-medium text-[#0f2a56]/75">
+          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#f97316] shrink-0"></iconify-icon>Conversion messaging and page structure</li>
+          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#f97316] shrink-0"></iconify-icon>Premium visual direction</li>
+          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#f97316] shrink-0"></iconify-icon>Built with paid traffic in mind</li>
+        </ul>
+        <a href="/apply/" class="mt-auto pt-8 inline-flex items-center gap-2 font-bold hover:opacity-70">Start website project <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
+      </article>
+
+      <article class="border-grid p-8 md:p-10 bg-[#0f2a56] text-white min-h-[420px] flex flex-col relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-72 h-72 rounded-full bg-[#ff8a1f]/22 blur-3xl"></div>
+        <div class="relative">
+          <div class="flex items-center justify-between gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-[#ff8a1f] text-[#0f2a56] flex items-center justify-center">
+              <iconify-icon icon="solar:rocket-bold" width="28"></iconify-icon>
+            </div>
+            <span class="rounded-full bg-white text-[#0f2a56] px-3 py-1 text-xs font-bold uppercase tracking-widest">Recommended</span>
+          </div>
+          <h3 class="mt-8 text-3xl font-semibold tracking-tighter-custom">Website + Google Ads System</h3>
+          <p class="mt-4 text-white/66 leading-relaxed">
+            For businesses that want the page, campaign, tracking, and optimization built together from day one.
+          </p>
+          <ul class="mt-6 space-y-3 text-sm font-medium text-white/78">
+            <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#ff8a1f] shrink-0"></iconify-icon>Website or landing page built for conversion</li>
+            <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#ff8a1f] shrink-0"></iconify-icon>Google Ads setup included (€1,000 to €2,000 value)</li>
+            <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#ff8a1f] shrink-0"></iconify-icon>Tracking, reporting, and weekly optimization</li>
+          </ul>
+          <a href="/apply/" class="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[#ff8a1f] px-6 py-4 font-bold text-[#0f2a56] hover:bg-white transition-colors">
+            Apply for the full system
+            <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
+          </a>
+        </div>
+      </article>
+
+      <article class="border-grid p-8 md:p-10 bg-[#93c5fd] min-h-[420px] flex flex-col">
+        <div class="w-14 h-14 rounded-2xl bg-white border border-[#0f2a56]/14 flex items-center justify-center">
+          <iconify-icon icon="solar:target-bold" width="28"></iconify-icon>
+        </div>
+        <h3 class="mt-8 text-3xl font-semibold tracking-tighter-custom">Google Ads Management</h3>
+        <p class="mt-4 text-[#0f2a56]/68 leading-relaxed">
+          For businesses with a site that is ready to convert, or close enough that we can fix the most important bottlenecks.
+        </p>
+        <ul class="mt-6 space-y-3 text-sm font-medium text-[#0f2a56]/76">
+          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#0f2a56] shrink-0"></iconify-icon>Campaign architecture</li>
+          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#0f2a56] shrink-0"></iconify-icon>Conversion tracking review</li>
+          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#0f2a56] shrink-0"></iconify-icon>Weekly optimization toward ROI</li>
+        </ul>
+        <a href="/apply/" class="mt-auto pt-8 inline-flex items-center gap-2 font-bold hover:opacity-70">Launch ads with us <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
+      </article>
+    </div>
+    <div class="px-8 md:px-12 py-6 border-t border-[#0f2a56]/10 bg-white text-center text-sm text-[#0f2a56]/52">
+      Website projects can be split into 2 to 3 payments. Ad management is billed monthly. Your ad spend goes directly to Google.
+    </div>
+  </section>
+
+  <section id="process" class="section-shell">
+    <div class="grid grid-cols-1 lg:grid-cols-12">
+      <div class="lg:col-span-5 border-grid p-8 md:p-12">
+        <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#f97316]">How it works</span>
+        <h2 class="mt-4 text-4xl md:text-7xl font-semibold tracking-tighter-custom leading-[0.95]">From your first call to a live website with ads running.</h2>
+        <p class="mt-5 text-lg text-[#0f2a56]/64 leading-relaxed">
+          We review your business, offer, audience, and current setup before building the direction that makes sense.
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 p-4 md:p-8 bg-white">
+        <div class="space-y-4">
+          <div class="flow-line grid grid-cols-[3rem_1fr] gap-5 rounded-[1.5rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-5">
+            <div class="w-12 h-12 rounded-full bg-[#ff8a1f] flex items-center justify-center font-bold">1</div>
+            <div>
+              <h3 class="text-2xl font-semibold tracking-tighter-custom">Choose the right direction</h3>
+              <p class="mt-2 text-[#0f2a56]/64">We review your business, offer, audience, and current setup before recommending website, ads, or both.</p>
+            </div>
+          </div>
+
+          <div class="flow-line grid grid-cols-[3rem_1fr] gap-5 rounded-[1.5rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-5">
+            <div class="w-12 h-12 rounded-full bg-[#93c5fd] flex items-center justify-center font-bold">2</div>
+            <div>
+              <h3 class="text-2xl font-semibold tracking-tighter-custom">Build the website or landing page</h3>
+              <p class="mt-2 text-[#0f2a56]/64">We design the structure, message, trust signals, and conversion flow. Most projects are ready within 1 to 2 weeks.</p>
+            </div>
+          </div>
+
+          <div class="flow-line grid grid-cols-[3rem_1fr] gap-5 rounded-[1.5rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-5">
+            <div class="w-12 h-12 rounded-full bg-[#0f2a56] text-white flex items-center justify-center font-bold">3</div>
+            <div>
+              <h3 class="text-2xl font-semibold tracking-tighter-custom">Launch Google Ads + tracking</h3>
+              <p class="mt-2 text-[#0f2a56]/64">Campaigns, conversion events, and reporting are set up so each click can be judged by business outcomes.</p>
+            </div>
+          </div>
+
+          <div class="flow-line grid grid-cols-[3rem_1fr] gap-5 rounded-[1.5rem] border border-[#0f2a56]/14 bg-[#0f2a56] text-white p-5">
+            <div class="w-12 h-12 rounded-full bg-[#ff8a1f] text-[#0f2a56] flex items-center justify-center font-bold">4</div>
+            <div>
+              <h3 class="text-2xl font-semibold tracking-tighter-custom">Optimize weekly from real data</h3>
+              <p class="mt-2 text-white/64">We adjust budget, search terms, landing page friction, and conversion bottlenecks based on what actually produces results.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell bg-white">
+    <div class="p-8 md:p-12 border-b border-[#0f2a56]/14 text-center">
+      <h2 class="text-4xl md:text-6xl font-semibold tracking-tighter-custom leading-[0.98] max-w-3xl mx-auto">Built for businesses that are serious about growth.</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="border-grid p-8 md:p-12 bg-[#f3f4ef]">
+        <div class="inline-flex items-center gap-2 rounded-full bg-[#0f2a56] px-4 py-2 text-xs font-bold uppercase tracking-widest text-white mb-8">Good fit</div>
+        <ul class="space-y-4">
+          <li class="flex gap-3 items-start">
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/80 leading-relaxed">You need a new website and want it to generate leads</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/80 leading-relaxed">You have a website but it brings no calls, bookings, or enquiries</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/80 leading-relaxed">You want to run Google Ads properly</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/80 leading-relaxed">You are tired of multiple agencies and unclear responsibility</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/80 leading-relaxed">You can invest at least €1,000/month in ads</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#f97316] shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/80 leading-relaxed">You want clear numbers, not vague reports</span>
+          </li>
+        </ul>
+      </div>
+      <div class="p-8 md:p-12 bg-white">
+        <div class="inline-flex items-center gap-2 rounded-full border border-[#0f2a56]/14 px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#0f2a56]/48 mb-8">Not for you</div>
+        <ul class="space-y-4">
+          <li class="flex gap-3 items-start">
+            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#0f2a56]/28 shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/55 leading-relaxed">You are looking for the cheapest possible website</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#0f2a56]/28 shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/55 leading-relaxed">You are not ready to invest in traffic</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#0f2a56]/28 shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/55 leading-relaxed">You want design only, with no strategy</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#0f2a56]/28 shrink-0 mt-0.5"></iconify-icon>
+            <span class="text-[#0f2a56]/55 leading-relaxed">You expect guaranteed results without testing and optimization</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section id="templates" class="section-shell bg-white">
     <div class="grid grid-cols-1 lg:grid-cols-12 border-b border-[#0f2a56]/14">
       <div class="lg:col-span-7 border-grid p-8 md:p-12">
         <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#f97316]">Website templates</span>
-        <h2 class="mt-4 text-4xl md:text-7xl font-semibold tracking-tighter-custom leading-[0.95]">Pick your website template. We turn it into your growth system.</h2>
+        <h2 class="mt-4 text-4xl md:text-7xl font-semibold tracking-tighter-custom leading-[0.95]">Start from a proven direction. We adapt it entirely to your business.</h2>
       </div>
       <div class="lg:col-span-5 p-8 md:p-12 flex items-end">
         <p class="text-lg text-[#0f2a56]/64 leading-relaxed">
-          Start from a premium visual direction for your industry, then we adapt the messaging, conversion flow, tracking, and Google Ads launch around your offer.
+          You are not buying a template. Each direction is a tested starting point that we rebuild around your offer, audience, conversion flow, and ad strategy.
         </p>
       </div>
     </div>
@@ -1148,9 +1709,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://lynckdigital.store/" target="_blank" rel="noopener noreferrer">
           <div class="template-media">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-lynckdigital.webp" alt="Digital product e-commerce website preview" class="template-image w-full h-full object-cover object-top">
+            <img loading="lazy" decoding="async" src="/assets/website-sample-lynckdigital.webp" alt="Digital product ecommerce website preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="template-meta"><span class="template-number">05</span><h3 class="template-title">Digital product / e-com</h3></div>
+          <div class="template-meta"><span class="template-number">05</span><h3 class="template-title">Digital product / ecommerce</h3></div>
         </a>
 
         <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://mrlucasbey.netlify.app/" target="_blank" rel="noopener noreferrer">
@@ -1185,7 +1746,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="template-media">
             <img loading="lazy" decoding="async" src="/assets/website-sample-billiondollarpie.webp" alt="Lead generation landing page preview" class="template-image w-full h-full object-cover object-top">
           </div>
-          <div class="template-meta"><span class="template-number">10</span><h3 class="template-title">Lead-gen landing page</h3></div>
+          <div class="template-meta"><span class="template-number">10</span><h3 class="template-title">Lead generation landing page</h3></div>
         </a>
 
         <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/rollicious-vietnamese/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
@@ -1212,419 +1773,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section id="problem" class="section-shell">
-    <div class="grid grid-cols-1 lg:grid-cols-12">
-      <div class="lg:col-span-4 border-grid p-8 md:p-12 bg-[#0f2a56] text-white">
-        <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-3 py-1 text-xs uppercase tracking-widest font-bold text-[#ff8a1f]">
-          <iconify-icon icon="solar:danger-triangle-bold" width="14"></iconify-icon>
-          The real problem
-        </span>
-        <h2 class="mt-6 text-4xl md:text-6xl font-semibold tracking-tighter-custom leading-[0.95]">
-          A website alone does not create customers.
-        </h2>
-        <p class="mt-6 text-lg text-white/66 leading-relaxed">
-          It has to be designed to convert, connected to the right traffic, and measured properly. When design, ads, and tracking are split apart, money leaks everywhere.
-        </p>
-      </div>
-
-      <div class="lg:col-span-8 p-4 md:p-8 bg-white">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <article class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-6 min-h-[300px] flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-2xl bg-[#ff8a1f] flex items-center justify-center mb-6">
-                <iconify-icon icon="solar:shop-bold" width="24"></iconify-icon>
-              </div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">No website or marketing</h3>
-              <p class="mt-4 text-[#0f2a56]/65 leading-relaxed">
-                People are already searching for what you sell, but there is no clear place to send them, capture them, or prove the opportunity.
-              </p>
-            </div>
-            <p class="mt-6 text-sm font-bold text-[#0f2a56]">You are leaving demand uncaptured.</p>
-          </article>
-
-          <article class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#93c5fd] p-6 min-h-[300px] flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center mb-6">
-                <iconify-icon icon="solar:cloud-cross-bold" width="24"></iconify-icon>
-              </div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">Website collecting dust</h3>
-              <p class="mt-4 text-[#0f2a56]/72 leading-relaxed">
-                Your site exists, but it does not generate leads or sales because nobody is driving qualified traffic into a conversion path.
-              </p>
-            </div>
-            <p class="mt-6 text-sm font-bold text-[#0f2a56]">Your asset is not producing.</p>
-          </article>
-
-          <article class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#ff8a1f] p-6 min-h-[300px] flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-2xl bg-[#0f2a56] text-white flex items-center justify-center mb-6">
-                <iconify-icon icon="solar:cursor-bold" width="24"></iconify-icon>
-              </div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">Google Ads not converting</h3>
-              <p class="mt-4 text-[#0f2a56]/72 leading-relaxed">
-                Ads may not be the issue. Weak messaging, slow pages, poor trust, or broken tracking can make good traffic look like bad traffic.
-              </p>
-            </div>
-            <p class="mt-6 text-sm font-bold text-[#0f2a56]">Traffic is being wasted.</p>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-shell bg-white">
-    <div class="grid grid-cols-1 lg:grid-cols-12">
-      <div class="lg:col-span-5 border-grid p-8 md:p-12">
-        <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#f97316]">The fragmented agency problem</span>
-        <h2 class="mt-4 text-4xl md:text-6xl font-semibold tracking-tighter-custom leading-[0.96]">One change. Three teams. Weeks lost.</h2>
-        <p class="mt-5 text-lg text-[#0f2a56]/64 leading-relaxed">
-          Most businesses separate the website team, ads team, and tracking person. Every issue becomes a chain of emails and nobody owns the full commercial outcome.
-        </p>
-      </div>
-
-      <div class="lg:col-span-7 p-4 md:p-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-5">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#93c5fd] mb-4">The painful way</p>
-            <div class="space-y-3">
-              <div class="rounded-2xl bg-white border border-[#0f2a56]/12 p-4">
-                <p class="font-bold">Website agency</p>
-                <p class="text-sm text-[#0f2a56]/58">"That sounds like a tracking issue."</p>
-              </div>
-              <div class="rounded-2xl bg-white border border-[#0f2a56]/12 p-4">
-                <p class="font-bold">Ads agency</p>
-                <p class="text-sm text-[#0f2a56]/58">"That needs to be fixed on the website."</p>
-              </div>
-              <div class="rounded-2xl bg-[#93c5fd] border border-[#0f2a56]/18 p-4">
-                <p class="font-bold">Two weeks later</p>
-                <p class="text-sm text-[#0f2a56]/72">Budget is still running. Attribution is still unclear.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#0f2a56] text-white p-5">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#ff8a1f] mb-4">The LYNCK way</p>
-            <div class="space-y-3">
-              <div class="rounded-2xl bg-white/7 border border-white/10 p-4">
-                <p class="font-bold">Same team reviews the issue</p>
-                <p class="text-sm text-white/58">We know the page, campaign, conversion event, and tracking setup.</p>
-              </div>
-              <div class="rounded-2xl bg-white/7 border border-white/10 p-4">
-                <p class="font-bold">Same team fixes the issue</p>
-                <p class="text-sm text-white/58">No handoff maze. No blame loop.</p>
-              </div>
-              <div class="rounded-2xl bg-[#ff8a1f] text-[#0f2a56] p-4">
-                <p class="font-bold">Same system improves performance</p>
-                <p class="text-sm text-[#0f2a56]/72">Website, ads, and tracking learn from the same data.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="results" class="section-shell bg-[#0f2a56] text-white overflow-hidden">
-    <div class="grid grid-cols-1 lg:grid-cols-12">
-      <div class="lg:col-span-5 border-grid border-white/10 p-8 md:p-12 relative">
-        <div class="absolute top-0 right-0 w-72 h-72 rounded-full bg-[#ff8a1f]/20 blur-3xl pointer-events-none"></div>
-        <div class="relative">
-          <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#ff8a1f]">Real client Google Ads results</span>
-          <h2 class="mt-4 text-4xl md:text-6xl font-semibold tracking-tighter-custom leading-[0.96]">Client spend turned into tracked revenue.</h2>
-          <p class="mt-5 text-lg text-white/70 leading-relaxed">
-            These are anonymized account windows from clients we managed. No client names shown publicly, just the simple business question: how much went into ads, and how much tracked value came back?
-          </p>
-          <div class="proof-explainer mt-8">
-            <div>
-              <p class="text-[11px] uppercase tracking-widest metric-spend font-bold">Input</p>
-              <p class="mt-1 text-sm text-white/78">Ad spend invested in Google Ads.</p>
-            </div>
-            <div>
-              <p class="text-[11px] uppercase tracking-widest metric-value-bright font-bold">Output</p>
-              <p class="mt-1 text-sm text-white/78">Tracked revenue or conversion value.</p>
-            </div>
-            <div>
-              <p class="text-[11px] uppercase tracking-widest metric-return-bright font-bold">ROI</p>
-              <p class="mt-1 text-sm text-white/78">Return multiple from that window.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="lg:col-span-7 p-4 md:p-8">
-        <div class="proof-flow-card rounded-[2rem] bg-white text-[#0f2a56] p-6 md:p-8 shadow-brutal">
-          <div class="relative grid grid-cols-1 xl:grid-cols-[0.95fr_1.05fr] gap-8 items-center">
-            <div>
-              <h3 class="mt-3 text-3xl md:text-5xl font-semibold tracking-tighter-custom leading-none">
-                In ads generated tracked value.
-              </h3>
-            </div>
-
-            <div class="roi-lane">
-              <div class="roi-box metric-spend">
-                <p class="text-xs font-bold uppercase tracking-widest text-[#0f2a56]/54">Ad spend</p>
-                <p class="mt-2 text-4xl font-semibold tracking-tighter-custom count-up" data-count="6256" data-prefix="€" data-decimals="0">€0</p>
-                <p class="mt-3 text-sm text-[#0f2a56]/58">Money invested into Google Ads.</p>
-              </div>
-              <div class="roi-arrow" aria-hidden="true">
-                <iconify-icon icon="solar:arrow-right-linear" width="24"></iconify-icon>
-              </div>
-              <div class="roi-box bg-[#0f2a56] text-white border-white/10">
-                <p class="text-xs font-bold uppercase tracking-widest metric-value-bright">Tracked value</p>
-                <p class="mt-2 text-4xl font-semibold tracking-tighter-custom metric-value-bright count-up" data-count="66729" data-prefix="€" data-decimals="0">€0</p>
-                <p class="mt-3 text-sm text-white/62">Revenue/conversion value measured back.</p>
-              </div>
-            </div>
-          </div>
-
-          <p class="relative mt-6 text-base md:text-lg font-semibold text-[#0f2a56]/78">
-            That is a <span class="metric-return count-up" data-count="10.67" data-decimals="2" data-suffix="X">0X</span> return: every <span class="metric-spend">€1 spent</span> returned <span class="metric-value">€10.67</span> in measured conversion value.
-          </p>
-
-          <div class="relative mt-8 grid grid-cols-1 gap-6 items-end">
-            <div class="rounded-[1.5rem] bg-white/72 border border-[#0f2a56]/10 p-5">
-              <div class="flex items-end justify-between gap-5">
-                <div>
-                  <p class="text-sm font-bold uppercase tracking-widest text-[#0f2a56]/58">Return multiple</p>
-                  <p class="mt-1 text-6xl font-semibold tracking-tighter-custom metric-return count-up" data-count="10.67" data-decimals="2" data-suffix="X">0X</p>
-                </div>
-                <div class="roi-chart" aria-hidden="true">
-                  <div class="roi-bar spend"></div>
-                  <div class="roi-bar revenue"></div>
-                </div>
-              </div>
-              <div class="mt-3 flex justify-end gap-3 text-[11px] font-bold uppercase tracking-widest text-[#0f2a56]/58">
-                <span class="metric-spend">Spend</span>
-                <span class="metric-value">Value</span>
-              </div>
-            </div>
-
-            <img src="/assets/google-ads-image-2.webp" alt="Google Ads growth system visual" class="rounded-[1.5rem] border border-white/40 object-cover h-48 w-full">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="p-4 md:p-8 border-t border-white/10">
-      <div class="mb-6 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-5 items-end">
-        <div>
-          <p class="text-xs font-bold uppercase tracking-[0.22em] text-[#93c5fd]">More anonymized account windows</p>
-          <h3 class="mt-2 text-2xl md:text-4xl font-semibold tracking-tighter-custom">Clear Google Ads ROI examples from client accounts.</h3>
-          <p class="mt-3 max-w-2xl text-sm text-white/58">Names stay private. Metrics stay simple: <span class="metric-spend">spend</span>, <span class="metric-value-bright">tracked value</span>, conversions, cost per conversion, and <span class="metric-return-bright">return</span>. For lead accounts, we highlight cost per tracked conversion.</p>
-        </div>
-        <div class="tube-graph-card" aria-label="Rising ROI graph">
-          <img src="/assets/google-ads-3d-icon-4k.webp" alt="Google Ads icon visual">
-          <p class="relative z-[2] text-xs font-bold uppercase tracking-[0.22em] text-white/54">Spend to return</p>
-          <svg class="tube-graph-svg" viewBox="0 0 420 170" role="img" aria-label="An upward green return graph after red spend input">
-            <defs>
-              <linearGradient id="tubeGradient" x1="0" y1="1" x2="1" y2="0">
-                <stop offset="0%" stop-color="#dc2626"></stop>
-                <stop offset="38%" stop-color="#f97316"></stop>
-                <stop offset="100%" stop-color="#22c55e"></stop>
-              </linearGradient>
-            </defs>
-            <path class="tube-path-shadow" d="M24 130 C84 126 86 82 138 88 C196 96 198 142 252 118 C300 96 318 46 394 34"></path>
-            <path class="tube-path" d="M24 130 C84 126 86 82 138 88 C196 96 198 142 252 118 C300 96 318 46 394 34"></path>
-            <circle cx="24" cy="130" r="8" fill="#dc2626"></circle>
-            <circle class="tube-dot" cx="394" cy="34" r="10" fill="#22c55e"></circle>
-          </svg>
-          <div class="tube-axis-label">
-            <span class="metric-spend">Ad spend</span>
-            <span class="metric-value-bright">Tracked value</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
-        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
-          <div class="proof-screenshot">
-            <img src="/assets/google-ads-proof-lp/proof-result-01.webp" alt="Anonymized Google Ads account screenshot showing April 2026 conversion value" loading="lazy">
-            <span class="proof-result-chip"><strong class="count-up" data-count="12.58" data-decimals="2" data-suffix="X">0X</strong> return</span>
-          </div>
-          <div class="proof-image-body">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">E-commerce account · April 2026</p>
-            <p class="proof-impact-number metric-return count-up" data-count="12.58" data-decimals="2" data-suffix="X">0X</p>
-            <p class="proof-impact-sentence"><span class="spend-word">€12,429.85 in ad spend</span> generated <span class="value-word">€156,405.87 in tracked value</span>.</p>
-          </div>
-        </article>
-
-        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
-          <div class="proof-screenshot">
-            <img src="/assets/google-ads-proof-lp/proof-result-02.webp" alt="Anonymized Google Ads account screenshot showing February 2026 conversion value" loading="lazy">
-            <span class="proof-result-chip"><strong class="count-up" data-count="10.08" data-decimals="2" data-suffix="X">0X</strong> return</span>
-          </div>
-          <div class="proof-image-body">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">E-commerce account · February 2026</p>
-            <p class="proof-impact-number metric-return count-up" data-count="10.08" data-decimals="2" data-suffix="X">0X</p>
-            <p class="proof-impact-sentence"><span class="spend-word">€9,012.37 in ad spend</span> generated <span class="value-word">€90,837.65 in tracked value</span>.</p>
-          </div>
-        </article>
-
-        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
-          <div class="proof-screenshot">
-            <img src="/assets/google-ads-proof-lp/proof-result-03.webp" alt="Anonymized Google Ads account screenshot showing December 2025 conversion value" loading="lazy">
-            <span class="proof-result-chip"><strong class="count-up" data-count="9.40" data-decimals="2" data-suffix="X">0X</strong> return</span>
-          </div>
-          <div class="proof-image-body">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">E-commerce account · December 2025</p>
-            <p class="proof-impact-number metric-return count-up" data-count="9.40" data-decimals="2" data-suffix="X">0X</p>
-            <p class="proof-impact-sentence"><span class="spend-word">€12,206.52 in ad spend</span> generated <span class="value-word">€114,734.12 in tracked value</span>.</p>
-          </div>
-        </article>
-
-        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
-          <div class="proof-screenshot">
-            <img src="/assets/google-ads-proof-lp/proof-result-04.webp" alt="Anonymized Google Ads account screenshot showing November 2025 conversion value" loading="lazy">
-            <span class="proof-result-chip"><strong class="count-up" data-count="6.71" data-decimals="2" data-suffix="X">0X</strong> return</span>
-          </div>
-          <div class="proof-image-body">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">E-commerce account · November 2025</p>
-            <p class="proof-impact-number metric-return count-up" data-count="6.71" data-decimals="2" data-suffix="X">0X</p>
-            <p class="proof-impact-sentence"><span class="spend-word">€11,861.41 in ad spend</span> generated <span class="value-word">€79,605.98 in tracked value</span>.</p>
-          </div>
-        </article>
-
-        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
-          <div class="proof-screenshot">
-            <img src="/assets/google-ads-proof-lp/proof-result-05.webp" alt="Anonymized Google Ads account screenshot showing February 2026 tracked conversions" loading="lazy">
-            <span class="proof-result-chip"><strong class="count-up" data-count="7.43" data-prefix="€" data-decimals="2">€0</strong> cost/conv.</span>
-          </div>
-          <div class="proof-image-body">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">Lead generation account · February 2026</p>
-            <p class="proof-impact-number metric-return count-up" data-count="7.43" data-prefix="€" data-decimals="2">€0</p>
-            <p class="proof-impact-sentence"><span class="spend-word">€3,738.62 in ad spend</span> generated <span class="value-word">658.42 tracked conversions</span> at €7.43 each.</p>
-          </div>
-        </article>
-
-        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
-          <div class="proof-screenshot">
-            <img src="/assets/google-ads-proof-lp/proof-result-06.webp" alt="Anonymized Google Ads account screenshot showing March 2026 tracked conversions" loading="lazy">
-            <span class="proof-result-chip"><strong class="count-up" data-count="3.44" data-prefix="€" data-decimals="2">€0</strong> cost/conv.</span>
-          </div>
-          <div class="proof-image-body">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">Lead generation account · March 2026</p>
-            <p class="proof-impact-number metric-return count-up" data-count="3.44" data-prefix="€" data-decimals="2">€0</p>
-            <p class="proof-impact-sentence"><span class="spend-word">€5,056.87 in ad spend</span> generated <span class="value-word">1,468.49 tracked conversions</span> at €3.44 each.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="offer" class="section-shell bg-white">
-    <div class="p-8 md:p-12 border-b border-[#0f2a56]/14">
-      <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#f97316]">Services</span>
-      <h2 class="mt-4 text-4xl md:text-7xl font-semibold tracking-tighter-custom leading-[0.95] max-w-5xl">Website design, Google Ads, or the complete growth system.</h2>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-3">
-      <article class="border-grid p-8 md:p-10 bg-[#f3f4ef] min-h-[420px] flex flex-col">
-        <div class="w-14 h-14 rounded-2xl bg-white border border-[#0f2a56]/14 flex items-center justify-center">
-          <iconify-icon icon="solar:monitor-smartphone-bold" width="28"></iconify-icon>
-        </div>
-        <h3 class="mt-8 text-3xl font-semibold tracking-tighter-custom">Website Design</h3>
-        <p class="mt-4 text-[#0f2a56]/64 leading-relaxed">
-          For businesses that need a better-looking, sharper, more convincing website that turns visitors into leads or buyers.
-        </p>
-        <ul class="mt-6 space-y-3 text-sm font-medium text-[#0f2a56]/75">
-          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#f97316] shrink-0"></iconify-icon>Conversion messaging and page structure</li>
-          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#f97316] shrink-0"></iconify-icon>Premium visual direction</li>
-          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#f97316] shrink-0"></iconify-icon>Built with paid traffic in mind</li>
-        </ul>
-        <a href="/apply/" class="mt-auto pt-8 inline-flex items-center gap-2 font-bold hover:opacity-70">Start website project <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
-      </article>
-
-      <article class="border-grid p-8 md:p-10 bg-[#0f2a56] text-white min-h-[420px] flex flex-col relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-72 h-72 rounded-full bg-[#ff8a1f]/22 blur-3xl"></div>
-        <div class="relative">
-          <div class="flex items-center justify-between gap-4">
-            <div class="w-14 h-14 rounded-2xl bg-[#ff8a1f] text-[#0f2a56] flex items-center justify-center">
-              <iconify-icon icon="solar:rocket-bold" width="28"></iconify-icon>
-            </div>
-            <span class="rounded-full bg-white text-[#0f2a56] px-3 py-1 text-xs font-bold uppercase tracking-widest">Recommended</span>
-          </div>
-          <h3 class="mt-8 text-3xl font-semibold tracking-tighter-custom">Website + Google Ads System</h3>
-          <p class="mt-4 text-white/66 leading-relaxed">
-            For businesses that want the page, campaign, tracking, and optimization loop built together from day one.
-          </p>
-          <ul class="mt-6 space-y-3 text-sm font-medium text-white/78">
-            <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#ff8a1f] shrink-0"></iconify-icon>Website or landing page built for conversion</li>
-            <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#ff8a1f] shrink-0"></iconify-icon>Google Ads setup and management</li>
-            <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#ff8a1f] shrink-0"></iconify-icon>Tracking, review, and weekly optimization</li>
-          </ul>
-          <a href="/apply/" class="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[#ff8a1f] px-6 py-4 font-bold text-[#0f2a56] hover:bg-white transition-colors">
-            Build the full system
-            <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
-          </a>
-        </div>
-      </article>
-
-      <article class="border-grid p-8 md:p-10 bg-[#93c5fd] min-h-[420px] flex flex-col">
-        <div class="w-14 h-14 rounded-2xl bg-white border border-[#0f2a56]/14 flex items-center justify-center">
-          <iconify-icon icon="solar:target-bold" width="28"></iconify-icon>
-        </div>
-        <h3 class="mt-8 text-3xl font-semibold tracking-tighter-custom">Google Ads Management</h3>
-        <p class="mt-4 text-[#0f2a56]/68 leading-relaxed">
-          For businesses with a site that is ready to convert, or close enough that we can fix the most important bottlenecks.
-        </p>
-        <ul class="mt-6 space-y-3 text-sm font-medium text-[#0f2a56]/76">
-          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#0f2a56] shrink-0"></iconify-icon>Campaign architecture</li>
-          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#0f2a56] shrink-0"></iconify-icon>Conversion tracking review</li>
-          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#0f2a56] shrink-0"></iconify-icon>Weekly optimization toward ROI</li>
-        </ul>
-        <a href="/apply/" class="mt-auto pt-8 inline-flex items-center gap-2 font-bold hover:opacity-70">Launch ads with us <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
-      </article>
-    </div>
-  </section>
-
-  <section id="process" class="section-shell">
-    <div class="grid grid-cols-1 lg:grid-cols-12">
-      <div class="lg:col-span-5 border-grid p-8 md:p-12">
-        <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#f97316]">How it works</span>
-        <h2 class="mt-4 text-4xl md:text-7xl font-semibold tracking-tighter-custom leading-[0.95]">From website direction to live acquisition system.</h2>
-        <p class="mt-5 text-lg text-[#0f2a56]/64 leading-relaxed">
-          We first understand the offer and opportunity, then build the website, ad campaigns, and tracking around the same commercial goal.
-        </p>
-      </div>
-
-      <div class="lg:col-span-7 p-4 md:p-8 bg-white">
-        <div class="space-y-4">
-          <div class="flow-line grid grid-cols-[3rem_1fr] gap-5 rounded-[1.5rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-5">
-            <div class="w-12 h-12 rounded-full bg-[#ff8a1f] flex items-center justify-center font-bold">1</div>
-            <div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">Choose the right direction</h3>
-              <p class="mt-2 text-[#0f2a56]/64">We review your business, offer, audience, current assets, and traffic opportunity before recommending website, ads, or both.</p>
-            </div>
-          </div>
-
-          <div class="flow-line grid grid-cols-[3rem_1fr] gap-5 rounded-[1.5rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-5">
-            <div class="w-12 h-12 rounded-full bg-[#93c5fd] flex items-center justify-center font-bold">2</div>
-            <div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">Build the website or landing page</h3>
-              <p class="mt-2 text-[#0f2a56]/64">We design the page structure, message, trust signals, calls to action, and conversion flow before scaling traffic.</p>
-            </div>
-          </div>
-
-          <div class="flow-line grid grid-cols-[3rem_1fr] gap-5 rounded-[1.5rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-5">
-            <div class="w-12 h-12 rounded-full bg-[#0f2a56] text-white flex items-center justify-center font-bold">3</div>
-            <div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">Launch Google Ads + tracking</h3>
-              <p class="mt-2 text-[#0f2a56]/64">Campaigns, conversion events, and reporting are set up so each click can be judged by business outcomes.</p>
-            </div>
-          </div>
-
-          <div class="flow-line grid grid-cols-[3rem_1fr] gap-5 rounded-[1.5rem] border border-[#0f2a56]/14 bg-[#0f2a56] text-white p-5">
-            <div class="w-12 h-12 rounded-full bg-[#ff8a1f] text-[#0f2a56] flex items-center justify-center font-bold">4</div>
-            <div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">Optimize weekly from real conversion data</h3>
-              <p class="mt-2 text-white/64">We adjust budget, queries, landing page friction, and conversion bottlenecks based on what actually produces returns.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="faq" class="section-shell bg-white">
     <div class="grid grid-cols-1 lg:grid-cols-12">
       <div class="lg:col-span-5 border-grid p-8 md:p-12">
@@ -1636,11 +1784,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="space-y-3">
           <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
             <summary class="cursor-pointer px-5 py-5 flex items-center justify-between gap-4 font-bold">
-              I just need a website — no Google Ads. Can you help?
+              I just need a website without Google Ads. Can you help?
               <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
               <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
             </summary>
-            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Yes. We build standalone conversion-focused websites with the same approach. Apply through the same form and note your preference. We will know how to handle it from there.</div>
+	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Yes. We build standalone conversion websites with the same approach. Apply through the same form and note your preference. We will know how to handle it from there.</div>
           </details>
 
           <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
@@ -1671,11 +1819,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p><strong class="text-[#0f2a56]">Free for accepted clients:</strong></p>
               <ul class="list-disc pl-5 space-y-2">
                 <li>The strategy call, where we review your setup and scope your project.</li>
-                <li>Google Ads setup: campaign architecture, account configuration, conversion tracking, and initial creative direction. This is a €500-€1,500 value that many agencies charge upfront.</li>
+	                <li>Google Ads setup: campaign architecture, account configuration, conversion tracking, and initial creative direction. This is a €1,000 to €2,000 value that many agencies charge upfront.</li>
               </ul>
-              <p><strong class="text-[#0f2a56]">Paid:</strong></p>
+	              <p><strong class="text-[#0f2a56]">Paid work:</strong></p>
               <ul class="list-disc pl-5 space-y-2">
-                <li>Website build: one-time project fee scoped to what you need.</li>
+	                <li>Website build: one time project fee scoped to what you need.</li>
                 <li>Ongoing Google Ads management: monthly retainer once campaigns are live.</li>
                 <li>Your ad spend: paid directly to Google, never to us.</li>
               </ul>
@@ -1689,7 +1837,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
               <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
             </summary>
-            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">We are a hands-on team with limited capacity, typically <strong class="text-[#0f2a56]">3-5 new clients per month</strong>. Every application is reviewed personally to ensure we can deliver results for your business. <strong class="text-[#0f2a56]">If we cannot, we will tell you within 48 hours</strong> instead of taking your money on false promises.</div>
+	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">We are a hands on team with limited capacity, typically <strong class="text-[#0f2a56]">3 to 5 new clients per month</strong>. Every application is reviewed personally to ensure we can deliver results for your business. <strong class="text-[#0f2a56]">If we cannot, we will tell you within 48 hours</strong> instead of taking your money on false promises.</div>
           </details>
 
           <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
@@ -1698,7 +1846,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
               <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
             </summary>
-            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Ads go live <strong class="text-[#0f2a56]">immediately</strong> after launch. The learning phase usually takes 2-4 weeks. Most clients see positive returns within <strong class="text-[#0f2a56]">30-60 days</strong>. Our e-commerce and hotel clients have hit <strong class="text-[#0f2a56]">6X+ ROAS in the first month</strong>.</div>
+	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Ads go live <strong class="text-[#0f2a56]">immediately</strong> after launch. The learning phase usually takes 2 to 4 weeks. Most clients see positive returns within <strong class="text-[#0f2a56]">30 to 60 days</strong>. Our ecommerce and hotel clients have hit <strong class="text-[#0f2a56]">6X+ ROAS in the first month</strong>.</div>
           </details>
 
           <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
@@ -1707,7 +1855,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
               <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
             </summary>
-            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Most clients start between <strong class="text-[#0f2a56]">€1,000-€3,000/month</strong> in ad spend because that is usually enough to generate meaningful data and prove ROI. That said, you decide how much you want to spend. The right budget depends on your business needs, offer, market, and growth goals. We recommend a practical starting range, set limits with you, and scale only when the numbers justify it.</div>
+	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Most clients start between <strong class="text-[#0f2a56]">€1,000 to €3,000/month</strong> in ad spend because that is usually enough to generate meaningful data and prove ROI. That said, you decide how much you want to spend. The right budget depends on your business needs, offer, market, and growth goals. We recommend a practical starting range, set limits with you, and scale only when the numbers justify it.</div>
           </details>
 
           <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
@@ -1725,7 +1873,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
               <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
             </summary>
-            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">We have proven results across <strong class="text-[#0f2a56]">e-commerce, hospitality, and education</strong>. We also work with local services, healthcare, coaching, SaaS, and B2B. If we think your industry is too niche to deliver results, we will tell you honestly before you waste a call.</div>
+	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">We have proven results across <strong class="text-[#0f2a56]">ecommerce, hospitality, and education</strong>. We also work with local services, healthcare, coaching, SaaS, and B2B. If we think your industry is too niche to deliver results, we will tell you honestly before you waste a call.</div>
           </details>
 
           <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
@@ -1743,7 +1891,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
               <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
             </summary>
-            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Our team includes <strong class="text-[#0f2a56]">strategists who worked inside Google</strong>. We hold active <strong class="text-[#0f2a56]">Google Partner</strong> status. We do not outsource you across the people building your campaigns. And we optimize for the metric that actually matters to your business: ROAS for e-commerce and hotels, cost per qualified lead for services and education, not vanity KPIs.</div>
+	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Our team includes <strong class="text-[#0f2a56]">strategists who worked inside Google</strong>. We hold active <strong class="text-[#0f2a56]">Google Partner</strong> status. We do not outsource you across the people building your campaigns. And we optimize for the metric that actually matters to your business: ROAS for ecommerce and hotels, cost per qualified lead for services and education, not vanity KPIs.</div>
           </details>
         </div>
       </div>
@@ -1757,19 +1905,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-3 py-1 text-xs uppercase tracking-widest font-bold text-[#ff8a1f]">
         Website design + Google Ads
       </span>
-      <h2 class="mt-6 text-5xl md:text-7xl font-semibold tracking-tighter-custom leading-[0.95]">Ready to turn your website into a client acquisition system?</h2>
-      <p class="mt-6 text-lg md:text-xl text-white/64 max-w-2xl mx-auto">
-        Tell us where your business is now: no website, weak website, failed ads, or ready to scale. We will map the website and Google Ads system that makes sense.
-      </p>
+	      <h2 class="mt-6 text-5xl md:text-7xl font-semibold tracking-tighter-custom leading-[0.95]">Ready to turn your website into a lead system?</h2>
+	      <p class="mt-6 text-lg md:text-xl text-white/64 max-w-2xl mx-auto">
+	        Tell us where you are now, no website, weak website, ads not converting, or ready to scale. We will review your situation and map what makes sense.
+	      </p>
+	      <p class="mt-4 text-lg md:text-xl text-white/64 max-w-2xl mx-auto">
+	        If the numbers do not work for your business, we will tell you directly.
+	      </p>
       <a href="/apply/" class="mt-9 inline-flex items-center justify-center gap-3 rounded-full bg-[#ff8a1f] px-8 py-4 text-base font-bold text-[#0f2a56] transition-transform hover:-translate-y-1 active:scale-95">
-        Build my website + ads system
+        Apply for a Website + Ads Growth System
         <iconify-icon icon="solar:arrow-right-linear" width="19"></iconify-icon>
       </a>
-      <p class="mt-4 text-sm text-white/46">No generic pitch. Just the system we would build if the numbers make sense.</p>
+	      <p class="mt-4 text-sm text-white/46">Takes about 2 minutes. No generic pitch. No obligation.</p>
+	      <p class="mt-3 text-sm text-white/52">We only take a limited number of new clients each month.</p>
     </div>
   </section>
 
 </main>
+
+<div id="proof-lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button id="proof-lightbox-close" aria-label="Close">&times;</button>
+  <img id="proof-lightbox-img" src="" alt="">
+</div>
 
 <footer>
   <div class="footer-big-wrap">
@@ -1787,7 +1944,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a>
       <a href="/services/service.html?service=ai-content">AI Content &amp; Creative Production</a>
       <a href="/services/service.html?service=ugc-influencer">UGC &amp; Influencer Marketing</a>
-      <a href="/services/service.html?service=web-systems">Conversion-Focused Web Systems</a>
+      <a href="/services/service.html?service=web-systems">Conversion Focused Web Systems</a>
     </div>
     <div class="footer-links-col">
       <a href="/services/service.html?service=growth-strategy">Growth Strategy &amp; Brand Positioning</a>
@@ -1815,7 +1972,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <a href="/apply/" class="fixed md:hidden bottom-0 inset-x-0 z-50 bg-[#ff8a1f] text-[#0f2a56] px-6 py-4 text-center text-sm font-bold shadow-2xl">
-  Build my website + ads system
+  Apply for a Website + Ads Growth System
 </a>
 
 <script>
@@ -1938,6 +2095,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }, { threshold: 0.35 });
 
     counters.forEach((counter) => observer.observe(counter));
+  })();
+
+  (function () {
+    const bullets = document.querySelectorAll('.proof-bullet');
+    if (!bullets.length) return;
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    bullets.forEach((b) => obs.observe(b));
+  })();
+
+  (function () {
+    const lightbox = document.getElementById('proof-lightbox');
+    const lbImg = document.getElementById('proof-lightbox-img');
+    const lbClose = document.getElementById('proof-lightbox-close');
+    if (!lightbox || !lbImg) return;
+    function openLightbox(img) {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.proof-screenshot img').forEach((img) => {
+      img.addEventListener('click', () => openLightbox(img));
+    });
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox || e.target === lbClose) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
   })();
 </script>
 

@@ -2,7 +2,7 @@
 
 // Runtime requirements:
 // - CALENDAR_URL (optional but recommended for direct booking after submission)
-// - Resend envs: RESEND_API_KEY, MAIL_FROM
+// - Resend envs: RESEND_API_KEY, MAIL_FROM optional
 // - INTERNAL_NOTIFY_EMAIL (optional, defaults to info@lynckstudio.pro)
 
 const RATE_LIMIT_WINDOW_MS = Number(process.env.LEAD_RATE_WINDOW_MS || 60_000);
@@ -10,6 +10,7 @@ const RATE_LIMIT_MAX = Number(process.env.LEAD_RATE_MAX || 8);
 const DEFAULT_CALENDAR_URL = typeof process.env.CALENDAR_URL === 'string' && process.env.CALENDAR_URL.trim()
   ? process.env.CALENDAR_URL.trim()
   : null;
+const DEFAULT_MAIL_FROM = 'LYNCK Studio <info@lynckstudio.pro>';
 
 const rateBuckets = globalThis.__lynckLeadRateBuckets || new Map();
 globalThis.__lynckLeadRateBuckets = rateBuckets;
@@ -173,9 +174,11 @@ function sanitizePayload(payload, req) {
 
 async function sendWithResend({ to, subject, html, text }) {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.MAIL_FROM;
-  if (!apiKey || !from) {
-    return { sent: false, reason: 'Missing RESEND_API_KEY or MAIL_FROM' };
+  const from = typeof process.env.MAIL_FROM === 'string' && process.env.MAIL_FROM.trim()
+    ? process.env.MAIL_FROM.trim()
+    : DEFAULT_MAIL_FROM;
+  if (!apiKey) {
+    return { sent: false, reason: 'Missing RESEND_API_KEY' };
   }
 
   const response = await fetch('https://api.resend.com/emails', {
