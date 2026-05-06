@@ -38,7 +38,7 @@
       return {
         manage: 'Cookie-Einstellungen',
         title: 'Datenschutz zuerst, Tracking nur mit deiner Freigabe.',
-        body: 'Wir nutzen notwendige Technologien fuer Sprache, Sicherheit und Formularstatus. Analyse- und Marketing-Cookies werden erst nach deiner Zustimmung aktiviert.',
+        body: 'Analyse und Marketing bleiben aus, bis du zustimmst.',
         accept: 'Alle akzeptieren',
         reject: 'Nur notwendige',
         customize: 'Auswahl anpassen',
@@ -62,7 +62,7 @@
     return {
       manage: 'Cookie Settings',
       title: 'Privacy first, tracking only after you say yes.',
-      body: 'We use necessary technologies for language preference, security and form continuity. Analytics and marketing cookies stay off until you opt in.',
+      body: 'Analytics and marketing stay off until you opt in.',
       accept: 'Accept all',
       reject: 'Necessary only',
       customize: 'Customize',
@@ -327,7 +327,7 @@
       '.lynck-consent-pill{display:inline-flex;align-items:center;padding:.28rem .55rem;border-radius:999px;background:rgba(25,77,193,.12);color:#194dc1;font-size:.76rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;}',
       '.lynck-consent-modal-footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1rem;}',
       '.lynck-consent-inline-link{border:none;background:transparent;padding:0;color:#194dc1;font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;}',
-      '@media (max-width:640px){.lynck-consent-root{inset:auto .75rem .75rem .75rem}.lynck-consent-banner{padding:1rem}.lynck-consent-actions{display:grid}.lynck-consent-btn{width:100%;justify-content:center}.lynck-consent-card{grid-template-columns:1fr;}.lynck-consent-modal{padding:1rem;}}',
+      '@media (max-width:640px){.lynck-consent-root{inset:auto .75rem 5.65rem .75rem}.lynck-consent-banner{gap:.52rem;padding:.72rem;border-radius:1rem;max-height:34vh;overflow:auto;box-shadow:0 16px 42px rgba(8,18,37,.2);}.lynck-consent-banner h2{font-size:.96rem;line-height:1.12;}.lynck-consent-banner p{font-size:.78rem;line-height:1.35;}.lynck-consent-eyebrow{display:none}.lynck-consent-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.35rem}.lynck-consent-btn{width:100%;justify-content:center;padding:.5rem .45rem;font-size:.74rem;line-height:1.2;}.lynck-consent-meta{font-size:.72rem;gap:.35rem}.lynck-consent-inline-link{font-size:.72rem}.lynck-consent-card{grid-template-columns:1fr;}.lynck-consent-modal{padding:1rem;}}',
       '</style>',
       '<section class="lynck-consent-banner" role="dialog" aria-live="polite" aria-label="' + escapeHtml(COPY.modalTitle) + '">',
       '  <span class="lynck-consent-eyebrow"><span class="lynck-consent-dot" aria-hidden="true"></span>' + escapeHtml(COPY.manage) + '</span>',

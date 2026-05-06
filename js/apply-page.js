@@ -289,6 +289,7 @@
       google_tracking_ready: value('googleTracking'),
 
       services_interested: checkedValues('servicesInterested'),
+      preferred_call_slot: value('preferredCallSlot'),
       anything_else: value('anythingElse'),
 
       consent_contact: fieldChecked('consentContact'),

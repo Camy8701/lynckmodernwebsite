@@ -32,6 +32,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <link rel="stylesheet" href="/css/site-shell.css?v=20260330">
   <link rel="stylesheet" href="/css/apply-shared.css?v=20260330">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+  <style>
+  .apply-slot-wrap { position: relative; }
+  .apply-slot-input { cursor: pointer; padding-right: 2.5rem; }
+  .apply-slot-clear {
+    position: absolute; right: 12px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none;
+    color: rgba(255,255,255,0.4); cursor: pointer;
+    font-size: 16px; line-height: 1;
+    display: none; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 50%;
+    transition: color 0.15s;
+  }
+  .apply-slot-clear:hover { color: rgba(255,255,255,0.85); }
+  .apply-label-opt { font-weight: 400; opacity: 0.48; font-size: 0.82em; }
+  .flatpickr-calendar.open { z-index: 9999; }
+  .flatpickr-calendar {
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 24px 60px rgba(0,0,20,0.65) !important;
+    font-family: inherit !important;
+    overflow: hidden;
+  }
+  .flatpickr-day.selected,
+  .flatpickr-day.selected:hover,
+  .flatpickr-day.selected:focus {
+    background: #ff8a1f !important;
+    border-color: #ff8a1f !important;
+    color: #0f2a56 !important;
+    font-weight: 700;
+  }
+  .flatpickr-day:hover:not(.disabled):not(.selected) {
+    background: rgba(255,138,31,0.18) !important;
+    border-color: transparent !important;
+  }
+  .flatpickr-day.today:not(.selected) { border-color: rgba(255,138,31,0.5) !important; }
+  .flatpickr-day.flatpickr-disabled,
+  .flatpickr-day.flatpickr-disabled:hover { opacity: 0.28 !important; cursor: not-allowed !important; }
+  </style>
 </head>
 <body class="apply-body" data-shell-page="apply">
 <!-- Google Tag Manager (noscript) -->
@@ -356,6 +396,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <textarea class="apply-textarea" id="anythingElse" name="anything_else"></textarea>
           </div>
 
+
+          <div class="apply-field" style="margin-top:16px;">
+            <label class="apply-label" for="preferredCallSlot">Preferred call date &amp; time <span class="apply-label-opt">(optional)</span></label>
+            <div class="apply-slot-wrap">
+              <input class="apply-input apply-slot-input" id="preferredCallSlot" name="preferred_call_slot" type="text" placeholder="Pick a day and time — Mon–Fri, 9 am–6 pm" readonly>
+              <button type="button" class="apply-slot-clear" id="clearCallSlot" aria-label="Clear date">×</button>
+            </div>
+            <div class="apply-help">Monday to Friday only. We’ll do our best to match your slot — not a guaranteed booking.</div>
+          </div>
+
           <div class="apply-group">
             <label class="apply-check"><input id="consentContact" name="consent_contact" type="checkbox"> <span>I agree to be contacted by LYNCK Studio about this request.</span></label>
             <div class="apply-error" data-error-for="consentContact"></div>
@@ -413,5 +463,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="/js/site-shell-nav.js?v=20260330" defer></script>
   <script src="/js/apply-page.js?v=20260330" defer></script>
   <script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+  (function() {
+    function initSlotPicker() {
+      var input = document.getElementById('preferredCallSlot');
+      var clearBtn = document.getElementById('clearCallSlot');
+      if (!input || typeof flatpickr === 'undefined') return;
+      var tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      var fp = flatpickr(input, {
+        enableTime: true,
+        dateFormat: 'D, d M Y · H:i',
+        minDate: tomorrow,
+        maxDate: new Date(new Date().setDate(new Date().getDate() + 90)),
+        minuteIncrement: 30,
+        minTime: '09:00',
+        maxTime: '18:00',
+        disable: [function(date) { return date.getDay() === 0 || date.getDay() === 6; }],
+        disableMobile: false,
+        onChange: function(sel) {
+          if (clearBtn) clearBtn.style.display = sel.length ? 'flex' : 'none';
+        }
+      });
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function() { fp.clear(); clearBtn.style.display = 'none'; });
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSlotPicker);
+    } else {
+      initSlotPicker();
+    }
+  })();
+  </script>
 </body>
 </html>

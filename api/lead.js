@@ -150,6 +150,7 @@ function sanitizePayload(payload, req) {
     numbers_knowledge: cleanString(payload.numbers_knowledge) || 'Not asked in simplified form',
 
     services_interested: cleanArray(payload.services_interested),
+    preferred_call_slot: cleanString(payload.preferred_call_slot),
     anything_else: cleanString(payload.anything_else),
 
     consent_contact: Boolean(payload.consent_contact),
@@ -334,6 +335,7 @@ function internalEmailTemplate(record) {
          <strong>Budget:</strong> ${record.ad_spend_range}<br>
          <strong>Timeline:</strong> ${record.timeline}</p>
       <p><strong>Services:</strong> ${record.services_interested.join(', ')}</p>
+      ${record.preferred_call_slot ? `<p><strong>Preferred call slot:</strong> <span style="background:#fff3e0;padding:2px 8px;border-radius:4px;font-weight:600;">${record.preferred_call_slot}</span></p>` : ''}
       <hr>
       <h3 style="margin:12px 0 8px;">Combination answers</h3>
       <ol>
