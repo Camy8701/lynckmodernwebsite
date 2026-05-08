@@ -959,7 +959,8 @@ iconify-icon {
   .lynck-mobile-sticky-cta {
     position: fixed;
     left: 1rem;
-    right: 6.4rem;
+    right: auto;
+    width: clamp(8.75rem, calc(100vw - 13.5rem), 13rem);
     bottom: 0.9rem;
     z-index: 70;
     display: inline-flex;
@@ -1070,8 +1071,16 @@ iconify-icon {
     width: 84% !important;
   }
   .hero-mockup-secondary {
-    right: 4.2rem !important;
-    width: 30% !important;
+    right: 0.25rem !important;
+    width: 46% !important;
+  }
+  .hero-mockup-secondary .p-3 {
+    padding: 0.75rem !important;
+  }
+  .hero-mockup-secondary p:last-child {
+    font-size: 0.78rem !important;
+    line-height: 1.12 !important;
+    overflow-wrap: normal !important;
   }
   .hero-metric {
     min-width: 0;
