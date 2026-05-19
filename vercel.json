@@ -1,13 +1,13 @@
 {
   "redirects": [
     {
-      "source": "/website-design/de",
-      "destination": "/de/website-design/",
+      "source": "/de/website-design",
+      "destination": "/website-design/de/",
       "permanent": true
     },
     {
-      "source": "/website-design/de/",
-      "destination": "/de/website-design/",
+      "source": "/de/website-design/",
+      "destination": "/website-design/de/",
       "permanent": true
     }
   ],
