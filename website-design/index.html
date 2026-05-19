@@ -8,8 +8,13 @@ gtag('consent', 'default', {
   analytics_storage: 'denied',
   ad_storage: 'denied',
   ad_user_data: 'denied',
-  ad_personalization: 'denied'
+  ad_personalization: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
 });
+gtag('set', 'ads_data_redaction', true);
+gtag('set', 'url_passthrough', true);
 </script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -407,7 +412,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
         </div>
 
-        <a class="lynck-mobile-about" href="/apply/">Apply Now</a>
+        <a class="lynck-mobile-about lynck-mobile-apply" href="/apply/">Apply Now</a>
 
         <!-- Mobile language switcher -->
         <div class="lynck-mobile-lang nav-dropdown right" id="lp-mobile-lang">

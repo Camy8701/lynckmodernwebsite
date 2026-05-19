@@ -8,8 +8,13 @@ gtag('consent', 'default', {
   analytics_storage: 'denied',
   ad_storage: 'denied',
   ad_user_data: 'denied',
-  ad_personalization: 'denied'
+  ad_personalization: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
 });
+gtag('set', 'ads_data_redaction', true);
+gtag('set', 'url_passthrough', true);
 </script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -1767,7 +1772,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
 
-        <a class="lynck-mobile-about" href="/de/apply/">Jetzt anfragen</a>
+        <a class="lynck-mobile-about lynck-mobile-apply" href="/de/apply/">Jetzt anfragen</a>
 
         <!-- Mobile language switcher -->
         <div class="lynck-mobile-lang nav-dropdown right" id="lp-mobile-lang">

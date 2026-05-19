@@ -26,7 +26,15 @@
   }
 
   function readConfig() {
-    var locale = window.location.pathname.indexOf('/de/') === 0 ? 'de' : 'en';
+    var path = window.location.pathname || '';
+    var lang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
+    var locale = 'en';
+
+    if (path.indexOf('/de/') === 0 || path.indexOf('/website-design/de/') === 0 || lang.indexOf('de') === 0) {
+      locale = 'de';
+    } else if (path.indexOf('/website-design/be/') === 0 || lang.indexOf('fr') === 0) {
+      locale = 'fr';
+    }
 
     return {
       locale: locale
@@ -56,6 +64,31 @@
         alwaysOn: 'Immer aktiv',
         footer: 'Du kannst deine Auswahl jederzeit aendern.',
         manageInline: 'Cookie-Auswahl aendern'
+      };
+    }
+
+    if (locale === 'fr') {
+      return {
+        manage: 'Parametres cookies',
+        title: 'Confidentialite d abord, tracking seulement avec votre accord.',
+        body: 'Analytics et marketing restent bloques jusqu a votre consentement.',
+        accept: 'Tout accepter',
+        reject: 'Necessaires seulement',
+        customize: 'Personnaliser',
+        policy: 'Politique cookies',
+        modalTitle: 'Preferences cookies',
+        modalBody: 'Pour les visiteurs de l UE, du Royaume-Uni et de la Suisse, les technologies non essentielles restent desactivees jusqu a votre accord explicite.',
+        necessaryTitle: 'Necessaires',
+        necessaryBody: 'Requis pour les preferences de langue, la securite et la memorisation de votre consentement.',
+        analyticsTitle: 'Analytics',
+        analyticsBody: 'Autorise les tags analytics geres via Google Tag Manager afin de comprendre quelles pages sont utilisees.',
+        marketingTitle: 'Marketing',
+        marketingBody: 'Autorise les donnees d attribution des liens de campagne et la mesure publicitaire via Google Tag Manager.',
+        save: 'Enregistrer',
+        cancel: 'Annuler',
+        alwaysOn: 'Toujours actif',
+        footer: 'Vous pouvez modifier votre choix a tout moment.',
+        manageInline: 'Modifier mes choix cookies'
       };
     }
 

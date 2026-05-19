@@ -760,6 +760,13 @@ footer {
     text-overflow: ellipsis;
   }
 
+  .lynck-mobile-about.lynck-mobile-apply {
+    background: #ff8a1f;
+    border-color: rgba(255, 138, 31, 0.72);
+    color: #fff;
+    box-shadow: 0 14px 28px rgba(255, 88, 18, 0.28);
+  }
+
   .lynck-mobile-lang {
     display: block;
     flex: 0 0 auto;
