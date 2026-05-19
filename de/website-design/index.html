@@ -1760,7 +1760,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="nav-dropdown-menu lynck-mobile-menu-panel" role="menu">
                 <div class="lynck-mobile-menu-group">
                     <span class="lynck-mobile-menu-label">Navigation</span>
-                    <a href="#work" role="menuitem">Portfolio</a>
                     <a href="#services" role="menuitem">Services</a>
                     <a href="#results" role="menuitem">Kunden ROI</a>
                     <a href="#templates" role="menuitem">Beispiele</a>
@@ -1789,7 +1788,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Desktop nav bar -->
         <div class="lynck-header-bar">
             <nav class="lynck-nav-links" aria-label="Hauptnavigation">
-                    <a href="#work">Portfolio</a>
                     <a href="#services">Services</a>
                     <a href="#results">Kunden ROI</a>
                     <a href="#templates">Beispiele</a>
@@ -2537,13 +2535,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
 
+      <a href="https://www.lynckstudio.pro/website-samples/london-house-pools/" target="_blank" rel="noopener" data-extra-sample class="hidden group relative overflow-hidden bg-neutral-900 aspect-square">
+        <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="London House Pools Website Beispiel" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy">
+        <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/85 to-transparent">
+          <span class="text-xs font-mono-display text-[#FF3000] block mb-1">07</span>
+          <span class="text-sm font-semibold text-white uppercase tracking-wide">London House Pools</span>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span class="text-sm font-semibold tracking-widest text-white uppercase border border-white px-6 py-3">Website ansehen</span>
+        </div>
+      </a>
+
+      <a href="https://www.lynckstudio.pro/website-samples/fleet-management-co/" target="_blank" rel="noopener" data-extra-sample class="hidden group relative overflow-hidden bg-neutral-900 aspect-square">
+        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c9070952-37a3-41e4-bed6-847746be5b06_3840w.png?w=900&q=80" alt="Fleet Management and Co Website Beispiel" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy">
+        <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/85 to-transparent">
+          <span class="text-xs font-mono-display text-[#FF3000] block mb-1">08</span>
+          <span class="text-sm font-semibold text-white uppercase tracking-wide">Fleet Management &amp; Co</span>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span class="text-sm font-semibold tracking-widest text-white uppercase border border-white px-6 py-3">Website ansehen</span>
+        </div>
+      </a>
+
+      <a href="https://georgenkine.netlify.app/" target="_blank" rel="noopener" data-extra-sample class="hidden group relative overflow-hidden bg-neutral-900 aspect-square">
+        <img src="/assets/website-sample-georgenkine.jpg" alt="Yan Georgen Website Beispiel" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy">
+        <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/85 to-transparent">
+          <span class="text-xs font-mono-display text-[#FF3000] block mb-1">09</span>
+          <span class="text-sm font-semibold text-white uppercase tracking-wide">Yan Georgen</span>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span class="text-sm font-semibold tracking-widest text-white uppercase border border-white px-6 py-3">Website ansehen</span>
+        </div>
+      </a>
+
     </div>
 
     <div class="mt-12 text-center">
-      <a href="https://www.lynckstudio.pro/website-design/#templates" target="_blank" rel="noopener" class="inline-flex items-center gap-3 text-xs font-semibold tracking-widest uppercase text-neutral-500 hover:text-white transition-colors border-b border-neutral-800 hover:border-white pb-1">
-        Alle Beispiele ansehen
+      <button type="button" data-show-more-samples class="inline-flex items-center gap-3 text-xs font-semibold tracking-widest uppercase text-neutral-500 hover:text-white transition-colors border-b border-neutral-800 hover:border-white pb-1">
+        Mehr Beispiele anzeigen
         <i data-lucide="arrow-right" class="w-4 h-4" stroke-width="1.5"></i>
-      </a>
+      </button>
     </div>
 
   </div>
@@ -3112,9 +3143,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       e.stopPropagation();
       lpMobileLang.classList.toggle('is-open');
     });
+    lpMobileLang.querySelector('.nav-dropdown-menu')?.addEventListener('click', e => {
+      e.stopPropagation();
+    });
   }
 
-  document.addEventListener('click', () => {
+  document.addEventListener('click', e => {
+    if (lpMobileLang?.contains(e.target)) return;
     lpMobileNav?.classList.remove('is-open');
     lpMobileLang?.classList.remove('is-open');
   });
@@ -3128,6 +3163,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     lb.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
+
+  document.querySelectorAll('[data-show-more-samples]').forEach(button => {
+    button.addEventListener('click', () => {
+      document.querySelectorAll('[data-extra-sample]').forEach(card => {
+        card.classList.remove('hidden');
+        card.classList.add('block');
+      });
+      button.remove();
+      lucide.createIcons();
+    });
+  });
+
   function toggleFaq(item) {
     if (!item) return;
     const isOpen = item.classList.contains('is-open');

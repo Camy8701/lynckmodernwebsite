@@ -406,6 +406,16 @@ ul {
   position: relative;
 }
 
+.nav-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: -0.35rem;
+  right: -0.35rem;
+  height: 0.8rem;
+  display: none;
+}
+
 .nav-dropdown-menu {
   position: absolute;
   top: calc(100% + 0.6rem);
@@ -425,7 +435,8 @@ ul {
 }
 
 .nav-dropdown.open .nav-dropdown-menu,
-.nav-dropdown.is-open .nav-dropdown-menu {
+.nav-dropdown.is-open .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
   display: block;
 }
 
@@ -705,6 +716,10 @@ footer {
 }
 
 @media (hover: hover) {
+  .nav-dropdown:hover::after {
+    display: block;
+  }
+
   .nav-dropdown:hover .nav-dropdown-menu {
     display: block;
   }
