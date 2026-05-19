@@ -22,11 +22,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/js/url-attribution-cleanup.js?v=20260504"></script>
 <script src="/js/cookie-consent.js?v=20260504b" defer></script>
-  <title>Webdesign &amp; Google Ads aus einer Hand | LYNCK Studio</title>
+  <title>Webdesign Agentur &amp; Google Ads Management | LYNCK Studio</title>
 <meta name="description" content="Conversionstarke Websites und Google Ads aus einer Hand. Wir bauen, tracken und optimieren, bis Traffic zu Kunden wird. Jetzt anfragen.">
 <link rel="canonical" href="https://www.lynckstudio.pro/de/website-design/">
 <link rel="alternate" hreflang="de" href="https://www.lynckstudio.pro/de/website-design/">
 <link rel="alternate" hreflang="en" href="https://www.lynckstudio.pro/website-design/">
+<link rel="alternate" hreflang="fr-BE" href="https://www.lynckstudio.pro/website-design/be/">
 <link rel="alternate" hreflang="x-default" href="https://www.lynckstudio.pro/website-design/">
 <meta property="og:title" content="Webdesign &amp; Google Ads aus einer Hand | LYNCK Studio">
 <meta property="og:description" content="Conversionstarke Websites und Google Ads aus einer Hand. Wir bauen, tracken und optimieren, bis Traffic zu Kunden wird.">
@@ -75,7 +76,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "publisher": {
         "@id": "https://www.lynckstudio.pro/#organization"
       },
-      "inLanguage": ["de", "en"]
+      "inLanguage": ["de", "en", "fr-BE"]
     },
     {
       "@type": "WebPage",
@@ -213,8 +214,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site-shell.css">
 <style>
 :root {
   --bg-color: #f3f4ef;
@@ -1493,1031 +1500,1385 @@ iconify-icon {
   0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,0); }
   50%       { box-shadow: 0 0 0 2px rgba(249,115,22,0.45), 0 0 28px 4px rgba(249,115,22,0.12); }
 }
+/* ── Results CTA button ─────────────────────────────────────── */
+.hero-results-wrap { position: relative; display: inline-flex; }
+
+@keyframes results-ping {
+  0%        { transform: scale(1);   opacity: 0.55; }
+  75%, 100% { transform: scale(1.8); opacity: 0; }
+}
+.hero-results-ping {
+  position: absolute; inset: 0; border-radius: 9999px;
+  background: #ff8a1f;
+  animation: results-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+.hero-results-btn {
+  position: relative; display: inline-flex; align-items: center;
+  justify-content: center; gap: 0.5rem; border-radius: 9999px;
+  padding: 1rem 1.75rem; font-size: 1rem; font-weight: 600;
+  background: #ff8a1f; color: #fff; border: none; text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.hero-results-btn:hover  { background: #f97316; transform: translateY(-2px); }
+.hero-results-btn:active { transform: scale(0.97); }
+.hero-results-btn iconify-icon { transition: transform 0.2s ease; }
+.hero-results-btn:hover iconify-icon { transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce) {
+  .hero-results-ping { animation: none !important; }
+  .hero-results-btn  { transition: none !important; }
+}
+/* ──────────────────────────────────────────────────────────── */
+/* FlowArt scroll panels */
+.flow-art-wrapper { overflow-x: hidden; }
+.flow-panel {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.flow-art-container {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-top: clamp(2rem, 8vw, 4vw);
+  padding-bottom: 4vw;
+  will-change: transform;
+}
+.flow-hr {
+  border: 0;
+  border-top: 1px solid currentColor;
+  opacity: 0.2;
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .flow-panel { min-height: auto; }
+  .flow-art-container { min-height: auto; padding: 2rem 1.25rem; }
+}
+
+/* French reference landing body styles */
+
+  :root {
+    --bg: #050505;
+    --bg-card: #0a0a0a;
+    --text: #ffffff;
+    --text-dim: rgba(255,255,255,0.55);
+    --accent: #FF3000;
+    --border: rgba(255,255,255,0.08);
+    --font-head: "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-head);
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    font-weight: 600;
+  }
+
+  ::selection { background: var(--accent); color: #fff; }
+
+  .font-mono-display { font-family: var(--font-mono); }
+
+  /* Noise overlay */
+  .noise-overlay {
+    position: fixed; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 9999;
+    mix-blend-mode: overlay;
+  }
+
+  /* FAQ accordion */
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+  }
+  .faq-item.open .faq-answer { max-height: 500px; }
+  .faq-item.open .faq-icon { background: var(--accent); border-color: var(--accent); }
+  .faq-item.open .faq-icon i { transform: rotate(45deg); }
+  .faq-icon i { transition: transform 0.4s ease; }
+
+  /* Lightbox */
+  #proof-lightbox {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 99999;
+    align-items: center; justify-content: center;
+    padding: 2rem;
+    cursor: zoom-out;
+  }
+  #proof-lightbox.open { display: flex; }
+  #proof-lightbox img {
+    max-width: 95vw; max-height: 92vh;
+    object-fit: contain;
+    cursor: default;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  }
+  #proof-lightbox-close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    background: transparent; border: 1px solid rgba(255,255,255,0.2);
+    color: #fff; width: 44px; height: 44px;
+    font-size: 24px; line-height: 1;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  #proof-lightbox-close:hover { background: var(--accent); border-color: var(--accent); }
+
+  /* Mobile menu */
+  #mobile-menu {
+    position: fixed; inset: 0;
+    background: var(--bg);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+  #mobile-menu.open { opacity: 1; pointer-events: auto; }
+
+  /* Spinning text */
+  @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .spin-slow { animation: spin-slow 14s linear infinite; }
+
+  /* Hero highlight badges — soft pulsing glow */
+  @keyframes hero-glow-orange {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 48, 0, 0); border-color: rgba(255, 48, 0, 0.3); }
+    50%      { box-shadow: 0 0 28px 0 rgba(255, 48, 0, 0.22); border-color: rgba(255, 48, 0, 0.55); }
+  }
+  @keyframes hero-glow-blue {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0); border-color: rgba(96, 165, 250, 0.3); }
+    50%      { box-shadow: 0 0 28px 0 rgba(96, 165, 250, 0.22); border-color: rgba(96, 165, 250, 0.55); }
+  }
+  .hero-highlight-orange {
+    background: linear-gradient(135deg, rgba(255, 48, 0, 0.10), rgba(255, 48, 0, 0.03));
+    border: 1px solid rgba(255, 48, 0, 0.3);
+    animation: hero-glow-orange 3.8s ease-in-out infinite;
+  }
+  .hero-highlight-blue {
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.10), rgba(96, 165, 250, 0.03));
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    animation: hero-glow-blue 3.8s ease-in-out infinite 1.9s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-highlight-orange, .hero-highlight-blue { animation: none; }
+  }
+
+  /* Eyebrow marquee scroll (right to left, looping) */
+  @keyframes marquee-rtl {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .eyebrow-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee-rtl 28s linear infinite;
+    will-change: transform;
+  }
+  .eyebrow-marquee:hover { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) {
+    .eyebrow-marquee { animation: none; transform: translateX(0); }
+  }
+
+  /* Garantie pill — readable + hover wave */
+  .garantie-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.2rem;
+    background: rgba(0,0,0,0.92);
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .garantie-pill:hover {
+    background: #FFFFFF;
+    color: #FF3000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+
+  /* Result card hover — scramble target highlight */
+  .result-card {
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .result-card:hover {
+    border-color: rgba(255, 48, 0, 0.45) !important;
+    transform: translateY(-2px);
+  }
+  .result-scramble {
+    display: inline-block;
+    min-width: 5ch;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Reveal animations */
+  .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    h1 { line-height: 1; }
+  }
+
 </style>
 </head>
-<body class="selection:bg-orange-200 selection:text-black">
+<body class="bg-[#050505] text-neutral-300 antialiased selection:bg-[#FF3000] selection:text-white overflow-x-hidden">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5757GT5"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<header class="lynck-site-header" aria-label="LYNCK Studio Navigation">
-  <div class="lynck-site-header-inner">
-    <a href="/de/" class="lynck-logo-pill" aria-label="LYNCK Studio Startseite">
-      <picture>
-        <source srcset="/assets/lynck-logo.webp" type="image/webp">
-        <img loading="eager" fetchpriority="high" decoding="async" width="64" height="64" src="/assets/lynck-logo.png" alt="LYNCK Studio">
-      </picture>
-    </a>
-
-    <div class="lynck-header-bar">
-      <nav class="lynck-main-nav" aria-label="Hauptnavigation">
-        <a href="/de/about.html">Über LYNCK</a>
-        <a href="#templates">Beispiele</a>
-        <a href="#results">Kunden ROI</a>
-        <a href="#offer">Angebote</a>
-        <a href="#process">Ablauf</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-
-      <div class="lynck-header-actions">
-        <a href="/website-design/" class="lynck-lang-pill" aria-label="Sprache wechseln">DE <iconify-icon icon="solar:alt-arrow-down-linear" width="12"></iconify-icon></a>
-        <a href="/de/apply/" class="lynck-header-cta">
-          System anfragen
-          <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+<!-- ─── HEADER ─── -->
+<header class="lynck-header">
+    <div class="lynck-header-inner">
+        <a href="/de/" class="lynck-home-logo" aria-label="LYNCK Studio Startseite">
+            <img loading="eager" fetchpriority="high" decoding="async" width="56" height="56" src="/assets/lynck-logo.webp" alt="LYNCK Studio">
         </a>
-        <button class="mob-nav-toggle" id="mob-nav-toggle" aria-label="Navigation öffnen" aria-expanded="false" aria-controls="mob-nav-panel">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
 
-    <a href="https://www.google.com/partners/agency?id=6214402482" target="_blank" rel="noopener noreferrer" class="lynck-partner-badge" aria-label="Google Partner Badge">
-      <img loading="lazy" fetchpriority="low" decoding="async" width="58" height="58" src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
-    </a>
-  </div>
+        <!-- Mobile menu trigger -->
+        <div class="lynck-mobile-menu nav-dropdown right" id="lp-mobile-nav">
+            <button class="nav-pill lynck-mobile-menu-trigger" type="button" id="lp-mobile-trigger" aria-label="Menü öffnen" aria-expanded="false">
+                <span class="lynck-mobile-menu-icon" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                </span>
+                <span class="lynck-mobile-menu-text">Menu</span>
+            </button>
+            <div class="nav-dropdown-menu lynck-mobile-menu-panel" role="menu">
+                <div class="lynck-mobile-menu-group">
+                    <span class="lynck-mobile-menu-label">Navigation</span>
+                    <a href="#work" role="menuitem">Portfolio</a>
+                    <a href="#services" role="menuitem">Services</a>
+                    <a href="#results" role="menuitem">Kunden ROI</a>
+                    <a href="#templates" role="menuitem">Beispiele</a>
+                    <a href="#faq" role="menuitem">FAQ</a>
+                </div>
+                <a href="/de/apply/" class="gradient-border-btn lynck-mobile-menu-cta">
+                    <span class="btn-core">Jetzt anfragen →</span>
+                </a>
+            </div>
+        </div>
+
+        <a class="lynck-mobile-about" href="/de/about.html">Über uns</a>
+
+        <!-- Mobile language switcher -->
+        <div class="lynck-mobile-lang nav-dropdown right" id="lp-mobile-lang">
+            <button class="nav-pill lynck-mobile-lang-trigger" type="button" id="lp-mobile-lang-trigger" aria-label="Change language">
+                DE <span class="nav-caret" aria-hidden="true"></span>
+            </button>
+            <div class="nav-dropdown-menu lynck-mobile-lang-menu" role="menu">
+                        <a href="/website-design/" role="menuitem"><span aria-hidden="true">🇺🇸</span> English</a>
+                        <a href="/de/website-design/" role="menuitem"><span aria-hidden="true">🇩🇪</span> Deutsch</a>
+                        <a href="/website-design/be/" role="menuitem"><span aria-hidden="true">🇧🇪</span> Français</a>
+            </div>
+        </div>
+
+        <!-- Desktop nav bar -->
+        <div class="lynck-header-bar">
+            <nav class="lynck-nav-links" aria-label="Hauptnavigation">
+                    <a href="#work">Portfolio</a>
+                    <a href="#services">Services</a>
+                    <a href="#results">Kunden ROI</a>
+                    <a href="#templates">Beispiele</a>
+                    <a href="#faq">FAQ</a>
+            </nav>
+            <div class="lynck-header-right">
+                <div class="nav-dropdown right">
+                    <button class="nav-pill" type="button">
+                        DE <span class="nav-caret" aria-hidden="true"></span>
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="/website-design/" role="menuitem"><span aria-hidden="true">🇺🇸</span> English</a>
+                        <a href="/de/website-design/" role="menuitem"><span aria-hidden="true">🇩🇪</span> Deutsch</a>
+                        <a href="/website-design/be/" role="menuitem"><span aria-hidden="true">🇧🇪</span> Français</a>
+                    </div>
+                </div>
+                <a href="/de/apply/" class="gradient-border-btn">
+                    <span class="btn-core">System anfragen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Google Partner badge -->
+        <a href="https://www.google.com/partners/agency?id=6214402482" target="_blank" rel="noopener noreferrer" class="lynck-partner-badge" aria-label="Google Partner Badge">
+            <img loading="lazy" fetchpriority="low" decoding="async" width="92" height="92" src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
+        </a>
+    </div>
 </header>
 
-<div class="mob-nav-panel" id="mob-nav-panel" role="dialog" aria-label="Seitennavigation" aria-hidden="true">
-  <span class="mob-nav-label">Navigation</span>
-  <nav class="mob-nav-links">
-    <a href="/de/about.html">Über LYNCK</a>
-    <a href="#templates">Vorlagen</a>
-    <a href="#results">Kunden ROI</a>
-    <a href="#offer">Pakete</a>
-    <a href="#process">Ablauf</a>
-    <a href="#faq">FAQ</a>
-  </nav>
-  <a href="/de/apply/" class="mob-nav-apply">Website + Ads Wachstumssystem anfragen</a>
-</div>
+<main>
 
-<main id="top" class="pt-24 md:pt-28 max-w-screen-2xl mx-auto border-l border-r border-[#0f2a56]/14 bg-[#f3f4ef] relative overflow-hidden">
 
-  <section class="section-shell relative overflow-hidden">
-    <div class="absolute inset-0 grid-lines opacity-70 pointer-events-none"></div>
-    <div class="absolute top-16 right-10 w-72 h-72 rounded-full bg-[#93c5fd]/35 blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-12 left-10 w-64 h-64 rounded-full bg-[#ff8a1f]/18 blur-3xl pointer-events-none"></div>
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 1 — HERO
+═══════════════════════════════════════════════════════════ -->
+<section id="offer" class="relative min-h-screen w-full flex items-center pt-24 pb-12 overflow-hidden">
 
-    <div class="relative grid grid-cols-1 lg:grid-cols-12">
-      <div class="lg:col-span-7 border-grid px-4 md:px-8 py-10 md:py-16 lg:py-20">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0f2a56]/14 bg-white text-[11px] md:text-xs font-bold tracking-wider uppercase mb-8">
-          <span class="w-2 h-2 rounded-full bg-[#f97316] animate-pulse"></span>
-          Webdesign + Google Ads Management
-        </div>
+  <!-- Background image (right side) -->
+  <div class="absolute inset-0 md:left-[35%] z-0">
+    <img src="/assets/google-ads-image-2.jpg" alt="Webdesign und Google Ads Wachstumssystem" class="w-full h-full object-cover opacity-35 mix-blend-luminosity grayscale contrast-150" loading="eager">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/85 to-transparent"></div>
+  </div>
 
-        <h1 class="hero-title max-w-5xl text-[4.3rem] sm:text-[6.2rem] md:text-[6.5rem] lg:text-[6.8rem] leading-[0.84] font-semibold tracking-tighter-custom">
-          <span class="hero-word">Websites, die</span>
-          <span class="hero-word">verkaufen.</span>
-          <span class="hero-word hero-word--accent">Ads, die skalieren.</span>
-        </h1>
+  <div class="w-full max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8">
 
-        <p class="mt-8 max-w-3xl text-2xl md:text-3xl font-semibold leading-tight text-[#0f2a56]">
-          Verwandle deine Website in ein System, das dir Kunden bringt.
-        </p>
+    <!-- Left column -->
+    <div class="md:col-span-8 lg:col-span-7 flex flex-col justify-center">
 
-        <p class="mt-5 max-w-3xl text-xl md:text-2xl leading-snug text-[#0f2a56]/72">
-          Wir bauen conversion starke Websites, verbinden sie mit Google Ads und <br class="md:hidden">messen, was Traffic in Kunden verwandelt.
-        </p>
-
-        <p class="mt-4 max-w-3xl text-base md:text-lg leading-relaxed text-[#0f2a56]/68">
-          LYNCK Studio ist deine Webdesign Agentur für Conversion Websites, Google Ads und messbares Wachstum. Eine Conversion Website ist eine Website, die Angebot, Vertrauen, Tracking und klare Handlungsaufforderungen so verbindet, dass Besucher schneller zu qualifizierten Leads oder Kunden werden.
-        </p>
-
-        <div class="mt-8 flex flex-col sm:flex-row gap-3">
-          <a href="/de/apply/" class="hero-primary-cta group inline-flex items-center justify-center gap-3 rounded-full bg-[#0f2a56] px-7 py-4 text-base font-semibold text-white transition-transform hover:-translate-y-1 active:scale-95">
-            <span class="hero-cta-label-full">Website + Ads Wachstumssystem anfragen</span>
-            <span class="hero-cta-label-short">Jetzt anfragen</span>
-            <span class="w-8 h-8 rounded-full bg-[#ff8a1f] text-[#0f2a56] flex items-center justify-center group-hover:rotate-45 transition-transform">
-              <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
-            </span>
-          </a>
-          <a href="#templates" class="hero-secondary-cta inline-flex items-center justify-center gap-2 rounded-full border border-[#0f2a56]/18 bg-white/70 px-7 py-4 text-base font-semibold text-[#0f2a56] hover:bg-white transition-colors">
-            Website Vorlagen ansehen
-          </a>
-        </div>
-
-        <div class="mt-6 flex flex-col sm:flex-row flex-wrap gap-3">
-          <div class="hero-trust-badge hero-trust-badge--orange">
-            <iconify-icon icon="solar:tag-price-bold" width="15" class="shrink-0 mt-0.5" style="color:#f97316"></iconify-icon>
-            <span>Google Ads Setup inklusive <strong>(1.000 bis 1.500 EUR Wert)</strong></span>
+      <!-- Top eyebrow — marquee right-to-left, bright orange -->
+      <div class="overflow-hidden mb-10 md:mb-16">
+        <div class="eyebrow-marquee">
+          <div class="flex items-center gap-12 pr-12 text-xs font-mono-display tracking-widest uppercase text-[#FF3000]">
+            <span class="flex items-center gap-2"><span class="w-2 h-2 bg-[#FF3000] rounded-full"></span>Einführungsangebot</span>
+            <span>Zertifizierter Google Partner</span>
+            <span>10 Plätze verfügbar</span>
+            <span>Lieferung in 7-14 Tagen</span>
+            <span>Google Ads Setup kostenlos</span>
+            <span>Ex-Google Team</span>
+            <span>Kein Abo</span>
           </div>
-          <div class="hero-trust-badge hero-trust-badge--blue">
-            <iconify-icon icon="solar:verified-check-bold" width="15" class="shrink-0 mt-0.5" style="color:#0a55d8"></iconify-icon>
-            <span>Zertifizierter <strong>Google Partner</strong> mit direkter Google Erfahrung</span>
+          <div class="flex items-center gap-12 pr-12 text-xs font-mono-display tracking-widest uppercase text-[#FF3000]" aria-hidden="true">
+            <span class="flex items-center gap-2"><span class="w-2 h-2 bg-[#FF3000] rounded-full"></span>Einführungsangebot</span>
+            <span>Zertifizierter Google Partner</span>
+            <span>10 Plätze verfügbar</span>
+            <span>Lieferung in 7-14 Tagen</span>
+            <span>Google Ads Setup kostenlos</span>
+            <span>Ex-Google Team</span>
+            <span>Kein Abo</span>
           </div>
         </div>
       </div>
 
-      <div class="lg:col-span-5 p-4 md:p-8 lg:p-10 flex items-center">
-        <div class="hero-visual-shell w-full">
-        <div class="hero-visual w-full rounded-[2.2rem] bg-white border border-[#0f2a56]/16 p-4 md:p-5 shadow-brutal relative overflow-hidden min-h-[620px]">
-          <div class="absolute inset-0 dot-matrix opacity-30"></div>
-          <div class="absolute -top-24 -right-16 w-64 h-64 rounded-full bg-[#93c5fd]/45 blur-3xl"></div>
-          <div class="absolute -bottom-20 -left-16 w-64 h-64 rounded-full bg-[#ff8a1f]/24 blur-3xl"></div>
+      <!-- H1 -->
+      <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7.5rem] leading-[0.95] font-semibold tracking-tight text-white uppercase mb-8">
+        Website-Erstellung<br>für Selbstständige,<br>Freelancer<br>&amp; KMU.
+      </h1>
 
-          <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-70" viewBox="0 0 520 620" fill="none" preserveAspectRatio="none" aria-hidden="true">
-            <path class="engine-line" d="M92 386 C180 315 235 310 336 250" stroke="#0f2a56" stroke-width="2"/>
-            <path class="engine-line" d="M280 390 C340 360 386 324 444 276" stroke="#ff8a1f" stroke-width="2"/>
-            <path class="engine-line" d="M120 168 C210 112 315 112 422 168" stroke="#93c5fd" stroke-width="2"/>
-          </svg>
-
-          <div class="relative z-10">
-            <div class="flex items-center justify-between mb-4">
-              <div>
-                <p class="text-[11px] uppercase tracking-[0.24em] font-bold text-[#0f2a56]/46">Live Growth Stack</p>
-                <h2 class="text-2xl md:text-3xl font-semibold tracking-tighter-custom">Webdesign und Google Ads arbeiten zusammen</h2>
-              </div>
-              <span class="w-12 h-12 rounded-full bg-[#0f2a56] text-white flex items-center justify-center">
-                <iconify-icon icon="solar:graph-up-bold" width="24"></iconify-icon>
-              </span>
-            </div>
-
-            <div class="relative h-[360px] md:h-[390px]">
-              <div class="hero-mockup-main absolute left-1 top-7 w-[78%] rounded-[1.8rem] border border-[#0f2a56]/18 bg-[#0f2a56] p-3 shadow-2xl overflow-hidden">
-                <div class="relative rounded-[1.3rem] overflow-hidden bg-[#f3f4ef]">
-                  <picture>
-                    <source srcset="/assets/website-sample-noiri.webp" type="image/webp">
-                    <img src="/assets/website-sample-noiri.jpg" alt="Vorschau einer Premium Website Richtung" class="w-full h-56 md:h-64 object-cover object-top">
-                  </picture>
-                  <div class="scan-beam absolute inset-y-0 w-24 bg-gradient-to-r from-transparent via-white/45 to-transparent"></div>
-                </div>
-                <div class="mt-3 grid grid-cols-3 gap-2 text-white">
-                  <div class="rounded-xl bg-white/10 p-3">
-                    <p class="text-[10px] uppercase tracking-widest text-white/45">Seite</p>
-                    <p class="text-sm font-bold">Angebot</p>
-                  </div>
-                  <div class="rounded-xl bg-white/10 p-3">
-                    <p class="text-[10px] uppercase tracking-widest text-white/45">CTA</p>
-                    <p class="text-sm font-bold">Lead</p>
-                  </div>
-                  <div class="rounded-xl bg-[#ff8a1f] text-[#0f2a56] p-3">
-                    <p class="text-[10px] uppercase tracking-widest text-[#0f2a56]/55">Bereit</p>
-                    <p class="text-sm font-bold">Ads</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="hero-mockup-secondary absolute right-0 bottom-0 w-[48%] rounded-[1.4rem] border border-[#0f2a56]/18 bg-white p-2 shadow-2xl overflow-hidden">
-                <img src="/assets/website-sample-coreactive.jpg" alt="Vorschau einer Website für lokale Dienstleister" class="w-full h-40 md:h-48 object-cover object-top rounded-[1rem]">
-                <div class="p-3">
-                  <p class="text-[10px] uppercase tracking-widest text-[#0f2a56]/45 font-bold">Website Richtung</p>
-                  <p class="text-sm font-bold">Funnel für lokale Dienstleister</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-3 gap-3 mt-4">
-              <div class="hero-metric rounded-2xl border border-[#0f2a56]/14 bg-[#f3f4ef] p-4">
-                <p class="text-[10px] uppercase tracking-widest text-[#0f2a56]/46 font-bold">Website</p>
-                <p class="mt-1 text-lg font-bold tracking-tighter-custom">Konvertieren</p>
-              </div>
-              <div class="hero-metric rounded-2xl border border-[#0f2a56]/14 bg-[#93c5fd] p-4">
-                <p class="text-[10px] uppercase tracking-widest text-[#0f2a56]/46 font-bold">Ads</p>
-                <p class="mt-1 text-lg font-bold tracking-tighter-custom">Skalieren</p>
-              </div>
-              <div class="hero-metric rounded-2xl border border-[#0f2a56]/14 bg-[#ff8a1f] p-4">
-                <p class="text-[10px] uppercase tracking-widest text-[#0f2a56]/46 font-bold">ROAS</p>
-                <p class="mt-1 text-lg font-bold tracking-tighter-custom">10.67X</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="problem" class="section-shell">
-    <div class="grid grid-cols-1 lg:grid-cols-12">
-      <div class="lg:col-span-4 border-grid p-8 md:p-12 bg-[#0f2a56] text-white">
-        <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-3 py-1 text-xs uppercase tracking-widest font-bold text-[#ff8a1f]">
-          <iconify-icon icon="solar:danger-triangle-bold" width="14"></iconify-icon>
-          Das eigentliche Problem
-        </span>
-        <h2 class="mt-6 text-4xl md:text-6xl font-semibold tracking-tighter-custom leading-[0.95]">
-          <span class="block">Eine Website allein</span>
-          <span class="block">bringt keine</span>
-          <span class="block">Kunden.</span>
-        </h2>
-        <p class="mt-6 text-lg text-white/66 leading-relaxed">
-          Deine Website braucht die richtige Seite, den richtigen Traffic und sauberes Tracking. Wenn das getrennt läuft, <br class="md:hidden">geht Budget verloren.
-        </p>
-      </div>
-
-      <div class="lg:col-span-8 p-4 md:p-8 bg-white">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <article class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-6 min-h-[300px] flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-2xl bg-[#ff8a1f] flex items-center justify-center mb-6">
-                <iconify-icon icon="solar:shop-bold" width="24"></iconify-icon>
-              </div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">Keine Website oder kein Marketing</h3>
-              <p class="mt-4 text-[#0f2a56]/65 leading-relaxed">
-                Menschen suchen bereits nach deinem Angebot. Ohne klare Seite werden sie nicht zu Leads.
-              </p>
-            </div>
-            <p class="mt-6 text-sm font-bold text-[#0f2a56]">Du lässt Nachfrage liegen.</p>
-          </article>
-
-          <article class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#93c5fd] p-6 min-h-[300px] flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center mb-6">
-                <iconify-icon icon="solar:cloud-cross-bold" width="24"></iconify-icon>
-              </div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">Website sammelt Staub</h3>
-              <p class="mt-4 text-[#0f2a56]/72 leading-relaxed">
-                Deine Website ist online, aber ohne Traffic und Conversion Strategie entstehen keine Anfragen.
-              </p>
-            </div>
-            <p class="mt-6 text-sm font-bold text-[#0f2a56]">Dein Asset produziert nicht.</p>
-          </article>
-
-          <article class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#ff8a1f] p-6 min-h-[300px] flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-2xl bg-[#0f2a56] text-white flex items-center justify-center mb-6">
-                <iconify-icon icon="solar:cursor-bold" width="24"></iconify-icon>
-              </div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">Google Ads konvertieren nicht</h3>
-              <p class="mt-4 text-[#0f2a56]/72 leading-relaxed">
-                Schwache Seiten, fehlendes Vertrauen oder kaputtes Tracking lassen guten Traffic schlecht aussehen.
-              </p>
-            </div>
-            <p class="mt-6 text-sm font-bold text-[#0f2a56]">Traffic wird verschwendet.</p>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-shell bg-white">
-    <div class="grid grid-cols-1 lg:grid-cols-12">
-      <div class="lg:col-span-5 border-grid p-8 md:p-12">
-        <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#f97316]">Das Problem fragmentierter Agenturen</span>
-        <h2 class="mt-4 text-4xl md:text-6xl font-semibold tracking-tighter-custom leading-[0.96]">Website, Ads und Tracking Teams schieben die Verantwortung weiter.</h2>
-        <p class="mt-5 text-lg text-[#0f2a56]/64 leading-relaxed">
-          Bis klar ist, wem das Problem gehört, ist oft ein weiterer Monat Werbebudget weg.
-        </p>
-      </div>
-
-      <div class="lg:col-span-7 p-4 md:p-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-5">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#93c5fd] mb-4">Problem</p>
-            <div class="space-y-3">
-              <div class="rounded-2xl bg-white border border-[#0f2a56]/12 p-4">
-                <p class="font-bold">Website Agentur</p>
-                <p class="text-sm text-[#0f2a56]/58">„Das klingt nach einem Tracking Problem.“</p>
-              </div>
-              <div class="rounded-2xl bg-white border border-[#0f2a56]/12 p-4">
-                <p class="font-bold">Ads Agentur</p>
-                <p class="text-sm text-[#0f2a56]/58">„Das muss auf der Website behoben werden.“</p>
-              </div>
-              <div class="rounded-2xl bg-[#93c5fd] border border-[#0f2a56]/18 p-4">
-                <p class="font-bold">Zwei Wochen später</p>
-                <p class="text-sm text-[#0f2a56]/72">Budget läuft weiter. Attribution ist immer noch unklar.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="rounded-[1.75rem] border border-[#0f2a56]/14 bg-[#0f2a56] text-white p-5">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#ff8a1f] mb-4">Lösung</p>
-            <div class="space-y-3">
-              <div class="rounded-2xl bg-white/7 border border-white/10 p-4">
-                <p class="font-bold">Dasselbe Team prüft das Problem</p>
-                <p class="text-sm text-white/58">Wir kennen Seite, Kampagne, Event und Tracking.</p>
-              </div>
-              <div class="rounded-2xl bg-white/7 border border-white/10 p-4">
-                <p class="font-bold">Dasselbe Team behebt das Problem</p>
-                <p class="text-sm text-white/58">Keine Übergabewege. Keine Schuldschleife.</p>
-              </div>
-              <div class="rounded-2xl bg-[#ff8a1f] text-[#0f2a56] p-4">
-                <p class="font-bold">Dasselbe System verbessert die Performance</p>
-                <p class="text-sm text-[#0f2a56]/72">Website, Ads und Tracking lernen aus denselben Daten.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="results" class="section-shell bg-[#0f2a56] text-white overflow-hidden">
-    <div class="grid grid-cols-1 lg:grid-cols-12">
-      <div class="lg:col-span-5 border-grid border-white/10 p-8 md:p-12 relative">
-        <div class="absolute top-0 right-0 w-72 h-72 rounded-full bg-[#ff8a1f]/20 blur-3xl pointer-events-none"></div>
-        <div class="relative">
-	          <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#ff8a1f]">Echte Kundenergebnisse</span>
-	          <h2 class="mt-4 text-4xl md:text-6xl font-semibold tracking-tighter-custom leading-[0.96]">Echte Anzeigendaten aus aktiven Kundenkonten.</h2>
-	          <p class="mt-5 text-lg text-white/70 leading-relaxed">
-	            Screenshots und zusammengefasste Kennzahlen aus Google Ads Konten, anonymisiert und nach Kampagnenzeitraum betrachtet.
-	          </p>
-
-	          <div class="mt-8 space-y-3" id="proof-bullets">
-	            <div class="proof-bullet flex items-start gap-3 rounded-2xl bg-white/8 border border-white/10 px-4 py-4">
-	              <span class="w-2 h-2 rounded-full bg-[#ff8a1f] mt-2 shrink-0"></span>
-	              <p class="text-sm text-white/80 leading-relaxed">Für <strong class="text-white">Ecommerce</strong> messen wir den Umsatz, der jedem Euro Werbebudget zugeordnet wird.</p>
-	            </div>
-	            <div class="proof-bullet flex items-start gap-3 rounded-2xl bg-white/8 border border-white/10 px-4 py-4">
-	              <span class="w-2 h-2 rounded-full bg-[#93c5fd] mt-2 shrink-0"></span>
-	              <p class="text-sm text-white/80 leading-relaxed">Für <strong class="text-white">Dienstleister</strong> messen wir Kosten pro Lead, gebuchte Gespräche und Formularanfragen.</p>
-	            </div>
-	            <div class="proof-bullet flex items-start gap-3 rounded-2xl bg-[#ff8a1f]/15 border border-[#ff8a1f]/30 px-4 py-4">
-	              <span class="w-2 h-2 rounded-full bg-[#ff8a1f] mt-2 shrink-0"></span>
-	              <p class="text-sm text-white/80 leading-relaxed">Die stärksten Ergebnisse entstehen, wenn <strong class="text-white">Website, Ads und Tracking als ein System geführt werden</strong> statt als getrennte Teile.</p>
-	            </div>
-	          </div>
+      <!-- Price block -->
+      <div class="flex items-baseline gap-4 mb-6">
+        <span class="text-[3.5rem] sm:text-[4.5rem] font-semibold text-[#FF3000] leading-none tracking-tight">499€</span>
+        <div>
+          <span class="text-neutral-500 line-through text-lg">1.500€</span>
+          <span class="block text-xs font-mono-display text-neutral-500 uppercase tracking-widest mt-1">10 Plätze diesen Monat</span>
         </div>
       </div>
 
-      <div class="lg:col-span-7 p-4 md:p-8">
-        <div class="proof-flow-card rounded-[2rem] bg-white text-[#0f2a56] p-6 md:p-8 shadow-brutal">
-          <div class="relative grid grid-cols-1 xl:grid-cols-[0.95fr_1.05fr] gap-8 items-center">
-            <div>
-	              <p class="text-xs font-bold uppercase tracking-[0.22em] text-[#0f2a56]/42 mb-3">Ecommerce · echter Kampagnenzeitraum</p>
-	              <h3 class="text-2xl md:text-3xl font-semibold tracking-tighter-custom leading-snug">
-	                Der gemessene Conversion Wert lag in diesem Kampagnenzeitraum über dem Werbebudget.
-              </h3>
-            </div>
-
-            <div class="roi-lane">
-              <div class="roi-box metric-spend">
-                <p class="text-xs font-bold uppercase tracking-widest text-[#0f2a56]/54">Werbebudget</p>
-                <p class="mt-2 text-4xl font-semibold tracking-tighter-custom count-up" data-count="6256" data-prefix="€" data-decimals="0">€0</p>
-	                <p class="mt-3 text-sm text-[#0f2a56]/58">Was in Google Ads investiert wurde.</p>
-              </div>
-              <div class="roi-arrow" aria-hidden="true">
-                <iconify-icon icon="solar:arrow-right-linear" width="24"></iconify-icon>
-              </div>
-              <div class="roi-box bg-[#0f2a56] text-white border-white/10">
-	                <p class="text-xs font-bold uppercase tracking-widest metric-value-bright">Gemessener Wert</p>
-                <p class="mt-2 text-4xl font-semibold tracking-tighter-custom metric-value-bright count-up" data-count="66729" data-prefix="€" data-decimals="0">€0</p>
-	                <p class="mt-3 text-sm text-white/62">Umsatz oder Conversion Wert, der den Anzeigen zugeordnet wurde.</p>
-              </div>
-            </div>
-          </div>
-
-          <p class="relative mt-6 text-base md:text-lg font-semibold text-[#0f2a56]/78">
-	            In diesem Zeitraum lag der gemessene Conversion Wert beim <span class="metric-return count-up" data-count="10.67" data-decimals="2" data-suffix="X">0X</span> des erfassten <span class="metric-spend">Werbebudgets</span>.
-          </p>
-
-          <div class="relative mt-8 grid grid-cols-1 gap-6 items-end">
-            <div class="rounded-[1.5rem] bg-white/72 border border-[#0f2a56]/10 p-5">
-              <div class="flex items-end justify-between gap-5">
-                <div>
-                  <p class="text-sm font-bold uppercase tracking-widest text-[#0f2a56]/58">Return Multiple</p>
-                  <p class="mt-1 text-6xl font-semibold tracking-tighter-custom metric-return count-up" data-count="10.67" data-decimals="2" data-suffix="X">0X</p>
-                </div>
-                <div class="roi-chart" aria-hidden="true">
-                  <div class="roi-bar spend"></div>
-                  <div class="roi-bar revenue"></div>
-                </div>
-              </div>
-	              <div class="mt-3 flex justify-end gap-3 text-[11px] font-bold uppercase tracking-widest text-[#0f2a56]/58">
-	                <span class="metric-spend">Budget</span>
-	                <span class="metric-value">Wert</span>
-              </div>
-            </div>
-
-            <picture>
-              <source srcset="/assets/google-ads-image-2.webp" type="image/webp">
-              <img src="/assets/google-ads-image-2.jpg" alt="Visual eines Google Ads Wachstumssystems" class="rounded-[1.5rem] border border-white/40 object-cover h-48 w-full">
-            </picture>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="p-4 md:p-8 border-t border-white/10">
-	      <div class="mb-5 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-5 items-stretch">
-	        <div class="results-title-card flex h-full flex-col justify-center rounded-[1.25rem] border border-white/8 bg-white/[0.025] p-6 md:p-7">
-	          <p class="text-xs font-bold uppercase tracking-[0.22em] text-[#93c5fd]">Verifizierte Kundenkonten</p>
-	          <h3 class="mt-3 max-w-3xl text-2xl md:text-4xl font-semibold tracking-tighter-custom leading-tight text-[#ff8a1f]">Echte Kampagnendaten. Keine Schätzungen. Keine aufgeblasenen Zahlen.</h3>
-	          <p class="mt-4 max-w-2xl text-sm text-white/66 leading-relaxed">Jeder Screenshot unten stammt direkt aus Google Ads, mit entfernten Kundennamen. Du siehst, was investiert wurde, was gemessen wurde und wie die Performance über die Zeit aussah.</p>
-	          <p class="mt-5 max-w-3xl border-l-2 border-[#93c5fd]/70 pl-4 text-sm font-semibold leading-relaxed text-white/82">Das sind keine Versprechen. Es sind Beispiele dafür, was passieren kann, wenn Website, Ads und Tracking als ein System aufgebaut und betreut werden.</p>
-	        </div>
-	        <div class="h-full rounded-[1.25rem] border border-white/10 bg-white/[0.035] p-5" aria-label="So liest du die Ergebniskarten">
-	          <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-white/48 mb-4">So liest du jede Karte</p>
-	          <div class="space-y-3.5">
-	            <div class="flex items-start gap-3">
-	              <div>
-	                <p class="text-[13px] font-semibold text-white">Werbebudget</p>
-	                <p class="text-xs text-white/54 mt-0.5 leading-relaxed">Was in diesem Zeitraum in Google Ads investiert wurde.</p>
-	              </div>
-	            </div>
-	            <div class="flex items-start gap-3">
-	              <div>
-	                <p class="text-[13px] font-semibold text-white">Gemessener Wert</p>
-	                <p class="text-xs text-white/54 mt-0.5 leading-relaxed">Umsatz oder Leads, die diesen Anzeigen zugeordnet wurden.</p>
-	              </div>
-	            </div>
-	            <div class="flex items-start gap-3">
-	              <div>
-	                <p class="text-[13px] font-semibold text-white">Return Multiple (X)</p>
-	                <p class="text-xs text-white/54 mt-0.5 leading-relaxed">Wie oft das Werbebudget als gemessener Wert zurückgeführt wurde.</p>
-	              </div>
-	            </div>
-	          </div>
-	          <p class="mt-4 pt-4 border-t border-white/8 text-[11px] leading-relaxed text-white/42">Performance variiert je nach Branche, Angebot, Budget und Marktbedingungen.</p>
-	        </div>
-	      </div>
-
-	      <p class="mb-5 max-w-4xl text-sm font-medium leading-relaxed text-white/68">Für Dienstleister konzentrieren wir uns auf Kosten pro Lead, gebuchte Gespräche und Lead Qualität, nicht nur auf Umsatzmultiplikatoren.</p>
-
-      <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
-        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
-          <div class="proof-screenshot">
-            <picture>
-              <source srcset="/assets/google-ads-proof-lp/proof-result-01.webp" type="image/webp">
-              <img src="/assets/google-ads-proof-lp/fallbacks/proof-result-01.jpg" alt="Anonymisierter Google Ads Kontoausschnitt mit Conversion Wert aus April 2026" loading="lazy">
-            </picture>
-            <span class="proof-result-chip"><strong class="count-up" data-count="12.58" data-decimals="2" data-suffix="X">0X</strong> Return</span>
-          </div>
-          <div class="proof-image-body">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">E Commerce Konto · April 2026</p>
-            <p class="proof-impact-number metric-return count-up" data-count="12.58" data-decimals="2" data-suffix="X">0X</p>
-            <p class="proof-impact-sentence"><span class="spend-word">12.429,85 € Werbebudget</span> erzeugten <span class="value-word">156.405,87 € messbaren Wert</span>.</p>
-          </div>
-        </article>
-
-        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
-          <div class="proof-screenshot">
-            <picture>
-              <source srcset="/assets/google-ads-proof-lp/proof-result-02.webp" type="image/webp">
-              <img src="/assets/google-ads-proof-lp/fallbacks/proof-result-02.jpg" alt="Anonymisierter Google Ads Kontoausschnitt mit Conversion Wert aus Februar 2026" loading="lazy">
-            </picture>
-            <span class="proof-result-chip"><strong class="count-up" data-count="10.08" data-decimals="2" data-suffix="X">0X</strong> Return</span>
-          </div>
-          <div class="proof-image-body">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">E Commerce Konto · Februar 2026</p>
-            <p class="proof-impact-number metric-return count-up" data-count="10.08" data-decimals="2" data-suffix="X">0X</p>
-            <p class="proof-impact-sentence"><span class="spend-word">9.012,37 € Werbebudget</span> erzeugten <span class="value-word">90.837,65 € messbaren Wert</span>.</p>
-          </div>
-        </article>
-
-        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
-          <div class="proof-screenshot">
-            <picture>
-              <source srcset="/assets/google-ads-proof-lp/proof-result-03.webp" type="image/webp">
-              <img src="/assets/google-ads-proof-lp/fallbacks/proof-result-03.jpg" alt="Anonymisierter Google Ads Kontoausschnitt mit Conversion Wert aus Dezember 2025" loading="lazy">
-            </picture>
-            <span class="proof-result-chip"><strong class="count-up" data-count="9.40" data-decimals="2" data-suffix="X">0X</strong> Return</span>
-          </div>
-          <div class="proof-image-body">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">E Commerce Konto · Dezember 2025</p>
-            <p class="proof-impact-number metric-return count-up" data-count="9.40" data-decimals="2" data-suffix="X">0X</p>
-            <p class="proof-impact-sentence"><span class="spend-word">12.206,52 € Werbebudget</span> erzeugten <span class="value-word">114.734,12 € messbaren Wert</span>.</p>
-          </div>
-        </article>
-
-        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
-          <div class="proof-screenshot">
-            <picture>
-              <source srcset="/assets/google-ads-proof-lp/proof-result-04.webp" type="image/webp">
-              <img src="/assets/google-ads-proof-lp/fallbacks/proof-result-04.jpg" alt="Anonymisierter Google Ads Kontoausschnitt mit Conversion Wert aus November 2025" loading="lazy">
-            </picture>
-            <span class="proof-result-chip"><strong class="count-up" data-count="6.71" data-decimals="2" data-suffix="X">0X</strong> Return</span>
-          </div>
-          <div class="proof-image-body">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">E Commerce Konto · November 2025</p>
-            <p class="proof-impact-number metric-return count-up" data-count="6.71" data-decimals="2" data-suffix="X">0X</p>
-            <p class="proof-impact-sentence"><span class="spend-word">11.861,41 € Werbebudget</span> erzeugten <span class="value-word">79.605,98 € messbaren Wert</span>.</p>
-          </div>
-        </article>
-
-        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
-          <div class="proof-screenshot">
-            <picture>
-              <source srcset="/assets/google-ads-proof-lp/proof-result-05.webp" type="image/webp">
-              <img src="/assets/google-ads-proof-lp/fallbacks/proof-result-05.jpg" alt="Anonymisierter Google Ads Kontoausschnitt mit gemessenen Conversions aus Februar 2026" loading="lazy">
-            </picture>
-            <span class="proof-result-chip"><strong class="count-up" data-count="7.43" data-prefix="€" data-decimals="2">€0</strong> Kosten/Conv.</span>
-          </div>
-          <div class="proof-image-body">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">Lead Generation Konto · Februar 2026</p>
-            <p class="proof-impact-number metric-return count-up" data-count="7.43" data-prefix="€" data-decimals="2">€0</p>
-            <p class="proof-impact-sentence"><span class="spend-word">3.738,62 € Werbebudget</span> erzeugten <span class="value-word">658,42 gemessene Conversions</span> zu 7,43 € pro Conversion.</p>
-          </div>
-        </article>
-
-        <article class="proof-card proof-image-card rounded-[1.5rem] border border-white/12">
-          <div class="proof-screenshot">
-            <picture>
-              <source srcset="/assets/google-ads-proof-lp/proof-result-06.webp" type="image/webp">
-              <img src="/assets/google-ads-proof-lp/fallbacks/proof-result-06.jpg" alt="Anonymisierter Google Ads Kontoausschnitt mit gemessenen Conversions aus März 2026" loading="lazy">
-            </picture>
-            <span class="proof-result-chip"><strong class="count-up" data-count="3.44" data-prefix="€" data-decimals="2">€0</strong> Kosten/Conv.</span>
-          </div>
-          <div class="proof-image-body">
-            <p class="text-xs font-bold uppercase tracking-widest text-[#f97316]">Lead Generation Konto · März 2026</p>
-            <p class="proof-impact-number metric-return count-up" data-count="3.44" data-prefix="€" data-decimals="2">€0</p>
-            <p class="proof-impact-sentence"><span class="spend-word">5.056,87 € Werbebudget</span> erzeugten <span class="value-word">1.468,49 gemessene Conversions</span> zu 3,44 € pro Conversion.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="offer" class="section-shell bg-white">
-    <div class="p-8 md:p-12 border-b border-[#0f2a56]/14">
-      <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#f97316]">Leistungen</span>
-      <h2 class="mt-4 text-4xl md:text-7xl font-semibold tracking-tighter-custom leading-[0.95] max-w-5xl">Wähle den Weg, der zu deiner aktuellen Situation passt. Die meisten Kunden wählen das volle System.</h2>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-3">
-      <article class="border-grid p-8 md:p-10 bg-[#f3f4ef] min-h-[420px] flex flex-col">
-        <div class="w-14 h-14 rounded-2xl bg-white border border-[#0f2a56]/14 flex items-center justify-center">
-          <iconify-icon icon="solar:monitor-smartphone-bold" width="28"></iconify-icon>
-        </div>
-        <h3 class="mt-8 text-3xl font-semibold tracking-tighter-custom">Website Design</h3>
-        <p class="mt-4 text-[#0f2a56]/64 leading-relaxed">
-          Für Unternehmen, die eine klarere und überzeugendere Website brauchen, die Besucher in Leads oder Käufer verwandelt.
-        </p>
-        <ul class="mt-6 space-y-3 text-sm font-medium text-[#0f2a56]/75">
-          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#f97316] shrink-0"></iconify-icon>Conversion Messaging und Seitenstruktur</li>
-          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#f97316] shrink-0"></iconify-icon>Hochwertige visuelle Richtung</li>
-          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#f97316] shrink-0"></iconify-icon>Gebaut mit bezahltem Traffic im Kopf</li>
-        </ul>
-        <a href="/de/apply/" class="mt-auto pt-8 inline-flex items-center gap-2 font-bold hover:opacity-70">Website Projekt starten <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
-      </article>
-
-      <article class="border-grid p-8 md:p-10 bg-[#0f2a56] text-white min-h-[420px] flex flex-col relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-72 h-72 rounded-full bg-[#ff8a1f]/22 blur-3xl"></div>
-        <div class="relative">
-          <div class="flex items-center justify-between gap-4">
-            <div class="w-14 h-14 rounded-2xl bg-[#ff8a1f] text-[#0f2a56] flex items-center justify-center">
-              <iconify-icon icon="solar:rocket-bold" width="28"></iconify-icon>
-            </div>
-            <span class="rounded-full bg-white text-[#0f2a56] px-3 py-1 text-xs font-bold uppercase tracking-widest">Empfohlen</span>
-          </div>
-          <h3 class="mt-8 text-3xl font-semibold tracking-tighter-custom">Website + Google Ads System</h3>
-          <p class="mt-4 text-white/66 leading-relaxed">
-            Für Unternehmen, die Seite, Kampagne, Tracking und Optimierung ab Tag eins gemeinsam aufbauen wollen.
-          </p>
-          <ul class="mt-6 space-y-3 text-sm font-medium text-white/78">
-            <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#ff8a1f] shrink-0"></iconify-icon>Website oder Landingpage für Conversion gebaut</li>
-            <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#ff8a1f] shrink-0"></iconify-icon>Google Ads Setup inklusive (1.000 bis 1.500 EUR Wert)</li>
-            <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#ff8a1f] shrink-0"></iconify-icon>Tracking, Reporting und wöchentliche Optimierung</li>
-          </ul>
-          <a href="/de/apply/" class="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[#ff8a1f] px-6 py-4 font-bold text-[#0f2a56] hover:bg-white transition-colors">
-            Für das volle System bewerben
-            <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
-          </a>
-        </div>
-      </article>
-
-      <article class="border-grid p-8 md:p-10 bg-[#93c5fd] min-h-[420px] flex flex-col">
-        <div class="w-14 h-14 rounded-2xl bg-white border border-[#0f2a56]/14 flex items-center justify-center">
-          <iconify-icon icon="solar:target-bold" width="28"></iconify-icon>
-        </div>
-        <h3 class="mt-8 text-3xl font-semibold tracking-tighter-custom">Google Ads Management</h3>
-        <p class="mt-4 text-[#0f2a56]/68 leading-relaxed">
-          Für Unternehmen mit einer Website, die bereit ist zu konvertieren oder nah genug dran ist, dass wir die wichtigsten Engpässe beheben können.
-        </p>
-        <ul class="mt-6 space-y-3 text-sm font-medium text-[#0f2a56]/76">
-          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#0f2a56] shrink-0"></iconify-icon>Kampagnenarchitektur</li>
-          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#0f2a56] shrink-0"></iconify-icon>Conversion Tracking Prüfung oder Setup</li>
-          <li class="flex gap-2"><iconify-icon icon="solar:check-circle-bold" width="18" class="text-[#0f2a56] shrink-0"></iconify-icon>Wöchentliche Optimierung Richtung ROI</li>
-        </ul>
-        <a href="/de/apply/" class="mt-auto pt-8 inline-flex items-center gap-2 font-bold hover:opacity-70">Ads mit uns starten <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
-      </article>
-    </div>
-    <div class="px-8 md:px-12 py-6 border-t border-[#0f2a56]/10 bg-white text-center text-sm text-[#0f2a56]/52">
-      Website Projekte können in 2 bis 3 Zahlungen aufgeteilt werden. Ads Management wird monatlich abgerechnet. Dein Werbebudget geht direkt an Google.
-    </div>
-  </section>
-
-  <section id="process" class="section-shell">
-    <div class="grid grid-cols-1 lg:grid-cols-12">
-      <div class="lg:col-span-5 border-grid p-8 md:p-12">
-        <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#f97316]">So läuft es ab</span>
-        <h2 class="mt-4 text-4xl md:text-7xl font-semibold tracking-tighter-custom leading-[0.95]">Vom ersten Gespräch bis zur Live Website mit laufenden Ads.</h2>
-        <p class="mt-5 text-lg text-[#0f2a56]/64 leading-relaxed">
-          Wir prüfen zuerst dein Setup und bauen danach um das richtige Ziel.
-        </p>
-      </div>
-
-      <div class="lg:col-span-7 p-4 md:p-8 bg-white">
-        <div class="space-y-4">
-          <div class="flow-line grid grid-cols-[3rem_1fr] gap-5 rounded-[1.5rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-5">
-            <div class="w-12 h-12 rounded-full bg-[#ff8a1f] flex items-center justify-center font-bold">1</div>
-            <div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">Die richtige Richtung wählen</h3>
-              <p class="mt-2 text-[#0f2a56]/64">Wir prüfen Unternehmen, Angebot, Zielgruppe und Setup, bevor wir den Weg empfehlen.</p>
-            </div>
-          </div>
-
-          <div class="flow-line grid grid-cols-[3rem_1fr] gap-5 rounded-[1.5rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-5">
-            <div class="w-12 h-12 rounded-full bg-[#93c5fd] flex items-center justify-center font-bold">2</div>
-            <div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">Website oder Landingpage bauen</h3>
-              <p class="mt-2 text-[#0f2a56]/64">Wir gestalten Botschaft, Vertrauen und Conversion Flow. Die meisten Projekte dauern 1 bis 2 Wochen.</p>
-            </div>
-          </div>
-
-          <div class="flow-line grid grid-cols-[3rem_1fr] gap-5 rounded-[1.5rem] border border-[#0f2a56]/14 bg-[#f3f4ef] p-5">
-            <div class="w-12 h-12 rounded-full bg-[#0f2a56] text-white flex items-center justify-center font-bold">3</div>
-            <div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">Google Ads + Tracking starten</h3>
-              <p class="mt-2 text-[#0f2a56]/64">Kampagnen, Conversion Events und Reporting werden auf Geschäftsergebnisse ausgerichtet.</p>
-            </div>
-          </div>
-
-          <div class="flow-line grid grid-cols-[3rem_1fr] gap-5 rounded-[1.5rem] border border-[#0f2a56]/14 bg-[#0f2a56] text-white p-5">
-            <div class="w-12 h-12 rounded-full bg-[#ff8a1f] text-[#0f2a56] flex items-center justify-center font-bold">4</div>
-            <div>
-              <h3 class="text-2xl font-semibold tracking-tighter-custom">Wöchentlich mit echten Daten optimieren</h3>
-              <p class="mt-2 text-white/64">Wir optimieren Budget, Suchbegriffe, Seitenreibung und Conversion Engpässe wöchentlich.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-shell bg-white">
-    <div class="p-8 md:p-12 border-b border-[#0f2a56]/14 text-center">
-      <h2 class="text-4xl md:text-6xl font-semibold tracking-tighter-custom leading-[0.98] max-w-3xl mx-auto">Gebaut für Unternehmen, die Wachstum ernst nehmen.</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2">
-      <div class="border-grid p-8 md:p-12 bg-[#f3f4ef]">
-        <div class="inline-flex items-center gap-2 rounded-full bg-[#16a34a] px-4 py-2 text-xs font-bold uppercase tracking-widest text-white mb-8">Gut geeignet</div>
-        <ul class="space-y-4">
-          <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/80 leading-relaxed">Du brauchst eine neue Website und willst, dass sie Leads generiert</span>
-          </li>
-          <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/80 leading-relaxed">Du hast eine Website, aber sie bringt keine Anrufe oder Anfragen</span>
-          </li>
-          <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/80 leading-relaxed">Du willst Google Ads richtig einsetzen</span>
-          </li>
-          <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/80 leading-relaxed">Du hast es satt, dass deine Website, Anzeigen und das Tracking von drei verschiedenen Teams verwaltet werden</span>
-          </li>
-          <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/80 leading-relaxed">Du kannst mindestens 1.000 EUR pro Monat in Ads investieren</span>
-          </li>
-          <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-[#16a34a] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/80 leading-relaxed">Du willst klare Zahlen, keine vagen Berichte</span>
-          </li>
-        </ul>
-      </div>
-      <div class="p-8 md:p-12 bg-white">
-        <div class="inline-flex items-center gap-2 rounded-full bg-[#dc2626] px-4 py-2 text-xs font-bold uppercase tracking-widest text-white mb-8">Nicht für dich</div>
-        <ul class="space-y-4">
-          <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#dc2626] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/55 leading-relaxed">Du suchst die billigste mögliche Website</span>
-          </li>
-          <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#dc2626] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/55 leading-relaxed">Du bist nicht bereit, in Traffic zu investieren</span>
-          </li>
-          <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#dc2626] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/55 leading-relaxed">Du willst nur Design ohne Strategie</span>
-          </li>
-          <li class="flex gap-3 items-start">
-            <iconify-icon icon="solar:close-circle-bold" width="20" class="text-[#dc2626] shrink-0 mt-0.5"></iconify-icon>
-            <span class="text-[#0f2a56]/55 leading-relaxed">Du erwartest garantierte Ergebnisse ohne Tests und Optimierung</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="templates" class="section-shell bg-white">
-    <div class="grid grid-cols-1 lg:grid-cols-12 border-b border-[#0f2a56]/14">
-      <div class="lg:col-span-7 border-grid p-8 md:p-12">
-        <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#f97316]">Website Vorlagen</span>
-        <h2 class="mt-4 text-4xl md:text-7xl font-semibold tracking-tighter-custom leading-[0.95]">Starte mit einer bewährten Richtung. Wir passen sie vollständig an dein Unternehmen an.</h2>
-      </div>
-      <div class="lg:col-span-5 p-8 md:p-12 flex items-end">
-        <p class="text-lg text-[#0f2a56]/64 leading-relaxed">
-          Du kaufst keine Vorlage. Jede Richtung ist ein getesteter Ausgangspunkt, den wir rund um dein Angebot, deine Zielgruppe, deinen Conversion Flow und deine Anzeigenstrategie neu aufbauen.
-        </p>
-      </div>
-    </div>
-
-    <div class="bg-[#f3f4ef]" data-template-section>
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-4 md:p-8">
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/blade-co/">
-          <div class="template-media">
-            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=1200&q=85&auto=format&fit=crop" alt="Barbershop Website Vorschau" class="template-image w-full h-full object-cover object-top">
-          </div>
-          <div class="template-meta"><span class="template-number">01</span><h3 class="template-title">Barbershop / Grooming</h3></div>
-        </a>
-
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://noiriwebsite.vercel.app/" target="_blank" rel="noopener noreferrer">
-          <div class="template-media">
-            <picture>
-              <source srcset="/assets/website-sample-noiri.webp" type="image/webp">
-              <img loading="lazy" decoding="async" src="/assets/website-sample-noiri.jpg" alt="Fotografie Portfolio Website Vorschau" class="template-image w-full h-full object-cover object-top">
-            </picture>
-          </div>
-          <div class="template-meta"><span class="template-number">02</span><h3 class="template-title">Fotografie / Portfolio</h3></div>
-        </a>
-
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://badembatraining.netlify.app/" target="_blank" rel="noopener noreferrer">
-          <div class="template-media">
-            <picture>
-              <source srcset="/assets/website-sample-badembatraining.webp" type="image/webp">
-              <img loading="lazy" decoding="async" src="/assets/website-sample-badembatraining.png" alt="Fitness Coaching Website Vorschau" class="template-image w-full h-full object-cover object-top">
-            </picture>
-          </div>
-          <div class="template-meta"><span class="template-number">03</span><h3 class="template-title">Fitness Coaching</h3></div>
-        </a>
-
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://loftylabrep.vercel.app/" target="_blank" rel="noopener noreferrer">
-          <div class="template-media">
-            <picture>
-              <source srcset="/assets/website-sample-loftylabrep.webp" type="image/webp">
-              <img loading="lazy" decoding="async" src="/assets/website-sample-loftylabrep.png" alt="Kreativagentur Website Vorschau" class="template-image w-full h-full object-cover object-top">
-            </picture>
-          </div>
-          <div class="template-meta"><span class="template-number">04</span><h3 class="template-title">Kreativagentur</h3></div>
-        </a>
-
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/london-house-pools/">
-          <div class="template-media">
-            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Poolbau Website Vorschau" class="template-image w-full h-full object-cover object-top">
-          </div>
-          <div class="template-meta"><span class="template-number">05</span><h3 class="template-title">Poolbau / Handwerk</h3></div>
-        </a>
-
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/fleet-management-co/">
-          <div class="template-media">
-            <img loading="lazy" decoding="async" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c9070952-37a3-41e4-bed6-847746be5b06_3840w.png?w=1200&q=80" alt="Immobilien Website Vorschau" class="template-image w-full h-full object-cover object-top">
-          </div>
-          <div class="template-meta"><span class="template-number">06</span><h3 class="template-title">Immobilien / Property</h3></div>
-        </a>
-
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://utopai-with-claude-new-new-o136.vercel.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
-          <div class="template-media">
-            <picture>
-              <source srcset="/assets/website-sample-utopai.webp" type="image/webp">
-              <img loading="lazy" decoding="async" src="/assets/website-sample-utopai.png" alt="AI Editorial Website Vorschau" class="template-image w-full h-full object-cover object-top">
-            </picture>
-          </div>
-          <div class="template-meta"><span class="template-number">07</span><h3 class="template-title">AI Editorial / Content Hub</h3></div>
-        </a>
-
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://georgenkine.netlify.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
-          <div class="template-media">
-            <img loading="lazy" decoding="async" src="/assets/website-sample-georgenkine.jpg" alt="Physiotherapeut Website Vorschau" class="template-image w-full h-full object-cover object-top">
-          </div>
-          <div class="template-meta"><span class="template-number">08</span><h3 class="template-title">Physiotherapeut</h3></div>
-        </a>
-
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://leitzphysiolux.netlify.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
-          <div class="template-media">
-            <picture>
-              <source srcset="/assets/website-sample-leitzphysiolux.webp" type="image/webp">
-              <img loading="lazy" decoding="async" src="/assets/website-sample-leitzphysiolux.png" alt="Physiotherapeut Website Vorschau" class="template-image w-full h-full object-cover object-top">
-            </picture>
-          </div>
-          <div class="template-meta"><span class="template-number">09</span><h3 class="template-title">Physiotherapeut</h3></div>
-        </a>
-
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="https://landingpageyoutubeserv.vercel.app/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
-          <div class="template-media">
-            <picture>
-              <source srcset="/assets/website-sample-billiondollarpie.webp" type="image/webp">
-              <img loading="lazy" decoding="async" src="/assets/website-sample-billiondollarpie.png" alt="Lead Generation Landingpage Vorschau" class="template-image w-full h-full object-cover object-top">
-            </picture>
-          </div>
-          <div class="template-meta"><span class="template-number">10</span><h3 class="template-title">Lead Generation Landingpage</h3></div>
-        </a>
-
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/rollicious-vietnamese/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
-          <div class="template-media">
-            <img loading="lazy" decoding="async" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7124a270-90d0-4e08-8d0d-b6441341a99a_1600w.png" alt="Restaurant und Gastronomie Website Vorschau" class="template-image w-full h-full object-cover object-top">
-          </div>
-          <div class="template-meta"><span class="template-number">11</span><h3 class="template-title">Restaurant / Gastronomie</h3></div>
-        </a>
-
-        <a class="template-card rounded-[0.9rem] border border-[#0f2a56]/14 bg-white overflow-hidden" href="/website-samples/serene-wellness/" target="_blank" rel="noopener noreferrer" data-template-extra hidden>
-          <div class="template-media">
-            <picture>
-              <source srcset="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a6489cc1-a452-4e39-acc1-4f45e9db3f5b_3840w.webp" type="image/webp">
-              <img loading="lazy" decoding="async" src="/assets/website-sample-serene-wellness.jpg" alt="Wellness und Longevity Klinik Website Vorschau" class="template-image w-full h-full object-cover object-top">
-            </picture>
-          </div>
-          <div class="template-meta"><span class="template-number">12</span><h3 class="template-title">Wellness / Longevity Klinik</h3></div>
-        </a>
-      </div>
-
-      <div class="px-4 md:px-8 pb-8 flex justify-center">
-        <button type="button" class="template-toggle inline-flex items-center justify-center gap-2 rounded-full border border-[#0f2a56]/18 bg-white px-7 py-4 text-base font-semibold text-[#0f2a56] hover:bg-[#ff8a1f] transition-colors" data-template-toggle data-more-label="Mehr Vorlagen anzeigen" data-less-label="Weniger Vorlagen anzeigen" aria-expanded="false">
-          <span data-template-toggle-label>Mehr Vorlagen anzeigen</span>
-          <iconify-icon icon="solar:alt-arrow-down-linear" width="18"></iconify-icon>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq" class="section-shell bg-white">
-    <div class="grid grid-cols-1 lg:grid-cols-12">
-      <div class="lg:col-span-5 border-grid p-8 md:p-12">
-        <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#0f2a56]/48">Häufige Fragen</span>
-        <h2 class="mt-4 text-4xl md:text-6xl font-semibold tracking-tighter-custom leading-[0.98]">Was du dich wahrscheinlich fragst.</h2>
-      </div>
-
-      <div class="lg:col-span-7 p-4 md:p-8">
-        <div class="space-y-3">
-          <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
-            <summary class="cursor-pointer px-5 py-5 flex items-center justify-between gap-4 font-bold">
-              Ich brauche nur eine Website, keine Google Ads. Könnt ihr helfen?
-              <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
-              <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
-            </summary>
-            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Ja. Wir bauen auch eigenständige Conversion Websites nach demselben Prinzip. Nutze dasselbe Formular und schreibe dazu, was du bevorzugst. Wir wissen dann, wie wir es einordnen.</div>
-          </details>
-
-          <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
-            <summary class="cursor-pointer px-5 py-5 flex items-center justify-between gap-4 font-bold">
-              Ich habe bereits eine Website. Könnt ihr Google Ads betreuen?
-              <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
-              <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
-            </summary>
-            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Absolut. Wir prüfen deine bestehende Website, stellen sicher, dass sie Conversions tragen kann, und bauen das Google Ads System darum herum. Wenn wir etwas sehen, das deine Conversion Rate bremst, sagen wir dir genau, was es ist und ob es sich vor dem Ads Start lohnt, es zu beheben.</div>
-          </details>
-
-          <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
-            <summary class="cursor-pointer px-5 py-5 flex items-center justify-between gap-4 font-bold">
-              Was kostet das?
-              <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
-              <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
-            </summary>
-	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Die Kosten hängen von Branche, Komplexität und Wachstumszielen ab. <strong class="text-[#0f2a56]">Websites starten ab ca. 1.000 € für eine einfache Landing Page bis ca. 5.000 € für komplexere Projekte</strong> und können in bis zu 3 Raten gezahlt werden. Google Ads Management wird als monatlicher Retainer abgerechnet. Im Strategiegespräch bekommst du konkrete Zahlen, bevor du dich entscheidest.</div>
-          </details>
-
-          <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
-            <summary class="cursor-pointer px-5 py-5 flex items-center justify-between gap-4 font-bold">
-              Was ist kostenlos und was ist kostenpflichtig?
-              <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
-              <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
-            </summary>
-            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed space-y-4">
-              <p><strong class="text-[#0f2a56]">Kostenlos für angenommene Kunden:</strong></p>
-              <ul class="list-disc pl-5 space-y-2">
-                <li>Das Strategiegespräch, in dem wir dein Setup prüfen und den Projektumfang einschätzen.</li>
-	                <li>Google Ads Setup: Kampagnenarchitektur, Kontokonfiguration, Conversion Tracking und erste kreative Richtung. Das entspricht einem Wert von 1.000 bis 1.500 EUR, den viele Agenturen vorab berechnen.</li>
-              </ul>
-              <p><strong class="text-[#0f2a56]">Kostenpflichtig:</strong></p>
-              <ul class="list-disc pl-5 space-y-2">
-                <li>Website Aufbau: einmalige Projektgebühr, passend zu deinem Bedarf.</li>
-                <li>Laufendes Google Ads Management: monatlicher Retainer, sobald die Kampagnen live sind.</li>
-                <li>Dein Werbebudget: wird direkt an Google gezahlt, niemals an uns.</li>
-              </ul>
-              <p>Konkrete Zahlen bekommst du im Strategiegespräch, damit wir deine echte Situation sauber einschätzen können.</p>
-            </div>
-          </details>
-
-          <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
-            <summary class="cursor-pointer px-5 py-5 flex items-center justify-between gap-4 font-bold">
-              Was bedeutet „angenommene Anfragen“?
-              <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
-              <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
-            </summary>
-	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Wir sind ein Hands on Team mit begrenzter Kapazität, normalerweise <strong class="text-[#0f2a56]">3 bis 5 neue Kunden pro Monat</strong>. Jede Anfrage wird persönlich geprüft, damit wir sicherstellen können, dass wir für dein Unternehmen Ergebnisse liefern können. <strong class="text-[#0f2a56]">Wenn nicht, sagen wir dir das innerhalb von 48 Stunden</strong>, statt Geld für leere Versprechen zu nehmen.</div>
-          </details>
-
-          <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
-            <summary class="cursor-pointer px-5 py-5 flex items-center justify-between gap-4 font-bold">
-              Wie lange dauert es, bis ich Ergebnisse sehe?
-              <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
-              <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
-            </summary>
-	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Ads gehen nach dem Launch <strong class="text-[#0f2a56]">direkt</strong> live. Die Lernphase dauert meist 2 bis 4 Wochen. Viele Kunden sehen innerhalb von <strong class="text-[#0f2a56]">30 bis 60 Tagen</strong> positive Returns.</div>
-          </details>
-
-          <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
-            <summary class="cursor-pointer px-5 py-5 flex items-center justify-between gap-4 font-bold">
-              Mit welchem Werbebudget sollte ich starten?
-              <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
-              <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
-            </summary>
-	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Die meisten Kunden starten mit <strong class="text-[#0f2a56]">1.000 bis 3.000 EUR pro Monat</strong> Werbebudget, weil das meist genug ist, um aussagekräftige Daten zu sammeln und ROI zu prüfen. Am Ende entscheidest du, wie viel du investieren möchtest. Das richtige Budget hängt von Geschäftsmodell, Angebot, Markt und Wachstumszielen ab. Wir empfehlen eine realistische Startspanne, setzen gemeinsam Limits und skalieren nur, wenn die Zahlen es rechtfertigen.</div>
-          </details>
-
-          <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
-            <summary class="cursor-pointer px-5 py-5 flex items-center justify-between gap-4 font-bold">
-              Was, wenn meine Website auf Shopify, WordPress, Wix oder Squarespace läuft?
-              <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
-              <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
-            </summary>
-            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Wir arbeiten mit jeder Plattform. Ob Shopify, Wix, Squarespace, WordPress oder Custom Build: Wir können die Website auf Conversion optimieren und das Google Ads System darum herum bauen. <strong class="text-[#0f2a56]">Die Plattform ist zweitrangig. Performance zählt.</strong></div>
-          </details>
-
-          <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
-            <summary class="cursor-pointer px-5 py-5 flex items-center justify-between gap-4 font-bold">
-              Mit welchen Branchen arbeitet ihr?
-              <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
-              <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
-            </summary>
-            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Wir haben nachweisbare Ergebnisse in <strong class="text-[#0f2a56]">Onlinehandel, Hotellerie und Bildungsangeboten</strong>. Außerdem arbeiten wir mit lokalen Dienstleistern, Gesundheitsanbietern, Coaches, Softwareunternehmen und B2B Dienstleistern. Wenn wir glauben, dass deine Branche zu speziell ist, um Ergebnisse zu liefern, sagen wir dir das ehrlich, bevor du Zeit in einen Call investierst.</div>
-          </details>
-
-          <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
-            <summary class="cursor-pointer px-5 py-5 flex items-center justify-between gap-4 font-bold">
-              Was, wenn es nicht funktioniert?
-              <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
-              <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
-            </summary>
-            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">Du siehst jede Zahl ab dem ersten Tag: volle Transparenz über Budget, Conversions und ROAS. Wenn die Performance nicht in die richtige Richtung läuft, passen wir nach. Wenn dein Geschäftsmodell dafür wirklich nicht tragfähig ist, sagen wir dir das, bevor du Budget verschwendest. <strong class="text-[#0f2a56]">Wir verlieren lieber ehrlich einen Kunden, als jemanden mit falschen Versprechen zu halten.</strong></div>
-          </details>
-
-          <details class="group rounded-2xl border border-[#0f2a56]/14 bg-white">
-            <summary class="cursor-pointer px-5 py-5 flex items-center justify-between gap-4 font-bold">
-              Was unterscheidet euch von anderen Agenturen?
-              <iconify-icon icon="solar:add-circle-linear" width="22" class="group-open:hidden"></iconify-icon>
-              <iconify-icon icon="solar:minus-circle-linear" width="22" class="hidden group-open:inline-block"></iconify-icon>
-            </summary>
-	            <div class="px-5 pb-5 text-[#0f2a56]/66 leading-relaxed">In unserem Team arbeiten <strong class="text-[#0f2a56]">Strategen mit Erfahrung bei Google</strong>. Wir haben den aktiven <strong class="text-[#0f2a56]">Google Partner Status</strong>. Wir lagern deine Kampagnen nicht an wechselnde Teams aus. Und wir optimieren auf die Kennzahl, die für dein Geschäft wirklich zählt: ROAS für Onlinehandel und Hotels, Kosten pro qualifiziertem Lead für Dienstleistungen und Bildungsangebote, nicht auf Vanity KPIs.</div>
-          </details>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="relative overflow-hidden bg-[#0f2a56] text-white px-4 md:px-8 py-20 md:py-28 text-center">
-    <div class="absolute inset-0 dot-matrix opacity-20 pointer-events-none"></div>
-    <div class="absolute left-1/2 top-0 -translate-x-1/2 w-[48rem] h-[28rem] rounded-full bg-[#ff8a1f]/18 blur-3xl pointer-events-none"></div>
-    <div class="relative max-w-4xl mx-auto">
-      <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-3 py-1 text-xs uppercase tracking-widest font-bold text-[#ff8a1f]">
-        Webdesign + Google Ads
-      </span>
-      <h2 class="mt-6 text-5xl md:text-7xl font-semibold tracking-tighter-custom leading-[0.95]">Bereit, deine Website in ein Lead System zu verwandeln?</h2>
-      <p class="mt-6 text-lg md:text-xl text-white/64 max-w-2xl mx-auto">
-        Sag uns, wo du gerade stehst, keine Website, schwache Website, Ads konvertieren nicht oder bereit zu skalieren. Wir prüfen deine Situation und zeigen, was sinnvoll ist.
+      <!-- Sub paragraph -->
+      <p class="text-base md:text-lg font-light text-neutral-400 max-w-xl leading-relaxed mb-10">
+        Für Coaches, Freelancer, Selbstständige und KMU, die wollen, dass ihre Website echte Anfragen erzeugt. Website, Google Ads und Tracking von einem Google Partner Team. <strong class="text-white font-normal">Kein Abo. Lieferung in 7 bis 14 Tagen.</strong>
       </p>
-      <p class="mt-4 text-lg md:text-xl text-white/64 max-w-2xl mx-auto">
-        Wenn die Zahlen für dein Geschäft nicht funktionieren, sagen wir dir das direkt.
+
+      <!-- Checkmarks : value points -->
+      <ul class="flex flex-col gap-3.5 mb-10 max-w-xl">
+        <li class="flex items-start gap-3 text-base font-light text-neutral-300">
+          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#FF3000]/15 border border-[#FF3000]/40 flex items-center justify-center mt-0.5">
+            <i data-lucide="check" class="w-3.5 h-3.5 text-[#FF3000]" stroke-width="3"></i>
+          </span>
+          <span>Individuelle Website <strong class="text-white font-normal">rund um dein Angebot und deine Zielgruppe gebaut</strong></span>
+        </li>
+        <li class="flex items-start gap-3 text-base font-light text-neutral-300">
+          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#FF3000]/15 border border-[#FF3000]/40 flex items-center justify-center mt-0.5">
+            <i data-lucide="check" class="w-3.5 h-3.5 text-[#FF3000]" stroke-width="3"></i>
+          </span>
+          <span><strong class="text-white font-normal">Google Ads + Conversion Tracking</strong> ab Tag eins live</span>
+        </li>
+        <li class="flex items-start gap-3 text-base font-light text-neutral-300">
+          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#FF3000]/15 border border-[#FF3000]/40 flex items-center justify-center mt-0.5">
+            <i data-lucide="check" class="w-3.5 h-3.5 text-[#FF3000]" stroke-width="3"></i>
+          </span>
+          <span><strong class="text-white font-normal">Ein Team</strong> für Website, Ads und Daten — kein Hin und Her</span>
+        </li>
+        <li class="flex items-start gap-3 text-base font-light text-neutral-300">
+          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#FF3000]/15 border border-[#FF3000]/40 flex items-center justify-center mt-0.5">
+            <i data-lucide="check" class="w-3.5 h-3.5 text-[#FF3000]" stroke-width="3"></i>
+          </span>
+          <span><strong class="text-white font-normal">Kein Abo</strong>, du besitzt alles zu 100%</span>
+        </li>
+        <li class="flex items-start gap-3 text-base font-light text-neutral-300">
+          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#FF3000]/15 border border-[#FF3000]/40 flex items-center justify-center mt-0.5">
+            <i data-lucide="check" class="w-3.5 h-3.5 text-[#FF3000]" stroke-width="3"></i>
+          </span>
+          <span><strong class="text-white font-normal">Deine Website zahlt sich in 30 Tagen zurück</strong> — oder wir optimieren kostenlos weiter</span>
+        </li>
+      </ul>
+
+      <!-- Primary CTA buttons -->
+      <div class="flex flex-wrap gap-4 mb-8">
+        <a href="#cta" data-cta="primary" class="inline-flex items-center gap-3 bg-[#FF3000] text-white text-sm font-semibold tracking-widest uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors duration-300">
+          Platz sichern — 499€
+          <i data-lucide="arrow-right" class="w-4 h-4" stroke-width="2"></i>
+        </a>
+        <a href="#results" data-cta="see-results" class="inline-flex items-center gap-3 border border-neutral-600 text-white text-sm font-semibold tracking-widest uppercase px-8 py-4 hover:border-white hover:bg-white/5 transition-all duration-300">
+          Kundenergebnisse ansehen
+          <i data-lucide="arrow-right" class="w-4 h-4" stroke-width="2"></i>
+        </a>
+      </div>
+
+      <!-- 2 highlighted animated badges — compact stacked text, always side by side -->
+      <div class="flex flex-wrap items-stretch gap-3 mb-4">
+        <div class="hero-highlight-orange inline-flex items-center gap-3 px-4 py-2.5 rounded-full transition-transform hover:scale-[1.02]">
+          <span class="flex-shrink-0 w-9 h-9 rounded-full bg-[#FF3000] flex items-center justify-center">
+            <i data-lucide="gift" class="w-4 h-4 text-white" stroke-width="2"></i>
+          </span>
+          <span class="flex flex-col leading-tight">
+            <strong class="text-white font-semibold text-sm">Google Ads Setup kostenlos</strong>
+            <span class="text-neutral-400 text-xs">spare 1.000–1.500€</span>
+          </span>
+        </div>
+        <div class="hero-highlight-blue inline-flex items-center gap-3 px-4 py-2.5 rounded-full transition-transform hover:scale-[1.02]">
+          <span class="flex-shrink-0 w-9 h-9 rounded-full bg-blue-400/20 border border-blue-400/40 flex items-center justify-center">
+            <i data-lucide="badge-check" class="w-4 h-4 text-blue-400" stroke-width="2"></i>
+          </span>
+          <span class="flex flex-col leading-tight">
+            <strong class="text-white font-semibold text-sm">Zertifizierter Google Partner</strong>
+            <span class="text-neutral-400 text-xs">Ex-Google Team</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vertical index (xl+) -->
+    <div class="hidden xl:flex absolute right-12 top-1/2 -translate-y-1/2 flex-col items-center gap-6 z-20">
+      <div class="flex items-center gap-3">
+        <span class="w-1.5 h-1.5 bg-[#FF3000] rounded-full"></span>
+        <span class="text-xs font-mono-display text-white">01</span>
+      </div>
+      <div class="w-px h-6 bg-neutral-600"></div>
+      <span class="text-xs font-mono-display text-neutral-500">02</span>
+      <div class="w-px h-6 bg-neutral-600"></div>
+      <span class="text-xs font-mono-display text-neutral-500">03</span>
+      <span class="text-xs font-semibold tracking-widest text-[#FF3000] uppercase mt-12 [writing-mode:vertical-lr] rotate-180">Wachstumssystem</span>
+    </div>
+
+    <!-- Spinning stamp -->
+    <div class="absolute right-6 bottom-6 md:right-12 md:bottom-12 z-20">
+      <div class="relative w-28 h-28 md:w-36 md:h-36">
+        <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full spin-slow">
+          <path id="circlePath" d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none"></path>
+          <text class="text-[0.42rem] font-mono-display tracking-[0.22em] fill-neutral-400 uppercase">
+            <textPath href="#circlePath" startOffset="0%">Google Partner · Einführungsangebot · Wachstumssystem · </textPath>
+          </text>
+        </svg>
+        <div class="absolute inset-0 flex items-center justify-center text-white">
+          <i data-lucide="award" class="w-8 h-8 opacity-50" stroke-width="1.5"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 2 — SERVICES
+═══════════════════════════════════════════════════════════ -->
+<section id="services" class="py-24 md:py-40 px-6 md:px-12 bg-[#050505] border-t border-neutral-900">
+  <div class="max-w-screen-2xl mx-auto">
+
+    <span class="text-xs font-mono-display text-[#FF3000] block mb-12">02 / SERVICES</span>
+
+    <div class="flex flex-col border-t border-neutral-900">
+
+      <!-- 01 PROFESSIONELLE WEBSITE -->
+      <div class="group border-b border-neutral-900 py-10 md:py-16 hover:bg-neutral-950 transition-colors duration-500 px-4 -mx-4">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <div class="md:col-span-1 text-xl font-mono-display text-neutral-600 group-hover:text-[#FF3000] transition-colors mt-1">01</div>
+          <div class="md:col-span-8">
+            <div class="flex flex-wrap items-center gap-3 md:gap-4 mb-4">
+              <h3 class="text-3xl md:text-5xl font-semibold text-white uppercase tracking-tight">Professionelle Website</h3>
+              <span class="bg-[#FF3000] text-white text-xs font-semibold tracking-widest uppercase px-3 py-1.5">499€ · 10 Plätze</span>
+            </div>
+            <p class="text-base font-light text-neutral-400 max-w-2xl mb-6">Website mit bis zu 5 Seiten, individuell gebaut, responsive und für technisches SEO optimiert (Core Web Vitals, Schema, semantische Tags). Integriertes Formular, GTM Tracking und datenschutzfreundliches Setup. Du besitzt Code, Inhalte und Domain zu 100%. <strong class="text-white font-normal">Mehr als 5 Seiten? Der Preis wird an die Komplexität angepasst.</strong></p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Bis zu 5 Seiten</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Technisches SEO inklusive</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Mobil optimiert</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Datenschutzfreundliches Tracking</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Lieferung in 7-14 Tagen</span>
+              <span class="px-3 py-1 border border-[#FF3000]/30 rounded-full text-xs text-[#FF3000]">5+ Seiten: individuelles Angebot</span>
+            </div>
+          </div>
+          <div class="md:col-span-3 flex justify-end items-start">
+            <div class="text-right">
+              <div class="flex items-baseline justify-end gap-2">
+                <span class="text-3xl md:text-4xl font-semibold text-white group-hover:text-[#FF3000] transition-colors">499€</span>
+              </div>
+              <div class="text-xs font-mono-display text-neutral-500 mt-1 line-through">1.500€</div>
+              <div class="text-[10px] font-mono-display text-neutral-600 mt-1 uppercase tracking-widest">statt</div>
+              <div class="w-14 h-14 rounded-full border border-neutral-800 flex items-center justify-center group-hover:bg-[#FF3000] group-hover:border-[#FF3000] transition-colors duration-500 ml-auto mt-4">
+                <i data-lucide="plus" class="w-5 h-5 text-white group-hover:rotate-45 transition-transform duration-500" stroke-width="1.5"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 GOOGLE ADS -->
+      <div class="group border-b border-neutral-900 py-10 md:py-16 hover:bg-neutral-950 transition-colors duration-500 px-4 -mx-4">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <div class="md:col-span-1 text-xl font-mono-display text-neutral-600 group-hover:text-[#FF3000] transition-colors mt-1">02</div>
+          <div class="md:col-span-8">
+            <div class="flex flex-wrap items-center gap-3 md:gap-4 mb-4">
+              <h3 class="text-3xl md:text-5xl font-semibold text-white uppercase tracking-tight">Google Ads</h3>
+              <span class="border border-neutral-700 text-neutral-400 text-xs font-semibold tracking-widest uppercase px-3 py-1.5">Setup inklusive</span>
+            </div>
+            <p class="text-base font-light text-neutral-400 max-w-2xl mb-6">Komplettes Kampagnen-Setup durch ein Google Partner Team — <strong class="text-white font-normal">bei vielen Anbietern 1.000 bis 1.500€, im 499€ Angebot inklusive.</strong> Conversion Tracking, GTM, Enhanced Conversions und Zielgruppen. Danach entscheidest du: komplett eigenständig oder monatliche Optimierung für 250€/Monat. Dein Werbebudget geht direkt an Google, niemals an uns.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Kampagnen-Setup</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Conversion Tracking</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Enhanced Conversions</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Eigenständig ODER 250€/Monat</span>
+            </div>
+          </div>
+          <div class="md:col-span-3 flex justify-end items-start">
+            <div class="text-right">
+              <div class="text-3xl md:text-4xl font-semibold text-[#FF3000]">0€</div>
+              <div class="text-xs font-mono-display text-neutral-500 mt-1 uppercase tracking-widest">Setup kostenlos</div>
+              <div class="text-[10px] font-mono-display text-neutral-600 mt-1">Wert 1.000–1.500€</div>
+              <div class="w-14 h-14 rounded-full border border-neutral-800 flex items-center justify-center group-hover:bg-[#FF3000] group-hover:border-[#FF3000] transition-colors duration-500 ml-auto mt-4">
+                <i data-lucide="plus" class="w-5 h-5 text-white group-hover:rotate-45 transition-transform duration-500" stroke-width="1.5"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 AUDIT & IMPROVEMENT -->
+      <div class="group border-b border-neutral-900 py-10 md:py-16 hover:bg-neutral-950 transition-colors duration-500 px-4 -mx-4">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <div class="md:col-span-1 text-xl font-mono-display text-neutral-600 group-hover:text-[#FF3000] transition-colors mt-1">03</div>
+          <div class="md:col-span-8">
+            <div class="flex flex-wrap items-center gap-3 md:gap-4 mb-4">
+              <h3 class="text-3xl md:text-5xl font-semibold text-white uppercase tracking-tight">Audit & Verbesserung</h3>
+            </div>
+            <p class="text-base font-light text-neutral-400 max-w-2xl mb-6">Du hast bereits eine Website oder Google Ads Kampagnen, die nicht sauber laufen? Wir prüfen alles: Kampagnenstruktur, Tracking Qualität, Conversion Erfahrung und SEO Tags. Du bekommst einen klaren Bericht mit konkreten Empfehlungen.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Audit der bestehenden Website</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Google Ads Audit</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Konkreter Bericht</span>
+              <span class="px-3 py-1 border border-[#FF3000]/30 rounded-full text-xs text-[#FF3000]">Inklusive mit Website ODER Retainer</span>
+            </div>
+          </div>
+          <div class="md:col-span-3 flex justify-end items-start">
+            <div class="text-right">
+              <div class="text-3xl md:text-4xl font-semibold text-white group-hover:text-[#FF3000] transition-colors">250€</div>
+              <div class="text-xs font-mono-display text-neutral-500 mt-1 uppercase tracking-widest">oder inklusive</div>
+              <div class="w-14 h-14 rounded-full border border-neutral-800 flex items-center justify-center group-hover:bg-[#FF3000] group-hover:border-[#FF3000] transition-colors duration-500 ml-auto mt-4">
+                <i data-lucide="plus" class="w-5 h-5 text-white group-hover:rotate-45 transition-transform duration-500" stroke-width="1.5"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 3 — PROCESS
+═══════════════════════════════════════════════════════════ -->
+<section id="process" class="py-24 md:py-40 px-6 md:px-12 bg-black border-t border-neutral-900">
+  <div class="max-w-screen-2xl mx-auto">
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-20">
+      <div>
+        <span class="text-xs font-mono-display text-[#FF3000] block mb-4">03 / PROCESS</span>
+        <h2 class="text-5xl md:text-7xl font-semibold tracking-tight text-white uppercase leading-[0.9]">Geliefert in<br>7 bis 14 Tagen.</h2>
+      </div>
+      <p class="text-base font-light text-neutral-400 max-w-sm">Ein klarer Prozess mit verbindlichen Zeiten. Projektkomplexität und Verfügbarkeit deiner Inhalte bestimmen, wo du innerhalb der Spanne landest.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-neutral-900 border border-neutral-900">
+
+      <!-- Step 1 -->
+      <div class="bg-[#050505] p-8 md:p-10 hover:bg-neutral-950 transition-colors duration-500 group">
+        <div class="flex items-center justify-between mb-8">
+          <span class="text-xs font-mono-display text-[#FF3000] uppercase tracking-widest">Schritt 01</span>
+          <span class="text-xs font-mono-display text-neutral-600">T1–2</span>
+        </div>
+        <h3 class="text-2xl md:text-3xl font-semibold text-white uppercase tracking-tight mb-4 group-hover:text-[#FF3000] transition-colors">Briefing & Strategie</h3>
+        <p class="text-sm font-light text-neutral-400 leading-relaxed">Detaillierter Fragebogen, dann ein Strategiegespräch. Wir verstehen dein Business, deine Ziele und deine Zielgruppe, bevor wir eine Zeile Code schreiben.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="bg-[#050505] p-8 md:p-10 hover:bg-neutral-950 transition-colors duration-500 group">
+        <div class="flex items-center justify-between mb-8">
+          <span class="text-xs font-mono-display text-[#FF3000] uppercase tracking-widest">Schritt 02</span>
+          <span class="text-xs font-mono-display text-neutral-600">T3–10</span>
+        </div>
+        <h3 class="text-2xl md:text-3xl font-semibold text-white uppercase tracking-tight mb-4 group-hover:text-[#FF3000] transition-colors">Design & Entwicklung</h3>
+        <p class="text-sm font-light text-neutral-400 leading-relaxed">Individuelle, responsive Website, optimiert für Core Web Vitals. <strong class="text-white font-normal">Technisches SEO inklusive</strong>: Schema, Tags, Sitemap, Geschwindigkeit. Formular angebunden.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="bg-[#050505] p-8 md:p-10 hover:bg-neutral-950 transition-colors duration-500 group">
+        <div class="flex items-center justify-between mb-8">
+          <span class="text-xs font-mono-display text-[#FF3000] uppercase tracking-widest">Schritt 03</span>
+          <span class="text-xs font-mono-display text-neutral-600">T8–12</span>
+        </div>
+        <h3 class="text-2xl md:text-3xl font-semibold text-white uppercase tracking-tight mb-4 group-hover:text-[#FF3000] transition-colors">Tracking & Ads</h3>
+        <p class="text-sm font-light text-neutral-400 leading-relaxed">GTM mit Consent Mode v2, Conversions, Enhanced Conversions. Google Ads Kampagne passend zu deinem Markt strukturiert.</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="bg-[#050505] p-8 md:p-10 hover:bg-neutral-950 transition-colors duration-500 group">
+        <div class="flex items-center justify-between mb-8">
+          <span class="text-xs font-mono-display text-[#FF3000] uppercase tracking-widest">Schritt 04</span>
+          <span class="text-xs font-mono-display text-neutral-600">T14–30</span>
+        </div>
+        <h3 class="text-2xl md:text-3xl font-semibold text-white uppercase tracking-tight mb-4 group-hover:text-[#FF3000] transition-colors">Launch & Betreuung</h3>
+        <p class="text-sm font-light text-neutral-400 leading-relaxed">Website und Kampagnen gehen live. Der erste Monat Optimierung ist inklusive, mit Anpassungen auf Basis echter Daten.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 4 — REAL ERGEBNISSE
+═══════════════════════════════════════════════════════════ -->
+<section id="results" class="py-24 md:py-40 px-6 md:px-12 bg-[#050505] border-t border-neutral-900">
+
+  <!-- Lightbox -->
+  <div id="proof-lightbox" onclick="closeLightbox()">
+    <button id="proof-lightbox-close" onclick="closeLightbox(event)" aria-label="Schließen">&times;</button>
+    <img id="proof-lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+  </div>
+
+  <div class="max-w-screen-2xl mx-auto">
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-8">
+      <div>
+        <span class="text-xs font-mono-display text-[#FF3000] block mb-4">04 / ERGEBNISSE</span>
+        <h2 class="text-5xl md:text-7xl font-semibold tracking-tight text-white uppercase leading-[0.9]">Echte<br>Daten.</h2>
+      </div>
+      <p class="text-base font-light text-neutral-400 max-w-md">Direkte Screenshots aus den Google Ads Konten unserer Kunden. Keine Schätzungen, keine Retusche.</p>
+    </div>
+
+    <!-- Contextual intro -->
+    <div class="border-l-2 border-[#FF3000]/50 pl-6 py-2 mb-12 max-w-3xl">
+      <p class="text-base md:text-lg font-light text-neutral-300 leading-relaxed">
+        Das passiert, wenn unsere Kunden ihre Website wirklich für sich arbeiten lassen. Für <strong class="text-white font-semibold">jeden 1€ Werbebudget bekommen sie X€ zurück</strong> in Umsatz oder qualifizierten Anfragen. Fahre über jede Karte für die Details.
       </p>
-      <a href="/de/apply/" class="mt-9 inline-flex items-center justify-center gap-3 rounded-full bg-[#ff8a1f] px-8 py-4 text-base font-bold text-[#0f2a56] transition-transform hover:-translate-y-1 active:scale-95">
-        Website + Ads Wachstumssystem anfragen
-        <iconify-icon icon="solar:arrow-right-linear" width="19"></iconify-icon>
+    </div>
+
+    <!-- E-commerce results -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+
+      <!-- 1 — 12.58X ROAS -->
+      <div class="result-card group relative bg-neutral-900 border border-neutral-800 p-7">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="text-xs font-mono-display text-neutral-500 block mb-2 uppercase tracking-widest">E-Commerce Konto · April 2026</span>
+            <div class="flex items-baseline gap-2">
+              <span class="result-scramble text-5xl lg:text-6xl font-bold text-white tracking-tight group-hover:text-[#FF3000] transition-colors" data-final="12.58×">12.58×</span>
+              <span class="text-xs font-mono-display text-neutral-500 uppercase tracking-widest">ROAS</span>
+            </div>
+          </div>
+          <span class="w-2.5 h-2.5 bg-[#FF3000] rounded-full flex-shrink-0 mt-1"></span>
+        </div>
+        <p class="text-sm font-light text-neutral-300 mb-3"><span class="font-semibold text-red-400">12.429,85€ ausgegeben</span> haben <span class="font-semibold text-green-400">156.405,87€ Umsatz generiert.</span></p>
+        <p class="text-xs font-light text-neutral-500 italic mb-5 leading-relaxed">Für jeden 1€ Werbebudget wurden 12,58€ Umsatz generiert. Website, Tracking und Kampagnen wurden als ein Conversion System gedacht.</p>
+        <div class="relative overflow-hidden bg-neutral-950 aspect-[16/7] mb-4">
+          <img src="/assets/google-ads-proof-lp/proof-result-01.webp" alt="Google Ads Screenshot — April 2026 E-Commerce — 12,58x ROAS" class="proof-img w-full h-full object-cover object-top opacity-75 group-hover:opacity-100 transition-opacity cursor-zoom-in" loading="lazy" onclick="openLightbox(this.src,this.alt)">
+        </div>
+        <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-500">Shopping + Search</span>
+      </div>
+
+      <!-- 2 — 10.08X ROAS -->
+      <div class="result-card group relative bg-neutral-900 border border-neutral-800 p-7">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="text-xs font-mono-display text-neutral-500 block mb-2 uppercase tracking-widest">E-Commerce Konto · Feb 2026</span>
+            <div class="flex items-baseline gap-2">
+              <span class="result-scramble text-5xl lg:text-6xl font-bold text-white tracking-tight group-hover:text-[#FF3000] transition-colors" data-final="10.08×">10.08×</span>
+              <span class="text-xs font-mono-display text-neutral-500 uppercase tracking-widest">ROAS</span>
+            </div>
+          </div>
+          <span class="w-2.5 h-2.5 bg-neutral-600 rounded-full flex-shrink-0 mt-1"></span>
+        </div>
+        <p class="text-sm font-light text-neutral-300 mb-3"><span class="font-semibold text-red-400">9.012,37€ ausgegeben</span> haben <span class="font-semibold text-green-400">90.837,65€ Umsatz generiert.</span></p>
+        <p class="text-xs font-light text-neutral-500 italic mb-5 leading-relaxed">Stabile Performance Monat für Monat, wenn Website und Ads dieselbe Conversion Sprache sprechen.</p>
+        <div class="relative overflow-hidden bg-neutral-950 aspect-[16/7] mb-4">
+          <img src="/assets/google-ads-proof-lp/proof-result-02.webp" alt="Google Ads Screenshot — Februar 2026 E-Commerce — 10,08x ROAS" class="proof-img w-full h-full object-cover object-top opacity-75 group-hover:opacity-100 transition-opacity cursor-zoom-in" loading="lazy" onclick="openLightbox(this.src,this.alt)">
+        </div>
+        <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-500">Search + Shopping</span>
+      </div>
+
+      <!-- 3 — 9.40X ROAS -->
+      <div class="result-card group relative bg-neutral-900 border border-neutral-800 p-7">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="text-xs font-mono-display text-neutral-500 block mb-2 uppercase tracking-widest">E-Commerce Konto · Dez 2025</span>
+            <div class="flex items-baseline gap-2">
+              <span class="result-scramble text-5xl lg:text-6xl font-bold text-white tracking-tight group-hover:text-[#FF3000] transition-colors" data-final="9.40×">9.40×</span>
+              <span class="text-xs font-mono-display text-neutral-500 uppercase tracking-widest">ROAS</span>
+            </div>
+          </div>
+          <span class="w-2.5 h-2.5 bg-neutral-600 rounded-full flex-shrink-0 mt-1"></span>
+        </div>
+        <p class="text-sm font-light text-neutral-300 mb-3"><span class="font-semibold text-red-400">12.206,52€ ausgegeben</span> haben <span class="font-semibold text-green-400">114.734,12€ Umsatz generiert.</span></p>
+        <p class="text-xs font-light text-neutral-500 italic mb-5 leading-relaxed">tROAS Strategie kombiniert mit einer Website, die Klicks in Käufe verwandelt, statt sie abspringen zu lassen.</p>
+        <div class="relative overflow-hidden bg-neutral-950 aspect-[16/7] mb-4">
+          <img src="/assets/google-ads-proof-lp/proof-result-03.webp" alt="Google Ads Screenshot — Dezember 2025 E-Commerce — 9,40x ROAS" class="proof-img w-full h-full object-cover object-top opacity-75 group-hover:opacity-100 transition-opacity cursor-zoom-in" loading="lazy" onclick="openLightbox(this.src,this.alt)">
+        </div>
+        <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-500">Search + tROAS</span>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <p class="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-6 pt-2">Für Dienstleister messen wir Kosten pro Lead, Anrufe und Conversion Qualität, nicht nur Umsatzmultiplikatoren.</p>
+
+    <!-- Service results -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- 4 — €6.66 Cost/Conv -->
+      <div class="result-card group relative bg-neutral-900 border border-neutral-800 p-7">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="text-xs font-mono-display text-neutral-500 block mb-2 uppercase tracking-widest">Service Konto · Nov 2025</span>
+            <div class="flex items-baseline gap-2">
+              <span class="result-scramble text-5xl lg:text-6xl font-bold text-white tracking-tight group-hover:text-[#FF3000] transition-colors" data-final="6,66€">6,66€</span>
+              <span class="text-xs font-mono-display text-neutral-500 uppercase tracking-widest">/ Conv.</span>
+            </div>
+          </div>
+          <span class="w-2.5 h-2.5 bg-neutral-600 rounded-full flex-shrink-0 mt-1"></span>
+        </div>
+        <p class="text-sm font-light text-neutral-300 mb-3"><span class="font-semibold text-red-400">11.861,41€ ausgegeben</span> haben <span class="font-semibold text-green-400">1.878 Conversions</span> zu je 6,66€.</p>
+        <p class="text-xs font-light text-neutral-500 italic mb-5 leading-relaxed">Wenn Tracking ab Tag eins präzise ist, sinken die Leadkosten schnell, weil der Algorithmus schneller lernt.</p>
+        <div class="relative overflow-hidden bg-neutral-950 aspect-[16/7] mb-4">
+          <img src="/assets/google-ads-proof-lp/proof-result-04.webp" alt="Google Ads Screenshot — November 2025 Service Kampagne — 6,66€ pro Conversion" class="proof-img w-full h-full object-cover object-top opacity-75 group-hover:opacity-100 transition-opacity cursor-zoom-in" loading="lazy" onclick="openLightbox(this.src,this.alt)">
+        </div>
+        <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-500">Search</span>
+      </div>
+
+      <!-- 5 — €7.43 Cost/Conv -->
+      <div class="result-card group relative bg-neutral-900 border border-neutral-800 p-7">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="text-xs font-mono-display text-neutral-500 block mb-2 uppercase tracking-widest">Service Konto · Feb 2026</span>
+            <div class="flex items-baseline gap-2">
+              <span class="result-scramble text-5xl lg:text-6xl font-bold text-white tracking-tight group-hover:text-[#FF3000] transition-colors" data-final="7,43€">7,43€</span>
+              <span class="text-xs font-mono-display text-neutral-500 uppercase tracking-widest">/ Conv.</span>
+            </div>
+          </div>
+          <span class="w-2.5 h-2.5 bg-neutral-600 rounded-full flex-shrink-0 mt-1"></span>
+        </div>
+        <p class="text-sm font-light text-neutral-300 mb-3"><span class="font-semibold text-red-400">B2B Dienstleister Kampagne</span> — qualifizierter Cost per Lead gehalten bei <span class="font-semibold text-green-400">7,43€</span> im Monat.</p>
+        <p class="text-xs font-light text-neutral-500 italic mb-5 leading-relaxed">B2B: qualifizierter Cost per Lead 30 Tage stabil, ohne Ausreißer. Kein Peak, kein Einbruch.</p>
+        <div class="relative overflow-hidden bg-neutral-950 aspect-[16/7] mb-4">
+          <img src="/assets/google-ads-proof-lp/proof-result-05.webp" alt="Google Ads Screenshot — Februar 2026 — 7,43€ pro Conversion" class="proof-img w-full h-full object-cover object-top opacity-75 group-hover:opacity-100 transition-opacity cursor-zoom-in" loading="lazy" onclick="openLightbox(this.src,this.alt)">
+        </div>
+        <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-500">Search Ads</span>
+      </div>
+
+      <!-- 6 — Service 3 -->
+      <div class="result-card group relative bg-neutral-900 border border-neutral-800 p-7">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="text-xs font-mono-display text-neutral-500 block mb-2 uppercase tracking-widest">Service Konto · März 2026</span>
+            <div class="flex items-baseline gap-2">
+              <span class="result-scramble text-5xl lg:text-6xl font-bold text-white tracking-tight group-hover:text-[#FF3000] transition-colors" data-final="9,12€">9,12€</span>
+              <span class="text-xs font-mono-display text-neutral-500 uppercase tracking-widest">/ Conv.</span>
+            </div>
+          </div>
+          <span class="w-2.5 h-2.5 bg-neutral-600 rounded-full flex-shrink-0 mt-1"></span>
+        </div>
+        <p class="text-sm font-light text-neutral-300 mb-3"><span class="font-semibold text-red-400">Lokale Kampagne</span> in einem umkämpften Markt — stabiler Cost per Lead bei <span class="font-semibold text-green-400">9,12€</span>.</p>
+        <p class="text-xs font-light text-neutral-500 italic mb-5 leading-relaxed">Wettbewerbsintensiver Markt: Leadkosten durch dedizierte Landingpage und präzises Tracking kontrolliert.</p>
+        <div class="relative overflow-hidden bg-neutral-950 aspect-[16/7] mb-4">
+          <img src="/assets/google-ads-proof-lp/proof-result-06.webp" alt="Google Ads Screenshot — März 2026 — 9,12€ pro Conversion" class="proof-img w-full h-full object-cover object-top opacity-75 group-hover:opacity-100 transition-opacity cursor-zoom-in" loading="lazy" onclick="openLightbox(this.src,this.alt)">
+        </div>
+        <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-500">Search Ads</span>
+      </div>
+
+    </div>
+
+    <p class="text-xs font-light text-neutral-700 mt-10 leading-relaxed max-w-2xl">Performance hängt von Branche, Angebot, Budget und Markt ab. Die besten Ergebnisse entstehen, wenn Website, Ads und Tracking als ein System geführt werden.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 5 — WHY LYNCK
+═══════════════════════════════════════════════════════════ -->
+<section class="py-24 md:py-40 px-6 md:px-12 bg-black border-t border-neutral-900">
+  <div class="max-w-screen-2xl mx-auto">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+
+      <div class="lg:col-span-4">
+        <span class="text-xs font-mono-display text-[#FF3000] block mb-4">05 / WARUM LYNCK STUDIO</span>
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tight text-white uppercase leading-[0.9] mb-8">Wir kennen<br>Google.<br>Von innen.</h2>
+        <p class="text-base font-light text-neutral-400 max-w-sm">Keine weitere Generalisten-Agentur. Ein spezialisiertes Website + Ads + Tracking Team mit prüfbaren Credentials.</p>
+      </div>
+
+      <div class="lg:col-span-8 flex flex-col gap-px">
+
+        <!-- 01 -->
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 items-start py-8 border-t border-neutral-900 group">
+          <div class="sm:col-span-1 text-sm font-mono-display text-neutral-500 uppercase tracking-widest mt-2">01 / Team</div>
+          <div class="sm:col-span-3">
+            <h3 class="text-2xl md:text-3xl font-semibold text-white uppercase tracking-tight mb-3 group-hover:text-[#FF3000] transition-colors">Zertifizierter Google Partner, Ex-Google Team</h3>
+            <p class="text-base font-light text-neutral-400 max-w-2xl mb-4">Unser Team hat direkt bei Google gearbeitet, bevor LYNCK Studio entstand. Aktiver Google Partner Status. Wir kennen das System, weil wir darin gearbeitet haben, nicht weil wir ein Buch darüber gelesen haben.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Aktiver Google Partner</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Quality Score</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Google Ads Algorithmus</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 items-start py-8 border-t border-neutral-900 group">
+          <div class="sm:col-span-1 text-sm font-mono-display text-neutral-500 uppercase tracking-widest mt-2">02 / Methode</div>
+          <div class="sm:col-span-3">
+            <h3 class="text-2xl md:text-3xl font-semibold text-white uppercase tracking-tight mb-3 group-hover:text-[#FF3000] transition-colors">Website + Ads + Tracking = 1 Team</h3>
+            <p class="text-base font-light text-neutral-400 max-w-2xl mb-4">Deine Website, Kampagnen und dein Tracking werden vom selben Team betreut. Keine Dienstleister, die sich gegenseitig die Schuld geben. Kein Budgetverlust zwischen Silos. Ein Team, wenn etwas bewegt werden muss.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Integrierter Stack</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Ein Team als Ansprechpartner</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Conversion Tracking</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 items-start py-8 border-t border-b border-neutral-900 group">
+          <div class="sm:col-span-1 text-sm font-mono-display text-neutral-500 uppercase tracking-widest mt-2">03 / Eigentum</div>
+          <div class="sm:col-span-3">
+            <h3 class="text-2xl md:text-3xl font-semibold text-white uppercase tracking-tight mb-3 group-hover:text-[#FF3000] transition-colors">Du besitzt 100%</h3>
+            <p class="text-base font-light text-neutral-400 max-w-2xl mb-4">Kein Abo, kein Knebelvertrag. Du behältst Code, Domain, Google Ads Konten, Tracking — alles. Wenn du gehst, bleibt alles bei dir. Es ist dein Business, nicht unseres.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Kein Abo</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Code gehört dir</span>
+              <span class="px-3 py-1 border border-neutral-800 rounded-full text-xs text-neutral-400">Konten gehören dir</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 6 — GUARANTEE
+═══════════════════════════════════════════════════════════ -->
+<section id="garantie" class="py-24 md:py-40 px-6 bg-[#FF3000] relative overflow-hidden">
+  <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-15 mix-blend-multiply pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto text-center">
+
+    <span class="text-xs font-mono-display text-black/70 block mb-8 uppercase tracking-widest font-bold">06 / Garantie</span>
+
+    <h2 class="text-5xl sm:text-7xl md:text-[6rem] lg:text-[7.5rem] font-semibold tracking-tight text-black uppercase leading-[0.85]">
+      Deine Website zahlt<br>sich in 30 Tagen zurück.
+      <span class="text-white block mt-4">Oder wir arbeiten<br>kostenlos weiter.</span>
+    </h2>
+
+    <p class="text-black font-bold text-base md:text-lg mt-12 max-w-3xl mx-auto leading-relaxed">
+      Wenn du Google Ads mit uns startest, mit mindestens <span class="bg-white text-[#FF3000] px-2 py-0.5 font-extrabold">500€/Monat</span> Werbebudget, und Zielgruppe plus Tracking ab Tag eins gemeinsam validiert sind, verpflichten wir uns zu <span class="bg-white text-[#FF3000] px-2 py-0.5 font-extrabold">5 qualifizierten Anfragen</span> (Anruf, Formular oder WhatsApp) in den ersten 30 Tagen. Wenn nicht, optimieren wir Website und Kampagne <span class="bg-white text-[#FF3000] px-2 py-0.5 font-extrabold">ohne Mehrkosten</span> weiter, bis das Ziel erreicht ist.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-3 mt-12">
+      <span class="garantie-pill">Mindestbudget Ads 500€/Monat</span>
+      <span class="garantie-pill">5 qualifizierte Anfragen · 30 Tage</span>
+      <span class="garantie-pill">Kostenlose Optimierung, wenn nicht erreicht</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 7 — COMMITMENT
+═══════════════════════════════════════════════════════════ -->
+<section class="py-24 md:py-40 px-6 md:px-12 bg-[#050505] border-t border-neutral-900">
+  <div class="max-w-screen-2xl mx-auto">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+      <div class="lg:col-span-7">
+        <span class="text-xs font-mono-display text-[#FF3000] block mb-4">07 / VERSPRECHEN</span>
+        <h2 class="text-5xl md:text-7xl font-semibold tracking-tight text-white uppercase leading-[0.9]">Deine Website soll<br>für dich<br>arbeiten.</h2>
+      </div>
+      <div class="lg:col-span-5 flex items-end">
+        <p class="text-base font-light text-neutral-400 leading-relaxed">Wenn du Google Ads mit uns startest und die Website in den ersten 30 Tagen nicht genug Chancen erzeugt, um die 499€ Investition zu decken, optimieren wir kostenlos weiter, bis dein Einsatz zurückverdient ist.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Karte 1 — Optimierung -->
+      <div class="bg-neutral-950 border border-neutral-900 hover:border-[#FF3000]/40 transition-colors duration-500 p-8 md:p-10 group">
+        <span class="text-xs font-mono-display text-neutral-600 block mb-8 uppercase tracking-widest">01</span>
+        <h3 class="text-2xl md:text-3xl font-semibold text-white uppercase tracking-tight mb-4 group-hover:text-[#FF3000] transition-colors">Kostenlose Optimierung</h3>
+        <p class="text-sm font-light text-neutral-400 leading-relaxed">Wir optimieren Texte, CTAs, Landingpage, Formular und Google Ads Kampagne anhand echter Daten, nicht anhand von Vermutungen.</p>
+      </div>
+
+      <!-- Karte 2 — Chancen -->
+      <div class="bg-neutral-950 border border-neutral-900 hover:border-[#FF3000]/40 transition-colors duration-500 p-8 md:p-10 group">
+        <span class="text-xs font-mono-display text-neutral-600 block mb-8 uppercase tracking-widest">02</span>
+        <h3 class="text-2xl md:text-3xl font-semibold text-white uppercase tracking-tight mb-4 group-hover:text-[#FF3000] transition-colors">Messbare Chancen</h3>
+        <p class="text-sm font-light text-neutral-400 leading-relaxed">Anruf, Formular, WhatsApp, Angebotsanfrage oder Buchung: Wir messen die Aktionen, die für dein Business wirklich zählen.</p>
+      </div>
+
+      <!-- Karte 3 — Transparenz -->
+      <div class="bg-neutral-950 border border-neutral-900 hover:border-[#FF3000]/40 transition-colors duration-500 p-8 md:p-10 group">
+        <span class="text-xs font-mono-display text-neutral-600 block mb-8 uppercase tracking-widest">03</span>
+        <h3 class="text-2xl md:text-3xl font-semibold text-white uppercase tracking-tight mb-4 group-hover:text-[#FF3000] transition-colors">Transparenz</h3>
+        <p class="text-sm font-light text-neutral-400 leading-relaxed">Wir garantieren keine finalen Verkäufe, weil sie auch von deinem Vertriebsprozess abhängen. Wir optimieren das System, damit bessere Chancen entstehen.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 8 — TEMPLATES / BEISPIELE
+═══════════════════════════════════════════════════════════ -->
+<section id="templates" class="py-24 md:py-40 px-6 md:px-12 bg-black border-t border-neutral-900">
+  <span id="work" class="block -mt-24 pt-24" aria-hidden="true"></span>
+  <div class="max-w-screen-2xl mx-auto">
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-20">
+      <div>
+        <span class="text-xs font-mono-display text-[#FF3000] block mb-4">08 / BEISPIELE</span>
+        <h2 class="text-5xl md:text-7xl font-semibold tracking-tight text-white uppercase leading-[0.9]">Website<br>Beispiele.</h2>
+      </div>
+      <p class="text-base font-light text-neutral-400 max-w-sm">Das sind die Arten von Websites, die wir bauen. Nutze sie als Inspiration, dann passen wir die Richtung an dein Angebot, deine Zielgruppe und deinen Conversion Flow an.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <a href="https://www.lynckstudio.pro/website-samples/blade-co/" target="_blank" rel="noopener" class="block group relative overflow-hidden bg-neutral-900 aspect-square">
+        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&q=80&auto=format&fit=crop" alt="Barbershop / Grooming Website Template" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy">
+        <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/85 to-transparent">
+          <span class="text-xs font-mono-display text-[#FF3000] block mb-1">01</span>
+          <span class="text-sm font-semibold text-white uppercase tracking-wide">Barbershop / Grooming</span>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span class="text-sm font-semibold tracking-widest text-white uppercase border border-white px-6 py-3">Website ansehen</span>
+        </div>
       </a>
-      <p class="mt-4 text-sm text-white/46">Dauert etwa 2 Minuten. Kein generischer Pitch. Keine Verpflichtung.</p>
-      <p class="mt-3 text-sm text-white/52">Wir nehmen jeden Monat nur eine begrenzte Anzahl neuer Kunden auf.</p>
+
+      <a href="https://noiriwebsite.vercel.app/" target="_blank" rel="noopener" class="block group relative overflow-hidden bg-neutral-900 aspect-square">
+        <img src="/assets/website-sample-noiri.jpg" alt="Fotografie / Portfolio Website Template" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy">
+        <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/85 to-transparent">
+          <span class="text-xs font-mono-display text-[#FF3000] block mb-1">02</span>
+          <span class="text-sm font-semibold text-white uppercase tracking-wide">Fotografie / Portfolio</span>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span class="text-sm font-semibold tracking-widest text-white uppercase border border-white px-6 py-3">Website ansehen</span>
+        </div>
+      </a>
+
+      <a href="https://badembatraining.netlify.app/" target="_blank" rel="noopener" class="block group relative overflow-hidden bg-neutral-900 aspect-square sm:col-span-2 lg:col-span-1">
+        <img src="/assets/website-sample-badembatraining.png" alt="Fitness Coaching Website Template" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy">
+        <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/85 to-transparent">
+          <span class="text-xs font-mono-display text-[#FF3000] block mb-1">03</span>
+          <span class="text-sm font-semibold text-white uppercase tracking-wide">Fitness Coaching</span>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span class="text-sm font-semibold tracking-widest text-white uppercase border border-white px-6 py-3">Website ansehen</span>
+        </div>
+      </a>
+
+      <a href="https://loftylabrep.vercel.app/" target="_blank" rel="noopener" class="block group relative overflow-hidden bg-neutral-900 aspect-square">
+        <img src="/assets/website-sample-loftylabrep.png" alt="Kreativagentur Website Template" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy">
+        <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/85 to-transparent">
+          <span class="text-xs font-mono-display text-[#FF3000] block mb-1">04</span>
+          <span class="text-sm font-semibold text-white uppercase tracking-wide">Kreativagentur</span>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span class="text-sm font-semibold tracking-widest text-white uppercase border border-white px-6 py-3">Website ansehen</span>
+        </div>
+      </a>
+
+      <a href="https://utopai-with-claude-new-new-o136.vercel.app/" target="_blank" rel="noopener" class="block group relative overflow-hidden bg-neutral-900 aspect-square">
+        <img src="/assets/website-sample-utopai.png" alt="KI Editorial / Content Website Template" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy">
+        <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/85 to-transparent">
+          <span class="text-xs font-mono-display text-[#FF3000] block mb-1">05</span>
+          <span class="text-sm font-semibold text-white uppercase tracking-wide">KI Editorial / Content</span>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span class="text-sm font-semibold tracking-widest text-white uppercase border border-white px-6 py-3">Website ansehen</span>
+        </div>
+      </a>
+
+      <a href="https://www.lynckstudio.pro/website-samples/serene-wellness/" target="_blank" rel="noopener" class="block group relative overflow-hidden bg-neutral-900 aspect-square sm:col-span-2 lg:col-span-1">
+        <img src="/assets/website-sample-serene-wellness.jpg" alt="Wellness / Longevity Website Template" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy">
+        <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/85 to-transparent">
+          <span class="text-xs font-mono-display text-[#FF3000] block mb-1">06</span>
+          <span class="text-sm font-semibold text-white uppercase tracking-wide">Wellness / Longevity</span>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span class="text-sm font-semibold tracking-widest text-white uppercase border border-white px-6 py-3">Website ansehen</span>
+        </div>
+      </a>
+
     </div>
-  </section>
+
+    <div class="mt-12 text-center">
+      <a href="https://www.lynckstudio.pro/website-design/#templates" target="_blank" rel="noopener" class="inline-flex items-center gap-3 text-xs font-semibold tracking-widest uppercase text-neutral-500 hover:text-white transition-colors border-b border-neutral-800 hover:border-white pb-1">
+        Alle Beispiele ansehen
+        <i data-lucide="arrow-right" class="w-4 h-4" stroke-width="1.5"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 9 — FAQ
+═══════════════════════════════════════════════════════════ -->
+<section id="faq" class="py-24 md:py-40 px-6 md:px-12 bg-[#050505] border-t border-neutral-900">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="flex flex-col lg:flex-row gap-12 lg:gap-32">
+
+      <div class="lg:w-1/3 flex-shrink-0">
+        <span class="text-xs font-mono-display text-[#FF3000] block mb-4">09 / FAQ</span>
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tight text-white uppercase leading-[0.9] mb-8">Was du dich<br>wahrscheinlich<br>fragst.</h2>
+        <p class="text-base font-light text-neutral-500">Wenn deine Frage nicht dabei ist, stelle sie über das Formular. Wir antworten innerhalb von 24 Stunden.</p>
+      </div>
+
+      <div class="flex-1 border-t border-neutral-900">
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Ich brauche nur eine Website ohne Google Ads. Ist das möglich?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Ja. Wir bauen auch eigenständige Conversion Websites mit derselben methodischen Herangehensweise. Schreib deine Präferenz ins Formular und wir passen das Angebot an. Das 499€ Angebot gilt auch dafür.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Ich habe bereits eine Website. Könnt ihr meine Google Ads betreuen?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Ja. Wir prüfen deine bestehende Website, ob sie sauber konvertieren kann, und bauen dann das Google Ads System darum herum. Wenn etwas Conversions blockiert, sagen wir es klar und erklären, ob es sich lohnt, es vor Kampagnenstart zu beheben.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Was kostet das?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Standalone Website: 499€ im Einführungsangebot (10 Plätze, danach ab 1.500€). Monatliches Google Ads Management ist optional für 250€/Monat, ohne Bindung. Dein Werbebudget wird direkt an Google gezahlt, niemals an uns. Die konkreten Zahlen bestätigen wir im Gespräch anhand deiner Situation.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Was ist kostenlos und was ist bezahlt?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8 space-y-4">
+              <div>
+                <p class="text-white font-medium mb-2">Kostenlos für angenommene Anfragen:</p>
+                <ul class="space-y-1.5 list-disc list-inside marker:text-[#FF3000]">
+                  <li>Das strategische Erstgespräch</li>
+                  <li>Das komplette Google Ads Setup: Kampagnenarchitektur, Kontokonfiguration, Conversion Tracking und erste kreative Ausrichtung — ein Wert von 1.000 bis 1.500€, den viele Anbieter vorab berechnen.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-white font-medium mb-2">Kostenpflichtig:</p>
+                <ul class="space-y-1.5 list-disc list-inside marker:text-[#FF3000]">
+                  <li>Die Website Erstellung: 499€ Einführungsangebot oder individuelles Angebot für 5+ Seiten</li>
+                  <li>Monatliches Google Ads Management, optional: 250€/Monat</li>
+                  <li>Dein Werbebudget: direkt an Google gezahlt, niemals an uns</li>
+                </ul>
+              </div>
+              <p>Die genauen Zahlen bestätigen wir im Gespräch anhand deiner Situation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Was bedeutet "angenommene Anfrage"?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Wir sind ein Hands-on Team mit begrenzter Kapazität — <strong class="text-white font-normal">maximal etwa 10 Projekte pro Monat</strong>. Jede Anfrage wird persönlich geprüft, damit wir sicherstellen können, dass wir Ergebnisse für dein Business liefern können. Wenn wir das nicht können, <strong class="text-white font-normal">sagen wir es dir innerhalb von 24 Stunden</strong>, statt dein Geld auf falsche Versprechen anzunehmen.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Wie lange dauert die Lieferung?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Zwischen 7 und 14 Tagen, je nach Projektkomplexität und Verfügbarkeit deiner Inhalte. Briefing und Strategie: 1 bis 2 Tage. Design und Entwicklung: 5 bis 10 Tage. Tracking und Google Ads Setup: 2 bis 4 Tage parallel.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Wie lange bis zu den ersten Google Ads Ergebnissen?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Erste Signale erscheinen 7 bis 14 Tage nach Kampagnenstart. Stabile erste Conversions kommen meist zwischen Tag 14 und Tag 30, je nach Branche und Entscheidungszyklus. Unser "Website zahlt sich in 30 Tagen zurück" Versprechen messen wir über die ersten 30 Kampagnentage, mit mindestens 500€/Monat Budget.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Welches Google Ads Mindestbudget brauche ich?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8"><strong class="text-white font-normal">500€/Monat</strong> ist das Mindestbudget, damit der Google Ads Algorithmus genug Daten sammelt und das 30-Tage-Versprechen gilt. Darunter können Kampagnen funktionieren, aber ohne Ergebniszusage von uns. Für E-Commerce oder sehr umkämpfte Märkte sind 1.000€/Monat realistischer.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Was ist im 499€ Angebot genau enthalten?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Komplette Website Erstellung bis zu 5 Seiten: responsive, für technisches SEO optimiert (Core Web Vitals, Schema, Tags, Sitemap), integriertes Kontaktformular, GTM Tracking und DSGVO-konformer Consent Mode v2. Die Google Ads Kampagnenkonfiguration ist inklusive (Wert 1.000–1.500€ anderswo). Du besitzt 100% von Code, Inhalt, Domain und Konten. <strong class="text-white font-normal">Für Websites mit mehr als 5 Seiten wird der Preis an die Projektkomplexität angepasst.</strong></p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Ist SEO inklusive?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Ja, technisches SEO ist in den 499€ enthalten: Core Web Vitals Optimierung, semantische Struktur, Schema Markup, XML Sitemap, robots.txt, optimierte Meta Tags und saubere URLs. Langfristiges Content SEO (Artikel, Linkbuilding) ist nicht enthalten, kann aber optional ergänzt werden.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Was bedeutet "deine Website zahlt sich in 30 Tagen zurück"?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Wenn du Google Ads mit uns mit mindestens 500€/Monat Budget startest und Zielgruppe sowie Tracking ab Tag eins gemeinsam validiert sind, verpflichten wir uns, in den ersten 30 Tagen 5 qualifizierte Anfragen zu erzeugen (Anruf, Formular oder WhatsApp). Wenn diese Schwelle nicht erreicht wird, optimieren wir ohne Zusatzkosten weiter, bis sie erreicht ist.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Meine Website läuft auf Shopify, WordPress, Wix oder Squarespace. Könnt ihr daran arbeiten?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Für Google Ads Management und Tracking: ja, unabhängig vom CMS. Für die Website Erstellung im 499€ Angebot liefern wir auf unserem optimierten technischen Stack: schnell, sicher und sauber für SEO. Wenn du auf Shopify, WordPress, Wix oder Squarespace bleiben musst, können wir dort mit einem individuellen Angebot arbeiten.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Mit welchen Branchen arbeitet ihr?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Nachweisbare Ergebnisse in <strong class="text-white font-normal">E-Commerce, Hotellerie und Bildung</strong>. Wir arbeiten auch mit lokalen Dienstleistern, Gesundheit, Coaching, SaaS und B2B. Wenn wir einen Markt für zu nischig halten, um verantwortungsvoll Ergebnisse zuzusagen, sagen wir es, bevor wir deine Zeit nehmen.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Was, wenn es nicht funktioniert?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Du siehst alle Zahlen ab Tag eins: volle Transparenz über Ausgaben, Conversions und ROAS. Wenn die Performance nicht in die richtige Richtung läuft, passen wir an. Wenn es für dein Geschäftsmodell wirklich nicht tragfähig ist, sagen wir es, bevor du Budget verschwendest. <strong class="text-white font-normal">Wir verlieren lieber ehrlich einen Kunden, als ihn mit falschen Versprechen zu halten.</strong></p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Gibt es Abos oder versteckte Kosten?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Nein. Die 499€ decken die komplette Website Erstellung ohne Abo ab. Domain (~15€/Jahr) und Hosting (~60€/Jahr) verwaltest du direkt bei deinem Anbieter, niemals über uns. Monatliches Google Ads Management für 250€/Monat ist komplett optional. Du besitzt alles lebenslang. Kein bindender Vertrag, keine Ausstiegsgebühr.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Was unterscheidet euch?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Unser Team umfasst Strategen, die bei Google gearbeitet haben. Status: <strong class="text-white font-normal">aktiver Google Partner</strong>. Wir lagern nichts an versteckte Teams aus: Das Team, mit dem du sprichst, baut auch deine Kampagnen. Wir optimieren auf die Kennzahl, die wirklich zählt: ROAS für E-Commerce und Hotellerie, qualifizierter Cost per Lead für Dienstleistungen und Bildung. Keine Vanity KPIs.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-neutral-900">
+          <button class="w-full py-8 flex justify-between items-start text-left gap-8 group" onclick="toggleFaq(this.parentElement)">
+            <span class="text-lg font-medium text-white leading-snug group-hover:text-[#FF3000] transition-colors pr-4">Warum 499€? Was ändert sich danach?</span>
+            <span class="faq-icon w-10 h-10 border border-neutral-800 rounded-full mt-0.5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="plus" class="w-4 h-4 text-white" stroke-width="1.5"></i>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-neutral-400 font-light leading-relaxed max-w-2xl pb-8">Das ist ein Einführungsangebot für den belgischen Markt, begrenzt auf 10 Unternehmen. Wir wollen konkrete belgische Erfolgsgeschichten für unser lokales Portfolio. Sobald die 10 Plätze vergeben sind, startet der Standardpreis je nach Projektkomplexität ab 1.500€. Keine Manipulation: eine klare Business Entscheidung.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 10 — FINAL CTA
+═══════════════════════════════════════════════════════════ -->
+<section id="cta" class="py-24 md:py-40 px-6 md:px-12 bg-[#050505] border-t border-neutral-900">
+  <div class="max-w-screen-2xl mx-auto flex flex-col items-center text-center">
+
+    <div class="flex items-center gap-3 mb-8">
+      <span class="w-3 h-3 bg-[#FF3000] rounded-full animate-pulse"></span>
+      <span class="text-xs font-mono-display tracking-widest text-neutral-500 uppercase"><span id="spots-footer">10</span> Plätze diesen Monat übrig</span>
+    </div>
+
+    <h2 class="text-6xl sm:text-7xl md:text-[8rem] lg:text-[9rem] font-semibold tracking-tight text-white uppercase leading-none mb-10 transition-colors duration-500">
+      Sichere dir<br>deinen Platz.
+    </h2>
+
+    <p class="text-xl md:text-2xl font-light text-neutral-400 max-w-2xl mb-4 leading-relaxed">
+      499€ · Lieferung in 7-14 Tagen · Zertifizierter Google Partner.
+    </p>
+    <p class="text-sm font-light text-neutral-500 mb-12 max-w-xl">
+      Deine Website zahlt sich in 30 Tagen zurück — oder wir arbeiten kostenlos weiter, bis es so ist.
+    </p>
+
+    <!-- Primary CTA — to be wired to your main site form -->
+    <a href="/de/apply/" data-cta="primary" class="group inline-flex items-center gap-4 bg-[#FF3000] text-white text-sm md:text-base font-semibold tracking-widest uppercase px-10 md:px-14 py-6 hover:bg-white hover:text-black transition-colors duration-300 mb-12">
+      Platz sichern — 499€
+      <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform" stroke-width="2"></i>
+    </a>
+
+    <div class="flex flex-wrap justify-center items-center gap-4 text-xs font-mono-display text-neutral-600 uppercase tracking-widest">
+      <span>Antwort innerhalb von 24h</span>
+      <span class="w-1 h-1 bg-neutral-700 rounded-full"></span>
+      <span>Google Partner</span>
+      <span class="w-1 h-1 bg-neutral-700 rounded-full"></span>
+      <span>Wachstumssystem</span>
+    </div>
+
+  </div>
+</section>
+
 
 </main>
 
-<footer>
-  <div class="footer-big-wrap">
-    <div class="footer-big">LYNCK STUDIO</div>
-  </div>
-  <div class="footer-links-row">
-    <div class="footer-links-col">
-      <a href="/de/about.html">Über LYNCK</a>
-      <a href="/de/#our-services">Unsere Leistungen</a>
-      <a href="/de/case-studies/">Fallstudien</a>
-      <a href="/de/apply/">Kontakt</a>
+<footer id="contact" class="bg-[#050505] pt-32 pb-12 px-6 md:px-12 border-t border-neutral-900">
+    <div class="max-w-screen-2xl mx-auto flex flex-col items-center text-center">
+        <span class="w-3 h-3 bg-green-500 rounded-full animate-pulse mb-8"></span>
+        <h2 class="text-6xl sm:text-7xl md:text-[8rem] font-semibold tracking-tight text-white uppercase leading-none mb-8 hover:text-[#FF3000] transition-colors duration-500 cursor-default">Sprechen wir</h2>
+        <p class="text-xl md:text-2xl font-light text-neutral-400 max-w-2xl mb-4 leading-relaxed">Sag uns, wo du stehst. Wir sagen dir, was als Nächstes Sinn macht.</p>
+        <p class="text-sm font-light text-neutral-600 mb-12">2 Minuten zur Anfrage. Kostenloses Strategiegespräch. Kein Verkaufsdruck.<br>Begrenzt auf 3–5 neue Kunden pro Monat.</p>
+        <a href="/de/apply/" class="bg-[#FF3000] text-white text-sm font-semibold tracking-widest uppercase px-12 py-6 inline-flex items-center gap-4 hover:bg-white hover:text-black transition-colors duration-300 mb-10">Kostenloses Strategiegespräch anfragen <i data-lucide="arrow-right" class="w-5 h-5" stroke-width="1.5"></i></a>
+        <a href="mailto:info@lynckstudio.pro" class="text-xl md:text-2xl font-light text-neutral-400 hover:text-white border-b border-transparent hover:border-white pb-1 transition-all mb-32">info@lynckstudio.pro</a>
+        <div class="w-full flex flex-col md:flex-row justify-between items-center gap-8 pt-8 border-t border-neutral-900">
+            <a href="/de/" class="flex items-center"><img src="/assets/lynck-logo.png" alt="LYNCK Studio" class="h-7 brightness-0 invert opacity-50 hover:opacity-100 transition-opacity"></a>
+            <div class="flex gap-8 text-xs font-medium tracking-widest text-neutral-500 uppercase">
+                <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener" class="hover:text-white transition-colors">Instagram</a>
+                <a href="/de/about.html" class="hover:text-white transition-colors">Über uns</a>
+                <a href="/website-design/" class="hover:text-white transition-colors">EN</a>
+                <a href="/website-design/be/" class="hover:text-white transition-colors">FR</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-light text-neutral-700">
+                <a href="/de/privacy-policy.html" class="hover:text-neutral-400 transition-colors">Datenschutz</a>
+                <a href="/de/cookie-policy.html" class="hover:text-neutral-400 transition-colors">Cookies</a>
+                <a href="/de/legal-notice.html" class="hover:text-neutral-400 transition-colors">Impressum</a>
+                <span>© 2026 LYNCK Studio</span>
+            </div>
+        </div>
     </div>
-    <div class="footer-links-col">
-      <a href="/de/services/service.html?service=google-ads">Google Ads &amp; Performance Marketing</a>
-      <a href="/de/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a>
-      <a href="/de/services/service.html?service=ai-content">KI Content &amp; Kreativproduktion</a>
-      <a href="/de/services/service.html?service=ugc-influencer">UGC &amp; Influencer Marketing</a>
-      <a href="/de/services/service.html?service=web-systems">Conversion fokussierte Websysteme</a>
-    </div>
-    <div class="footer-links-col">
-      <a href="/de/services/service.html?service=growth-strategy">Wachstumsstrategie &amp; Markenpositionierung</a>
-      <a href="/de/services/service.html?service=leads-generation">Lead Generierung</a>
-      <a href="/de/services/service.html?service=youtube-growth-services">YouTube Wachstum</a>
-      <a href="/de/services/service.html?service=seo-sevo">SEO / SEvO</a>
-    </div>
-    <div class="footer-social-row">
-      <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/></svg>
-      </a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; 2026 LYNCK Studio. Alle Rechte vorbehalten</span>
-    <div class="footer-bottom-legal">
-      <a href="/de/cookie-policy.html">Cookie Richtlinie</a>
-      <a href="/de/privacy-policy.html">Datenschutz</a>
-      <a href="/de/legal-notice.html">Impressum</a>
-    </div>
-  </div>
 </footer>
-
-<a href="/de/apply/" class="lynck-mobile-sticky-cta md:hidden">
-  Jetzt anfragen
-</a>
 
 <script>
   (function () {
@@ -2693,5 +3054,97 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <button id="proof-lightbox-close" aria-label="Schließen">&times;</button>
   <img id="proof-lightbox-img" src="" alt="Vergrößerte Google Ads Ergebnisansicht">
 </div>
+<script>
+(function () {
+  function initFlowArt() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') { setTimeout(initFlowArt, 200); return; }
+    gsap.registerPlugin(ScrollTrigger);
+    var wrapper = document.querySelector('.flow-art-wrapper');
+    if (!wrapper) return;
+    var sections = wrapper.querySelectorAll('[data-flow-section]');
+    if (!sections.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    sections.forEach(function (section, i) {
+      gsap.set(section, { zIndex: i + 1 });
+      var inner = section.querySelector('.flow-art-container');
+      if (!inner) return;
+      if (i > 0) {
+        gsap.set(inner, { rotation: 30, transformOrigin: 'bottom left' });
+        gsap.to(inner, {
+          rotation: 0,
+          ease: 'none',
+          scrollTrigger: { trigger: section, start: 'top bottom', end: 'top 25%', scrub: true },
+        });
+      }
+      if (i < sections.length - 1) {
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'bottom bottom',
+          end: 'bottom top',
+          pin: true,
+          pinSpacing: false,
+        });
+      }
+    });
+    ScrollTrigger.refresh();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFlowArt);
+  } else {
+    setTimeout(initFlowArt, 100);
+  }
+})();
+</script>
+<script>
+  if (window.lucide) lucide.createIcons();
+  const lpMobileNav     = document.getElementById('lp-mobile-nav');
+  const lpMobileTrigger = document.getElementById('lp-mobile-trigger');
+
+  if (lpMobileTrigger && lpMobileNav) {
+    lpMobileTrigger.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = lpMobileNav.classList.toggle('is-open');
+      lpMobileTrigger.setAttribute('aria-expanded', open);
+    });
+    lpMobileNav.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', () => lpMobileNav.classList.remove('is-open'));
+    });
+  }
+
+  const lpMobileLang        = document.getElementById('lp-mobile-lang');
+  const lpMobileLangTrigger = document.getElementById('lp-mobile-lang-trigger');
+
+  if (lpMobileLangTrigger && lpMobileLang) {
+    lpMobileLangTrigger.addEventListener('click', e => {
+      e.stopPropagation();
+      lpMobileLang.classList.toggle('is-open');
+    });
+  }
+
+  document.addEventListener('click', () => {
+    lpMobileNav?.classList.remove('is-open');
+    lpMobileLang?.classList.remove('is-open');
+  });
+
+  function openLightbox(src, alt) {
+    const lb = document.getElementById('proof-lightbox');
+    const img = document.getElementById('proof-lightbox-img');
+    if (!lb || !img) return;
+    img.src = src;
+    img.alt = alt || '';
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function toggleFaq(item) {
+    if (!item) return;
+    const isOpen = item.classList.contains('is-open');
+    document.querySelectorAll('.faq-item.is-open').forEach(open => open.classList.remove('is-open'));
+    if (!isOpen) item.classList.add('is-open');
+  }
+  (function () {
+    const spots = 10;
+    document.querySelectorAll('#spots-header, #spots-footer').forEach(el => { el.textContent = spots; });
+  })();
+</script>
 </body>
 </html>

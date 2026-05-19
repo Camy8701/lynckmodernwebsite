@@ -3,13 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.lynckstudio.pro/</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.lynckstudio.pro/de/</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -17,6 +17,7 @@
     <loc>https://www.lynckstudio.pro/website-design/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lynckstudio.pro/website-design/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.lynckstudio.pro/de/website-design/" />
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://www.lynckstudio.pro/website-design/be/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lynckstudio.pro/website-design/" />
     <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -26,8 +27,19 @@
     <loc>https://www.lynckstudio.pro/de/website-design/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.lynckstudio.pro/de/website-design/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lynckstudio.pro/website-design/" />
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://www.lynckstudio.pro/website-design/be/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lynckstudio.pro/website-design/" />
     <lastmod>2026-05-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.lynckstudio.pro/website-design/be/</loc>
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://www.lynckstudio.pro/website-design/be/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lynckstudio.pro/website-design/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lynckstudio.pro/de/website-design/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lynckstudio.pro/website-design/" />
+    <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
