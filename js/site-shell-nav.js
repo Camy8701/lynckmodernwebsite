@@ -13,6 +13,7 @@
     apply: {
       en: "/apply/",
       de: "/de/apply/",
+      fr: "/be/apply/",
     },
     samples: {
       en: "/website-samples/",
@@ -22,8 +23,10 @@
 
   const getLang = () => {
     if (window.location.pathname.includes("/de/")) return "de";
+    if (window.location.pathname.includes("/be/") || window.location.pathname.includes("/website-design/be/")) return "fr";
     try {
       const stored = localStorage.getItem("language");
+      if (stored === "fr") return "fr";
       if (stored === "de") return "de";
     } catch (error) {}
     return "en";
@@ -64,7 +67,8 @@
 
   document.querySelectorAll("[data-home-btn]").forEach((button) => {
     button.addEventListener("click", () => {
-      window.location.href = getLang() === "de" ? "/de/index.html" : "/index.html";
+      const lang = getLang();
+      window.location.href = lang === "de" ? "/de/index.html" : lang === "fr" ? "/website-design/be/" : "/index.html";
     });
   });
 
@@ -78,13 +82,14 @@
       } catch (error) {}
 
       const targetPath = pagePaths[pageKey]?.[targetLang];
-      window.location.href = targetPath || (targetLang === "de" ? "/de/index.html" : "/index.html");
+      window.location.href = targetPath || (targetLang === "de" ? "/de/index.html" : targetLang === "fr" ? "/website-design/be/" : "/index.html");
     });
   });
 
   const goToApply = (event) => {
     if (event) event.preventDefault();
-    window.location.href = getLang() === "de" ? "/de/apply/" : "/apply/";
+    const lang = getLang();
+    window.location.href = lang === "de" ? "/de/apply/" : lang === "fr" ? "/be/apply/" : "/apply/";
   };
 
   document.querySelectorAll("[data-apply-btn], [data-contact-btn], [data-strategy-call-btn], [data-build-growth-btn]").forEach((button) => {

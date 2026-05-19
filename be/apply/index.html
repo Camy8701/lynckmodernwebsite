@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="fr-BE">
+<head>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  analytics_storage: 'denied',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied'
+});
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N5757GT5');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+  <script src="/js/url-attribution-cleanup.js?v=20260504"></script>
+  <script src="/js/cookie-consent.js?v=20260504b" defer></script>
+  <title>Réserver un appel stratégique | LYNCK Studio</title>
+  <meta name="description" content="Répondez à quelques questions pour préparer votre appel avec LYNCK Studio.">
+  <link rel="icon" type="image/webp" href="/assets/lynck-logo.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/site-shell.css?v=20260330">
+  <link rel="stylesheet" href="/css/apply-shared.css?v=20260330">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+  <style>
+  .apply-slot-wrap { position: relative; }
+  .apply-slot-input { cursor: pointer; padding-right: 2.5rem; }
+  .apply-slot-clear {
+    position: absolute; right: 12px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none;
+    color: rgba(255,255,255,0.4); cursor: pointer;
+    font-size: 16px; line-height: 1;
+    display: none; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 50%;
+    transition: color 0.15s;
+  }
+  .apply-slot-clear:hover { color: rgba(255,255,255,0.85); }
+  .apply-label-opt { font-weight: 400; opacity: 0.48; font-size: 0.82em; }
+  .flatpickr-calendar.open { z-index: 9999; }
+  .flatpickr-calendar {
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 24px 60px rgba(0,0,20,0.65) !important;
+    font-family: inherit !important;
+    overflow: hidden;
+  }
+  .flatpickr-day.selected,
+  .flatpickr-day.selected:hover,
+  .flatpickr-day.selected:focus {
+    background: #ff8a1f !important;
+    border-color: #ff8a1f !important;
+    color: #0f2a56 !important;
+    font-weight: 700;
+  }
+  .flatpickr-day:hover:not(.disabled):not(.selected) {
+    background: rgba(255,138,31,0.18) !important;
+    border-color: transparent !important;
+  }
+  .flatpickr-day.today:not(.selected) { border-color: rgba(255,138,31,0.5) !important; }
+  .flatpickr-day.flatpickr-disabled,
+  .flatpickr-day.flatpickr-disabled:hover { opacity: 0.28 !important; cursor: not-allowed !important; }
+  </style>
+</head>
+<body class="apply-body" data-shell-page="apply">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5757GT5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="lynck-header">
+        <div class="lynck-header-inner">
+            <button type="button" class="lynck-home-logo" data-home-btn aria-label="LYNCK Studio Home">
+                <img loading="eager" fetchpriority="high" decoding="async" width="56" height="56" src="/assets/lynck-logo.webp" alt="LYNCK Studio">
+            </button>
+            <div class="lynck-mobile-menu nav-dropdown right">
+                <button class="nav-pill lynck-mobile-menu-trigger" type="button" aria-label="Ouvrir le menu">
+                    <span class="lynck-mobile-menu-icon" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="lynck-mobile-menu-text">Menu</span>
+                </button>
+                <div class="nav-dropdown-menu lynck-mobile-menu-panel" role="menu">
+                    <div class="lynck-mobile-menu-group">
+                        <span class="lynck-mobile-menu-label">Navigation</span>
+                        <a href="/about.html" role="menuitem">À propos de LYNCK</a>
+                        <a href="/case-studies/" role="menuitem">Cas clients</a>
+                        <a href="/website-samples/" role="menuitem">Exemples</a>
+                        <a href="/blog/" role="menuitem">Blog</a>
+                    </div>
+                    <div class="lynck-mobile-menu-group">
+                        <span class="lynck-mobile-menu-label">Services</span>
+                        <a href="/services/service.html?service=google-ads" role="menuitem">Google Ads &amp; Performance Marketing</a>
+                        <a href="/services/service.html?service=meta-ads" role="menuitem">Meta Ads &amp; Paid Social</a>
+                        <a href="/services/service.html?service=ai-content" role="menuitem">AI Content &amp; Creative Production</a>
+                        <a href="/services/service.html?service=ugc-influencer" role="menuitem">UGC &amp; Influencer Marketing</a>
+                        <a href="/services/service.html?service=web-systems" role="menuitem">Conversion-Focused Web Systems</a>
+                        <a href="/services/service.html?service=growth-strategy" role="menuitem">Growth Strategy &amp; Brand Positioning</a>
+                        <a href="/services/service.html?service=leads-generation" role="menuitem">Leads Generation</a>
+                        <a href="/services/service.html?service=youtube-growth-services" role="menuitem">YouTube Growth Services</a>
+                        <a href="/services/service.html?service=seo-sevo" role="menuitem">SEO / SEvO</a>
+                    </div>
+                    <div class="lynck-mobile-menu-group">
+                        <span class="lynck-mobile-menu-label">Social</span>
+                        <div class="lynck-mobile-social">
+                            <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" role="menuitem">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                                    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/>
+                                </svg>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" role="menuitem">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/>
+                                </svg>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                    <button type="button" class="gradient-border-btn lynck-mobile-menu-cta" data-apply-btn>
+                        <span class="btn-core">Réserver un appel <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                    </button>
+                </div>
+            </div>
+            <a class="lynck-mobile-about lynck-mobile-apply" href="/be/apply/">Réserver</a>
+            <div class="lynck-mobile-lang nav-dropdown right">
+                <button class="nav-pill lynck-mobile-lang-trigger" type="button" aria-label="Changer de langue">
+                    FR
+                    <span class="nav-caret" aria-hidden="true"></span>
+                </button>
+                <div class="nav-dropdown-menu lynck-mobile-lang-menu" role="menu">
+                    <button type="button" role="menuitem" data-lang-switch="en"><span aria-hidden="true">🇺🇸</span> English</button>
+                    <button type="button" role="menuitem" data-lang-switch="de"><span aria-hidden="true">🇩🇪</span> Deutsch</button>
+                    <button type="button" role="menuitem" data-lang-switch="fr"><span aria-hidden="true">🇫🇷</span> Français</button>
+                </div>
+            </div>
+            <div class="lynck-header-bar">
+                <div class="lynck-header-left">
+                    <div class="nav-social">
+                        <a href="https://www.linkedin.com/company/lynck-studio-services/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8h4V24h-4V8zM8 8h3.8v2.2h.1c.5-.9 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4V24h-4v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-4V8z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/lynck_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                                <path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM20 3.8c-1.2-1.2-2.8-1.8-4.8-1.8H8.8C4.7 2 2 4.7 2 8.8v6.4c0 2 .6 3.6 1.8 4.8 1.2 1.2 2.8 1.8 4.8 1.8h6.4c2 0 3.6-.6 4.8-1.8 1.2-1.2 1.8-2.8 1.8-4.8V8.8c0-2-.6-3.6-1.8-4.8zM20.2 15.2c0 1.5-.4 2.6-1.1 3.4-.8.8-1.9 1.1-3.4 1.1H8.3c-1.5 0-2.6-.4-3.4-1.1-.8-.8-1.1-1.9-1.1-3.4V8.8c0-1.5.4-2.6 1.1-3.4.8-.8 1.9-1.1 3.4-1.1h7.4c1.5 0 2.6.4 3.4 1.1.8.8 1.1 1.9 1.1 3.4v6.4z"/>
+                            </svg>
+                        </a>
+                    </div>
+            </div>
+
+            <nav class="lynck-nav-links" aria-label="Primary">
+                <a href="/about.html">À propos de LYNCK</a>
+                <div class="lynck-services-dropdown"><a href="/#our-services">Services <span class="svc-caret" aria-hidden="true"></span></a><div class="lynck-services-mega"><a href="/services/service.html?service=google-ads">Google Ads &amp; Performance</a><a href="/services/service.html?service=meta-ads">Meta Ads &amp; Paid Social</a><a href="/services/service.html?service=ai-content">AI Content &amp; Creative</a><a href="/services/service.html?service=ugc-influencer">UGC &amp; Influencer</a><a href="/services/service.html?service=web-systems">Web Systems</a><a href="/services/service.html?service=growth-strategy">Growth Strategy</a><a href="/services/service.html?service=leads-generation">Leads Generation</a><a href="/services/service.html?service=youtube-growth-services">YouTube Growth</a><a href="/services/service.html?service=seo-sevo">SEO / SEvO</a></div></div>
+                <a href="/case-studies/">Cas clients</a>
+                <a href="/website-samples/">Exemples</a>
+                <a href="/blog/">Blog</a>
+            </nav>
+
+                <div class="lynck-header-right">
+                    <div class="nav-dropdown right">
+                        <button class="nav-pill" type="button">
+                            FR
+                            <span class="nav-caret" aria-hidden="true"></span>
+                        </button>
+                        <div class="nav-dropdown-menu" role="menu">
+                            <button type="button" role="menuitem" data-lang-switch="en"><span aria-hidden="true">🇺🇸</span> English</button>
+                            <button type="button" role="menuitem" data-lang-switch="de"><span aria-hidden="true">🇩🇪</span> Deutsch</button>
+                            <button type="button" role="menuitem" data-lang-switch="fr"><span aria-hidden="true">🇫🇷</span> Français</button>
+                        </div>
+                    </div>
+                    <button type="button" class="gradient-border-btn" data-apply-btn>
+                        <div class="btn-beam"></div>
+                    <div class="btn-bg">
+                        <div class="btn-bg-grad"></div>
+                        <div class="btn-bg-dots"></div>
+                        <div class="btn-bg-glow"></div>
+                    </div>
+                    <span class="btn-core">Réserver un appel <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                    </button>
+                </div>
+            </div>
+            <a href="https://www.google.com/partners/agency?id=6214402482" target="_blank" rel="noopener noreferrer" class="lynck-partner-badge" aria-label="Google Partner Badge">
+                <img loading="lazy" fetchpriority="low" decoding="async" width="92" height="92" src="https://www.gstatic.com/partners/badge/images/2025/PartnerBadgeClickable.svg" alt="Google Partner">
+            </a>
+        </div>
+    </header>
+  
+
+  <main class="apply-main" id="main-content">
+    <section class="apply-card" id="applyFlow">
+      <form id="strategyApplicationForm" novalidate>
+        <div class="apply-progress">
+          <div class="apply-progress-top">
+            <strong>Étape <span data-progress-current>1</span>/<span data-progress-total>2</span></strong>
+            <span data-progress-label>Profil et service</span>
+          </div>
+          <div class="apply-progress-bar"><span class="apply-progress-fill" data-progress-fill></span></div>
+        </div>
+
+        <section class="apply-step" data-step data-step-label="Profil et service">
+          <span class="apply-chip">Demande d’appel stratégique</span>
+          <h1 class="apply-title">Réserver un appel stratégique</h1>
+          <p class="apply-copy">Dites-nous ce dont vous avez besoin et où se trouve la plus grande opportunité. Cela prend environ 2 minutes.</p>
+
+          <div class="apply-grid">
+            <div class="apply-field">
+              <label class="apply-label" for="fullName">Nom complet <span class="req">*</span></label>
+              <input class="apply-input" id="fullName" name="full_name" type="text" autocomplete="name" required>
+              <div class="apply-error" data-error-for="fullName"></div>
+            </div>
+            <div class="apply-field">
+              <label class="apply-label" for="workEmail">E-mail professionnel <span class="req">*</span></label>
+              <input class="apply-input" id="workEmail" name="work_email" type="email" autocomplete="email" required>
+              <div class="apply-error" data-error-for="workEmail"></div>
+            </div>
+            <div class="apply-field">
+              <label class="apply-label" for="companyName">Entreprise / marque <span class="req">*</span></label>
+              <input class="apply-input" id="companyName" name="company_name" type="text" required>
+              <div class="apply-error" data-error-for="companyName"></div>
+            </div>
+            <div class="apply-field" id="websiteFieldWrap">
+              <label class="apply-label" for="websiteUrl">URL du site</label>
+              <input class="apply-input" id="websiteUrl" name="website_url" type="url" placeholder="https://votredomaine.com">
+              <div class="apply-help">Optionnel. Laissez vide si vous n’avez pas encore de site.</div>
+              <div class="apply-error" data-error-for="websiteUrl"></div>
+            </div>
+            <div class="apply-field">
+              <label class="apply-check"><input id="noWebsiteYet" name="no_website_yet" type="checkbox"> <span>Pas encore de site</span></label>
+            </div>
+            <div class="apply-field">
+              <label class="apply-label" for="industry">Secteur <span class="req">*</span></label>
+              <select class="apply-select" id="industry" name="industry" required>
+                <option value="">Choisir un secteur</option>
+                <option value="Hotel/Tourism">Hôtellerie/tourisme</option>
+                <option value="Local Services">Services locaux</option>
+                <option value="Physiotherapy/Healthcare">Kiné/santé</option>
+                <option value="E-commerce">E-commerce</option>
+                <option value="Education">Fitness / bien-être</option>
+                <option value="SaaS">SaaS</option>
+                <option value="Creators/Media">Créateurs/médias</option>
+                <option value="Real Estate">Immobilier</option>
+                <option value="Other">Autre</option>
+              </select>
+              <div class="apply-error" data-error-for="industry"></div>
+            </div>
+            <div class="apply-field">
+              <label class="apply-label" for="industryOther">Secteur (autre)</label>
+              <input class="apply-input" id="industryOther" name="industry_other" type="text" placeholder="Si autre, précisez">
+              <div class="apply-error" data-error-for="industryOther"></div>
+            </div>
+          </div>
+
+          <div class="apply-group">
+            <h4>Quel service voulez-vous ? <span class="req">*</span></h4>
+            <div class="apply-check-grid">
+              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="Conversion-Focused Web Systems" data-service="website"> <span>Site web / landing page</span></label>
+              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="Google Ads & Performance Marketing" data-service="google"> <span>Gestion Google Ads</span></label>
+              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="Meta Ads & Paid Social" data-service="meta"> <span>Meta Ads</span></label>
+              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="UGC & Influencer Marketing"> <span>UGC / influence</span></label>
+              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="Growth Strategy & Brand Positioning"> <span>Stratégie de croissance</span></label>
+              <label class="apply-check"><input type="checkbox" name="servicesInterested" value="SEO / SEvO"> <span>SEO / SEvO</span></label>
+            </div>
+            <div class="apply-error" data-error-for="servicesInterested"></div>
+          </div>
+
+          <div class="apply-group is-hidden" id="websiteBudgetWrap">
+            <div class="apply-grid single">
+              <div class="apply-field">
+                <label class="apply-label" for="websiteBudgetRange">Budget site web <span class="req">*</span></label>
+                <select class="apply-select" id="websiteBudgetRange" name="website_budget_range">
+                  <option value="">Choisir une fourchette</option>
+                  <option value="€499–€1,499">€499–€1,499</option>
+                  <option value="€1,599–€2,999">€1,599–€2,999</option>
+                  <option value="€3,099–€4,999">€3,099–€4,999</option>
+                  <option value="€5k+">€5k+</option>
+                </select>
+                <div class="apply-error" data-error-for="websiteBudgetRange"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="apply-group is-hidden" id="googleBudgetWrap">
+            <div class="apply-grid">
+              <div class="apply-field">
+                <label class="apply-label" for="adSpendRange">Budget Google Ads mensuel <span class="req">*</span></label>
+                <select class="apply-select" id="adSpendRange" name="ad_spend_range">
+                  <option value="">Choisir une fourchette</option>
+                  <option value="€1k–€3k">€1k–€3k</option>
+                  <option value="€3k–€7k">€3k–€7k</option>
+                  <option value="€7k–€15k">€7k–€15k</option>
+                  <option value="€15k+">€15k+</option>
+                </select>
+                <div class="apply-help">Google Ads démarre à partir de 1k€/mois minimum.</div>
+                <div class="apply-error" data-error-for="adSpendRange"></div>
+              </div>
+              <div class="apply-field">
+                <label class="apply-label" for="googleTracking">Tracking de conversion installé ?</label>
+                <select class="apply-select" id="googleTracking" name="google_tracking_ready">
+                  <option value="">Choisir une option</option>
+                  <option value="Yes">Oui</option>
+                  <option value="No">Non</option>
+                  <option value="Not sure">Pas sûr</option>
+                </select>
+                <div class="apply-error" data-error-for="googleTracking"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="apply-grid single">
+            <div class="apply-field">
+              <label class="apply-label" for="combinationQ1">Quel est votre plus grand blocage aujourd’hui en croissance / marketing ? <span class="req">*</span></label>
+              <textarea class="apply-textarea" id="combinationQ1" name="combination_q1" placeholder="Utilisez vos propres mots. Plus c’est précis, mieux c’est."></textarea>
+              <div class="apply-error" data-error-for="combinationQ1"></div>
+            </div>
+            <div class="apply-field">
+              <label class="apply-label" for="combinationQ4">À quoi ressemblerait le succès dans 6 mois ? <span class="req">*</span></label>
+              <textarea class="apply-textarea" id="combinationQ4" name="combination_q4" placeholder="Chiffre d’affaires, leads, réservations, CPA/CAC..."></textarea>
+              <div class="apply-error" data-error-for="combinationQ4"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="apply-step" data-step data-step-label="Contexte final">
+          <h2 class="apply-step-title">Étape 2 — Objectif, timing et consentement</h2>
+          <p class="apply-step-copy">Dernier contexte avant l’envoi. Ensuite, vous pourrez réserver votre appel.</p>
+
+          <div class="apply-grid">
+            <div class="apply-field">
+              <label class="apply-label" for="primaryGoal">Objectif principal <span class="req">*</span></label>
+              <select class="apply-select" id="primaryGoal" name="primary_goal">
+                <option value="">Sélectionner une option</option>
+                <option value="More qualified leads">Plus de leads qualifiés</option>
+                <option value="More online sales">Plus de ventes en ligne</option>
+                <option value="More hotel bookings">Plus de réservations</option>
+                <option value="Build brand awareness + pipeline">Développer la notoriété et le pipeline</option>
+                <option value="Fix tracking / measurement">Corriger le tracking / la mesure</option>
+                <option value="Other">Autre</option>
+              </select>
+              <div class="apply-error" data-error-for="primaryGoal"></div>
+            </div>
+            <div class="apply-field">
+              <label class="apply-label" for="targetMetric">Indicateur de résultat cible</label>
+              <input class="apply-input" id="targetMetric" name="target_outcome_metric" type="text" placeholder="CPA sous X € / X réservations par mois / ROAS X">
+              <div class="apply-error" data-error-for="targetMetric"></div>
+            </div>
+            <div class="apply-field">
+              <label class="apply-label" for="timeline">Timing <span class="req">*</span></label>
+              <select class="apply-select" id="timeline" name="timeline">
+                <option value="">Choisir une option</option>
+                <option value="ASAP (0–2 weeks)">Dès que possible (0–2 semaines)</option>
+                <option value="This month">Ce mois-ci</option>
+                <option value="Next 30-60 days">Dans les 30-60 prochains jours</option>
+                <option value="60-90 days">60-90 jours</option>
+                <option value="Just exploring">Je me renseigne seulement</option>
+              </select>
+              <div class="apply-error" data-error-for="timeline"></div>
+            </div>
+            <div class="apply-field">
+              <label class="apply-label" for="canIncreaseBudget">Pouvez-vous augmenter le budget si le ROI est prouvé ?</label>
+              <select class="apply-select" id="canIncreaseBudget" name="can_increase_budget">
+                <option value="">Choisir une option</option>
+                <option value="Yes">Oui</option>
+                <option value="No">Non</option>
+              </select>
+              <div class="apply-error" data-error-for="canIncreaseBudget"></div>
+            </div>
+          </div>
+
+          <div class="apply-group">
+            <h4>Plus grand blocage (choisissez jusqu’à 2)</h4>
+            <div class="apply-check-grid">
+              <label class="apply-check"><input type="checkbox" name="constraints" value="Budget"> <span>Budget</span></label>
+              <label class="apply-check"><input type="checkbox" name="constraints" value="Time / team capacity"> <span>Temps / capacité de l’équipe</span></label>
+              <label class="apply-check"><input type="checkbox" name="constraints" value="Creative production"> <span>Production créative</span></label>
+              <label class="apply-check"><input type="checkbox" name="constraints" value="Tracking / data quality"> <span>Tracking / qualité des données</span></label>
+              <label class="apply-check"><input type="checkbox" name="constraints" value="Offer unclear"> <span>Offre pas assez claire</span></label>
+              <label class="apply-check"><input type="checkbox" name="constraints" value="Lead quality"> <span>Qualité des leads</span></label>
+            </div>
+            <div class="apply-error" data-error-for="constraints"></div>
+          </div>
+
+          <div class="apply-field" style="margin-top:16px;">
+            <label class="apply-label" for="anythingElse">Autre chose à savoir avant l’appel ?</label>
+            <textarea class="apply-textarea" id="anythingElse" name="anything_else"></textarea>
+          </div>
+
+
+          <div class="apply-field" style="margin-top:16px;">
+            <label class="apply-label" for="preferredCallSlot">Date et heure préférées pour l’appel <span class="apply-label-opt">(optionnel)</span></label>
+            <div class="apply-slot-wrap">
+              <input class="apply-input apply-slot-input" id="preferredCallSlot" name="preferred_call_slot" type="text" placeholder="Choisissez un jour et une heure — lun-ven, 9h-18h" readonly>
+              <button type="button" class="apply-slot-clear" id="clearCallSlot" aria-label="Effacer la date">×</button>
+            </div>
+            <div class="apply-help">Du lundi au vendredi uniquement. Nous ferons au mieux pour respecter votre créneau — ce n’est pas une réservation garantie.</div>
+          </div>
+
+          <div class="apply-group">
+            <label class="apply-check"><input id="consentContact" name="consent_contact" type="checkbox"> <span>J’accepte d’être contacté(e) par LYNCK Studio à propos de cette demande.</span></label>
+            <div class="apply-error" data-error-for="consentContact"></div>
+            <label class="apply-check" style="margin-top:8px;"><input id="consentPrivacy" name="consent_privacy" type="checkbox"> <span>J’ai lu et j’accepte la <a href="/privacy-policy.html" style="color:#fff;">Politique de confidentialité</a>.</span></label>
+            <div class="apply-error" data-error-for="consentPrivacy"></div>
+            <label class="apply-check" style="margin-top:8px;"><input id="consentNewsletter" name="consent_newsletter" type="checkbox"> <span>Envoyez-moi des conseils et mises à jour (newsletter).</span></label>
+          </div>
+
+          <div class="apply-hp-wrap" aria-hidden="true">
+            <label for="websiteHidden">Laissez ce champ vide</label>
+            <input id="websiteHidden" name="websiteHidden" type="text" tabindex="-1" autocomplete="off">
+          </div>
+        </section>
+
+        <div class="apply-nav">
+          <button type="button" class="apply-btn-secondary" data-action="prev">Retour</button>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <span class="apply-error" data-step-error></span>
+            <button type="button" class="apply-btn" data-action="next">Continuer</button>
+            <button type="submit" class="apply-btn" data-action="submit" style="display:none;">Envoyer la demande</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="apply-success" data-screen="success">
+        <span class="apply-chip">Demande reçue</span>
+        <h2 class="apply-title" style="font-size:clamp(1.8rem, 3.2vw, 2.6rem);">Demande reçue.</h2>
+        <p class="apply-copy">Prochaine étape : réservez votre appel. Nous lirons vos réponses avant l’appel pour aller droit au but.</p>
+        <div class="apply-success-box">Vos réponses sont bien reçues. Choisissez un créneau pour réserver votre session stratégique.</div>
+        <ul class="apply-list" style="margin-top:12px;">
+          <li>Nous analysons votre situation avant l’appel.</li>
+          <li>Nous définissons les premières actions claires pour votre croissance.</li>
+          <li>S’il n’y a pas de bon fit, nous vous le dirons directement.</li>
+        </ul>
+
+        <div class="apply-calendar-wrap" data-calendar-wrap>
+          <iframe data-calendar-frame src="about:blank" title="Réservation de l’appel stratégique"></iframe>
+        </div>
+
+        <p class="apply-email-alt" data-calendar-fallback style="display:none;">Nous vous enverrons les options de réservation par e-mail si aucun créneau direct n’est disponible.</p>
+        <p class="apply-email-alt">Vous préférez l’e-mail ? <a href="mailto:info@lynckstudio.pro">info@lynckstudio.pro</a></p>
+        <p class="apply-email-alt" data-booking-link-row style="display:none;">Lien de réservation : <a data-calendar-link href="#" target="_blank" rel="noopener noreferrer">Ouvrir la réservation</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    window.APPLY_CONFIG = {
+      lang: 'fr',
+      homePath: '/website-design/be/',
+      contactPath: '/be/apply/'
+    };
+
+  </script>
+  <script src="/js/site-shell-nav.js?v=20260330" defer></script>
+  <script src="/js/apply-page.js?v=20260330" defer></script>
+  <script src="https://app.contactbutton.com/script/4333952eca257a573ef055170116ff5c" async="async"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+  (function() {
+    function initSlotPicker() {
+      var input = document.getElementById('preferredCallSlot');
+      var clearBtn = document.getElementById('clearCallSlot');
+      if (!input || typeof flatpickr === 'undefined') return;
+      var tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      var fp = flatpickr(input, {
+        enableTime: true,
+        dateFormat: 'D, d M Y · H:i',
+        minDate: tomorrow,
+        maxDate: new Date(new Date().setDate(new Date().getDate() + 90)),
+        minuteIncrement: 30,
+        minTime: '09:00',
+        maxTime: '18:00',
+        disable: [function(date) { return date.getDay() === 0 || date.getDay() === 6; }],
+        disableMobile: false,
+        onChange: function(sel) {
+          if (clearBtn) clearBtn.style.display = sel.length ? 'flex' : 'none';
+        }
+      });
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function() { fp.clear(); clearBtn.style.display = 'none'; });
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSlotPicker);
+    } else {
+      initSlotPicker();
+    }
+  })();
+  </script>
+</body>
+</html>

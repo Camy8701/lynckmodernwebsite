@@ -2,7 +2,69 @@
   'use strict';
 
   const config = window.APPLY_CONFIG || {};
-  const lang = config.lang === 'de' ? 'de' : 'en';
+  const lang = config.lang === 'de' ? 'de' : config.lang === 'fr' ? 'fr' : 'en';
+  const copy = {
+    en: {
+      submitFailed: 'Submission failed. Please try again or email info@lynckstudio.pro.',
+      leadEmailFailed: 'We could not confirm your application. Please try again or email info@lynckstudio.pro.',
+      maxConstraints: 'Please choose no more than two biggest constraints.',
+      requiredField: 'Required field',
+      pleaseSpecify: 'Please specify',
+      invalidUrl: 'Please enter a valid URL',
+      invalidEmail: 'Please enter a valid email',
+      selectOption: 'Select at least one option',
+      chooseBudget: 'Please choose a budget range',
+      chooseAdSpend: 'Please choose an ad spend range',
+      requiredConsent: 'Required consent',
+      stepError: 'Please check the highlighted fields before continuing.',
+      bookingByEmail: 'Booking details will be shared by email.',
+      submitting: 'Submitting...',
+      thankYouPath: '/apply/thank-you/',
+      virtualPagePath: '/apply/thank-you',
+      virtualPageTitle: 'Strategy Call Application Submitted',
+      calendarTitle: 'Strategy call booking calendar'
+    },
+    de: {
+      submitFailed: 'Ein Fehler ist aufgetreten. Bitte versuche es erneut oder schreibe an info@lynckstudio.pro.',
+      leadEmailFailed: 'Wir konnten deine Anfrage nicht per E-Mail bestätigen. Bitte versuche es erneut oder schreibe an info@lynckstudio.pro.',
+      maxConstraints: 'Bitte waehle maximal zwei groesste Einschraenkungen.',
+      requiredField: 'Pflichtfeld',
+      pleaseSpecify: 'Bitte angeben',
+      invalidUrl: 'Bitte gültige URL eingeben',
+      invalidEmail: 'Bitte gültige E-Mail eingeben',
+      selectOption: 'Bitte mindestens eine Option wählen',
+      chooseBudget: 'Bitte Budget wählen',
+      chooseAdSpend: 'Bitte Werbebudget wählen',
+      requiredConsent: 'Bitte bestätigen',
+      stepError: 'Bitte prüfe die markierten Felder, bevor du fortfährst.',
+      bookingByEmail: 'Der Buchungslink wird per E-Mail geteilt.',
+      submitting: 'Wird gesendet...',
+      thankYouPath: '/de/apply/thank-you/',
+      virtualPagePath: '/de/apply/thank-you',
+      virtualPageTitle: 'Strategy Call Application Submitted',
+      calendarTitle: 'Strategy call booking calendar'
+    },
+    fr: {
+      submitFailed: 'La demande n’a pas pu être envoyée. Réessayez ou écrivez à info@lynckstudio.pro.',
+      leadEmailFailed: 'Nous n’avons pas pu confirmer votre demande par e-mail. Réessayez ou écrivez à info@lynckstudio.pro.',
+      maxConstraints: 'Choisissez au maximum deux blocages principaux.',
+      requiredField: 'Champ obligatoire',
+      pleaseSpecify: 'Merci de préciser',
+      invalidUrl: 'Entrez une URL valide',
+      invalidEmail: 'Entrez une adresse e-mail valide',
+      selectOption: 'Choisissez au moins une option',
+      chooseBudget: 'Choisissez une fourchette de budget',
+      chooseAdSpend: 'Choisissez une fourchette de budget publicitaire',
+      requiredConsent: 'Confirmation requise',
+      stepError: 'Vérifiez les champs indiqués avant de continuer.',
+      bookingByEmail: 'Le lien de réservation sera envoyé par e-mail.',
+      submitting: 'Envoi...',
+      thankYouPath: '/be/apply/thank-you/',
+      virtualPagePath: '/be/apply/thank-you',
+      virtualPageTitle: 'Demande d’appel stratégique envoyée',
+      calendarTitle: 'Calendrier de réservation de l’appel stratégique'
+    }
+  }[lang];
   const storageKey = 'lynck_strategy_call_application_v1';
   const calendarUrl = typeof config.calendarUrl === 'string' && config.calendarUrl.trim()
     ? config.calendarUrl.trim()
@@ -33,12 +95,8 @@
   const bookingLinkRow = flow.querySelector('[data-booking-link-row]');
   const fallbackNote = flow.querySelector('[data-calendar-fallback]');
   const submitErrorCopy = {
-    default: lang === 'de'
-      ? 'Ein Fehler ist aufgetreten. Bitte versuche es erneut oder schreibe an info@lynckstudio.pro.'
-      : 'Submission failed. Please try again or email info@lynckstudio.pro.',
-    leadEmailFailed: lang === 'de'
-      ? 'Wir konnten deine Anfrage nicht per E-Mail bestätigen. Bitte versuche es erneut oder schreibe an info@lynckstudio.pro.'
-      : 'We could not confirm your application. Please try again or email info@lynckstudio.pro.'
+    default: copy.submitFailed,
+    leadEmailFailed: copy.leadEmailFailed
   };
 
   const questionLabels = {
@@ -108,9 +166,7 @@
         const selected = checkedValues('constraints');
         if (selected.length <= 2) return;
         input.checked = false;
-        if (stepError) stepError.textContent = lang === 'de'
-          ? 'Bitte waehle maximal zwei groesste Einschraenkungen.'
-          : 'Please choose no more than two biggest constraints.';
+        if (stepError) stepError.textContent = copy.maxConstraints;
       });
     });
   }
@@ -200,40 +256,40 @@
 
       required.forEach(([id, val]) => {
         if (val) return;
-        setFieldError(id, lang === 'de' ? 'Pflichtfeld' : 'Required field');
+        setFieldError(id, copy.requiredField);
         valid = false;
       });
 
       if (value('industry') === 'Other' && !value('industryOther')) {
-        setFieldError('industryOther', lang === 'de' ? 'Bitte angeben' : 'Please specify');
+        setFieldError('industryOther', copy.pleaseSpecify);
         valid = false;
       }
 
       const website = value('websiteUrl');
       if (website && !isValidUrl(website)) {
-        setFieldError('websiteUrl', lang === 'de' ? 'Bitte gültige URL eingeben' : 'Please enter a valid URL');
+        setFieldError('websiteUrl', copy.invalidUrl);
         valid = false;
       }
 
       const email = value('workEmail');
       if (email && !isValidEmail(email)) {
-        setFieldError('workEmail', lang === 'de' ? 'Bitte gültige E-Mail eingeben' : 'Please enter a valid email');
+        setFieldError('workEmail', copy.invalidEmail);
         valid = false;
       }
 
       const services = selectedServices();
       if (!services.length) {
-        setFieldError('servicesInterested', lang === 'de' ? 'Bitte mindestens eine Option wählen' : 'Select at least one option');
+        setFieldError('servicesInterested', copy.selectOption);
         valid = false;
       }
 
       if (wantsWebsite() && !value('websiteBudgetRange')) {
-        setFieldError('websiteBudgetRange', lang === 'de' ? 'Bitte Budget wählen' : 'Please choose a budget range');
+        setFieldError('websiteBudgetRange', copy.chooseBudget);
         valid = false;
       }
 
       if (wantsGoogle() && !value('adSpendRange')) {
-        setFieldError('adSpendRange', lang === 'de' ? 'Bitte Werbebudget wählen' : 'Please choose an ad spend range');
+        setFieldError('adSpendRange', copy.chooseAdSpend);
         valid = false;
       }
     }
@@ -241,25 +297,23 @@
     if (index === 1) {
       ['primaryGoal', 'timeline'].forEach((id) => {
         if (value(id)) return;
-        setFieldError(id, lang === 'de' ? 'Pflichtfeld' : 'Required field');
+        setFieldError(id, copy.requiredField);
         valid = false;
       });
 
       if (!fieldChecked('consentContact')) {
-        setFieldError('consentContact', lang === 'de' ? 'Bitte bestätigen' : 'Required consent');
+        setFieldError('consentContact', copy.requiredConsent);
         valid = false;
       }
 
       if (!fieldChecked('consentPrivacy')) {
-        setFieldError('consentPrivacy', lang === 'de' ? 'Bitte bestätigen' : 'Required consent');
+        setFieldError('consentPrivacy', copy.requiredConsent);
         valid = false;
       }
     }
 
     if (!valid && stepError) {
-      stepError.textContent = lang === 'de'
-        ? 'Bitte prüfe die markierten Felder, bevor du fortfährst.'
-        : 'Please check the highlighted fields before continuing.';
+      stepError.textContent = copy.stepError;
     }
 
     return valid;
@@ -425,13 +479,11 @@
       calendarLink.textContent = resolvedCalendar;
     } else if (calendarLink) {
       calendarLink.removeAttribute('href');
-      calendarLink.textContent = lang === 'de'
-        ? 'Der Buchungslink wird per E-Mail geteilt.'
-        : 'Booking details will be shared by email.';
+      calendarLink.textContent = copy.bookingByEmail;
     }
     if (calendarFrame && hasCalendar) {
       calendarFrame.src = resolvedCalendar;
-      calendarFrame.title = 'Strategy call booking calendar';
+      calendarFrame.title = copy.calendarTitle;
     } else if (calendarFrame) {
       calendarFrame.src = 'about:blank';
     }
@@ -447,13 +499,13 @@
       booking_available: Boolean(result && result.booking_available),
       services_interested: Array.isArray(payload.services_interested) ? payload.services_interested.join(', ') : '',
       application_path: window.location.pathname,
-      virtual_page_path: lang === 'de' ? '/de/apply/thank-you' : '/apply/thank-you',
-      virtual_page_title: lang === 'de' ? 'Strategy Call Application Submitted' : 'Strategy Call Application Submitted'
+      virtual_page_path: copy.virtualPagePath,
+      virtual_page_title: copy.virtualPageTitle
     });
   }
 
   function goToThankYou(result) {
-    const thankYouPath = lang === 'de' ? '/de/apply/thank-you/' : '/apply/thank-you/';
+    const thankYouPath = copy.thankYouPath;
     try {
       sessionStorage.setItem('lynck_last_application', JSON.stringify({
         calendar_url: result && result.calendar_url ? result.calendar_url : calendarUrl,
@@ -474,7 +526,7 @@
     const payload = collectPayload();
     submitBtn.disabled = true;
     const originalLabel = submitBtn.textContent;
-    submitBtn.textContent = lang === 'de' ? 'Wird gesendet...' : 'Submitting...';
+    submitBtn.textContent = copy.submitting;
     if (stepError) stepError.textContent = '';
 
     let failureMessage = submitErrorCopy.default;

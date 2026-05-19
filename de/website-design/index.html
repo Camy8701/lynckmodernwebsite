@@ -1599,9 +1599,12 @@ iconify-icon {
     overflow: hidden;
     transition: max-height 0.5s ease-in-out;
   }
-  .faq-item.open .faq-answer { max-height: 500px; }
-  .faq-item.open .faq-icon { background: var(--accent); border-color: var(--accent); }
-  .faq-item.open .faq-icon i { transform: rotate(45deg); }
+  .faq-item.open .faq-answer,
+  .faq-item.is-open .faq-answer { max-height: 500px; }
+  .faq-item.open .faq-icon,
+  .faq-item.is-open .faq-icon { background: var(--accent); border-color: var(--accent); }
+  .faq-item.open .faq-icon i,
+  .faq-item.is-open .faq-icon i { transform: rotate(45deg); }
   .faq-icon i { transition: transform 0.4s ease; }
 
   /* Lightbox */
@@ -1861,7 +1864,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- H1 -->
-      <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7.5rem] leading-[0.95] font-semibold tracking-tight text-white uppercase mb-8">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[4.8rem] xl:text-[6rem] leading-[0.95] font-semibold tracking-tight text-white uppercase mb-8">
         Website-Erstellung<br>für Selbstständige,<br>Freelancer<br>&amp; KMU.
       </h1>
 
@@ -1870,7 +1873,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="text-[3.5rem] sm:text-[4.5rem] font-semibold text-[#FF3000] leading-none tracking-tight">499€</span>
         <div>
           <span class="text-neutral-500 line-through text-lg">1.500€</span>
-          <span class="block text-xs font-mono-display text-neutral-500 uppercase tracking-widest mt-1">10 Plätze diesen Monat</span>
         </div>
       </div>
 
@@ -1915,7 +1917,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- Primary CTA buttons -->
       <div class="flex flex-wrap gap-4 mb-8">
-        <a href="#cta" data-cta="primary" class="inline-flex items-center gap-3 bg-[#FF3000] text-white text-sm font-semibold tracking-widest uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors duration-300">
+        <a href="/de/apply/" data-cta="primary" class="inline-flex items-center gap-3 bg-[#FF3000] text-white text-sm font-semibold tracking-widest uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors duration-300">
           Platz sichern — 499€
           <i data-lucide="arrow-right" class="w-4 h-4" stroke-width="2"></i>
         </a>
