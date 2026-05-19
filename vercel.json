@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/website-design/de",
+      "destination": "/de/website-design/",
+      "permanent": true
+    },
+    {
+      "source": "/website-design/de/",
+      "destination": "/de/website-design/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
