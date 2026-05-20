@@ -737,12 +737,9 @@ footer {
   }
 
   .lynck-header-inner {
-    width: calc(100vw - 1.5rem);
-    max-width: calc(100vw - 1.5rem);
-    display: grid;
-    grid-template-columns: 44px 40px minmax(7.4rem, 8.6rem) 46px 44px;
+    display: flex;
     align-items: center;
-    justify-content: stretch;
+    justify-content: space-between;
     gap: 0.5rem;
     padding: 0.42rem 0.48rem;
     border-radius: 999px;
@@ -758,9 +755,8 @@ footer {
 
   .lynck-mobile-about {
     display: inline-flex;
+    flex: 1 1 auto;
     min-width: 0;
-    width: 100%;
-    max-width: 100%;
     align-items: center;
     justify-content: center;
     min-height: 44px;
@@ -788,15 +784,16 @@ footer {
 
   .lynck-mobile-lang {
     display: block;
+    flex: 0 0 auto;
     position: relative;
   }
 
   .lynck-home-logo,
   .lynck-partner-badge {
-    display: grid;
     width: 48px;
     height: 48px;
     margin: 0;
+    flex: 0 0 48px;
     box-shadow: none;
   }
 
