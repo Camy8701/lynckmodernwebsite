@@ -511,8 +511,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         Pour les coachs, freelances, indépendants et PME qui veulent vraiment lancer leur activité. Site web, Google Ads et tracking par une équipe Google Partner. <strong class="text-white font-normal">Sans abonnement, livré en 7 à 14 jours.</strong>
       </p>
 
+      <div class="flex flex-col md:flex-row md:items-start gap-5 md:gap-6 mb-10 max-w-4xl">
       <!-- Checkmarks : value points -->
-      <ul class="flex flex-col gap-3.5 mb-10 max-w-xl">
+      <ul class="flex flex-col gap-3.5 max-w-xl md:flex-1">
         <li class="flex items-start gap-3 text-base font-light text-neutral-300">
           <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#FF3000]/15 border border-[#FF3000]/40 flex items-center justify-center mt-0.5">
             <i data-lucide="check" class="w-3.5 h-3.5 text-[#FF3000]" stroke-width="3"></i>
@@ -545,6 +546,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </li>
       </ul>
 
+      <div class="hidden md:flex md:flex-col items-stretch gap-3 md:w-[17rem]">
+        <div class="hero-highlight-orange inline-flex items-center gap-3 px-4 py-2.5 rounded-full transition-transform hover:scale-[1.02]">
+          <span class="flex-shrink-0 w-9 h-9 rounded-full bg-[#FF3000] flex items-center justify-center">
+            <i data-lucide="gift" class="w-4 h-4 text-white" stroke-width="2"></i>
+          </span>
+          <span class="flex flex-col leading-tight">
+            <strong class="text-white font-semibold text-sm">Setup Google Ads offert</strong>
+            <span class="text-neutral-400 text-xs">économisez 1.000–1.500€</span>
+          </span>
+        </div>
+        <div class="hero-highlight-blue inline-flex items-center gap-3 px-4 py-2.5 rounded-full transition-transform hover:scale-[1.02]">
+          <span class="flex-shrink-0 w-9 h-9 rounded-full bg-blue-400/20 border border-blue-400/40 flex items-center justify-center">
+            <i data-lucide="badge-check" class="w-4 h-4 text-blue-400" stroke-width="2"></i>
+          </span>
+          <span class="flex flex-col leading-tight">
+            <strong class="text-white font-semibold text-sm">Google Partner certifié</strong>
+            <span class="text-neutral-400 text-xs">équipe ex-Google</span>
+          </span>
+        </div>
+      </div>
+      </div>
+
       <!-- CTAs : 2 boutons primaires côte à côte -->
       <div class="flex flex-wrap gap-4 mb-8">
         <a href="/be/apply/" data-cta="primary" class="inline-flex items-center gap-3 bg-[#FF3000] text-white text-sm font-semibold tracking-widest uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors duration-300">
@@ -558,7 +581,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
 
       <!-- 2 highlighted animated badges — compact stacked text, always side by side -->
-      <div class="flex flex-wrap items-stretch gap-3 mb-4">
+      <div class="flex flex-wrap items-stretch gap-3 mb-4 md:hidden">
         <div class="hero-highlight-orange inline-flex items-center gap-3 px-4 py-2.5 rounded-full transition-transform hover:scale-[1.02]">
           <span class="flex-shrink-0 w-9 h-9 rounded-full bg-[#FF3000] flex items-center justify-center">
             <i data-lucide="gift" class="w-4 h-4 text-white" stroke-width="2"></i>

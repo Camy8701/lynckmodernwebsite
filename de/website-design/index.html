@@ -1737,6 +1737,78 @@ iconify-icon {
     h1 { line-height: 1; }
   }
 
+  @media (max-width: 768px) {
+    body { padding-bottom: 0; }
+    .lynck-header { padding: 0.6rem 0.75rem; }
+    .lynck-header-inner {
+      display: grid;
+      grid-template-columns: 48px 40px minmax(7rem, 9.5rem) 46px;
+      align-items: center;
+      justify-content: start;
+      gap: 0.5rem;
+      padding: 0.42rem 0.48rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+    }
+    .lynck-mobile-menu { display: block; }
+    .lynck-mobile-about {
+      display: inline-flex;
+      min-width: 0;
+      width: 100%;
+      max-width: 100%;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 0.55rem;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: rgba(15, 23, 42, 0.88);
+      text-decoration: none;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .lynck-mobile-about.lynck-mobile-apply {
+      background: #FF3000;
+      border-color: rgba(255, 48, 0, 0.72);
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(255, 48, 0, 0.28);
+    }
+    .lynck-mobile-lang {
+      display: block;
+      position: relative;
+    }
+    .lynck-home-logo,
+    .lynck-partner-badge {
+      width: 48px;
+      height: 48px;
+      margin: 0;
+      box-shadow: none;
+      border-radius: 14px;
+    }
+    .lynck-partner-badge { display: none; }
+    .lynck-header-bar { display: none; }
+    .lynck-mobile-menu-trigger {
+      min-height: 40px;
+      width: 40px;
+      min-width: 40px;
+      padding: 0;
+    }
+    .lynck-mobile-lang-trigger {
+      min-width: 46px;
+      min-height: 40px;
+    }
+    .lynck-mobile-sticky-cta { display: none !important; }
+  }
+
 </style>
 </head>
 <body class="bg-[#050505] text-neutral-300 antialiased selection:bg-[#FF3000] selection:text-white overflow-x-hidden">
@@ -1881,8 +1953,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Für Coaches, Freelancer, Selbstständige und KMU, die wollen, dass ihre Website echte Anfragen erzeugt. Website, Google Ads und Tracking von einem Google Partner Team. <strong class="text-white font-normal">Kein Abo. Lieferung in 7 bis 14 Tagen.</strong>
       </p>
 
+      <div class="flex flex-col md:flex-row md:items-start gap-5 md:gap-6 mb-10 max-w-4xl">
       <!-- Checkmarks : value points -->
-      <ul class="flex flex-col gap-3.5 mb-10 max-w-xl">
+      <ul class="flex flex-col gap-3.5 max-w-xl md:flex-1">
         <li class="flex items-start gap-3 text-base font-light text-neutral-300">
           <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#FF3000]/15 border border-[#FF3000]/40 flex items-center justify-center mt-0.5">
             <i data-lucide="check" class="w-3.5 h-3.5 text-[#FF3000]" stroke-width="3"></i>
@@ -1915,6 +1988,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </li>
       </ul>
 
+      <div class="hidden md:flex md:flex-col items-stretch gap-3 md:w-[17rem]">
+        <div class="hero-highlight-orange inline-flex items-center gap-3 px-4 py-2.5 rounded-full transition-transform hover:scale-[1.02]">
+          <span class="flex-shrink-0 w-9 h-9 rounded-full bg-[#FF3000] flex items-center justify-center">
+            <i data-lucide="gift" class="w-4 h-4 text-white" stroke-width="2"></i>
+          </span>
+          <span class="flex flex-col leading-tight">
+            <strong class="text-white font-semibold text-sm">Google Ads Setup kostenlos</strong>
+            <span class="text-neutral-400 text-xs">spare 1.000–1.500€</span>
+          </span>
+        </div>
+        <div class="hero-highlight-blue inline-flex items-center gap-3 px-4 py-2.5 rounded-full transition-transform hover:scale-[1.02]">
+          <span class="flex-shrink-0 w-9 h-9 rounded-full bg-blue-400/20 border border-blue-400/40 flex items-center justify-center">
+            <i data-lucide="badge-check" class="w-4 h-4 text-blue-400" stroke-width="2"></i>
+          </span>
+          <span class="flex flex-col leading-tight">
+            <strong class="text-white font-semibold text-sm">Zertifizierter Google Partner</strong>
+            <span class="text-neutral-400 text-xs">Ex-Google Team</span>
+          </span>
+        </div>
+      </div>
+      </div>
+
       <!-- Primary CTA buttons -->
       <div class="flex flex-wrap gap-4 mb-8">
         <a href="/de/apply/" data-cta="primary" class="inline-flex items-center gap-3 bg-[#FF3000] text-white text-sm font-semibold tracking-widest uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors duration-300">
@@ -1928,7 +2023,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- 2 highlighted animated badges — compact stacked text, always side by side -->
-      <div class="flex flex-wrap items-stretch gap-3 mb-4">
+      <div class="flex flex-wrap items-stretch gap-3 mb-4 md:hidden">
         <div class="hero-highlight-orange inline-flex items-center gap-3 px-4 py-2.5 rounded-full transition-transform hover:scale-[1.02]">
           <span class="flex-shrink-0 w-9 h-9 rounded-full bg-[#FF3000] flex items-center justify-center">
             <i data-lucide="gift" class="w-4 h-4 text-white" stroke-width="2"></i>
