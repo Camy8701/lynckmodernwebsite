@@ -2,13 +2,6 @@
 <html
 	  lang="en" class="notranslate" translate="no"><head><meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <!-- Google Tag Manager -->
-	    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	    })(window,document,'script','dataLayer','GTM-N5757GT5');</script>
-	    <!-- End Google Tag Manager -->
 	    <title>LYNCK STUDIO PRO | 3D Portfolio</title>
     <link rel="preconnect" href="https://esm.sh">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
@@ -24,6 +17,9 @@
     {
     "imports": {
     "react": "https://esm.sh/react@18.2.0",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
+    "react/jsx-dev-runtime": "https://esm.sh/react@18.2.0/jsx-dev-runtime",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
     "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
     "three": "https://esm.sh/three@0.160.0",
     "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.15.16?external=react,react-dom,three",
@@ -32,7 +28,7 @@
     }
     </script>
     <!-- Babel for JSX -->
-    <script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script defer src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js" integrity="sha384-AISI5AuDG6E8DeEiFMVB3rGQxhZt24OU0avMp+GMV64+tpnA3+Z6F5MT0f96iPva" crossorigin="anonymous"></script>
     <style>
     body {
       margin: 0;
@@ -55,11 +51,6 @@
     #error-overlay { display: none; }
     </style></head>
 	    <body class="antialiased text-white selection:bg-white selection:text-black">
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5757GT5"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-
 	        <!-- Error Fallback -->
         <div id="error-overlay" class="fixed inset-0 z-[10000] flex items-center justify-center bg-black text-red-500 p-10 font-mono text-xs">
             System Malfunction. Check Console.
@@ -212,7 +203,7 @@
                     let cancelled = false;
                     const failSafe = window.setTimeout(() => {
                         if (!cancelled) notifyHeroReady();
-                    }, 1400);
+                    }, 450);
 
                     const waitForTitleSync = () => {
                         const nodes = titleRefs.current.filter(Boolean);
@@ -391,6 +382,9 @@
                         dpr={[1, MAX_DPR]}
                         onCreated={({ gl }) => {
                             gl.setClearColor(0x000000, 0);
+                            requestAnimationFrame(() => {
+                                requestAnimationFrame(notifyHeroReady);
+                            });
                         }}
                     >
                         <fog attach="fog" args={['#050505', 4, 20]} />

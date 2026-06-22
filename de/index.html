@@ -24,13 +24,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <title>LYNCK Studio | Performance-Marketing-Agentur</title>
 <meta name="description" content="Wir bauen Wachstumssysteme, die wirklich zünden: bezahlte Reichweite, KI-gestützte Inhalte, Webdesign und Conversion-Architektur – alles aus einer Hand.">
 <link rel="icon" type="image/webp" href="/assets/lynck-logo.webp">
+<!-- Hero CDN preconnect — lets the browser open sockets before the iframe parses its own head -->
+<link rel="preconnect" href="https://esm.sh" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="preload" as="image" href="/assets/hero-bg-glass-sphere.webp" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/3d-office-building-with-google-map-pin-4k.webp">
+<link rel="preload" as="image" href="/assets/cyberpunk-portrait-with-red-laser-beam-4k.webp">
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
-    <link rel="stylesheet" href="/css/home-shared.css?v=20260330">
+    <link rel="stylesheet" href="/css/home-shared.css?v=20260520-hero-fast">
 
 </head>
 <body class="hero-embed-active">
@@ -165,13 +171,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- HERO -->
     <header class="hero hero-embed">
         <div class="hero-embed-fallback" id="heroFallback" aria-hidden="true">
+            <div class="hero-embed-fallback-media" aria-hidden="true">
+                <img class="hero-fallback-panel hero-fallback-panel-left" loading="eager" fetchpriority="high" decoding="async" src="/assets/3d-office-building-with-google-map-pin-4k.webp" alt="">
+                <img class="hero-fallback-panel hero-fallback-panel-right" loading="eager" fetchpriority="high" decoding="async" src="/assets/cyberpunk-portrait-with-red-laser-beam-4k.webp" alt="">
+            </div>
             <div class="hero-embed-fallback-content notranslate" translate="no">
                 <span class="hero-fallback-word" translate="no">LYNCK</span>
                 <span class="hero-fallback-word" translate="no">STUDIO</span>
                 <span class="hero-fallback-word" translate="no">PRO</span>
             </div>
         </div>
-        <iframe class="hero-embed-frame" data-src="/hero-embed.html?lang=de&v=20260330-hero-r3f" title="LYNCK STUDIO PRO Hero" loading="lazy" fetchpriority="low"></iframe>
+        <iframe class="hero-embed-frame" src="/hero-embed.html?lang=de&v=20260623-jsx-runtime-fix" title="LYNCK STUDIO PRO Hero" loading="eager" fetchpriority="high"></iframe>
         <div class="hero-scramble-stack">
             <ul class="hero-scramble-list" data-hero-scramble>
                 <li><span class="hero-scramble-line" data-scramble-line data-text="Meta Ads">Meta Ads</span></li>
@@ -900,6 +910,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </footer>
 
     <!-- Scripts -->
-    <script src="/js/home-shared.js?v=20260330" defer></script>
+    <script src="/js/home-shared.js?v=20260520-hero-fast" defer></script>
 
 </body></html>

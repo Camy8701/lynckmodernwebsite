@@ -690,8 +690,9 @@
             if (!frame || !fallback) return;
             const heroShell = frame.closest('.hero-embed') || frame.closest('.hero-shell') || frame.parentElement;
 
-            const lazySrc = frame.getAttribute('data-src');
-            let booted = false;
+            const lazySrc = frame.getAttribute('data-src') || null;
+            const srcAlreadySet = !lazySrc && !!frame.src;
+            let booted = srcAlreadySet;
             let fallbackRemoved = false;
             const connection = window.navigator.connection || window.navigator.mozConnection || window.navigator.webkitConnection;
             const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 0;
@@ -713,17 +714,15 @@
                 hasLowCpu ||
                 isSlowConnection
             );
-            let hasEnteredViewport = false;
-            let idleBootQueued = false;
-
             const hideFallback = () => {
                 if (fallbackRemoved) return;
                 fallbackRemoved = true;
                 window.removeEventListener('message', onHeroMessage);
+                frame.style.opacity = '1';
                 fallback.classList.add('is-hidden');
                 window.setTimeout(() => {
                     fallback.remove();
-                }, 700);
+                }, 220);
             };
 
             const onHeroMessage = (event) => {
@@ -733,25 +732,14 @@
             };
 
             const bootFrame = () => {
-                if (booted || !lazySrc || shouldUseFallbackOnly) return;
+                if (booted || shouldUseFallbackOnly) return;
+                if (!lazySrc) return;
                 booted = true;
                 frame.src = lazySrc;
             };
 
-            const scheduleIdleBoot = () => {
-                if (booted || idleBootQueued || shouldUseFallbackOnly || !hasEnteredViewport) return;
-                idleBootQueued = true;
-                runWhenIdle(() => {
-                    idleBootQueued = false;
-                    if (document.visibilityState !== 'visible' || !hasEnteredViewport) return;
-                    bootFrame();
-                }, 3200);
-            };
-
-            frame.addEventListener('load', () => {
-                frame.style.opacity = '1';
-                // Keep fallback visible until the iframe confirms title + scene are ready.
-            });
+            // Safety: if hero-ready never fires (e.g. JS error in iframe), reveal after 8s.
+            window.setTimeout(hideFallback, 8000);
 
             if (shouldUseFallbackOnly) {
                 window.removeEventListener('message', onHeroMessage);
@@ -760,36 +748,7 @@
             }
 
             window.addEventListener('message', onHeroMessage);
-
-            const observeTarget = heroShell || frame;
-            const canObserveViewport = 'IntersectionObserver' in window && Boolean(observeTarget);
-            if (canObserveViewport) {
-                const viewportObserver = new IntersectionObserver((entries) => {
-                    entries.forEach((entry) => {
-                        if (!entry.isIntersecting) return;
-                        hasEnteredViewport = true;
-                        viewportObserver.disconnect();
-                        scheduleIdleBoot();
-                    });
-                }, { threshold: 0.2 });
-                viewportObserver.observe(observeTarget);
-            } else {
-                hasEnteredViewport = true;
-                scheduleIdleBoot();
-            }
-
-            const onPageSettled = () => {
-                if (!canObserveViewport && !hasEnteredViewport) {
-                    hasEnteredViewport = true;
-                }
-                scheduleIdleBoot();
-            };
-
-            if (document.readyState === 'complete') {
-                onPageSettled();
-            } else {
-                window.addEventListener('load', onPageSettled, { once: true });
-            }
+            bootFrame();
 
             if (heroShell) {
                 heroShell.addEventListener('mouseenter', bootFrame, { once: true, passive: true });
