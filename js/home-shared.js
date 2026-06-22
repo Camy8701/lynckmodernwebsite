@@ -747,6 +747,10 @@
                 return;
             }
 
+            // The 3D iframe will render its own large wordmark, so hide the static
+            // fallback wordmark now to avoid a small-then-large text flash mid-load.
+            fallback.classList.add('is-embed-loading');
+
             window.addEventListener('message', onHeroMessage);
             bootFrame();
 

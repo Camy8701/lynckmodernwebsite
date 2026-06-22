@@ -552,6 +552,13 @@ text-transform: uppercase;
 color: #ffffff;
 text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
 }
+/* On the 3D-embed path the iframe renders its own large wordmark, so hide the
+   static fallback wordmark to avoid a small-then-large text flash while it loads.
+   The fallback text is kept for fallback-only (mobile/touch/reduced-motion) users,
+   where it is the permanent hero headline. */
+.hero-embed-fallback.is-embed-loading .hero-embed-fallback-content {
+display: none;
+}
 .hero-embed-frame {
 width: 100%;
 height: 100%;
