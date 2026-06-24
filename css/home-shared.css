@@ -2214,32 +2214,24 @@ footer { position: relative; width: 100%; background: var(--accent-dark); z-inde
 .pipeline-section { overflow: visible; }
 .pin-wrap-container { flex-direction: column; height: auto; min-height: 0; overflow: visible; align-items: stretch; }
 .pin-wrap {
+  /* Mobile: simple vertical stack — scrolls with the page, no horizontal
+     touch-action that would block vertical scrolling over the cards. */
   width: 100%;
   min-height: 0;
-  padding: 1.15rem 4vw 4rem;
-  flex-direction: row;
+  padding: 1.15rem 4vw 3rem;
+  flex-direction: column;
   align-items: stretch;
-  gap: 1rem;
-  overflow-x: auto;
-  overflow-y: visible;
-  scroll-snap-type: x mandatory;
-  scroll-padding-inline: 4vw;
-  overscroll-behavior-x: contain;
-  touch-action: pan-x;
-  -webkit-overflow-scrolling: touch;
+  gap: 1.1rem;
+  overflow: visible;
 }
-.pin-wrap::-webkit-scrollbar { display: none; }
-.pin-wrap { scrollbar-width: none; }
 .horiz-card {
-  flex: 0 0 min(88vw, 32rem);
-  width: min(88vw, 32rem);
+  flex: none;
+  width: 100%;
   height: auto;
-  min-height: clamp(540px, 118vw, 660px);
-  padding: 1.1rem;
+  min-height: 0;
+  padding: 1.4rem;
   margin-right: 0;
   justify-content: flex-start;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 .horiz-content { max-width: 100%; max-height: none; overflow: visible; padding-right: 0; }
 .horiz-list { grid-template-columns: 1fr; gap: 0.35rem; }
