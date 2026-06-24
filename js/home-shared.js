@@ -738,14 +738,18 @@
                 frame.src = lazySrc;
             };
 
-            // Safety: if hero-ready never fires (e.g. JS error in iframe), reveal after 8s.
-            window.setTimeout(hideFallback, 8000);
-
             if (shouldUseFallbackOnly) {
+                // Fallback-only (mobile/touch/reduced-motion/low-end): the static
+                // fallback IS the permanent hero. Never hide it, and drop the iframe.
                 window.removeEventListener('message', onHeroMessage);
                 frame.remove();
                 return;
             }
+
+            // Safety: only on the 3D-embed path — if hero-ready never fires (e.g. a JS
+            // error in the iframe) reveal the iframe after 8s. Must stay AFTER the
+            // fallback-only return so it can't blank out the mobile fallback hero.
+            window.setTimeout(hideFallback, 8000);
 
             // The 3D iframe will render its own large wordmark, so hide the static
             // fallback wordmark now to avoid a small-then-large text flash mid-load.

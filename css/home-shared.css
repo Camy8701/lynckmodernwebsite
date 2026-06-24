@@ -780,11 +780,29 @@ text-overflow: ellipsis;
   .lynck-mobile-social {
     gap: 0.45rem;
   }
+  /* Mobile hero: keep the bright orange, drop the dark overlays + panel images. */
+  .hero-embed-fallback {
+    background:
+      linear-gradient(rgba(8, 10, 16, 0.05), rgba(8, 10, 16, 0.12)),
+      url("/assets/hero-bg-glass-sphere.webp") center / cover no-repeat;
+  }
+  .hero-embed-fallback::after {
+    /* subtle bottom darkening only, so the scramble list stays legible */
+    background: linear-gradient(180deg, rgba(7, 9, 14, 0) 58%, rgba(7, 9, 14, 0.42) 100%);
+  }
+  .hero-embed-fallback-media {
+    display: none;
+  }
+  .hero-embed-fallback-content {
+    justify-content: center;
+    padding: calc(var(--header-height) + 1rem) 0.75rem clamp(186px, 30vh, 240px);
+  }
   .hero-fallback-word {
-    font-size: clamp(5rem, 24vw, 9rem);
-    letter-spacing: -0.07em;
+    font-size: clamp(4.5rem, 26vw, 10.5rem);
+    letter-spacing: -0.055em;
     font-weight: 800;
-    line-height: 0.88;
+    line-height: 0.86;
+    text-shadow: 0 3px 26px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.35);
   }
   .hero-scramble-stack {
     width: min(92vw, 460px);
@@ -2194,7 +2212,7 @@ footer { position: relative; width: 100%; background: var(--accent-dark); z-inde
 }
 .pipeline-heading-title { font-size: clamp(1.55rem, 6.2vw, 2.4rem); }
 .pipeline-section { overflow: visible; }
-.pin-wrap-container { height: auto; min-height: 0; overflow: visible; align-items: flex-start; }
+.pin-wrap-container { flex-direction: column; height: auto; min-height: 0; overflow: visible; align-items: stretch; }
 .pin-wrap {
   width: 100%;
   min-height: 0;
