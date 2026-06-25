@@ -552,11 +552,22 @@ text-transform: uppercase;
 color: #ffffff;
 text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
 }
-/* On the 3D-embed path the iframe renders its own large wordmark, so hide the
-   static fallback wordmark to avoid a small-then-large text flash while it loads.
-   The fallback text is kept for fallback-only (mobile/touch/reduced-motion) users,
-   where it is the permanent hero headline. */
-.hero-embed-fallback.is-embed-loading .hero-embed-fallback-content {
+/* On the 3D-embed path the iframe renders its own scene + wordmark, so while it
+   loads hide the static fallback wordmark AND the floating panel images, and
+   lighten the load background to match the iframe's bright scene — otherwise users
+   briefly see the panel images on a dark background before the 3D hero fades in.
+   The full fallback is kept for fallback-only (mobile/touch/reduced-motion) users,
+   where it is the permanent hero. */
+.hero-embed-fallback.is-embed-loading .hero-embed-fallback-content,
+.hero-embed-fallback.is-embed-loading .hero-embed-fallback-media {
+display: none;
+}
+.hero-embed-fallback.is-embed-loading {
+background-image:
+linear-gradient(rgba(8, 10, 16, 0.1), rgba(8, 10, 16, 0.14)),
+url("/assets/hero-bg-glass-sphere.webp");
+}
+.hero-embed-fallback.is-embed-loading::after {
 display: none;
 }
 .hero-embed-frame {
