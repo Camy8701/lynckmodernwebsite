@@ -702,7 +702,11 @@
             const isLikelyMobileUA = /Android|iPhone|iPad|iPod|Mobile|IEMobile|Opera Mini/i.test(navigator.userAgent || '');
             const hasLowMemory = typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4;
             const hasLowCpu = typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4;
-            const isSlowConnection = Boolean(connection && ['slow-2g', '2g', '3g'].includes(connection.effectiveType || ''));
+            // Only gate on genuinely slow links. Chrome's effectiveType is a live
+            // measured estimate that routinely dips to '3g' on fast desktops, so
+            // treating '3g' as "too slow" wrongly drops the 3D hero. Real mobile is
+            // already covered by the touch/pointer/viewport/UA gates above.
+            const isSlowConnection = Boolean(connection && ['slow-2g', '2g'].includes(connection.effectiveType || ''));
             const shouldUseFallbackOnly = (
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
                 Boolean(connection && connection.saveData) ||
